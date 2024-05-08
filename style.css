@@ -14,3 +14,9 @@
     align-self:baseline;
     font-size: 20px;
 }
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+

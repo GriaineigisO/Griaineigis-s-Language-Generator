@@ -12,27 +12,28 @@ function createArrays() {
 
  
     
-
+/* Generates the headword above each inflection table, showing the root and it's meaning as a title */
     for(i = 0; i < splitInputRoot.length; i++) {
         let root = splitInputRoot[i]; 
         let rootMeaning = splitInputMeaning[i];
         
-        /* Generates the headword above each inflection table, showing the root and it's meaning as a title */
-        /*Creates a new H3 element to which is appended the root*/ 
-        let newHeadingH3 = document.createElement("h3");
-        let newHeadingH3Content = document.createTextNode(root);
-        newHeadingH3.appendChild(newHeadingH3Content);
+        /*Creates a new p element to which is appended the root*/ 
+        let newHeadingProot = document.createElement("P");
+        newHeadingProot.classList.add("headingProot");
+        let newHeadingProotContent = document.createTextNode("-" + root + "-");
+        newHeadingProot.appendChild(newHeadingProotContent);
 
         /*Creates a new p element to which is appended the root's meaning*/ 
-        let newHeadingP = document.createElement("p");
-        let newHeadingPContent = document.createTextNode(rootMeaning);
-        newHeadingP.appendChild(newHeadingPContent);
+        let newHeadingPmeaning = document.createElement("p");
+        newHeadingPmeaning.classList.add("headingPmeaning");
+        let newHeadingPmeaningContent = document.createTextNode('"' + rootMeaning + '"');
+        newHeadingPmeaning.appendChild(newHeadingPmeaningContent);
         
-        /* Creates a new div element to contain both the h3 and p elements. In the stylesheet the div is inline so that the H3 and p elements are side by side, functioning as one single title*/
+        /* Creates a new div element to contain both the p elements.*/
         let newHeadWordDiv = document.createElement("div");
         newHeadWordDiv.classList.add("headWordDiv");
-        newHeadWordDiv.appendChild(newHeadingH3);
-        newHeadWordDiv.appendChild(newHeadingP);
+        newHeadWordDiv.appendChild(newHeadingProot);
+        newHeadWordDiv.appendChild(newHeadingPmeaning);
 
         let outputSection = document.getElementById("outputSection");
         outputSection.appendChild(newHeadWordDiv);

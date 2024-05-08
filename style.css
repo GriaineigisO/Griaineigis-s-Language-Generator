@@ -1,4 +1,16 @@
 .headWordDiv {
-    display: inline;
+    display: flex;
+    flex-direction:row;
 
+}
+
+.headingProot {
+    margin-right: 10px;
+    font-weight: bold;
+    
+}
+
+.headingProot, .headingPmeaning {
+    align-self:baseline;
+    font-size: 20px;
 }

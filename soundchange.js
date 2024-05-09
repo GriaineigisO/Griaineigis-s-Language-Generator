@@ -56,7 +56,7 @@ function soundChange(word) {
 
 //Takes the words from both text fields and splits them into arrays, then it creates an object using both arrays.
 function createArrays() {
-    document.getElementById("outputSection").replaceChildren(); //cleara the previous output
+    document.getElementById("outputSection").replaceChildren(); //clears the previous output
     
     let inputRoot = document.getElementById("inputRoot").value;
     let splitInputRoot = inputRoot.split(" ");

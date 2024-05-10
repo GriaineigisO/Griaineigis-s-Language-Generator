@@ -40,7 +40,6 @@ function soundChange(word) {
     } 
     
     let syncopedString = letterArray.join(""); //turns the array back into a string
-    
     let lenitionString1 = syncopedString.replace("gk", "hk"); 
     let lenitionString2 = lenitionString1.replace("dt", "st");
     let lenitionString3 = lenitionString2.replace("bm", "mb");
@@ -50,8 +49,6 @@ function soundChange(word) {
 }
 
 /*-----------^^^-SOUND CHANGES-^^^-----------------------------------------------------*/
-
-
 
 
 //Takes the words from both text fields and splits them into arrays, then it creates an object using both arrays.
@@ -235,20 +232,12 @@ function createArrays() {
         }
     }
 
-        
-        
-
-
   /*----------------------^^^INFLECTION TABLE-^^^-------------------------------------------------------------*/
 
   /*-------------COMPOUND------------------------*/
         let compound = ""
         let compoundArray = [];
         let compoundMeaningArray = [];
-        
-
-    
-
         for(i = 0; i < splitInputRoot.length; i++) {
             for (j = 0; j < splitInputRoot.length; j++) {
                 if (splitInputRoot[i] == splitInputRoot[j]) { //prevents a root being compounded with itself
@@ -256,23 +245,16 @@ function createArrays() {
                 }
                 compound = splitInputRoot[i] + splitInputRoot[j];
                 compoundMeaning = splitInputMeaning[i] + "-" + splitInputMeaning[j];
-                
                 compoundArray.push(compound);
-                
                 compoundMeaningArray.push(compoundMeaning);
-                
             }
         }
-
-       
-  
        
  /*-----------------------COMPOUND HEADWORD--------------------------------------------------------------*
     
 /* Generates the headword above each compound table, showing the compound and it's meaning as a title */
             for(x = 0; x < compoundArray.length; x++) {
                 let compoundFromArray = compoundArray[x]; 
-              
                 let compoundMeaningFromArray = compoundMeaningArray[x];
 
                 /*Creates a new p element to which is appended the root*/
@@ -291,8 +273,6 @@ function createArrays() {
                 newCompoundHeadWordDiv.classList.add("headWordDiv");
                 newCompoundHeadWordDiv.appendChild(newHeadingPcompound);
                 newCompoundHeadWordDiv.appendChild(newHeadingPCompoundmeaning);
-
-
                 compoundDiv.appendChild(newCompoundHeadWordDiv);
             
 

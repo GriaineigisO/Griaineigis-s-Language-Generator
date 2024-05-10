@@ -338,23 +338,23 @@ function createArrays() {
                     let newTH3Compound = document.createElement("th");
                     newTH3Compound.style.border = "1px solid black";
                     
-                    let nomSgCompound = compound + "ko"
-                    let nomPlCompound = compound + "te"
+                    let nomSgCompound = compoundFromArray + "ko"
+                    let nomPlCompound = compoundFromArray + "te"
 
-                    let nomSgEtymologyCompound = " " + " <" + " " + compound + "-" + "ko";
-                    let nomPlEtymologyCompound = " " + " <" + " " + compound + "-" + "te";
+                    let nomSgEtymologyCompound = " " + " <" + " " + compoundFromArray + "-" + "ko";
+                    let nomPlEtymologyCompound = " " + " <" + " " + compoundFromArray + "-" + "te";
 
                     let accSgCompound = "he" + compound + "ko"
                     let accPlCompound = "he" + compound + "te"
 
-                    let accSgEtymologyCompound = " " + "<" + " " + "he" + "-" + compound + "-" + "ko";
-                    let accPlEtymologyCompound = " " + "<" + " " + "he" + "-" +  compound + "-" + "te";
+                    let accSgEtymologyCompound = " " + "<" + " " + "he" + "-" + compoundFromArray + "-" + "ko";
+                    let accPlEtymologyCompound = " " + "<" + " " + "he" + "-" +  compoundFromArray + "-" + "te";
 
-                    let genSgCompound = "pi" + compound + "ko"
-                    let genPlCompound = "pi" + compound + "te"
+                    let genSgCompound = "pi" + compoundFromArray + "ko"
+                    let genPlCompound = "pi" + compoundFromArray + "te"
 
-                    let genSgEtymologyCompound = " " + "<" + " " + "pi" + "-" +  compound + "-" + "ko";
-                    let genPlEtymologyCompound = " " + "<" + " " + "pi" + "-" +  compound + "-" + "te";
+                    let genSgEtymologyCompound = " " + "<" + " " + "pi" + "-" +  compoundFromArray + "-" + "ko";
+                    let genPlEtymologyCompound = " " + "<" + " " + "pi" + "-" +  compoundFromArray + "-" + "te";
                     
                     if (y == 0) {
                             newTH1Compound.innerHTML = " "

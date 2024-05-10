@@ -56,21 +56,37 @@ function soundChange(word) {
 
 //Takes the words from both text fields and splits them into arrays, then it creates an object using both arrays.
 function createArrays() {
-    document.getElementById("outputSection").replaceChildren(); //clears the previous output
+    let outputSection = document.getElementById("outputSection");
+    outputSection.replaceChildren(); //clears the previous output
     
+    //Creates a div to contain the root inflection tables, and adds an h1 to it.
+    let inflectionDiv = document.createElement("div");
+    inflectionDiv.classList.add("inflection-output");
+    let inflectionH1 = document.createElement("h1");
+    inflectionH1.innerHTML = "Inflected Roots";
+    inflectionDiv.appendChild(inflectionH1);
+    outputSection.appendChild(inflectionDiv);
+
+    //Creates a div to contain the compound inflection tables, and adds an h1 to it.
+    let compoundDiv = document.createElement("div");
+    compoundDiv.classList.add("compound-output");
+    let compoundH1 = document.createElement("h1");
+    compoundH1.innerHTML = "Compounds";
+    compoundDiv.appendChild(compoundH1);
+    outputSection.appendChild(compoundDiv);
+
     let inputRoot = document.getElementById("inputRoot").value;
     let splitInputRoot = inputRoot.split(" ");
-
     let inputMeaning = document.getElementById("inputMeaning").value;
     let splitInputMeaning = inputMeaning.split(" ");
 
- /*-----------------------HEADWORD--------------------------------------------------------------*
+ /*-----------------------INFLECTION HEADWORD--------------------------------------------------------------*
     
 /* Generates the headword above each inflection table, showing the root and it's meaning as a title */
     for(i = 0; i < splitInputRoot.length; i++) {
         let root = splitInputRoot[i]; 
         let rootMeaning = splitInputMeaning[i];
-        
+
         /*Creates a new p element to which is appended the root*/ 
         let newHeadingProot = document.createElement("P");
         newHeadingProot.classList.add("headingProot");
@@ -89,17 +105,17 @@ function createArrays() {
         newHeadWordDiv.appendChild(newHeadingProot);
         newHeadWordDiv.appendChild(newHeadingPmeaning);
 
-        let outputSection = document.getElementById("outputSection");
-        outputSection.appendChild(newHeadWordDiv);
+
+        inflectionDiv.appendChild(newHeadWordDiv);
    
 
  /*----------------------^^^-HEADWORD-^^^-------------------------------------------------------------*/
     
-  /*-----------------------TABLE--------------------------------------------------------------*/   
+  /*-----------------------INFLECTION TABLE--------------------------------------------------------------*/   
         /*Generates a table below the headword, showing how the root is inflected.*/
 
         let newTable = document.createElement("table");
-        document.getElementById("outputSection").appendChild(newTable);
+        inflectionDiv.appendChild(newTable);
 
         for (j = 0; j < 4; j++) {
             let newRow = document.createElement("tr");
@@ -217,14 +233,208 @@ function createArrays() {
 
             }
         }
+    }
 
         
         
 
 
-  /*----------------------^^^-TABLE-^^^-------------------------------------------------------------*/
+  /*----------------------^^^INFLECTION TABLE-^^^-------------------------------------------------------------*/
+
+  /*-------------COMPOUND------------------------*/
+        let compound = ""
+        let compoundArray = [];
+        let compoundMeaningArray = [];
+        
+
+    
+
+        for(i = 0; i < splitInputRoot.length; i++) {
+            for (j = 0; j < splitInputRoot.length; j++) {
+                if (splitInputRoot[i] == splitInputRoot[j]) { //prevents a root being compounded with itself
+                    continue;
+                }
+                compound = splitInputRoot[i] + splitInputRoot[j];
+                compoundMeaning = splitInputMeaning[i] + "-" + splitInputMeaning[j];
+                
+                compoundArray.push(compound);
+                
+                compoundMeaningArray.push(compoundMeaning);
+                
+            }
+        }
+
+       
+  
+       
+ /*-----------------------COMPOUND HEADWORD--------------------------------------------------------------*
+    
+/* Generates the headword above each compound table, showing the compound and it's meaning as a title */
+            for(x = 0; x < compoundArray.length; x++) {
+                let compoundFromArray = compoundArray[x]; 
+              
+                let compoundMeaningFromArray = compoundMeaningArray[x];
+
+                /*Creates a new p element to which is appended the root*/
+                let newHeadingPcompound = document.createElement("p");
+                newHeadingPcompound.classList.add("headingProot");
+                newHeadingPcompound.innerHTML = compoundFromArray;
+            
+
+                /*Creates a new p element to which is appended the root's meaning */
+                let newHeadingPCompoundmeaning = document.createElement("p");
+                newHeadingPCompoundmeaning.classList.add("headingPmeaning");
+                newHeadingPCompoundmeaning.innerHTML = '"' + compoundMeaningFromArray + '"';
+                
+                /* Creates a new div element to contain both the p elements.*/
+                let newCompoundHeadWordDiv = document.createElement("div");
+                newCompoundHeadWordDiv.classList.add("headWordDiv");
+                newCompoundHeadWordDiv.appendChild(newHeadingPcompound);
+                newCompoundHeadWordDiv.appendChild(newHeadingPCompoundmeaning);
+
+
+                compoundDiv.appendChild(newCompoundHeadWordDiv);
+            
+
+/* ----------------------^^^-HEADWORD-^^^-------------------------------------------------------------*/
+
+/*-----------------------COMPOUND TABLE--------------------------------------------------------------*/   
+        /*Generates a table below the headword, showing how the root is inflected.*/
+                let newCompoundTable = document.createElement("table");
+                compoundDiv.appendChild(newCompoundTable);
+                
+                for (y = 0; y < 4; y++) {
+                    let newRowCompound = document.createElement("tr");
+                    newCompoundTable.appendChild(newRowCompound);
+
+                    let newTD1Compound = document.createElement("td");
+                    newTD1Compound.style.fontWeight = "bold";
+                    newTD1Compound.style.border = "1px solid black";
+
+                    let newTD2Compound = document.createElement("td");
+                    newTD2Compound.style.border = "1px solid black";
+                    newTD2Compound.style.borderRightStyle = "none";
+
+                    let newTD3Compound = document.createElement("td")
+                    newTD3Compound.style.fontStyle = "italic";
+                    newTD3Compound.style.border = "1px solid black";
+                    newTD3Compound.style.borderLeftStyle = "none";
+
+                    let newTD4Compound = document.createElement("td");
+                    newTD4Compound.style.border = "1px solid black";
+                    newTD4Compound.style.borderRightStyle = "none";
+
+                    let newTD5Compound = document.createElement("td");
+                    newTD5Compound.style.fontStyle = "italic";
+                    newTD5Compound.style.border = "1px solid black";
+                    newTD5Compound.style.borderLeftStyle = "none";
+
+                    let newTH1Compound = document.createElement("th");
+                    newTH1Compound.style.border = "1px solid black";
+
+                    let newTH2Compound = document.createElement("th");
+                    newTH2Compound.style.border = "1px solid black";
+
+                    let newTH3Compound = document.createElement("th");
+                    newTH3Compound.style.border = "1px solid black";
+                    
+                    let nomSgCompound = compound + "ko"
+                    let nomPlCompound = compound + "te"
+
+                    let nomSgEtymologyCompound = " " + " <" + " " + compound + "-" + "ko";
+                    let nomPlEtymologyCompound = " " + " <" + " " + compound + "-" + "te";
+
+                    let accSgCompound = "he" + compound + "ko"
+                    let accPlCompound = "he" + compound + "te"
+
+                    let accSgEtymologyCompound = " " + "<" + " " + "he" + "-" + compound + "-" + "ko";
+                    let accPlEtymologyCompound = " " + "<" + " " + "he" + "-" +  compound + "-" + "te";
+
+                    let genSgCompound = "pi" + compound + "ko"
+                    let genPlCompound = "pi" + compound + "te"
+
+                    let genSgEtymologyCompound = " " + "<" + " " + "pi" + "-" +  compound + "-" + "ko";
+                    let genPlEtymologyCompound = " " + "<" + " " + "pi" + "-" +  compound + "-" + "te";
+                    
+                    if (y == 0) {
+                            newTH1Compound.innerHTML = " "
+                            newTH1Compound.setAttribute("colspan", 1)
+                            newRowCompound.appendChild(newTH1Compound)
+
+                            newTH2Compound.innerHTML = "Sg"
+                            newTH2Compound.setAttribute("colspan", 2)
+                            newRowCompound.appendChild(newTH2Compound)
+
+                            newTH3Compound.innerHTML = "Pl"
+                            newTH3Compound.setAttribute("colspan", 2)
+                            newRowCompound.appendChild(newTH3Compound)
+
+                            } else if (y == 1) {
+                                newTD1Compound.innerHTML = "Nom"
+                                newRowCompound.appendChild(newTD1Compound);
+
+                                newTD2Compound.innerHTML = soundChange(nomSgCompound);
+                                newRowCompound.appendChild(newTD2Compound);
+
+                                newTD3Compound.innerHTML = nomSgEtymologyCompound
+                                newRowCompound.appendChild(newTD3Compound);
+
+                                newTD4Compound.innerHTML = soundChange(nomPlCompound);
+                                newRowCompound.appendChild(newTD4Compound);
+
+                                newTD5Compound.innerHTML = nomPlEtymologyCompound
+                                newRowCompound.appendChild(newTD5Compound);
+
+                            } else if (y == 2) {
+                                newTD1Compound.innerHTML = "Acc"
+                                newRowCompound.appendChild(newTD1Compound);
+
+                                newTD2Compound.innerHTML = soundChange(accSgCompound);
+                                newRowCompound.appendChild(newTD2Compound);
+
+                                newTD3Compound.innerHTML = accSgEtymologyCompound;
+                                newRowCompound.appendChild(newTD3Compound);
+
+                                newTD4Compound.innerHTML = soundChange(accPlCompound);
+                                newRowCompound.appendChild(newTD4Compound);
+
+                                newTD5Compound.innerHTML = accPlEtymologyCompound
+                                newRowCompound.appendChild(newTD5Compound);
+
+                            } else if (y == 3) {
+                                newTD1Compound.innerHTML = "Gen"
+                                newRowCompound.appendChild(newTD1Compound);
+
+                                newTD2Compound.innerHTML = soundChange(genSgCompound);
+                                newRowCompound.appendChild(newTD2Compound);
+
+                                newTD3Compound.innerHTML = genSgEtymologyCompound;
+                                newRowCompound.appendChild(newTD3Compound);
+
+                                newTD4Compound.innerHTML = soundChange(genPlCompound);
+                                newRowCompound.appendChild(newTD4Compound);
+
+                                newTD5Compound.innerHTML = genPlEtymologyCompound;
+                                newRowCompound.appendChild(newTD5Compound);
+
+                            }
+               
+                        }
+                
+            }
+
+
+            
+        
+    
+        
+        
+
+
+  /*----------------------^^^COMPOUND TABLE-^^^-------------------------------------------------------------*/
+
  }
-}
+
 
 
 

@@ -169,7 +169,9 @@ a:hover {
     }
 
     #inputRoot, #inputMeaning {
-        height: 80px;
+        padding-bottom: 80px;
+        display: flex;
+        align-content: flex-start;
     }
 
     #outputSection {

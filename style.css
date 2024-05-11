@@ -113,7 +113,7 @@ a:hover {
 /* PHONE */
 @media only screen and (max-width: 480px) {
     p, li {
-        font-size: 12px;
+        font-size: 20px;
     }
 
     p {

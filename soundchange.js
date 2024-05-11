@@ -107,8 +107,6 @@ function soundChange(word) {
 /*-----------^^^-SOUND CHANGES-^^^-----------------------------------------------------*/
 
 
-
-
 //Takes the words from both text fields and splits them into arrays, then it creates an object using both arrays.
 function createArrays() {
     let outputSection = document.getElementById("outputSection");
@@ -290,8 +288,9 @@ function createArrays() {
         }
     }
 
-        
-        
+  /*----------------------^^^INFLECTION TABLE-^^^-------------------------------------------------------------*/
+
+
 
 
   /*----------------------^^^INFLECTION TABLE-^^^-------------------------------------------------------------*/
@@ -310,13 +309,11 @@ function createArrays() {
                 }
                 compound = splitInputRoot[i] + splitInputRoot[j];
                 compoundMeaning = splitInputMeaning[i] + "-" + splitInputMeaning[j];
-                
                 compoundArray.push(compound);
-                
                 compoundMeaningArray.push(compoundMeaning);
-                
             }
         }
+       
  /*-----------------------COMPOUND HEADWORD--------------------------------------------------------------*
     
 /* Generates the headword above each compound table, showing the compound and it's meaning as a title */
@@ -340,8 +337,6 @@ function createArrays() {
                 newCompoundHeadWordDiv.classList.add("headWordDiv");
                 newCompoundHeadWordDiv.appendChild(newHeadingPcompound);
                 newCompoundHeadWordDiv.appendChild(newHeadingPCompoundmeaning);
-
-
                 compoundDiv.appendChild(newCompoundHeadWordDiv);
             
 

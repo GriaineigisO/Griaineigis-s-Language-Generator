@@ -1,0 +1,6 @@
+Add other parts of speech: adjectives, verbs and even function words like pronouns, prepositions, conjunctions and determiners
+
+At the bottom, generate a block of text when all parts of speech have been given. There will be several templates, chosen at random (there will be a button to cycle through different templates without changing the rest of the page). e.g
+
+&{det} &{adj} &{noun} &{verb} &{conj}
+that white horse ran

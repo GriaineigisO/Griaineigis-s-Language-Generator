@@ -1,12 +1,23 @@
+
+
 let submitButton = document.getElementById("submit");
+let clearButton = document.getElementById("clear-input");
 
 submitButton.addEventListener("click", createArrays);
+clearButton.addEventListener("click", clearOutput);
+
+function clearOutput() { //clears previous results upon clicking "Clear Output"
+    outputSection.replaceChildren();
+    document.getElementById("inputRoot").value ="";
+    document.getElementById("inputMeaning").value ="";
+}
     
 /*------------SOUND CHANGES------------------------------------------------------*/
 
 function soundChange(word) {
     
-    let vowels = ["a", "ā", "e", "ē", "o", "ō", "u", "ū", "i", "ī"];
+
+    let vowels = ["a", "ā", "e", "ē", "o", "ō", "u", "ū", "i", "ī", "ə"];
 
     let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "h", "l", "r", "j", "w"];
     
@@ -59,58 +70,63 @@ function soundChange(word) {
     
     let furtherChanges = Array.from(lenitionString9);
     
-    for(i=0; i < furtherChanges.length; i++) {
-
     
-    //removes "h" if it occurs after another consonant
-    let beforeH = furtherChanges[i - 1]
-    if(furtherChanges[i] == "h" && consonants.includes(beforeH)) {
-        furtherChanges.splice([i], 1)
-    }
-    
-    //turns "w" into "u" if it occurs before a consonant
-    let afterW = furtherChanges[i + 1]
-    if(furtherChanges[i] == "w" && consonants.includes(afterW)) {
-        furtherChanges[i] ="u"
-    }
-
-    //turns "j" into "i" if it occurs before a consonant
-    let afterJ = furtherChanges[i + 1]
-    if(furtherChanges[i] == "j" && consonants.includes(afterJ)) {
-        furtherChanges[i] ="i"
-    
-    }
-
-    //turns geminate consonants into singletons
-    if (furtherChanges[i] == furtherChanges[i + 1]) {
-        furtherChanges.splice([i], 1)
-    }
-
-}
-
     let rejoinedString = furtherChanges.join(""); //turns the array back into a string
 
-    let fixMacronUPlusU = rejoinedString.replace("ūu", "ū");
-    let fixUPlusMacronU = fixMacronUPlusU.replace("uū", "ū");
-    let fixMacronIPlusI = fixUPlusMacronU.replace("īi", "ī");
-    let fixIPlusMacronI = fixMacronIPlusI.replace("iī", "ī");
-   /* let reduceGeminate = fixIPlusMacronI.replace("pp", "p");
+    //removes "h" if it occurs both after another consonant and before "k". Due to interference with the "h" in the accusative prefix, I had to make this rather clunky workaround. This turns "hk" clusters into "X" (all cases of post-consonantal "h" occur befor "h") and then check if "X" if after a consonant, if it is, then "X" becomes "k", else, it becomes "hk" again
+    let hKtoX = rejoinedString.replace("hk", "X");
+    let beforeX = consonants.includes(hKtoX.charAt(hKtoX.indexOf("X") - 1));
+    let removeCX = hKtoX.includes("X") && beforeX ? hKtoX.replace("X", "k") : hKtoX;
+    let returnXtoHK = removeCX.replace("X", "hk");
+   
+    //checks if "j" occurs before a consonant and turns it into "i" 
+    let syllabliseJ = returnXtoHK.includes("j") && consonants.includes(returnXtoHK.charAt(returnXtoHK.indexOf("j") + 1)) ? returnXtoHK.replace("j", "i"): returnXtoHK;
+
+    //checks if "w" occurs before a consonant and turns it into "u"
+    let syllabliseW = syllabliseJ.includes("w") && consonants.includes(syllabliseJ.charAt(syllabliseJ.indexOf("w") + 1)) ? syllabliseJ.replace("w", "u"): syllabliseJ;
+
+    //checks if "r" is before and after a consonant, and turns it into schwa if so
+    let syllabliseR = syllabliseW.includes("r") && consonants.includes(syllabliseW.charAt(syllabliseW.indexOf("r") + 1)) && consonants.includes(syllabliseW.charAt(syllabliseW.indexOf("r") - 1)) ? syllabliseJ.replace("r", "ə") : syllabliseW;
+
+    //checks if "l" is before and after a consonant, and turns it into schwa if so
+    let syllabliseL = syllabliseW.includes("l") && consonants.includes(syllabliseW.charAt(syllabliseW.indexOf("l") + 1)) && consonants.includes(syllabliseW.charAt(syllabliseW.indexOf("l") - 1)) ? syllabliseJ.replace("l", "ə") : syllabliseR;
+
+    //turns geminates into singletons
+    let reduceGeminate = syllabliseL.replace("pp", "p");
     let reduceGeminate1 = reduceGeminate.replace("bb", "b");
     let reduceGeminate2 = reduceGeminate1.replace("tt", "t");
     let reduceGeminate3 = reduceGeminate2.replace("dd", "d");
     let reduceGeminate4 = reduceGeminate3.replace("kk", "k");
-    let reduceGeminate5 = reduceGeminate4.replace("gg", "g");*/
+    let reduceGeminate5 = reduceGeminate4.replace("gg", "g");
+    let reduceGeminate6 = reduceGeminate5.replace("ss", "s");
+    let reduceGeminate7 = reduceGeminate6.replace("ll", "l");
+    let reduceGeminate8 = reduceGeminate7.replace("rr", "r");
+    let reduceGeminate9 = reduceGeminate8.replace("nn", "n");
+    let reduceGeminate10 = reduceGeminate9.replace("mm", "m");
+    let reduceGeminate11 = reduceGeminate10.replace("hh", "h");
+ 
+
+   
+    let fixMacronUPlusU = reduceGeminate11.replace("ūu", "ū");
+    let fixUPlusMacronU = fixMacronUPlusU.replace("uū", "ū");
+    let fixMacronIPlusI = fixUPlusMacronU.replace("īi", "ī");
+    let fixIPlusMacronI = fixMacronIPlusI.replace("iī", "ī");
+    
 
     return fixIPlusMacronI;
+
+ 
 }
 
 /*-----------^^^-SOUND CHANGES-^^^-----------------------------------------------------*/
 
 
+
+
 //Takes the words from both text fields and splits them into arrays, then it creates an object using both arrays.
 function createArrays() {
     let outputSection = document.getElementById("outputSection");
-    outputSection.replaceChildren(); //clears the previous output
+    outputSection.replaceChildren(); //clears the previous output upon refreshing the page
     
     //Creates a div to contain the root inflection tables, and adds an h1 to it.
     let inflectionDiv = document.createElement("div");
@@ -288,9 +304,8 @@ function createArrays() {
         }
     }
 
-  /*----------------------^^^INFLECTION TABLE-^^^-------------------------------------------------------------*/
-
-
+        
+        
 
 
   /*----------------------^^^INFLECTION TABLE-^^^-------------------------------------------------------------*/
@@ -309,11 +324,14 @@ function createArrays() {
                 }
                 compound = splitInputRoot[i] + splitInputRoot[j];
                 compoundMeaning = splitInputMeaning[i] + "-" + splitInputMeaning[j];
+                
                 compoundArray.push(compound);
+                
                 compoundMeaningArray.push(compoundMeaning);
+                
             }
         }
-       
+
  /*-----------------------COMPOUND HEADWORD--------------------------------------------------------------*
     
 /* Generates the headword above each compound table, showing the compound and it's meaning as a title */
@@ -337,6 +355,8 @@ function createArrays() {
                 newCompoundHeadWordDiv.classList.add("headWordDiv");
                 newCompoundHeadWordDiv.appendChild(newHeadingPcompound);
                 newCompoundHeadWordDiv.appendChild(newHeadingPCompoundmeaning);
+
+
                 compoundDiv.appendChild(newCompoundHeadWordDiv);
             
 

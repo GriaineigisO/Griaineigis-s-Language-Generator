@@ -3,6 +3,7 @@
   <head>
     <title>Kerbeluko Language Generator</title>
     <link href="style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   </head>
 
   <body>
@@ -63,7 +64,9 @@
       <p>
         Kerbeluko has five vowel qualities: /i, u, e ,o , a/, and two vowel
         quantities: long and short. Long vowels only appear as a result of sound
-        changes which will be discussed below.<br /><br />
+        changes which will be discussed below.<br />There is also the vowel
+        schwa <i>ə</i> but this only occurs as a result of the syllabification
+        of <i>l</i> and <i>r</i> and thus is not a phonemic vowel.<br />
         The consonants are:<br />
       </p>
       <ul>
@@ -167,6 +170,41 @@
           <b>mk</b> > <b>mg</b>: <i>pergo-losem-ko</i> > <i>pērolosemgo</i>
         </li>
       </ul>
+
+      <h3>Syllabification</h3>
+
+      <p>
+        If <i>w</i> or <i>j</i> are made to occur before a consonant, as a
+        result of syncope, then they syllabify into <i>u</i> and
+        <i>i</i> respectively: <i>dawo-ko</i> > <i>dāwko</i> > <i>dāuko</i>;
+        <i>suje-te</i> > <i>sūjte</i> > <i>sūite</i>.
+      </p>
+
+      <p>
+        The sonorants <i>r</i> and <i>l</i> syllabify into a schwa <i>ə</i> but
+        only when they are both before and after a consonant. The schwa is
+        unaffected by syncope, as this syllabification occurs after syncope
+        takes place: <i>he-mul-ko</i> > <i>hēmlko</i> > <i>hēməko</i>;
+        <i>tebor-te</i> > <i>tēbrte</i> > <i>tēbəte</i>.
+      </p>
+
+      <h3>Loss of /h/ After Consonants</h3>
+
+      <p>
+        The consonant /h/, which occurs in Kerbeluko exclusively as a result og
+        <i>kg, gk</i> > <i>hk</i>, is lost when it occurs after another
+        consonant: <i>sebeg-ko</i> > <i>sēbgko</i> > <i>sēbhko</i> >
+        <i>sēbko</i>.
+      </p>
+
+      <h3>Shortening of Geminates</h3>
+
+      <p>
+        Two of the same consonants may cluster together as a result of
+        compounding. Kerbeluko avoids these clusters by shortening the geminate
+        consonants into one single short consonant: <i>balis-sol-ko</i> >
+        <i>bālssolko</i> > <i>bālsolko</i>
+      </p>
     </section>
 
     <section id="inputSection">
@@ -181,8 +219,8 @@
         with this also if you wish. Enter as many words as you want, be sure to
         divide each word with a blank space, don't use commas.<br /><br />
         Here are some roots that you can start with:<br />
-        Roots: gu bego mud lu gim weri sab regon<br />
-        Meanings: eye hill head bone eagle blood sword boat
+        Roots: gu bego mud lu gim weri diwo sab regon<br />
+        Meanings: eye hill head bone eagle cloud blood sword boat
       </p>
 
       <div class="input-container">
@@ -193,7 +231,10 @@
         <p>Enter Their Meanings Here:</p>
         <input type="text" id="inputMeaning" />
       </div>
-      <input type="submit" value="Submit" id="submit" />
+      <div id="button-div">
+        <input type="submit" value="Submit" id="submit" />
+        <input type="submit" value="Clear Input" id="clear-input" />
+      </div>
     </section>
 
     <section id="outputSection"></section>

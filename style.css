@@ -54,9 +54,11 @@ header {
 }
 
 table {
+    border-radius: 10px;
     border: 1px solid black;
     border-collapse: collapse;
     background-color: #f5f8f8;
+    
 }
 
 h1, h2, h3, .headingProot, .headingPmeaning, p, a, li {
@@ -87,17 +89,22 @@ a:hover {
     margin-top: 10px;
 }
 
-#submit {
-    margin-left: 20em;
+#button-div {
+    margin-left: 11em;
+}
+
+#button-div input {
+    margin-left: 2em;
     background-color: #CC005A;
     border-radius: 10px;
     padding: 10px;
     color: #f5f8f8;
 }
 
-#submit:hover {
+#button-div input:hover {
     background-color: #570729;
 }
+
 
 #outputSection {
     margin-left: 4em;

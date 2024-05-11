@@ -144,8 +144,19 @@ a:hover {
     #title-div {
         display: flex;
         justify-content: center;
+        margin: 0;
+        letter-spacing: 2px;
+        font-weight: 800;
+        color: #4b506b !important;
+        }
+    
+        #title-div h1{
+        text-align: center;
+        margin: 0;
+        margin-left: 40px;
     }
-
+    
+   
     #button-div {
         width: 100%;
         display: flex;
@@ -156,6 +167,7 @@ a:hover {
     #button-div , #clear-input, #submit{
         width: 100%;
         margin-top: 20px;
+        margin-left: -80px;
     }
 
     #clear-input, #submit {
@@ -163,9 +175,13 @@ a:hover {
         font-size: 40px;
     }
 
-    #inputSection {
-        display: flex;
-        flex-direction: column;
+    #intro, #inputSection p {
+        max-width: 400px;
+        margin-left: 0px;
+    }
+
+    #inputSection h1 {
+        margin-left: 0px;
     }
 
     .input-container {
@@ -177,9 +193,14 @@ a:hover {
         padding-bottom: 80px;
         display: flex;
         align-content: flex-start;
+        justify-content:left;
     }
 
     #outputSection {
         width: 100%;
+    }
+
+    #subtitle {
+        display: none;
     }
 }

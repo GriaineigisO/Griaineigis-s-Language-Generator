@@ -158,6 +158,11 @@ a:hover {
         margin-top: 20px;
     }
 
+    #clear-input, #submit {
+        height: 90px;
+        font-size: 40px;
+    }
+
     #inputSection {
         display: flex;
         flex-direction: column;

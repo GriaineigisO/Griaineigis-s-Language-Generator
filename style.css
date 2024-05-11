@@ -116,8 +116,41 @@ a:hover {
         font-size: 30px;
     }
 
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
     #title-div {
         display: flex;
         justify-content: center;
+    }
+
+    #button-div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    #button-div button {
+        width: 100%;
+    }
+
+    #inputSection {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
     }
 }

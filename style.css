@@ -69,15 +69,24 @@ a:hover {
     color: #dd6f2c
 }
 
-#inputSection, #intro {
+#inputSection p, #inputSection h1, #intro {
     margin-left: 4em;
     margin-top: 3em;
-    max-width: 80em;
+}
+
+#intro, #inputSection p {
+  max-width: 80em;  
+}
+
+#inputSection, .inputSection-container, #inputRoot {
+    max-width: 100%;
 }
 
 .input-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-left: 60px;
+    margin-right: 20px;
 }
 
 .input-container p {
@@ -157,5 +166,13 @@ a:hover {
     .input-container {
         display: flex;
         flex-direction: column;
+    }
+
+    #inputRoot, #inputMeaning {
+        height: 80px;
+    }
+
+    #outputSection {
+        width: 100%;
     }
 }

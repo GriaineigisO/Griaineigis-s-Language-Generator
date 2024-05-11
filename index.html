@@ -242,6 +242,8 @@
 
     <script src="scripts\soundchange.js" />
 
+    //for some reason, the javascript would only work on deployment if included
+    //in a script tag in the html file, but would not work when linked.
     <script>
       let submitButton = document.getElementById("submit");
       let clearButton = document.getElementById("clear-input");
@@ -334,7 +336,7 @@
 
         let rejoinedString = furtherChanges.join(""); //turns the array back into a string
 
-        //removes "h" if it occurs both after another consonant and before "k". Due to interference with the "h" in the accusative prefix, I had to make this rather clunky workaround. This turns "hk" clusters into "X" (all cases of post-consonantal "h" occur befor "h") and then check if "X" if after a consonant, if it is, then "X" becomes "k", else, it becomes "hk" again
+        //removes "h" if it occurs both after another consonant and before "k". Due to interference with the "h" in the accusative prefix, I had to make this rather clunky workaround. This turns "hk" clusters into "X" (all cases of post-consonantal "h" occur before "h") and then check if "X" if after a consonant, if it is, then "X" becomes "k", else, it becomes "hk" again
         let hKtoX = rejoinedString.replace("hk", "X");
         let beforeX = consonants.includes(hKtoX.charAt(hKtoX.indexOf("X") - 1));
         let removeCX =

@@ -109,3 +109,15 @@ a:hover {
 #outputSection {
     margin-left: 4em;
 }
+
+/* PHONE */
+@media only screen and (max-width: 480px) {
+    p, li {
+        font-size: 20px;
+    }
+
+    #title-div {
+        display: flex;
+        justify-content: center;
+    }
+}

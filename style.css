@@ -98,6 +98,14 @@ a:hover {
     margin-top: 10px;
 }
 
+ #inputRoot,
+ #inputMeaning {
+     padding-bottom: 80px;
+     display: flex;
+     align-content: flex-start;
+     justify-content: left;
+ }
+
 #button-div {
     margin-left: 11em;
 }
@@ -108,7 +116,20 @@ a:hover {
     border-radius: 10px;
     padding: 10px;
     color: #f5f8f8;
+    display: flex;
+    flex-direction: column;
+    margin-left: -120px;
 }
+
+ #clear-input,
+ #submit {
+     height: 60px;
+     font-size: 30px;
+     margin-top: 20px;
+     width: 100%;
+     
+    
+ }
 
 #button-div input:hover {
     background-color: #570729;
@@ -203,4 +224,37 @@ a:hover {
     #subtitle {
         display: none;
     }
+}
+
+/*TABLET*/
+@media only screen and (max-width: 768px) {
+
+    #inputRoot,
+        #inputMeaning {
+            padding-bottom: 80px;
+            display: flex;
+            align-content: flex-start;
+            justify-content: left;
+        }
+
+        #button-div,
+        #clear-input,
+        #submit {
+            width: 100%;
+            margin-top: 20px;
+            margin-left: -80px;
+        }
+
+        #clear-input,
+        #submit {
+            height: 70px;
+            font-size: 40px;
+        }
+
+        #intro,
+        #inputSection p {
+            max-width: 400px;
+            margin-left: 0px;
+        }
+
 }

@@ -113,7 +113,11 @@ a:hover {
 /* PHONE */
 @media only screen and (max-width: 480px) {
     p, li {
-        font-size: 30px;
+        font-size: 20px;
+    }
+
+    p {
+        max-width: 40em;
     }
 
     h1 {
@@ -140,8 +144,9 @@ a:hover {
         margin-left: 0;
     }
 
-    #button-div button {
+    #button-div , #clear-input, #submit{
         width: 100%;
+        margin-top: 20px;
     }
 
     #inputSection {

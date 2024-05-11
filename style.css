@@ -1,3 +1,40 @@
+body {
+    font-family: "breakers", sans-serif;
+    background-color: #2c2d36;
+}
+
+/*--HEADER---*/
+
+header {
+    background-color: #f5f8f8;
+    border-bottom: 4px solid #d4e1e4;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 0;
+}
+
+#title-div h1 {
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin: -20px;
+    color: #4b506b !important;
+}
+
+#title-div p {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+#subtitle {
+    display: flex;
+    margin-left: 80px;
+    color: #4b506b !important;
+}
+
+
 .headWordDiv {
     display: flex;
     flex-direction:row;
@@ -10,6 +47,7 @@
     
 }
 
+
 .headingProot, .headingPmeaning {
     align-self:baseline;
     font-size: 20px;
@@ -18,6 +56,49 @@
 table {
     border: 1px solid black;
     border-collapse: collapse;
+    background-color: #f5f8f8;
 }
 
+h1, h2, h3, .headingProot, .headingPmeaning, p, a, li {
+    color: #f5f8f8
+}
 
+a:hover {
+    color: #dd6f2c
+}
+
+#inputSection, #intro {
+    margin-left: 4em;
+    margin-top: 3em;
+    max-width: 80em;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-container p {
+    margin-right: 10px;
+}
+
+.input-container input {
+    height: 20px;
+    margin-top: 10px;
+}
+
+#submit {
+    margin-left: 20em;
+    background-color: #CC005A;
+    border-radius: 10px;
+    padding: 10px;
+    color: #f5f8f8;
+}
+
+#submit:hover {
+    background-color: #570729;
+}
+
+#outputSection {
+    margin-left: 4em;
+}

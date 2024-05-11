@@ -6,14 +6,193 @@
   </head>
 
   <body>
-    <header></header>
+    <header>
+      <div id="title-div">
+        <h1>Kerbeluko</h1>
+        <p id="subtitle">Inflector</p>
+      </div>
+    </header>
 
-    <section id="inputSection">
-      <input type="text" id="inputRoot" />
+    <section id="intro">
+      <h1>What is Kerbeluko?</h1>
+
+      <p>
+        Kerbeluko is a fictional language, made up purely for the purposes of
+        this generator, which I made to practice JavaScript while indulging in
+        my love of languages. Kerbeluko has a fixed set of affixes and a fixed
+        morphophonology, however I have not created any words because that would
+        take the fun away from this generator! Here, you can create the words
+        yourself and see how they inflect and compound together.
+      </p>
+
+      <h1>Morphology</h1>
+
+      <p>
+        Kerbeluko nouns have two grammatical numbers, singular and plural, and
+        three noun cases, nominative, accusative and genitive.
+        <a href="https://en.wikipedia.org/wiki/Grammatical_case" target="_blank"
+          >What are noun cases?</a
+        >.<br />
+        Grammatical number is marked with two suffixes: <i>-ko</i> marks the
+        singular and <i>-te</i> marks the plural.<br /><br />
+        <i>-gu-</i> "eye"
+      </p>
+
+      <ul>
+        <li><i>gu-ko</i> "eye"</li>
+        <li><i>gu-te</i> "eyes"</li>
+      </ul>
+
+      <p>
+        Noun case is marked with two prefixes: <i>he-</i> for the accusative and
+        <i>pi-</i> for the genitive. The nominative case is unmarked.<br />
+
+        Noun case and number combine in an agglutinative fashion, so a singular
+        accusative noun has the prefix <i>he-</i> and the suffix <i>-ko</i>
+      </p>
+
+      <ul>
+        <li><i>he-gu-ko</i> "eye" (accusative)</li>
+        <li><i>he-gu-te</i> "eyes" (accusative)</li>
+        <li><i>pi-gu-ko</i> "eye's" (genitive)</li>
+        <li><i>pi-gu-te</i> "eyes'" (genitive)</li>
+      </ul>
+
+      <h1>Phonology</h1>
+
+      <p>
+        Kerbeluko has five vowel qualities: /i, u, e ,o , a/, and two vowel
+        quantities: long and short. Long vowels only appear as a result of sound
+        changes which will be discussed below.<br /><br />
+        The consonants are:<br />
+      </p>
+      <ul>
+        <li><b>Nasals</b>: /m, n/</li>
+        <li><b>Plosives</b>: /p, b, t, d, k, g/</li>
+        <li><b>Fricatives</b>: /f, s, h/</li>
+        <li><b>Sonorants</b>: /r, l/</li>
+        <li><b>Approximants</b>: /j, w/</li>
+      </ul>
+
+      <p>
+        Kerbeluko has the following possible root structures (C = consonant, V =
+        vowel):
+      </p>
+      <ul>
+        <li><b>CV</b>: <i>-gu-</i></li>
+        <li><b>CVC</b>: <i>-mud-</i></li>
+        <li><b>CVCV</b>: <i>-weri-</i></li>
+        <li><b>CVCVC</b>: <i>-regon-</i></li>
+        <li><b>CVCC</b>: <i>-murk-</i></li>
+        <li><b>CVCCV</b>: <i>-dormu-</i></li>
+      </ul>
+
+      <h2>Morphophonology</h2>
+
+      <p>
+        When different morphemes are concatenated together, such as attaching a
+        prefix or suffix, or compounding two roots together, several sound
+        changes occur. Such that the root <i>-gu-</i> "eye" with the singular
+        suffix <i>-ko</i> and accusative prefix <i>he-</i> does not create
+        <i>*heguko</i> but <i>hēhko</i>. The rules are as follows.
+      </p>
+
+      <h3>Syncope</h3>
+
+      <p>
+        In a word with that is at least three syllables long, the vowel in the
+        second syllable is lost and the vowel in the first syllable becomes
+        long: <i>he-lu-ko</i> > <i>hēlko</i>, <i>weri-ko</i> >
+        <i>wērko</i>.<br />
+        However, if the vowel of the second syllable is surrounded by two of the
+        same consonant, then it is the vowel of the third syllable that is lost
+        and the vowel of the second syllable becomes long: <i>rako-ko</i> >
+        <i>rakōk</i>.
+      </p>
+
+      <p>
+        In a word that is two syllables long or more, but the first syllable is
+        heavy (has a consonant following the vowel), then the vowel of the
+        second syllable is lost and the vowel of the first syllable becomes
+        long. The first consonant of the second syllable is also lost:
+        <i>gim-ko</i> > <i>gīmo</i>. For such nouns, the singular suffix
+        <i>-ko</i> and plural suffix <i>-te</i> become <i>-o</i> and <i>-te</i>:
+        <i>-gim-</i> > <i>gīmo, gīme</i><br />
+        If the first syllable was super-heavy (has two consonant following the
+        vowel) then the second consonant of the first syllable is lost:
+        <i>pand-ko</i> > <i>pānko</i>.
+      </p>
+
+      <h3>Lenition</h3>
+
+      <p>
+        Kerbeluko does not allow a plosive to cluster before a cluster of the
+        same place of articulation. when such clusters occur, the first plosive
+        lenites to a voiceless fricative. If the second plosive was voiced, it
+        devoices after the fricative<br />
+      </p>
+      <ul>
+        <li>
+          <b>pb, bp</b> > <b>fp</b>: <i>bego-ko</i> > <i>bēgko</i> >
+          <i>bēhko</i>; <i>he-wirpbego-ko</i> > <i>hēurpbegoko</i> >
+          <i>hēurfpegoko</i>
+        </li>
+        <li>
+          <b>dt, td</b> > <b>st</b>: <i>mud-te</i> > <i>muste</i>;
+          <i>he-ritdolm-ko</i> > <i>hērtdolmgo</i> > <i>hērstolmgo</i>
+        </li>
+        <li>
+          <b>kg, gk</b> > <b>hk</b>: <i>bego-ko</i> > <i>bēgko</i> >
+          <i>bēhko</i>
+        </li>
+      </ul>
+
+      <h3>Metathesis</h3>
+
+      <p>
+        The cluster <i>bm</i> becomes <i>mb</i>: <i>durib-melon-ko</i> >
+        <i>dūrmbelonko</i>
+      </p>
+
+      <h3>Voicing of mC clusters</h3>
+
+      <p>Voiceless plosives become voiced when after <i>m</i>.</p>
+
+      <ul>
+        <li>
+          <b>mp</b> > <b>mb</b>: <i>kerem-parki-ko</i> > <i>kērmbarkiko</i>
+        </li>
+        <li><b>mt</b> > <b>md</b>: <i>barum-te</i> > <i>bārmde</i></li>
+        <li>
+          <b>mk</b> > <b>mg</b>: <i>pergo-losem-ko</i> > <i>pērolosemgo</i>
+        </li>
+      </ul>
     </section>
 
     <section id="inputSection">
-      <input type="text" id="inputMeaning" />
+      <h1>Kerbeluko Inflector</h1>
+
+      <p>
+        Use this tool to see how any Kerbeluko root would inflect and compound
+        with other roots! You can insert any roots that you want, even ones that
+        you made up! So long as they follow Kerbeluko's root structure! It is
+        possible to ignore Kerbeluko's root structure and add letters that don't
+        occur in Kerbeluko, but the results won't be accurate, but you can play
+        with this also if you wish. Enter as many words as you want, be sure to
+        divide each word with a blank space, don't use commas.<br /><br />
+        Here are some roots that you can start with:<br />
+        Roots: gu bego mud lu gim weri sab regon<br />
+        Meanings: eye hill head bone eagle blood sword boat
+      </p>
+
+      <div class="input-container">
+        <p>Enter Kerbeluko Roots Here:</p>
+        <input type="text" id="inputRoot" />
+      </div>
+      <div class="input-container">
+        <p>Enter Their Meanings Here:</p>
+        <input type="text" id="inputMeaning" />
+      </div>
       <input type="submit" value="Submit" id="submit" />
     </section>
 

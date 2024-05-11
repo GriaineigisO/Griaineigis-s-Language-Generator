@@ -5,6 +5,11 @@ submitButton.addEventListener("click", createArrays);
 /*------------SOUND CHANGES------------------------------------------------------*/
 
 function soundChange(word) {
+    
+    let vowels = ["a", "ā", "e", "ē", "o", "ō", "u", "ū", "i", "ī"];
+
+    let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "h", "l", "r", "j", "w"];
+    
     letterArray = Array.from(word); /*turns string into an array of individual letters*/
   
     /*---------SYNCOPE-----------*/
@@ -38,15 +43,65 @@ function soundChange(word) {
             }
         }
     } 
-    
-    let syncopedString = letterArray.join(""); //turns the array back into a string
-    
-    let lenitionString1 = syncopedString.replace("gk", "hk"); 
-    let lenitionString2 = lenitionString1.replace("dt", "st");
-    let lenitionString3 = lenitionString2.replace("bm", "mb");
-    let lenitionString4 = lenitionString3.replace("mt", "md");
 
-    return lenitionString4;
+    let syncopedString = letterArray.join(""); //turns the array back into a string
+
+    let lenitionString0 = syncopedString.replace("pb", "fp");
+    let lenitionString1 = lenitionString0.replace("bp", "fp");
+    let lenitionString2 = lenitionString1.replace("gk", "hk");
+    let lenitionString3 = lenitionString2.replace("kg", "hk"); 
+    let lenitionString4 = lenitionString3.replace("dt", "st");
+    let lenitionString5 = lenitionString4.replace("td", "st");
+    let lenitionString6 = lenitionString5.replace("bm", "mb");
+    let lenitionString7 = lenitionString6.replace("mt", "md");
+    let lenitionString8 = lenitionString7.replace("mp", "mb");
+    let lenitionString9 = lenitionString8.replace("mk", "mg");
+    
+    let furtherChanges = Array.from(lenitionString9);
+    
+    for(i=0; i < furtherChanges.length; i++) {
+
+    
+    //removes "h" if it occurs after another consonant
+    let beforeH = furtherChanges[i - 1]
+    if(furtherChanges[i] == "h" && consonants.includes(beforeH)) {
+        furtherChanges.splice([i], 1)
+    }
+    
+    //turns "w" into "u" if it occurs before a consonant
+    let afterW = furtherChanges[i + 1]
+    if(furtherChanges[i] == "w" && consonants.includes(afterW)) {
+        furtherChanges[i] ="u"
+    }
+
+    //turns "j" into "i" if it occurs before a consonant
+    let afterJ = furtherChanges[i + 1]
+    if(furtherChanges[i] == "j" && consonants.includes(afterJ)) {
+        furtherChanges[i] ="i"
+    
+    }
+
+    //turns geminate consonants into singletons
+    if (furtherChanges[i] == furtherChanges[i + 1]) {
+        furtherChanges.splice([i], 1)
+    }
+
+}
+
+    let rejoinedString = furtherChanges.join(""); //turns the array back into a string
+
+    let fixMacronUPlusU = rejoinedString.replace("ūu", "ū");
+    let fixUPlusMacronU = fixMacronUPlusU.replace("uū", "ū");
+    let fixMacronIPlusI = fixUPlusMacronU.replace("īi", "ī");
+    let fixIPlusMacronI = fixMacronIPlusI.replace("iī", "ī");
+   /* let reduceGeminate = fixIPlusMacronI.replace("pp", "p");
+    let reduceGeminate1 = reduceGeminate.replace("bb", "b");
+    let reduceGeminate2 = reduceGeminate1.replace("tt", "t");
+    let reduceGeminate3 = reduceGeminate2.replace("dd", "d");
+    let reduceGeminate4 = reduceGeminate3.replace("kk", "k");
+    let reduceGeminate5 = reduceGeminate4.replace("gg", "g");*/
+
+    return fixIPlusMacronI;
 }
 
 /*-----------^^^-SOUND CHANGES-^^^-----------------------------------------------------*/
@@ -241,14 +296,13 @@ function createArrays() {
 
   /*----------------------^^^INFLECTION TABLE-^^^-------------------------------------------------------------*/
 
+
+
+
   /*-------------COMPOUND------------------------*/
         let compound = ""
         let compoundArray = [];
         let compoundMeaningArray = [];
-        
-
-    
-
         for(i = 0; i < splitInputRoot.length; i++) {
             for (j = 0; j < splitInputRoot.length; j++) {
                 if (splitInputRoot[i] == splitInputRoot[j]) { //prevents a root being compounded with itself
@@ -263,16 +317,11 @@ function createArrays() {
                 
             }
         }
-
-       
-  
-       
  /*-----------------------COMPOUND HEADWORD--------------------------------------------------------------*
     
 /* Generates the headword above each compound table, showing the compound and it's meaning as a title */
             for(x = 0; x < compoundArray.length; x++) {
                 let compoundFromArray = compoundArray[x]; 
-              
                 let compoundMeaningFromArray = compoundMeaningArray[x];
 
                 /*Creates a new p element to which is appended the root*/
@@ -344,8 +393,8 @@ function createArrays() {
                     let nomSgEtymologyCompound = " " + " <" + " " + compoundFromArray + "-" + "ko";
                     let nomPlEtymologyCompound = " " + " <" + " " + compoundFromArray + "-" + "te";
 
-                    let accSgCompound = "he" + compound + "ko"
-                    let accPlCompound = "he" + compound + "te"
+                    let accSgCompound = "he" + compoundFromArray + "ko"
+                    let accPlCompound = "he" + compoundFromArray + "te"
 
                     let accSgEtymologyCompound = " " + "<" + " " + "he" + "-" + compoundFromArray + "-" + "ko";
                     let accPlEtymologyCompound = " " + "<" + " " + "he" + "-" +  compoundFromArray + "-" + "te";
@@ -422,13 +471,6 @@ function createArrays() {
                         }
                 
             }
-
-
-            
-        
-    
-        
-        
 
 
   /*----------------------^^^COMPOUND TABLE-^^^-------------------------------------------------------------*/

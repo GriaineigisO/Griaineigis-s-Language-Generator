@@ -393,10 +393,12 @@
 
         let fixMacronUPlusU = reduceGeminate11.replace("ūu", "ū");
         let fixUPlusMacronU = fixMacronUPlusU.replace("uū", "ū");
-        let fixMacronIPlusI = fixUPlusMacronU.replace("īi", "ī");
+        let fixUPlusU = fixMacronUPlusU.replace("uu", "ū");
+        let fixMacronIPlusI = fixUPlusU.replace("īi", "ī");
         let fixIPlusMacronI = fixMacronIPlusI.replace("iī", "ī");
+        let fixIPluI = fixIPlusMacronI.replace("ii", "ī");
 
-        return fixIPlusMacronI;
+        return fixIPluI;
       }
 
       /*-----------^^^-SOUND CHANGES-^^^-----------------------------------------------------*/

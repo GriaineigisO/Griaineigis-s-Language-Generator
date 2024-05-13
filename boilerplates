@@ -6,16 +6,18 @@ function createAlso() {
     console.log(wordAlso)
 
     let spanAlso = document.getElementsByClassName("also");
-    for (i = 0; spanAlso.length; i++) {
-        if (spanAlso[i].innerHTML != soundChange(wordAlso)) {
-            spanAlso[i].innerHTML = soundChange(wordAlso);
+    for (i = 0; i < spanAlso.length; i++) {
+        if (wordAlso != "") { //if no word has been input by the user, then nothing happens
+            if (spanAlso[i].innerHTML != soundChange(wordAlso)) {
+                spanAlso[i].innerHTML = soundChange(wordAlso);
+            }
         }
     }
-    return wordAlso
-}
+       return wordAlso
+    }
 
 
-//function to take the returns of two of such functions as above, and merge them. This function is triggered by an event listeners for the latter half of the compound's submit button
+//function to take the returns of two of such functions as above, and merge them.
 
 function createThis() {
     let wordHere = createHere(); //assigns the word "here"

@@ -162,8 +162,12 @@ a:hover {
     margin-bottom: 10px;
 }
 
-.this-pronoun, .also, .relative-pronoun, .adverbial-suffix, .relative-pronoun, .nominaliser-suffix, .firstPersonPronoun, .secondPersonPronoun, .adjective, .noun {
+.this-pronoun, .also, .relative-pronoun, .adverbial-suffix, .relative-pronoun, .nominaliser-suffix, .firstPersonPronoun, .secondPersonPronoun, .adjective, .noun, .adjective1-copy, .adjective2-copy, .adjective3-copy, .adjective4-copy, #noun5-copy, #noun5Also, #adjective5Also, .adjective5-copy {
     font-style: italic;
+}
+
+#noun5, #adjective5 {
+    display: none;
 }
 
 /* PHONE */

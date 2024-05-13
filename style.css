@@ -19,7 +19,7 @@ header {
 #title-div h1 {
     letter-spacing: 2px;
     font-weight: 800;
-    margin: -20px;
+    margin: 10px 0px -20px 10px;
     color: #4b506b !important;
 }
 
@@ -30,7 +30,7 @@ header {
 
 #subtitle {
     display: flex;
-    margin-left: 80px;
+    margin-left: 90px;
     color: #4b506b !important;
 }
 
@@ -69,16 +69,17 @@ a:hover {
     color: #dd6f2c
 }
 
-#inputSection p, #inputSection h1, #intro {
+.inputSection p, .inputSection h1, .intro {
     margin-left: 4em;
     margin-top: 3em;
 }
 
-#intro, #inputSection p {
+
+.intro, .inputSection p, #outputSectionAdjective p {
   max-width: 80em;  
 }
 
-#inputSection, .inputSection-container, #inputRoot {
+.inputSection, .inputSection-container, #inputRootNoun {
     max-width: 100%;
 }
 
@@ -98,19 +99,20 @@ a:hover {
     margin-top: 10px;
 }
 
- #inputRoot,
- #inputMeaning {
+ #inputRootNoun,
+ #inputMeaningNoun,  #inputRootAdjective,
+ #inputMeaningAdjective {
      padding-bottom: 80px;
      display: flex;
      align-content: flex-start;
      justify-content: left;
  }
 
-#button-div {
+.button-div {
     margin-left: 11em;
 }
 
-#button-div input {
+.button-div input {
     margin-left: 2em;
     background-color: #CC005A;
     border-radius: 10px;
@@ -121,8 +123,8 @@ a:hover {
     margin-left: -120px;
 }
 
- #clear-input,
- #submit {
+ .clear-input,
+ .submit {
      height: 60px;
      font-size: 30px;
      margin-top: 20px;
@@ -131,13 +133,37 @@ a:hover {
     
  }
 
-#button-div input:hover {
+.button-div input:hover {
     background-color: #570729;
 }
 
 
-#outputSection {
+#outputSectionNoun {
     margin-left: 4em;
+}
+
+
+#change-name {
+    background-color: #CC005A;
+    border-radius: 10px;
+    padding: 6px;
+    color: #f5f8f8;
+}
+
+#change-name:hover {
+    background-color: #570729;
+}
+
+.inputOtherPartsOfSpeechSection {
+    background-color: #535537;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.this-pronoun, .also, .relative-pronoun, .adverbial-suffix, .relative-pronoun, .nominaliser-suffix, .firstPersonPronoun, .secondPersonPronoun, .adjective, .noun {
+    font-style: italic;
 }
 
 /* PHONE */
@@ -178,30 +204,31 @@ a:hover {
     }
     
    
-    #button-div {
+    .button-div {
         width: 100%;
         display: flex;
         flex-direction: column;
         margin-left: 80px;
     }
 
-    #button-div, #clear-input, #submit{
+    .button-div, .clear-input, .submit{
         width: 95%;
         margin-top: 20px;
        margin-left: 150px;
     }
 
-    #clear-input, #submit {
+    .clear-input, #submit {
         height: 90px;
         font-size: 40px;
+        text-align: center;
     }
 
-    #intro, #inputSection p {
+    .intro, .inputSection p {
         max-width: 400px;
         margin-left: 0px;
     }
 
-    #inputSection h1 {
+    .inputSection h1 {
         margin-left: 0px;
     }
 
@@ -210,14 +237,14 @@ a:hover {
         flex-direction: column;
     }
 
-    #inputRoot, #inputMeaning {
+    #inputRootNoun, #inputMeaningNoun {
         padding-bottom: 80px;
         display: flex;
         align-content: flex-start;
         justify-content:left;
     }
 
-    #outputSection {
+    #outputSectionNoun {
         width: 100%;
     }
 
@@ -225,5 +252,8 @@ a:hover {
         display: none;
     }
 }
+
+
+
 
 

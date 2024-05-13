@@ -1,15 +1,37 @@
 
+/* CHANGES LANGUAGE NAME---------------------*/
 
-let submitButton = document.getElementById("submit");
-let clearButton = document.getElementById("clear-input");
+let changeNameButton = document.getElementById("change-name");
+changeNameButton.addEventListener("click", nameChanger);
+
+let changeName = document.getElementById("changeName");
+let newSpan = document.getElementsByClassName("language-name");
+
+function nameChanger() {
+    for(i=0; i < newSpan.length; i++) {
+        if (newSpan[i].innerHTML != changeName.value) {
+            newSpan[i].innerHTML = changeName.value;
+        } 
+    }
+    
+    
+}
+
+/* CHANGES LANGUAGE NAME^^^^^---------------------*/
+
+/*---------------------------------------*/
+
+
+let submitButton = document.getElementById("submitNoun");
+let clearButton = document.getElementById("clear-inputNoun");
 
 submitButton.addEventListener("click", createArrays);
 clearButton.addEventListener("click", clearOutput);
 
 function clearOutput() { //clears previous results upon clicking "Clear Output"
-    outputSection.replaceChildren();
-    document.getElementById("inputRoot").value ="";
-    document.getElementById("inputMeaning").value ="";
+    outputSectionNoun.replaceChildren();
+    document.getElementById("inputRootNoun").value ="";
+    document.getElementById("inputMeaningNoun").value ="";
 }
     
 /*------------SOUND CHANGES------------------------------------------------------*/
@@ -125,7 +147,7 @@ function soundChange(word) {
 
 //Takes the words from both text fields and splits them into arrays, then it creates an object using both arrays.
 function createArrays() {
-    let outputSection = document.getElementById("outputSection");
+    let outputSection = document.getElementById("outputSectionNoun");
     outputSection.replaceChildren(); //clears the previous output upon refreshing the page
     
     //Creates a div to contain the root inflection tables, and adds an h1 to it.
@@ -144,9 +166,9 @@ function createArrays() {
     compoundDiv.appendChild(compoundH1);
     outputSection.appendChild(compoundDiv);
 
-    let inputRoot = document.getElementById("inputRoot").value;
+    let inputRoot = document.getElementById("inputRootNoun").value;
     let splitInputRoot = inputRoot.split(" ");
-    let inputMeaning = document.getElementById("inputMeaning").value;
+    let inputMeaning = document.getElementById("inputMeaningNoun").value;
     let splitInputMeaning = inputMeaning.split(" ");
 
  /*-----------------------INFLECTION HEADWORD--------------------------------------------------------------*
@@ -494,4 +516,235 @@ function createArrays() {
 
 
 
+/*------------------------------------------------------*/
 
+
+
+//Generates the word for "here"
+function createHere() {
+    let inputHere = document.getElementById("inputHere");
+    let wordHere = inputHere.value;
+    let spanHere = document.getElementsByClassName("here");
+    for (i = 0; i < spanHere.length; i++) {
+        if (wordHere != "") { //if no word has been input by the user, then nothing happens
+            if (spanHere[i].innerHTML != soundChange(wordHere)) {
+                spanHere[i].innerHTML = soundChange(wordHere);
+            }
+        }
+    }
+       return wordHere
+    }
+
+//Generates the adverbial suffix
+function createAdverbialSuffix() {
+    let inputAdverbialSuffix = document.getElementById("inputAdverbialSuffix");
+    let wordAdverbialSuffix = inputAdverbialSuffix.value;
+    let spanAdverbialSuffix = document.getElementsByClassName("adverbial-suffix");
+   for (i = 0; i < spanAdverbialSuffix.length; i++) {
+        if (wordAdverbialSuffix != "") { //if no word has been input by the user, then nothing happens
+            if (spanAdverbialSuffix[i].innerHTML != soundChange(wordAdverbialSuffix)) {
+                spanAdverbialSuffix[i].innerHTML = soundChange(wordAdverbialSuffix);
+            }
+        }
+    }
+       return wordAdverbialSuffix
+    }
+
+//Merges the word for "here" and the adverbial suffix to create the demonstrative pronoun "this"
+function createThis() {
+    let wordHere = createHere(); //assigns the word "here"
+    let wordAdverbialSuffix = createAdverbialSuffix(); //assigns the adverbial suffix
+    let thisPronoun = wordHere + wordAdverbialSuffix; 
+    
+    //assigns the merged result to the appropriate span elements, and applies the sound changes
+    let spanThis = document.getElementsByClassName("this-pronoun");
+    for (i = 0; i < spanThis.length; i++) {
+        if (thisPronoun != "") { //if no word has been input by the user, then nothing happens
+            if (spanThis[i].innerHTML != soundChange(thisPronoun)) {
+                spanThis[i].innerHTML = soundChange(thisPronoun);
+            }
+        }
+    }
+       return thisPronoun
+    }
+
+//Generates the word for "also"
+function createAlso() {
+    let inputAlso = document.getElementById("inputAlso");
+    let wordAlso = inputAlso.value;
+    let spanAlso = document.getElementsByClassName("also");
+    for (i = 0; i < spanAlso.length; i++) {
+        if (wordAlso != "") {
+            if (spanAlso[i].innerHTML != soundChange(wordAlso)) {
+                spanAlso[i].innerHTML = soundChange(wordAlso);
+            }
+        }
+    }
+       return wordAlso
+    }
+    
+//Generates the relative pronoun by merging the word for "this" and "also"
+function createRelativePronoun() {
+    let wordThis = createThis(); //assigns the word "this"
+    let wordAlso = createAlso(); //assigns the word "also"
+    let RelativePronoun = wordThis + wordAlso; 
+    
+    //assigns the merged result to the appropriate span elements, and applies the sound changes
+    let spanRelativePronoun = document.getElementsByClassName("relative-pronoun");
+    for (i = 0; i < spanRelativePronoun.length; i++) {
+        if (RelativePronoun != "") { //if no word has been input by the user, then nothing happens
+            if (spanRelativePronoun[i].innerHTML != soundChange(RelativePronoun)) {
+                spanRelativePronoun[i].innerHTML = soundChange(RelativePronoun);
+            }
+        }
+    }
+       return RelativePronoun
+    }
+
+//Generates the nominaliser suffix
+function createNominaliserSuffix() {
+    let inputNominaliserSuffix = document.getElementById("inputNominaliser");
+    let nominaliserSuffix = inputNominaliserSuffix.value;
+    let spanNominaliserSuffix = document.getElementsByClassName("nominaliser-suffix");
+    for (i = 0; i < spanNominaliserSuffix.length; i++) {
+        if (nominaliserSuffix != "") { //if no word has been input by the user, then nothing happens
+            if (spanNominaliserSuffix[i].innerHTML != soundChange(nominaliserSuffix)) {
+                spanNominaliserSuffix[i].innerHTML = soundChange(nominaliserSuffix);
+            }
+        }
+    }
+       return nominaliserSuffix
+    }
+
+//Generates the first person pronoun suffix
+function createFirstPersonPronoun() {
+    let inputFirstPersonPronoun = document.getElementById("first-person-pronoun");
+    let FirstPersonPronoun = inputFirstPersonPronoun.value;
+    let spanFirstPersonPronoun = document.getElementsByClassName("firstPersonPronoun");
+    for (i = 0; i < spanFirstPersonPronoun.length; i++) {
+        if (FirstPersonPronoun != "") { //if no word has been input by the user, then nothing happens
+            if (spanFirstPersonPronoun[i].innerHTML != soundChange(FirstPersonPronoun)) {
+                spanFirstPersonPronoun[i].innerHTML = soundChange(FirstPersonPronoun);
+            }
+        }
+    }
+       return FirstPersonPronoun
+    }
+    
+function createSecondPersonPronoun() {
+let inputSecondPersonPronoun = document.getElementById("second-person-pronoun");
+let SecondPersonPronoun = inputSecondPersonPronoun.value;
+let spanSecondPersonPronoun = document.getElementsByClassName("secondPersonPronoun");
+for (i = 0; i < spanSecondPersonPronoun.length; i++) {
+    if (SecondPersonPronoun != "") { //if no word has been input by the user, then nothing happens
+        if (spanSecondPersonPronoun[i].innerHTML != soundChange(SecondPersonPronoun)) {
+            spanSecondPersonPronoun[i].innerHTML = soundChange(SecondPersonPronoun);
+        }
+    }
+}
+    return SecondPersonPronoun
+}
+
+function createRandomAdjective() {
+    //puts all of the input adjectives into one array
+    let inputAdjective = document.getElementById("inputRootAdj").value;
+    let splitAdjective = inputAdjective.split(" ");
+
+    //puts all of the input adjectives' meanings into one array
+    let inputAdjectiveMeaning = document.getElementById("inputMeaningAdj").value;
+    let splitAdjectiveMeaning = inputAdjectiveMeaning.split(" ");
+
+    let spanAdjective = document.getElementsByClassName("adjective");
+    let spanAdjectiveMeaning = document.getElementsByClassName("adjective-meaning");
+    
+    for (i = 0; i < spanAdjective.length; i++) {
+        let randomNumber = Math.floor(Math.random() * splitAdjective.length);//chooses a random integer between 0 and the array's length
+        let randomAdjective = splitAdjective[randomNumber] //random adjective from the array
+        let randomAdjectiveMeaning = splitAdjectiveMeaning[randomNumber] 
+
+        spanAdjective[i].innerHTML = soundChange(randomAdjective);     
+        spanAdjectiveMeaning[i].innerHTML = randomAdjectiveMeaning;
+    }
+}
+
+function createRandomNoun() {
+    //puts all of the input adjectives into one array
+    let inputNoun = document.getElementById("inputRootNoun").value;
+    let splitNoun = inputNoun.split(" ");
+
+    //puts all of the input adjectives' meanings into one array
+    let inputNounMeaning = document.getElementById("inputMeaningNoun").value;
+    let splitNounMeaning = inputNounMeaning.split(" ");
+
+    let spanNoun = document.getElementsByClassName("noun");
+    let spanNounMeaning = document.getElementsByClassName("noun-meaning");
+    
+    for (i = 0; i < spanNoun.length; i++) {
+        let randomNumber = Math.floor(Math.random() * splitNoun.length);//chooses a random integer between 0 and the array's length
+        let randomNoun = splitNoun[randomNumber] //random noun from the array
+        let randomNounMeaning = splitNounMeaning[randomNumber] 
+
+        spanNoun[i].innerHTML = soundChange(randomNoun);     
+        spanNounMeaning[i].innerHTML = randomNounMeaning;
+    }
+}
+
+//When I wish to display the same randomly generated word several times within the same example, only the first instance is randomly generated, the rest merely copy the test content of the first
+function createCopy() {
+   
+    let nounMeaning1 = document.getElementById("noun-meaning1");
+    let nounMeaning1Content = nounMeaning1.innerHTML;
+    let NounMeaningCopy1 = document.getElementsByClassName("noun-meaning1-copy");
+    for(i = 0; i < NounMeaningCopy1.length; i++) {
+        NounMeaningCopy1[i].innerHTML = nounMeaning1Content;
+    }
+
+    let nounMeaning2 = document.getElementById("noun-meaning2");
+    let nounMeaning2Content = nounMeaning2.innerHTML;
+    let NounMeaningCopy2 = document.getElementsByClassName("noun-meaning2-copy");
+    for(i = 0; i < NounMeaningCopy2.length; i++) {
+        NounMeaningCopy2[i].innerHTML = nounMeaning2Content;
+    }
+    
+
+    let adjectiveMeaning1 = document.getElementById("adjective-meaning1");
+    let adjectiveMeaning1Content = adjectiveMeaning1.innerHTML;
+    let adjectiveMeaningCopy1 = document.getElementsByClassName("adjective-meaning1-copy");
+    for(i = 0; i < adjectiveMeaningCopy1.length; i++) {
+        adjectiveMeaningCopy1[i].innerHTML = adjectiveMeaning1Content;
+    }
+
+    let adjectiveMeaning2 = document.getElementById("adjective-meaning2");
+    let adjectiveMeaning2Content = adjectiveMeaning2.innerHTML;
+    let adjectiveMeaningCopy2 = document.getElementsByClassName("adjective-meaning2-copy");
+    for(i = 0; i < adjectiveMeaningCopy2.length; i++) {
+        adjectiveMeaningCopy2[i].innerHTML = adjectiveMeaning2Content;
+    }
+
+
+}
+
+function createAdjNomSg() {
+    let adjective = document.getElementsByClassName("adjective-nom-sg");
+    let nominaliser = createNominaliserSuffix();
+}
+
+/*--------------*/
+
+let submitRest = document.getElementById("submitRest");
+submitRest.addEventListener("click", buttonFunctions,);
+
+function buttonFunctions() {
+    createHere();
+    createAdverbialSuffix();
+    createThis();
+    createAlso();
+    createRelativePronoun();
+    createNominaliserSuffix();
+    createFirstPersonPronoun();
+    createSecondPersonPronoun();
+    createRandomAdjective();
+    createRandomNoun();
+    createCopy();
+    createAdjNomSg();
+}

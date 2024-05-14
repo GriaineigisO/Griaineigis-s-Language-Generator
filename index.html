@@ -242,15 +242,26 @@
         Meanings: eye hill head bone eagle cloud blood sword boat
       </p>
 
-      <div class="input-container">
+      <p>
+        Alternatively, you can have new noun roots and their meanings randomly generated.
+      </p>
+      
+      <div class="generate-button-div">
+        <p>Enter the number of nouns you would like to generate:</p>
+        <input type="textarea" id="select-amount">
+        <input type="button" id="generate-nouns" value="Generate Nouns">
+      </div>
+      
+
+      <div class="input-container noun-input-container">
         <p>
           Enter <span class="language-name">Kerbekulo</span> Noun Roots Here:
         </p>
-        <input type="textarea" id="inputRootNoun" />
+        <input type="textarea" id="inputRootNoun" value=""/>
       </div>
-      <div class="input-container">
+      <div class="input-container noun-input-container">
         <p>Enter Their Meanings Here:</p>
-        <input type="textarea" id="inputMeaningNoun" />
+        <input type="textarea" id="inputMeaningNoun" value=""/>
       </div>
       <div class="button-div">
         <input type="submit" value="Submit" class="submit" id="submitNoun" />
@@ -263,16 +274,24 @@
       </div>
     </section>
 
+    <section id="outputSectionNoun"></section>
+
     <section class="intro">
       <h1>
         Now for the rest of the language! You will be prompted to enter other
         parts of speech as you go along.
       </h1>
+      <p>Alternatively, you can click the button to have new words and their meanings randomly generated.</p>
+      <div class="generate-button-div">
+        <p>Enter the number of adjectives and verbs you would like to generate:</p>
+          <input type="textarea" id="select-amount-else">
+          <input type="button" value="Generate Roots" id="generate-vocab">
+      </div>
     </section>
 
     <!-- ADJECTIVES----------------------------------------------------------------------------->
 
-    <section id="outputSectionNoun"></section>
+    
 
     <section class="inputSection inputOtherPartsOfSpeechSection">
       <div class="input-container">
@@ -280,11 +299,11 @@
           Enter <span class="language-name">Kerbekulo</span> Adjective Roots
           Here:
         </p>
-        <input type="textarea" id="inputRootAdj" />
+        <input type="textarea" id="inputRootAdj" value=""/>
       </div>
       <div class="input-container">
         <p>Enter Their Meanings Here:</p>
-        <input type="textarea" id="inputMeaningAdj" />
+        <input type="textarea" id="inputMeaningAdj" value="" />
       </div>
     
 
@@ -464,8 +483,8 @@
         <span class="noun-meaning" id="noun-meaning5">BLANK</span>" > 
         <span id="bahuvrihi"></span> "that which has a <span class="adjective-meaning5-copy"></span>
         <span class="noun-meaning5-copy">BLANK</span>"
-        (< <span id="noun5Also"></span>-
-        <span id="adjective5Also"></span>-
+        (< <span id="noun5Also">BLANK</span>-
+        <span id="adjective5Also">BLANK</span>-
         <span class="nominaliser-suffix">BLANK</span>-<i>ko</i>
         )
 

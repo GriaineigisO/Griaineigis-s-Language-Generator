@@ -74,6 +74,13 @@ a:hover {
     margin-top: 3em;
 }
 
+h1 {
+    margin-left: 4em;
+}
+
+
+
+
 
 .intro, .inputSection p, #outputSectionAdjective p {
   max-width: 80em;  
@@ -102,7 +109,6 @@ a:hover {
  #inputRootNoun,
  #inputMeaningNoun,  #inputRootAdjective,
  #inputMeaningAdjective {
-     padding-bottom: 80px;
      display: flex;
      align-content: flex-start;
      justify-content: left;
@@ -141,6 +147,31 @@ a:hover {
 #outputSectionNoun {
     margin-left: 4em;
 }
+
+ .scroll-container {
+     height: 500px;
+     overflow-y: scroll;
+ }
+
+ .scroll-container::-webkit-scrollbar {
+     width: 12px;
+ }
+
+ .scroll-container::-webkit-scrollbar-track {
+     background: #f1f1f1;
+ }
+
+ .scroll-container::-webkit-scrollbar-thumb {
+     background: #888;
+ }
+
+ .scroll-container::-webkit-scrollbar-thumb:hover {
+     background: #555;
+ }
+
+ .scroll-container::-webkit-scrollbar-button {
+     display: none;
+ }
 
 
 #change-name {
@@ -252,7 +283,6 @@ a:hover {
     }
 
     #inputRootNoun, #inputMeaningNoun {
-        padding-bottom: 80px;
         display: flex;
         align-content: flex-start;
         justify-content:left;

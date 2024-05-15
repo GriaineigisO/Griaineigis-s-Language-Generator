@@ -14,10 +14,10 @@ function nameChanger() {
 
 /* CHANGES LANGUAGE NAME^^^^^---------------------*/
 
-/*---------------------------------------*/
 
 
-let submitButton = document.getElementById("submitNoun");
+
+let submitButton = document.getElementById("submitWords");
 let clearButton = document.getElementById("clear-inputNoun");
 
 submitButton.addEventListener("click", createArrays);
@@ -27,6 +27,8 @@ function clearOutput() { //clears previous results upon clicking "Clear Output"
     outputSectionNoun.replaceChildren();
     document.getElementById("inputRootNoun").value = "";
     document.getElementById("inputMeaningNoun").value = "";
+    document.getElementById("inputRootAdj").value = "";
+    document.getElementById("inputMeaningAdj").value = "";
 }
 
 /*------------SOUND CHANGES------------------------------------------------------*/
@@ -147,18 +149,20 @@ function createArrays() {
 
     //Creates a div to contain the root inflection tables, and adds an h1 to it.
     let inflectionDiv = document.createElement("div");
-    inflectionDiv.classList.add("inflection-output");
+    inflectionDiv.classList.add("inflection-output", "scroll-container");
     let inflectionH1 = document.createElement("h1");
     inflectionH1.innerHTML = "Inflected Roots";
-    inflectionDiv.appendChild(inflectionH1);
+    outputSection.appendChild(inflectionH1);
+    inflectionH1.setAttribute("id", "inflectionH1");
+
     outputSection.appendChild(inflectionDiv);
 
     //Creates a div to contain the compound inflection tables, and adds an h1 to it.
     let compoundDiv = document.createElement("div");
-    compoundDiv.classList.add("compound-output");
+    compoundDiv.classList.add("compound-output", "scroll-container");
     let compoundH1 = document.createElement("h1");
+    outputSection.appendChild(compoundH1);
     compoundH1.innerHTML = "Compounds";
-    compoundDiv.appendChild(compoundH1);
     outputSection.appendChild(compoundDiv);
 
     let inputRoot = document.getElementById("inputRootNoun").value;
@@ -511,7 +515,6 @@ function createArrays() {
 
 
 
-/*------------------------------------------------------*/
 
 
 
@@ -578,6 +581,7 @@ function createAlso() {
     return wordAlso
 }
 
+
 //Generates the relative pronoun by merging the word for "this" and "also"
 function createRelativePronoun() {
     let wordThis = createThis(); //assigns the word "this"
@@ -641,6 +645,61 @@ function createSecondPersonPronoun() {
     return SecondPersonPronoun
 }
 
+//Generates the non-past-suffix"
+function createNonPastSuffix() {
+    let inputNonPastSuffix = document.getElementById("non-past");
+    let wordNonPastSuffix = inputNonPastSuffix.value;
+    let spanNonPastSuffix = document.getElementsByClassName("non-past");
+    for (i = 0; i < spanNonPastSuffix.length; i++) {
+        if (wordNonPastSuffix != "") {
+            if (spanNonPastSuffix[i].innerHTML != soundChange(wordNonPastSuffix)) {
+                spanNonPastSuffix[i].innerHTML = soundChange(wordNonPastSuffix);
+            }
+        }
+    }
+    return wordNonPastSuffix;
+}
+
+function createCopula() {
+    let inputCopula = document.getElementById("inputToBe");
+    let wordCopula = inputCopula.value;
+    let spanCopula = document.getElementsByClassName("copula");
+    for (i = 0; i < spanCopula.length; i++) {
+        if (wordCopula != "") {
+            if (spanCopula[i].innerHTML != soundChange(wordCopula)) {
+                spanCopula[i].innerHTML = soundChange(wordCopula);
+            }
+        }
+    }
+    return wordCopula
+}
+
+function createCopulaSgNonPast() {
+    let copula = createCopula();
+    let nonPastSuffix = createNonPastSuffix();
+    let thirdPersonSg = createThis(); //in this language, the third person on verbs is marked by prefixing "this"
+    let CopulaSgNonPast = thirdPersonSg + copula + nonPastSuffix
+
+    //assigns the merged result to the appropriate span elements, and applies the sound changes
+    let spanRelativeCopulaSgNonPast = document.getElementsByClassName("copula-sg-non-past");
+    for (i = 0; i < spanRelativeCopulaSgNonPast.length; i++) {
+        if (copula != "") { //if no word has been input by the user, then nothing happens
+            if (spanRelativeCopulaSgNonPast[i].innerHTML != soundChange(CopulaSgNonPast)) {
+                spanRelativeCopulaSgNonPast[i].innerHTML = soundChange(CopulaSgNonPast);
+            }
+        }
+    }
+    return CopulaSgNonPast;
+}
+
+function createCopulaPlNonPast() {
+    let copula = createCopula();
+    let nonPastSuffix = createNonPastSuffix();
+    
+
+
+}
+
 //selects a random noun from the nouns entered by the user
 function createRandomAdjective() {
     //puts all of the input adjectives into one array
@@ -701,6 +760,13 @@ function createCopy() {
     let noun5Content = noun5.innerHTML;
     let nounCopy5 = document.getElementById("noun5-copy");
     nounCopy5.innerHTML = noun5Content;
+
+   let noun7 = document.getElementById("noun7");
+    let noun7Content = noun7.innerHTML;
+    let nounCopy7 = document.getElementsByClassName("noun7-copy");
+    for (i = 0; i < noun7.length; i++) {
+        nounCopy7[i].innerHTML = noun7Content;
+    }
     
     
     let nounMeaning1 = document.getElementById("noun-meaning1");
@@ -738,6 +804,13 @@ function createCopy() {
         NounMeaningCopy5[i].innerHTML = nounMeaning5Content;
     }
 
+    let nounMeaning7 = document.getElementById("noun-meaning7");
+    let nounMeaning7Content = nounMeaning7.innerHTML;
+    let NounMeaningCopy7 = document.getElementsByClassName("noun-meaning7-copy");
+    for (i = 0; i < NounMeaningCopy7.length; i++) {
+        NounMeaningCopy7[i].innerHTML = nounMeaning7Content;
+    }
+
     let adjective1 = document.getElementById("adjective1");
     let adjective1Content = adjective1.innerHTML;
     let adjectiveCopy1 = document.getElementsByClassName("adjective1-copy");
@@ -771,6 +844,13 @@ function createCopy() {
     let adjectiveCopy5 = document.getElementsByClassName("adjective5-copy");
     for (i = 0; i < adjectiveCopy5.length; i++) {
         adjectiveCopy5[i].innerHTML = adjective5Content;
+    }
+
+    let adjective6 = document.getElementById("adjective6");
+    let adjective6Content = adjective6.innerHTML;
+    let adjectiveCopy6 = document.getElementsByClassName("adjective6-copy");
+    for (i = 0; i < adjectiveCopy6.length; i++) {
+        adjectiveCopy6[i].innerHTML = adjective6Content;
     }
 
 
@@ -807,6 +887,13 @@ function createCopy() {
     let adjectiveMeaningCopy5 = document.getElementsByClassName("adjective-meaning5-copy");
     for (i = 0; i < adjectiveMeaningCopy5.length; i++) {
         adjectiveMeaningCopy5[i].innerHTML = adjectiveMeaning5Content;
+    }
+
+    let adjectiveMeaning6 = document.getElementById("adjective-meaning6");
+    let adjectiveMeaning6Content = adjectiveMeaning6.innerHTML;
+    let adjectiveMeaningCopy6 = document.getElementsByClassName("adjective-meaning6-copy");
+    for (i = 0; i < adjectiveMeaningCopy6.length; i++) {
+        adjectiveMeaningCopy6[i].innerHTML = adjectiveMeaning6Content;
     }
 
 
@@ -891,11 +978,8 @@ function createAdjNomPl() {
 }
 
 
-
-/*--------------*/
-
-let submitRest = document.getElementById("submitRest");
-submitRest.addEventListener("click", buttonFunctions,);
+let submitWords = document.getElementById("submitWords");
+submitWords.addEventListener("click", buttonFunctions,);
 
 function buttonFunctions() {
     createHere();
@@ -906,6 +990,10 @@ function buttonFunctions() {
     createNominaliserSuffix();
     createFirstPersonPronoun();
     createSecondPersonPronoun();
+    createNonPastSuffix();
+    createCopula();
+    createCopulaSgNonPast();
+    createCopulaPlNonPast();
     createRandomAdjective();
     createRandomNoun();
     createCopy();
@@ -918,17 +1006,41 @@ function buttonFunctions() {
 
 /*-------RANDOM GENERATION-------------------*/
 //an array of all consonants and vowels in the language
-let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "s", "h", "r", "l", "j", "w"];
+
+/*-----Generates Phonemic Inventory----*/
+let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "s", "r", "l", "j", "w"];
 let vowels = ["i", "u", "o", "e", "a"];
 
+let generatePhonemeButton = document.getElementById("generatePhonemes");
+generatePhonemeButton.addEventListener("click", generatePhonemicInventory)
+let resetPhonemes = document.getElementById("resetPhonemes")
+resetPhonemes.addEventListener("click", resetInventory);
 
-/*----Generates Noun----*-*/
-let generateNounButton = document.getElementById("generate-nouns");
-generateNounButton.addEventListener("click", generateNounsAndMeanings);
 
-function generateNounsAndMeanings(){
+function generatePhonemicInventory() {
+    let enteredConsonants = document.getElementById("consonants").value;
+    let enteredVowels = document.getElementById("vowels").value;
+
+    consonants = enteredConsonants.split(" ");
+    vowels = enteredVowels.split(" ");
+}
+
+function resetInventory() {
+   document.getElementById("consonants").value = "m n p b t d k g f s r l j w"
+   document.getElementById("vowels").value = "a e i o u"
+}
+
+
+/*---Generates Words-----*/
+
+let generateVocabButton = document.getElementById("generate-vocab");
+generateVocabButton.addEventListener("click", generateVocab);
+
+function generateVocab() {
     generateNouns();
     generateNounMeanings();
+    generateAdjectives();
+    generateAdjectiveMeaning();
 }
 
 //randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
@@ -1025,25 +1137,12 @@ function generateNounMeanings() {
     nounMeaningInput.value = selectedWordsArray.join(" ");
 }
 
-
-/*---Generates other parts of speech-----*/
-
-let generateVocabButton = document.getElementById("generate-vocab");
-generateVocabButton.addEventListener("click", generateVocab);
-
-function generateVocab() {
-    generateAdjectives();
-    generateAdjectiveMeaning();
-}
-
-
-
 //randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
 function generateAdjectives() {
     let adjectiveInput = document.getElementById("inputRootAdj");
     let randomAdjectiveArray = [] //with each iteration of the below loop, the generated adjective is inserted into this array, so that after all the loops there will be 20 different adjectives in this array
 
-    let numberOfAdjectives = document.getElementById("select-amount-else").value;
+    let numberOfAdjectives = document.getElementById("select-amount").value;
     numberOfAdjectives = Number(numberOfAdjectives);
 
     for(i = 0; i < numberOfAdjectives; i++) {
@@ -1117,7 +1216,7 @@ function generateAdjectiveMeaning() {
 
     let adjectiveArray = ["aback","abaft","abandoned","abashed","aberrant","abhorrent","abiding","abject","ablaze","able","abnormal","aboard","aboriginal","abortive","abounding","abrasive","abrupt","absent","absorbed","absorbing","abstracted","absurd","abundant","abusive","acceptable","accessible","accidental","accurate","acid","acidic","acoustic","acrid","actually","ad","hoc","adamant","adaptable","addicted","adhesive","adjoining","adorable","adventurous","afraid","aggressive","agonizing","agreeable","ahead","ajar","alcoholic","alert","alike","alive","alleged","alluring","aloof","amazing","ambiguous","ambitious","amuck","amused","amusing","ancient","angry","animated","annoyed","annoying","anxious","apathetic","aquatic","aromatic","arrogant","ashamed","aspiring","assorted","astonishing","attractive","auspicious","automatic","available","average","awake","aware","awesome","awful","axiomatic","bad","barbarous","bashful","bawdy","beautiful","befitting","belligerent","beneficial","bent","berserk","best","better","bewildered","big","billowy","bite-sized","bitter","bizarre","black","black-and-white","bloody","blue","blue-eyed","blushing","boiling","boorish","bored","boring","bouncy","boundless","brainy","brash","brave","brawny","breakable","breezy","brief","bright","bright","broad","broken","brown","bumpy","burly","bustling","busy","cagey","calculating","callous","calm","capable","capricious","careful","careless","caring","cautious","ceaseless","certain","changeable","charming","cheap","cheerful","chemical","chief","childlike","chilly","chivalrous","chubby","chunky","clammy","classy","clean","clear","clever","cloistered","cloudy","closed","clumsy","cluttered","coherent","cold","colorful","colossal","combative","comfortable","common","complete","complex","concerned","condemned","confused","conscious","cooing","cool","cooperative","coordinated","courageous","cowardly","crabby","craven","crazy","creepy","crooked","crowded","cruel","cuddly","cultured","cumbersome","curious","curly","curved","curvy","cut","cute","cute","cynical","daffy","daily","damaged","damaging","damp","dangerous","dapper","dark","dashing","dazzling","dead","deadpan","deafening","dear","debonair","decisive","decorous","deep","deeply","defeated","defective","defiant","delicate","delicious","delightful","demonic","delirious","dependent","depressed","deranged","descriptive","deserted","detailed","determined","devilish","didactic","different","difficult","diligent","direful","dirty","disagreeable","disastrous","discreet","disgusted","disgusting","disillusioned","dispensable","distinct","disturbed","divergent","dizzy","domineering","doubtful","drab","draconian","dramatic","dreary","drunk","dry","dull","dusty","dynamic","dysfunctional","eager","early","earsplitting","earthy","easy","eatable","economic","educated","efficacious","efficient","eight","elastic","elated","elderly","electric","elegant","elfin","elite","embarrassed","eminent","empty","enchanted","enchanting","encouraging","endurable","energetic","enormous","entertaining","enthusiastic","envious","equable","equal","erect","erratic","ethereal","evanescent","evasive","even excellent excited","exciting exclusive","exotic","expensive","extra-large extra-small exuberant","exultant","fabulous","faded","faint fair","faithful","fallacious","false familiar famous","fanatical","fancy","fantastic","far"," far-flung"," fascinated","fast","fat faulty","fearful fearless","feeble feigned","female fertile","festive","few fierce","filthy","fine","finicky","first"," five"," fixed"," flagrant","flaky","flashy","flat","flawless","flimsy"," flippant","flowery","fluffy","fluttering"," foamy","foolish","foregoing","forgetful","fortunate","four frail","fragile","frantic","free"," freezing"," frequent"," fresh"," fretful","friendly","frightened frightening full fumbling functional","funny","furry furtive","future futuristic","fuzzy ","gabby","gainful","gamy","gaping","garrulous","gaudy","general gentle","giant","giddy","gifted","gigantic","glamorous","gleaming","glib","glistening glorious","glossy","godly","good","goofy","gorgeous","graceful","grandiose","grateful gratis","gray greasy great","greedy","green grey grieving","groovy","grotesque","grouchy","grubby gruesome","grumpy","guarded","guiltless","gullible gusty","guttural H habitual","half","hallowed","halting","handsome","handsomely","handy","hanging","hapless","happy","hard","hard-to-find","harmonious","harsh","hateful","heady","healthy","heartbreaking","heavenly heavy hellish","helpful","helpless","hesitant","hideous high","highfalutin","high-pitched","hilarious","hissing","historical","holistic","hollow","homeless","homely","honorable","horrible","hospitable","hot huge","hulking","humdrum","humorous","hungry","hurried","hurt","hushed","husky","hypnotic","hysterical","icky","icy","idiotic","ignorant","ill","illegal","ill-fated","ill-informed","illustrious","imaginary","immense","imminent","impartial","imperfect","impolite","important","imported","impossible","incandescent","incompetent","inconclusive","industrious","incredible","inexpensive","infamous","innate","innocent","inquisitive","insidious","instinctive","intelligent","interesting","internal","invincible","irate","irritating","itchy","jaded","jagged","jazzy","jealous","jittery","jobless","jolly","joyous","judicious","juicy","jumbled","jumpy","juvenile","kaput","keen","kind","kindhearted","kindly","knotty","knowing","knowledgeable","known","labored","lackadaisical","lacking","lame","lamentable","languid","large","last","late","laughable","lavish","lazy","lean","learned","left","legal","lethal","level","lewd","light","like","likeable","limping","literate","little","lively","lively","living","lonely","long","longing","long-term","loose","lopsided","loud","loutish","lovely","loving","low","lowly","lucky","ludicrous","lumpy","lush","luxuriant","lying","lyrical","macabre","macho","maddening","madly","magenta","magical","magnificent","majestic","makeshift","male","malicious","mammoth","maniacal","many","marked","massive","married","marvelous","material","materialistic","mature","mean","measly","meaty","medical","meek","mellow","melodic","melted","merciful","mere","messy","mighty","military","milky","mindless","miniature","minor","miscreant","misty","mixed","moaning","modern","moldy","momentous","motionless","mountainous","muddled","mundane","murky","mushy","mute","mysterious","naive","nappy","narrow","nasty","natural","naughty","nauseating","near","neat","nebulous","necessary","needless","needy","neighborly","nervous","new","next","nice","nifty","nimble","nine","nippy","noiseless","noisy","nonchalant","nondescript","nonstop","normal","nostalgic","nosy","noxious","null","numberless","numerous","nutritious","nutty","oafish","obedient","obeisant","obese","obnoxious","obscene","obsequious","observant","obsolete","obtainable","oceanic","odd","offbeat","old","old-fashioned","omniscient","one","onerous","open","opposite","optimal","orange","ordinary","organic","ossified","outgoing","outrageous","outstanding","oval","overconfident","overjoyed","overrated","overt","overwrought","painful","painstaking","pale","paltry","panicky","panoramic","parallel","parched","parsimonious","past","pastoral","pathetic","peaceful","penitent","perfect","periodic","permissible","perpetual","petite","petite","phobic","physical","picayune","pink","piquant","placid","plain","plant","plastic","plausible","pleasant","plucky","pointless","poised","polite","political","poor","possessive","possible","powerful","precious","premium","present","pretty","previous","pricey","prickly","private","probable","productive","profuse","protective","proud","psychedelic","psychotic","public","puffy","pumped","puny","purple","purring","pushy","puzzled","puzzling","quack","quaint","quarrelsome","questionable","quick","quickest","quiet","quirky","quixotic","quizzical","rabid","racial","ragged","rainy","rambunctious","rampant","rapid","rare","raspy","ratty","ready","real","rebel","receptive","recondite","red","redundant","reflective","regular","relieved","remarkable","reminiscent","repulsive","resolute","resonant","responsible","rhetorical","rich","right","righteous","rightful","rigid","ripe","ritzy","roasted","robust","romantic","roomy","rotten","rough","round","royal","ruddy","rude","rural","rustic","ruthless","sable","sad","safe","salty","same","sassy","satisfying","savory","scandalous","scarce","scared","scary","scattered","scientific","scintillating","scrawny","screeching","second","second-hand","secret","secretive","sedate","seemly","selective","selfish","separate","serious","shaggy","shaky","shallow","sharp","shiny","shivering","shocking","short","shrill","shut","shy","sick","silent","silent","silky","silly","simple","simplistic","sincere","six","skillful","skinny","sleepy","slim","slimy","slippery","sloppy","slow","small","smart","smelly","smiling","smoggy","smooth","sneaky","snobbish","snotty","soft","soggy","solid","somber","sophisticated","sordid","sore","sore","sour","sparkling","special","spectacular","spicy","spiffy","spiky","spiritual","spiteful","splendid","spooky","spotless","spotted","spotty","spurious","squalid","square","squealing","squeamish","staking","stale","standing","statuesque","steadfast","steady","steep","stereotyped","sticky","stiff","stimulating","stingy","stormy","straight","strange","striped","strong","stupendous","stupid","sturdy","subdued","subsequent","substantial","successful","succinct","sudden","sulky","super","superb","superficial","supreme","swanky","sweet","sweltering","swift","symptomatic","synonymous","taboo","tacit","tacky","talented","tall","tame","tan","tangible","tangy","tart","tasteful","tasteless","tasty","tawdry","tearful","tedious","teeny","teeny-tiny","telling","temporary","ten","tender tense","tense","tenuous","terrible","terrific","tested","testy","thankful","therapeutic","thick","thin","thinkable","third","thirsty","thoughtful","thoughtless","threatening","three","thundering","tidy","tight","tightfisted","tiny","tired","tiresome","toothsome","torpid","tough","towering","tranquil","trashy","tremendous","tricky","trite","troubled","truculent","true","truthful","two","typical","ubiquitous","ugliest","ugly","ultra","unable","unaccountable","unadvised","unarmed","unbecoming","unbiased","uncovered","understood","undesirable","unequal","unequaled","uneven","unhealthy","uninterested","unique","unkempt","unknown","unnatural","unruly","unsightly","unsuitable","untidy","unused","unusual","unwieldy","unwritten","upbeat","uppity","upset","uptight","used","useful","useless","utopian","utter","uttermost","vacuous","vagabond","vague","valuable","various","vast","vengeful","venomous","verdant","versed","victorious","vigorous","violent","violet","vivacious","voiceless","volatile","voracious","vulgar","wacky","waggish","waiting","","wakeful","wandering","wanting","warlike","warm","wary","wasteful","watery","weak","wealthy","weary","well-groomed","well-made","well-off","well-to-do","wet","whimsical","whispering","white","whole","wholesale","wicked","wide","wide-eyed","wiggly","wild","willing","windy","wiry","wise","wistful","witty","woebegone","womanly","wonderful","wooden","woozy","workable","worried","worthless","wrathful","wretched","wrong","wry","xenophobic","yellow","yielding","young","youthful","yummy","zany","zealous","zesty","zippy","zonked"];
 
-   let numberOfAdjectives = document.getElementById("select-amount-else").value;
+   let numberOfAdjectives = document.getElementById("select-amount").value;
 
     //collects each select word from each loop and puts them into one array, which is then joined into a single string 
     let selectedWordsArray = [];
@@ -1128,3 +1227,7 @@ function generateAdjectiveMeaning() {
     adjectiveMeaningInput.value = selectedWordsArray.join(" ");
 
 }
+
+
+
+

@@ -247,34 +247,29 @@
       </p>
       
       <div class="generate-button-div">
-        <p>Enter the number of nouns you would like to generate:</p>
-        <input type="textarea" id="select-amount">
-        <input type="button" id="generate-nouns" value="Generate Nouns">
-      </div>
-      
 
-      <div class="input-container noun-input-container">
         <p>
-          Enter <span class="language-name">Kerbekulo</span> Noun Roots Here:
+          If you would like to change <span class="language-name">Kerbekulo</span>'s phonemic inventory, then you can edit it here.
         </p>
-        <input type="textarea" id="inputRootNoun" value=""/>
+        <div class="phonemic-input-container">
+          <p>Consonants</p>
+          <input type="textarea" id="consonants" value="m n p b t d k g f s r l j w">
+        </div>
+        <div class="phonemic-input-container">
+          <p>Vowels</p>
+          <input type="textarea" id="vowels" value="a e i o u">
+          <input type="button" value = "Generate Phonemes" id="generatePhonemes">
+          <input type="button" value = "Reset Default Phonemes" id="resetPhonemes">
+
+        </div>
+
       </div>
-      <div class="input-container noun-input-container">
-        <p>Enter Their Meanings Here:</p>
-        <input type="textarea" id="inputMeaningNoun" value=""/>
-      </div>
-      <div class="button-div">
-        <input type="submit" value="Submit" class="submit" id="submitNoun" />
-        <input
-          type="submit"
-          value="Clear"
-          class="clear-input"
-          id="clear-inputNoun"
-        />
-      </div>
+
+      
+    
     </section>
 
-    <section id="outputSectionNoun"></section>
+    
 
     <section class="intro">
       <h1>
@@ -284,14 +279,26 @@
       <p>Alternatively, you can click the button to have new words and their meanings randomly generated.</p>
       <div class="generate-button-div">
         <p>Enter the number of adjectives and verbs you would like to generate:</p>
-          <input type="textarea" id="select-amount-else">
+          <input type="textarea" id="select-amount">
           <input type="button" value="Generate Roots" id="generate-vocab">
       </div>
     </section>
 
-    <!-- ADJECTIVES----------------------------------------------------------------------------->
 
-    
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter <span class="language-name">Kerbekulo</span> Noun Roots
+          Here:
+        </p>
+        <input type="textarea" id="inputRootNoun" value=""/>
+      </div>
+      <div class="input-container">
+        <p>Enter Their Meanings Here:</p>
+        <input type="textarea" id="inputMeaningNoun" value="" />
+      </div>
+    </section>
 
     <section class="inputSection inputOtherPartsOfSpeechSection">
       <div class="input-container">
@@ -305,8 +312,6 @@
         <p>Enter Their Meanings Here:</p>
         <input type="textarea" id="inputMeaningAdj" value="" />
       </div>
-    
-
     </section>
 
     <section class="inputSection inputOtherPartsOfSpeechSection">
@@ -408,17 +413,46 @@
         <input type="textarea" id="second-person-pronoun" />
       </div>
 
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> non-past tense suffix:
+        </p>
+        <input type="textarea" id="non-past" />
+      </div>
+
       <div class="button-div">
         <input
           type="submit"
           value="Submit"
           class="submit"
-          id="submitRest"
+          id="submitWords"
+        />
+        <input
+          type="submit"
+          value="Clear"
+          class="clear-input"
+          id="clear-inputNoun"
         />
       </div>
     </section>
 
+    
+    <h1 id="sectionH1">Nouns</h1>
+    
+    <section id="outputSectionNoun"></section>
+
+
+    <h1>Adjectives</h1>
     <section class="intro">
+
+      <!--The following two spans do not display. they are here merely to hold the bare forms of the given noun and adjective, before they forms are inflected. I needed the bare forms for the bahuvrihi below-->
+      <span class="noun" id="noun5">BLANK</span>
+
+      <span class="adjective" id="adjective5">BLANK</span>
+      
       <p>
         Adjectives in <span class="language-name">Kerbekulo</span> are only true
         adjectives when they occur predicatively, which in English is when they
@@ -428,10 +462,26 @@
         ADj is"
       </p>
       <ul>
+
         <li>
-          <span class="adjective">BLANK</span> "<span class="adjective-meaning">BLANK</span>" > <i>NOUN ADJ COP</i> "NOUN MEANING ADJECTIVE MEANING
-          COPULA
+          <span class="noun" id="noun7">BLANK</span>
+          "<span class="noun-meaning" id="noun-meaning7">BLANK</span>"
+          +
+          <span class="adjective" id="adjective6">BLANK</span>
+          "<span class="adjective-meaning" id="adjective-meaning6">BLANK</span>"
+          >
+          <span class="noun7-copy noun-nom-sg">BLANK</span>
+          <span class="adjective6-copy">BLANK</span>
+          <!--<span class="copula-sg-non-past">BLANK</span>-->
+
+          (
+            <span class="noun-meaning7-copy">BLANK</span>
+            <span class="adjective-meaning6-copy">BLANK</span>
+            is
+          )
+
         </li>
+
       </ul>
 
       <p>
@@ -471,9 +521,10 @@
         compound of <span class="this-pronoun">BLANK</span> "this" and <span class="also">BLANK</span> "also.
       </p>
 
-      <!--The following two spans do not display. they are here merely to hold the bare forms of the given noun and adjective, before they forms are inflected. I needed the bare forms for the bahuvrihi below-->
-      <span class="noun" id="noun5">BLANK</span>
-      <span class="adjective" id="adjective5">BLANK</span>
+      
+
+
+
       <p>
         A <a href="https://en.wikipedia.org/wiki/Bahuvrihi#:~:text=Bahuvrihi%20compounds%20are%20called%20possessive,is%20on%20the%20first%20constituent." target="_blank">bahuvrihi</a> compound may be formed by compounding the bare noun root and the adjective, with the nominaliser suffix, followed by either the singular or plural suffix: 
         <span id="noun5-copy" class="noun-nom-sg">BLANK</span>
@@ -483,22 +534,13 @@
         <span class="noun-meaning" id="noun-meaning5">BLANK</span>" > 
         <span id="bahuvrihi"></span> "that which has a <span class="adjective-meaning5-copy"></span>
         <span class="noun-meaning5-copy">BLANK</span>"
-        (< <span id="noun5Also">BLANK</span>-
-        <span id="adjective5Also">BLANK</span>-
-        <span class="nominaliser-suffix">BLANK</span>-<i>ko</i>
+        (< <span id="noun5Also">BLANK</span>-<span id="adjective5Also">BLANK</span>-<span class="nominaliser-suffix">BLANK</span>-<i>ko</i>
         )
 
         
       </p>
-
-
-
-
-      <p>Below are test sentences. Remove once finished</p>
-      <p>First person pronoun is <span class="firstPersonPronoun">BLANK</span></p>
-      <p>Second person pronoun is <span class="secondPersonPronoun">BLANK</span></p>
-      <p>adjective is <span class="adjective">BLANK</span> <span class="adjective-meaning">BLANK</span></p>
-      <p>noun is <span class="noun">BLANK</span> <span class="noun-meaning">BLANK</span></p>
+     
+      <p>text non-past: <span class="non-past"></span></p>
 
     </section>
 

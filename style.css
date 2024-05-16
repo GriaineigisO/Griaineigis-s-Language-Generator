@@ -193,11 +193,11 @@ h1 {
     margin-bottom: 10px;
 }
 
-.this-pronoun, .also, .relative-pronoun, .adverbial-suffix, .relative-pronoun, .nominaliser-suffix, .firstPersonPronoun, .secondPersonPronoun, .adjective, .noun, .adjective1-copy, .adjective2-copy, .adjective3-copy, .adjective4-copy, #noun5-copy, #noun5Also, #adjective5Also, .adjective5-copy, #bahuvrihi {
+.this-pronoun, .also, .relative-pronoun, .adverbial-suffix, .relative-pronoun, .nominaliser-suffix, .firstPersonPronoun, .secondPersonPronoun, .adjective, .noun, .adjective1-copy, .adjective2-copy, .adjective3-copy, .adjective4-copy, #noun5-copy, #noun5Also, #adjective5Also, .adjective5-copy, #bahuvrihi, .noun5Also, #adjective1, #noun5AlsoNomSg {
     font-style: italic;
 }
 
-#noun5, #adjective5 {
+#noun5, #adjective5, .hidden {
     display: none;
 }
 

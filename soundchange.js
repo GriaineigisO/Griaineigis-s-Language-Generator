@@ -700,7 +700,7 @@ function createCopulaPlNonPast() {
 
 }
 
-//selects a random noun from the nouns entered by the user
+//selects a random adjective from the adjectives entered by the user
 function createRandomAdjective() {
     //puts all of the input adjectives into one array
     let inputAdjective = document.getElementById("inputRootAdj").value;
@@ -709,19 +709,20 @@ function createRandomAdjective() {
     //puts all of the input adjectives' meanings into one array
     let inputAdjectiveMeaning = document.getElementById("inputMeaningAdj").value;
     let splitAdjectiveMeaning = inputAdjectiveMeaning.split(" ");
-
     let spanAdjective = document.getElementsByClassName("adjective");
-    let spanAdjectiveMeaning = document.getElementsByClassName("adjective-meaning");
 
-    for (i = 0; i < spanAdjective.length; i++) {
+    //the HTML file has a series of span elements with the id names adjective1, adjective2, adjective3 and so on. This loop ensures that all of those spans are affected by changing the id name each time by increasing the final number by one each time. Each span element must receive a unique randomly selected noun, hence why I had to use id for them and not class.
+    let num = 1;
+    for (i = 0; i <= spanAdjective.length; i++) {
         let randomNumber = Math.floor(Math.random() * splitAdjective.length);//chooses a random integer between 0 and the array's length
         let randomAdjective = splitAdjective[randomNumber] //random adjective from the array
-        let randomAdjectiveMeaning = splitAdjectiveMeaning[randomNumber]
+        document.getElementById("adjective" + num.toString()).innerHTML = soundChange(randomAdjective);
+        document.getElementById("adjective-meaning" + num.toString()).innerHTML = splitAdjectiveMeaning[randomNumber]
+        num++;
 
-        spanAdjective[i].innerHTML = soundChange(randomAdjective);
-        spanAdjectiveMeaning[i].innerHTML = randomAdjectiveMeaning;
     }
 }
+
 
 //selects a random noun from the nouns entered by the user
 function createRandomNoun() {
@@ -734,82 +735,74 @@ function createRandomNoun() {
     let splitNounMeaning = inputNounMeaning.split(" ");
 
     let spanNoun = document.getElementsByClassName("noun");
-    let spanNounMeaning = document.getElementsByClassName("noun-meaning");
 
+    //the HTML file has a series of span elements with the id names noun1, noun2, noun3 and so on. This loop ensures that all of those spans are affected by changing the id name each time by increasing the final number by one each time. Each span element must receive a unique randomly selected noun, hence why I had to use id for them and not class.
+    let num = 1;
     for (i = 0; i < spanNoun.length; i++) {
         let randomNumber = Math.floor(Math.random() * splitNoun.length);//chooses a random integer between 0 and the array's length
         let randomNoun = splitNoun[randomNumber] //random noun from the array
-        let randomNounMeaning = splitNounMeaning[randomNumber]
-
-        spanNoun[i].innerHTML = soundChange(randomNoun);
-        spanNounMeaning[i].innerHTML = randomNounMeaning;
+        document.getElementById("noun" + num.toString()).innerHTML = soundChange(randomNoun);
+        document.getElementById("noun-meaning" + num.toString()).innerHTML = splitNounMeaning[randomNumber]
+        num++;
     }
 }
 
 //When I wish to display the same randomly generated word several times within the same example, only the first instance is randomly generated, the rest merely copy the test content of the first
 function createCopy() {
 
-    let noun1 = document.getElementById("noun1");
-    let noun1Content = noun1.innerHTML;
-    let nounCopy1 = document.getElementsByClassName("noun1-copy");
-    for (i = 0; i < noun1.length; i++) {
-        nounCopy1[i].innerHTML = noun1Content;
+    let copyNoun = document.getElementsByClassName("copy-noun");
+    let nounNum = 1
+    for (i = 0; i < copyNoun.length; i++) {
+        let originalNoun = document.getElementById("noun" + nounNum.toString());
+        document.getElementsByClassName("noun-copy" + nounNum.toString()).innerHTML = originalNoun.innerHTML;
+        nounNum++
     }
 
-    let noun5 = document.getElementById("noun5");
-    let noun5Content = noun5.innerHTML;
-    let nounCopy5 = document.getElementById("noun5-copy");
-    nounCopy5.innerHTML = noun5Content;
+    // let copyNounMeaning = document.getElementsByClassName("copy-noun-meaning");
+    // let nounMeaningNum = 1
+    // for (i = 0; i < copyNounMeaning.length; i++) {
+    //     let originalNounMeaning = document.getElementById("noun-meaning" + nounMeaningNum.toString());
+    //     document.getElementsByClassName("noun-meaning-copy" + nounMeaningNum.toString()).innerHTML = originalNounMeaning.innerHTML;
+    //     nounMeaningNum++
+    // } FIX THIS AND REPLACE CODE BELOW
 
-   let noun7 = document.getElementById("noun7");
-    let noun7Content = noun7.innerHTML;
-    let nounCopy7 = document.getElementsByClassName("noun7-copy");
-    for (i = 0; i < noun7.length; i++) {
-        nounCopy7[i].innerHTML = noun7Content;
-    }
-    
-    
+
+
     let nounMeaning1 = document.getElementById("noun-meaning1");
     let nounMeaning1Content = nounMeaning1.innerHTML;
-    let NounMeaningCopy1 = document.getElementsByClassName("noun-meaning1-copy");
+    let NounMeaningCopy1 = document.getElementsByClassName("noun-meaning-copy1");
     for (i = 0; i < NounMeaningCopy1.length; i++) {
         NounMeaningCopy1[i].innerHTML = nounMeaning1Content;
     }
 
     let nounMeaning2 = document.getElementById("noun-meaning2");
     let nounMeaning2Content = nounMeaning2.innerHTML;
-    let NounMeaningCopy2 = document.getElementsByClassName("noun-meaning2-copy");
+    let NounMeaningCopy2 = document.getElementsByClassName("noun-meaning-copy2");
     for (i = 0; i < NounMeaningCopy2.length; i++) {
         NounMeaningCopy2[i].innerHTML = nounMeaning2Content;
     }
 
     let nounMeaning3 = document.getElementById("noun-meaning3");
     let nounMeaning3Content = nounMeaning3.innerHTML;
-    let NounMeaningCopy3 = document.getElementsByClassName("noun-meaning3-copy");
+    let NounMeaningCopy3 = document.getElementsByClassName("noun-meaning-copy3");
     for (i = 0; i < NounMeaningCopy3.length; i++) {
         NounMeaningCopy3[i].innerHTML = nounMeaning3Content;
     }
 
     let nounMeaning4 = document.getElementById("noun-meaning4");
     let nounMeaning4Content = nounMeaning4.innerHTML;
-    let NounMeaningCopy4 = document.getElementsByClassName("noun-meaning4-copy");
+    let NounMeaningCopy4 = document.getElementsByClassName("noun-meaning-copy4");
     for (i = 0; i < NounMeaningCopy4.length; i++) {
         NounMeaningCopy4[i].innerHTML = nounMeaning4Content;
     }
 
     let nounMeaning5 = document.getElementById("noun-meaning5");
     let nounMeaning5Content = nounMeaning5.innerHTML;
-    let NounMeaningCopy5 = document.getElementsByClassName("noun-meaning5-copy");
+    let NounMeaningCopy5 = document.getElementsByClassName("noun-meaning-copy5");
     for (i = 0; i < NounMeaningCopy5.length; i++) {
         NounMeaningCopy5[i].innerHTML = nounMeaning5Content;
     }
 
-    let nounMeaning7 = document.getElementById("noun-meaning7");
-    let nounMeaning7Content = nounMeaning7.innerHTML;
-    let NounMeaningCopy7 = document.getElementsByClassName("noun-meaning7-copy");
-    for (i = 0; i < NounMeaningCopy7.length; i++) {
-        NounMeaningCopy7[i].innerHTML = nounMeaning7Content;
-    }
 
     let adjective1 = document.getElementById("adjective1");
     let adjective1Content = adjective1.innerHTML;
@@ -846,12 +839,6 @@ function createCopy() {
         adjectiveCopy5[i].innerHTML = adjective5Content;
     }
 
-    let adjective6 = document.getElementById("adjective6");
-    let adjective6Content = adjective6.innerHTML;
-    let adjectiveCopy6 = document.getElementsByClassName("adjective6-copy");
-    for (i = 0; i < adjectiveCopy6.length; i++) {
-        adjectiveCopy6[i].innerHTML = adjective6Content;
-    }
 
 
     let adjectiveMeaning1 = document.getElementById("adjective-meaning1");
@@ -889,12 +876,7 @@ function createCopy() {
         adjectiveMeaningCopy5[i].innerHTML = adjectiveMeaning5Content;
     }
 
-    let adjectiveMeaning6 = document.getElementById("adjective-meaning6");
-    let adjectiveMeaning6Content = adjectiveMeaning6.innerHTML;
-    let adjectiveMeaningCopy6 = document.getElementsByClassName("adjective-meaning6-copy");
-    for (i = 0; i < adjectiveMeaningCopy6.length; i++) {
-        adjectiveMeaningCopy6[i].innerHTML = adjectiveMeaning6Content;
-    }
+
 
 
 }
@@ -926,8 +908,15 @@ function createBahuvrihi() {
     let bahuvrihi = noun.innerHTML + soundChange(adjectiveNominaliserSg);
    document.getElementById("bahuvrihi").innerHTML = soundChange(bahuvrihi);
 
-    let nounInBreakdown = document.getElementById("noun5Also");
-    nounInBreakdown.innerHTML = noun.innerHTML;
+   
+   let nounInBreakdown = document.getElementById("noun5Also");
+   nounInBreakdown.innerHTML = noun.innerHTML;
+
+   let nounNomSgInBreakdown = document.getElementById("noun5AlsoNomSg");
+   nounPlusKo = noun.innerHTML + "ko"
+   nounNomSgInBreakdown.innerHTML = soundChange(nounPlusKo);
+   
+    
 
     let adjInBreakdown = document.getElementById("adjective5Also");
     adjInBreakdown.innerHTML = adjectiveCopy.innerHTML;

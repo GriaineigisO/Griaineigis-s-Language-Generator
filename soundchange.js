@@ -1296,7 +1296,7 @@ function createAccNomSg() {
 //takes a noun and puts it in the genitive singular
 function createGenNomSg() {
     let sgSuffix = document.getElementById("singular-suffix").value;
-    let genPrefix = document.getElementById("genetive-prefix").value;
+    let genPrefix = document.getElementById("genitive-prefix").value;
     let spanNoun = document.getElementsByClassName("noun-gen-sg")
     for (i = 0; i < spanNoun.length; i++) {
         let nounGenSg = genPrefix + spanNoun[i].innerHTML + sgSuffix;

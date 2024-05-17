@@ -172,6 +172,217 @@ function soundChange(word) {
 /*-----------^^^-SOUND CHANGES-^^^-----------------------------------------------------*/
 
 
+let submitCases = document.getElementById("submitWords");
+submitCases.addEventListener("click", createNounCases,);
+
+let generateButton = document.getElementById("generate-vocab");
+generateButton.addEventListener("click", generateCases);
+
+function generateCases() {
+    generateSg();
+    generatePl();
+    generateAcc();
+    generateGen();
+}
+
+//randomly generates a word for singular suffix
+function generateSg() {
+    let sgInput = document.getElementById("singular-suffix");
+    
+    let randomNum = Math.floor(Math.random() * 3);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        sgInput.value = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        sgInput.value = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        sgInput.value = CVC;
+    } 
+
+
+}
+
+//randomly generates a word for singular suffix
+function generatePl() {
+    let plInput = document.getElementById("plural-suffix");
+    
+    let randomNum = Math.floor(Math.random() * 3);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        plInput.value = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        plInput.value = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        plInput.value = CVC;
+    } 
+
+
+}
+
+//randomly generates a accusative prefix
+function generateAcc() {
+    let accPrefix = document.getElementById("accusative-prefix");
+    
+    let randomNum = Math.floor(Math.random() * 3);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        accPrefix.value = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        accPrefix.value = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        accPrefix.value = CVC;
+    } 
+
+
+}
+
+//randomly generates a accusative prefix
+function generateGen() {
+    let genPrefix = document.getElementById("genitive-prefix");
+    
+    let randomNum = Math.floor(Math.random() * 3);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        genPrefix.value = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        genPrefix.value = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        genPrefix.value = CVC;
+    } 
+
+
+}
+
+//Generates the singular suffix
+function createSg() {
+    let inputSg = document.getElementById("singular-suffix");
+    let wordSg = inputSg.value;
+    let spanSg = document.getElementsByClassName("sg-suffix");
+    for (i = 0; i < spanSg.length; i++) {
+        if (wordSg != "") { //if no word has been input by the user, then nothing happens
+            if (spanSg[i].innerHTML != soundChange(wordSg)) {
+                spanSg[i].innerHTML = soundChange(wordSg);
+            }
+        }
+    }
+    return wordSg
+}
+
+//Generates the plural suffix
+function createPl() {
+    let inputPl = document.getElementById("plural-suffix");
+    let wordPl = inputPl.value;
+    let spanPl = document.getElementsByClassName("pl-suffix");
+    for (i = 0; i < spanPl.length; i++) {
+        if (wordPl != "") { //if no word has been input by the user, then nothing happens
+            if (spanPl[i].innerHTML != soundChange(wordPl)) {
+                spanPl[i].innerHTML = soundChange(wordPl);
+            }
+        }
+    }
+    return wordPl
+}
+
+//Generates the accusative prefix
+function createAcc() {
+    let inputAcc = document.getElementById("accusative-prefix");
+    let wordAcc = inputAcc.value;
+    let spanAcc = document.getElementsByClassName("acc-prefix");
+    for (i = 0; i < spanAcc.length; i++) {
+        if (wordAcc != "") { //if no word has been input by the user, then nothing happens
+            if (spanAcc[i].innerHTML != soundChange(wordAcc)) {
+                spanAcc[i].innerHTML = soundChange(wordAcc);
+            }
+        }
+    }
+    return wordAcc
+}
+
+//Generates the genitive prefix
+function createGen() {
+    let inputGen = document.getElementById("genitive-prefix");
+    let wordGen = inputGen.value;
+    let spanGen = document.getElementsByClassName("gen-prefix");
+    for (i = 0; i < spanGen.length; i++) {
+        if (wordGen != "") { //if no word has been input by the user, then nothing happens
+            if (spanGen[i].innerHTML != soundChange(wordGen)) {
+                spanGen[i].innerHTML = soundChange(wordGen);
+            }
+        }
+    }
+    return wordGen
+}
+
+function createNounCases() {
+    createSg();
+    createPl();
+    createAcc();
+    createGen();
+}
+
+
+
+
 
 
 //Takes the words from both text fields and splits them into arrays, then it creates an object using both arrays.
@@ -201,6 +412,60 @@ function createArrays() {
     let splitInputRoot = inputRoot.split(" ");
     let inputMeaning = document.getElementById("inputMeaningNoun").value;
     let splitInputMeaning = inputMeaning.split(" ");
+
+
+    /*the below are the same as some functions above, I had to place them inside this function also, instead of just calling the functions because that caused an infinite loop for a reason that I do not know*/
+    //makes the singular suffix
+    let inputSg = document.getElementById("singular-suffix");
+    let sgSuffix = inputSg.value;
+    let spanSg = document.getElementsByClassName("sg-suffix");
+    for (i = 0; i < spanSg.length; i++) {
+        if (sgSuffix != "") { //if no word has been input by the user, then nothing happens
+            if (spanSg[i].innerHTML != soundChange(sgSuffix)) {
+                spanSg[i].innerHTML = soundChange(sgSuffix);
+            }
+        }
+    }
+    //makes the plural suffix
+    let inputPl = document.getElementById("plural-suffix");
+    let plSuffix = inputPl.value;
+    let spanPl = document.getElementsByClassName("pl-suffix");
+    for (i = 0; i < spanPl.length; i++) {
+        if (plSuffix != "") { //if no word has been input by the user, then nothing happens
+            if (spanPl[i].innerHTML != soundChange(plSuffix)) {
+                spanPl[i].innerHTML = soundChange(plSuffix);
+            }
+        }
+    }
+
+    //Generates the accusative prefix
+    let inputAcc = document.getElementById("accusative-prefix");
+    let accPrefix = inputAcc.value;
+    let spanAcc = document.getElementsByClassName("acc-prefix");
+    for (i = 0; i < spanAcc.length; i++) {
+        if (accPrefix != "") { //if no word has been input by the user, then nothing happens
+            if (spanAcc[i].innerHTML != soundChange(accPrefix)) {
+                spanAcc[i].innerHTML = soundChange(accPrefix);
+            }
+        }
+    }
+
+
+    //Generates the genitive prefix
+    let inputGen = document.getElementById("genitive-prefix");
+    let genPrefix = inputGen.value;
+    let spanGen = document.getElementsByClassName("acc-prefix");
+    for (i = 0; i < spanGen.length; i++) {
+        if (genPrefix != "") { //if no word has been input by the user, then nothing happens
+            if (spanGen[i].innerHTML != soundChange(genPrefix)) {
+                spanGen[i].innerHTML = soundChange(genPrefix);
+            }
+        }
+    }
+
+
+
+
 
     /*-----------------------INFLECTION HEADWORD--------------------------------------------------------------*
        
@@ -274,23 +539,23 @@ function createArrays() {
             let newTH3 = document.createElement("th");
             newTH3.style.border = "1px solid black";
 
-            let nomSg = root + "ko"
-            let nomPl = root + "te"
+            let nomSg = root + sgSuffix;
+            let nomPl = root + plSuffix;
 
-            let nomSgEtymology = " " + " <" + " " + root + "-" + "ko";
-            let nomPlEtymology = " " + " <" + " " + root + "-" + "te";
+            let nomSgEtymology = " " + " <" + " " + root + "-" + sgSuffix;
+            let nomPlEtymology = " " + " <" + " " + root + "-" + plSuffix;
 
-            let accSg = "he" + root + "ko"
-            let accPl = "he" + root + "te"
+            let accSg = accPrefix + root + sgSuffix
+            let accPl = accPrefix + root + plSuffix
 
-            let accSgEtymology = " " + "<" + " " + "he" + "-" + root + "-" + "ko";
-            let accPlEtymology = " " + "<" + " " + "he" + "-" + root + "-" + "te";
+            let accSgEtymology = " " + "<" + " " + accPrefix + "-" + root + "-" + sgSuffix;
+            let accPlEtymology = " " + "<" + " " + accPrefix + "-" + root + "-" + plSuffix;
 
-            let genSg = "pi" + root + "ko"
-            let genPl = "pi" + root + "te"
+            let genSg = genPrefix + root + sgSuffix
+            let genPl = genPrefix + root + plSuffix
 
-            let genSgEtymology = " " + "<" + " " + "pi" + "-" + root + "-" + "ko";
-            let genPlEtymology = " " + "<" + " " + "pi" + "-" + root + "-" + "te";
+            let genSgEtymology = " " + "<" + " " + genPrefix + "-" + root + "-" + sgSuffix;
+            let genPlEtymology = " " + "<" + " " + genPrefix + "-" + root + "-" + plSuffix;
 
             if (j == 0) {
                 newTH1.innerHTML = " "
@@ -357,14 +622,7 @@ function createArrays() {
         }
     }
 
-
-
-
-
     /*----------------------^^^INFLECTION TABLE-^^^-------------------------------------------------------------*/
-
-
-
 
     /*-------------COMPOUND------------------------*/
     let compound = ""
@@ -455,23 +713,23 @@ function createArrays() {
             let newTH3Compound = document.createElement("th");
             newTH3Compound.style.border = "1px solid black";
 
-            let nomSgCompound = compoundFromArray + "ko"
-            let nomPlCompound = compoundFromArray + "te"
+            let nomSgCompound = compoundFromArray + sgSuffix
+            let nomPlCompound = compoundFromArray + plSuffix
 
-            let nomSgEtymologyCompound = " " + " <" + " " + compoundFromArray + "-" + "ko";
-            let nomPlEtymologyCompound = " " + " <" + " " + compoundFromArray + "-" + "te";
+            let nomSgEtymologyCompound = " " + " <" + " " + compoundFromArray + "-" + sgSuffix;
+            let nomPlEtymologyCompound = " " + " <" + " " + compoundFromArray + "-" + plSuffix;
 
-            let accSgCompound = "he" + compoundFromArray + "ko"
-            let accPlCompound = "he" + compoundFromArray + "te"
+            let accSgCompound = accPrefix + compoundFromArray + sgSuffix
+            let accPlCompound = accPrefix + compoundFromArray + plSuffix
 
-            let accSgEtymologyCompound = " " + "<" + " " + "he" + "-" + compoundFromArray + "-" + "ko";
-            let accPlEtymologyCompound = " " + "<" + " " + "he" + "-" + compoundFromArray + "-" + "te";
+            let accSgEtymologyCompound = " " + "<" + " " + accPrefix + "-" + compoundFromArray + "-" + sgSuffix;
+            let accPlEtymologyCompound = " " + "<" + " " + accPrefix + "-" + compoundFromArray + "-" + plSuffix;
 
-            let genSgCompound = "pi" + compoundFromArray + "ko"
-            let genPlCompound = "pi" + compoundFromArray + "te"
+            let genSgCompound = genPrefix + compoundFromArray + sgSuffix
+            let genPlCompound = genPrefix + compoundFromArray + plSuffix
 
-            let genSgEtymologyCompound = " " + "<" + " " + "pi" + "-" + compoundFromArray + "-" + "ko";
-            let genPlEtymologyCompound = " " + "<" + " " + "pi" + "-" + compoundFromArray + "-" + "te";
+            let genSgEtymologyCompound = " " + "<" + " " + genPrefix + "-" + compoundFromArray + "-" + sgSuffix;
+            let genPlEtymologyCompound = " " + "<" + " " + genPrefix + "-" + compoundFromArray + "-" + plSuffix;
 
             if (y == 0) {
                 newTH1Compound.innerHTML = " "
@@ -550,6 +808,8 @@ function createArrays() {
 
 
 
+
+
 //Generates the word for "here"
 function createHere() {
     let inputHere = document.getElementById("inputHere");
@@ -600,8 +860,10 @@ function createThis() {
 
 //Creates a word for "these" by adding the plural suffix to "this"
 function createThese() {
+    let plSuffix = document.getElementById("plural-suffix").value;
+
     let thisWord = createThis();
-    let thesePronoun = thisWord + "te";
+    let thesePronoun = thisWord + plSuffix;
 
     //assigns the merged result to the appropriate span elements, and applies the sound changes
     let spanThese = document.getElementsByClassName("these-pronoun");
@@ -726,8 +988,7 @@ function createCopula() {
 function createCopulaSgNonPast() {
     let copula = createCopula();
     let nonPastSuffix = createNonPastSuffix();
-    let thirdPersonSg = createThis(); //in this language, the third person on verbs is marked by prefixing "this"
-    let CopulaSgNonPast = thirdPersonSg + copula + nonPastSuffix
+    let CopulaSgNonPast = copula + nonPastSuffix
 
     //assigns the merged result to the appropriate span elements, and applies the sound changes
     let spanRelativeCopulaSgNonPast = document.getElementsByClassName("copula-sg-non-past");
@@ -742,10 +1003,12 @@ function createCopulaSgNonPast() {
 }
 
 function createCopulaPlNonPast() {
+
+    let plSuffix = document.getElementById("plural-suffix").value;
+
     let copula = createCopula();
     let nonPastSuffix = createNonPastSuffix();
-    let thirdPersonPl =  createThese(); //in this language, the third person plural on verbs is marked by prefixing "these"
-    let CopulaPlNonPast = thirdPersonPl + copula + nonPastSuffix
+    let CopulaPlNonPast = plSuffix + copula + nonPastSuffix
     
     //assigns the merged result to the appropriate span elements, and applies the sound changes
     let spanRelativeCopulaPlNonPast = document.getElementsByClassName("copula-pl-non-past");
@@ -805,6 +1068,7 @@ function createRandomNoun() {
         document.getElementById("noun" + num.toString()).innerHTML = soundChange(randomNoun);
         document.getElementById("noun-meaning" + num.toString()).innerHTML = splitNounMeaning[randomNumber]
         num++;
+
     }
 }
 
@@ -998,14 +1262,93 @@ function createCopy() {
 }
 
 
+
 //takes a randomly selected noun and puts it in the nominative singular
 function createNounNomSg() {
+    let sgSuffix = document.getElementById("singular-suffix").value;
     let spanNoun = document.getElementsByClassName("noun-nom-sg")
+        for (i = 0; i < spanNoun.length; i++) {
+            let nounNomSg = spanNoun[i].innerHTML + sgSuffix;
+            if (nounNomSg != "") { //if no word has been input by the user, then nothing happens
+                if (spanNoun[i].innerHTML != soundChange(nounNomSg)) {
+                    spanNoun[i].innerHTML = soundChange(nounNomSg);
+                }
+            }
+        }
+}
+
+//takes a noun and puts it in the accusative singular
+function createAccNomSg() {
+    let sgSuffix = document.getElementById("singular-suffix").value;
+    let accPrefix = document.getElementById("accusative-prefix").value;
+
+    let spanNoun = document.getElementsByClassName("noun-acc-sg")
     for (i = 0; i < spanNoun.length; i++) {
-        let nounNomSg = spanNoun[i].innerHTML + "ko";
-        if (nounNomSg != "") { //if no word has been input by the user, then nothing happens
-            if (spanNoun[i].innerHTML != soundChange(nounNomSg)) {
-                spanNoun[i].innerHTML = soundChange(nounNomSg);
+        let nounAccSg = accPrefix + spanNoun[i].innerHTML + sgSuffix;
+        if (nounAccSg != "") { //if no word has been input by the user, then nothing happens
+            if (spanNoun[i].innerHTML != soundChange(nounAccSg)) {
+                spanNoun[i].innerHTML = soundChange(nounAccSg);
+            }
+        }
+    }
+}
+
+//takes a noun and puts it in the genitive singular
+function createGenNomSg() {
+    let sgSuffix = document.getElementById("singular-suffix").value;
+    let genPrefix = document.getElementById("accusative-prefix").value;
+    let spanNoun = document.getElementsByClassName("noun-gen-sg")
+    for (i = 0; i < spanNoun.length; i++) {
+        let nounGenSg = genPrefix + spanNoun[i].innerHTML + sgSuffix;
+        if (nounGenSg != "") { //if no word has been input by the user, then nothing happens
+            if (spanNoun[i].innerHTML != soundChange(nounGenSg)) {
+                spanNoun[i].innerHTML = soundChange(nounGenSg);
+            }
+        }
+    }
+}
+
+
+//takes a noun and puts it in the nominative plural
+function createNounNomPl() {
+    let plSuffix = document.getElementById("plural-suffix").value;
+    let spanNoun = document.getElementsByClassName("noun-nom-pl")
+    for (i = 0; i < spanNoun.length; i++) {
+        let nounNomPl = spanNoun[i].innerHTML + plSuffix;
+        if (nounNomPl != "") { //if no word has been input by the user, then nothing happens
+            if (spanNoun[i].innerHTML != soundChange(nounNomPl)) {
+                spanNoun[i].innerHTML = soundChange(nounNomPl);
+            }
+        }
+    }
+}
+
+//takes a noun and puts it in the accusative plural
+function createNounAccPl() {
+    let plSuffix = document.getElementById("plural-suffix").value;
+    let accPrefix = document.getElementById("accusative-prefix").value;
+
+    let spanNoun = document.getElementsByClassName("noun-acc-pl")
+    for (i = 0; i < spanNoun.length; i++) {
+        let nounAccPl = accPrefix + spanNoun[i].innerHTML + plSuffix;
+        if (nounAccPl != "") { //if no word has been input by the user, then nothing happens
+            if (spanNoun[i].innerHTML != soundChange(nounAccPl)) {
+                spanNoun[i].innerHTML = soundChange(nounAccPl);
+            }
+        }
+    }
+}
+
+//takes a noun and puts it in the genitive plural
+function createNounGenPl() {
+    let plSuffix = document.getElementById("plural-suffix").value;
+    let genPrefix = document.getElementById("accusative-prefix").value;
+    let spanNoun = document.getElementsByClassName("noun-gen-pl")
+    for (i = 0; i < spanNoun.length; i++) {
+        let nounGenPl = genPrefix + spanNoun[i].innerHTML + plSuffix;
+        if (nounGenPl != "") { //if no word has been input by the user, then nothing happens
+            if (spanNoun[i].innerHTML != soundChange(nounGenPl)) {
+                spanNoun[i].innerHTML = soundChange(nounGenPl);
             }
         }
     }
@@ -1014,12 +1357,14 @@ function createNounNomSg() {
 
 //creates a bahuvrihi compound for the example shown in the adjective section
 function createBahuvrihi() {
+    let sgSuffix = document.getElementById("singular-suffix").value;
+
     let noun = document.getElementById("noun5");
     let nominaliser = createNominaliserSuffix();
     let adjective = document.getElementById("adjective5");
     let adjectiveCopy = document.getElementById("adjective5");
    
-    let adjectiveNominaliserSg = adjective.innerHTML + nominaliser + "ko";
+    let adjectiveNominaliserSg = adjective.innerHTML + nominaliser + sgSuffix;
 
     let bahuvrihi = noun.innerHTML + soundChange(adjectiveNominaliserSg);
    document.getElementById("bahuvrihi").innerHTML = soundChange(bahuvrihi);
@@ -1029,7 +1374,7 @@ function createBahuvrihi() {
    nounInBreakdown.innerHTML = noun.innerHTML;
 
    let nounNomSgInBreakdown = document.getElementById("noun5AlsoNomSg");
-   nounPlusKo = noun.innerHTML + "ko"
+   nounPlusKo = noun.innerHTML + sgSuffix
    nounNomSgInBreakdown.innerHTML = soundChange(nounPlusKo);
    
     
@@ -1040,25 +1385,13 @@ function createBahuvrihi() {
     
 }
 
-//takes a randomly selected noun and puts it in the nominative plural
-function createNounNomPl() {
-    let spanNoun = document.getElementsByClassName("noun-nom-pl")
-    for (i = 0; i < spanNoun.length; i++) {
-        let nounNomPl = spanNoun[i].innerHTML + "te";
-        if (nounNomPl != "") { //if no word has been input by the user, then nothing happens
-            if (spanNoun[i].innerHTML != soundChange(nounNomPl)) {
-                spanNoun[i].innerHTML = soundChange(nounNomPl);
-            }
-        }
-    }
-}
-
 //takes a randomly selected adjective, attaches the nominaliser suffix, and puts it in the nominative singular
 function createAdjNomSg() {
+    let sgSuffix = document.getElementById("singular-suffix").value;
     let nominaliser = createNominaliserSuffix();
     let spanAdj = document.getElementsByClassName("adjective-nom-sg")
     for (i = 0; i < spanAdj.length; i++) {
-        let adjNomSg = spanAdj[i].innerHTML + nominaliser + "ko";
+        let adjNomSg = spanAdj[i].innerHTML + nominaliser + sgSuffix;
         if (adjNomSg != "") { //if no word has been input by the user, then nothing happens
             if (spanAdj[i].innerHTML != soundChange(adjNomSg)) {
                 spanAdj[i].innerHTML = soundChange(adjNomSg);
@@ -1070,10 +1403,11 @@ function createAdjNomSg() {
 
 //takes a randomly selected noun and puts it in the nominative plural
 function createAdjNomPl() {
+    let plSuffix = document.getElementById("plural-suffix").value;
     let nominaliser = createNominaliserSuffix();
     let spanAdj = document.getElementsByClassName("adjective-nom-pl")
     for (i = 0; i < spanAdj.length; i++) {
-        let adjNomPl = spanAdj[i].innerHTML + nominaliser + "te";
+        let adjNomPl = spanAdj[i].innerHTML + nominaliser + plSuffix;
         if (adjNomPl != "") { //if no word has been input by the user, then nothing happens
             if (spanAdj[i].innerHTML != soundChange(adjNomPl)) {
                 spanAdj[i].innerHTML = soundChange(adjNomPl);
@@ -1088,7 +1422,6 @@ function createAdjNomPl() {
 function makeMeaningPlural() {
     let Plural = document.getElementsByClassName("plural-meaning")
     for (i = 0; i < Plural.length; i++) {
-        console.log(Plural[i].innerHTML)
         let indexNum = nounArray.indexOf(Plural[i].innerHTML);
         Plural[i].innerHTML = nounArrayPlural[indexNum];
     }
@@ -1115,8 +1448,12 @@ function buttonFunctions() {
     createRandomNoun();
     createCopy();
     createNounNomSg();
-    createAdjNomSg();
+    createAccNomSg();
+    createGenNomSg();
     createNounNomPl();
+    createNounAccPl();
+    createNounGenPl();
+    createAdjNomSg();
     createAdjNomPl();
     createBahuvrihi();
     makeMeaningPlural();

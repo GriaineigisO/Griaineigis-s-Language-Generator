@@ -39,39 +39,7 @@
       <input type="textarea" id="changeName" />
       <input type="submit" value="Change Name" id="change-name" />
 
-      <h1>Morphology</h1>
 
-      <p>
-        <span class="language-name">Kerbekulo</span> nouns have two grammatical
-        numbers, singular and plural, and three noun cases, nominative,
-        accusative and genitive.
-        <a href="https://en.wikipedia.org/wiki/Grammatical_case" target="_blank"
-          >What are noun cases?</a
-        >.<br />
-        Grammatical number is marked with two suffixes: <i>-ko</i> marks the
-        singular and <i>-te</i> marks the plural.<br /><br />
-        <i>-gu-</i> "eye"
-      </p>
-
-      <ul>
-        <li><i>gu-ko</i> "eye"</li>
-        <li><i>gu-te</i> "eyes"</li>
-      </ul>
-
-      <p>
-        Noun case is marked with two prefixes: <i>he-</i> for the accusative and
-        <i>pi-</i> for the genitive. The nominative case is unmarked.<br />
-
-        Noun case and number combine in an agglutinative fashion, so a singular
-        accusative noun has the prefix <i>he-</i> and the suffix <i>-ko</i>
-      </p>
-
-      <ul>
-        <li><i>he-gu-ko</i> "eye" (accusative)</li>
-        <li><i>he-gu-te</i> "eyes" (accusative)</li>
-        <li><i>pi-gu-ko</i> "eye's" (genitive)</li>
-        <li><i>pi-gu-te</i> "eyes'" (genitive)</li>
-      </ul>
 
       <h1>Phonology</h1>
 
@@ -223,12 +191,11 @@
     </section>
 
     <section class="inputSection">
-      <h1><span class="language-name">Kerbekulo</span> Noun Inflector</h1>
+      <h1><span class="language-name">Kerbekulo</span> Morpheme Generator</h1>
 
       <p>
-        Use this tool to see how any
-        <span class="language-name">Kerbekulo</span> root would inflect and
-        compound with other roots! You can insert any roots that you want, even
+        Use this tool to generate your own
+        <span class="language-name">Kerbekulo</span> roots and see how they inflect! You can insert any roots that you want, even
         ones that you made up! So long as they follow
         <span class="language-name">Kerbekulo</span>'s root structure! It is
         possible to ignore <span class="language-name">Kerbekulo</span>'s root
@@ -236,10 +203,7 @@
         <span class="language-name">Kerbekulo</span>, but the results won't be
         accurate, but you can play with this also if you wish. Enter as many
         words as you want, be sure to divide each word with a blank space, don't
-        use commas.<br /><br />
-        Here are some roots that you can start with:<br />
-        Roots: gu bego mud lu gim weri diwo sab regon<br />
-        Meanings: eye hill head bone eagle cloud blood sword boat
+        use commas.
       </p>
 
       <p>
@@ -422,6 +386,43 @@
         </p>
         <input type="textarea" id="non-past" />
       </div>
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> singular suffix:
+        </p>
+        <input type="textarea" id="singular-suffix" />
+      </div>
+
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> plural suffix:
+        </p>
+        <input type="textarea" id="plural-suffix" />
+      </div>
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> accusative suffix:
+        </p>
+        <input type="textarea" id="accusative-prefix" />
+      </div>
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> genitive suffix:
+        </p>
+        <input type="textarea" id="genitive-prefix" />
+      </div>
 
       <div class="button-div">
         <input
@@ -441,9 +442,41 @@
 
     
     <h1 id="sectionH1">Nouns</h1>
-    
-    <section id="outputSectionNoun"></section>
 
+    <h1>Morphology</h1>
+    <section class="intro">
+      <p>
+        <span class="language-name">Kerbekulo</span> nouns have two grammatical
+        numbers, singular and plural, and three noun cases, nominative,
+        accusative and genitive.
+        <a href="https://en.wikipedia.org/wiki/Grammatical_case" target="_blank"
+          >What are noun cases?</a
+        >.<br />
+        Grammatical number is marked with two suffixes: <span class="sg-suffix"></span> marks the
+        singular and <span class="pl-suffix"></span> marks the plural.<br /><br />
+      </p>
+      <ul>
+        <li><i>gu-<span class="sg-suffix"></span></i> "eye"</li>
+        <li><i>gu-<span class="pl-suffix"></span></i> "eyes"</li>
+      </ul>
+
+      <p>
+        Noun case is marked with two prefixes: <span class="acc-prefix"></span> for the accusative and
+        <span class="genitive"></span> for the genitive. The nominative case is unmarked.<br />
+
+        Noun case and number combine in an agglutinative fashion, so a singular
+        accusative noun has the prefix <span class="acc-prefix"></span> and the suffix <span class="genitive"></span>.
+      </p>
+
+      <ul>
+        <li><i><span class="acc-prefix"></span>-gu-<span class="sg-suffix"></span></i></i> "eye" (accusative)</li>
+        <li><i><span class="acc-prefix"></span>-gu-<span class="pl-suffix"></span></i> "eyes" (accusative)</li>
+        <li><i><span class="gen-prefix"></span>-gu-<span class="sg-suffix"></span></i></i> "eye's" (genitive)</li>
+        <li><i><span class="gen-prefix"></span>-gu-<span class="pl-suffix"></span></i> "eyes'" (genitive)</li>
+      </ul>
+    </section>
+
+    <section id="outputSectionNoun"></section>
 
     <h1>Adjectives</h1>
     <section class="intro">
@@ -561,16 +594,115 @@
         "that which has a <span class="adjective-meaning5-copy"></span>
         <span class="copy-noun-meaning noun-meaning-copy5">BLANK</span>"
 
-        (< <span id="noun5Also">BLANK</span>-<span id="adjective5Also">BLANK</span>-<span class="nominaliser-suffix">BLANK</span>-<i>ko</i>
+        (< <span id="noun5Also">BLANK</span>-<span id="adjective5Also">BLANK</span>-<span class="nominaliser-suffix">BLANK</span>-<span class="sg-suffix"></span>
         )
-
-        
       </p>
-     
+    </section>
 
+    <h1>Pronouns</h1>
+    <section class="intro">
+    <h2>Personal Pronouns</h2>
+
+    <p>
+      <span class="language-name">Kerbekulo</span> has only two pronominal roots: -<span class="firstPersonPronoun">BLANK</span>- "I" for the first person, and -<span class="secondPersonPronoun">BLANK</span>- "you" for the second person. There is no pronoun devoted solely to the third person, rather the demonstrative pronoun -<span class="this-pronoun"></span>- "this" is used for the third person singular ("he, she, it").
+    </p>
+
+    <p>
+      Personal pronouns inflect just like any other noun, taking on the same suffixes and prefixes. 
+    </p>
+
+    <table style="text-align:center;">
+      <tr>
+        <th></th>
+        <th colspan="3">Sg</th>
+        <th colspan="3">Pl</th>
+      </tr>
+      <tr>
+        <td>Person:</td>
+        <td>1 <br>("I")</td>
+        <td>2 <br>("you")</td>
+        <td>3 <br>("he, she, it, this")</td>
+        <td>1 <br>("we")</td>
+        <td>2 <br>("you")</td>
+        <td>3 <br>("they, these")</td>
+      </tr>
+      <tr>
+        <td>Nominative</td>
+        <td><span class="noun-nom-sg firstPersonPronoun"></span></td>
+        <td><span class="noun-nom-sg secondPersonPronoun"></span></td>
+        <td><span class="noun-nom-sg this-pronoun"></span></td>
+        <td><span class="noun-nom-pl firstPersonPronoun"></span></td>
+        <td><span class="noun-nom-pl secondPersonPronoun"></span></td>
+        <td><span class="noun-nom-pl these-pronoun"></span></td>
+      </tr>
+      <tr>
+        <td>Accusative</td>
+        <td><span class="noun-acc-sg firstPersonPronoun"></span></td>
+        <td><span class="noun-acc-sg secondPersonPronoun"></span></td>
+        <td><span class="noun-acc-sg this-pronoun"></span></td>
+        <td><span class="noun-acc-pl firstPersonPronoun"></span></td>
+        <td><span class="noun-acc-pl secondPersonPronoun"></span></td>
+        <td><span class="noun-acc-pl these-pronoun"></span></td>
+      </tr>
+      <tr>
+        <td>Genitive</td>
+        <td><span class="noun-gen-sg firstPersonPronoun"></span></td>
+        <td><span class="noun-gen-sg secondPersonPronoun"></span></td>
+        <td><span class="noun-gen-sg this-pronoun"></span></td>
+        <td><span class="noun-gen-pl firstPersonPronoun"></span></td>
+        <td><span class="noun-gen-pl secondPersonPronoun"></span></td>
+        <td><span class="noun-gen-pl these-pronoun"></span></td>
+      </tr>
+    </table>
+
+    <p>
+      The genitive forms also function as possessive pronouns:
+    </p>
+    <ul>
+      <li>
+        <span class="noun-gen-sg firstPersonPronoun"></span> 
+        <span class="noun noun-nom-sg" id="noun10">BLANK</span> 
+        "my <span id="noun-meaning10">BLANK</span>"
+      </li>
+
+      <li>
+        <span class="noun-gen-sg secondPersonPronoun"></span> 
+        <span class="noun noun-nom-sg" id="noun11">BLANK</span> 
+        "you <span id="noun-meaning11">BLANK</span>"
+      </li>
+
+      <li>
+        <span class="noun-gen-sg this-pronoun"></span> 
+        <span class="noun noun-nom-sg" id="noun12">BLANK</span> 
+        "his/her/its <span id="noun-meaning12">BLANK</span>"
+      </li>
+
+      <li>
+        <span class="noun-gen-pl firstPersonPronoun"></span> 
+        <span class="noun noun-nom-sg" id="noun13">BLANK</span> 
+        "our <span id="noun-meaning13">BLANK</span>"
+      </li>
+
+      <li>
+        <span class="noun-gen-pl secondPersonPronoun"></span> 
+        <span class="noun noun-nom-sg" id="noun14">BLANK</span> 
+        "your <span id="noun-meaning14">BLANK</span>"
+      </li>
+
+      <li>
+        <span class="noun-gen-pl this-pronoun"></span> 
+        <span class="noun noun-nom-sg" id="noun15">BLANK</span> 
+        "their <span id="noun-meaning15">BLANK</span>"
+      </li>
+    </ul>
+
+    <h2>Demonstrative Pronouns</h2>
+
+    <h2>Interrogative Pronouns</h2>
 
     </section>
 
+    
     <script src="soundchange.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   </body>

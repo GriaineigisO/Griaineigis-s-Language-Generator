@@ -825,6 +825,21 @@ function createHere() {
     return wordHere
 }
 
+//Generates the word for "here"
+function createThere() {
+    let inputThere = document.getElementById("inputThere");
+    let wordThere = inputThere.value;
+    let spanThere = document.getElementsByClassName("there");
+    for (i = 0; i < spanThere.length; i++) {
+        if (wordThere != "") { //if no word has been input by the user, then nothing happens
+            if (spanThere[i].innerHTML != soundChange(wordThere)) {
+                spanThere[i].innerHTML = soundChange(wordThere);
+            }
+        }
+    }
+    return wordThere
+}
+
 //Generates the adverbial suffix
 function createAdverbialSuffix() {
     let inputAdverbialSuffix = document.getElementById("inputAdverbialSuffix");
@@ -840,23 +855,6 @@ function createAdverbialSuffix() {
     return wordAdverbialSuffix
 }
 
-//Merges the word for "here" and the adverbial suffix to create the demonstrative pronoun "this"
-function createThis() {
-    let wordHere = createHere(); //assigns the word "here"
-    let wordAdverbialSuffix = createAdverbialSuffix(); //assigns the adverbial suffix
-    let thisPronoun = wordHere + wordAdverbialSuffix;
-
-    //assigns the merged result to the appropriate span elements, and applies the sound changes
-    let spanThis = document.getElementsByClassName("this-pronoun");
-    for (i = 0; i < spanThis.length; i++) {
-        if (thisPronoun != "") { //if no word has been input by the user, then nothing happens
-            if (spanThis[i].innerHTML != soundChange(thisPronoun)) {
-                spanThis[i].innerHTML = soundChange(thisPronoun);
-            }
-        }
-    }
-    return thisPronoun
-}
 
 //Creates a word for "these" by adding the plural suffix to "this"
 function createThese() {
@@ -875,6 +873,97 @@ function createThese() {
         }
     }
     return thesePronoun
+}
+
+//Merges the word for "there" and the adverbial suffix to create the demonstrative pronoun "that"
+function createThat() {
+    let wordThere = createThere(); //assigns the word "there"
+    let wordAdverbialSuffix = createAdverbialSuffix(); //assigns the adverbial suffix
+    let thatPronoun = wordThere + wordAdverbialSuffix;
+
+    //assigns the merged result to the appropriate span elements, and applies the sound changes
+    let spanThat = document.getElementsByClassName("that-pronoun");
+    for (i = 0; i < spanThat.length; i++) {
+        if (thatPronoun != "") { //if no word has been input by the user, then nothing happens
+            if (spanThat[i].innerHTML != soundChange(thatPronoun)) {
+                spanThat[i].innerHTML = soundChange(thatPronoun);
+            }
+        }
+    }
+    return thatPronoun
+}
+
+//Creates a word for "those" by adding the plural suffix to "that"
+function createThose() {
+    let plSuffix = document.getElementById("plural-suffix").value;
+
+    let thatWord = createThat();
+    let thosePronoun = thatWord + plSuffix;
+
+    //assigns the merged result to the appropriate span elements, and applies the sound changes
+    let spanThose = document.getElementsByClassName("those-pronoun");
+    for (i = 0; i < spanThose.length; i++) {
+        if (thosePronoun != "") { //if no word has been input by the user, then nothing happens
+            if (spanThose[i].innerHTML != soundChange(thosePronoun)) {
+                spanThose[i].innerHTML = soundChange(thosePronoun);
+            }
+        }
+    }
+    return thosePronoun
+}
+
+//Merges the word for "here" and the adverbial suffix to create the demonstrative pronoun "this"
+function createThis() {
+    let wordHere = createHere(); //assigns the word "here"
+    let wordAdverbialSuffix = createAdverbialSuffix(); //assigns the adverbial suffix
+    let pronounThis = wordHere + wordAdverbialSuffix;
+    let accPrefix = document.getElementById("accusative-prefix").value;
+    //assigns the merged result to the appropriate span elements, and applies the sound changes
+    let spanThis = document.getElementsByClassName("this-pronoun");
+    for (i = 0; i < spanThis.length; i++) {
+        if (pronounThis != "") { //if no word has been input by the user, then nothing happens
+            if (spanThis[i].innerHTML != soundChange(pronounThis)) {
+                spanThis[i].innerHTML = soundChange(pronounThis);
+            }
+      
+    }
+    return pronounThis
+}
+
+
+//Creates accusative forms for the demonstrative pronouns. This has a distinct function from the one that creates accusative plural nouns, since demonstratives do not take on an overt singular suffix.
+//takes a randomly selected noun and puts it in the nominative singular
+function createAccDemonstrative() {
+    let accPrefix = document.getElementById("accusative-prefix").value;
+    let spanDem = document.getElementsByClassName("accusative-pronoun");
+        for (i = 0; i < spanDem.length; i++) {
+            let accDemonstrative = accPrefix + spanDem[i].innerHTML;
+            if (accDemonstrative != "") { //if no word has been input by the user, then nothing happens
+                if (spanDem[i].innerHTML != soundChange(accDemonstrative)) {
+                    spanDem[i].innerHTML = soundChange(accDemonstrative);
+                    console.log(spanDem[0].innerHTML)
+
+            }
+        }
+    }
+}
+
+
+
+
+//Creates genitive forms for the demonstrative pronouns. This has a distinct function from the one that creates accusative plural nouns, since demonstratives do not take on an overt singular suffix.
+function createGenDemonstrative() {
+    let genPrefix = document.getElementById("genitive-prefix").value;
+    let spanDem = document.getElementsByClassName("genitive-pronoun");
+        for (i = 0; i < spanDem.length; i++) {
+            let genDemonstrative = genPrefix + spanDem[i].innerHTML;
+            if (genDemonstrative != "") { //if no word has been input by the user, then nothing happens
+                if (spanDem[i].innerHTML != soundChange(genDemonstrative)) {
+                    spanDem[i].innerHTML = soundChange(genDemonstrative);
+                }
+            }
+        }
+       
 }
 
 //Generates the word for "also"
@@ -1432,9 +1521,14 @@ submitWords.addEventListener("click", buttonFunctions,);
 
 function buttonFunctions() {
     createHere();
+    createThere()
     createAdverbialSuffix();
     createThis();
-    createThese()
+    createThese();
+    createThat();
+    createThose();
+    createAccDemonstrative();
+    createGenDemonstrative();
     createAlso();
     createRelativePronoun();
     createNominaliserSuffix();
@@ -1502,7 +1596,8 @@ function generateVocab() {
     generateVerbMeanings();
     generateNominaliser();
     generateAlso();
-    generateHere();
+    generateHere()
+    generateThere();
     generateAdverbialSuffix();
     generateFirstPersonPronoun();
     generateSecondPersonPronoun();
@@ -1923,6 +2018,44 @@ function generateHere() {
         let firstV = vowels[Math.floor(Math.random() * vowels.length)]
         let V = firstV;
         hereInput.value = V;
+    } 
+
+
+}
+
+//randomly generates a word for "there"
+function generateThere() {
+    let thereInput = document.getElementById("inputThere");
+    
+    let randomNum = Math.floor(Math.random() * 4);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        thereInput.value = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        thereInput.value = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        thereInput.value = CVC;
+    } 
+    else if(randomNum === 3 ) {
+        //generates a V root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let V = firstV;
+        thereInput.value = V;
     } 
 
 

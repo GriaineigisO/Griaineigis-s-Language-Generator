@@ -361,6 +361,70 @@
     <section class="inputSection inputOtherPartsOfSpeechSection">
       <div class="input-container">
         <p>
+          Enter the <span class="language-name">Kerbekulo</span> word for
+          "again":
+        </p>
+        <input type="textarea" id="inputAgain" />
+      </div>
+      <div class="button-div">
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> word for
+          "place":
+        </p>
+        <input type="textarea" id="inputPlace" />
+      </div>
+      <div class="button-div">
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> word for
+          "man":
+        </p>
+        <input type="textarea" id="inputMan">
+      <div class="button-div">
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> word for
+          "path":
+        </p>
+        <input type="textarea" id="inputPath">
+      <div class="button-div">
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> word for
+          "origin":
+        </p>
+        <input type="textarea" id="inputOrigin">
+      <div class="button-div">
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> word for
+          "time":
+        </p>
+        <input type="textarea" id="inputTime" />
+      </div>
+      <div class="button-div">
+    </section>
+  
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
           Enter the <span class="language-name">Kerbekulo</span> adverbial
           suffix:
         </p>
@@ -723,7 +787,7 @@
     </ul>
 
     <p>
-      Demonstratives also take on case prefixes, to agree with the noun that they govern. They are unlike nouns, in that they take no overt singular suffix. 
+      Demonstratives also take on case prefixes, to agree with the noun that they govern. They are unlike nouns, in that they take no overt singular suffix when in the nominative case.
     </p>
 
     <table>
@@ -748,26 +812,91 @@
       </tr>
       <tr>
         <td>Accusative</td>
-        <td><span class="accusative-pronoun this-pronoun"></span></td>
-        <td><span class="accusative-pronoun that-pronoun"></span></td>
-        <td><span class="accusative-pronoun these-pronoun"></span></td>
-        <td><span class="accusative-pronoun those-pronoun"></span></td>
+        <td><span class="noun-acc-sg this-pronoun"></span></td>
+        <td><span class="noun-acc-sg that-pronoun"></span></td>
+        <td><span class="noun-acc-pl these-pronoun"></span></td>
+        <td><span class="noun-acc-pl those-pronoun"></span></td>
       </tr>
       <tr>
         <td>Genitive</td>
-        <td><span class="genitive-pronoun this-pronoun"></span></td>
-        <td><span class="genitive-pronoun that-pronoun"></span></td>
-        <td><span class="genitive-pronoun these-pronoun"></span></td>
-        <td><span class="genitive-pronoun those-pronoun"></span></td>
+        <td><span class="noun-gen-sg this-pronoun"></span></td>
+        <td><span class="noun-gen-sg that-pronoun"></span></td>
+        <td><span class="noun-gen-pl these-pronoun"></span></td>
+        <td><span class="noun-gen-pl those-pronoun"></span></td>
       </tr>
     </table>
 
     <h2>Interrogative Pronouns</h2>
 
+    <p>Interrogative pronouns are created by placing the interrogative affix  <span class="interrogative"></span> onto a certain set of nouns as a prefix. The prefix is derived from <span class="again"></span> "also, as well as".</p>
+
+    <table>
+      <tr>
+        <td>Locative:</td>
+        <td><span class="interrogative"></span></td>
+        <td>+</td>
+        <td><span class="place"></span></td>
+        <td>"place"</td>
+        <td>></td>
+        <td><span class="where"></span></td>
+        <td>"where?"</td>
+      </tr>
+      <tr>
+        <td>Animate:</td>
+        <td><span class="interrogative"></span></td>
+        <td>+</td>
+        <td><span class="man"></span></td>
+        <td>"man"</td> 
+        <td>></td>
+        <td><span class="who"></span></td>
+        <td>"who?"</td>
+      </tr>
+      <tr>
+        <td>Inanimate:</td>
+        <td><span class="interrogative"></span></td>
+        <td>+</td>
+        <td><span class="this-pronoun"></span></td>
+        <td>"this"</td>
+        <td>></td>
+        <td><span class="what"></span></td>
+        <td>"what?"</td>
+      </tr>
+      <tr>
+        <td>Temporal:</td>
+        <td><span class="interrogative"></span></td>
+        <td>+</td>
+        <td><span class="time"></span></td>
+        <td>"time"</td>
+        <td>></td>
+        <td><span class="when"></span></td>
+        <td>"when?"</td>
+      </tr>
+      <tr>
+        <td>Method:</td>
+        <td><span class="interrogative"></span></td>
+        <td>+</td>
+        <td><span class="path"></span></td>
+        <td>"path"</td>
+        <td>></td>
+        <td><span class="how"></span></td>
+        <td>"how?"</td>
+      </tr>
+      <tr>
+        <td>Reason:</td>
+        <td><span class="interrogative"></span></td>
+        <td>+</td>
+        <td><span class="origin"></span></td>
+        <td>"origin"</td>
+        <td>></td>
+        <td><span class="why"></span></td>
+        <td>"why?"</td>
+      </tr>
+    </table>
+
     </section>
 
     
-    <script src="soundchange.js"></script>
+    <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   </body>
 </html>

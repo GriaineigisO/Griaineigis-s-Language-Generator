@@ -42,6 +42,7 @@ function soundChange(word) {
 
 
     let vowels = ["a", "ā", "e", "ē", "o", "ō", "u", "ū", "i", "ī", "ə"];
+    let longVowels = ["ā", "ē", "ō", "ū", "ī", "ə"];
 
     let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "h", "l", "r", "j", "w"];
 
@@ -94,7 +95,6 @@ function soundChange(word) {
 
     let furtherChanges = Array.from(lenitionString9);
 
-
     let rejoinedString = furtherChanges.join(""); //turns the array back into a string
 
     //removes "h" if it occurs both after another consonant and before "k". Due to interference with the "h" in the accusative prefix, I had to make this rather clunky workaround. This turns "hk" clusters into "X" (all cases of post-consonantal "h" occur befor "h") and then check if "X" if after a consonant, if it is, then "X" becomes "k", else, it becomes "hk" again
@@ -102,29 +102,21 @@ function soundChange(word) {
     let beforeX = consonants.includes(hKtoX.charAt(hKtoX.indexOf("X") - 1));
     let removeCX = hKtoX.includes("X") && beforeX ? hKtoX.replace("X", "k") : hKtoX;
     let returnXtoHK = removeCX.replace("X", "hk");
-   
-    //checks if "j" occurs before a consonant and turns it into "i" 
-    let syllabliseJ = returnXtoHK.includes("j") && consonants.includes(returnXtoHK.charAt(returnXtoHK.indexOf("j") + 1)) ? returnXtoHK.replace("j", "i") : returnXtoHK;
+    
 
-    //checks if "j" is word final and turns it into "i" 
-    let syllabliseFinalJ = returnXtoHK.slice(-1) == "j" ? returnXtoHK.replace("j", "i") : returnXtoHK;
-
-    //checks if "w" occurs before a consonant and turns it into "u"
-    let syllabliseW = syllabliseFinalJ.includes("w") && consonants.includes(syllabliseJ.charAt(syllabliseJ.indexOf("w") + 1)) ? syllabliseJ.replace("w", "u") : syllabliseFinalJ;
-
-    //checks if "w" is word final and turns it into "u" 
-    let syllabliseFinalW = syllabliseW.slice(-1) == "w" ? syllabliseW.replace("w", "u") : syllabliseW;
 
     //checks if "r" is before and after a consonant, and turns it into schwa if so
-    let syllabliseR = syllabliseFinalW.includes("r") && consonants.includes(syllabliseFinalW.charAt(syllabliseFinalW.indexOf("r") + 1)) && consonants.includes(syllabliseFinalW.charAt(syllabliseFinalW.indexOf("r") - 1)) ? syllabliseJ.replace("r", "ə") : syllabliseFinalW;
+    let syllabliseR = returnXtoHK.includes("r") && consonants.includes(returnXtoHK.charAt(returnXtoHK.indexOf("r") + 1)) && consonants.includes(returnXtoHK.charAt(returnXtoHK.indexOf("r") - 1)) ? returnXtoHK.replace("r", "ə") : returnXtoHK;
 
     //checks if "l" is before and after a consonant, and turns it into schwa if so
-    let syllabliseL = syllabliseW.includes("l") && consonants.includes(syllabliseW.charAt(syllabliseW.indexOf("l") + 1)) && consonants.includes(syllabliseW.charAt(syllabliseW.indexOf("l") - 1)) ? syllabliseJ.replace("l", "ə") : syllabliseR;
+    let syllabliseL = syllabliseR.includes("l") && consonants.includes(syllabliseR.charAt(syllabliseR.indexOf("l") + 1)) && consonants.includes(syllabliseR.charAt(syllabliseR.indexOf("l") - 1)) ? syllabliseR.replace("l", "ə") : syllabliseR;
 
+    let jToI = syllabliseL.replace("j", "i");
+    let wToU = jToI.replace("w", "u");
     
 
     //turns geminates into singletons
-    let reduceGeminate = syllabliseL.replace("pp", "p");
+    let reduceGeminate = wToU.replace("pp", "p");
     let reduceGeminate1 = reduceGeminate.replace("bb", "b");
     let reduceGeminate2 = reduceGeminate1.replace("tt", "t");
     let reduceGeminate3 = reduceGeminate2.replace("dd", "d");
@@ -136,10 +128,13 @@ function soundChange(word) {
     let reduceGeminate9 = reduceGeminate8.replace("nn", "n");
     let reduceGeminate10 = reduceGeminate9.replace("mm", "m");
     let reduceGeminate11 = reduceGeminate10.replace("hh", "h");
-   
+
+    let iToJ = reduceGeminate11.includes("i") && vowels.includes(reduceGeminate11.charAt(reduceGeminate11.indexOf("i") - 1)) && vowels.includes(reduceGeminate11.charAt(reduceGeminate11.indexOf("i") + 1)) || reduceGeminate11.indexOf("i") === 0 ? reduceGeminate11.replace("i", "j") : reduceGeminate11;
     
 
-    let fixMacronUPlusU = reduceGeminate11.replace("ūu", "ū");
+    let uToW = iToJ.includes("u") && vowels.includes(iToJ.charAt(iToJ.indexOf("u") - 1)) && vowels.includes(iToJ.charAt(iToJ.indexOf("u") + 1)) || iToJ.indexOf("u") === 0  ? iToJ.replace("u", "w") : iToJ;
+
+    let fixMacronUPlusU = uToW.replace("ūu", "ū");
     let fixUPlusMacronU = fixMacronUPlusU.replace("uū", "ū");
     let fixUPlusU = fixUPlusMacronU.replace("uu", "ū");
 
@@ -160,9 +155,8 @@ function soundChange(word) {
     let fixAPlusA = fixAPlusMacronA.replace("aa", "ā");
 
     
-
-
-
+    
+   
     return fixAPlusA;
 
 
@@ -927,9 +921,8 @@ function createThis() {
             }
         }
     }
-    return pronounThis
+    return soundChange(pronounThis);
 }
-
 
 //Creates accusative forms for the demonstrative pronouns. This has a distinct function from the one that creates accusative plural nouns, since demonstratives do not take on an overt singular suffix.
 //takes a randomly selected noun and puts it in the nominative singular
@@ -941,7 +934,6 @@ function createAccDemonstrative() {
             if (accDemonstrative != "") { //if no word has been input by the user, then nothing happens
                 if (spanDem[i].innerHTML != soundChange(accDemonstrative)) {
                     spanDem[i].innerHTML = soundChange(accDemonstrative);
-                    console.log(spanDem[0].innerHTML)
 
             }
         }
@@ -977,6 +969,213 @@ function createAlso() {
         }
     }
     return wordAlso
+}
+
+//Generates the word for "again"
+function createAgain() {
+    let inputAgain = document.getElementById("inputAgain");
+    let wordAgain = inputAgain.value;
+    let spanAgain = document.getElementsByClassName("again");
+    for (i = 0; i < spanAgain.length; i++) {
+        if (wordAgain != "") {
+            if (spanAgain[i].innerHTML != soundChange(wordAgain)) {
+                spanAgain[i].innerHTML = soundChange(wordAgain);
+            }
+        }
+    }
+    return wordAgain
+}
+
+//Generates the word for interrogative suffix
+function createInterrogativeSuffix() {
+    let inputAgain = document.getElementById("inputAgain");
+    let wordAgain = inputAgain.value;
+    console.log(wordAgain)
+    let firstTwoLetters = [];
+    firstTwoLetters.push(wordAgain[0]);
+    firstTwoLetters.push(wordAgain[1]);
+    let interrogativePrefix = firstTwoLetters.join("")
+
+    let spanAgain = document.getElementsByClassName("interrogative");
+    for (i = 0; i < spanAgain.length; i++) {
+        if (interrogativePrefix != "") {
+            if (spanAgain[i].innerHTML != soundChange(interrogativePrefix)) {
+                spanAgain[i].innerHTML = soundChange(interrogativePrefix);
+            }
+        }
+    }
+    return interrogativePrefix
+}
+
+//Generates the word for "place"
+function createPlace() {
+    let inputPlace = document.getElementById("inputPlace");
+    let wordPlace = inputPlace.value;
+    let spanPlace = document.getElementsByClassName("place");
+    for (i = 0; i < spanPlace.length; i++) {
+        if (wordPlace != "") {
+            if (spanPlace[i].innerHTML != soundChange(wordPlace)) {
+                spanPlace[i].innerHTML = soundChange(wordPlace);
+            }
+        }
+    }
+    return wordPlace
+}
+
+//Generates the word for "man"
+function createMan() {
+    let inputMan = document.getElementById("inputMan");
+    let wordMan = inputMan.value;
+    let spanMan = document.getElementsByClassName("man");
+    for (i = 0; i < spanMan.length; i++) {
+        if (wordMan != "") {
+            if (spanMan[i].innerHTML != soundChange(wordMan)) {
+                spanMan[i].innerHTML = soundChange(wordMan);
+            }
+        }
+    }
+    return wordMan
+}
+
+//Generates the word for "path"
+function createPath() {
+    let inputPath = document.getElementById("inputPath");
+    let wordPath = inputPath.value;
+    let spanPath = document.getElementsByClassName("path");
+    for (i = 0; i < spanPath.length; i++) {
+        if (wordPath != "") {
+            if (spanPath[i].innerHTML != soundChange(wordPath)) {
+                spanPath[i].innerHTML = soundChange(wordPath);
+            }
+        }
+    }
+    return soundChange(wordPath)
+}
+
+//Generates the word for "origin"
+function createOrigin() {
+    let inputOrigin = document.getElementById("inputOrigin");
+    let wordOrigin = inputOrigin.value;
+    let spanOrigin = document.getElementsByClassName("origin");
+    for (i = 0; i < spanOrigin.length; i++) {
+        if (wordOrigin != "") {
+            if (spanOrigin[i].innerHTML != soundChange(wordOrigin)) {
+                spanOrigin[i].innerHTML = soundChange(wordOrigin);
+            }
+        }
+    }
+    return soundChange(wordOrigin)
+}
+
+//Generates the word for "time"
+function createTime() {
+    let inputTime = document.getElementById("inputTime");
+    let wordTime = inputTime.value;
+    let spanTime = document.getElementsByClassName("time");
+    for (i = 0; i < spanTime.length; i++) {
+        if (wordTime != "") {
+            if (spanTime[i].innerHTML != soundChange(wordTime)) {
+                spanTime[i].innerHTML = soundChange(wordTime);
+            }
+        }
+    }
+    return wordTime
+}
+
+//Generates the word for "where"
+function createWhere() {
+    let place = document.getElementById("inputPlace").value;
+    let affix = createInterrogativeSuffix();
+    let where = affix + soundChange(place);
+    let spanWhen = document.getElementsByClassName("where");
+    for (i = 0; i < spanWhen.length; i++) {
+        if (where != " ") {
+            if (spanWhen[i].innerHTML != soundChange(where)) {
+                spanWhen[i].innerHTML = soundChange(where);
+            }
+        }
+    }
+    return where
+}
+
+//Generates the word for "who"
+function createWho() {
+    let man = document.getElementById("inputMan").value;
+    let affix = createInterrogativeSuffix();
+    let who = affix + soundChange(man);
+    let spanWho = document.getElementsByClassName("who");
+    for (i = 0; i < spanWho.length; i++) {
+        if (who != " ") {
+            if (spanWho[i].innerHTML != soundChange(who)) {
+                spanWho[i].innerHTML = soundChange(who);
+            }
+        }
+    }
+    return who
+}
+
+//Generates the word for "when"
+function createWhen() {
+    let time = createTime();
+    let affix = createInterrogativeSuffix();
+    let when = affix + soundChange(time);
+    let spanWhen = document.getElementsByClassName("when");
+    for (i = 0; i < spanWhen.length; i++) {
+        if (when != " ") {
+            if (spanWhen[i].innerHTML != soundChange(when)) {
+                spanWhen[i].innerHTML = soundChange(when);
+            }
+        }
+    }
+    return when
+}
+
+//Generates the word for "what"
+function createWhat() {
+    let thisWord = createThis();
+    let affix = createInterrogativeSuffix();
+    let what = affix + thisWord;
+    let spanWhat = document.getElementsByClassName("what");
+    for (i = 0; i < spanWhat.length; i++) {
+        if (what != " ") {
+            if (spanWhat[i].innerHTML != soundChange(what)) {
+                spanWhat[i].innerHTML = soundChange(what);
+            }
+        }
+    }
+    return what
+}
+
+//Generates the word for "how"
+function createHow() {
+    let path = createPath();
+    let affix = createInterrogativeSuffix();
+    let how = affix + path;
+    let spanHow = document.getElementsByClassName("how");
+    for (i = 0; i < spanHow.length; i++) {
+        if (how != " ") {
+            if (spanHow[i].innerHTML != soundChange(how)) {
+                spanHow[i].innerHTML = soundChange(how);
+            }
+        }
+    }
+    return soundChange(how);
+}
+
+//Generates the word for "why"
+function createWhy() {
+    let origin = createOrigin();
+    let affix = createInterrogativeSuffix();
+    let why = affix + origin;
+    let spanWhy = document.getElementsByClassName("why");
+    for (i = 0; i < spanWhy.length; i++) {
+        if (why != " ") {
+            if (spanWhy[i].innerHTML != soundChange(why)) {
+                spanWhy[i].innerHTML = soundChange(why);
+            }
+        }
+    }
+    return soundChange(why);
 }
 
 
@@ -1528,6 +1727,20 @@ function buttonFunctions() {
     createAccDemonstrative();
     createGenDemonstrative();
     createAlso();
+    createAgain();
+    createPlace();
+    createWhere();
+    createMan();
+    createPath();
+    createOrigin();
+    createTime();
+    createWhere();
+    createWho();
+    createWhat();
+    createWhen();
+    createHow();
+    createWhy();
+    createInterrogativeSuffix();
     createRelativePronoun();
     createNominaliserSuffix();
     createFirstPersonPronoun();
@@ -1594,8 +1807,14 @@ function generateVocab() {
     generateVerbMeanings();
     generateNominaliser();
     generateAlso();
+    generateAgain();
+    generatePlace();
+    generateMan();
+    generateTime();
     generateHere()
     generateThere();
+    generatePath();
+    generateOrigin();
     generateAdverbialSuffix();
     generateFirstPersonPronoun();
     generateSecondPersonPronoun();
@@ -1982,6 +2201,343 @@ function generateAlso() {
 
 
 }
+
+//randomly generates a word for "also"
+function generateAgain() {
+    let againInput = document.getElementById("inputAgain");
+    
+    let randomNum = Math.floor(Math.random() * 5);
+
+    if (randomNum === 0) { 
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        againInput.value = CVC;
+
+    } else if(randomNum === 1 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCV = firstC + firstV + secondC + secondV;
+        againInput.value = CVCV;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVCVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+        againInput.value = CVCVC;
+
+    } else if(randomNum === 3 ) {
+        //generates a CVCC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCC = firstC + firstV + secondC + thirdC;
+        againInput.value = CVCC;
+
+    } else if(randomNum === 4 ) {
+        //generates a CVCCV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+        againInput.value = CVCCV;
+    }
+
+
+}
+
+//randomly generates a word for "place"
+function generatePlace() {
+    let placeInput = document.getElementById("inputPlace");
+    
+    let randomNum = Math.floor(Math.random() * 5);
+
+    if (randomNum === 0) { 
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        placeInput.value = CVC;
+
+    } else if(randomNum === 1 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCV = firstC + firstV + secondC + secondV;
+        placeInput.value = CVCV;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVCVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+        placeInput.value = CVCVC;
+
+    } else if(randomNum === 3 ) {
+        //generates a CVCC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCC = firstC + firstV + secondC + thirdC;
+        placeInput.value = CVCC;
+
+    } else if(randomNum === 4 ) {
+        //generates a CVCCV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+        placeInput.value = CVCCV;
+    }
+
+
+}
+
+//randomly generates a word for "man"
+function generateMan() {
+    let inputMan = document.getElementById("inputMan");
+    
+    let randomNum = Math.floor(Math.random() * 5);
+
+    if (randomNum === 0) { 
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        inputMan.value = CVC;
+
+    } else if(randomNum === 1 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCV = firstC + firstV + secondC + secondV;
+        inputMan.value = CVCV;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVCVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+        inputMan.value = CVCVC;
+
+    } else if(randomNum === 3 ) {
+        //generates a CVCC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCC = firstC + firstV + secondC + thirdC;
+        inputMan.value = CVCC;
+
+    } else if(randomNum === 4 ) {
+        //generates a CVCCV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+        inputMan.value = CVCCV;
+    }
+
+
+}
+
+//randomly generates a word for "path"
+function generatePath() {
+    let inputPath = document.getElementById("inputPath");
+    
+    let randomNum = Math.floor(Math.random() * 5);
+
+    if (randomNum === 0) { 
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        inputPath.value = CVC;
+
+    } else if(randomNum === 1 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCV = firstC + firstV + secondC + secondV;
+        inputPath.value = CVCV;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVCVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+        inputPath.value = CVCVC;
+
+    } else if(randomNum === 3 ) {
+        //generates a CVCC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCC = firstC + firstV + secondC + thirdC;
+        inputPath.value = CVCC;
+
+    } else if(randomNum === 4 ) {
+        //generates a CVCCV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+        inputPath.value = CVCCV;
+    }
+
+
+}
+
+//randomly generates a word for "path"
+function generateOrigin() {
+    let inputOrigin = document.getElementById("inputOrigin");
+    
+    let randomNum = Math.floor(Math.random() * 5);
+
+    if (randomNum === 0) { 
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        inputOrigin.value = CVC;
+
+    } else if(randomNum === 1 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCV = firstC + firstV + secondC + secondV;
+        inputOrigin.value = CVCV;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVCVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+        inputOrigin.value = CVCVC;
+
+    } else if(randomNum === 3 ) {
+        //generates a CVCC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCC = firstC + firstV + secondC + thirdC;
+        inputOrigin.value = CVCC;
+
+    } else if(randomNum === 4 ) {
+        //generates a CVCCV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+        inputOrigin.value = CVCCV;
+    }
+
+
+}
+
+//randomly generates a word for "time"
+function generateTime() {
+    let inputTime = document.getElementById("inputTime");
+    
+    let randomNum = Math.floor(Math.random() * 5);
+
+    if (randomNum === 0) { 
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        inputTime.value = CVC;
+
+    } else if(randomNum === 1 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCV = firstC + firstV + secondC + secondV;
+        inputTime.value = CVCV;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVCVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+        inputTime.value = CVCVC;
+
+    } else if(randomNum === 3 ) {
+        //generates a CVCC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCC = firstC + firstV + secondC + thirdC;
+        inputTime.value = CVCC;
+
+    } else if(randomNum === 4 ) {
+        //generates a CVCCV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+        inputTime.value = CVCCV;
+    }
+
+
+}
+
 
 //randomly generates a word for "here"
 function generateHere() {

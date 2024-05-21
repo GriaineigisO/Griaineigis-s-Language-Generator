@@ -1568,16 +1568,43 @@ function createCopy() {
         adjectiveMeaningCopy5[i].innerHTML = adjectiveMeaning5Content;
     }
 
-    let copyVerb = document.getElementsByClassName("copy-verb");
+   /* let copyVerb = document.getElementsByClassName("copy-verb");
     let verbNum = 1
     
     for (i = 0; i < copyVerb.length; i++) {
         let originalVerb = document.getElementById("verb" + verbNum.toString());
         document.getElementsByClassName("verb-copy" + verbNum.toString())[i].innerHTML = originalVerb.innerHTML;
         verbNum++       
-        console.log("verb-coby:" + verbNum)
+    }*/
+
+    let verb1 = document.getElementById("verb1");
+    let verb1Content = verb1.innerHTML;
+    let verbCopy1 = document.getElementsByClassName("verb-copy1");
+    for (i = 0; i < verbCopy1.length; i++) {
+        verbCopy1[i].innerHTML = verb1Content;
     }
 
+    let verb2 = document.getElementById("verb2");
+    let verb2Content = verb2.innerHTML;
+    let verbCopy2 = document.getElementsByClassName("verb-copy2");
+    for (i = 0; i < verbCopy2.length; i++) {
+        verbCopy2[i].innerHTML = verb2Content;
+    }
+
+    let verb3 = document.getElementById("verb3");
+    let verb3Content = verb3.innerHTML;
+    let verbCopy3 = document.getElementsByClassName("verb-copy3");
+    for (i = 0; i < verbCopy3.length; i++) {
+        verbCopy3[i].innerHTML = verb3Content;
+    }
+
+    /*let verbMeaning4 = document.getElementById("verb-meaning4");
+    let verbMeaning4Content = verbMeaning4.innerHTML;
+    let verbMeaningCopy4 = document.getElementsByClassName("verb-meaning-copy4");
+    for (i = 0; i < verbMeaning4Content.length; i++) {
+        verbMeaningCopy4[i].innerHTML = verbMeaning4Content;
+    }
+*/
 
 }
 
@@ -1771,6 +1798,44 @@ function createVerbNonPast() {
 }
 
 
+function createFirstPersonVerbPrefix() {
+    let firstPersonPronoun = document.getElementById("first-person-pronoun");
+    let pronoun = firstPersonPronoun.value;
+    let firstTwoLetters = [];
+    firstTwoLetters.push(pronoun[0]);
+    firstTwoLetters.push(pronoun[1]);
+    let prefix = firstTwoLetters.join("")
+
+    let spanPrefix = document.getElementsByClassName("first-person-prefix");
+    for (i = 0; i < spanPrefix.length; i++) {
+        if (prefix != "") {
+            if (spanPrefix[i].innerHTML != soundChange(prefix)) {
+                spanPrefix[i].innerHTML = soundChange(prefix);
+            }
+        }
+    }
+    return prefix
+}
+
+function createSecondPersonVerbPrefix() {
+    let secondPersonPronoun = document.getElementById("second-person-pronoun");
+    let pronoun = secondPersonPronoun.value;
+    let firstTwoLetters = [];
+    firstTwoLetters.push(pronoun[0]);
+    firstTwoLetters.push(pronoun[1]);
+    let prefix = firstTwoLetters.join("")
+
+    let spanPrefix = document.getElementsByClassName("second-person-prefix");
+    for (i = 0; i < spanPrefix.length; i++) {
+        if (prefix != "") {
+            if (spanPrefix[i].innerHTML != soundChange(prefix)) {
+                spanPrefix[i].innerHTML = soundChange(prefix);
+            }
+        }
+    }
+    return prefix
+}
+
 
 let submitWords = document.getElementById("submitWords");
 submitWords.addEventListener("click", buttonFunctions,);
@@ -1824,6 +1889,8 @@ function buttonFunctions() {
     makeMeaningPlural();
     makeMeaningPast();
     createVerbNonPast();
+    createFirstPersonVerbPrefix();
+    createSecondPersonVerbPrefix();
     
 }
 

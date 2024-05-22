@@ -422,10 +422,6 @@ function createNounCases() {
 }
 
 
-
-
-
-
 //Takes the words from both text fields and splits them into arrays, then it creates an object using both arrays.
 function createArrays() {
     let outputSection = document.getElementById("outputSectionNoun");
@@ -843,12 +839,6 @@ function createArrays() {
     /*----------------------^^^COMPOUND TABLE-^^^-------------------------------------------------------------*/
 
 }
-
-
-
-
-
-
 
 
 //Generates the word for "here"
@@ -1727,7 +1717,6 @@ function createNounGenPl() {
     }
 }
 
-
 //creates a bahuvrihi compound for the example shown in the adjective section
 function createBahuvrihi() {
     let sgSuffix = document.getElementById("singular-suffix").value;
@@ -1823,7 +1812,6 @@ function createVerbNonPast() {
         }
 }
 
-
 function createFirstPersonVerbPrefix() {
     let firstPersonPronoun = document.getElementById("first-person-pronoun");
     let pronoun = firstPersonPronoun.value;
@@ -1890,6 +1878,133 @@ function createVerbSecondPerson() {
         }
 }
 
+function createPluralVerbSuffix() {
+    let inputPluralVerb = document.getElementById("input-plural-verb");
+    let pluralVerbSuffix = inputPluralVerb.value;
+    let spanPluralVerbSuffix = document.getElementsByClassName("plural-verb-suffix");
+    for (i = 0; i < spanPluralVerbSuffix.length; i++) {
+        if (pluralVerbSuffix != "") {
+            if (spanPluralVerbSuffix[i].innerHTML != soundChange(pluralVerbSuffix)) {
+                spanPluralVerbSuffix[i].innerHTML = soundChange(pluralVerbSuffix);
+            }
+        }
+    }
+    return pluralVerbSuffix;
+}
+
+function createPluralVerb() {
+    let pluralVerbSuffix = createPluralVerbSuffix();
+    let spanVerb = document.getElementsByClassName("plural-verb")
+        for (i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = spanVerb[i].innerHTML + pluralVerbSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createPluralVerbNonPast() {
+    let pluralVerbSuffix = createPluralVerbSuffix();
+    let nonPastSuffix = createNonPastSuffix();
+    let spanVerb = document.getElementsByClassName("plural-verb-non-past")
+        for (i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = spanVerb[i].innerHTML + pluralVerbSuffix + nonPastSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createFirstPersonVerbNonPast() {
+    let nonPastSuffix = createNonPastSuffix();
+    let firstPersonPrefix = createFirstPersonVerbPrefix();
+    let spanVerb = document.getElementsByClassName("first-person-verb-non-past")
+        for (i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = firstPersonPrefix + spanVerb[i].innerHTML + nonPastSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createSecondPersonVerbNonPast() {
+    let nonPastSuffix = createNonPastSuffix();
+    let secondPersonPrefix = createSecondPersonVerbPrefix();
+    let spanVerb = document.getElementsByClassName("second-person-verb-non-past")
+        for (i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = secondPersonPrefix + spanVerb[i].innerHTML + nonPastSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createFirstPersonPluralVerbNonPast() {
+    let pluralVerbSuffix = createPluralVerbSuffix();
+    let nonPastSuffix = createNonPastSuffix();
+    let firstPersonPrefix = createFirstPersonVerbPrefix();
+    let spanVerb = document.getElementsByClassName("first-person-plural-verb-non-past")
+        for (i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = firstPersonPrefix + spanVerb[i].innerHTML + pluralVerbSuffix + nonPastSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createSecondPersonPluralVerbNonPast() {
+    let pluralVerbSuffix = createPluralVerbSuffix();
+    let nonPastSuffix = createNonPastSuffix();
+    let firstPersonPrefix = createSecondPersonVerbPrefix();
+    let spanVerb = document.getElementsByClassName("second-person-plural-verb-non-past")
+        for (i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = firstPersonPrefix + spanVerb[i].innerHTML + pluralVerbSuffix + nonPastSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createFirstPersonPluralVerb() {
+    let pluralVerbSuffix = createPluralVerbSuffix();
+    let firstPersonPrefix = createFirstPersonVerbPrefix();
+    let spanVerb = document.getElementsByClassName("first-person-plural-verb")
+        for (i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = firstPersonPrefix + spanVerb[i].innerHTML + pluralVerbSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createSecondPersonPluralVerb() {
+    let pluralVerbSuffix = createPluralVerbSuffix();
+    let firstPersonPrefix = createSecondPersonVerbPrefix();
+    let spanVerb = document.getElementsByClassName("second-person-plural-verb")
+        for (i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = firstPersonPrefix + spanVerb[i].innerHTML + pluralVerbSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
 let submitWords = document.getElementById("submitWords");
 submitWords.addEventListener("click", buttonFunctions,);
 
@@ -1946,6 +2061,15 @@ function buttonFunctions() {
     createSecondPersonVerbPrefix();
     createVerbFirstPerson();
     createVerbSecondPerson();
+    createPluralVerbSuffix();
+    createPluralVerb();
+    createPluralVerbNonPast();
+    createFirstPersonVerbNonPast();
+    createSecondPersonVerbNonPast();
+    createFirstPersonPluralVerbNonPast();
+    createSecondPersonPluralVerbNonPast();
+    createFirstPersonPluralVerb();
+    createSecondPersonPluralVerb();
     
 }
 
@@ -1961,7 +2085,6 @@ generatePhonemeButton.addEventListener("click", generatePhonemicInventory)
 let resetPhonemes = document.getElementById("resetPhonemes")
 resetPhonemes.addEventListener("click", resetInventory);
 
-
 function generatePhonemicInventory() {
     let enteredConsonants = document.getElementById("consonants").value;
     let enteredVowels = document.getElementById("vowels").value;
@@ -1975,35 +2098,10 @@ function resetInventory() {
    document.getElementById("vowels").value = "a e i o u"
 }
 
-
 /*---Generates Words-----*/
 
 let generateVocabButton = document.getElementById("generate-vocab");
 generateVocabButton.addEventListener("click", generateVocab);
-
-function generateVocab() {
-    generateNouns();
-    generateNounMeanings();
-    generateAdjectives();
-    generateAdjectiveMeaning();
-    generateCopula();
-    generateVerbs();
-    generateVerbMeanings();
-    generateNominaliser();
-    generateAlso();
-    generateAgain();
-    generatePlace();
-    generateMan();
-    generateTime();
-    generateHere()
-    generateThere();
-    generatePath();
-    generateOrigin();
-    generateAdverbialSuffix();
-    generateFirstPersonPronoun();
-    generateSecondPersonPronoun();
-    generateNonPastSuffix();
-}
 
 //randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
 function generateNouns() {
@@ -2913,9 +3011,7 @@ function generateSecondPersonPronoun() {
 //randomly generates an non-past suffix
 function generateNonPastSuffix() {
     let nonPastSuffixInput = document.getElementById("non-past");
-    
     let randomNum = Math.floor(Math.random() * 3);
-
     if (randomNum === 0) { 
         //generates a CV root
         let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
@@ -2938,4 +3034,56 @@ function generateNonPastSuffix() {
     } 
 
 
+}
+
+function generatePluralVerbSuffix() {
+let pluralVerbInput = document.getElementById("input-plural-verb");
+    let randomNum = Math.floor(Math.random() * 3);
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        pluralVerbInput.value = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        pluralVerbInput.value = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let CVC = firstC + firstV + secondC;    
+        pluralVerbInput.value = CVC;
+    } 
+}
+
+function generateVocab() {
+    generateNouns();
+    generateNounMeanings();
+    generateAdjectives();
+    generateAdjectiveMeaning();
+    generateCopula();
+    generateVerbs();
+    generateVerbMeanings();
+    generateNominaliser();
+    generateAlso();
+    generateAgain();
+    generatePlace();
+    generateMan();
+    generateTime();
+    generateHere()
+    generateThere();
+    generatePath();
+    generateOrigin();
+    generateAdverbialSuffix();
+    generateFirstPersonPronoun();
+    generateSecondPersonPronoun();
+    generateNonPastSuffix();
+    generatePluralVerbSuffix();
 }

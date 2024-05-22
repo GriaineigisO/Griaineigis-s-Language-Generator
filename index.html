@@ -499,6 +499,15 @@
         </p>
         <input type="textarea" id="genitive-prefix" />
       </div>
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> plural verb suffix:
+        </p>
+        <input type="textarea" id="input-plural-verb" />
+      </div>
 
       <div class="button-div">
         <input
@@ -942,7 +951,7 @@
       <h3>Person Marking</h3>
 
       <p>
-        Verbs agree with their subjects by taking on a set of person-marking prefixes. The prefixes derive from the personal pronouns; the first person is marked with the prefix <span class="first-person-prefix">BLANK</span>- from <span class="firstPersonPronoun">BLANK</span> "I" and the second person is marked with the prefix <span class="second-person-prefix">BLANK</span>- from <span class="secondPersonPronoun">BLANK</span> "you". There is no third person prefix, a verb with no over person-marking prefix is by default in the third person
+        Verbs agree with their subjects by taking on a set of person-marking prefixes. The prefixes derive from the personal pronouns; the first person is marked with the prefix <span class="first-person-prefix">BLANK</span>- from <span class="noun-nom-sg firstPersonPronoun">BLANK</span> "I" and the second person is marked with the prefix <span class="second-person-prefix">BLANK</span>- from <span class="noun-nom-sg secondPersonPronoun">BLANK</span> "you". There is no third person prefix, a verb with no over person-marking prefix is by default in the third person.
       </p>
 
      <ul>
@@ -952,7 +961,7 @@
             
           <ul>
               <li>
-                <span class="copy-verb first-person verb-non-past verb-copy4"></span>
+                <span class="first-person-verb-non-past copy-verb verb-copy4"></span>
                 "I <span class="copy-verb-meaning verb-meaning-copy4">BLANK</span>"
               </li>
               <li>
@@ -961,7 +970,7 @@
               </li>
 
               <li>
-                <span class="copy-verb second-person verb-non-past verb-copy4"></span>
+                <span class="second-person-verb-non-past copy-verb verb-copy4"></span>
                 "You <span class="copy-verb-meaning verb-meaning-copy4">BLANK</span>"
               </li>
 
@@ -970,18 +979,138 @@
                 "You <span class="past copy-verb-meaning verb-meaning-copy4">BLANK</span>"
               </li>
 
+               <li>
+                <span class="copy-verb verb-non-past verb-copy4"></span>
+                "He/she/it <span class="copy-verb-meaning verb-meaning-copy4">BLANK</span>"
+              </li>
+
+              <li>
+               <span class="copy-verb verb-copy4"></span>
+                "He/she/it <span class="past copy-verb-meaning verb-meaning-copy4">BLANK</span>"
+              </li>
+
+            </ul>
+        </li>
+
+        <li>
+          -<span class="verb" id="verb5"></span>-
+          "<span id="verb-meaning5"></span>"
+            
+          <ul>
+              <li>
+                <span class="copy-verb first-person verb-non-past verb-copy5"></span>
+                "I <span class="copy-verb-meaning verb-meaning-copy5">BLANK</span>"
+              </li>
+              <li>
+               <span class="copy-verb first-person verb-copy5"></span>
+                "I <span class="past" id="verb-past-meaning5"></span>"
+              </li>
+
+              <li>
+                <span class="copy-verb second-person verb-non-past verb-copy5"></span>
+                "You <span class="copy-verb-meaning verb-meaning-copy5">BLANK</span>"
+              </li>
+
+              <li>
+               <span class="copy-verb second-person verb-copy5"></span>
+                "You <span class="past copy-verb-meaning verb-meaning-copy5">BLANK</span>"
+              </li>
+
+               <li>
+                <span class="copy-verb verb-non-past verb-copy5"></span>
+                "He/she/it <span class="copy-verb-meaning verb-meaning-copy5">BLANK</span>"
+              </li>
+
+              <li>
+               <span class="copy-verb verb-copy5"></span>
+                "He/she/it <span class="past copy-verb-meaning verb-meaning-copy5">BLANK</span>"
+              </li>
+
             </ul>
         </li>
       </ul>
 
-
-      
-
       <h4>Plural Verbs</h4>
 
       <p>
-        It may be noticed above, that no prefixes serving to mark the plural persons exist. The plural pronouns in <span class="language-name">Kerbekulo</span> are simply the singular forms but with the standard plural suffix, which hints at their fairly young age. The usage of pronouns as verbal prefixes likely predates the formation of <span class="language-name">Kerbekulo</span>'s plural pronouns altogether, hence their absence. Instead, of having explicit plural forms for each person, <span class="language-name">Kerbekulo</span> has plural verbs. The same prefixes for the singular persons applied to a plural verb serve to mark plural persons. A plural verb without any person-marking prefixes is assumed to mark the third person plural. A verb is made plural with the suffix <span class="plural-verb-suffix">BLANK</span>.
+        It may be noticed above, that no prefixes serving to mark the plural persons exist. The plural pronouns in <span class="language-name">Kerbekulo</span> are simply the singular forms but with the standard plural suffix, which hints at their fairly young age. The usage of pronouns as verbal prefixes likely predates the formation of <span class="language-name">Kerbekulo</span>'s plural pronouns altogether, hence their absence. Instead, of having explicit plural forms for each person, <span class="language-name">Kerbekulo</span> has plural verbs. The same prefixes for the singular persons applied to a plural verb serve to mark plural persons. A plural verb without any person-marking prefixes is assumed to mark the third person plural. A verb is made plural with the suffix -<span class="plural-verb-suffix">BLANK</span>. The plural verb suffix applies before the non-past suffix.
       </p>
+
+      <ul>
+        <li>
+          -<span class="verb" id="verb6"></span>-
+          "<span id="verb-meaning6"></span> (pl)"
+            
+          <ul>
+              <li>
+                <span class="first-person-plural-verb-non-past copy-verb verb-copy6"></span>
+                "We <span class="copy-verb-meaning verb-meaning-copy6">BLANK</span>"
+              </li>
+              <li>
+               <span class="first-person-plural-verb copy-verb verb-copy6"></span>
+                "We <span class="past" id="verb-past-meaning6"></span>"
+              </li>
+
+              <li>
+                <span class="second-person-plural-verb-non-past copy-verb verb-copy6"></span>
+                "You <span class="copy-verb-meaning verb-meaning-copy6">BLANK</span>"
+              </li>
+
+              <li>
+               <span class="second-person-plural-verb copy-verb verb-copy6"></span>
+                "You <span class="past copy-verb-meaning verb-meaning-copy6">BLANK</span>"
+              </li>
+
+               <li>
+                <span class="plural-verb-non-past copy-verb verb-copy6"></span>
+                "They <span class="copy-verb-meaning verb-meaning-copy6">BLANK</span>"
+              </li>
+
+              <li>
+               <span class="plural-verb copy-verb verb-copy6"></span>
+                "They <span class="past copy-verb-meaning verb-meaning-copy6">BLANK</span>"
+              </li>
+
+            </ul>
+        </li>
+
+        <li>
+          -<span class="verb" id="verb7"></span>-
+          "<span id="verb-meaning7"></span> (pl)"
+            
+          <ul>
+              <li>
+                <span class="first-person-plural-verb-non-past copy-verb verb-copy7"></span>
+                "We <span class="copy-verb-meaning verb-meaning-copy7">BLANK</span>"
+              </li>
+              <li>
+               <span class="first-person-plural-verb copy-verb verb-copy7"></span>
+                "We <span class="past" id="verb-past-meaning7"></span>"
+              </li>
+
+              <li>
+                <span class="second-person-plural-verb-non-past copy-verb verb-copy7"></span>
+                "You <span class="copy-verb-meaning verb-meaning-copy7">BLANK</span>"
+              </li>
+
+              <li>
+               <span class="second-person-plural-verb copy-verb verb-copy7"></span>
+                "You <span class="past copy-verb-meaning verb-meaning-copy7">BLANK</span>"
+              </li>
+
+               <li>
+                <span class="plural-verb-non-past copy-verb verb-copy7"></span>
+                "They <span class="copy-verb-meaning verb-meaning-copy7">BLANK</span>"
+              </li>
+
+              <li>
+               <span class="plural-verb copy-verb verb-copy7"></span>
+                "They <span class="past copy-verb-meaning verb-meaning-copy7">BLANK</span>"
+              </li>
+
+            </ul>
+        </li>
+      </ul>
 
     </section>
 

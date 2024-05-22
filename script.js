@@ -24,9 +24,6 @@ function nameChanger() {
 
 /* CHANGES LANGUAGE NAME^^^^^---------------------*/
 
-
-
-
 let submitButton = document.getElementById("submitWords");
 let clearButton = document.getElementById("clear-inputNoun");
 
@@ -39,6 +36,28 @@ function clearOutput() { //clears previous results upon clicking "Clear Output"
     document.getElementById("inputMeaningNoun").value = "";
     document.getElementById("inputRootAdj").value = "";
     document.getElementById("inputMeaningAdj").value = "";
+    document.getElementById("inputToBe").value = "";
+    document.getElementById("inputRootVerb").value = "";
+    document.getElementById("inputMeaningVerb").value = "";
+    document.getElementById("inputNominaliser").value = "";
+    document.getElementById("inputAlso").value = "";
+    document.getElementById("inputHere").value = "";
+    document.getElementById("inputThere").value = "";
+    document.getElementById("inputAgain").value = "";
+    document.getElementById("inputPlace").value = "";
+    document.getElementById("inputMan").value = "";
+    document.getElementById("inputPath").value = "";
+    document.getElementById("inputOrigin").value = "";
+    document.getElementById("inputTime").value = "";
+    document.getElementById("inputAdverbialSuffix").value = "";
+    document.getElementById("first-person-pronoun").value = "";
+    document.getElementById("second-person-pronoun").value = "";
+    document.getElementById("non-past").value = "";
+    document.getElementById("singular-suffix").value = "";
+    document.getElementById("plural-suffix").value = "";
+    document.getElementById("accusative-prefix").value = "";
+    document.getElementById("genitive-prefix").value = "";
+
 }
 
 /*------------SOUND CHANGES------------------------------------------------------*/
@@ -54,35 +73,69 @@ function soundChange(word) {
 
     /*---------SYNCOPE-----------*/
     //removes the fourth letter of words longer than four letters, and lengthens the first vowel, or if the third and fourth letters are the same, removes the fifth letter abd lengthens the fourth letter
-    if (letterArray.length > 4) {
-        if (letterArray[2] == letterArray[4]) { //check's if the third and fourth letter are the same
-            letterArray.splice([5], 1); // 2nd parameter means remove one item only
-            if (letterArray[3] == "o") {
-                letterArray[3] = "ō"
-            } else if (letterArray[3] == "u") {
-                letterArray[3] = "ū"
-            } else if (letterArray[3] == "i") {
-                letterArray[3] = "ī"
-            } else if (letterArray[3] == "e") {
-                letterArray[3] = "ē"
-            } else if (letterArray[3] == "a") {
-                letterArray[3] = "ā"
+    if(vowels.includes(letterArray[0])) {
+        if (letterArray.length > 4) {
+            if (letterArray[1] == letterArray[3]) { //check's if the third and fourth letter are the same
+                letterArray.splice([4], 1); // 2nd parameter means remove one item only
+                if (letterArray[2] == "o") {
+                    letterArray[2] = "ō"
+                } else if (letterArray[2] == "u") {
+                    letterArray[2] = "ū"
+                } else if (letterArray[2] == "i") {
+                    letterArray[2] = "ī"
+                } else if (letterArray[2] == "e") {
+                    letterArray[2] = "ē"
+                } else if (letterArray[23] == "a") {
+                    letterArray[2] = "ā"
+                }
+            } else {
+                letterArray.splice([2], 1);
+                if (letterArray[0] == "o") {
+                    letterArray[0] = "ō"
+                } else if (letterArray[0] == "u") {
+                    letterArray[0] = "ū"
+                } else if (letterArray[0] == "i") {
+                    letterArray[0] = "ī"
+                } else if (letterArray[0] == "e") {
+                    letterArray[0] = "ē"
+                } else if (letterArray[0] == "a") {
+                    letterArray[0] = "ā"
+                }
             }
-        } else {
-            letterArray.splice([3], 1);
-            if (letterArray[1] == "o") {
-                letterArray[1] = "ō"
-            } else if (letterArray[1] == "u") {
-                letterArray[1] = "ū"
-            } else if (letterArray[1] == "i") {
-                letterArray[1] = "ī"
-            } else if (letterArray[1] == "e") {
-                letterArray[1] = "ē"
-            } else if (letterArray[1] == "a") {
-                letterArray[1] = "ā"
-            }
-        }
     }
+    } else { //else if letterArray[0]'s value is a consonant
+        if (letterArray.length > 4) {
+            if (letterArray[2] == letterArray[4]) { //check's if the third and fourth letter are the same
+                letterArray.splice([5], 1); // 2nd parameter means remove one item only
+                if (letterArray[3] == "o") {
+                    letterArray[3] = "ō"
+                } else if (letterArray[3] == "u") {
+                    letterArray[3] = "ū"
+                } else if (letterArray[3] == "i") {
+                    letterArray[3] = "ī"
+                } else if (letterArray[3] == "e") {
+                    letterArray[3] = "ē"
+                } else if (letterArray[3] == "a") {
+                    letterArray[3] = "ā"
+                }
+            } else {
+                letterArray.splice([3], 1);
+                if (letterArray[1] == "o") {
+                    letterArray[1] = "ō"
+                } else if (letterArray[1] == "u") {
+                    letterArray[1] = "ū"
+                } else if (letterArray[1] == "i") {
+                    letterArray[1] = "ī"
+                } else if (letterArray[1] == "e") {
+                    letterArray[1] = "ē"
+                } else if (letterArray[1] == "a") {
+                    letterArray[1] = "ā"
+                }
+            }
+    }
+    }
+    
+    
 
     let syncopedString = letterArray.join(""); //turns the array back into a string
 
@@ -137,8 +190,9 @@ function soundChange(word) {
     let fixMacronUPlusU = syllabliseW.replace("ūu", "ū");
     let fixUPlusMacronU = fixMacronUPlusU.replace("uū", "ū");
     let fixUPlusU = fixUPlusMacronU.replace("uu", "ū");
+    let fixMacronUPlusU2 = fixUPlusU.replace("ūu", "ū"); //because "uuw" becomes "uuu" then "ūu" which happens after the first "ūu" > "ū"
 
-    let fixMacronIPlusI = fixUPlusU.replace("īi", "ī");
+    let fixMacronIPlusI = fixMacronUPlusU2.replace("īi", "ī");
     let fixIPlusMacronI = fixMacronIPlusI.replace("iī", "ī");
     let fixIPlusI = fixIPlusMacronI.replace("ii", "ī");
 

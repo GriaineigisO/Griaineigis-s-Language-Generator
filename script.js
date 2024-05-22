@@ -1382,6 +1382,29 @@ function createRandomVerb() {
         document.getElementById("verb-past-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber]
         num++;
     }
+    //creates copy of the verb's meaning
+    copyNum = 1;
+    for(i = 0; i < document.getElementsByClassName("copy-verb-meaning").length; i++) {   
+        let verbMeaning =  document.getElementById("verb-meaning" + copyNum.toString())
+        let verbMeaningCopy = document.getElementsByClassName("verb-meaning-copy" + copyNum.toString())
+            for(j = 0; j < verbMeaningCopy.length; j++) {
+                verbMeaningCopy[j].innerHTML = verbMeaning.innerHTML;
+            }
+        copyNum++;
+        }
+
+    //creates copies of the verb
+    copyNum2 = 1;
+    for(i = 0; i < document.getElementsByClassName("copy-verb").length; i++) {   
+        let verb =  document.getElementById("verb" + copyNum2.toString())
+        let verbCopy = document.getElementsByClassName("verb-copy" + copyNum2.toString())
+            for(j = 0; j < verbCopy.length; j++) {
+                verbCopy[j].innerHTML = verb.innerHTML;
+            }
+        copyNum2++;
+        }
+
+
 }
 
 //When I wish to display the same randomly generated word several times within the same example, only the first instance is randomly generated, the rest merely copy the test content of the first
@@ -1568,47 +1591,9 @@ function createCopy() {
         adjectiveMeaningCopy5[i].innerHTML = adjectiveMeaning5Content;
     }
 
-   /* let copyVerb = document.getElementsByClassName("copy-verb");
-    let verbNum = 1
-    
-    for (i = 0; i < copyVerb.length; i++) {
-        let originalVerb = document.getElementById("verb" + verbNum.toString());
-        document.getElementsByClassName("verb-copy" + verbNum.toString())[i].innerHTML = originalVerb.innerHTML;
-        verbNum++       
-    }*/
 
-    let verb1 = document.getElementById("verb1");
-    let verb1Content = verb1.innerHTML;
-    let verbCopy1 = document.getElementsByClassName("verb-copy1");
-    for (i = 0; i < verbCopy1.length; i++) {
-        verbCopy1[i].innerHTML = verb1Content;
-    }
-
-    let verb2 = document.getElementById("verb2");
-    let verb2Content = verb2.innerHTML;
-    let verbCopy2 = document.getElementsByClassName("verb-copy2");
-    for (i = 0; i < verbCopy2.length; i++) {
-        verbCopy2[i].innerHTML = verb2Content;
-    }
-
-    let verb3 = document.getElementById("verb3");
-    let verb3Content = verb3.innerHTML;
-    let verbCopy3 = document.getElementsByClassName("verb-copy3");
-    for (i = 0; i < verbCopy3.length; i++) {
-        verbCopy3[i].innerHTML = verb3Content;
-    }
-
-    /*let verbMeaning4 = document.getElementById("verb-meaning4");
-    let verbMeaning4Content = verbMeaning4.innerHTML;
-    let verbMeaningCopy4 = document.getElementsByClassName("verb-meaning-copy4");
-    for (i = 0; i < verbMeaning4Content.length; i++) {
-        verbMeaningCopy4[i].innerHTML = verbMeaning4Content;
-    }
-*/
 
 }
-
-
 
 //takes a randomly selected noun and puts it in the nominative singular
 function createNounNomSg() {
@@ -1654,7 +1639,6 @@ function createGenNomSg() {
         }
     }
 }
-
 
 //takes a noun and puts it in the nominative plural
 function createNounNomPl() {
@@ -1836,6 +1820,33 @@ function createSecondPersonVerbPrefix() {
     return prefix
 }
 
+//takes a randomly selected verb and puts it in the first-person
+function createVerbFirstPerson() {
+    let firstPersonPrefix = createFirstPersonVerbPrefix();
+    let spanFirstPerson = document.getElementsByClassName("first-person")
+        for (i = 0; i < spanFirstPerson.length; i++) {
+            let verbFirstPerson = firstPersonPrefix + spanFirstPerson[i].innerHTML;
+            if (verbFirstPerson != "") { //if no word has been input by the user, then nothing happens
+                if (spanFirstPerson[i].innerHTML != soundChange(verbFirstPerson)) {
+                    spanFirstPerson[i].innerHTML = soundChange(verbFirstPerson);
+                }
+            }
+        }
+}
+
+//takes a randomly selected verb and puts it in the second-person
+function createVerbSecondPerson() {
+    let secondPersonPrefix = createSecondPersonVerbPrefix();
+    let spanSecondPerson = document.getElementsByClassName("second-person")
+        for (i = 0; i < spanSecondPerson.length; i++) {
+            let verbSecondPerson = secondPersonPrefix + spanSecondPerson[i].innerHTML;
+            if (verbSecondPerson != "") { //if no word has been input by the user, then nothing happens
+                if (spanSecondPerson[i].innerHTML != soundChange(verbSecondPerson)) {
+                    spanSecondPerson[i].innerHTML = soundChange(verbSecondPerson);
+                }
+            }
+        }
+}
 
 let submitWords = document.getElementById("submitWords");
 submitWords.addEventListener("click", buttonFunctions,);
@@ -1891,6 +1902,8 @@ function buttonFunctions() {
     createVerbNonPast();
     createFirstPersonVerbPrefix();
     createSecondPersonVerbPrefix();
+    createVerbFirstPerson();
+    createVerbSecondPerson();
     
 }
 

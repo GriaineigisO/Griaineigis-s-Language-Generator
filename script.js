@@ -45,7 +45,6 @@ function clearOutput() { //clears previous results upon clicking "Clear Output"
 
 function soundChange(word) {
 
-
     let vowels = ["a", "ā", "e", "ē", "o", "ō", "u", "ū", "i", "ī", "ə"];
     let longVowels = ["ā", "ē", "ō", "ū", "ī", "ə"];
 
@@ -108,20 +107,15 @@ function soundChange(word) {
     let removeCX = hKtoX.includes("X") && beforeX ? hKtoX.replace("X", "k") : hKtoX;
     let returnXtoHK = removeCX.replace("X", "hk");
     
-
-
     //checks if "r" is before and after a consonant, and turns it into schwa if so
     let syllabliseR = returnXtoHK.includes("r") && consonants.includes(returnXtoHK.charAt(returnXtoHK.indexOf("r") + 1)) && consonants.includes(returnXtoHK.charAt(returnXtoHK.indexOf("r") - 1)) ? returnXtoHK.replace("r", "ə") : returnXtoHK;
 
     //checks if "l" is before and after a consonant, and turns it into schwa if so
     let syllabliseL = syllabliseR.includes("l") && consonants.includes(syllabliseR.charAt(syllabliseR.indexOf("l") + 1)) && consonants.includes(syllabliseR.charAt(syllabliseR.indexOf("l") - 1)) ? syllabliseR.replace("l", "ə") : syllabliseR;
 
-    let jToI = syllabliseL.replace("j", "i");
-    let wToU = jToI.replace("w", "u");
     
-
     //turns geminates into singletons
-    let reduceGeminate = wToU.replace("pp", "p");
+    let reduceGeminate = syllabliseL.replace("pp", "p");
     let reduceGeminate1 = reduceGeminate.replace("bb", "b");
     let reduceGeminate2 = reduceGeminate1.replace("tt", "t");
     let reduceGeminate3 = reduceGeminate2.replace("dd", "d");
@@ -134,12 +128,13 @@ function soundChange(word) {
     let reduceGeminate10 = reduceGeminate9.replace("mm", "m");
     let reduceGeminate11 = reduceGeminate10.replace("hh", "h");
 
-    let iToJ = reduceGeminate11.includes("i") && vowels.includes(reduceGeminate11.charAt(reduceGeminate11.indexOf("i") - 1)) && vowels.includes(reduceGeminate11.charAt(reduceGeminate11.indexOf("i") + 1)) || reduceGeminate11.indexOf("i") === 0 ? reduceGeminate11.replace("i", "j") : reduceGeminate11;
-    
+    let syllabliseJ = reduceGeminate11.includes("j") && consonants.includes(reduceGeminate11.charAt(reduceGeminate11.indexOf("j") + 1)) || reduceGeminate11[reduceGeminate11.length - 1] == "j" ? reduceGeminate11.replace("j", "i") : reduceGeminate11;
 
-    let uToW = iToJ.includes("u") && vowels.includes(iToJ.charAt(iToJ.indexOf("u") - 1)) && vowels.includes(iToJ.charAt(iToJ.indexOf("u") + 1)) || iToJ.indexOf("u") === 0  ? iToJ.replace("u", "w") : iToJ;
+    let wordFinalJ = syllabliseJ[syllabliseJ.length - 1] == "j" ?  syllabliseJ[syllabliseJ.length - 1] = "i" : syllabliseJ;
 
-    let fixMacronUPlusU = uToW.replace("ūu", "ū");
+    let syllabliseW = wordFinalJ.includes("w") && consonants.includes(wordFinalJ.charAt(wordFinalJ.indexOf("w") + 1)) || wordFinalJ[wordFinalJ.length - 1] == "w" ? wordFinalJ.replace("w", "u"): wordFinalJ;
+
+    let fixMacronUPlusU = syllabliseW.replace("ūu", "ū");
     let fixUPlusMacronU = fixMacronUPlusU.replace("uū", "ū");
     let fixUPlusU = fixUPlusMacronU.replace("uu", "ū");
 
@@ -159,17 +154,10 @@ function soundChange(word) {
     let fixAPlusMacronA = fixMacronAplusA.replace("aā", "ā");
     let fixAPlusA = fixAPlusMacronA.replace("aa", "ā");
 
-    
-    
-   
     return fixAPlusA;
-
-
-
 }
 
 /*-----------^^^-SOUND CHANGES-^^^-----------------------------------------------------*/
-
 
 let submitCases = document.getElementById("submitWords");
 submitCases.addEventListener("click", createNounCases,);

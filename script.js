@@ -1,10 +1,16 @@
 //The arrays containing the English translations are naturally very large, so I placed each one in its own file and just import them to keep this file tidier.
 import nounArray from './englishWordArrays/Nouns/englishNouns.js';
 import nounArrayPlural from './englishWordArrays/Nouns/englishPluralNouns.js';
-import verbArray from './englishWordArrays/Verbs/englishVerbs.js';
-import verbPastArray from './englishWordArrays/Verbs/englishVerbsPast.js';
-import adjectiveArray from './englishWordArrays/englishAdjectives.js';
+import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
+import intransitiveVerbArray from './englishWordArrays/Verbs/englishIntransitiveVerbs.js';
+import transitiveVerbPastArray from './englishWordArrays/Verbs/englishTransitiveVerbsPast.js'
+import intransitiveVerbPastArray from './englishWordArrays/Verbs/englishIntransitiveVerbsPast.js'
+import adjectiveArray from './englishWordArrays/Adjectives/englishAdjectives.js';
+import comparativeAdjectiveArray from './englishWordArrays/Adjectives/EnglishComparative Adjectives.js';
 
+let verbArray = transitiveVerbArray.concat(intransitiveVerbArray);
+let verbPastArray = transitiveVerbPastArray.concat(intransitiveVerbPastArray);
+console.log(verbArray);
 /* CHANGES LANGUAGE NAME---------------------*/
 
 let changeNameButton = document.getElementById("change-name");

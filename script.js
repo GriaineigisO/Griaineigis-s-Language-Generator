@@ -1,9 +1,9 @@
 //The arrays containing the English translations are naturally very large, so I placed each one in its own file and just import them to keep this file tidier.
-import nounArray from '/englishWordArrays/Nouns/englishNouns.js';
-import nounArrayPlural from '/englishWordArrays/Nouns/englishPluralNouns.js';
-import verbArray from '/englishWordArrays/Verbs/englishVerbs.js';
-import verbPastArray from '/englishWordArrays/Verbs/englishVerbsPast.js';
-import adjectiveArray from '/englishWordArrays/englishAdjectives.js';
+import nounArray from './englishWordArrays/Nouns/englishNouns.js';
+import nounArrayPlural from './englishWordArrays/Nouns/englishPluralNouns.js';
+import verbArray from './englishWordArrays/Verbs/englishVerbs.js';
+import verbPastArray from './englishWordArrays/Verbs/englishVerbsPast.js';
+import adjectiveArray from './englishWordArrays/englishAdjectives.js';
 
 /* CHANGES LANGUAGE NAME---------------------*/
 

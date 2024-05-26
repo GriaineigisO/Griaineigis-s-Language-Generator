@@ -284,16 +284,28 @@
     <section class="inputSection inputOtherPartsOfSpeechSection">
       <div class="input-container">
         <p>
-          Enter <span class="language-name">Kerbekulo</span> Verb Roots Here:
+          Enter <span class="language-name">Kerbekulo</span> Verb Transitive Roots Here:
         </p>
-        <input type="textarea" id="inputRootVerb" />
+        <input type="textarea" id="inputRootTransitiveVerb" />
       </div>
       <div class="input-container">
         <p>
           Enter Their Meanings Here (just to bare verb itself, do not write "to"
           before it e.g walk run sleep not to walk to run to sleep):
         </p>
-        <input type="textarea" id="inputMeaningVerb" />
+        <input type="textarea" id="inputMeaningTransitiveVerb" />
+      </div>
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter <span class="language-name">Kerbekulo</span> Verb Intransitive Roots Here:
+        </p>
+        <input type="textarea" id="inputRootIntransitiveVerb" />
+      </div>
+      <div class="input-container">
+        <input type="textarea" id="inputMeaningIntransitiveVerb" />
       </div>
     </section>
 
@@ -488,6 +500,25 @@
         </p>
         <input type="textarea" id="input-plural-verb" />
       </div>
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> habitual suffix:
+        </p>
+        <input type="textarea" id="input-habitual-suffix" />
+      </div>
+
+    </section>
+
+    <section class="inputSection inputOtherPartsOfSpeechSection">
+      <div class="input-container">
+        <p>
+          Enter the <span class="language-name">Kerbekulo</span> adverbs regarding future times e.g "tomorrow", "soon", "next year" etc:
+        </p>
+        <input type="textarea" id="input-future-adverbs" />
+      </div>
 
       <div class="button-div">
         <input
@@ -504,7 +535,6 @@
         />
       </div>
     </section>
-
     
     <h2 id="sectionH1">Nouns</h2>
 
@@ -881,7 +911,7 @@
 
       <h3>Tense</h3>
         <p>  
-        <span class="language-name">Kerbekulo</span> verbs have two tenses: past and non-past. Verbs by default are in the past tense and must take on the suffix <span class="non-past"></span> to become non-past. The non-past tense is used for any present or future action.
+        <span class="language-name">Kerbekulo</span> verbs have two tenses: past and non-past. Verbs by default are in the past tense and must take on the suffix -<span class="non-past"></span> to become non-past. The non-past tense is used for any present or future action.
         <p>
 
       <ul>
@@ -983,7 +1013,7 @@
 
               <li>
                <span class="copy-verb verb-copy5"></span>
-                "He/she/it <span class="past copy-verb-meaning verb-meaning-copy5">BLANK</span>"
+                "He/she/it <span class="past copy-verb-meaning  verb-meaning-copy5">BLANK</span>"
               </li>
 
             </ul>
@@ -1071,6 +1101,112 @@
             </ul>
         </li>
       </ul>
+
+      <h4>Aspect</h4>
+
+      <p>
+        <span class="language-name">Kerbekulo</span> verbs have two aspects, completive and habitual. Completive refers to a singular completed action while the habitual marks any action that has no definite end, or was repeated over a duration of time. Verbs are completive by default and are made habitual with the suffix -<span class="habitual-suffix"></span>.
+      </p>
+
+      <ul>
+        <li>
+          <span class="transitive-verb" id="transitive-verb1"></span>- 
+          "<span id="transitive-verb-meaning1"></span>"
+          >
+          <span class="noun-nom-sg firstPersonPronoun"></span>
+          <span class="noun noun-acc-pl" id="noun16"></span>
+          <span class="copy-transitive-verb first-person-verb-non-past-habitual transitive-verb-copy1"></span> 
+
+          "I often
+          <span class="copy-transitive-verb-meaning transitive-verb-meaning-copy1"></span>
+          <span class="plural-meaning" id="noun-meaning16"></span>
+          "
+        </li>
+
+        <li>
+          <span class="transitive-verb" id="transitive-verb2"></span>- 
+          "<span id="transitive-verb-meaning2"></span>"
+          >
+          <span class="noun-nom-sg secondPersonPronoun"></span>
+          <span class="noun noun-acc-pl" id="noun17"></span>
+          <span class="copy-transitive-verb second-person-verb-non-past-habitual transitive-verb-copy2"></span> 
+
+          "You tend to
+          <span class="copy-transitive-verb-meaning transitive-verb-meaning-copy2"></span>
+          <span class="plural-meaning" id="noun-meaning17"></span>
+          "
+        </li>
+
+        <li>
+          <span class="transitive-verb" id="transitive-verb3"></span>- 
+          "<span id="transitive-verb-meaning3"></span>"
+          >
+          <span class="noun-nom-sg this-pronoun"></span>
+          <span class="noun noun-acc-pl" id="noun18"></span>
+          <span class="copy-transitive-verb verb-non-past-habitual transitive-verb-copy3"></span> 
+
+          "he usually
+          <span class="copy-transitive-verb-meaning transitive-verb-meaning-copy3 third-person-singular-transitive"></span>
+          <span class="plural-meaning" id="noun-meaning18"></span>
+          "
+        </li>
+
+      </ul>
+
+      <p>
+        When the habitual is used in the past tense, it means "used to":
+      </p>
+
+       <ul>
+        <li>
+          <span class="transitive-verb" id="transitive-verb4"></span>- 
+          "<span id="transitive-verb-meaning4"></span>"
+          >
+          <span class="noun-nom-sg firstPersonPronoun"></span>
+          <span class="noun noun-acc-pl" id="noun19"></span>
+          <span class="copy-transitive-verb first-person-verb-habitual transitive-verb-copy4"></span> 
+
+          "I used to
+          <span class="copy-transitive-verb-meaning transitive-verb-meaning-copy4"></span>
+          <span class="plural-meaning" id="noun-meaning19"></span>
+          "
+        </li>
+
+        <li>
+          <span class="intransitive-verb" id="intransitive-verb1"></span>- 
+          "<span id="intransitive-verb-meaning1"></span>"
+          >
+          <span class="noun-nom-sg secondPersonPronoun"></span>
+          <span class="copy-intransitive-verb second-person-verb-habitual intransitive-verb-copy1"></span> 
+
+          "You used to
+          <span class="copy-intransitive-verb-meaning intransitive-verb-meaning-copy1"></span>
+          "
+        </li>
+
+        <li>
+          <span class="intransitive-verb" id="intransitive-verb2"></span>- 
+          "<span id="intransitive-verb-meaning2"></span>"
+          >
+          <span class="this-pronoun"></span>
+          <span class="copy-intransitive-verb verb-habitual intransitive-verb-copy2"></span> 
+
+          "he used to
+          <span class="copy-intransitive-verb-meaning intransitive-verb-meaning-copy2"></span>
+          "
+        </li>
+
+      </ul>
+
+      <p>
+        When combined with an adverb referencing a future event, the habitual in the non-past tense is understood be future in meaning. It can also refer to the future without such an adverb if the context is regarding a future event. In this case the meaning is not truly habitual, but moreso non-completive, as future actions are not yet completed actions.
+      </p>
+
+      <h4>Interrogative Mood</h4>
+
+    </section>
+
+    <section id="hidden-section">
 
     </section>
 

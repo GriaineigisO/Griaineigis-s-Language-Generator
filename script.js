@@ -6,11 +6,14 @@ import intransitiveVerbArray from './englishWordArrays/Verbs/englishIntransitive
 import transitiveVerbPastArray from './englishWordArrays/Verbs/englishTransitiveVerbsPast.js'
 import intransitiveVerbPastArray from './englishWordArrays/Verbs/englishIntransitiveVerbsPast.js'
 import adjectiveArray from './englishWordArrays/Adjectives/englishAdjectives.js';
-import comparativeAdjectiveArray from './englishWordArrays/Adjectives/EnglishComparative Adjectives.js';
+import comparativeAdjectiveArray from './englishWordArrays/Adjectives/EnglishComparative Adjectives.js'
+import intransitiveVerb3SArray from './englishWordArrays/Verbs/englishIntransitiveVerbs3S.js'
+import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVerbs3S.js'
 
-let verbArray = transitiveVerbArray.concat(intransitiveVerbArray);
-let verbPastArray = transitiveVerbPastArray.concat(intransitiveVerbPastArray);
-console.log(verbArray);
+let verbArray = transitiveVerbArray.concat(intransitiveVerbArray); //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
+let verbPastArray = transitiveVerbPastArray.concat(intransitiveVerbPastArray);;
+let verbThirdPersonSingularArray = intransitiveVerb3SArray.concat(transitiveVerb3SArray);
+
 /* CHANGES LANGUAGE NAME---------------------*/
 
 let changeNameButton = document.getElementById("change-name");
@@ -41,8 +44,10 @@ function clearOutput() { //clears previous results upon clicking "Clear Output"
     document.getElementById("inputRootAdj").value = "";
     document.getElementById("inputMeaningAdj").value = "";
     document.getElementById("inputToBe").value = "";
-    document.getElementById("inputRootVerb").value = "";
-    document.getElementById("inputMeaningVerb").value = "";
+    document.getElementById("inputRootTransitiveVerb").value = "";
+    document.getElementById("inputRootIntransitiveVerb").value = "";
+    document.getElementById("inputMeaningTransitiveVerb").value = "";
+    document.getElementById("inputMeaningIntransitiveVerb").value = "";
     document.getElementById("inputNominaliser").value = "";
     document.getElementById("inputAlso").value = "";
     document.getElementById("inputHere").value = "";
@@ -61,7 +66,8 @@ function clearOutput() { //clears previous results upon clicking "Clear Output"
     document.getElementById("plural-suffix").value = "";
     document.getElementById("accusative-prefix").value = "";
     document.getElementById("genitive-prefix").value = "";
-
+    document.getElementById("input-habitual-suffix").value = "";
+    document.getElementById("input-plural-verb").value = "";
 }
 
 /*-------^^^CLEAR OUTPUT^^^--------------/
@@ -93,7 +99,7 @@ function soundChange(word) {
                 } else if (letterArray[23] == "a") {
                     letterArray[2] = "ā"
                 }
-            } else {
+            } else if(vowels.includes(letterArray[4])) {
                 letterArray.splice([2], 1);
                 if (letterArray[0] == "o") {
                     letterArray[0] = "ō"
@@ -123,7 +129,7 @@ function soundChange(word) {
                 } else if (letterArray[3] == "a") {
                     letterArray[3] = "ā"
                 }
-            } else {
+            } else if(vowels.includes(letterArray[3])) {
                 letterArray.splice([3], 1);
                 if (letterArray[1] == "o") {
                     letterArray[1] = "ō"
@@ -182,12 +188,10 @@ function soundChange(word) {
     let reduceGeminate9 = reduceGeminate8.replace("nn", "n");
     let reduceGeminate10 = reduceGeminate9.replace("mm", "m");
     let reduceGeminate11 = reduceGeminate10.replace("hh", "h");
-
+    
     let syllabliseJ = reduceGeminate11.includes("j") && consonants.includes(reduceGeminate11.charAt(reduceGeminate11.indexOf("j") + 1)) || reduceGeminate11[reduceGeminate11.length - 1] == "j" ? reduceGeminate11.replace("j", "i") : reduceGeminate11;
 
-    let wordFinalJ = syllabliseJ[syllabliseJ.length - 1] == "j" ?  syllabliseJ[syllabliseJ.length - 1] = "i" : syllabliseJ;
-
-    let syllabliseW = wordFinalJ.includes("w") && consonants.includes(wordFinalJ.charAt(wordFinalJ.indexOf("w") + 1)) || wordFinalJ[wordFinalJ.length - 1] == "w" ? wordFinalJ.replace("w", "u"): wordFinalJ;
+    let syllabliseW = syllabliseJ.includes("w") && consonants.includes(syllabliseJ.charAt(syllabliseJ.indexOf("w") + 1)) || syllabliseJ[syllabliseJ.length - 1] == "w" ? syllabliseJ.replace("w", "u"): syllabliseJ;
 
     let fixMacronUPlusU = syllabliseW.replace("ūu", "ū");
     let fixUPlusMacronU = fixMacronUPlusU.replace("uū", "ū");
@@ -1430,26 +1434,34 @@ function createRandomNoun() {
         }
 }
 
-//selects a random verb from the nouns entered by the user
+//selects both transitive and intransitive verbs
 function createRandomVerb() {
     //puts all of the input verbs into one array
-    let inputVerb = document.getElementById("inputRootVerb").value;
-    let splitVerb = inputVerb.split(" ");
+    let inputTransitiveVerb = document.getElementById("inputRootTransitiveVerb").value;
+    let inputIntransitiveVerb = document.getElementById("inputRootIntransitiveVerb").value;
+    let splitTransitiveVerb = inputTransitiveVerb.split(" ");
+    let splitIntransitiveVerb = inputIntransitiveVerb.split(" ");
+    let allVerbs = splitTransitiveVerb.concat(splitIntransitiveVerb);
 
     //puts all of the input verbs meanings into one array
-    let inputVerbMeaning = document.getElementById("inputMeaningVerb").value;
-    let splitVerbMeaning = inputVerbMeaning.split(" ");
+    let inputTransitiveVerbMeaning = document.getElementById("inputMeaningTransitiveVerb").value;
+    let inputIntransitiveVerbMeaning = document.getElementById("inputMeaningIntransitiveVerb").value;
+    let splitTransitiveVerbMeaning = inputTransitiveVerbMeaning.split(" ");
+    let splitIntransitiveVerbMeaning = inputIntransitiveVerbMeaning.split(" ");
+    let allVerbMeanings = splitTransitiveVerbMeaning.concat(splitIntransitiveVerbMeaning);
 
     let spanVerb = document.getElementsByClassName("verb");
 
     let num = 1;
     for(let i = 0; i < spanVerb.length; i++) {
-        let randomNumber = Math.floor(Math.random() * splitVerb.length);
-        let randomVerb = splitVerb[randomNumber] //random verb from the array
+        let randomNumber = Math.floor(Math.random() * allVerbs.length);
+        let randomVerb = allVerbs[randomNumber] //random verb from the array
         document.getElementById("verb" + num.toString()).innerHTML = soundChange(randomVerb);
-        document.getElementById("verb-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber]
-        document.getElementById("verb-past-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber]
+        document.getElementById("verb-meaning" + num.toString()).innerHTML = allVerbMeanings[randomNumber]
+        document.getElementById("verb-past-meaning" + num.toString()).innerHTML = allVerbMeanings[randomNumber]
+    
         num++;
+    
     }
     //creates copy of the verb's meaning
     let copyNum = 1;
@@ -1467,6 +1479,117 @@ function createRandomVerb() {
     for(let i = 0; i < document.getElementsByClassName("copy-verb").length; i++) {   
         let verb =  document.getElementById("verb" + copyNum2.toString())
         let verbCopy = document.getElementsByClassName("verb-copy" + copyNum2.toString())
+            for(let j = 0; j < verbCopy.length; j++) {
+                verbCopy[j].innerHTML = verb.innerHTML;
+            }
+        copyNum2++;
+        }
+
+
+}
+
+
+function createRandomTransitiveVerb() {
+    //puts all of the input verbs into one array
+    let inputVerb = document.getElementById("inputRootTransitiveVerb").value;
+    let splitVerb = inputVerb.split(" ");
+
+    //puts all of the input verbs meanings into one array
+    let inputVerbMeaning = document.getElementById("inputMeaningTransitiveVerb").value;
+    let splitVerbMeaning = inputVerbMeaning.split(" ");
+
+    let spanVerb = document.getElementsByClassName("transitive-verb");
+
+    let num = 1;
+    for(let i = 0; i < spanVerb.length; i++) {
+        let randomNumber = Math.floor(Math.random() * splitVerb.length);
+        let randomVerb = splitVerb[randomNumber] //random verb from the array
+        document.getElementById("transitive-verb" + num.toString()).innerHTML = soundChange(randomVerb);
+        document.getElementById("transitive-verb-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber]
+        if(document.getElementById("transitive-verb-past-meaning" + num.toString()) === null) {
+            let hiddenSpan = document.createElement("span");
+            hiddenSpan.classList.add("hidden");
+            hiddenSpan.setAttribute("id", "transitive-verb-past-meaning" + num.toString())
+            hiddenSpan.innerHTML = splitVerbMeaning[randomNumber];
+            document.getElementById("hidden-section").appendChild(hiddenSpan);
+        } else {
+             document.getElementById("transitive-verb-past-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber];
+        }
+        num++;
+        }
+        
+    
+    
+    //creates copy of the verb's meaning
+    let copyNum = 1;
+    for(let i = 0; i < document.getElementsByClassName("copy-transitive-verb-meaning").length; i++) {   
+        let verbMeaning =  document.getElementById("transitive-verb-meaning" + copyNum.toString())
+        let verbMeaningCopy = document.getElementsByClassName("transitive-verb-meaning-copy" + copyNum.toString())
+        for(let j = 0; j < verbMeaningCopy.length; j++) {
+            verbMeaningCopy[j].innerHTML = verbMeaning.innerHTML;
+        }
+        copyNum++;
+        }
+
+    //creates copies of the verb
+    let copyNum2 = 1;
+    for(let i = 0; i < document.getElementsByClassName("copy-transitive-verb").length; i++) {   
+        let verb =  document.getElementById("transitive-verb" + copyNum2.toString())
+        let verbCopy = document.getElementsByClassName("transitive-verb-copy" + copyNum2.toString())
+            for(let j = 0; j < verbCopy.length; j++) {
+                verbCopy[j].innerHTML = verb.innerHTML;
+            }
+        copyNum2++;
+        }
+
+    }
+
+
+function createRandomIntransitiveVerb() {
+    //puts all of the input verbs into one array
+    let inputVerb = document.getElementById("inputRootIntransitiveVerb").value;
+    let splitVerb = inputVerb.split(" ");
+
+    //puts all of the input verbs meanings into one array
+    let inputVerbMeaning = document.getElementById("inputMeaningIntransitiveVerb").value;
+    let splitVerbMeaning = inputVerbMeaning.split(" ");
+
+    let spanVerb = document.getElementsByClassName("intransitive-verb");
+
+    let num = 1;
+    for(let i = 0; i < spanVerb.length; i++) {
+        let randomNumber = Math.floor(Math.random() * splitVerb.length);
+        let randomVerb = splitVerb[randomNumber] //random verb from the array
+        document.getElementById("intransitive-verb" + num.toString()).innerHTML = soundChange(randomVerb);
+        document.getElementById("intransitive-verb-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber]
+        if(document.getElementById("intransitive-verb-past-meaning" + num.toString()) === null) {
+            let hiddenSpan = document.createElement("span");
+            hiddenSpan.classList.add("hidden");
+            hiddenSpan.setAttribute("id", "intransitive-verb-past-meaning" + num.toString())
+            hiddenSpan.innerHTML = splitVerbMeaning[randomNumber];
+            document.getElementById("hidden-section").appendChild(hiddenSpan);
+        } else {
+             document.getElementById("intransitive-verb-past-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber];
+        }
+        num++;
+    
+    }
+    //creates copy of the verb's meaning
+    let copyNum = 1;
+    for(let i = 0; i < document.getElementsByClassName("copy-intransitive-verb-meaning").length; i++) {   
+        let verbMeaning =  document.getElementById("intransitive-verb-meaning" + copyNum.toString())
+        let verbMeaningCopy = document.getElementsByClassName("intransitive-verb-meaning-copy" + copyNum.toString())
+        for(let j = 0; j < verbMeaningCopy.length; j++) {
+            verbMeaningCopy[j].innerHTML = verbMeaning.innerHTML;
+        }
+        copyNum++;
+        }
+
+    //creates copies of the verb
+    let copyNum2 = 1;
+    for(let i = 0; i < document.getElementsByClassName("copy-intransitive-verb").length; i++) {   
+        let verb =  document.getElementById("intransitive-verb" + copyNum2.toString())
+        let verbCopy = document.getElementsByClassName("intransitive-verb-copy" + copyNum2.toString())
             for(let j = 0; j < verbCopy.length; j++) {
                 verbCopy[j].innerHTML = verb.innerHTML;
             }
@@ -1647,6 +1770,31 @@ function makeMeaningPast() {
     }
 }
 
+function createThirdPersonSingularVerb() {
+    let thirdP = document.getElementsByClassName("third-person-singular")
+    for(let i = 0; i < thirdP.length; i++) {
+        let indexNum = verbArray.indexOf(thirdP[i].innerHTML);
+        thirdP[i].innerHTML = verbThirdPersonSingularArray[indexNum];
+    }
+}
+
+function createThirdPersonSingularTransitiveVerb() {
+    let thirdP = document.getElementsByClassName("third-person-singular-transitive")
+    for(let i = 0; i < thirdP.length; i++) {
+        let indexNum = transitiveVerbArray.indexOf(thirdP[i].innerHTML);
+        thirdP[i].innerHTML = transitiveVerb3SArray[indexNum];
+    }
+}
+
+function createThirdPersonSingularIntransitiveVerb() {
+    let thirdP = document.getElementsByClassName("third-person-singular-intransitive")
+    for(let i = 0; i < thirdP.length; i++) {
+        let indexNum = intransitiveVerbArray.indexOf(thirdP[i].innerHTML);
+        thirdP[i].innerHTML = intransitiveVerb3SArray[indexNum];
+
+    }
+}
+
 //takes a randomly selected verb and puts it in the non-past-tense
 function createVerbNonPast() {
     let nonPastSuffix = document.getElementById("non-past").value;
@@ -1782,6 +1930,35 @@ function createFirstPersonVerbNonPast() {
         }
 }
 
+function createFirstPersonVerbNonPastHabitual() {
+    let nonPastSuffix = createNonPastSuffix();
+    let firstPersonPrefix = createFirstPersonVerbPrefix();
+    let habitualSuffix = createHabitualSuffix();
+    let spanVerb = document.getElementsByClassName("first-person-verb-non-past-habitual")
+        for(let i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = firstPersonPrefix + spanVerb[i].innerHTML + nonPastSuffix + habitualSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createFirstPersonVerbHabitual() {
+    let firstPersonPrefix = createFirstPersonVerbPrefix();
+    let habitualSuffix = createHabitualSuffix();
+    let spanVerb = document.getElementsByClassName("first-person-verb-habitual")
+        for(let i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = firstPersonPrefix + spanVerb[i].innerHTML + habitualSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
 function createSecondPersonVerbNonPast() {
     let nonPastSuffix = createNonPastSuffix();
     let secondPersonPrefix = createSecondPersonVerbPrefix();
@@ -1795,6 +1972,63 @@ function createSecondPersonVerbNonPast() {
             }
         }
 }
+
+function createSecondPersonVerbNonPastHabitual() {
+    let nonPastSuffix = createNonPastSuffix();
+    let secondPersonPrefix = createSecondPersonVerbPrefix();
+    let habitualSuffix = createHabitualSuffix();
+    let spanVerb = document.getElementsByClassName("second-person-verb-non-past-habitual")
+        for(let i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = secondPersonPrefix + spanVerb[i].innerHTML + nonPastSuffix + habitualSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createSecondPersonVerbHabitual() {
+    let secondPersonPrefix = createSecondPersonVerbPrefix();
+    let habitualSuffix = createHabitualSuffix();
+    let spanVerb = document.getElementsByClassName("second-person-verb-habitual")
+        for(let i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = secondPersonPrefix + spanVerb[i].innerHTML + habitualSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createVerbNonPastHabitual() {
+    let nonPastSuffix = createNonPastSuffix();
+    let habitualSuffix = createHabitualSuffix();
+    let spanVerb = document.getElementsByClassName("verb-non-past-habitual")
+        for(let i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = spanVerb[i].innerHTML + nonPastSuffix + habitualSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
+function createVerbHabitual() {
+    let habitualSuffix = createHabitualSuffix();
+    let spanVerb = document.getElementsByClassName("verb-habitual")
+        for(let i = 0; i < spanVerb.length; i++) {
+            let pluralVerb = spanVerb[i].innerHTML + habitualSuffix;
+            if (pluralVerb != "") { //if no word has been input by the user, then nothing happens
+                if (spanVerb != soundChange(pluralVerb)) {
+                    spanVerb[i].innerHTML = soundChange(pluralVerb);
+                }
+            }
+        }
+}
+
 
 function createFirstPersonPluralVerbNonPast() {
     let pluralVerbSuffix = createPluralVerbSuffix();
@@ -1854,6 +2088,20 @@ function createSecondPersonPluralVerb() {
         }
 }
 
+function createHabitualSuffix() {
+    let habitualInput = document.getElementById("input-habitual-suffix");
+    let habitualSuffix = habitualInput.value;
+    let spanHabitualSuffix = document.getElementsByClassName("habitual-suffix");
+    for(let i = 0; i < spanHabitualSuffix.length; i++) {
+        if (habitualSuffix != "") {
+            if (spanHabitualSuffix[i].innerHTML != soundChange(habitualSuffix)) {
+                spanHabitualSuffix[i].innerHTML = soundChange(habitualSuffix);
+            }
+        }
+    }
+    return habitualSuffix;
+}
+
 let submitWords = document.getElementById("submitWords");
 submitWords.addEventListener("click", buttonFunctions,);
 
@@ -1893,6 +2141,8 @@ function buttonFunctions() {
     createRandomAdjective();
     createRandomNoun();
     createRandomVerb();
+    createRandomTransitiveVerb();
+    createRandomIntransitiveVerb();
     createNounNomSg();
     createAccNomSg();
     createGenNomSg();
@@ -1907,6 +2157,7 @@ function buttonFunctions() {
     createVerbNonPast();
     createFirstPersonVerbPrefix();
     createSecondPersonVerbPrefix();
+    createThirdPersonSingularVerb();
     createVerbFirstPerson();
     createVerbSecondPerson();
     createPluralVerbSuffix();
@@ -1915,9 +2166,18 @@ function buttonFunctions() {
     createFirstPersonVerbNonPast();
     createSecondPersonVerbNonPast();
     createFirstPersonPluralVerbNonPast();
+    createFirstPersonVerbNonPastHabitual();
     createSecondPersonPluralVerbNonPast();
+    createVerbNonPastHabitual();
+    createSecondPersonVerbNonPastHabitual()
     createFirstPersonPluralVerb();
     createSecondPersonPluralVerb();
+    createHabitualSuffix();
+    createThirdPersonSingularTransitiveVerb();
+    createThirdPersonSingularIntransitiveVerb();
+    createFirstPersonVerbHabitual();
+    createSecondPersonVerbHabitual();
+    createVerbHabitual();
     
 }
 
@@ -2166,8 +2426,83 @@ function generateCopula() {
 }
 
 //randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
-function generateVerbs() {
-    let verbInput = document.getElementById("inputRootVerb");
+function generateTransitiveVerbs() {
+    let verbInput = document.getElementById("inputRootTransitiveVerb");
+    let randomVerbArray = [] 
+
+    let numberOfVerbs = document.getElementById("select-amount").value;
+    numberOfVerbs = Number(numberOfVerbs);
+    
+    for(let i = 0; i < numberOfVerbs; i++) {
+        let randomNum = Math.floor(Math.random() * 6);
+
+        if (randomNum === 0) { 
+            //generates a CV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+            let CV = firstC + firstV;     
+            randomVerbArray.push(CV)
+
+        } else if(randomNum === 1 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVC = firstC + firstV + secondC;
+            randomVerbArray.push(CVC)
+
+        } else if(randomNum === 2 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCV = firstC + firstV + secondC + secondV;
+            randomVerbArray.push(CVCV)
+
+        } else if(randomNum === 3 ) {
+            //generates a CVCVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+            randomVerbArray.push(CVCVC)
+
+        } else if(randomNum === 4 ) {
+            //generates a CVCC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCC = firstC + firstV + secondC + thirdC;
+            randomVerbArray.push(CVCC)
+
+        } else if(randomNum === 5 ) {
+            //generates a CVCCV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+            randomVerbArray.push(CVCCV)
+        }
+    }
+
+
+    //collects each generated word from each loop and puts them into one array, which is then joined into a single string 
+    let generatedWordsArray = [];
+    for(let i = 0; i < numberOfVerbs; i++) {
+        generatedWordsArray.push(randomVerbArray[i])
+    }
+
+    verbInput.value = generatedWordsArray.join(" ");
+}
+
+function generateIntransitiveVerbs() {
+    let verbInput = document.getElementById("inputRootIntransitiveVerb");
     let randomVerbArray = [] 
 
     let numberOfVerbs = document.getElementById("select-amount").value;
@@ -2242,15 +2577,29 @@ function generateVerbs() {
 }
 
 //randomly selects meanings for the randomly generated verbs
-function generateVerbMeanings() {
-    let verbMeaningInput = document.getElementById("inputMeaningVerb");
+function generateTransitiveVerbMeanings() {
+    let verbMeaningInput = document.getElementById("inputMeaningTransitiveVerb");
 
     let numberOfVerbMeanings = document.getElementById("select-amount").value;
 
     //collects each select word from each loop and puts them into one array, which is then joined into a single string 
     let selectedWordsArray = [];
     for(let i = 0; i < numberOfVerbMeanings; i++) {
-        selectedWordsArray.push(verbArray[Math.floor(Math.random() * verbArray.length)])
+        selectedWordsArray.push(transitiveVerbArray[Math.floor(Math.random() * transitiveVerbArray.length)])
+    }
+
+    verbMeaningInput.value = selectedWordsArray.join(" ");
+}
+
+function generateIntransitiveVerbMeanings() {
+    let verbMeaningInput = document.getElementById("inputMeaningIntransitiveVerb");
+
+    let numberOfVerbMeanings = document.getElementById("select-amount").value;
+
+    //collects each select word from each loop and puts them into one array, which is then joined into a single string 
+    let selectedWordsArray = [];
+    for(let i = 0; i < numberOfVerbMeanings; i++) {
+        selectedWordsArray.push(intransitiveVerbArray[Math.floor(Math.random() * intransitiveVerbArray.length)])
     }
 
     verbMeaningInput.value = selectedWordsArray.join(" ");
@@ -2902,14 +3251,43 @@ let pluralVerbInput = document.getElementById("input-plural-verb");
     } 
 }
 
+function generateHabitualSuffix() {
+let habitualInput = document.getElementById("input-habitual-suffix");
+    let randomNum = Math.floor(Math.random() * 3);
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        habitualInput.value = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        habitualInput.value = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let CVC = firstC + firstV + secondC;    
+        habitualInput.value = CVC;
+    } 
+}
+
 function generateVocab() {
     generateNouns();
     generateNounMeanings();
     generateAdjectives();
     generateAdjectiveMeaning();
     generateCopula();
-    generateVerbs();
-    generateVerbMeanings();
+    generateTransitiveVerbs();
+    generateIntransitiveVerbs();
+    generateTransitiveVerbMeanings();
+    generateIntransitiveVerbMeanings();
     generateNominaliser();
     generateAlso();
     generateAgain();
@@ -2925,4 +3303,5 @@ function generateVocab() {
     generateSecondPersonPronoun();
     generateNonPastSuffix();
     generatePluralVerbSuffix();
+    generateHabitualSuffix();
 }

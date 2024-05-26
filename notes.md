@@ -37,7 +37,9 @@ amount of variability in the paragraphs that explain these things
 
 Let user decide how to spell long vowels
 
-Features to be randomized/chosen
+add more than one meaning to a word, make a psuedo thesaurus?
+
+Features to be randomized/chosen:
 Stative verbs vs nominal verbs
 Word order
 Syllable structure
@@ -47,5 +49,6 @@ Verb tenses
 Verb mood
 Verb aspect
 Derivational methods
-
+Different sets of vocabulary for different climates and cultures? 
+i.e marine terms vs desert vs tundra etc
 

@@ -35,6 +35,8 @@ Specfiic features also become random. Like what, if any, cases, aspects, tenses 
 are present, and also how these features are even marked. Based either on user choice or random choice. This will mean a high
 amount of variability in the paragraphs that explain these things
 
+Let user decide how to spell long vowels
+
 Features to be randomized/chosen
 Stative verbs vs nominal verbs
 Word order
@@ -45,4 +47,5 @@ Verb tenses
 Verb mood
 Verb aspect
 Derivational methods
+
 

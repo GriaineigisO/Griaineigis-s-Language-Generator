@@ -41,27 +41,11 @@
 
       <section class="intro">
       <div class="generate-button-div">
-        <input type="button" value="Generate a New Language!" id="generate-vocab">
+        <input type="button" value="Generate a New Language!" id="generate-language">
       </div>
     </section>
 
 
-  
-
-      <div class="button-div">
-        <input
-          type="submit"
-          value="Submit"
-          class="submit"
-          id="submitWords"
-        />
-        <input
-          type="submit"
-          value="Clear"
-          class="clear-input"
-          id="clear-inputNoun"
-        />
-      </div>
 
 
       <h2>Phonology</h2>
@@ -76,11 +60,12 @@
         The consonants are:<br />
       </p>
       <ul>
-        <li><b>Nasals</b>: /m, n/</li>
-        <li><b>Plosives</b>: /p, b, t, d, k, g/</li>
-        <li><b>Fricatives</b>: /f, s, h/</li>
-        <li><b>Sonorants</b>: /r, l/</li>
-        <li><b>Approximants</b>: /j, w/</li>
+        <li><b>Nasals</b>: <span class="nasal-list">BLANK</span></li>
+        <li><b>Plosives</b>: <span class="plosive-list">BLANK</span></li>
+        <li><b>Fricatives</b>: <span class="fricative-list">BLANK</span></li>
+        <li><b>Rhotics</b>: <span class="rhotic-list">BLANK</span></li>
+        <li><b>Lateral Approximants</b>: <span class="lateral-list">BLANK</span></li>
+        <li><b>Approximants</b>: <span class="approximant-list">BLANK</span></li>
       </ul>
 
       <p>
@@ -232,21 +217,7 @@
         Alternatively, you can have new noun roots and their meanings randomly generated.
       </p>
       
-      <div class="generate-button-div">
-        <p>
-          If you would like to change <span class="language-name">Kerbekulo</span>'s phonemic inventory, then you can edit it here.
-        </p>
-        <div class="phonemic-input-container">
-          <p>Consonants</p>
-          <input type="textarea" id="consonants" value="m n p b t d k g f s r l j w">
-        </div>
-        <div class="phonemic-input-container">
-          <p>Vowels</p>
-          <input type="textarea" id="vowels" value="a e i o u">
-          <input type="button" value = "Generate Phonemes" id="generatePhonemes">
-          <input type="button" value = "Reset Default Phonemes" id="resetPhonemes">
-        </div>
-      </div>
+    
     </section>
 
     
@@ -936,6 +907,7 @@
     </section>
 
     
+    <script type="module" src="./generatePhonology.js"></script>
     <script type="module" src="./script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   </body>

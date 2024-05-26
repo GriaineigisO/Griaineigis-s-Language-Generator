@@ -43,54 +43,6 @@ function nameChanger() {
 
 /* CHANGES LANGUAGE NAME^^^^^---------------------*/
 
-/*----CLEAR OUTPUT------------*/
-let submitButton = document.getElementById("submitWords");
-let clearButton = document.getElementById("clear-inputNoun");
-
-submitButton.addEventListener("click", createNounInflectionTables);
-clearButton.addEventListener("click", clearOutput);
-
-function clearOutput() { //clears previous results upon clicking "Clear Output"
-    outputSectionNoun.replaceChildren();
-    document.getElementById("inputRootNoun").value = "";
-    document.getElementById("inputMeaningNoun").value = "";
-    document.getElementById("inputRootAdj").value = "";
-    document.getElementById("inputMeaningAdj").value = "";
-    document.getElementById("inputToBe").value = "";
-    document.getElementById("inputRootTransitiveVerb").value = "";
-    document.getElementById("inputRootIntransitiveVerb").value = "";
-    document.getElementById("inputMeaningTransitiveVerb").value = "";
-    document.getElementById("inputMeaningIntransitiveVerb").value = "";
-    document.getElementById("inputNominaliser").value = "";
-    document.getElementById("inputAlso").value = "";
-    document.getElementById("inputHere").value = "";
-    document.getElementById("inputThere").value = "";
-    document.getElementById("inputAgain").value = "";
-    document.getElementById("inputPlace").value = "";
-    document.getElementById("inputMan").value = "";
-    document.getElementById("inputPath").value = "";
-    document.getElementById("inputOrigin").value = "";
-    document.getElementById("inputTime").value = "";
-    document.getElementById("inputAdverbialSuffix").value = "";
-    document.getElementById("first-person-pronoun").value = "";
-    document.getElementById("second-person-pronoun").value = "";
-    document.getElementById("non-past").value = "";
-    document.getElementById("singular-suffix").value = "";
-    document.getElementById("plural-suffix").value = "";
-    document.getElementById("accusative-prefix").value = "";
-    document.getElementById("genitive-prefix").value = "";
-    document.getElementById("input-habitual-suffix").value = "";
-    document.getElementById("input-plural-verb").value = "";
-}
-
-/*-------^^^CLEAR OUTPUT^^^--------------/
-
-
-// let submitCases = document.getElementById("submitWords");
-// submitCases.addEventListener("click", createNounCases,);
-
-let generateButton = document.getElementById("generate-vocab");
-generateButton.addEventListener("click", generateCases);
 
 
 /*-------RANDOM GENERATION---------------------------------------------------------*/
@@ -100,28 +52,26 @@ generateButton.addEventListener("click", generateCases);
 let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "s", "r", "l", "j", "w"];
 let vowels = ["i", "u", "o", "e", "a"];
 
-let generatePhonemeButton = document.getElementById("generatePhonemes");
-generatePhonemeButton.addEventListener("click", generatePhonemicInventory)
-let resetPhonemes = document.getElementById("resetPhonemes")
-resetPhonemes.addEventListener("click", resetInventory);
+// let generatePhonemeButton = document.getElementById("generatePhonemes");
+// generatePhonemeButton.addEventListener("click", generatePhonemicInventory)
+// let resetPhonemes = document.getElementById("resetPhonemes")
+// resetPhonemes.addEventListener("click", resetInventory);
 
-function generatePhonemicInventory() {
-    let enteredConsonants = document.getElementById("consonants").value;
-    let enteredVowels = document.getElementById("vowels").value;
+// function generatePhonemicInventory() {
+//     let enteredConsonants = document.getElementById("consonants").value;
+//     let enteredVowels = document.getElementById("vowels").value;
 
-    consonants = enteredConsonants.split(" ");
-    vowels = enteredVowels.split(" ");
-}
+//     consonants = enteredConsonants.split(" ");
+//     vowels = enteredVowels.split(" ");
+// }
 
-function resetInventory() {
-   document.getElementById("consonants").value = "m n p b t d k g f s r l j w"
-   document.getElementById("vowels").value = "a e i o u"
-}
+// function resetInventory() {
+//    document.getElementById("consonants").value = "m n p b t d k g f s r l j w"
+//    document.getElementById("vowels").value = "a e i o u"
+// }
 
 /*---Generates Words-----*/
 
-let generateVocabButton = document.getElementById("generate-vocab");
-generateVocabButton.addEventListener("click", generateVocab);
 
 //randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
 function generateNouns() {
@@ -1013,29 +963,6 @@ function generateGen() {
     }
 
 
-}
-
-function generateVocab() {
-    generateNouns();
-    generateAdjectives();
-    generateCopula();
-    generateTransitiveVerbs();
-    generateIntransitiveVerbs();
-    generateNominaliser();
-    generateConjunctions();
-    generateAdverbs();
-    generateHere()
-    generateThere();
-    generateAdverbialSuffix();
-    generateFirstPersonPronoun();
-    generateSecondPersonPronoun();
-    generateNonPastSuffix();
-    generatePluralVerbSuffix();
-    generateHabitualSuffix();
-    generateSg();
-    generatePl();
-    generateAcc();
-    generateGen();
 }
 
 
@@ -2016,9 +1943,7 @@ function createRandomTransitiveVerb() {
         }
         num++;
         }
-        
-    
-    
+
     //creates copy of the verb's meaning
     let copyNum = 1;
     for(let i = 0; i < document.getElementsByClassName("copy-transitive-verb-meaning").length; i++) {   
@@ -2569,10 +2494,32 @@ function createSecondPersonPluralVerb() {
 }
 
 
-let submitWords = document.getElementById("submitWords");
-submitWords.addEventListener("click", buttonFunctions,);
+let generateLanguageButton = document.getElementById("generate-language");
+generateLanguageButton.addEventListener("click", generateLanguage);
 
-function buttonFunctions() {
+function generateLanguage() {
+    createNounInflectionTables();
+    generateNouns();
+    generateAdjectives();
+    generateCopula();
+    generateTransitiveVerbs();
+    generateIntransitiveVerbs();
+    generateNominaliser();
+    generateConjunctions();
+    generateAdverbs();
+    generateHere()
+    generateThere();
+    generateAdverbialSuffix();
+    generateFirstPersonPronoun();
+    generateSecondPersonPronoun();
+    generateNonPastSuffix();
+    generatePluralVerbSuffix();
+    generateHabitualSuffix();
+    generateSg();
+    generatePl();
+    generateAcc();
+    generateGen();
+
     createHere();
     createThere()
     createThis();

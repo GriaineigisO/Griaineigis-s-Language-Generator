@@ -1,3 +1,15 @@
+#Phonology
+
+How to generate Phonology
+
+what series of nasals? /m n/ are default
+
+what series of plosives? voiceless by default, but whether their are voiced plosives, aspirated, long, labialised, glottalised, palatalised etc etc
+
+what series of fricatives?
+
+also randomly selected ways to spell. e.g if /ʃ/ appears, it could be spelled as š, sch, sh etc.
+
 #Verbs
 
 several subsections to discuss each feature in this order:
@@ -24,7 +36,7 @@ to cycle through different templates without changing the rest of the page). e.g
 &{det} &{adj} &{noun} &{verb} &{conj} that white horse ran
 
 Make is so that the phonology section is below the submit button, and that it changes
- based on user input.
+based on user input.
 
 create a large amount of sound change and have them be chosen at random to give
 a degree or randomness to the sound changes, right now they are baked in
@@ -35,7 +47,7 @@ Make it so that the input section does not show on printed PDFs, turn the scroll
 into-non- scrolling sections in printed PDFs
 
 add different typologies (isolating, aglutinative, fusional) and the ability to have them
- be randomly chosen
+be randomly chosen
 
 Specfiic features also become random. Like what, if any, cases, aspects, tenses etc
 are present, and also how these features are even marked. Based either on user choice or random choice. This will mean a high
@@ -56,6 +68,5 @@ Verb tenses
 Verb mood
 Verb aspect
 Derivational methods
-Different sets of vocabulary for different climates and cultures? 
+Different sets of vocabulary for different climates and cultures?
 i.e marine terms vs desert vs tundra etc
-

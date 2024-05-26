@@ -12,6 +12,12 @@ inflections much like the inflection noun section
 
 ---Things to Add Later---
 
+Upon generation, EVERY english word will be assigned a randomly generated word,
+it is from these arrays that the words throughout the document will be pulled from
+this will also allow me to generate the dictionary at the end. Perhaps I
+should remove users choice to generate an amount of words and their
+meanings?
+
 at the bottom, generate a block of text when all parts of speech have been
 given. There will be several templates, chosen at random (there will be a button
 to cycle through different templates without changing the rest of the page). e.g

@@ -110,6 +110,7 @@ function selectNasals() {
     for(let i = 0; i < spanNasalList.length; i++) {
         spanNasalList[i].innerHTML = `/${allNasalsArray.join(", ")}/`;
     }
+    return spanNasalList.length;
 }
 
 function selectPlosives() {
@@ -121,6 +122,7 @@ function selectPlosives() {
     for(let i = 0; i < spanPlosiveList.length; i++) {
         spanPlosiveList[i].innerHTML = `/${allPlosivesArrayFixed.join(", ")}/`;
     }
+    return allPlosivesArrayFixed.length;
 }
 
 function selectFricatives() {
@@ -129,6 +131,7 @@ function selectFricatives() {
     for(let i = 0; i < spanFricativeList.length; i++) {
         spanFricativeList[i].innerHTML = `/${allFricativesArray.join(", ")}/`;
     }
+    return allFricativesArray.length;
 }
 
 function selectRhotics() {
@@ -137,6 +140,7 @@ function selectRhotics() {
     for(let i = 0; i < spanRhoticList.length; i++) {
         spanRhoticList[i].innerHTML = `/${allRhoticsArray.join(", ")}/`;
     }
+    return allRhoticsArray.length;
 }
 
 function selectLateralApproximants() {
@@ -145,6 +149,7 @@ function selectLateralApproximants() {
     for(let i = 0; i < spanLateralApproximantsList.length; i++) {
         spanLateralApproximantsList[i].innerHTML = `/${allLateralApproximantsArray.join(", ")}/`;
     }
+    return allLateralApproximantsArray.length;
 }
 
 function selectApproximants() {
@@ -155,7 +160,14 @@ function selectApproximants() {
         if(allApproximantsArray.length === 0) {
             spanApproximantsList[i].innerHTML = 'There are no phonemic approximants.'
         }
-    }   
+    }
+    return allApproximantsArray.length;  
+}
+
+function countNumberOfConsonants() {
+  const numberOfConsonants =  selectNasals() + selectPlosives() + selectFricatives() + selectRhotics() + selectLateralApproximants() + selectApproximants() + 1; //for some reason, the result was 1 too low
+
+  document.getElementById("consonant-number").innerHTML = numberOfConsonants;
 }
 
 /*-----^^^SELECTION^^^--------------*/
@@ -178,6 +190,7 @@ function generatePhonology() {
     selectRhotics();
     selectLateralApproximants();
     selectApproximants();
+    countNumberOfConsonants();
 }
 
 

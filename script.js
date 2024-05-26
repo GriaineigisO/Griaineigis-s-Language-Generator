@@ -9,10 +9,23 @@ import adjectiveArray from './englishWordArrays/Adjectives/englishAdjectives.js'
 import comparativeAdjectiveArray from './englishWordArrays/Adjectives/EnglishComparative Adjectives.js'
 import intransitiveVerb3SArray from './englishWordArrays/Verbs/englishIntransitiveVerbs3S.js'
 import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVerbs3S.js'
+import conjunctionArray from './englishWordArrays/conjunctions.js'
+import adverbArray from './englishWordArrays/adverbs.js'
+import {soundChange} from './soundchange.js'
+
 
 let verbArray = transitiveVerbArray.concat(intransitiveVerbArray); //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
 let verbPastArray = transitiveVerbPastArray.concat(intransitiveVerbPastArray);;
 let verbThirdPersonSingularArray = intransitiveVerb3SArray.concat(transitiveVerb3SArray);
+
+//These arrays will be filled with the randomly generated words
+let generatedNouns = [];
+let generatedAdjectives = [];
+let generatedTransitiveVerbs = [];
+let generatedIntransitiveVerbs = [];
+let generatedConjunctions = [];
+let generatedAdverbs = [];
+
 
 /* CHANGES LANGUAGE NAME---------------------*/
 
@@ -72,169 +85,794 @@ function clearOutput() { //clears previous results upon clicking "Clear Output"
 
 /*-------^^^CLEAR OUTPUT^^^--------------/
 
-/*------------SOUND CHANGES------------------------------------------------------*/
 
-function soundChange(word) {
-
-    let vowels = ["a", "ā", "e", "ē", "o", "ō", "u", "ū", "i", "ī", "ə"];
-    let longVowels = ["ā", "ē", "ō", "ū", "ī", "ə"];
-    let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "h", "l", "r", "j", "w"];
-
-    let letterArray = Array.from(word); /*turns string into an array of individual letters*/
-
-    /*---------SYNCOPE-----------*/
-    //removes the fourth letter of words longer than four letters, and lengthens the first vowel, or if the third and fourth letters are the same, removes the fifth letter abd lengthens the fourth letter
-    if(vowels.includes(letterArray[0])) {
-        if (letterArray.length > 4) {
-            if (letterArray[1] == letterArray[3]) { //check's if the third and fourth letter are the same
-                letterArray.splice([4], 1); // 2nd parameter means remove one item only
-                if (letterArray[2] == "o") {
-                    letterArray[2] = "ō"
-                } else if (letterArray[2] == "u") {
-                    letterArray[2] = "ū"
-                } else if (letterArray[2] == "i") {
-                    letterArray[2] = "ī"
-                } else if (letterArray[2] == "e") {
-                    letterArray[2] = "ē"
-                } else if (letterArray[23] == "a") {
-                    letterArray[2] = "ā"
-                }
-            } else if(vowels.includes(letterArray[4])) {
-                letterArray.splice([2], 1);
-                if (letterArray[0] == "o") {
-                    letterArray[0] = "ō"
-                } else if (letterArray[0] == "u") {
-                    letterArray[0] = "ū"
-                } else if (letterArray[0] == "i") {
-                    letterArray[0] = "ī"
-                } else if (letterArray[0] == "e") {
-                    letterArray[0] = "ē"
-                } else if (letterArray[0] == "a") {
-                    letterArray[0] = "ā"
-                }
-            }
-    }
-    } else { //else if letterArray[0]'s value is a consonant
-        if (letterArray.length > 4) {
-            if (letterArray[2] == letterArray[4]) { //check's if the third and fourth letter are the same
-                letterArray.splice([5], 1); // 2nd parameter means remove one item only
-                if (letterArray[3] == "o") {
-                    letterArray[3] = "ō"
-                } else if (letterArray[3] == "u") {
-                    letterArray[3] = "ū"
-                } else if (letterArray[3] == "i") {
-                    letterArray[3] = "ī"
-                } else if (letterArray[3] == "e") {
-                    letterArray[3] = "ē"
-                } else if (letterArray[3] == "a") {
-                    letterArray[3] = "ā"
-                }
-            } else if(vowels.includes(letterArray[3])) {
-                letterArray.splice([3], 1);
-                if (letterArray[1] == "o") {
-                    letterArray[1] = "ō"
-                } else if (letterArray[1] == "u") {
-                    letterArray[1] = "ū"
-                } else if (letterArray[1] == "i") {
-                    letterArray[1] = "ī"
-                } else if (letterArray[1] == "e") {
-                    letterArray[1] = "ē"
-                } else if (letterArray[1] == "a") {
-                    letterArray[1] = "ā"
-                }
-            }
-    }
-    }
-    
-    let syncopedString = letterArray.join(""); //turns the array back into a string
-
-    let lenitionString0 = syncopedString.replace("pb", "fp");
-    let lenitionString1 = lenitionString0.replace("bp", "fp");
-    let lenitionString2 = lenitionString1.replace("gk", "hk");
-    let lenitionString3 = lenitionString2.replace("kg", "hk");
-    let lenitionString4 = lenitionString3.replace("dt", "st");
-    let lenitionString5 = lenitionString4.replace("td", "st");
-    let lenitionString6 = lenitionString5.replace("bm", "mb");
-    let lenitionString7 = lenitionString6.replace("mt", "md");
-    let lenitionString8 = lenitionString7.replace("mp", "mb");
-    let lenitionString9 = lenitionString8.replace("mk", "mg");
-
-    let furtherChanges = Array.from(lenitionString9);
-
-    let rejoinedString = furtherChanges.join(""); //turns the array back into a string
-
-    //removes "h" if it occurs both after another consonant and before "k". Due to interference with the "h" in the accusative prefix, I had to make this rather clunky workaround. This turns "hk" clusters into "X" (all cases of post-consonantal "h" occur befor "h") and then check if "X" if after a consonant, if it is, then "X" becomes "k", else, it becomes "hk" again
-    let hKtoX = rejoinedString.replace("hk", "X");
-    let beforeX = consonants.includes(hKtoX.charAt(hKtoX.indexOf("X") - 1));
-    let removeCX = hKtoX.includes("X") && beforeX ? hKtoX.replace("X", "k") : hKtoX;
-    let returnXtoHK = removeCX.replace("X", "hk");
-    
-    //checks if "r" is before and after a consonant, and turns it into schwa if so
-    let syllabliseR = returnXtoHK.includes("r") && consonants.includes(returnXtoHK.charAt(returnXtoHK.indexOf("r") + 1)) && consonants.includes(returnXtoHK.charAt(returnXtoHK.indexOf("r") - 1)) ? returnXtoHK.replace("r", "ə") : returnXtoHK;
-
-    //checks if "l" is before and after a consonant, and turns it into schwa if so
-    let syllabliseL = syllabliseR.includes("l") && consonants.includes(syllabliseR.charAt(syllabliseR.indexOf("l") + 1)) && consonants.includes(syllabliseR.charAt(syllabliseR.indexOf("l") - 1)) ? syllabliseR.replace("l", "ə") : syllabliseR;
-
-    //turns geminates into singletons
-    let reduceGeminate = syllabliseL.replace("pp", "p");
-    let reduceGeminate1 = reduceGeminate.replace("bb", "b");
-    let reduceGeminate2 = reduceGeminate1.replace("tt", "t");
-    let reduceGeminate3 = reduceGeminate2.replace("dd", "d");
-    let reduceGeminate4 = reduceGeminate3.replace("kk", "k");
-    let reduceGeminate5 = reduceGeminate4.replace("gg", "g");
-    let reduceGeminate6 = reduceGeminate5.replace("ss", "s");
-    let reduceGeminate7 = reduceGeminate6.replace("ll", "l");
-    let reduceGeminate8 = reduceGeminate7.replace("rr", "r");
-    let reduceGeminate9 = reduceGeminate8.replace("nn", "n");
-    let reduceGeminate10 = reduceGeminate9.replace("mm", "m");
-    let reduceGeminate11 = reduceGeminate10.replace("hh", "h");
-    
-    let syllabliseJ = reduceGeminate11.includes("j") && consonants.includes(reduceGeminate11.charAt(reduceGeminate11.indexOf("j") + 1)) || reduceGeminate11[reduceGeminate11.length - 1] == "j" ? reduceGeminate11.replace("j", "i") : reduceGeminate11;
-
-    let syllabliseW = syllabliseJ.includes("w") && consonants.includes(syllabliseJ.charAt(syllabliseJ.indexOf("w") + 1)) || syllabliseJ[syllabliseJ.length - 1] == "w" ? syllabliseJ.replace("w", "u"): syllabliseJ;
-
-    let fixMacronUPlusU = syllabliseW.replace("ūu", "ū");
-    let fixUPlusMacronU = fixMacronUPlusU.replace("uū", "ū");
-    let fixUPlusU = fixUPlusMacronU.replace("uu", "ū");
-    let fixMacronUPlusU2 = fixUPlusU.replace("ūu", "ū"); //because "uuw" becomes "uuu" then "ūu" which happens after the first "ūu" > "ū"
-
-    let fixMacronIPlusI = fixMacronUPlusU2.replace("īi", "ī");
-    let fixIPlusMacronI = fixMacronIPlusI.replace("iī", "ī");
-    let fixIPlusI = fixIPlusMacronI.replace("ii", "ī");
-
-    let fixMacronEplusE = fixIPlusI.replace("ēe", "ē");
-    let fixEPlusMacronE = fixMacronEplusE.replace("eē", "ē");
-    let fixEPlusE = fixEPlusMacronE.replace("ee", "ē");
-
-    let fixMacronOplusO = fixEPlusE.replace("ōo", "o");
-    let fixOPlusMacronO = fixMacronOplusO.replace("oō", "ō");
-    let fixOPlusO = fixOPlusMacronO.replace("oo", "ō");
-
-    let fixMacronAplusA = fixOPlusO.replace("āa", "ā");
-    let fixAPlusMacronA = fixMacronAplusA.replace("aā", "ā");
-    let fixAPlusA = fixAPlusMacronA.replace("aa", "ā");
-
-    return fixAPlusA;
-}
-
-/*-----------^^^-SOUND CHANGES-^^^-----------------------------------------------------*/
-
-let submitCases = document.getElementById("submitWords");
-submitCases.addEventListener("click", createNounCases,);
+// let submitCases = document.getElementById("submitWords");
+// submitCases.addEventListener("click", createNounCases,);
 
 let generateButton = document.getElementById("generate-vocab");
 generateButton.addEventListener("click", generateCases);
 
-function generateCases() {
-    generateSg();
-    generatePl();
-    generateAcc();
-    generateGen();
+
+/*-------RANDOM GENERATION---------------------------------------------------------*/
+//The function below are for the random generation of syllables and a random selection for what they translate to. If the user inputs his own roots and meanings. 
+
+/*-----Generates Phonemic Inventory----*/
+let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "s", "r", "l", "j", "w"];
+let vowels = ["i", "u", "o", "e", "a"];
+
+let generatePhonemeButton = document.getElementById("generatePhonemes");
+generatePhonemeButton.addEventListener("click", generatePhonemicInventory)
+let resetPhonemes = document.getElementById("resetPhonemes")
+resetPhonemes.addEventListener("click", resetInventory);
+
+function generatePhonemicInventory() {
+    let enteredConsonants = document.getElementById("consonants").value;
+    let enteredVowels = document.getElementById("vowels").value;
+
+    consonants = enteredConsonants.split(" ");
+    vowels = enteredVowels.split(" ");
 }
 
-//randomly generates a word for singular suffix
+function resetInventory() {
+   document.getElementById("consonants").value = "m n p b t d k g f s r l j w"
+   document.getElementById("vowels").value = "a e i o u"
+}
+
+/*---Generates Words-----*/
+
+let generateVocabButton = document.getElementById("generate-vocab");
+generateVocabButton.addEventListener("click", generateVocab);
+
+//randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
+function generateNouns() {
+    // let nounInput = document.getElementById("inputRootNoun");
+    // let randomNounArray = [] 
+    // let numberOfNouns = document.getElementById("select-amount").value;
+    // numberOfNouns = Number(numberOfNouns);
+
+    for(let i = 0; i < nounArray.length; i++) {
+        let randomNum = Math.floor(Math.random() * 6);
+        if (randomNum === 0) { 
+            //generates a CV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+            let CV = firstC + firstV;     
+            generatedNouns.push(CV)
+        } else if(randomNum === 1 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVC = firstC + firstV + secondC;
+            generatedNouns.push(CVC)
+        } else if(randomNum === 2 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCV = firstC + firstV + secondC + secondV;
+            generatedNouns.push(CVCV)
+
+        } else if(randomNum === 3 ) {
+            //generates a CVCVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+            generatedNouns.push(CVCVC)
+
+        } else if(randomNum === 4 ) {
+            //generates a CVCC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCC = firstC + firstV + secondC + thirdC;
+            generatedNouns.push(CVCC)
+
+        } else if(randomNum === 5 ) {
+            //generates a CVCCV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+            generatedNouns.push(CVCCV)
+        }
+    }
+}
+
+//randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
+function generateAdjectives() {
+    // let adjectiveInput = document.getElementById("inputRootAdj");
+    // let randomAdjectiveArray = [] 
+
+    // let numberOfAdjectives = document.getElementById("select-amount").value;
+    // numberOfAdjectives = Number(numberOfAdjectives);
+
+    for(let i = 0; i < adjectiveArray.length; i++) {
+        let randomNum = Math.floor(Math.random() * 6);
+
+        if (randomNum === 0) { 
+            //generates a CV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+            let CV = firstC + firstV;     
+            generatedAdjectives.push(CV)
+
+        } else if(randomNum === 1 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVC = firstC + firstV + secondC;
+            generatedAdjectives.push(CVC)
+
+        } else if(randomNum === 2 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCV = firstC + firstV + secondC + secondV;
+            generatedAdjectives.push(CVCV)
+
+        } else if(randomNum === 3 ) {
+            //generates a CVCVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+            generatedAdjectives.push(CVCVC)
+
+        } else if(randomNum === 4 ) {
+            //generates a CVCC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCC = firstC + firstV + secondC + thirdC;
+            generatedAdjectives.push(CVCC)
+        } else if(randomNum === 5 ) {
+            //generates a CVCCV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+            generatedAdjectives.push(CVCCV)
+        }
+    }
+        
+    // let generatedWordsArray = [];
+    // for(let i = 0; i < numberOfAdjectives; i++) {
+    //     generatedWordsArray.push(randomAdjectiveArray[i])
+    // }
+
+    // adjectiveInput.value = generatedWordsArray.join(" ");
+}
+
+//randomly generates a verb root for "to be"
+function generateCopula() {
+    let copulaInput = "";
+    
+    let randomNum = Math.floor(Math.random() * 3);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        copulaInput = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        copulaInput = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        copulaInput = CVC;
+
+    } else if(randomNum === 3 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCV = firstC + firstV + secondC + secondV;
+        copulaInput = CVCV;
+
+    } 
+    let spanCopula = document.getElementsByClassName("copula");
+    for(let i = 0; i < spanCopula.length; i++) {
+        spanCopula[i].innerHTML = copulaInput;
+    }
+
+}
+
+//randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
+function generateTransitiveVerbs() {
+    // let verbInput = document.getElementById("inputRootTransitiveVerb");
+    // let randomVerbArray = [] 
+
+    // let numberOfVerbs = document.getElementById("select-amount").value;
+    // numberOfVerbs = Number(numberOfVerbs);
+    
+    for(let i = 0; i < transitiveVerbArray.length; i++) {
+        let randomNum = Math.floor(Math.random() * 6);
+
+        if (randomNum === 0) { 
+            //generates a CV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+            let CV = firstC + firstV;     
+            generatedTransitiveVerbs.push(CV)
+
+        } else if(randomNum === 1 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVC = firstC + firstV + secondC;
+            generatedTransitiveVerbs.push(CVC)
+
+        } else if(randomNum === 2 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCV = firstC + firstV + secondC + secondV;
+            generatedTransitiveVerbs.push(CVCV)
+
+        } else if(randomNum === 3 ) {
+            //generates a CVCVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+            generatedTransitiveVerbs.push(CVCVC)
+
+        } else if(randomNum === 4 ) {
+            //generates a CVCC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCC = firstC + firstV + secondC + thirdC;
+            generatedTransitiveVerbs.push(CVCC)
+
+        } else if(randomNum === 5 ) {
+            //generates a CVCCV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+            generatedTransitiveVerbs.push(CVCCV)
+        }
+    }
+
+
+    //collects each generated word from each loop and puts them into one array, which is then joined into a single string 
+    // let generatedWordsArray = [];
+    // for(let i = 0; i < numberOfVerbs; i++) {
+    //     generatedWordsArray.push(randomVerbArray[i])
+    // }
+
+    // verbInput.value = generatedWordsArray.join(" ");
+}
+
+function generateIntransitiveVerbs() {
+    // let verbInput = document.getElementById("inputRootIntransitiveVerb");
+    // let randomVerbArray = [] 
+
+    // let numberOfVerbs = document.getElementById("select-amount").value;
+    // numberOfVerbs = Number(numberOfVerbs);
+    
+    for(let i = 0; i < intransitiveVerbArray.length; i++) {
+        let randomNum = Math.floor(Math.random() * 6);
+
+        if (randomNum === 0) { 
+            //generates a CV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+            let CV = firstC + firstV;     
+            generatedIntransitiveVerbs.push(CV)
+
+        } else if(randomNum === 1 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVC = firstC + firstV + secondC;
+            generatedIntransitiveVerbs.push(CVC)
+
+        } else if(randomNum === 2 ) {
+            //generates a CVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCV = firstC + firstV + secondC + secondV;
+            generatedIntransitiveVerbs.push(CVCV)
+
+        } else if(randomNum === 3 ) {
+            //generates a CVCVC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+            generatedIntransitiveVerbs.push(CVCVC)
+
+        } else if(randomNum === 4 ) {
+            //generates a CVCC root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let CVCC = firstC + firstV + secondC + thirdC;
+            generatedIntransitiveVerbs.push(CVCC)
+
+        } else if(randomNum === 5 ) {
+            //generates a CVCCV root
+            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+            generatedIntransitiveVerbs.push(CVCCV)
+        }
+    }
+}
+
+//randomly generates a Nominaliser suffix
+function generateNominaliser() {
+    let nominaliserInput = "";
+    
+    let randomNum = Math.floor(Math.random() * 3);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        nominaliserInput = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        nominaliserInput = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        nominaliserInput = CVC;
+    } 
+    let spanNominaliser = document.getElementsByClassName("nominaliser-suffix");
+    for(let i = 0; i < spanNominaliser.length; i++) {
+        spanNominaliser[i].innerHTML = nominaliserInput;
+    }
+
+
+}
+
+//randomly generates a word for "also"
+function generateConjunctions() { 
+    let randomNum = Math.floor(Math.random() * 3);
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        generatedConjunctions.push(CV);
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        generatedConjunctions.push(VC);
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        generatedConjunctions.push(CVC);
+    } 
+}
+
+//randomly generates a word for "also"
+function generateAdverbs() {
+    let randomNum = Math.floor(Math.random() * 5);
+
+    if (randomNum === 0) { 
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        generatedAdverbs.push(CVC);
+
+    } else if(randomNum === 1 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCV = firstC + firstV + secondC + secondV;
+        generatedAdverbs.push(CVCV);
+
+    } else if(randomNum === 2 ) {
+        //generates a CVCVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+        generatedAdverbs.push(CVCVC);
+
+    } else if(randomNum === 3 ) {
+        //generates a CVCC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVCC = firstC + firstV + secondC + thirdC;
+        generatedAdverbs.push(CVCC);
+
+    } else if(randomNum === 4 ) {
+        //generates a CVCCV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+        generatedAdverbs.push(CVCCV);
+    }
+
+
+}
+
+//randomly generates a word for "here"
+function generateHere() {
+    let hereInput = "";
+    
+    let randomNum = Math.floor(Math.random() * 4);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        hereInput = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        hereInput = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        hereInput = CVC;
+    } 
+    else if(randomNum === 3 ) {
+        //generates a V root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let V = firstV;
+        hereInput = V;
+    } 
+    let wordHere = document.getElementsByClassName("here");
+    for(let i = 0; i < wordHere.length; i++) {
+        wordHere[i].innerHTML = hereInput;
+    }
+
+
+}
+
+//randomly generates a word for "there"
+function generateThere() {
+    let thereInput = "";
+    
+    let randomNum = Math.floor(Math.random() * 4);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        thereInput = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        thereInput = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        thereInput = CVC;
+    } 
+    else if(randomNum === 3 ) {
+        //generates a V root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let V = firstV;
+        thereInput = V;
+    } 
+    let wordThere = document.getElementsByClassName("there");
+    for(let i = 0; i < wordThere.length; i++) {
+        wordThere[i].innerHTML = thereInput;
+    }
+
+
+}
+
+//randomly generates an adverbial suffix
+function generateAdverbialSuffix() {
+    let adverbialSuffix = "";
+    
+    let randomNum = Math.floor(Math.random() * 4);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        adverbialSuffix = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        adverbialSuffix = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        adverbialSuffix = CVC;
+    } 
+    else if(randomNum === 3 ) {
+        //generates a V root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let V = firstV;
+        adverbialSuffix = V;
+    } 
+
+    let spanAdverb = document.getElementsByClassName("adverbial-suffix");
+    for(let i = 0; i < spanAdverb.length; i++) {
+        spanAdverb[i].innerHTML = adverbialSuffix;
+    }
+
+
+
+}
+
+//randomly generates an first person pronoun
+function generateFirstPersonPronoun() {
+    let firstPersonPronoun = "";
+    
+    let randomNum = Math.floor(Math.random() * 4);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        firstPersonPronoun = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        firstPersonPronoun = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        firstPersonPronoun = CVC;
+    } 
+    else if(randomNum === 3 ) {
+        //generates a V root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let V = firstV;
+        firstPersonPronoun = V;
+    } 
+
+    let spanPronoun = document.getElementsByClassName("firstPersonPronoun");
+    for(let i = 0; i < spanPronoun.length; i++) {
+        spanPronoun[i].innerHTML = firstPersonPronoun;
+    }
+    return firstPersonPronoun;
+
+
+}
+
+//randomly generates an second person pronoun
+function generateSecondPersonPronoun() {
+    let secondPersonPronoun = "";
+    
+    let randomNum = Math.floor(Math.random() * 4);
+
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        secondPersonPronoun = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        secondPersonPronoun = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+        let CVC = firstC + firstV + secondC;
+        secondPersonPronoun = CVC;
+    } 
+    else if(randomNum === 3 ) {
+        //generates a V root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let V = firstV;
+        secondPersonPronoun = V;
+    } 
+
+    let spanPronoun = document.getElementsByClassName("secondPersonPronoun");
+    for(let i = 0; i < spanPronoun.length; i++) {
+        spanPronoun[i].innerHTML = secondPersonPronoun;
+    }
+    return secondPersonPronoun;
+
+
+}
+
+//randomly generates an non-past suffix
+function generateNonPastSuffix() {
+    let nonPastSuffix = "";
+    let randomNum = Math.floor(Math.random() * 3);
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        nonPastSuffix = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        nonPastSuffix = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a V root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let V = firstV;
+        nonPastSuffix = V;
+    } 
+    let spanNonPastSuffix = document.getElementsByClassName("non-past");
+    for(let i = 0; i < spanNonPastSuffix.length; i++) {
+        spanNonPastSuffix[i].innerHTML = nonPastSuffix;
+    }
+    document.getElementById("non-past").innerHTML = nonPastSuffix;
+    return nonPastSuffix;
+
+}
+
+function generatePluralVerbSuffix() {
+    let pluralVerb = "";
+    let randomNum = Math.floor(Math.random() * 3);
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        pluralVerb = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        pluralVerb = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let CVC = firstC + firstV + secondC;    
+        pluralVerb = CVC;
+    } 
+    document.getElementById("plural-verb-suffix").innerHTML = pluralVerb;
+    return pluralVerb
+}
+
+function generateHabitualSuffix() {
+    let habitual = "";
+    let randomNum = Math.floor(Math.random() * 3);
+    if (randomNum === 0) { 
+        //generates a CV root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let CV = firstC + firstV;     
+        habitual = CV;
+
+    } else if(randomNum === 1 ) {
+        //generates a VC root
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+        let VC = firstV + firstC;
+        habitual = VC;
+
+    } else if(randomNum === 2 ) {
+        //generates a CVC root
+        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+        let secondC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+        let CVC = firstC + firstV + secondC;    
+        habitual = CVC;
+    } 
+    document.getElementById("habitual-suffix").innerHTML = habitual;
+    return habitual;
+}
+
+//randomly generates a singular suffix
 function generateSg() {
-    let sgInput = document.getElementById("singular-suffix");
+    let sgInput = "";
     
     let randomNum = Math.floor(Math.random() * 3);
 
@@ -243,14 +881,14 @@ function generateSg() {
         let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
         let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
         let CV = firstC + firstV;     
-        sgInput.value = CV;
+        sgInput = CV;
 
     } else if(randomNum === 1 ) {
         //generates a VC root
         let firstV = vowels[Math.floor(Math.random() * vowels.length)]
         let firstC = consonants[Math.floor(Math.random() * consonants.length)]
         let VC = firstV + firstC;
-        sgInput.value = VC;
+        sgInput = VC;
 
     } else if(randomNum === 2 ) {
         //generates a CVC root
@@ -258,15 +896,20 @@ function generateSg() {
         let firstV = vowels[Math.floor(Math.random() * vowels.length)]
         let secondC = consonants[Math.floor(Math.random() * consonants.length)]
         let CVC = firstC + firstV + secondC;
-        sgInput.value = CVC;
+        sgInput = CVC;
     } 
+    let spanSgSuffix = document.getElementsByClassName("sg-suffix");
+    for(let i = 0; i < spanSgSuffix.length; i++) {
+        spanSgSuffix[i].innerHTML = sgInput;
+    }
+    
 
 
 }
 
-//randomly generates a word for singular suffix
+//randomly generates a singular suffix
 function generatePl() {
-    let plInput = document.getElementById("plural-suffix");
+    let plInput = "";
     
     let randomNum = Math.floor(Math.random() * 3);
 
@@ -275,14 +918,14 @@ function generatePl() {
         let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
         let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
         let CV = firstC + firstV;     
-        plInput.value = CV;
+        plInput = CV;
 
     } else if(randomNum === 1 ) {
         //generates a VC root
         let firstV = vowels[Math.floor(Math.random() * vowels.length)]
         let firstC = consonants[Math.floor(Math.random() * consonants.length)]
         let VC = firstV + firstC;
-        plInput.value = VC;
+        plInput = VC;
 
     } else if(randomNum === 2 ) {
         //generates a CVC root
@@ -290,15 +933,19 @@ function generatePl() {
         let firstV = vowels[Math.floor(Math.random() * vowels.length)]
         let secondC = consonants[Math.floor(Math.random() * consonants.length)]
         let CVC = firstC + firstV + secondC;
-        plInput.value = CVC;
+        plInput = CVC;
     } 
+    let spanPlSuffix = document.getElementsByClassName("pl-suffix");
+    for(let i = 0; i < spanPlSuffix.length; i++) {
+        spanPlSuffix[i].innerHTML = plInput;
+    }
 
 
 }
 
 //randomly generates a accusative prefix
 function generateAcc() {
-    let accPrefix = document.getElementById("accusative-prefix");
+    let accPrefix = "";
     
     let randomNum = Math.floor(Math.random() * 3);
 
@@ -307,14 +954,14 @@ function generateAcc() {
         let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
         let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
         let CV = firstC + firstV;     
-        accPrefix.value = CV;
+        accPrefix = CV;
 
     } else if(randomNum === 1 ) {
         //generates a VC root
         let firstV = vowels[Math.floor(Math.random() * vowels.length)]
         let firstC = consonants[Math.floor(Math.random() * consonants.length)]
         let VC = firstV + firstC;
-        accPrefix.value = VC;
+        accPrefix = VC;
 
     } else if(randomNum === 2 ) {
         //generates a CVC root
@@ -322,15 +969,19 @@ function generateAcc() {
         let firstV = vowels[Math.floor(Math.random() * vowels.length)]
         let secondC = consonants[Math.floor(Math.random() * consonants.length)]
         let CVC = firstC + firstV + secondC;
-        accPrefix.value = CVC;
+        accPrefix = CVC;
     } 
+    let spanAccSuffix = document.getElementsByClassName("acc-prefix");
+    for(let i = 0; i < spanAccSuffix.length; i++) {
+        spanAccSuffix[i].innerHTML = accPrefix;
+    }
 
 
 }
 
 //randomly generates a accusative prefix
 function generateGen() {
-    let genPrefix = document.getElementById("genitive-prefix");
+    let genPrefix = "";
     
     let randomNum = Math.floor(Math.random() * 3);
 
@@ -339,14 +990,14 @@ function generateGen() {
         let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
         let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
         let CV = firstC + firstV;     
-        genPrefix.value = CV;
+        genPrefix = CV;
 
     } else if(randomNum === 1 ) {
         //generates a VC root
         let firstV = vowels[Math.floor(Math.random() * vowels.length)]
         let firstC = consonants[Math.floor(Math.random() * consonants.length)]
         let VC = firstV + firstC;
-        genPrefix.value = VC;
+        genPrefix = VC;
 
     } else if(randomNum === 2 ) {
         //generates a CVC root
@@ -354,82 +1005,48 @@ function generateGen() {
         let firstV = vowels[Math.floor(Math.random() * vowels.length)]
         let secondC = consonants[Math.floor(Math.random() * consonants.length)]
         let CVC = firstC + firstV + secondC;
-        genPrefix.value = CVC;
+        genPrefix = CVC;
     } 
-
-
-}
-
-//Generates the singular suffix
-function createSg() {
-    let inputSg = document.getElementById("singular-suffix");
-    let wordSg = inputSg.value;
-    let spanSg = document.getElementsByClassName("sg-suffix");
-    for(let i = 0; i < spanSg.length; i++) {
-        if (wordSg != "") { //if no word has been input by the user, then nothing happens
-            if (spanSg[i].innerHTML != soundChange(wordSg)) {
-                spanSg[i].innerHTML = soundChange(wordSg);
-            }
-        }
+    let spanGenSuffix = document.getElementsByClassName("gen-prefix");
+    for(let i = 0; i < spanGenSuffix.length; i++) {
+        spanGenSuffix[i].innerHTML = genPrefix;
     }
-    return wordSg
+
+
 }
+
+function generateVocab() {
+    generateNouns();
+    generateAdjectives();
+    generateCopula();
+    generateTransitiveVerbs();
+    generateIntransitiveVerbs();
+    generateNominaliser();
+    generateConjunctions();
+    generateAdverbs();
+    generateHere()
+    generateThere();
+    generateAdverbialSuffix();
+    generateFirstPersonPronoun();
+    generateSecondPersonPronoun();
+    generateNonPastSuffix();
+    generatePluralVerbSuffix();
+    generateHabitualSuffix();
+    generateSg();
+    generatePl();
+    generateAcc();
+    generateGen();
+}
+
+
+
+/*-------------------------CREATE SECTION----------------*/
+
+
 
 
 /*-------CREATE WORDS-------------------------------*/
 //The functions below take the words input by the users, or words randomly generated by the 'generate' functions below, and then send them to the appriopiate elements in the HTML.
-
-//Generates the plural suffix
-function createPl() {
-    let inputPl = document.getElementById("plural-suffix");
-    let wordPl = inputPl.value;
-    let spanPl = document.getElementsByClassName("pl-suffix");
-    for(let i = 0; i < spanPl.length; i++) {
-        if (wordPl != "") { //if no word has been input by the user, then nothing happens
-            if (spanPl[i].innerHTML != soundChange(wordPl)) {
-                spanPl[i].innerHTML = soundChange(wordPl);
-            }
-        }
-    }
-    return wordPl
-}
-
-//Generates the accusative prefix
-function createAcc() {
-    let inputAcc = document.getElementById("accusative-prefix");
-    let wordAcc = inputAcc.value;
-    let spanAcc = document.getElementsByClassName("acc-prefix");
-    for(let i = 0; i < spanAcc.length; i++) {
-        if (wordAcc != "") { //if no word has been input by the user, then nothing happens
-            if (spanAcc[i].innerHTML != soundChange(wordAcc)) {
-                spanAcc[i].innerHTML = soundChange(wordAcc);
-            }
-        }
-    }
-    return wordAcc
-}
-
-//Generates the genitive prefix
-function createGen() {
-    let inputGen = document.getElementById("genitive-prefix");
-    let wordGen = inputGen.value;
-    let spanGen = document.getElementsByClassName("gen-prefix");
-    for(let i = 0; i < spanGen.length; i++) {
-        if (wordGen != "") { //if no word has been input by the user, then nothing happens
-            if (spanGen[i].innerHTML != soundChange(wordGen)) {
-                spanGen[i].innerHTML = soundChange(wordGen);
-            }
-        }
-    }
-    return wordGen
-}
-
-function createNounCases() {
-    createSg();
-    createPl();
-    createAcc();
-    createGen();
-}
 
 //Takes the words from both text fields and splits them into arrays, then it creates an object using both arrays.
 function createNounInflectionTables() {
@@ -454,60 +1071,19 @@ function createNounInflectionTables() {
     compoundH1.innerHTML = "Compounds";
     outputSection.appendChild(compoundDiv);
 
-    let inputRoot = document.getElementById("inputRootNoun").value;
-    let splitInputRoot = inputRoot.split(" ");
-    let inputMeaning = document.getElementById("inputMeaningNoun").value;
-    let splitInputMeaning = inputMeaning.split(" ");
+    // let inputRoot = document.getElementById("inputRootNoun").value;
+    // let splitInputRoot = inputRoot.split(" ");
+    // let inputMeaning = document.getElementById("inputMeaningNoun").value;
+    // let splitInputMeaning = inputMeaning.split(" ");
 
 
     /*the below are the same as some functions above, I had to place them inside this function also, instead of just calling the functions because that caused an infinite loop for a reason that I do not know*/
     //makes the singular suffix
-    let inputSg = document.getElementById("singular-suffix");
-    let sgSuffix = inputSg.value;
-    let spanSg = document.getElementsByClassName("sg-suffix");
-    for(let i = 0; i < spanSg.length; i++) {
-        if (sgSuffix != "") { //if no word has been input by the user, then nothing happens
-            spanSg[i].innerHTML = soundChange(sgSuffix);
-        
-        }
-    }
-    //makes the plural suffix
-    let inputPl = document.getElementById("plural-suffix");
-    let plSuffix = inputPl.value;
-    let spanPl = document.getElementsByClassName("pl-suffix");
-    for(let i = 0; i < spanPl.length; i++) {
-        if (plSuffix != "") { //if no word has been input by the user, then nothing happens
-            if (spanPl[i].innerHTML != soundChange(plSuffix)) {
-                spanPl[i].innerHTML = soundChange(plSuffix);
-            }
-        }
-    }
-
-    //Generates the accusative prefix
-    let inputAcc = document.getElementById("accusative-prefix");
-    let accPrefix = inputAcc.value;
-    let spanAcc = document.getElementsByClassName("acc-prefix");
-    for(let i = 0; i < spanAcc.length; i++) {
-        if (accPrefix != "") { //if no word has been input by the user, then nothing happens
-            if (spanAcc[i].innerHTML != soundChange(accPrefix)) {
-                spanAcc[i].innerHTML = soundChange(accPrefix);
-            }
-        }
-    }
-
-
-    //Generates the genitive prefix
-    let inputGen = document.getElementById("genitive-prefix");
-    let genPrefix = inputGen.value;
-    let spanGen = document.getElementsByClassName("acc-prefix");
-    for(let i = 0; i < spanGen.length; i++) {
-        if (genPrefix != "") { //if no word has been input by the user, then nothing happens
-            if (spanGen[i].innerHTML != soundChange(genPrefix)) {
-                spanGen[i].innerHTML = soundChange(genPrefix);
-            }
-        }
-    }
-
+    let sgSuffix = document.getElementsByClassName("sg-suffix")[0].innerHTML;
+    let plSuffix = document.getElementsByClassName("pl-suffix")[0].innerHTML;
+    let accPrefix = document.getElementsByClassName("acc-prefix")[0].innerHTML;
+    let genPrefix = document.getElementsByClassName("gen-prefix")[0].innerHTML;
+   
 
 
 
@@ -515,9 +1091,9 @@ function createNounInflectionTables() {
     /*-----------------------INFLECTION HEADWORD--------------------------------------------------------------*
        
    /* Generates the headword above each inflection table, showing the root and it's meaning as a title */
-    for(let i = 0; i < splitInputRoot.length; i++) {
-        let root = splitInputRoot[i];
-        let rootMeaning = splitInputMeaning[i];
+    for(let i = 0; i < generatedNouns.length; i++) {
+        let root = generatedNouns[i];
+        let rootMeaning = nounArray[i];
 
         /*Creates a new p element to which is appended the root*/
         let newHeadingProot = document.createElement("P");
@@ -670,18 +1246,18 @@ function createNounInflectionTables() {
     /*----------------------^^^INFLECTION TABLE-^^^-------------------------------------------------------------*/
 
     /*-------------COMPOUND------------------------*/
+    //DO NOT COMPOUND EVERY POSSIBLE NOUN. Now that there are hundreds of nouns, the resulting output is too big,
+    //when I get to making a noun derivation section, use only a few compounds as an example
     let compound = ""
     let compoundArray = [];
     let compoundMeaningArray = [];
-    for(let i = 0; i < splitInputRoot.length; i++) {
-        for(let j = 0; j < splitInputRoot.length; j++) {
-            if (splitInputRoot[i] == splitInputRoot[j]) { //prevents a root being compounded with itself
+    for(let i = 0; i < 4; i++) {
+        for(let j = 0; j < 4; j++) {
+            if (generatedNouns[i] == generatedNouns[j]) { //prevents a root being compounded with itself
                 continue;
             }
-            compound = splitInputRoot[i] + splitInputRoot[j];
-            let compoundMeaning = splitInputMeaning[i] + "-" + splitInputMeaning[j];
-
-            compoundArray.push(compound);
+            compound = generatedNouns[i] + generatedNouns[j];
+            let compoundMeaning = nounArray[i] + "-" + nounArray[j];
 
             compoundMeaningArray.push(compoundMeaning);
 
@@ -850,8 +1426,7 @@ function createNounInflectionTables() {
 
 //Generates the word for "here"
 function createHere() {
-    let inputHere = document.getElementById("inputHere");
-    let wordHere = inputHere.value;
+    let wordHere = document.getElementsByClassName("here")[0].innerHTML;
     let spanHere = document.getElementsByClassName("here");
     for(let i = 0; i < spanHere.length; i++) {
         if (wordHere != "") { //if no word has been input by the user, then nothing happens
@@ -865,8 +1440,7 @@ function createHere() {
 
 //Generates the word for "here"
 function createThere() {
-    let inputThere = document.getElementById("inputThere");
-    let wordThere = inputThere.value;
+    let wordThere = document.getElementsByClassName("there")[0].innerHTML;
     let spanThere = document.getElementsByClassName("there");
     for(let i = 0; i < spanThere.length; i++) {
         if (wordThere != "") { //if no word has been input by the user, then nothing happens
@@ -878,24 +1452,9 @@ function createThere() {
     return wordThere
 }
 
-//Generates the adverbial suffix
-function createAdverbialSuffix() {
-    let inputAdverbialSuffix = document.getElementById("inputAdverbialSuffix");
-    let wordAdverbialSuffix = inputAdverbialSuffix.value;
-    let spanAdverbialSuffix = document.getElementsByClassName("adverbial-suffix");
-    for(let i = 0; i < spanAdverbialSuffix.length; i++) {
-        if (wordAdverbialSuffix != "") { //if no word has been input by the user, then nothing happens
-            if (spanAdverbialSuffix[i].innerHTML != soundChange(wordAdverbialSuffix)) {
-                spanAdverbialSuffix[i].innerHTML = soundChange(wordAdverbialSuffix);
-            }
-        }
-    }
-    return wordAdverbialSuffix
-}
-
 //Creates a word for "these" by adding the plural suffix to "this"
 function createThese() {
-    let plSuffix = document.getElementById("plural-suffix").value;
+    let plSuffix = document.getElementsByClassName("pl-suffix")[0].innerHTML;
 
     let thisWord = createThis();
     let thesePronoun = thisWord + plSuffix;
@@ -915,7 +1474,7 @@ function createThese() {
 //Merges the word for "there" and the adverbial suffix to create the demonstrative pronoun "that"
 function createThat() {
     let wordThere = createThere(); //assigns the word "there"
-    let wordAdverbialSuffix = createAdverbialSuffix(); //assigns the adverbial suffix
+    let wordAdverbialSuffix = document.getElementsByClassName("adverbial-suffix")[0].innerHTML;
     let thatPronoun = wordThere + wordAdverbialSuffix;
 
     //assigns the merged result to the appropriate span elements, and applies the sound changes
@@ -932,7 +1491,7 @@ function createThat() {
 
 //Creates a word for "those" by adding the plural suffix to "that"
 function createThose() {
-    let plSuffix = document.getElementById("plural-suffix").value;
+    let plSuffix = document.getElementsByClassName("pl-suffix")[0].innerHTML;
 
     let thatWord = createThat();
     let thosePronoun = thatWord + plSuffix;
@@ -952,7 +1511,7 @@ function createThose() {
 //Merges the word for "here" and the adverbial suffix to create the demonstrative pronoun "this"
 function createThis() {
     let wordHere = createHere(); //assigns the word "here"
-    let wordAdverbialSuffix = createAdverbialSuffix(); //assigns the adverbial suffix
+    let wordAdverbialSuffix = document.getElementsByClassName("adverbial-suffix")[0].innerHTML;
     let pronounThis = wordHere + wordAdverbialSuffix;
 
     //assigns the merged result to the appropriate span elements, and applies the sound changes
@@ -970,7 +1529,7 @@ function createThis() {
 //Creates accusative forms for the demonstrative pronouns. This has a distinct function from the one that creates accusative plural nouns, since demonstratives do not take on an overt singular suffix.
 //takes a randomly selected noun and puts it in the nominative singular
 function createAccDemonstrative() {
-    let accPrefix = document.getElementById("accusative-prefix").value;
+    let accPrefix = document.getElementsByClassName("acc-prefix")[0].innerHTML;
     let spanDem = document.getElementsByClassName("accusative-pronoun");
         for(let i = 0; i < spanDem.length; i++) {
             let accDemonstrative = accPrefix + spanDem[i].innerHTML;
@@ -985,7 +1544,7 @@ function createAccDemonstrative() {
 
 //Creates genitive forms for the demonstrative pronouns. This has a distinct function from the one that creates accusative plural nouns, since demonstratives do not take on an overt singular suffix.
 function createGenDemonstrative() {
-    let genPrefix = document.getElementById("genitive-prefix").value;
+    let genPrefix = document.getElementsByClassName("gen-prefix")[0].innerHTML;
     let spanDem = document.getElementsByClassName("genitive-pronoun");
         for(let i = 0; i < spanDem.length; i++) {
             let genDemonstrative = genPrefix + spanDem[i].innerHTML;
@@ -1000,8 +1559,8 @@ function createGenDemonstrative() {
 
 //Generates the word for "also"
 function createAlso() {
-    let inputAlso = document.getElementById("inputAlso");
-    let wordAlso = inputAlso.value;
+    let num = conjunctionArray.indexOf("also");
+    let wordAlso = generatedConjunctions[num];
     let spanAlso = document.getElementsByClassName("also");
     for(let i = 0; i < spanAlso.length; i++) {
         if (wordAlso != "") {
@@ -1010,13 +1569,13 @@ function createAlso() {
             }
         }
     }
-    return wordAlso
+    return wordAlso;
 }
 
 //Generates the word for "again"
 function createAgain() {
-    let inputAgain = document.getElementById("inputAgain");
-    let wordAgain = inputAgain.value;
+    let num = adverbArray.indexOf("again");
+    let wordAgain = generatedAdverbs[num];
     let spanAgain = document.getElementsByClassName("again");
     for(let i = 0; i < spanAgain.length; i++) {
         if (wordAgain != "") {
@@ -1025,13 +1584,12 @@ function createAgain() {
             }
         }
     }
-    return wordAgain
+    return wordAgain;
 }
 
 //Generates the word for interrogative suffix
 function createInterrogativeSuffix() {
-    let inputAgain = document.getElementById("inputAgain");
-    let wordAgain = inputAgain.value;
+    let wordAgain = createAgain()
     let firstTwoLetters = [];
     firstTwoLetters.push(wordAgain[0]);
     firstTwoLetters.push(wordAgain[1]);
@@ -1050,8 +1608,8 @@ function createInterrogativeSuffix() {
 
 //Generates the word for "place"
 function createPlace() {
-    let inputPlace = document.getElementById("inputPlace");
-    let wordPlace = inputPlace.value;
+    let num = nounArray.indexOf("place");
+    let wordPlace = generatedNouns[num];
     let spanPlace = document.getElementsByClassName("place");
     for(let i = 0; i < spanPlace.length; i++) {
         if (wordPlace != "") {
@@ -1060,13 +1618,13 @@ function createPlace() {
             }
         }
     }
-    return wordPlace
+    return wordPlace;
 }
 
 //Generates the word for "man"
 function createMan() {
-    let inputMan = document.getElementById("inputMan");
-    let wordMan = inputMan.value;
+    let num = nounArray.indexOf("man");
+    let wordMan = generatedNouns[num];
     let spanMan = document.getElementsByClassName("man");
     for(let i = 0; i < spanMan.length; i++) {
         if (wordMan != "") {
@@ -1075,13 +1633,13 @@ function createMan() {
             }
         }
     }
-    return wordMan
+    return wordMan;
 }
 
 //Generates the word for "path"
 function createPath() {
-    let inputPath = document.getElementById("inputPath");
-    let wordPath = inputPath.value;
+    let num = nounArray.indexOf("path");
+    let wordPath = generatedNouns[num];
     let spanPath = document.getElementsByClassName("path");
     for(let i = 0; i < spanPath.length; i++) {
         if (wordPath != "") {
@@ -1090,13 +1648,13 @@ function createPath() {
             }
         }
     }
-    return soundChange(wordPath)
+    return wordPath;
 }
 
 //Generates the word for "origin"
 function createOrigin() {
-    let inputOrigin = document.getElementById("inputOrigin");
-    let wordOrigin = inputOrigin.value;
+    let num = nounArray.indexOf("origin");
+    let wordOrigin = generatedNouns[num];
     let spanOrigin = document.getElementsByClassName("origin");
     for(let i = 0; i < spanOrigin.length; i++) {
         if (wordOrigin != "") {
@@ -1105,13 +1663,13 @@ function createOrigin() {
             }
         }
     }
-    return soundChange(wordOrigin)
+    return wordOrigin;
 }
 
 //Generates the word for "time"
 function createTime() {
-    let inputTime = document.getElementById("inputTime");
-    let wordTime = inputTime.value;
+    let num = nounArray.indexOf("time");
+    let wordTime = generatedNouns[num];
     let spanTime = document.getElementsByClassName("time");
     for(let i = 0; i < spanTime.length; i++) {
         if (wordTime != "") {
@@ -1120,12 +1678,12 @@ function createTime() {
             }
         }
     }
-    return wordTime
+    return wordTime;
 }
 
 //Generates the word for "where"
 function createWhere() {
-    let place = document.getElementById("inputPlace").value;
+    let place = createPlace();
     let affix = createInterrogativeSuffix();
     let where = affix + soundChange(place);
     let spanWhen = document.getElementsByClassName("where");
@@ -1141,7 +1699,7 @@ function createWhere() {
 
 //Generates the word for "who"
 function createWho() {
-    let man = document.getElementById("inputMan").value;
+    let man = createMan();
     let affix = createInterrogativeSuffix();
     let who = affix + soundChange(man);
     let spanWho = document.getElementsByClassName("who");
@@ -1219,6 +1777,21 @@ function createWhy() {
     return soundChange(why);
 }
 
+function createToday() {
+    let day = nounArray[nounArray.indexOf("day")];
+    let thisWord = createThis();
+    let today = thisWord + day;
+    let spanToday = document.getElementsByClassName("today");
+    for(let i = 0; i < spanToday.length; i++) {
+        if (today != " ") {
+            if (spanToday[i].innerHTML != soundChange(today)) {
+                spanToday[i].innerHTML = soundChange(today);
+            }
+        }
+    }
+    return soundChange(today);
+}
+
 //Generates the relative pronoun by merging the word for "this" and "also"
 function createRelativePronoun() {
     let wordThis = createThis(); //assigns the word "this"
@@ -1237,25 +1810,9 @@ function createRelativePronoun() {
     return soundChange(RelativePronoun)
 }
 
-//Generates the nominaliser suffix
-function createNominaliserSuffix() {
-    let inputNominaliserSuffix = document.getElementById("inputNominaliser");
-    let nominaliserSuffix = inputNominaliserSuffix.value;
-    let spanNominaliserSuffix = document.getElementsByClassName("nominaliser-suffix");
-    for(let i = 0; i < spanNominaliserSuffix.length; i++) {
-        if (nominaliserSuffix != "") { //if no word has been input by the user, then nothing happens
-            if (spanNominaliserSuffix[i].innerHTML != soundChange(nominaliserSuffix)) {
-                spanNominaliserSuffix[i].innerHTML = soundChange(nominaliserSuffix);
-            }
-        }
-    }
-    return nominaliserSuffix
-}
-
 //Generates the first person pronoun
 function createFirstPersonPronoun() {
-    let inputFirstPersonPronoun = document.getElementById("first-person-pronoun");
-    let FirstPersonPronoun = inputFirstPersonPronoun.value;
+    let FirstPersonPronoun = generateFirstPersonPronoun();
     let spanFirstPersonPronoun = document.getElementsByClassName("firstPersonPronoun");
     for(let i = 0; i < spanFirstPersonPronoun.length; i++) {
         if (FirstPersonPronoun != "") { //if no word has been input by the user, then nothing happens
@@ -1269,8 +1826,7 @@ function createFirstPersonPronoun() {
 
 //Generates the first person pronoun
 function createSecondPersonPronoun() {
-    let inputSecondPersonPronoun = document.getElementById("second-person-pronoun");
-    let SecondPersonPronoun = inputSecondPersonPronoun.value;
+    let SecondPersonPronoun = generateSecondPersonPronoun();
     let spanSecondPersonPronoun = document.getElementsByClassName("secondPersonPronoun");
     for(let i = 0; i < spanSecondPersonPronoun.length; i++) {
         if (SecondPersonPronoun != "") { //if no word has been input by the user, then nothing happens
@@ -1282,38 +1838,10 @@ function createSecondPersonPronoun() {
     return SecondPersonPronoun
 }
 
-//Generates the non-past-suffix"
-function createNonPastSuffix() {
-    let inputNonPastSuffix = document.getElementById("non-past");
-    let wordNonPastSuffix = inputNonPastSuffix.value;
-    let spanNonPastSuffix = document.getElementsByClassName("non-past");
-    for(let i = 0; i < spanNonPastSuffix.length; i++) {
-        if (wordNonPastSuffix != "") {
-            if (spanNonPastSuffix[i].innerHTML != soundChange(wordNonPastSuffix)) {
-                spanNonPastSuffix[i].innerHTML = soundChange(wordNonPastSuffix);
-            }
-        }
-    }
-    return wordNonPastSuffix;
-}
-
-function createCopula() {
-    let inputCopula = document.getElementById("inputToBe");
-    let wordCopula = inputCopula.value;
-    let spanCopula = document.getElementsByClassName("copula");
-    for(let i = 0; i < spanCopula.length; i++) {
-        if (wordCopula != "") {
-            if (spanCopula[i].innerHTML != soundChange(wordCopula)) {
-                spanCopula[i].innerHTML = soundChange(wordCopula);
-            }
-        }
-    }
-    return wordCopula
-}
 
 function createCopulaSgNonPast() {
-    let copula = createCopula();
-    let nonPastSuffix = createNonPastSuffix();
+    let copula = document.getElementsByClassName("copula")[0].innerHTML;
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let CopulaSgNonPast = copula + nonPastSuffix
 
     //assigns the merged result to the appropriate span elements, and applies the sound changes
@@ -1330,10 +1858,10 @@ function createCopulaSgNonPast() {
 
 function createCopulaPlNonPast() {
 
-    let plSuffix = document.getElementById("plural-suffix").value;
+    let plSuffix = document.getElementsByClassName("pl-suffix")[0].innerHTML;
 
-    let copula = createCopula();
-    let nonPastSuffix = createNonPastSuffix();
+    let copula = document.getElementsByClassName("copula")[0].innerHTML;
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let CopulaPlNonPast = plSuffix + copula + nonPastSuffix
     
     //assigns the merged result to the appropriate span elements, and applies the sound changes
@@ -1349,23 +1877,15 @@ function createCopulaPlNonPast() {
 
 }
 
-//selects a random adjective from the adjectives entered by the user
+//selects a random adjective from the adjective array
 function createRandomAdjective() {
-    //puts all of the input adjectives into one array
-    let inputAdjective = document.getElementById("inputRootAdj").value;
-    let splitAdjective = inputAdjective.split(" ");
-
-    //puts all of the input adjectives' meanings into one array
-    let inputAdjectiveMeaning = document.getElementById("inputMeaningAdj").value;
-    let splitAdjectiveMeaning = inputAdjectiveMeaning.split(" ");
     let spanAdjective = document.getElementsByClassName("adjective");
-
     let num = 1;
     for(let i = 0; i <= spanAdjective.length; i++) {
-        let randomNumber = Math.floor(Math.random() * splitAdjective.length);
-        let randomAdjective = splitAdjective[randomNumber] 
+        let randomNumber = Math.floor(Math.random() * generatedAdjectives.length);
+        let randomAdjective = generatedAdjectives[randomNumber] 
         document.getElementById("adjective" + num.toString()).innerHTML = soundChange(randomAdjective);
-        document.getElementById("adjective-meaning" + num.toString()).innerHTML = splitAdjectiveMeaning[randomNumber]
+        document.getElementById("adjective-meaning" + num.toString()).innerHTML = adjectiveArray[randomNumber]
         num++;
     }
 
@@ -1395,21 +1915,14 @@ function createRandomAdjective() {
 
 //selects a random noun from the nouns entered by the user
 function createRandomNoun() {
-    //puts all of the input adjectives into one array
-    let inputNoun = document.getElementById("inputRootNoun").value;
-    let splitNoun = inputNoun.split(" ");
-
-    //puts all of the input adjectives' meanings into one array
-    let inputNounMeaning = document.getElementById("inputMeaningNoun").value;
-    let splitNounMeaning = inputNounMeaning.split(" ");
     let spanNoun = document.getElementsByClassName("noun");
     
     let num = 1;
     for(let i = 0; i < spanNoun.length; i++) {
-        let randomNumber = Math.floor(Math.random() * splitNoun.length);
-        let randomNoun = splitNoun[randomNumber] 
+        let randomNumber = Math.floor(Math.random() * generatedNouns.length);
+        let randomNoun = generatedNouns[randomNumber] 
         document.getElementById("noun" + num.toString()).innerHTML = soundChange(randomNoun);
-        document.getElementById("noun-meaning" + num.toString()).innerHTML = splitNounMeaning[randomNumber]
+        document.getElementById("noun-meaning" + num.toString()).innerHTML = nounArray[randomNumber]
         num++;
     }
     //creates copy of the noun's meaning
@@ -1436,29 +1949,16 @@ function createRandomNoun() {
 
 //selects both transitive and intransitive verbs
 function createRandomVerb() {
-    //puts all of the input verbs into one array
-    let inputTransitiveVerb = document.getElementById("inputRootTransitiveVerb").value;
-    let inputIntransitiveVerb = document.getElementById("inputRootIntransitiveVerb").value;
-    let splitTransitiveVerb = inputTransitiveVerb.split(" ");
-    let splitIntransitiveVerb = inputIntransitiveVerb.split(" ");
-    let allVerbs = splitTransitiveVerb.concat(splitIntransitiveVerb);
-
-    //puts all of the input verbs meanings into one array
-    let inputTransitiveVerbMeaning = document.getElementById("inputMeaningTransitiveVerb").value;
-    let inputIntransitiveVerbMeaning = document.getElementById("inputMeaningIntransitiveVerb").value;
-    let splitTransitiveVerbMeaning = inputTransitiveVerbMeaning.split(" ");
-    let splitIntransitiveVerbMeaning = inputIntransitiveVerbMeaning.split(" ");
-    let allVerbMeanings = splitTransitiveVerbMeaning.concat(splitIntransitiveVerbMeaning);
-
     let spanVerb = document.getElementsByClassName("verb");
-
+    let allGeneratedVerbs = generatedTransitiveVerbs.concat(generatedIntransitiveVerbs);
     let num = 1;
     for(let i = 0; i < spanVerb.length; i++) {
-        let randomNumber = Math.floor(Math.random() * allVerbs.length);
-        let randomVerb = allVerbs[randomNumber] //random verb from the array
+        let randomNumber = Math.floor(Math.random() * allGeneratedVerbs.length);
+        let randomVerb = allGeneratedVerbs[randomNumber] //random verb from the array
+        
         document.getElementById("verb" + num.toString()).innerHTML = soundChange(randomVerb);
-        document.getElementById("verb-meaning" + num.toString()).innerHTML = allVerbMeanings[randomNumber]
-        document.getElementById("verb-past-meaning" + num.toString()).innerHTML = allVerbMeanings[randomNumber]
+        document.getElementById("verb-meaning" + num.toString()).innerHTML = verbArray[randomNumber]
+        document.getElementById("verb-past-meaning" + num.toString()).innerHTML = verbArray[randomNumber]
     
         num++;
     
@@ -1488,32 +1988,31 @@ function createRandomVerb() {
 
 }
 
-
 function createRandomTransitiveVerb() {
     //puts all of the input verbs into one array
-    let inputVerb = document.getElementById("inputRootTransitiveVerb").value;
-    let splitVerb = inputVerb.split(" ");
+    // let inputVerb = document.getElementById("inputRootTransitiveVerb").value;
+    // let splitVerb = inputVerb.split(" ");
 
-    //puts all of the input verbs meanings into one array
-    let inputVerbMeaning = document.getElementById("inputMeaningTransitiveVerb").value;
-    let splitVerbMeaning = inputVerbMeaning.split(" ");
+    // //puts all of the input verbs meanings into one array
+    // let inputVerbMeaning = document.getElementById("inputMeaningTransitiveVerb").value;
+    // let splitVerbMeaning = inputVerbMeaning.split(" ");
 
     let spanVerb = document.getElementsByClassName("transitive-verb");
 
     let num = 1;
     for(let i = 0; i < spanVerb.length; i++) {
-        let randomNumber = Math.floor(Math.random() * splitVerb.length);
-        let randomVerb = splitVerb[randomNumber] //random verb from the array
+        let randomNumber = Math.floor(Math.random() * generatedTransitiveVerbs.length);
+        let randomVerb = generatedTransitiveVerbs[randomNumber] //random verb from the array
         document.getElementById("transitive-verb" + num.toString()).innerHTML = soundChange(randomVerb);
-        document.getElementById("transitive-verb-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber]
+        document.getElementById("transitive-verb-meaning" + num.toString()).innerHTML = transitiveVerbArray[randomNumber]
         if(document.getElementById("transitive-verb-past-meaning" + num.toString()) === null) {
             let hiddenSpan = document.createElement("span");
             hiddenSpan.classList.add("hidden");
             hiddenSpan.setAttribute("id", "transitive-verb-past-meaning" + num.toString())
-            hiddenSpan.innerHTML = splitVerbMeaning[randomNumber];
+            hiddenSpan.innerHTML = transitiveVerbArray[randomNumber];
             document.getElementById("hidden-section").appendChild(hiddenSpan);
         } else {
-             document.getElementById("transitive-verb-past-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber];
+             document.getElementById("transitive-verb-past-meaning" + num.toString()).innerHTML = transitiveVerbPastArray[randomNumber];
         }
         num++;
         }
@@ -1544,32 +2043,31 @@ function createRandomTransitiveVerb() {
 
     }
 
-
 function createRandomIntransitiveVerb() {
     //puts all of the input verbs into one array
-    let inputVerb = document.getElementById("inputRootIntransitiveVerb").value;
-    let splitVerb = inputVerb.split(" ");
+    // let inputVerb = document.getElementById("inputRootIntransitiveVerb").value;
+    // let splitVerb = inputVerb.split(" ");
 
-    //puts all of the input verbs meanings into one array
-    let inputVerbMeaning = document.getElementById("inputMeaningIntransitiveVerb").value;
-    let splitVerbMeaning = inputVerbMeaning.split(" ");
+    // //puts all of the input verbs meanings into one array
+    // let inputVerbMeaning = document.getElementById("inputMeaningIntransitiveVerb").value;
+    // let splitVerbMeaning = inputVerbMeaning.split(" ");
 
     let spanVerb = document.getElementsByClassName("intransitive-verb");
 
     let num = 1;
     for(let i = 0; i < spanVerb.length; i++) {
-        let randomNumber = Math.floor(Math.random() * splitVerb.length);
-        let randomVerb = splitVerb[randomNumber] //random verb from the array
+        let randomNumber = Math.floor(Math.random() * generatedIntransitiveVerbs.length);
+        let randomVerb = generatedIntransitiveVerbs[randomNumber] //random verb from the array
         document.getElementById("intransitive-verb" + num.toString()).innerHTML = soundChange(randomVerb);
-        document.getElementById("intransitive-verb-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber]
+        document.getElementById("intransitive-verb-meaning" + num.toString()).innerHTML = intransitiveVerbArray[randomNumber]
         if(document.getElementById("intransitive-verb-past-meaning" + num.toString()) === null) {
             let hiddenSpan = document.createElement("span");
             hiddenSpan.classList.add("hidden");
             hiddenSpan.setAttribute("id", "intransitive-verb-past-meaning" + num.toString())
-            hiddenSpan.innerHTML = splitVerbMeaning[randomNumber];
+            hiddenSpan.innerHTML = intransitiveVerbArray[randomNumber];
             document.getElementById("hidden-section").appendChild(hiddenSpan);
         } else {
-             document.getElementById("intransitive-verb-past-meaning" + num.toString()).innerHTML = splitVerbMeaning[randomNumber];
+             document.getElementById("intransitive-verb-past-meaning" + num.toString()).innerHTML = intransitiveVerbPastArray[randomNumber];
         }
         num++;
     
@@ -1601,8 +2099,8 @@ function createRandomIntransitiveVerb() {
 
 //takes a randomly selected noun and puts it in the nominative singular
 function createNounNomSg() {
-    let sgSuffix = document.getElementById("singular-suffix").value;
-    let spanNoun = document.getElementsByClassName("noun-nom-sg")
+    let sgSuffix = document.getElementsByClassName("sg-suffix")[0].innerHTML;
+    let spanNoun = document.getElementsByClassName("noun-nom-sg");
         for(let i = 0; i < spanNoun.length; i++) {
             let nounNomSg = spanNoun[i].innerHTML + sgSuffix;
             if (nounNomSg != "") { //if no word has been input by the user, then nothing happens
@@ -1615,8 +2113,8 @@ function createNounNomSg() {
 
 //takes a noun and puts it in the accusative singular
 function createAccNomSg() {
-    let sgSuffix = document.getElementById("singular-suffix").value;
-    let accPrefix = document.getElementById("accusative-prefix").value;
+    let sgSuffix = document.getElementsByClassName("sg-suffix")[0].innerHTML;
+    let accPrefix = document.getElementsByClassName("acc-prefix")[0].innerHTML;
 
     let spanNoun = document.getElementsByClassName("noun-acc-sg")
     for(let i = 0; i < spanNoun.length; i++) {
@@ -1631,8 +2129,8 @@ function createAccNomSg() {
 
 //takes a noun and puts it in the genitive singular
 function createGenNomSg() {
-    let sgSuffix = document.getElementById("singular-suffix").value;
-    let genPrefix = document.getElementById("genitive-prefix").value;
+    let sgSuffix = document.getElementsByClassName("sg-suffix")[0].innerHTML;
+    let genPrefix = document.getElementsByClassName("gen-prefix")[0].innerHTML;
     let spanNoun = document.getElementsByClassName("noun-gen-sg")
     for(let i = 0; i < spanNoun.length; i++) {
         let nounGenSg = genPrefix + spanNoun[i].innerHTML + sgSuffix;
@@ -1646,7 +2144,7 @@ function createGenNomSg() {
 
 //takes a noun and puts it in the nominative plural
 function createNounNomPl() {
-    let plSuffix = document.getElementById("plural-suffix").value;
+    let plSuffix = document.getElementsByClassName("pl-suffix")[0].innerHTML;
     let spanNoun = document.getElementsByClassName("noun-nom-pl")
     for(let i = 0; i < spanNoun.length; i++) {
         let nounNomPl = spanNoun[i].innerHTML + plSuffix;
@@ -1660,8 +2158,8 @@ function createNounNomPl() {
 
 //takes a noun and puts it in the accusative plural
 function createNounAccPl() {
-    let plSuffix = document.getElementById("plural-suffix").value;
-    let accPrefix = document.getElementById("accusative-prefix").value;
+    let plSuffix = document.getElementsByClassName("pl-suffix")[0].innerHTML;
+    let accPrefix = document.getElementsByClassName("acc-prefix")[0].innerHTML;
 
     let spanNoun = document.getElementsByClassName("noun-acc-pl")
     for(let i = 0; i < spanNoun.length; i++) {
@@ -1676,8 +2174,8 @@ function createNounAccPl() {
 
 //takes a noun and puts it in the genitive plural
 function createNounGenPl() {
-    let plSuffix = document.getElementById("plural-suffix").value;
-    let genPrefix = document.getElementById("genitive-prefix").value;
+    let plSuffix = document.getElementsByClassName("pl-suffix")[0].innerHTML;
+    let genPrefix = document.getElementsByClassName("gen-prefix")[0].innerHTML;
     let spanNoun = document.getElementsByClassName("noun-gen-pl")
     for(let i = 0; i < spanNoun.length; i++) {
         let nounGenPl = genPrefix + spanNoun[i].innerHTML + plSuffix;
@@ -1691,10 +2189,10 @@ function createNounGenPl() {
 
 //creates a bahuvrihi compound for the example shown in the adjective section
 function createBahuvrihi() {
-    let sgSuffix = document.getElementById("singular-suffix").value;
+    let sgSuffix = document.getElementsByClassName("sg-suffix")[0].innerHTML;
 
     let noun = document.getElementById("noun5");
-    let nominaliser = createNominaliserSuffix();
+    let nominaliser = document.getElementsByClassName("nominaliser-suffix")[0].innerHTML;
     let adjective = document.getElementById("adjective5");
     let adjectiveCopy = document.getElementById("adjective5");
    
@@ -1721,8 +2219,8 @@ function createBahuvrihi() {
 
 //takes a randomly selected adjective, attaches the nominaliser suffix, and puts it in the nominative singular
 function createAdjNomSg() {
-    let sgSuffix = document.getElementById("singular-suffix").value;
-    let nominaliser = createNominaliserSuffix();
+    let sgSuffix = document.getElementsByClassName("sg-suffix")[0].innerHTML;
+    let nominaliser = document.getElementsByClassName("nominaliser-suffix")[0].innerHTML;
     let spanAdj = document.getElementsByClassName("adjective-nom-sg")
     for(let i = 0; i < spanAdj.length; i++) {
         let adjNomSg = spanAdj[i].innerHTML + nominaliser + sgSuffix;
@@ -1737,8 +2235,8 @@ function createAdjNomSg() {
 
 //takes a randomly selected noun and puts it in the nominative plural
 function createAdjNomPl() {
-    let plSuffix = document.getElementById("plural-suffix").value;
-    let nominaliser = createNominaliserSuffix();
+    let plSuffix = document.getElementsByClassName("pl-suffix")[0].innerHTML;
+    let nominaliser = document.getElementsByClassName("nominaliser-suffix")[0].innerHTML;
     let spanAdj = document.getElementsByClassName("adjective-nom-pl")
     for(let i = 0; i < spanAdj.length; i++) {
         let adjNomPl = spanAdj[i].innerHTML + nominaliser + plSuffix;
@@ -1797,7 +2295,7 @@ function createThirdPersonSingularIntransitiveVerb() {
 
 //takes a randomly selected verb and puts it in the non-past-tense
 function createVerbNonPast() {
-    let nonPastSuffix = document.getElementById("non-past").value;
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let spanNonPast = document.getElementsByClassName("verb-non-past")
         for(let i = 0; i < spanNonPast.length; i++) {
             let verbNonPast = spanNonPast[i].innerHTML + nonPastSuffix;
@@ -1810,8 +2308,7 @@ function createVerbNonPast() {
 }
 
 function createFirstPersonVerbPrefix() {
-    let firstPersonPronoun = document.getElementById("first-person-pronoun");
-    let pronoun = firstPersonPronoun.value;
+    let pronoun = document.getElementsByClassName("firstPersonPronoun")[0].innerHTML;
     let firstTwoLetters = [];
     firstTwoLetters.push(pronoun[0]);
     firstTwoLetters.push(pronoun[1]);
@@ -1829,13 +2326,11 @@ function createFirstPersonVerbPrefix() {
 }
 
 function createSecondPersonVerbPrefix() {
-    let secondPersonPronoun = document.getElementById("second-person-pronoun");
-    let pronoun = secondPersonPronoun.value;
+    let pronoun = document.getElementsByClassName("secondPersonPronoun")[0].innerHTML;
     let firstTwoLetters = [];
     firstTwoLetters.push(pronoun[0]);
     firstTwoLetters.push(pronoun[1]);
     let prefix = firstTwoLetters.join("")
-
     let spanPrefix = document.getElementsByClassName("second-person-prefix");
     for(let i = 0; i < spanPrefix.length; i++) {
         if (prefix != "") {
@@ -1875,22 +2370,8 @@ function createVerbSecondPerson() {
         }
 }
 
-function createPluralVerbSuffix() {
-    let inputPluralVerb = document.getElementById("input-plural-verb");
-    let pluralVerbSuffix = inputPluralVerb.value;
-    let spanPluralVerbSuffix = document.getElementsByClassName("plural-verb-suffix");
-    for(let i = 0; i < spanPluralVerbSuffix.length; i++) {
-        if (pluralVerbSuffix != "") {
-            if (spanPluralVerbSuffix[i].innerHTML != soundChange(pluralVerbSuffix)) {
-                spanPluralVerbSuffix[i].innerHTML = soundChange(pluralVerbSuffix);
-            }
-        }
-    }
-    return pluralVerbSuffix;
-}
-
 function createPluralVerb() {
-    let pluralVerbSuffix = createPluralVerbSuffix();
+    let pluralVerbSuffix = document.getElementById("plural-verb-suffix").innerHTML;
     let spanVerb = document.getElementsByClassName("plural-verb")
         for(let i = 0; i < spanVerb.length; i++) {
             let pluralVerb = spanVerb[i].innerHTML + pluralVerbSuffix;
@@ -1903,8 +2384,8 @@ function createPluralVerb() {
 }
 
 function createPluralVerbNonPast() {
-    let pluralVerbSuffix = createPluralVerbSuffix();
-    let nonPastSuffix = createNonPastSuffix();
+    let pluralVerbSuffix = document.getElementById("plural-verb-suffix").innerHTML;
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let spanVerb = document.getElementsByClassName("plural-verb-non-past")
         for(let i = 0; i < spanVerb.length; i++) {
             let pluralVerb = spanVerb[i].innerHTML + pluralVerbSuffix + nonPastSuffix;
@@ -1917,7 +2398,7 @@ function createPluralVerbNonPast() {
 }
 
 function createFirstPersonVerbNonPast() {
-    let nonPastSuffix = createNonPastSuffix();
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let firstPersonPrefix = createFirstPersonVerbPrefix();
     let spanVerb = document.getElementsByClassName("first-person-verb-non-past")
         for(let i = 0; i < spanVerb.length; i++) {
@@ -1931,9 +2412,9 @@ function createFirstPersonVerbNonPast() {
 }
 
 function createFirstPersonVerbNonPastHabitual() {
-    let nonPastSuffix = createNonPastSuffix();
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let firstPersonPrefix = createFirstPersonVerbPrefix();
-    let habitualSuffix = createHabitualSuffix();
+    let habitualSuffix = document.getElementById("habitual-suffix").innerHTML;
     let spanVerb = document.getElementsByClassName("first-person-verb-non-past-habitual")
         for(let i = 0; i < spanVerb.length; i++) {
             let pluralVerb = firstPersonPrefix + spanVerb[i].innerHTML + nonPastSuffix + habitualSuffix;
@@ -1947,7 +2428,7 @@ function createFirstPersonVerbNonPastHabitual() {
 
 function createFirstPersonVerbHabitual() {
     let firstPersonPrefix = createFirstPersonVerbPrefix();
-    let habitualSuffix = createHabitualSuffix();
+    let habitualSuffix = document.getElementById("habitual-suffix").innerHTML;
     let spanVerb = document.getElementsByClassName("first-person-verb-habitual")
         for(let i = 0; i < spanVerb.length; i++) {
             let pluralVerb = firstPersonPrefix + spanVerb[i].innerHTML + habitualSuffix;
@@ -1960,7 +2441,7 @@ function createFirstPersonVerbHabitual() {
 }
 
 function createSecondPersonVerbNonPast() {
-    let nonPastSuffix = createNonPastSuffix();
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let secondPersonPrefix = createSecondPersonVerbPrefix();
     let spanVerb = document.getElementsByClassName("second-person-verb-non-past")
         for(let i = 0; i < spanVerb.length; i++) {
@@ -1974,9 +2455,9 @@ function createSecondPersonVerbNonPast() {
 }
 
 function createSecondPersonVerbNonPastHabitual() {
-    let nonPastSuffix = createNonPastSuffix();
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let secondPersonPrefix = createSecondPersonVerbPrefix();
-    let habitualSuffix = createHabitualSuffix();
+    let habitualSuffix = document.getElementById("habitual-suffix").innerHTML;
     let spanVerb = document.getElementsByClassName("second-person-verb-non-past-habitual")
         for(let i = 0; i < spanVerb.length; i++) {
             let pluralVerb = secondPersonPrefix + spanVerb[i].innerHTML + nonPastSuffix + habitualSuffix;
@@ -1989,8 +2470,8 @@ function createSecondPersonVerbNonPastHabitual() {
 }
 
 function createSecondPersonVerbHabitual() {
+    let habitualSuffix = document.getElementById("habitual-suffix").innerHTML;
     let secondPersonPrefix = createSecondPersonVerbPrefix();
-    let habitualSuffix = createHabitualSuffix();
     let spanVerb = document.getElementsByClassName("second-person-verb-habitual")
         for(let i = 0; i < spanVerb.length; i++) {
             let pluralVerb = secondPersonPrefix + spanVerb[i].innerHTML + habitualSuffix;
@@ -2003,8 +2484,8 @@ function createSecondPersonVerbHabitual() {
 }
 
 function createVerbNonPastHabitual() {
-    let nonPastSuffix = createNonPastSuffix();
-    let habitualSuffix = createHabitualSuffix();
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
+    let habitualSuffix = document.getElementById("habitual-suffix").innerHTML;
     let spanVerb = document.getElementsByClassName("verb-non-past-habitual")
         for(let i = 0; i < spanVerb.length; i++) {
             let pluralVerb = spanVerb[i].innerHTML + nonPastSuffix + habitualSuffix;
@@ -2017,7 +2498,7 @@ function createVerbNonPastHabitual() {
 }
 
 function createVerbHabitual() {
-    let habitualSuffix = createHabitualSuffix();
+    let habitualSuffix = document.getElementById("habitual-suffix").innerHTML;
     let spanVerb = document.getElementsByClassName("verb-habitual")
         for(let i = 0; i < spanVerb.length; i++) {
             let pluralVerb = spanVerb[i].innerHTML + habitualSuffix;
@@ -2029,10 +2510,9 @@ function createVerbHabitual() {
         }
 }
 
-
 function createFirstPersonPluralVerbNonPast() {
-    let pluralVerbSuffix = createPluralVerbSuffix();
-    let nonPastSuffix = createNonPastSuffix();
+    let pluralVerbSuffix = document.getElementById("plural-verb-suffix").innerHTML;
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let firstPersonPrefix = createFirstPersonVerbPrefix();
     let spanVerb = document.getElementsByClassName("first-person-plural-verb-non-past")
         for(let i = 0; i < spanVerb.length; i++) {
@@ -2046,8 +2526,8 @@ function createFirstPersonPluralVerbNonPast() {
 }
 
 function createSecondPersonPluralVerbNonPast() {
-    let pluralVerbSuffix = createPluralVerbSuffix();
-    let nonPastSuffix = createNonPastSuffix();
+    let pluralVerbSuffix = document.getElementById("plural-verb-suffix").innerHTML;
+    let nonPastSuffix = document.getElementById("non-past").innerHTML;
     let firstPersonPrefix = createSecondPersonVerbPrefix();
     let spanVerb = document.getElementsByClassName("second-person-plural-verb-non-past")
         for(let i = 0; i < spanVerb.length; i++) {
@@ -2061,7 +2541,7 @@ function createSecondPersonPluralVerbNonPast() {
 }
 
 function createFirstPersonPluralVerb() {
-    let pluralVerbSuffix = createPluralVerbSuffix();
+    let pluralVerbSuffix = document.getElementById("plural-verb-suffix").innerHTML;
     let firstPersonPrefix = createFirstPersonVerbPrefix();
     let spanVerb = document.getElementsByClassName("first-person-plural-verb")
         for(let i = 0; i < spanVerb.length; i++) {
@@ -2075,7 +2555,7 @@ function createFirstPersonPluralVerb() {
 }
 
 function createSecondPersonPluralVerb() {
-    let pluralVerbSuffix = createPluralVerbSuffix();
+    let pluralVerbSuffix = document.getElementById("plural-verb-suffix").innerHTML;
     let firstPersonPrefix = createSecondPersonVerbPrefix();
     let spanVerb = document.getElementsByClassName("second-person-plural-verb")
         for(let i = 0; i < spanVerb.length; i++) {
@@ -2088,19 +2568,6 @@ function createSecondPersonPluralVerb() {
         }
 }
 
-function createHabitualSuffix() {
-    let habitualInput = document.getElementById("input-habitual-suffix");
-    let habitualSuffix = habitualInput.value;
-    let spanHabitualSuffix = document.getElementsByClassName("habitual-suffix");
-    for(let i = 0; i < spanHabitualSuffix.length; i++) {
-        if (habitualSuffix != "") {
-            if (spanHabitualSuffix[i].innerHTML != soundChange(habitualSuffix)) {
-                spanHabitualSuffix[i].innerHTML = soundChange(habitualSuffix);
-            }
-        }
-    }
-    return habitualSuffix;
-}
 
 let submitWords = document.getElementById("submitWords");
 submitWords.addEventListener("click", buttonFunctions,);
@@ -2108,7 +2575,6 @@ submitWords.addEventListener("click", buttonFunctions,);
 function buttonFunctions() {
     createHere();
     createThere()
-    createAdverbialSuffix();
     createThis();
     createThese();
     createThat();
@@ -2131,11 +2597,8 @@ function buttonFunctions() {
     createWhy();
     createInterrogativeSuffix();
     createRelativePronoun();
-    createNominaliserSuffix();
     createFirstPersonPronoun();
     createSecondPersonPronoun();
-    createNonPastSuffix();
-    createCopula();
     createCopulaSgNonPast();
     createCopulaPlNonPast();
     createRandomAdjective();
@@ -2160,7 +2623,6 @@ function buttonFunctions() {
     createThirdPersonSingularVerb();
     createVerbFirstPerson();
     createVerbSecondPerson();
-    createPluralVerbSuffix();
     createPluralVerb();
     createPluralVerbNonPast();
     createFirstPersonVerbNonPast();
@@ -2172,1136 +2634,11 @@ function buttonFunctions() {
     createSecondPersonVerbNonPastHabitual()
     createFirstPersonPluralVerb();
     createSecondPersonPluralVerb();
-    createHabitualSuffix();
     createThirdPersonSingularTransitiveVerb();
     createThirdPersonSingularIntransitiveVerb();
     createFirstPersonVerbHabitual();
     createSecondPersonVerbHabitual();
     createVerbHabitual();
-    
+    createToday();
 }
 
-/*-------RANDOM GENERATION---------------------------------------------------------*/
-//The function below are for the random generation of syllables and a random selection for what they translate to. If the user inputs his own roots and meanings. 
-
-/*-----Generates Phonemic Inventory----*/
-let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "s", "r", "l", "j", "w"];
-let vowels = ["i", "u", "o", "e", "a"];
-
-let generatePhonemeButton = document.getElementById("generatePhonemes");
-generatePhonemeButton.addEventListener("click", generatePhonemicInventory)
-let resetPhonemes = document.getElementById("resetPhonemes")
-resetPhonemes.addEventListener("click", resetInventory);
-
-function generatePhonemicInventory() {
-    let enteredConsonants = document.getElementById("consonants").value;
-    let enteredVowels = document.getElementById("vowels").value;
-
-    consonants = enteredConsonants.split(" ");
-    vowels = enteredVowels.split(" ");
-}
-
-function resetInventory() {
-   document.getElementById("consonants").value = "m n p b t d k g f s r l j w"
-   document.getElementById("vowels").value = "a e i o u"
-}
-
-/*---Generates Words-----*/
-
-let generateVocabButton = document.getElementById("generate-vocab");
-generateVocabButton.addEventListener("click", generateVocab);
-
-//randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
-function generateNouns() {
-    let nounInput = document.getElementById("inputRootNoun");
-    let randomNounArray = [] 
-    let numberOfNouns = document.getElementById("select-amount").value;
-    numberOfNouns = Number(numberOfNouns);
-    
-    for(let i = 0; i < numberOfNouns; i++) {
-        let randomNum = Math.floor(Math.random() * 6);
-        if (randomNum === 0) { 
-            //generates a CV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-            let CV = firstC + firstV;     
-            randomNounArray.push(CV)
-        } else if(randomNum === 1 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVC = firstC + firstV + secondC;
-            randomNounArray.push(CVC)
-        } else if(randomNum === 2 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCV = firstC + firstV + secondC + secondV;
-            randomNounArray.push(CVCV)
-
-        } else if(randomNum === 3 ) {
-            //generates a CVCVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-            randomNounArray.push(CVCVC)
-
-        } else if(randomNum === 4 ) {
-            //generates a CVCC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCC = firstC + firstV + secondC + thirdC;
-            randomNounArray.push(CVCC)
-
-        } else if(randomNum === 5 ) {
-            //generates a CVCCV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-            randomNounArray.push(CVCCV)
-        }
-    }
-
-    //collects each generated word from each loop and puts them into one array, which is then joined into a single string 
-    let generatedWordsArray = [];
-    for (let i = 0; i < numberOfNouns; i++) {
-        generatedWordsArray.push(randomNounArray[i])
-    }
-
-    nounInput.value = generatedWordsArray.join(" ");
-}
-
-//randomly selects meanings for the randomly generated adjectives
-function generateNounMeanings() {
-    let nounMeaningInput = document.getElementById("inputMeaningNoun");
-    let numberOfNouns = document.getElementById("select-amount").value;
-
-    //collects each select word from each loop and puts them into one array, which is then joined into a single string 
-    let selectedWordsArray = [];
-    for(let i = 0; i < numberOfNouns; i++) {
-        selectedWordsArray.push(nounArray[Math.floor(Math.random() * nounArray.length)])
-    }
-
-    nounMeaningInput.value = selectedWordsArray.join(" ");
-}
-
-//randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
-function generateAdjectives() {
-    let adjectiveInput = document.getElementById("inputRootAdj");
-    let randomAdjectiveArray = [] 
-
-    let numberOfAdjectives = document.getElementById("select-amount").value;
-    numberOfAdjectives = Number(numberOfAdjectives);
-
-    for(let i = 0; i < numberOfAdjectives; i++) {
-        let randomNum = Math.floor(Math.random() * 6);
-
-        if (randomNum === 0) { 
-            //generates a CV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-            let CV = firstC + firstV;     
-            randomAdjectiveArray.push(CV)
-
-        } else if(randomNum === 1 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVC = firstC + firstV + secondC;
-            randomAdjectiveArray.push(CVC)
-
-        } else if(randomNum === 2 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCV = firstC + firstV + secondC + secondV;
-            randomAdjectiveArray.push(CVCV)
-
-        } else if(randomNum === 3 ) {
-            //generates a CVCVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-            randomAdjectiveArray.push(CVCVC)
-
-        } else if(randomNum === 4 ) {
-            //generates a CVCC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCC = firstC + firstV + secondC + thirdC;
-            randomAdjectiveArray.push(CVCC)
-        } else if(randomNum === 5 ) {
-            //generates a CVCCV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-            randomAdjectiveArray.push(CVCCV)
-        }
-    }
-        
-    let generatedWordsArray = [];
-    for(let i = 0; i < numberOfAdjectives; i++) {
-        generatedWordsArray.push(randomAdjectiveArray[i])
-    }
-
-    adjectiveInput.value = generatedWordsArray.join(" ");
-}
-
-//randomly selects meanings for the randomly generated adjectives
-function generateAdjectiveMeaning() {
-    let adjectiveMeaningInput = document.getElementById("inputMeaningAdj");
-   let numberOfAdjectives = document.getElementById("select-amount").value;
-
-    //collects each select word from each loop and puts them into one array, which is then joined into a single string 
-    let selectedWordsArray = [];
-    for(let i = 0; i < numberOfAdjectives; i++) {
-        selectedWordsArray.push(adjectiveArray[Math.floor(Math.random() * adjectiveArray.length)])
-    }
-
-    adjectiveMeaningInput.value = selectedWordsArray.join(" ");
-
-}
-
-//randomly generates a verb root for "to be"
-function generateCopula() {
-    let copulaInput = document.getElementById("inputToBe");
-    
-    let randomNum = Math.floor(Math.random() * 3);
-
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        copulaInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        copulaInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        copulaInput.value = CVC;
-
-    } else if(randomNum === 3 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCV = firstC + firstV + secondC + secondV;
-        copulaInput.value = CVCV;
-
-    } 
-
-}
-
-//randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
-function generateTransitiveVerbs() {
-    let verbInput = document.getElementById("inputRootTransitiveVerb");
-    let randomVerbArray = [] 
-
-    let numberOfVerbs = document.getElementById("select-amount").value;
-    numberOfVerbs = Number(numberOfVerbs);
-    
-    for(let i = 0; i < numberOfVerbs; i++) {
-        let randomNum = Math.floor(Math.random() * 6);
-
-        if (randomNum === 0) { 
-            //generates a CV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-            let CV = firstC + firstV;     
-            randomVerbArray.push(CV)
-
-        } else if(randomNum === 1 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVC = firstC + firstV + secondC;
-            randomVerbArray.push(CVC)
-
-        } else if(randomNum === 2 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCV = firstC + firstV + secondC + secondV;
-            randomVerbArray.push(CVCV)
-
-        } else if(randomNum === 3 ) {
-            //generates a CVCVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-            randomVerbArray.push(CVCVC)
-
-        } else if(randomNum === 4 ) {
-            //generates a CVCC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCC = firstC + firstV + secondC + thirdC;
-            randomVerbArray.push(CVCC)
-
-        } else if(randomNum === 5 ) {
-            //generates a CVCCV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-            randomVerbArray.push(CVCCV)
-        }
-    }
-
-
-    //collects each generated word from each loop and puts them into one array, which is then joined into a single string 
-    let generatedWordsArray = [];
-    for(let i = 0; i < numberOfVerbs; i++) {
-        generatedWordsArray.push(randomVerbArray[i])
-    }
-
-    verbInput.value = generatedWordsArray.join(" ");
-}
-
-function generateIntransitiveVerbs() {
-    let verbInput = document.getElementById("inputRootIntransitiveVerb");
-    let randomVerbArray = [] 
-
-    let numberOfVerbs = document.getElementById("select-amount").value;
-    numberOfVerbs = Number(numberOfVerbs);
-    
-    for(let i = 0; i < numberOfVerbs; i++) {
-        let randomNum = Math.floor(Math.random() * 6);
-
-        if (randomNum === 0) { 
-            //generates a CV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-            let CV = firstC + firstV;     
-            randomVerbArray.push(CV)
-
-        } else if(randomNum === 1 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVC = firstC + firstV + secondC;
-            randomVerbArray.push(CVC)
-
-        } else if(randomNum === 2 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCV = firstC + firstV + secondC + secondV;
-            randomVerbArray.push(CVCV)
-
-        } else if(randomNum === 3 ) {
-            //generates a CVCVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-            randomVerbArray.push(CVCVC)
-
-        } else if(randomNum === 4 ) {
-            //generates a CVCC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCC = firstC + firstV + secondC + thirdC;
-            randomVerbArray.push(CVCC)
-
-        } else if(randomNum === 5 ) {
-            //generates a CVCCV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-            randomVerbArray.push(CVCCV)
-        }
-    }
-
-
-    //collects each generated word from each loop and puts them into one array, which is then joined into a single string 
-    let generatedWordsArray = [];
-    for(let i = 0; i < numberOfVerbs; i++) {
-        generatedWordsArray.push(randomVerbArray[i])
-    }
-
-    verbInput.value = generatedWordsArray.join(" ");
-}
-
-//randomly selects meanings for the randomly generated verbs
-function generateTransitiveVerbMeanings() {
-    let verbMeaningInput = document.getElementById("inputMeaningTransitiveVerb");
-
-    let numberOfVerbMeanings = document.getElementById("select-amount").value;
-
-    //collects each select word from each loop and puts them into one array, which is then joined into a single string 
-    let selectedWordsArray = [];
-    for(let i = 0; i < numberOfVerbMeanings; i++) {
-        selectedWordsArray.push(transitiveVerbArray[Math.floor(Math.random() * transitiveVerbArray.length)])
-    }
-
-    verbMeaningInput.value = selectedWordsArray.join(" ");
-}
-
-function generateIntransitiveVerbMeanings() {
-    let verbMeaningInput = document.getElementById("inputMeaningIntransitiveVerb");
-
-    let numberOfVerbMeanings = document.getElementById("select-amount").value;
-
-    //collects each select word from each loop and puts them into one array, which is then joined into a single string 
-    let selectedWordsArray = [];
-    for(let i = 0; i < numberOfVerbMeanings; i++) {
-        selectedWordsArray.push(intransitiveVerbArray[Math.floor(Math.random() * intransitiveVerbArray.length)])
-    }
-
-    verbMeaningInput.value = selectedWordsArray.join(" ");
-}
-
-//randomly generates a Nominaliser suffix
-function generateNominaliser() {
-    let nominaliserInput = document.getElementById("inputNominaliser");
-    
-    let randomNum = Math.floor(Math.random() * 3);
-
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        nominaliserInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        nominaliserInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        nominaliserInput.value = CVC;
-
-    } 
-
-
-}
-
-//randomly generates a word for "also"
-function generateAlso() {
-    let alsoInput = document.getElementById("inputAlso");
-    
-    let randomNum = Math.floor(Math.random() * 3);
-
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        alsoInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        alsoInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        alsoInput.value = CVC;
-    } 
-
-
-}
-
-//randomly generates a word for "also"
-function generateAgain() {
-    let againInput = document.getElementById("inputAgain");
-    
-    let randomNum = Math.floor(Math.random() * 5);
-
-    if (randomNum === 0) { 
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        againInput.value = CVC;
-
-    } else if(randomNum === 1 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCV = firstC + firstV + secondC + secondV;
-        againInput.value = CVCV;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVCVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-        againInput.value = CVCVC;
-
-    } else if(randomNum === 3 ) {
-        //generates a CVCC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCC = firstC + firstV + secondC + thirdC;
-        againInput.value = CVCC;
-
-    } else if(randomNum === 4 ) {
-        //generates a CVCCV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-        againInput.value = CVCCV;
-    }
-
-
-}
-
-//randomly generates a word for "place"
-function generatePlace() {
-    let placeInput = document.getElementById("inputPlace");
-    
-    let randomNum = Math.floor(Math.random() * 5);
-
-    if (randomNum === 0) { 
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        placeInput.value = CVC;
-
-    } else if(randomNum === 1 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCV = firstC + firstV + secondC + secondV;
-        placeInput.value = CVCV;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVCVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-        placeInput.value = CVCVC;
-
-    } else if(randomNum === 3 ) {
-        //generates a CVCC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCC = firstC + firstV + secondC + thirdC;
-        placeInput.value = CVCC;
-
-    } else if(randomNum === 4 ) {
-        //generates a CVCCV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-        placeInput.value = CVCCV;
-    }
-
-
-}
-
-//randomly generates a word for "man"
-function generateMan() {
-    let inputMan = document.getElementById("inputMan");
-    
-    let randomNum = Math.floor(Math.random() * 5);
-
-    if (randomNum === 0) { 
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        inputMan.value = CVC;
-
-    } else if(randomNum === 1 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCV = firstC + firstV + secondC + secondV;
-        inputMan.value = CVCV;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVCVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-        inputMan.value = CVCVC;
-
-    } else if(randomNum === 3 ) {
-        //generates a CVCC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCC = firstC + firstV + secondC + thirdC;
-        inputMan.value = CVCC;
-
-    } else if(randomNum === 4 ) {
-        //generates a CVCCV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-        inputMan.value = CVCCV;
-    }
-
-
-}
-
-//randomly generates a word for "path"
-function generatePath() {
-    let inputPath = document.getElementById("inputPath");
-    
-    let randomNum = Math.floor(Math.random() * 5);
-
-    if (randomNum === 0) { 
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        inputPath.value = CVC;
-
-    } else if(randomNum === 1 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCV = firstC + firstV + secondC + secondV;
-        inputPath.value = CVCV;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVCVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-        inputPath.value = CVCVC;
-
-    } else if(randomNum === 3 ) {
-        //generates a CVCC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCC = firstC + firstV + secondC + thirdC;
-        inputPath.value = CVCC;
-
-    } else if(randomNum === 4 ) {
-        //generates a CVCCV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-        inputPath.value = CVCCV;
-    }
-
-
-}
-
-//randomly generates a word for "path"
-function generateOrigin() {
-    let inputOrigin = document.getElementById("inputOrigin");
-    
-    let randomNum = Math.floor(Math.random() * 5);
-
-    if (randomNum === 0) { 
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        inputOrigin.value = CVC;
-
-    } else if(randomNum === 1 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCV = firstC + firstV + secondC + secondV;
-        inputOrigin.value = CVCV;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVCVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-        inputOrigin.value = CVCVC;
-
-    } else if(randomNum === 3 ) {
-        //generates a CVCC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCC = firstC + firstV + secondC + thirdC;
-        inputOrigin.value = CVCC;
-
-    } else if(randomNum === 4 ) {
-        //generates a CVCCV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-        inputOrigin.value = CVCCV;
-    }
-
-
-}
-
-//randomly generates a word for "time"
-function generateTime() {
-    let inputTime = document.getElementById("inputTime");
-    
-    let randomNum = Math.floor(Math.random() * 5);
-
-    if (randomNum === 0) { 
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        inputTime.value = CVC;
-
-    } else if(randomNum === 1 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCV = firstC + firstV + secondC + secondV;
-        inputTime.value = CVCV;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVCVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-        inputTime.value = CVCVC;
-
-    } else if(randomNum === 3 ) {
-        //generates a CVCC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVCC = firstC + firstV + secondC + thirdC;
-        inputTime.value = CVCC;
-
-    } else if(randomNum === 4 ) {
-        //generates a CVCCV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-        let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-        let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-        inputTime.value = CVCCV;
-    }
-
-
-}
-
-//randomly generates a word for "here"
-function generateHere() {
-    let hereInput = document.getElementById("inputHere");
-    
-    let randomNum = Math.floor(Math.random() * 4);
-
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        hereInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        hereInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        hereInput.value = CVC;
-    } 
-    else if(randomNum === 3 ) {
-        //generates a V root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let V = firstV;
-        hereInput.value = V;
-    } 
-
-
-}
-
-//randomly generates a word for "there"
-function generateThere() {
-    let thereInput = document.getElementById("inputThere");
-    
-    let randomNum = Math.floor(Math.random() * 4);
-
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        thereInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        thereInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        thereInput.value = CVC;
-    } 
-    else if(randomNum === 3 ) {
-        //generates a V root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let V = firstV;
-        thereInput.value = V;
-    } 
-
-
-}
-
-//randomly generates an adverbial suffix
-function generateAdverbialSuffix() {
-    let adverbialSuffixInput = document.getElementById("inputAdverbialSuffix");
-    
-    let randomNum = Math.floor(Math.random() * 4);
-
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        adverbialSuffixInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        adverbialSuffixInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        adverbialSuffixInput.value = CVC;
-    } 
-    else if(randomNum === 3 ) {
-        //generates a V root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let V = firstV;
-        adverbialSuffixInput.value = V;
-    } 
-
-
-}
-
-//randomly generates an first person pronoun
-function generateFirstPersonPronoun() {
-    let FirstPersonPronounInput = document.getElementById("first-person-pronoun");
-    
-    let randomNum = Math.floor(Math.random() * 4);
-
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        FirstPersonPronounInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        FirstPersonPronounInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        FirstPersonPronounInput.value = CVC;
-    } 
-    else if(randomNum === 3 ) {
-        //generates a V root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let V = firstV;
-        FirstPersonPronounInput.value = V;
-    } 
-
-
-}
-
-//randomly generates an second person pronoun
-function generateSecondPersonPronoun() {
-    let SecondPersonPronounInput = document.getElementById("second-person-pronoun");
-    
-    let randomNum = Math.floor(Math.random() * 4);
-
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        SecondPersonPronounInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        SecondPersonPronounInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-        let CVC = firstC + firstV + secondC;
-        SecondPersonPronounInput.value = CVC;
-    } 
-    else if(randomNum === 3 ) {
-        //generates a V root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let V = firstV;
-        SecondPersonPronounInput.value = V;
-    } 
-
-
-}
-
-//randomly generates an non-past suffix
-function generateNonPastSuffix() {
-    let nonPastSuffixInput = document.getElementById("non-past");
-    let randomNum = Math.floor(Math.random() * 3);
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        nonPastSuffixInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        nonPastSuffixInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a V root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let V = firstV;
-        nonPastSuffixInput.value = V;
-    } 
-
-
-}
-
-function generatePluralVerbSuffix() {
-let pluralVerbInput = document.getElementById("input-plural-verb");
-    let randomNum = Math.floor(Math.random() * 3);
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        pluralVerbInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        pluralVerbInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let CVC = firstC + firstV + secondC;    
-        pluralVerbInput.value = CVC;
-    } 
-}
-
-function generateHabitualSuffix() {
-let habitualInput = document.getElementById("input-habitual-suffix");
-    let randomNum = Math.floor(Math.random() * 3);
-    if (randomNum === 0) { 
-        //generates a CV root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let CV = firstC + firstV;     
-        habitualInput.value = CV;
-
-    } else if(randomNum === 1 ) {
-        //generates a VC root
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-        let VC = firstV + firstC;
-        habitualInput.value = VC;
-
-    } else if(randomNum === 2 ) {
-        //generates a CVC root
-        let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-        let secondC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-        let CVC = firstC + firstV + secondC;    
-        habitualInput.value = CVC;
-    } 
-}
-
-function generateVocab() {
-    generateNouns();
-    generateNounMeanings();
-    generateAdjectives();
-    generateAdjectiveMeaning();
-    generateCopula();
-    generateTransitiveVerbs();
-    generateIntransitiveVerbs();
-    generateTransitiveVerbMeanings();
-    generateIntransitiveVerbMeanings();
-    generateNominaliser();
-    generateAlso();
-    generateAgain();
-    generatePlace();
-    generateMan();
-    generateTime();
-    generateHere()
-    generateThere();
-    generatePath();
-    generateOrigin();
-    generateAdverbialSuffix();
-    generateFirstPersonPronoun();
-    generateSecondPersonPronoun();
-    generateNonPastSuffix();
-    generatePluralVerbSuffix();
-    generateHabitualSuffix();
-}

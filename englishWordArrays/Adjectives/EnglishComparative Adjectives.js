@@ -46,7 +46,7 @@ let comparativeAdjectiveArray = [
 "heavier",
 "higher",
 "hollower",
-"holyier",
+"holier",
 "more hostile",
 "hotter",
 "hungrier",

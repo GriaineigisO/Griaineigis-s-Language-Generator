@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Kerbekulo Language Generator</title>
+    <title>Cermait's Language Generator</title>
     <link href="style.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -9,8 +9,8 @@
   <body>
     <header>
       <div id="title-div">
-        <h1><span class="language-name">Kerbekulo</span></h1>
-        <p id="subtitle">Inflector</p>
+        <h1><span class="language-name">Cermait's</span></h1>
+        <p id="subtitle">generator</p>
       </div>
     </header>
 
@@ -39,6 +39,29 @@
       <input type="textarea" id="changeName" />
       <input type="submit" value="Change Name" id="change-name" />
 
+      <section class="intro">
+      <div class="generate-button-div">
+        <input type="button" value="Generate a New Language!" id="generate-vocab">
+      </div>
+    </section>
+
+
+  
+
+      <div class="button-div">
+        <input
+          type="submit"
+          value="Submit"
+          class="submit"
+          id="submitWords"
+        />
+        <input
+          type="submit"
+          value="Clear"
+          class="clear-input"
+          id="clear-inputNoun"
+        />
+      </div>
 
 
       <h2>Phonology</h2>
@@ -228,313 +251,8 @@
 
     
 
-    <section class="intro">
-      <h2>
-        Now for the rest of the language! You will be prompted to enter other
-        parts of speech as you go along.
-      </h2>
-      <p>Alternatively, you can click the button to have new words and their meanings randomly generated.</p>
-      <div class="generate-button-div">
-        <p>Enter the number of adjectives and verbs you would like to generate:</p>
-          <input type="textarea" id="select-amount">
-          <input type="button" value="Generate Roots" id="generate-vocab">
-      </div>
-    </section>
-
-
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter <span class="language-name">Kerbekulo</span> Noun Roots
-          Here:
-        </p>
-        <input type="textarea" id="inputRootNoun" value=""/>
-      </div>
-      <div class="input-container">
-        <p>Enter Their Meanings Here:</p>
-        <input type="textarea" id="inputMeaningNoun" value="" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter <span class="language-name">Kerbekulo</span> Adjective Roots
-          Here:
-        </p>
-        <input type="textarea" id="inputRootAdj" value=""/>
-      </div>
-      <div class="input-container">
-        <p>Enter Their Meanings Here:</p>
-        <input type="textarea" id="inputMeaningAdj" value="" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> verb for "to
-          be":
-        </p>
-        <input type="textarea" id="inputToBe" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter <span class="language-name">Kerbekulo</span> Verb Transitive Roots Here:
-        </p>
-        <input type="textarea" id="inputRootTransitiveVerb" />
-      </div>
-      <div class="input-container">
-        <p>
-          Enter Their Meanings Here (just to bare verb itself, do not write "to"
-          before it e.g walk run sleep not to walk to run to sleep):
-        </p>
-        <input type="textarea" id="inputMeaningTransitiveVerb" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter <span class="language-name">Kerbekulo</span> Verb Intransitive Roots Here:
-        </p>
-        <input type="textarea" id="inputRootIntransitiveVerb" />
-      </div>
-      <div class="input-container">
-        <input type="textarea" id="inputMeaningIntransitiveVerb" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> Nominaliser Suffix
-          Here (without a hyphen):
-        </p>
-        <input type="textarea" id="inputNominaliser" />
-      </div>
-    </section>
-
     
 
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> word for
-          "also":
-        </p>
-        <input type="textarea" id="inputAlso" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> word for
-          "here":
-        </p>
-        <input type="textarea" id="inputHere" />
-      </div>
-      <div class="button-div">
-      </section>
-
-      <section class="inputSection inputOtherPartsOfSpeechSection">
-    <div class="input-container">
-      <p>
-        Enter the <span class="language-name">Kerbekulo</span> word for
-        "there":
-      </p>
-      <input type="textarea" id="inputThere" />
-    </div>
-    <div class="button-div">
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> word for
-          "again":
-        </p>
-        <input type="textarea" id="inputAgain" />
-      </div>
-      <div class="button-div">
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> word for
-          "place":
-        </p>
-        <input type="textarea" id="inputPlace" />
-      </div>
-      <div class="button-div">
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> word for
-          "man":
-        </p>
-        <input type="textarea" id="inputMan">
-      <div class="button-div">
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> word for
-          "path":
-        </p>
-        <input type="textarea" id="inputPath">
-      <div class="button-div">
-    </section>
-
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> word for
-          "origin":
-        </p>
-        <input type="textarea" id="inputOrigin">
-      <div class="button-div">
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> word for
-          "time":
-        </p>
-        <input type="textarea" id="inputTime" />
-      </div>
-      <div class="button-div">
-    </section>
-  
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> adverbial
-          suffix:
-        </p>
-        <input type="textarea" id="inputAdverbialSuffix" />
-      </div> 
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> first person pronoun (i.e "I"):
-        </p>
-        <input type="textarea" id="first-person-pronoun" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> second person pronoun (i.e "you"):
-        </p>
-        <input type="textarea" id="second-person-pronoun" />
-      </div>
-
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> non-past tense suffix:
-        </p>
-        <input type="textarea" id="non-past" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> singular suffix:
-        </p>
-        <input type="textarea" id="singular-suffix" />
-      </div>
-
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> plural suffix:
-        </p>
-        <input type="textarea" id="plural-suffix" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> accusative suffix:
-        </p>
-        <input type="textarea" id="accusative-prefix" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> genitive suffix:
-        </p>
-        <input type="textarea" id="genitive-prefix" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> plural verb suffix:
-        </p>
-        <input type="textarea" id="input-plural-verb" />
-      </div>
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> habitual suffix:
-        </p>
-        <input type="textarea" id="input-habitual-suffix" />
-      </div>
-
-    </section>
-
-    <section class="inputSection inputOtherPartsOfSpeechSection">
-      <div class="input-container">
-        <p>
-          Enter the <span class="language-name">Kerbekulo</span> adverbs regarding future times e.g "tomorrow", "soon", "next year" etc:
-        </p>
-        <input type="textarea" id="input-future-adverbs" />
-      </div>
-
-      <div class="button-div">
-        <input
-          type="submit"
-          value="Submit"
-          class="submit"
-          id="submitWords"
-        />
-        <input
-          type="submit"
-          value="Clear"
-          class="clear-input"
-          id="clear-inputNoun"
-        />
-      </div>
-    </section>
     
     <h2 id="sectionH1">Nouns</h2>
 
@@ -586,7 +304,7 @@
         occur after the noun and the verb to be e.g "the dog is large" or "the
         horse is white". When an adjective is predicative it is not changed in
         any way. Since this language is SOV, to say "Noun is ADJ" you say "NOUN
-        ADj is"
+        ADj is". The verb "to be" is <span class="copula"></span>
       </p>
        <ul>
         <li>
@@ -839,7 +557,7 @@
 
     <h3>Interrogative Pronouns</h3>
 
-    <p>Interrogative pronouns are created by placing the interrogative affix  <span class="interrogative"></span> onto a certain set of nouns as a prefix. The prefix is derived from <span class="again"></span> "also, as well as".</p>
+    <p>Interrogative pronouns are created by placing the interrogative affix  <span class="interrogative"></span> onto a certain set of nouns as a prefix. The prefix is derived from <span class="again"></span> "again".</p>
 
     <table>
       <tr>
@@ -911,7 +629,7 @@
 
       <h3>Tense</h3>
         <p>  
-        <span class="language-name">Kerbekulo</span> verbs have two tenses: past and non-past. Verbs by default are in the past tense and must take on the suffix -<span class="non-past"></span> to become non-past. The non-past tense is used for any present or future action.
+        <span class="language-name">Kerbekulo</span> verbs have two tenses: past and non-past. Verbs by default are in the past tense and must take on the suffix -<span id="non-past"></span> to become non-past. The non-past tense is used for any present or future action.
         <p>
 
       <ul>
@@ -1023,7 +741,7 @@
       <h4>Plural Verbs</h4>
 
       <p>
-        It may be noticed above, that no prefixes serving to mark the plural persons exist. The plural pronouns in <span class="language-name">Kerbekulo</span> are simply the singular forms but with the standard plural suffix, which hints at their fairly young age. The usage of pronouns as verbal prefixes likely predates the formation of <span class="language-name">Kerbekulo</span>'s plural pronouns altogether, hence their absence. Instead, of having explicit plural forms for each person, <span class="language-name">Kerbekulo</span> has plural verbs. The same prefixes for the singular persons applied to a plural verb serve to mark plural persons. A plural verb without any person-marking prefixes is assumed to mark the third person plural. A verb is made plural with the suffix -<span class="plural-verb-suffix">BLANK</span>. The plural verb suffix applies before the non-past suffix.
+        It may be noticed above, that no prefixes serving to mark the plural persons exist. The plural pronouns in <span class="language-name">Kerbekulo</span> are simply the singular forms but with the standard plural suffix, which hints at their fairly young age. The usage of pronouns as verbal prefixes likely predates the formation of <span class="language-name">Kerbekulo</span>'s plural pronouns altogether, hence their absence. Instead, of having explicit plural forms for each person, <span class="language-name">Kerbekulo</span> has plural verbs. The same prefixes for the singular persons applied to a plural verb serve to mark plural persons. A plural verb without any person-marking prefixes is assumed to mark the third person plural. A verb is made plural with the suffix -<span id="plural-verb-suffix">BLANK</span>. The plural verb suffix applies before the non-past suffix.
       </p>
 
       <ul>
@@ -1105,7 +823,7 @@
       <h4>Aspect</h4>
 
       <p>
-        <span class="language-name">Kerbekulo</span> verbs have two aspects, completive and habitual. Completive refers to a singular completed action while the habitual marks any action that has no definite end, or was repeated over a duration of time. Verbs are completive by default and are made habitual with the suffix -<span class="habitual-suffix"></span>.
+        <span class="language-name">Kerbekulo</span> verbs have two aspects, completive and habitual. Completive refers to a singular completed action while the habitual marks any action that has no definite end, or was repeated over a duration of time. Verbs are completive by default and are made habitual with the suffix -<span id="habitual-suffix"></span>.
       </p>
 
       <ul>
@@ -1113,7 +831,7 @@
           <span class="transitive-verb" id="transitive-verb1"></span>- 
           "<span id="transitive-verb-meaning1"></span>"
           >
-          <span class="noun-nom-sg firstPersonPronoun"></span>
+      
           <span class="noun noun-acc-pl" id="noun16"></span>
           <span class="copy-transitive-verb first-person-verb-non-past-habitual transitive-verb-copy1"></span> 
 
@@ -1127,7 +845,7 @@
           <span class="transitive-verb" id="transitive-verb2"></span>- 
           "<span id="transitive-verb-meaning2"></span>"
           >
-          <span class="noun-nom-sg secondPersonPronoun"></span>
+
           <span class="noun noun-acc-pl" id="noun17"></span>
           <span class="copy-transitive-verb second-person-verb-non-past-habitual transitive-verb-copy2"></span> 
 
@@ -1141,7 +859,7 @@
           <span class="transitive-verb" id="transitive-verb3"></span>- 
           "<span id="transitive-verb-meaning3"></span>"
           >
-          <span class="noun-nom-sg this-pronoun"></span>
+     
           <span class="noun noun-acc-pl" id="noun18"></span>
           <span class="copy-transitive-verb verb-non-past-habitual transitive-verb-copy3"></span> 
 
@@ -1162,7 +880,7 @@
           <span class="transitive-verb" id="transitive-verb4"></span>- 
           "<span id="transitive-verb-meaning4"></span>"
           >
-          <span class="noun-nom-sg firstPersonPronoun"></span>
+        
           <span class="noun noun-acc-pl" id="noun19"></span>
           <span class="copy-transitive-verb first-person-verb-habitual transitive-verb-copy4"></span> 
 
@@ -1176,7 +894,7 @@
           <span class="intransitive-verb" id="intransitive-verb1"></span>- 
           "<span id="intransitive-verb-meaning1"></span>"
           >
-          <span class="noun-nom-sg secondPersonPronoun"></span>
+
           <span class="copy-intransitive-verb second-person-verb-habitual intransitive-verb-copy1"></span> 
 
           "You used to
@@ -1188,7 +906,7 @@
           <span class="intransitive-verb" id="intransitive-verb2"></span>- 
           "<span id="intransitive-verb-meaning2"></span>"
           >
-          <span class="this-pronoun"></span>
+  
           <span class="copy-intransitive-verb verb-habitual intransitive-verb-copy2"></span> 
 
           "he used to
@@ -1202,11 +920,18 @@
         When combined with an adverb referencing a future event, the habitual in the non-past tense is understood be future in meaning. It can also refer to the future without such an adverb if the context is regarding a future event. In this case the meaning is not truly habitual, but moreso non-completive, as future actions are not yet completed actions.
       </p>
 
+
+
       <h4>Interrogative Mood</h4>
 
     </section>
 
     <section id="hidden-section">
+
+    </section>
+
+    <section id="dictionary">
+      <h2>Dictionary</h2>
 
     </section>
 

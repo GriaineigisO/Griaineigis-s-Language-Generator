@@ -37,7 +37,8 @@ amount of variability in the paragraphs that explain these things
 
 Let user decide how to spell long vowels
 
-add more than one meaning to a word, make a psuedo thesaurus?
+add more than one meaning to a word, make a psuedo thesaurus? - if a word has related
+terms listed, then the other terms will also be assigned at random
 
 Features to be randomized/chosen:
 Stative verbs vs nominal verbs

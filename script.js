@@ -12,6 +12,8 @@ import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVe
 import conjunctionArray from './englishWordArrays/conjunctions.js'
 import adverbArray from './englishWordArrays/adverbs.js'
 import {soundChange} from './soundchange.js'
+import { consonants } from './generatePhonology.js';
+import { vowels } from './generatePhonology.js';
 
 
 let verbArray = transitiveVerbArray.concat(intransitiveVerbArray); //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
@@ -45,32 +47,12 @@ function nameChanger() {
 
 
 
-/*-------RANDOM GENERATION---------------------------------------------------------*/
-//The function below are for the random generation of syllables and a random selection for what they translate to. If the user inputs his own roots and meanings. 
 
 /*-----Generates Phonemic Inventory----*/
-let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "s", "r", "l", "j", "w"];
-let vowels = ["i", "u", "o", "e", "a"];
+//let consonants = collectAllConsonants();
+//let vowels = ["i", "u", "o", "e", "a"];
 
-// let generatePhonemeButton = document.getElementById("generatePhonemes");
-// generatePhonemeButton.addEventListener("click", generatePhonemicInventory)
-// let resetPhonemes = document.getElementById("resetPhonemes")
-// resetPhonemes.addEventListener("click", resetInventory);
 
-// function generatePhonemicInventory() {
-//     let enteredConsonants = document.getElementById("consonants").value;
-//     let enteredVowels = document.getElementById("vowels").value;
-
-//     consonants = enteredConsonants.split(" ");
-//     vowels = enteredVowels.split(" ");
-// }
-
-// function resetInventory() {
-//    document.getElementById("consonants").value = "m n p b t d k g f s r l j w"
-//    document.getElementById("vowels").value = "a e i o u"
-// }
-
-/*---Generates Words-----*/
 
 
 //randomly generates roots according to the root structure, as well as assigning them randomly selected meanings

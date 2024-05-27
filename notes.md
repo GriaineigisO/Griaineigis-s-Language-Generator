@@ -1,14 +1,14 @@
+CURRENTLY DOING MASSIVE OVERHAUL
+Finish the phonology before doing anything else, even though the rest of the page looks like a mess currently
+
 #Phonology
 
 How to generate Phonology
 
-what series of nasals? /m n/ are default
+add near high and near low vowels! and voiceless vowels?????? maybe not
+Also add syllable structure generation!!!
 
-what series of plosives? voiceless by default, but whether their are voiced plosives, aspirated, long, labialised, glottalised, palatalised etc etc
-
-what series of fricatives?
-
-also randomly selected ways to spell. e.g if /ʃ/ appears, it could be spelled as š, sch, sh etc.
+also randomly selected ways to spell. e.g if /ʃ/ appears, it could be spelled as š, sch, sh etc. There will be entire sets of orthographies which have preset spellings for every possible sound generated. A set will be chosen at random, this will ensure that the orthography has some cohesion.
 
 #Verbs
 
@@ -70,3 +70,5 @@ Verb aspect
 Derivational methods
 Different sets of vocabulary for different climates and cultures?
 i.e marine terms vs desert vs tundra etc
+
+Sets of words to be chosen based on a random culture and habitat. So the vocabulary has a sense of cohesion e.g not having a word both for camel and polarbear

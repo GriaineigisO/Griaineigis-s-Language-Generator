@@ -1,8 +1,10 @@
+import {consonants, vowels} from './generatePhonology.js'
+
 function soundChange(word) {
 
-    let vowels = ["a", "ā", "e", "ē", "o", "ō", "u", "ū", "i", "ī", "ə"];
-    let longVowels = ["ā", "ē", "ō", "ū", "ī", "ə"];
-    let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "h", "l", "r", "j", "w"];
+    //let vowels = ["a", "ā", "e", "ē", "o", "ō", "u", "ū", "i", "ī", "ə"];
+    //let longVowels = ["ā", "ē", "ō", "ū", "ī", "ə"];
+    //let consonants = ["m", "n", "p", "b", "t", "d", "k", "g", "f", "v", "s", "z", "h", "l", "r", "j", "w"];
 
     let letterArray = Array.from(word); /*turns string into an array of individual letters*/
 

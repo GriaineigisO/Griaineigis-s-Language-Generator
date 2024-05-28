@@ -1,4 +1,4 @@
-
+import { allPossibleSyllablesArray } from "./allPossibleSyllables.js";
 
 let allNasalsArray = [];
 let allLabialPlosivesArray = [];
@@ -48,6 +48,10 @@ let allLongMidVowels = [];
 let allLongLowMidVowels = [];
 let allLongLowVowels = [];
 
+let consonants = [];
+let vowels = [];
+
+
 
 //restores the phonology to it's default state every time the button is pushed, before applying the below functions
 function restoreDefault() {
@@ -95,6 +99,10 @@ function restoreDefault() {
     allLongMidVowels = [];
     allLongLowMidVowels = [];
     allLongLowVowels = [];
+
+    consonants = [];
+    vowels = [];
+
     
 
     //secondly, the default phonemes can be put back in
@@ -174,8 +182,6 @@ function chooseGemination() {
     }
     return trueOrFalse;
 }
-
-
 
 function chooseAspiration() {
 
@@ -483,8 +489,8 @@ function chooseUvular() {
                 }
             }
         }
-        randomNum = Math.floor(Math.random() * 9);
-            if (randomNum !== 4) {
+        randomNum = Math.floor(Math.random() * 5);
+            if (randomNum === 4) {
                 allUvularFricativesArray.push("χ");
                 randomNum = Math.floor(Math.random() * 30)
                 if(randomNum === 4 && chooseGemination()) {
@@ -526,8 +532,8 @@ function choosePharyngeal() {
 }
 
 function chooseGlottal() {
-    let randomNum = Math.floor(Math.random() * 8);
-    if(randomNum !== 5) {
+    let randomNum = Math.floor(Math.random() * 6);
+    if(randomNum === 5) {
         allGlottalFricatives.push("h");
         randomNum = Math.floor(Math.random() * 30)
                 if(randomNum === 4 && chooseGemination()) {
@@ -543,8 +549,8 @@ function chooseGlottal() {
                 }
             }
         }
-        randomNum = Math.floor(Math.random() * 11);
-        if(randomNum !== 4) {
+        randomNum = Math.floor(Math.random() * 2);
+        if(randomNum === 1) {
             allGlottalPlosives.push("ʔ");
             randomNum = Math.floor(Math.random() * 40)
                 if(randomNum === 4 && chooseGemination()) {
@@ -645,9 +651,10 @@ function countNumberOfConsonants() {
   document.getElementById("consonant-number").innerHTML = numberOfConsonants;
 }
 
-let consonants = []
+
 function collectAllConsonants() {
     consonants = allNasalsArray.concat(allLabialPlosivesArray, allAlveolarPlosivesArray, allVelarPlosivesArray, allLabialFricativesArray, allAlveolarFricativesArray, allVelarFricativesArray, allAlveolarRhoticsArray, allLateralsArray, allLabialApproximants, allpalatalApproximants, allPalatalPlosivesArray, allPostAlveolarFricatives, allPalatalFricatives, allDentalFricatives, allLabioDentalArray, allLabialDentalApproximants, allUvularPlosivesArray, allUvularFricativesArray, allPharyngealFricatives, allGlottalPlosives, allGlottalFricatives, allLateralFricatives);
+    
 }
 
 /*********************VOWELS*******************/
@@ -662,8 +669,6 @@ function chooseLength() {
     }
     return trueOrFalse;
 }
-
-
 
 function chooseNumberOfMainVowels() {
     let randomNum = Math.floor(Math.random() * 3)
@@ -802,9 +807,8 @@ function chooseBackUnroundedVowels() {
             allLongLowVowels.push("ɑː");
             allLongBackVowels.push("ɑː");
             }
-        }  
-    }
-    
+        }   
+    }  
 }
 
 function chooseCentralVowels() {
@@ -856,7 +860,155 @@ function chooseSchwa() {
     }
 }
 
-let vowels = [];
+function chooseHighMidVowels() {
+    let randomNum = Math.floor(Math.random() * 21);
+    if(randomNum === 4) {
+        randomNum = Math.floor(Math.random() * 6);
+        if(randomNum !== 4) {
+            allHighMidVowels.push("ɪ");
+            allFrontVowels.push("ɪ");
+            if(chooseLength) {
+                randomNum = Math.floor(Math.random() * 5);
+                if(randomNum === 2) {
+                    allLongHighMidVowels  .push("ɪː");
+                    allLongFrontVowels .push("ɪː");
+                }
+            }
+            if(chooseFrontRoundedVowels()) {
+                randomNum = Math.floor(Math.random() * 5);
+                if(randomNum !== 3) {
+                    allHighMidVowels.push("ʏ");
+                    allFrontVowels.push("ʏ");
+                    if(chooseLength) {
+                        randomNum = Math.floor(Math.random() * 5);
+                         if(randomNum === 2) {
+                            allLongHighMidVowels.push("ʏː");
+                            allLongFrontVowels .push("ʏː");
+                        }
+                    }
+                }
+            }
+        }
+        randomNum = Math.floor(Math.random() * 6);
+        if(randomNum !== 4 && chooseBackUnroundedVowels()) {
+            allHighMidVowels.push("ʊ");
+            if(chooseLength()) {
+                randomNum = Math.floor(Math.random() * 5);
+                if(randomNum === 2) {
+                     allLongBackVowels .push("ʊː")
+            	  }
+            }
+        }
+    }
+}
+
+function chooseLowMidVowels() {
+    let randomNum = Math.floor(Math.random() * 21);
+    if(randomNum === 5) {
+        randomNum = Math.floor(Math.random() * 6);
+        if(randomNum !== 2) {
+            allLowMidVowels.push("ɛ");
+            allFrontVowels.push("ɛ")
+            if(chooseLength()) {
+                randomNum = Math.floor(Math.random() * 6);
+                if(randomNum === 2) {
+                    allLongLowMidVowels.push("ɛː");
+                    allLongFrontVowels.push("ɛː")
+                }
+            }
+            if(chooseFrontRoundedVowels()) {
+                allLowMidVowels.push("œ");
+                allFrontVowels.push("œ")
+                    if(chooseLength()) {
+                    randomNum = Math.floor(Math.random() * 6);
+                if(randomNum === 2) {
+                    allLongLowMidVowels.push("œː");
+                    allLongFrontVowels.push("œː")
+                }
+            }
+        }
+      }
+      randomNum = Math.floor(Math.random() * 6);  
+      if(randomNum === 3 && chooseCentralVowels()) {
+        allCentralVowels.push("ɜ");
+        allLowMidVowels.push("ɜ");
+        randomNum = Math.floor(Math.random() * 6);  
+            if(randomNum === 4 && chooseLength()) {
+                allLongCentralVowels.push("ɜː");
+                allLongLowMidVowels.push("ɜː");
+            }
+        randomNum = Math.floor(Math.random() * 6);  
+        if(randomNum === 4) {
+            allCentralVowels.push("ɞ");
+            allLowMidVowels.push("ɞ");
+            randomNum = Math.floor(Math.random() * 6);
+            if(randomNum === 4 && chooseLength()) {
+                allLongCentralVowels.push("ɞː");
+                allLongLowMidVowels.push("ɞː");
+            }
+        }
+      }
+    randomNum = Math.floor(Math.random() * 6);
+        if(randomNum !== 2) {
+            allLowMidVowels.push("æ");
+            allFrontVowels.push("æ")
+            if(chooseLength()) {
+                randomNum = Math.floor(Math.random() * 6);
+                if(randomNum === 2) {
+                    allLongLowMidVowels.push("æː");
+                    allLongFrontVowels.push("æː")
+                }
+            }
+        }
+    randomNum = Math.floor(Math.random() * 6);
+    if(randomNum !== 2) {
+        allLowMidVowels.push("ɐ");
+        allCentralVowels.push("ɐ")
+        if(chooseLength()) {
+            randomNum = Math.floor(Math.random() * 6);
+            if(randomNum === 2) {
+                allLongLowMidVowels.push("ɐː");
+                allLongCentralVowels.push("ɐː")
+            }
+        }
+      }
+        randomNum = Math.floor(Math.random() * 6);  
+        if(randomNum === 4) {
+            allBackVowels.push("ɔ");
+            allLowMidVowels.push("ɔ");
+            randomNum = Math.floor(Math.random() * 6);
+            if(randomNum === 4 && chooseLength()) {
+                allLongBackVowels.push("ɔː");
+                allLongLowMidVowels.push("ɔː");
+            }
+        randomNum = Math.floor(Math.random() * 4);  
+        if(randomNum !== 3 && chooseBackUnroundedVowels()) {
+            allBackVowels.push("ʌ");
+            allLowMidVowels.push("ʌ");
+            randomNum = Math.floor(Math.random() * 6);  
+            if(randomNum === 4 && chooseLength()) {
+                allLongBackVowels.push("ʌː");
+                allLongLowMidVowels.push("ʌː");
+            }
+        }
+      }
+    }
+}
+
+function chooseLowVowels() {
+    let randomNum = Math.floor(Math.random() * 21);
+    if( randomNum === 4) {
+        allLowVowels.push("ɒ");
+        allBackVowels.push("ɒ");
+        randomNum = Math.floor(Math.random() * 8);
+        if(randomNum === 3 && chooseLength()) {
+            allLongLowVowels.push("ɒː");
+            allLongBackVowels.push("ɒː");
+        }
+    } 
+    
+}
+
 let shortVowels = [];
 let allVowelsArrayFixed = [];
 function collectAllVowels() {
@@ -876,9 +1028,9 @@ function collectAllVowels() {
          document.getElementById("vowel-quantities").style.display = "inline";
     }
 
+    return vowels;
+
 }
-
-
 
 function populateVowelLists() {
     //HIGH 
@@ -937,8 +1089,30 @@ function populateVowelLists() {
         }
 }
 
-
 /*-----^^^SELECTION^^^--------------*/
+
+/****SYLLABLE STRUCTURE**************/
+
+function chooseSyllablesToBeUsed() {
+    let randomNum = Math.floor(Math.random() * 11);
+    let selectedSyllables = [];
+    for(let i = 0; i < randomNum; i++) {
+        let randomIndex = Math.floor(Math.random() * allPossibleSyllablesArray.length);
+        if(selectedSyllables.includes(allPossibleSyllablesArray[randomIndex])) {
+            continue;
+        } else {
+            selectedSyllables.push(allPossibleSyllablesArray[randomIndex])
+        }
+    }
+    console.log(selectedSyllables)
+}
+
+
+
+
+
+
+
 
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generatePhonology);
@@ -978,10 +1152,13 @@ function generatePhonology() {
     chooseBackUnroundedVowels();
     chooseCentralVowels();
     chooseSchwa();
+    chooseHighMidVowels();
+    chooseLowMidVowels();
+    chooseLowVowels();
     collectAllVowels();
     populateVowelLists();
+
+    chooseSyllablesToBeUsed()
 }
 
-
-
-export {generatePhonology, consonants, vowels};
+export {consonants, vowels};

@@ -3,12 +3,54 @@ Finish the phonology before doing anything else, even though the rest of the pag
 
 #Phonology
 
-How to generate Phonology
+make a generator to produce many possible syllable structures, or write it out myself? it will only be made once
 
-add near high and near low vowels! and voiceless vowels?????? maybe not
+randomly choose how many possible structures a language will have
+
+then push that amount of structures to an array, randomly chosen indexes e.g ["CV", "V", "CCVC"]
+
+how to make the word generators use these given structures???
+loop trough array.length
+
+also, for each word generated, the amount of syllables it has shall be randomly chosen also, this is done before the below
+
+for each item aka structure, split into sub array??? which is then looped through and a random structure is selected to make a specific word. So if from ["CV", "V", "CCVC"], "CV" is chosen, it is then made into it's own array ["C", "V"].
+
+Then it is iterated, when each iteration asking if the item is C or V, or another value for more specific sounds
+e.g if (array[i] === "C") {
+newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)])
+} else {
+newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)])
+}
+newWordArray.push(newSyllableArray);
+generatedNounsArray.push(newWordArray);
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+voiceless vowels?????? maybe not
 Also add syllable structure generation!!!
 
 also randomly selected ways to spell. e.g if /ʃ/ appears, it could be spelled as š, sch, sh etc. There will be entire sets of orthographies which have preset spellings for every possible sound generated. A set will be chosen at random, this will ensure that the orthography has some cohesion.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
 
 #Verbs
 
@@ -21,7 +63,12 @@ several subsections to discuss each feature in this order:
 
 then make a section to show tables with each verb in all possible
 inflections much like the inflection noun section
-
+.
+.
+.
+.
+.
+..
 ---Things to Add Later---
 
 Upon generation, EVERY english word will be assigned a randomly generated word,
@@ -61,7 +108,6 @@ terms listed, then the other terms will also be assigned at random
 Features to be randomized/chosen:
 Stative verbs vs nominal verbs
 Word order
-Syllable structure
 What noun cases there are
 If adjectives agree at all, and if so, with what
 Verb tenses
@@ -72,3 +118,7 @@ Different sets of vocabulary for different climates and cultures?
 i.e marine terms vs desert vs tundra etc
 
 Sets of words to be chosen based on a random culture and habitat. So the vocabulary has a sense of cohesion e.g not having a word both for camel and polarbear
+
+Add a placename and personalname generator, which randomly selects a style of name derivation and then generates names using that.
+
+Generator for the language name. The name can be derived from a fictional place where it is spoken (using a generated placename), or by using a random noun or adjective + the word language, or by creating an ethnonym for the speakers and then using that + the word language

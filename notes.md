@@ -3,38 +3,7 @@ Finish the phonology before doing anything else, even though the rest of the pag
 
 #Phonology
 
-make a generator to produce many possible syllable structures, or write it out myself? it will only be made once
-
-randomly choose how many possible structures a language will have
-
-then push that amount of structures to an array, randomly chosen indexes e.g ["CV", "V", "CCVC"]
-
-how to make the word generators use these given structures???
-loop trough array.length
-
-also, for each word generated, the amount of syllables it has shall be randomly chosen also, this is done before the below
-
-for each item aka structure, split into sub array??? which is then looped through and a random structure is selected to make a specific word. So if from ["CV", "V", "CCVC"], "CV" is chosen, it is then made into it's own array ["C", "V"].
-
-Then it is iterated, when each iteration asking if the item is C or V, or another value for more specific sounds
-e.g if (array[i] === "C") {
-newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)])
-} else {
-newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)])
-}
-newWordArray.push(newSyllableArray);
-generatedNounsArray.push(newWordArray);
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+Apply the new Consonant Structure generated to every generated word beyond the nouns
 
 voiceless vowels?????? maybe not
 Also add syllable structure generation!!!

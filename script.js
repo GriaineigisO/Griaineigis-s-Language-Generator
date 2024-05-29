@@ -12,8 +12,7 @@ import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVe
 import conjunctionArray from './englishWordArrays/conjunctions.js'
 import adverbArray from './englishWordArrays/adverbs.js'
 import {soundChange} from './soundchange.js'
-import {consonants, vowels} from './generatePhonology.js';
-
+import {consonants, vowels, selectedSyllables} from './generatePhonology.js';
 
 
 let verbArray = transitiveVerbArray.concat(intransitiveVerbArray); //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
@@ -59,64 +58,96 @@ function clearGeneratedArrays() {
 }
 
 
-//randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
-function generateNouns() {
-    for(let i = 0; i < nounArray.length; i++) {
-        let randomNum = Math.floor(Math.random() * 6);
-        if (randomNum === 0) { 
-            //generates a CV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
-            let CV = firstC + firstV;     
-            generatedNouns.push(CV)
-        } else if(randomNum === 1 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVC = firstC + firstV + secondC;
-            generatedNouns.push(CVC)
-        } else if(randomNum === 2 ) {
-            //generates a CVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCV = firstC + firstV + secondC + secondV;
-            generatedNouns.push(CVCV)
+function generateNouns() {//generates each individual noun
+    let newSyllableArray = [];
+    let newWord = [];
 
-        } else if(randomNum === 3 ) {
-            //generates a CVCVC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCVC = firstC + firstV + secondC + secondV + thirdC;
-            generatedNouns.push(CVCVC)
-
-        } else if(randomNum === 4 ) {
-            //generates a CVCC root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let CVCC = firstC + firstV + secondC + thirdC;
-            generatedNouns.push(CVCC)
-
-        } else if(randomNum === 5 ) {
-            //generates a CVCCV root
-            let firstC = consonants[Math.floor(Math.random() * consonants.length)]
-            let firstV = vowels[Math.floor(Math.random() * vowels.length)]
-            let secondC = consonants[Math.floor(Math.random() * consonants.length)]
-            let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
-            let secondV = vowels[Math.floor(Math.random() * vowels.length)]
-            let CVCCV = firstC + firstV + secondC + thirdC + secondV;
-            generatedNouns.push(CVCCV)
-        }
+    let numberOfSyllables = Math.floor(Math.random() * 4) + 1;
+    if(numberOfSyllables > selectedSyllables.length) {
+        numberOfSyllables = selectedSyllables.length;
     }
 
+    for(let i = 0; i < numberOfSyllables; i++) {
+        let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
+        let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
+        for(let j = 0; j < syllableArray.length; j++) {
+            if(syllableArray[j] === "C") {
+                newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
+            } else {
+                newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);
+            }    
+        }  
+    }
+    newWord.push(newSyllableArray.join(""))
+    return newWord;
 }
+
+function sendGeneratedNounToArray() {//sends each word, generated by the function above, to the generatedNouns array
+    for(let i = 0; i < nounArray.length; i++) {
+        generatedNouns.push(generateNouns())
+    }
+    console.log(generatedNouns)
+}
+
+
+//randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
+// function generateNouns() {
+//     for(let i = 0; i < nounArray.length; i++) {
+//         let randomNum = Math.floor(Math.random() * 6);
+//         if (randomNum === 0) { 
+//             //generates a CV root
+//             let firstC = consonants[Math.floor(Math.random() * consonants.length)] //selects a consonant at a randomly chosen index
+//             let firstV = vowels[Math.floor(Math.random() * vowels.length)] //selects a vowel at a randomly chosen index
+//             let CV = firstC + firstV;     
+//             generatedNouns.push(CV)
+//         } else if(randomNum === 1 ) {
+//             //generates a CVC root
+//             let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+//             let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let CVC = firstC + firstV + secondC;
+//             generatedNouns.push(CVC)
+//         } else if(randomNum === 2 ) {
+//             //generates a CVC root
+//             let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+//             let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+//             let CVCV = firstC + firstV + secondC + secondV;
+//             generatedNouns.push(CVCV)
+
+//         } else if(randomNum === 3 ) {
+//             //generates a CVCVC root
+//             let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+//             let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+//             let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let CVCVC = firstC + firstV + secondC + secondV + thirdC;
+//             generatedNouns.push(CVCVC)
+
+//         } else if(randomNum === 4 ) {
+//             //generates a CVCC root
+//             let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+//             let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let CVCC = firstC + firstV + secondC + thirdC;
+//             generatedNouns.push(CVCC)
+
+//         } else if(randomNum === 5 ) {
+//             //generates a CVCCV root
+//             let firstC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let firstV = vowels[Math.floor(Math.random() * vowels.length)]
+//             let secondC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let thirdC = consonants[Math.floor(Math.random() * consonants.length)]
+//             let secondV = vowels[Math.floor(Math.random() * vowels.length)]
+//             let CVCCV = firstC + firstV + secondC + thirdC + secondV;
+//             generatedNouns.push(CVCCV)
+//         }
+//     }
+
+// }
 
 //randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
 function generateAdjectives() {
@@ -238,12 +269,6 @@ function generateCopula() {
 
 //randomly generates roots according to the root structure, as well as assigning them randomly selected meanings
 function generateTransitiveVerbs() {
-    // let verbInput = document.getElementById("inputRootTransitiveVerb");
-    // let randomVerbArray = [] 
-
-    // let numberOfVerbs = document.getElementById("select-amount").value;
-    // numberOfVerbs = Number(numberOfVerbs);
-    
     for(let i = 0; i < transitiveVerbArray.length; i++) {
         let randomNum = Math.floor(Math.random() * 6);
 
@@ -302,23 +327,9 @@ function generateTransitiveVerbs() {
         }
     }
 
-
-    //collects each generated word from each loop and puts them into one array, which is then joined into a single string 
-    // let generatedWordsArray = [];
-    // for(let i = 0; i < numberOfVerbs; i++) {
-    //     generatedWordsArray.push(randomVerbArray[i])
-    // }
-
-    // verbInput.value = generatedWordsArray.join(" ");
 }
 
 function generateIntransitiveVerbs() {
-    // let verbInput = document.getElementById("inputRootIntransitiveVerb");
-    // let randomVerbArray = [] 
-
-    // let numberOfVerbs = document.getElementById("select-amount").value;
-    // numberOfVerbs = Number(numberOfVerbs);
-    
     for(let i = 0; i < intransitiveVerbArray.length; i++) {
         let randomNum = Math.floor(Math.random() * 6);
 
@@ -2484,7 +2495,9 @@ function generateLanguage() {
     clearGeneratedArrays()
     
     //createNounInflectionTables();
+    //generateNounsTest();
     generateNouns();
+    sendGeneratedNounToArray();
     generateAdjectives();
     generateCopula();
     generateTransitiveVerbs();
@@ -2572,5 +2585,6 @@ function generateLanguage() {
     createSecondPersonVerbHabitual();
     createVerbHabitual();
     createToday();
-}
+   
+   }
 

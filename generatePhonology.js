@@ -51,11 +51,14 @@ let allLongLowVowels = [];
 let consonants = [];
 let vowels = [];
 
+let selectedSyllables = [];
+
 
 
 //restores the phonology to it's default state every time the button is pushed, before applying the below functions
 function restoreDefault() {
     //first, the arrays must be emptied
+    selectedSyllables = [];
     allNasalsArray = [];
     allLabialPlosivesArray = [];
     allAlveolarPlosivesArray = [];
@@ -103,6 +106,8 @@ function restoreDefault() {
     consonants = [];
     vowels = [];
 
+    selectedSyllables = [];
+
     
 
     //secondly, the default phonemes can be put back in
@@ -114,6 +119,8 @@ function restoreDefault() {
     allAlveolarFricativesArray.push("s");
     allAlveolarRhoticsArray.push("r");
     allLateralsArray.push("l");
+    selectedSyllables.push("CV")
+
 
     //the phonology table is set to display style none after after click
     document.getElementById("nasal-list").style.display = "none"
@@ -1093,19 +1100,53 @@ function populateVowelLists() {
 
 /****SYLLABLE STRUCTURE**************/
 
+selectedSyllables = ["CV"]
 function chooseSyllablesToBeUsed() {
-    let randomNum = Math.floor(Math.random() * 11);
-    let selectedSyllables = [];
-    for(let i = 0; i < randomNum; i++) {
-        let randomIndex = Math.floor(Math.random() * allPossibleSyllablesArray.length);
-        if(selectedSyllables.includes(allPossibleSyllablesArray[randomIndex])) {
-            continue;
-        } else {
-            selectedSyllables.push(allPossibleSyllablesArray[randomIndex])
-        }
+    
+    let randomNum = Math.floor(Math.random() * 14);
+   
+    if(randomNum < 4) {//all syllables are CV
+      selectedSyllables = ["CV"];
+    };
+    if(randomNum === 4) {
+        selectedSyllables.push("V"); //syllables are CV or V
     }
-    console.log(selectedSyllables)
+    if(randomNum === 5) {
+        selectedSyllables.push("V", "VC"); //syllables are CV, V, VC        
+    }
+    if(randomNum === 6) {
+        selectedSyllables.push("VC"); //syllables are CV and VC
+    }
+    if(randomNum === 7) {
+        selectedSyllables.push("CVC"); //syllables are CV and CVN
+    }
+    if(randomNum === 8) {
+        selectedSyllables.push("CCV"); //syllables are CV and CCV
+    }
+    if(randomNum === 9) {
+        selectedSyllables.push("CVCC"); //syllables are CV and CCV
+    }
+    if(randomNum === 10) {
+        selectedSyllables.push("CCVCC"); //syllables are CV and CCV
+    }
+    if(randomNum > 10) {
+        randomNum = Math.floor(Math.random() * 11) + 1; //the maximum amount of possible syllable structures a generated language can have is 11
+        for(let i = 0; i < randomNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allPossibleSyllablesArray.length);
+            if(selectedSyllables.includes(allPossibleSyllablesArray[randomIndex])) {
+                continue;
+            } else {
+                selectedSyllables.push(allPossibleSyllablesArray[randomIndex])
+            }
+        }
+        
+    }
+    document.getElementById("syllable-structure-list").innerHTML = selectedSyllables.join(", ");
 }
+
+
+
+
 
 
 
@@ -1158,7 +1199,7 @@ function generatePhonology() {
     collectAllVowels();
     populateVowelLists();
 
-    chooseSyllablesToBeUsed()
+    chooseSyllablesToBeUsed();
 }
 
-export {consonants, vowels};
+export {consonants, vowels, selectedSyllables};

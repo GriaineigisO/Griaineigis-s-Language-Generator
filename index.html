@@ -29,7 +29,7 @@
         language!
       </p>
 
-      <p>
+      <!--<p>
         Given that "Kerbekulo" is merely a grammatical frame rather than a fully
         fleshed language, as it is you the user who supplies the words, it is
         only fitting that you get to choose the name also! If you'd like to give
@@ -37,7 +37,7 @@
       </p>
 
       <input type="textarea" id="changeName" />
-      <input type="submit" value="Change Name" id="change-name" />
+      <input type="submit" value="Change Name" id="change-name" />-->
 
       <section class="intro">
       <div class="generate-button-div">
@@ -73,6 +73,7 @@
         <li id="nasal-list"><b>Nasals</b>: <span class="nasal-list">BLANK</span></li>
         <li id="plosive-list"><b>Plosives</b>: <span class="plosive-list">BLANK</span></li>
         <li id="fricative-list"><b>Fricatives</b>: <span class="fricative-list">BLANK</span></li>
+        <li id="affricative-list"><b>Affricatives</b>: <span class="affricative-list">BLANK</span></li>
         <li id="rhotic-list"><b>Rhotics</b>: <span class="rhotic-list">BLANK</span></li>
         <li id="lateral-list"><b>Lateral Approximants</b>: <span class="lateral-list">BLANK</span></li>
         <li id="approximant-list"><b>Approximants</b>: <span class="approximant-list"></span></li>
@@ -81,23 +82,27 @@
 
       <h3>Syllable Structure</h3>
 
+      <ul id="syllable-list">
+        <li>C "consonant"</li>
+        <li>V "vowel"</li>
+        <li id="a-syllable">A "approximant"</li>
+        <li id="f-syllable">F "fricative"</li>
+        <li id="r-syllable">R "resonant"</li>
+        <li id="n-syllable">N "nasal"</li>
+        <li id="h-syllable">H "aspirated"</li>
+      </ul>
+
       <p>
         This language allows for the following syllable structures: <span id="syllable-structure-list"></span>
       </p>
 
-<!--
-      <p>
-        <span class="language-name">Kerbekulo</span> has the following possible
-        root structures (C = consonant, V = vowel):
-      </p>
-      <ul>
-        <li><b>CV</b>: <i>-gu-</i></li>
-        <li><b>CVC</b>: <i>-mud-</i></li>
-        <li><b>CVCV</b>: <i>-weri-</i></li>
-        <li><b>CVCVC</b>: <i>-regon-</i></li>
-        <li><b>CVCC</b>: <i>-murk-</i></li>
-        <li><b>CVCCV</b>: <i>-dormu-</i></li>
+      <ul id="syllable-example-list">
+
       </ul>
+      
+
+<!--
+     
 
       <h2>Morphophonology</h2>
 

@@ -298,9 +298,12 @@ h1, h2, h3, h4 {
     }
 }
 
-#nasal-list, #plosive-list, #fricative-list, #rhotic-list, #lateral-list, #approximant-list, #high-vowel-list, #high-mid-vowel-list, #mid-vowel-list, #low-mid-vowel-list, #low-vowel-list, #vowel-quantities, #long-high-vowels, #long-high-mid-vowels, #long-mid-vowels, #long-low-vowels, #diphthong-p {
+#nasal-list, #plosive-list, #fricative-list, #rhotic-list, #lateral-list, #approximant-list, #high-vowel-list, #high-mid-vowel-list, #mid-vowel-list, #low-mid-vowel-list, #low-vowel-list, #vowel-quantities, #long-high-vowels, #long-high-mid-vowels, #long-mid-vowels, #long-low-vowels, #diphthong-p, #affricative-list, #a-syllable, #f-syllable, #r-syllable, #n-syllable, #h-syllable, #syllable-example-list {
     display: none;
 }
 
+#syllable-list {
+    list-style-type: none;
+}
 
 

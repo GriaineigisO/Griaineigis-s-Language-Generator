@@ -23,6 +23,7 @@ let syllablesArray = [
 "VVC",
 "VVCC",
 "CCV",
+"VCC",
 ]
 
 let approximantSyllables = [
@@ -36,6 +37,8 @@ let approximantSyllables = [
 let nasalSyllables = [
     "CVN",
     "CVNC",
+    "VNC",
+    
 ]
 
 let fricativeSyllables = [
@@ -44,16 +47,19 @@ let fricativeSyllables = [
     "FCVC",
     "FCCV",
     "CFV",
+    "CCVFC"
  ]
 
 let resonantSyllables = [
     "CRV",
     "CVRC",
-    "CVCR"
+    "CVCR",
+    "CRVC",
 ]
 
 let aspiratedSyllable = [
    "CVH",
+	"HVC"
 ]
 
 

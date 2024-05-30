@@ -3,6 +3,9 @@ Finish the phonology before doing anything else, even though the rest of the pag
 
 #Phonology
 
+each orthography has it's own function
+
+
 voiceless vowels?????? maybe not
 
 

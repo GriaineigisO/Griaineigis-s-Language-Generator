@@ -1235,7 +1235,7 @@ function chooseSyllablesToBeUsed() {
         aspiratedSyllable.forEach((element) => allPossibleSyllablesArray.push(element))
     }
 
-    let randomNum = Math.floor(Math.random() * 14);
+    let randomNum = Math.floor(Math.random() * 20);
     if(randomNum < 4) {//all syllables are CV
       selectedSyllables = ["CV"];
     };

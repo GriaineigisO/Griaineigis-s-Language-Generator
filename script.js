@@ -73,9 +73,6 @@ function generateWords() {
     let newSyllableArray = [];
     let newWord = [];
     let numberOfSyllables = Math.floor(Math.random() * 3) + 1;
-    // if(numberOfSyllables > selectedSyllables.length) {
-    //     numberOfSyllables = selectedSyllables.length;
-    // }
     for(let i = 0; i < numberOfSyllables; i++) {
         let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
         let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]

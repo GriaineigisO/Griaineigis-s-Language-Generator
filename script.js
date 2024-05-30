@@ -12,6 +12,7 @@ import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVe
 import conjunctionArray from './englishWordArrays/conjunctions.js'
 import adverbArray from './englishWordArrays/adverbs.js'
 import {soundChange} from './soundchange.js'
+import {spell} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray} from './generatePhonology.js';
 
 //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
@@ -40,6 +41,8 @@ let singularAffix = "";
 let pluralAffix = "";
 let accusativeAffix  = "";
 let genitiveAffix = "";
+
+let resonants = selectRhotics().concat(selectLateralApproximants())
 
 
 //Without this, every single generated noun from every single generation would remain in the arrays, causing words from
@@ -79,9 +82,19 @@ function generateWords() {
         for(let j = 0; j < syllableArray.length; j++) {
             if(syllableArray[j] === "C") {
                 newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
-            } else {
-                newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);
-            }    
+            } else if (syllableArray[j] === "V"){
+                newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);  
+            } else if (syllableArray[j] === "F"){
+                newSyllableArray.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
+            } else if (syllableArray[j] === "A"){
+                newSyllableArray.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
+            } else if (syllableArray[j] === "N"){
+                newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
+            } else if (syllableArray[j] === "R"){
+                newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
+            }else if (syllableArray[j] === "H"){
+                newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
+            }
         }  
     }
     newWord.push(newSyllableArray.join(""))
@@ -113,9 +126,19 @@ function generateAffixes() {
         for(let j = 0; j < syllableArray.length; j++) {
             if(syllableArray[j] === "C") {
                 newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
-            } else {
-                newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);
-            }    
+            }  else if (syllableArray[j] === "V"){
+                    newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);  
+                } else if (syllableArray[j] === "F"){
+                    newSyllableArray.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
+                } else if (syllableArray[j] === "A"){
+                    newSyllableArray.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
+                } else if (syllableArray[j] === "N"){
+                    newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
+                } else if (syllableArray[j] === "R"){
+                    newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
+                }else if (syllableArray[j] === "H"){
+                    newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
+                }  
         }  
     }
     newAffix.push(newSyllableArray.join(""))
@@ -133,7 +156,6 @@ function sendGeneratedAffixesToArray() {
     accusativeAffix = generateAffixes();
     genitiveAffix = generateAffixes();
 }
-
 
 /*************GENERATES EXAMPLES FOR SYLLABLE STRUCTURE************ */
 
@@ -181,16 +203,11 @@ function showSyllableStructureKey() {
 
 }
 
-
 function syllableStructureExamples() {
     let exampleUl = document.getElementById("syllable-example-list")
     exampleUl.style.display = "block"
-    
-
 
     for(let i = 0; i <  selectedSyllables.length; i++) {
-        let resonants = selectRhotics().concat(selectLateralApproximants())
-        
         let example = []
         let syllableArray = Array.from(selectedSyllables[i]); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
         for(let x = 0; x < Math.floor(Math.random()* 6) + 2; x++) {
@@ -215,8 +232,6 @@ function syllableStructureExamples() {
         }
         example.pop();
         
-        
-        
         let newLi = document.createElement("li")
         let spanExample = document.createElement("span");
         let exampleHeadword = document.createElement("span");
@@ -233,17 +248,30 @@ function syllableStructureExamples() {
     }
 }
 
+
+function orthoExample(word) {
+    let p = document.getElementById("ortho-example");
+    let pArray = []
+    for(let i = 0; i < word.length; i++) {
+        pArray.push(spell(word[i]))
+    }
+    p.innerHTML = pArray.join(", ")
+    
+}
+
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
 function generateLanguage() {
+    
     clearGeneratedArrays();
     generateWords();
     sendGeneratedWordsToArray();
     generateAffixes();
     sendGeneratedAffixesToArray();
-    
     showSyllableStructureKey();
     syllableStructureExamples();
+    orthoExample(generatedNouns)
    }
 
+export {generatedNouns};

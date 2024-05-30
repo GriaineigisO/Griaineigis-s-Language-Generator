@@ -212,6 +212,8 @@ h1, h2, h3, h4 {
     flex-direction: column;
 }
 
+
+
 /* PHONE */
 @media only screen and (max-width: 480px) {
     p, li {

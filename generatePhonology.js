@@ -784,7 +784,7 @@ function collectAllConsonants() {
 /*********************VOWELS*******************/
 
 function chooseLength() {
-    let randomNum = Math.floor(Math.random() * 11);
+    let randomNum = 1//Math.floor(Math.random() * 11);
     let trueOrFalse = "";
     if(randomNum === 1) {
         trueOrFalse = true;
@@ -1142,7 +1142,7 @@ function collectAllVowels() {
     return shortVowels.indexOf(element) === index;
     });
 
-    vowels = allVowelsArrayFixed.concat(allLongFrontVowels, allLongBackVowels, allLongCentralVowels, allLongHighVowels, allLongHighMidVowels, allLongMidVowels, allLongLowMidVowels, allLongLowVowels )
+    vowels = allVowelsArrayFixed.concat(allLongFrontVowels, allLongBackVowels, allLongCentralVowels, allLongHighVowels, allLongHighMidVowels, allLongMidVowels, allLongLowMidVowels, allLongLowVowels)
     
     document.getElementById("vowel-number").innerHTML = allVowelsArrayFixed.length
 
@@ -1155,6 +1155,7 @@ function collectAllVowels() {
     return vowels;
 
 }
+
 
 function populateVowelLists() {
     //HIGH 
@@ -1333,4 +1334,4 @@ function generatePhonology() {
 
 }
 
-export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray};
+export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength};

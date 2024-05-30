@@ -411,10 +411,10 @@ function choosePostAlveolar() {
         }
         randomNum = Math.floor(Math.random() * 11)
         if(randomNum === 4) {
-            allPostAlveolarAffricatives.push("t͡ʃ");
+            allPostAlveolarAffricatives.push("tʃ");
             randomNum = Math.floor(Math.random() * 11)
             if(randomNum === 4 && chooseVoicing()) {
-                allPostAlveolarAffricatives.push("d͡ʒ")
+                allPostAlveolarAffricatives.push("dʒ")
             }
         }
         
@@ -784,7 +784,7 @@ function collectAllConsonants() {
 /*********************VOWELS*******************/
 
 function chooseLength() {
-    let randomNum = 1//Math.floor(Math.random() * 11);
+    let randomNum = Math.floor(Math.random() * 11);
     let trueOrFalse = "";
     if(randomNum === 1) {
         trueOrFalse = true;
@@ -1334,4 +1334,4 @@ function generatePhonology() {
 
 }
 
-export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength};
+export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allGlottalFricatives, allVelarFricatives};

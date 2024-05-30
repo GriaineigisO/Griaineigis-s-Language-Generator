@@ -33,10 +33,12 @@ let allLabialDentalAffricates = [];
 let allLabialAffricates = [];
 let allAlveolarAffricates = [];
 let allPostAlveolarAffricatives = [];
-let allVelarAffricates = [];
+let allVelarAffricativesArray = [];
 let allUvularlAffricates = [];
 let allGlottalAffricates = [];
 let allUvularAffricativesArray
+
+let allAspiratesArray = [];
 
 
 let allFrontVowels = [];
@@ -58,11 +60,6 @@ let allLongHighMidVowels = [];
 let allLongMidVowels = [];
 let allLongLowMidVowels = [];
 let allLongLowVowels = [];
-
-let allApproximantsArray = [];
-let allFricatives = [];
-let allNasals = [];
-let allResonants = [];
 
 let consonants = [];
 let vowels = [];
@@ -120,16 +117,13 @@ function restoreDefault() {
     allLongLowMidVowels = [];
     allLongLowVowels = [];
 
-    allApproximantsArray = [];
-    allFricatives = [];
-    allNasals = [];
-    allResonants = [];
-
     consonants = [];
     vowels = [];
 
     selectedSyllables = [];
     allPossibleSyllablesArray = [];
+
+    allAspiratesArray = [];
 
     
 
@@ -226,8 +220,11 @@ function chooseAspiration() {
                 trueOrFalse = false;
             }
             allLabialPlosivesArray.push("ʰp");
+            allAspiratesArray.push("ʰp");
             allAlveolarPlosivesArray.push("ʰt");
+            allAspiratesArray.push("ʰt");
             allVelarPlosivesArray.push("ʰk");
+            allAspiratesArray.push("ʰk");
             return trueOrFalse;
         }
 
@@ -240,19 +237,25 @@ function chooseAspiration() {
                 trueOrFalse = false;
             }
             allLabialPlosivesArray.push("pʰ");
+            allAspiratesArray.push("pʰ");
             randomNum = Math.floor(Math.random() * 3);
                 if(randomNum === 2 && chooseVoicing()) {
                     allLabialPlosivesArray.push("bʰ");
+                    allAspiratesArray.push("bʰ");
                 }
             allAlveolarPlosivesArray.push("tʰ");
+            allAspiratesArray.push("tʰ");
             randomNum = Math.floor(Math.random() * 3);
                 if(randomNum === 2 && chooseVoicing()) {
                     allLabialPlosivesArray.push("dʰ");
+                    allAspiratesArray.push("dʰ");
                 }
             allVelarPlosivesArray.push("kʰ");
+            allAspiratesArray.push("kʰ");
                 randomNum = Math.floor(Math.random() * 3);
                 if(randomNum === 2 && chooseVoicing()) {
                     allLabialPlosivesArray.push("gʰ");
+                    allAspiratesArray.push("gʰ");
                 }
             return trueOrFalse;
         }
@@ -264,9 +267,11 @@ function chooseAspiration() {
         let randomNum = Math.floor(Math.random() * 3);
         if(randomNum === 2) {
             chosenAspiration = preAspiration();
-        } else chosenAspiration = postAspiration();
+        } else {
+            chosenAspiration = postAspiration();
     } 
     return chosenAspiration;
+    }
 }
 
 function chooseLabial() {
@@ -533,7 +538,7 @@ function chooseVelar() {
             if(chooseVoicing()) {
             randomNum = Math.floor(Math.random() * 11)
                 if(randomNum === 4 && chooseGemination()) {
-                    allVelarAffricates.push("g͡ɣ")
+                    allVelarAffricativesArray.push("g͡ɣ")
                 }
         }
         }
@@ -675,7 +680,7 @@ function selectNasals() {
     if(allNasalsArray.length > 0) {
         document.getElementById("nasal-list").style.display = "block";
     }
-    return spanNasalList.length;
+    return allNasalsArray //spanNasalList;
 }
 
 function selectPlosives() {
@@ -690,12 +695,12 @@ function selectPlosives() {
     if(allPlosivesArray.length > 0) {
         document.getElementById("plosive-list").style.display = "block";
     }
-    return allPlosivesArrayFixed.length;
+    return allPlosivesArrayFixed;
 }
 
 function selectFricatives() {
     let spanFricativeList = document.getElementsByClassName("fricative-list");
-    let allFricativesArray = allLabialFricativesArray.concat(allLabioDentalArray, allDentalFricatives, allAlveolarFricativesArray, allPostAlveolarFricatives, allLateralFricatives, allpalatalAffricates, allVelarFricatives,allUvularFricativesArray, allPharyngealFricatives, allGlottalFricatives);
+    let allFricativesArray = allLabialFricativesArray.concat(allLabioDentalArray, allDentalFricatives, allAlveolarFricativesArray, allPostAlveolarFricatives, allLateralFricatives, allPalatalFricatives, allVelarFricatives,allUvularFricativesArray, allPharyngealFricatives, allGlottalFricatives);
 
     let allFricativesArrayFixed = allFricativesArray.filter((element, index) => { //removes duplicates
         return allFricativesArray.indexOf(element) === index;
@@ -707,12 +712,12 @@ function selectFricatives() {
     if(allFricativesArray.length > 0) {
         document.getElementById("fricative-list").style.display = "block";
     }
-    return allFricativesArrayFixed.length;
+    return allFricativesArrayFixed;
 }
 
 function selectAffricates() {
     let spanAffricativeList = document.getElementsByClassName("affricative-list");
-    let allAffricativesArray = allLabialDentalAffricates.concat(allLabialAffricates, allAlveolarAffricates, allPostAlveolarAffricatives, allVelarAffricates, allUvularlAffricates, allGlottalAffricates);
+    let allAffricativesArray = allLabialDentalAffricates.concat(allLabialAffricates, allAlveolarAffricates, allPostAlveolarAffricatives, allVelarAffricativesArray, allUvularlAffricates, allGlottalAffricates);
 
     let allAffricativesArrayFixed = allAffricativesArray.filter((element, index) => { //removes duplicates
         return allAffricativesArray.indexOf(element) === index;
@@ -724,7 +729,7 @@ function selectAffricates() {
     if(allAffricativesArray.length > 0) {
         document.getElementById("affricative-list").style.display = "block";
     }
-    return allAffricativesArrayFixed.length;
+    return allAffricativesArrayFixed;
 }
 
 function selectRhotics() {
@@ -736,7 +741,7 @@ function selectRhotics() {
     if(allRhoticsArray.length > 0) {
         document.getElementById("rhotic-list").style.display = "block";
     }
-    return allRhoticsArray.length;
+    return allRhoticsArray;
 }
 
 function selectLateralApproximants() {
@@ -748,7 +753,7 @@ function selectLateralApproximants() {
     if(allLateralApproximantsArray.length > 0) {
         document.getElementById("lateral-list").style.display = "block";
     }
-    return allLateralApproximantsArray.length;
+    return allLateralApproximantsArray;
 }
 
 function selectApproximants() {
@@ -760,18 +765,18 @@ function selectApproximants() {
     if(allApproximantsArray.length > 0) {
         document.getElementById("approximant-list").style.display = "inline";
     }
-    return allApproximantsArray.length;  
+    return allApproximantsArray;  
 }
 
 function countNumberOfConsonants() {
-  const numberOfConsonants =  selectNasals() + selectPlosives() + selectFricatives() + selectRhotics() + selectLateralApproximants() + selectApproximants() + 1; //for some reason, the result was 1 too low
+  const numberOfConsonants =  selectNasals().length + selectPlosives().length + selectFricatives().length + selectAffricates().length + selectRhotics().length + selectLateralApproximants().length + selectApproximants().length + 1; //for some reason, the result was 1 too low
 
   document.getElementById("consonant-number").innerHTML = numberOfConsonants;
 }
 
 
 function collectAllConsonants() {
-    consonants = allNasalsArray.concat(allLabialPlosivesArray, allAlveolarPlosivesArray, allVelarPlosivesArray, allLabialFricativesArray, allAlveolarFricativesArray, allVelarFricatives, allAlveolarRhoticsArray, allLateralsArray, allLabialApproximants, allpalatalApproximants, allPalatalPlosivesArray, allPostAlveolarFricatives, allpalatalAffricates, allPalatalFricatives, allDentalFricatives, allLabioDentalArray, allLabialDentalApproximants, allUvularPlosivesArray, allUvularFricativesArray, allPharyngealFricatives, allGlottalPlosives, allGlottalFricatives, allLateralFricatives, allLabialDentalAffricates, allLabialAffricates, allAlveolarAffricates, allPostAlveolarAffricatives, allVelarAffricates, allUvularlAffricates, allGlottalAffricates);
+    consonants = allNasalsArray.concat(allLabialPlosivesArray, allAlveolarPlosivesArray, allVelarPlosivesArray, allLabialFricativesArray, allAlveolarFricativesArray, allVelarFricatives, allAlveolarRhoticsArray, allLateralsArray, allLabialApproximants, allpalatalApproximants, allPalatalPlosivesArray, allPostAlveolarFricatives, allpalatalAffricates, allPalatalFricatives, allDentalFricatives, allLabioDentalArray, allLabialDentalApproximants, allUvularPlosivesArray, allUvularFricativesArray, allPharyngealFricatives, allGlottalPlosives, allGlottalFricatives, allLateralFricatives, allLabialDentalAffricates, allLabialAffricates, allAlveolarAffricates, allPostAlveolarAffricatives, allVelarAffricativesArray, allUvularlAffricates, allGlottalAffricates);
     
 }
 
@@ -1219,23 +1224,23 @@ function chooseSyllablesToBeUsed() {
     syllablesArray.forEach((element) => allPossibleSyllablesArray.push(element))
     
     //if the language has no approximants, then no syllable structure specifying approximent e.g CAV will be added
-    if(selectApproximants() > 0 && Math.floor(Math.random() * 21) === 2) {
+    if(selectApproximants().length  > 0 && Math.floor(Math.random() * 2) === 2) {
         approximantSyllables.forEach((element) => allPossibleSyllablesArray.push(element))
     }
-    if(Math.floor(Math.random() * 21) === 2) {
+    if(Math.floor(Math.random() * 6) === 2) {
         nasalSyllables.forEach((element) => allPossibleSyllablesArray.push(element))
     }
-    if(Math.floor(Math.random() * 21) === 2) {
+    if(Math.floor(Math.random() * 6) === 2) {
         fricativeSyllables.forEach((element) => allPossibleSyllablesArray.push(element))
     }
-    if(Math.floor(Math.random() * 21) === 2) {
+    if(Math.floor(Math.random() * 6) === 2) {
         resonantSyllables.forEach((element) => allPossibleSyllablesArray.push(element))
     }
-    if(chooseAspiration() && Math.floor(Math.random() * 21) === 2) {
+    if(allAspiratesArray.length > 0 && Math.floor(Math.random() * 6) === 2) {
         aspiratedSyllable.forEach((element) => allPossibleSyllablesArray.push(element))
     }
 
-    let randomNum = Math.floor(Math.random() * 14);
+    let randomNum = Math.floor(Math.random() * 30);
     if(randomNum < 4) {//all syllables are CV
       selectedSyllables = ["CV"];
     };
@@ -1328,4 +1333,4 @@ function generatePhonology() {
 
 }
 
-export {consonants, vowels, selectedSyllables, selectApproximants};
+export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray};

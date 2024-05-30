@@ -54,6 +54,7 @@ let resonantSyllables = [
 
 let aspiratedSyllable = [
    "CVH",
+   "FHV",
 ]
 
 

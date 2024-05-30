@@ -12,7 +12,7 @@ import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVe
 import conjunctionArray from './englishWordArrays/conjunctions.js'
 import adverbArray from './englishWordArrays/adverbs.js'
 import {soundChange} from './soundchange.js'
-import {consonants, vowels, selectedSyllables, selectApproximants} from './generatePhonology.js';
+import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray} from './generatePhonology.js';
 
 //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
 let verbArray = transitiveVerbArray.concat(intransitiveVerbArray); 
@@ -192,14 +192,26 @@ function syllableStructureExamples() {
 
 
     for(let i = 0; i <  selectedSyllables.length; i++) {
+        let resonants = selectRhotics().concat(selectLateralApproximants())
+        
         let example = []
         let syllableArray = Array.from(selectedSyllables[i]); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
         for(let x = 0; x < Math.floor(Math.random()* 6) + 2; x++) {
             for(let j = 0; j < syllableArray.length; j++) {
                 if(syllableArray[j] === "C") {
                     example.push(consonants[Math.floor(Math.random() * consonants.length)]);
-                } else {
+                } else if (syllableArray[j] === "V"){
                     example.push(vowels[Math.floor(Math.random() * vowels.length)]);  
+                } else if (syllableArray[j] === "F"){
+                    example.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
+                } else if (syllableArray[j] === "A"){
+                    example.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
+                } else if (syllableArray[j] === "N"){
+                    example.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
+                } else if (syllableArray[j] === "R"){
+                    example.push(resonants[Math.floor(Math.random() * resonants.length)]);  
+                }else if (syllableArray[j] === "H"){
+                    example.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
                 }
             }  
             example.push(", ")

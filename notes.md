@@ -3,10 +3,8 @@ Finish the phonology before doing anything else, even though the rest of the pag
 
 #Phonology
 
-Apply the new Consonant Structure generated to every generated word beyond the nouns
-
 voiceless vowels?????? maybe not
-Also add syllable structure generation!!!
+
 
 also randomly selected ways to spell. e.g if /ʃ/ appears, it could be spelled as š, sch, sh etc. There will be entire sets of orthographies which have preset spellings for every possible sound generated. A set will be chosen at random, this will ensure that the orthography has some cohesion.
 

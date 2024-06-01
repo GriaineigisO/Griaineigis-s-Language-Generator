@@ -214,6 +214,10 @@ h1, h2, h3, h4 {
     flex-direction: column;
 }
 
+.entry, .entry-english {
+    color: #f5f8f8;
+}
+
 
 
 /* PHONE */
@@ -302,7 +306,7 @@ h1, h2, h3, h4 {
     }
 }
 
-#nasal-list, #plosive-list, #fricative-list, #rhotic-list, #lateral-list, #approximant-list, #high-vowel-list, #high-mid-vowel-list, #mid-vowel-list, #low-mid-vowel-list, #low-vowel-list, #vowel-quantities, #long-high-vowels, #long-high-mid-vowels, #long-mid-vowels, #long-low-vowels, #diphthong-p, #affricative-list, #a-syllable, #f-syllable, #r-syllable, #n-syllable, #h-syllable, #syllable-example-list, #grammar {
+#nasal-list, #plosive-list, #fricative-list, #rhotic-list, #lateral-list, #approximant-list, #high-vowel-list, #high-mid-vowel-list, #mid-vowel-list, #low-mid-vowel-list, #low-vowel-list, #vowel-quantities, #long-high-vowels, #long-high-mid-vowels, #long-mid-vowels, #long-low-vowels, #diphthong-p, #affricative-list, #a-syllable, #f-syllable, #r-syllable, #n-syllable, #h-syllable, #syllable-example-list, #grammar, #dictionary {
     display: none;
 }
 

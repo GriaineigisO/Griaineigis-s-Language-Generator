@@ -42,7 +42,8 @@ let pluralAffix = "";
 let accusativeAffix  = "";
 let genitiveAffix = "";
 
-let resonants = selectRhotics().concat(selectLateralApproximants())
+
+
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
@@ -75,17 +76,36 @@ function clearGeneratedArrays() {
     genitiveAffix = "";
 
     document.getElementById("orthography").replaceChildren();
+    document.getElementById("language-to-english").replaceChildren();
+    document.getElementById("english-to-language").replaceChildren();
+
 }
 
 function showGrammarAndDictionary() {
     document.getElementById("grammar").style.display = "block";
+    document.getElementById("dictionary").style.display = "block";
 }
 
 //generates the words by giving each one a random amount of syllables, and choosing each syllable to be structured according to a randomly chosen syllable structure from the language's chosen options of syllable structures.
 function generateWords() {
+    let resonants = selectRhotics().concat(selectLateralApproximants())
     let newSyllableArray = [];
-    let newWord = [];
-    let numberOfSyllables = Math.floor(Math.random() * 3) + 1;
+    let newWord = "";
+
+
+    let numberOfSyllables = 0;
+    //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
+    let numOfAllSounds = vowels.length + consonants.length
+    if(numOfAllSounds < 20 ) {
+        numberOfSyllables = Math.floor(Math.random() * (4 - 2) + 2);
+    } else if (numOfAllSounds < 15 ) {
+        numberOfSyllables = Math.floor(Math.random() * (5 - 3) + 3);
+    } else if (numOfAllSounds <= 10 ) {
+        numberOfSyllables = Math.floor(Math.random() * (6 - 4) + 4);
+    }else {
+        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+    }
+
     for(let i = 0; i < numberOfSyllables; i++) {
         let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
         let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
@@ -107,7 +127,7 @@ function generateWords() {
             }
         }  
     }
-    newWord.push(newSyllableArray.join(""))
+    newWord = newSyllableArray.join("");
     return newWord;
 }
 
@@ -127,8 +147,9 @@ function sendGeneratedWordsToArray() {
 
 //I wish to avoid affixes becoming to long, lest they result in very unreasonably long words, especially if a word gains multiple affixes. So This function does the same as generateWords() but prevents overly complex syllable structures and demands that all affixes be monosyllablic. This function may also be used for other morphemes that I'd prefer not be too long.
 function generateAffixes() {
+    let resonants = selectRhotics().concat(selectLateralApproximants())
     let newSyllableArray = [];
-    let newAffix = [];
+    let newAffix = "";
     let numberOfSyllables = 1;    
     for(let i = 0; i < numberOfSyllables; i++) {
         let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
@@ -151,7 +172,7 @@ function generateAffixes() {
                 }  
         }  
     }
-    newAffix.push(newSyllableArray.join(""))
+    newAffix = newSyllableArray.join("");
     return newAffix;
 }
 
@@ -214,6 +235,7 @@ function showSyllableStructureKey() {
 }
 
 function syllableStructureExamples() {
+    let resonants = selectRhotics().concat(selectLateralApproximants())
     let exampleUl = document.getElementById("syllable-example-list")
     exampleUl.style.display = "block"
 
@@ -260,15 +282,7 @@ function syllableStructureExamples() {
 }
 
 
-function orthoExample(word) {
-    let p = document.getElementById("ortho-example");
-    let pArray = []
-    for(let i = 0; i < word.length; i++) {
-        pArray.push(spell(word[i]))
-    }
-    p.innerHTML = pArray.join(", ")
-    
-}
+
 
 
 function makeOrthoGuide(letter) {
@@ -312,6 +326,8 @@ function lengthExplanation() {
 
 
 
+
+
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
@@ -324,10 +340,9 @@ function generateLanguage() {
     sendGeneratedAffixesToArray();
     showSyllableStructureKey();
     syllableStructureExamples();
-    orthoExample(generatedNouns)
     makeOrthoGuide(allPossibleVowels);
     makeOrthoGuide(allPossibleConsonants);
     lengthExplanation();
    }
 
-export {generatedNouns};
+export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions};

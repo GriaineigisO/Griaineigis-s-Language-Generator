@@ -459,7 +459,7 @@ function spell(word) {
             wordArray[i] = "ỳ";
         }
         if(wordArray[i] === "ɒ" && vowels.includes("a") === false && vowels.includes("ə") === false &&  vowels.includes("ɐ") === false) {
-            wordArray[i] = "ɒ"
+            wordArray[i] = "a"
         } else if (wordArray[i] === "ɒ") {
             wordArray[i] = "à"
         }

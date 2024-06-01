@@ -33,7 +33,6 @@ let nounArray = [
 "bladder",
 "blister",
 "boar",
-"boar",
 "board",
 "boat",
 "body",

@@ -11,6 +11,10 @@ import intransitiveVerb3SArray from './englishWordArrays/Verbs/englishIntransiti
 import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVerbs3S.js'
 import conjunctionArray from './englishWordArrays/conjunctions.js'
 import adverbArray from './englishWordArrays/adverbs.js'
+import adpositionArray from './englishWordArrays/adpositions.js';
+import intensifierArray from './englishWordArrays/intensifier.js';
+
+
 import {soundChange} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants} from './generatePhonology.js';
@@ -27,6 +31,8 @@ let generatedTransitiveVerbs = [];
 let generatedIntransitiveVerbs = [];
 let generatedConjunctions = [];
 let generatedAdverbs = [];
+let generatedAdpositions = [];
+let generatedIntensifiers = [];
 
 let wordThere = "";
 let wordHere = "";
@@ -60,6 +66,8 @@ function clearGeneratedArrays() {
     generatedIntransitiveVerbs = [];
     generatedConjunctions = [];
     generatedAdverbs = [];
+    generatedAdpositions = [];
+    generatedIntensifiers = [];
 
     wordThere = "";
     wordHere = "";
@@ -139,6 +147,8 @@ function sendGeneratedWordsToArray() {
     intransitiveVerbArray.forEach((element) => generatedIntransitiveVerbs.push(generateWords()));
     conjunctionArray.forEach((element) => generatedConjunctions.push(generateWords()));
     adverbArray.forEach((element) => generatedAdverbs.push(generateWords()));
+    adpositionArray.forEach((element) => generatedAdpositions.push(generateWords()));
+    intensifierArray.forEach((element) => generatedIntensifiers.push(generateWords()));
     wordThere = generateWords();
     wordHere = generateWords();
     firstPersonPronoun = generateWords();
@@ -345,4 +355,4 @@ function generateLanguage() {
     lengthExplanation();
    }
 
-export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions};
+export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers};

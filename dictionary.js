@@ -1,17 +1,13 @@
-import {generatedNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs} from './script.js'
-
+import {generatedNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers} from './script.js'
 import nounArray from './englishWordArrays/Nouns/englishNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import intransitiveVerbArray from './englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import adjectiveArray from './englishWordArrays/Adjectives/englishAdjectives.js';
 import conjunctionArray from './englishWordArrays/conjunctions.js'
 import adverbArray from './englishWordArrays/adverbs.js'
-
+import adpositionArray from './englishWordArrays/adpositions.js';
+import intensifierArray from './englishWordArrays/intensifier.js';
 import {spell} from './orthography.js'
-
-
-
-
 
 function Dictionary(word, partOfSpeech, translation)  {
     this.word = word;
@@ -19,13 +15,11 @@ function Dictionary(word, partOfSpeech, translation)  {
     this.translation = translation
 };
 
-
-
 function makeDictionary() {
 
-    let englishWords = nounArray.concat(adjectiveArray, transitiveVerbArray, intransitiveVerbArray, adverbArray, conjunctionArray);
+    let englishWords = nounArray.concat(adjectiveArray, transitiveVerbArray, intransitiveVerbArray, adverbArray, conjunctionArray, adpositionArray, intensifierArray);
 
-    let languageWords = generatedNouns.concat(generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions);
+    let languageWords = generatedNouns.concat(generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers);
 
        //Kerbekulo to English
     for(let i = 0; i < englishWords.length; i++) {
@@ -42,6 +36,10 @@ function makeDictionary() {
                 pOfSpeech = "adv";
         }else if (conjunctionArray.includes(englishWords[i])) {
                 pOfSpeech = "conj";
+        }else if (adpositionArray.includes(englishWords[i])) {
+                pOfSpeech = "adpo";
+        }else if (intensifierArray.includes(englishWords[i])) {
+                pOfSpeech = "adv";
         }
 
         let word1 = new Dictionary(spell(languageWords[i]), pOfSpeech, englishWords[i]);
@@ -73,6 +71,10 @@ function makeDictionary() {
                 pOfSpeech = "adv";
             }else if (conjunctionArray.includes(englishWords[i])) {
                 pOfSpeech = "conj";
+            }else if (adpositionArray.includes(englishWords[i])) {
+                pOfSpeech = "adpo";
+            }else if (intensifierArray.includes(englishWords[i])) {
+                    pOfSpeech = "adv";
             }
 
 
@@ -161,6 +163,11 @@ function makeDictionary() {
         entryEnglish[i].appendChild(pOS)
         entryEnglish[i].appendChild(translation)
 
+    }
+
+    //counts the amount of words in the dictionary
+    for(let i = 0; i < entryDiv.length; i++) {
+        document.getElementById("num-of-words").innerHTML = entryDiv.length;
     }
 }
 

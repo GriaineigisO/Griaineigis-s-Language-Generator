@@ -1,4 +1,4 @@
-//A place to store code which I have commented outerHeight, but may wish to requestAnimationFrame
+//A place to store code which I have commented out, but may wish to reuse
 
 //1)
 /* CHANGES LANGUAGE NAME---------------------*/

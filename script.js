@@ -12,8 +12,8 @@ import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVe
 import conjunctionArray from './englishWordArrays/conjunctions.js'
 import adverbArray from './englishWordArrays/adverbs.js'
 import {soundChange} from './soundchange.js'
-import {spell} from './orthography.js'
-import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray} from './generatePhonology.js';
+import {spell, checkIfCanUseMacron} from './orthography.js'
+import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants} from './generatePhonology.js';
 
 //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
 let verbArray = transitiveVerbArray.concat(intransitiveVerbArray); 
@@ -44,6 +44,10 @@ let genitiveAffix = "";
 
 let resonants = selectRhotics().concat(selectLateralApproximants())
 
+let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
+
+let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "tʃ", "dʒ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ"]
+
 
 //Without this, every single generated noun from every single generation would remain in the arrays, causing words from
 //previous generations to show up in current ones! This clears the arrays upon each click of the button, before they are
@@ -69,6 +73,12 @@ function clearGeneratedArrays() {
     pluralAffix = "";
     accusativeAffix  = "";
     genitiveAffix = "";
+
+    document.getElementById("orthography").replaceChildren();
+}
+
+function showGrammarAndDictionary() {
+    document.getElementById("grammar").style.display = "block";
 }
 
 //generates the words by giving each one a random amount of syllables, and choosing each syllable to be structured according to a randomly chosen syllable structure from the language's chosen options of syllable structures.
@@ -211,6 +221,7 @@ function syllableStructureExamples() {
         let example = []
         let syllableArray = Array.from(selectedSyllables[i]); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
         for(let x = 0; x < Math.floor(Math.random()* 6) + 2; x++) {
+            example.push("[")
             for(let j = 0; j < syllableArray.length; j++) {
                 if(syllableArray[j] === "C") {
                     example.push(consonants[Math.floor(Math.random() * consonants.length)]);
@@ -228,6 +239,7 @@ function syllableStructureExamples() {
                     example.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
                 }
             }  
+            example.push("]")
             example.push(", ")
         }
         example.pop();
@@ -239,7 +251,6 @@ function syllableStructureExamples() {
         exampleHeadword.innerHTML = `${selectedSyllables[i]}: `;
 
         spanExample.innerHTML = example.join("");
-        spanExample.style.fontStyle = "italic"
 
        // newLi.innerHTML = `${selectedSyllables[i]}: ${spanExample.innerHTML}`
         exampleUl.appendChild(newLi);
@@ -259,11 +270,53 @@ function orthoExample(word) {
     
 }
 
+
+function makeOrthoGuide(letter) {
+let orthoUl = document.getElementById("orthography");
+    for(let i = 0; i < letter.length; i++) {
+    if(vowels.includes(letter[i]) || consonants.includes(letter[i])) {
+        let newLi = document.createElement("li");
+        let ipa = letter[i];
+        let ortho = spell(ipa);
+        newLi.innerHTML = `[${ipa}] ⟨${ortho}⟩`
+        orthoUl.appendChild(newLi);
+        }
+    }
+}
+
+let lengthExplanationText = document.createElement("span")
+lengthExplanationText.setAttribute("id", "length-explanation")
+function lengthExplanation() {
+    if (allLongVowels.length === 0 && allLongConsonants.length > 0) {
+        lengthExplanationText.innerHTML = ` Long consonants are marked by doubling the letter e.g ⟨pp⟩.`
+    }
+    if (allLongVowels.length > 0 && allLongConsonants.length === 0) {
+        if(checkIfCanUseMacron()) {
+            lengthExplanationText.innerHTML = ` Long vowels are marked by placing a macron on the letter e.g ⟨ī⟩.`
+        } else {
+            lengthExplanationText.innerHTML = ` Long vowels are marked by doubling the letter e.g ⟨ii⟩.`
+        }
+    }
+    if (allLongVowels.length > 0 && allLongConsonants.length > 0) {
+        if(checkIfCanUseMacron()) {
+            lengthExplanationText.innerHTML = ` Long vowels are marked by placing a macron on the letter e.g ⟨ī⟩ and long consonants are marked by doubling the letter e.g ⟨pp⟩.`
+        } else {
+            lengthExplanationText.innerHTML = ` Long vowels and long consonants are both marked by doubling the letter e.g ⟨ii⟩ and ⟨pp⟩.`
+        }
+    }
+    if (allLongVowels.length === 0 && allLongConsonants.length === 0) {
+        lengthExplanationText.innerHTML = "";
+    }
+    document.getElementById("orthography-text").appendChild(lengthExplanationText)
+}
+
+
+
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
 function generateLanguage() {
-    
+    showGrammarAndDictionary()
     clearGeneratedArrays();
     generateWords();
     sendGeneratedWordsToArray();
@@ -272,6 +325,9 @@ function generateLanguage() {
     showSyllableStructureKey();
     syllableStructureExamples();
     orthoExample(generatedNouns)
+    makeOrthoGuide(allPossibleVowels);
+    makeOrthoGuide(allPossibleConsonants);
+    lengthExplanation();
    }
 
 export {generatedNouns};

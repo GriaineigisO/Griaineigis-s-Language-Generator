@@ -3,13 +3,13 @@ Finish the phonology before doing anything else, even though the rest of the pag
 
 #Phonology
 
-each orthography has it's own function
+A sound change may only be selected if the language has the right sounds amd conditions for it to meet. if is does, the soumd cha ge is passed to an array of candidates, only then may it be randomly selected
 
 
 voiceless vowels?????? maybe not
 
+palatalised and lanialised consonants
 
-also randomly selected ways to spell. e.g if /ʃ/ appears, it could be spelled as š, sch, sh etc. There will be entire sets of orthographies which have preset spellings for every possible sound generated. A set will be chosen at random, this will ensure that the orthography has some cohesion.
 
 .
 .

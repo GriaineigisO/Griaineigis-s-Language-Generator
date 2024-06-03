@@ -360,7 +360,7 @@ function WordFinalDevoicingExample() {
         document.getElementById("wordFinalDevoicing").style.display = "none"; 
         console.log("no nouns ending in voiced consonants!")
     } else {
-        exampleNoun = possibleExamples[4];
+        exampleNoun = possibleExamples[Math.floor(Math.random() * possibleExamples.length)];
         exampleNoun2 =  generatedNouns[randomNum];
         console.log(exampleNoun)
         compoundNoun = exampleNoun + exampleNoun2;

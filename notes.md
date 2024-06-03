@@ -3,7 +3,10 @@ Finish the phonology before doing anything else, even though the rest of the pag
 
 #Phonology
 
-A sound change may only be selected if the language has the right sounds amd conditions for it to meet. if is does, the soumd cha ge is passed to an array of candidates, only then may it be randomly selected
+Phonotactic ideas:
+Two vowels together must share a quality, like height
+fricatives can't occur after plosives
+/f/ can only occur in onset
 
 
 voiceless vowels?????? maybe not

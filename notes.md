@@ -8,7 +8,7 @@ Two vowels together must share a quality, like height
 fricatives can't occur after plosives
 /f/ can only occur in onset
 plosives can occur only in onset, either they become fricatives elsewhere or just drop
-
+plosives can occur only word initially
 
 voiceless vowels?????? maybe not
 

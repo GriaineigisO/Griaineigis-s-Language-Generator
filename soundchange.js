@@ -155,13 +155,19 @@ let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "
 let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
 let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ"];
 
+let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
+
+
 let syllablestructuresThatHaveWordFinalConsonants = ["CVC", "VVC", "VVCC", "VCC", "AVC", "CAVCC", "CVNC", "VNC", "CVFC", "FCVC", "CCFV", "CVRC", "CVCR", "CRVC", "CVH", "HVC", "VC"];
 
 function checkIfWordFinalConsonantsArePossible() {
     for(let i = 0; i < syllablestructuresThatHaveWordFinalConsonants.length; i++) {
-    if(selectedSyllables.includes(syllablestructuresThatHaveWordFinalConsonants[i]))
-        return true
-    }
+        if(selectedSyllables.includes(syllablestructuresThatHaveWordFinalConsonants[i])) {
+            return true
+        } else {
+            return false;
+        }
+}
 }
 
 function checkIfVoicingIsPresent() {
@@ -177,6 +183,7 @@ let potentialSoundChanges = [];
 let chosenSoundChanges = [];
 let wordArray = [];
 let wordFinalDevoicingTrueOrFalse = "";
+let randomNumForNoResonantsBeforeConsonants = "";
 
 function selectSoundChanges() {
     potentialSoundChanges = [];
@@ -187,8 +194,10 @@ function selectSoundChanges() {
     potentialSoundChanges.push("interVocalicLenition");
     potentialSoundChanges.push("lenitionofPlosivebeforeOtherPlosive");
     potentialSoundChanges.push("wordFinalHighVowelsLower");
+    potentialSoundChanges.push("NoResonantsBeforeConsonants");
+    potentialSoundChanges.push("PreventPlosivesFromClustering");
    
-    while(chosenSoundChanges.length < 3) {
+    while(chosenSoundChanges.length < 6) {
         let randomNumber = Math.floor(Math.random()* potentialSoundChanges.length);
         if(chosenSoundChanges.includes(potentialSoundChanges[randomNumber]) === false) {
             chosenSoundChanges.push(potentialSoundChanges[randomNumber]) 
@@ -196,7 +205,11 @@ function selectSoundChanges() {
         
     }
     console.log(chosenSoundChanges)
+
+    randomNumForNoResonantsBeforeConsonants = Math.floor(Math.random() * 4)
 }
+
+
 
 function soundChange(word) {
     wordArray = Array.from(word)
@@ -251,28 +264,6 @@ function soundChange(word) {
         document.getElementById("wordFinalDevoicing").style.display = "none"; 
     }
 
-    //the generated words often form doublets across syllable boundries e.g 'ga-ag' > 'gaag'. These can be confused for long vowels or long consonants which is especially unwanted if the language lacks length altogether. So these accidental doublets are removed first.
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === wordArray[i + 1] && wordArray[i + 2]) {
-            wordArray.splice(i, 2)
-        } 
-        if(wordArray[i] === wordArray[i + 1]) {
-            wordArray.splice(i, 1)
-        } 
-    }
-    //since long vowels in the IPA are marked like 'iː', with ː being an extra character, this loop deletes the following long vowel if it is the same
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i + 1] === "ː" && wordArray[i + 2] === wordArray[i] && wordArray[i + 3] === "ː") {
-            wordArray.splice(i+2, 1)
-            wordArray.splice(i+2, 1)
-        } 
-    }
-   for(let i = 0; i < wordArray.length; i++) {
-    if(wordArray[i] === "ː") {
-        wordArray[i] = wordArray[i - 1]
-     }
-   }
-
     /*********************************************************************************/
     if(chosenSoundChanges.includes("wordFinalHighVowelsLower")) {
         document.getElementById("lowersFinalHighVowels").style.display = "block";
@@ -290,8 +281,70 @@ function soundChange(word) {
         document.getElementById("lowersFinalHighVowels").style.display = "none";
     }
     /*********************************************************************************/
+
+    if(chosenSoundChanges.includes("NoResonantsBeforeConsonants") && checkIfWordFinalConsonantsArePossible()) {
+        document.getElementById("noResonantsBeforeConsonants").style.display = "block";
+
+        if(randomNumForNoResonantsBeforeConsonants === 0) {
+            //deletes the resonant
+            console.log("resonant lost")
+            document.getElementById("resonant-lost").style.display = "block";;
+            for(let i = 0; i < wordArray.length; i++) {
+                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+                    wordArray.splice(i, 1);
+                }
+            }
+        } else {
+             document.getElementById("resonant-lost").style.display = "none";
+         }
+        if(randomNumForNoResonantsBeforeConsonants === 1) {
+            //inserts /i/ between resonant and consonant
+            console.log("epenthetic i")
+            document.getElementById("epenthetic-i").style.display = "block";
+            for(let i = 0; i < wordArray.length; i++) {
+                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+                    wordArray.splice(i+1, 0, "i");
+                }
+            }
+        } else {
+            document.getElementById("epenthetic-i").style.display = "none";
+        }
+        if(randomNumForNoResonantsBeforeConsonants === 2) {
+            //inserts /u/ between resonant and consonant
+            console.log("epenthetic u")
+            document.getElementById("epenthetic-u").style.display = "block";
+            for(let i = 0; i < wordArray.length; i++) {
+                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+                    wordArray.splice(i+1, 0, "u");
+                }
+            }
+        } else {
+            document.getElementById("epenthetic-u").style.display = "none";
+        }
+        if(randomNumForNoResonantsBeforeConsonants === 3) {
+            //the resonant and consonant switch places
+            console.log("metathesis")
+            document.getElementById("resonant-metaphesis").style.display = "block";
+            for(let i = 0; i < wordArray.length; i++) {
+                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+                    let resonant = wordArray[i]; 
+                    let followingConsonant = wordArray[i+1];
+                    wordArray[i] = followingConsonant;
+                    wordArray[i+1] = resonant;
+                    if(resonants.includes(wordArray[i]) && resonants.includes(wordArray[i + 1])) {
+                        wordArray.splice(i+1, 0, "u");
+                    }
+                }
+            }
+        } else {
+            document.getElementById("resonant-metaphesis").style.display = "none";
+        }
         
-    console.log(wordArray)
+    } else {
+       document.getElementById("noResonantsBeforeConsonants").style.display = "none";
+    }
+        
+    //console.log(wordArray)
 
     let final = wordArray.join("");
     return final;
@@ -300,4 +353,4 @@ function soundChange(word) {
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, resonants};

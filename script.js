@@ -14,7 +14,7 @@ import adverbArray from './englishWordArrays/adverbs.js'
 import adpositionArray from './englishWordArrays/adpositions.js';
 import intensifierArray from './englishWordArrays/intensifier.js';
 
-import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges} from './soundchange.js'
+import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
 
@@ -101,13 +101,13 @@ function generateWords() {
     //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
     let numOfAllSounds = vowels.length + consonants.length
     if(numOfAllSounds < 20 ) {
-        numberOfSyllables = Math.floor(Math.random() * (5 - 2) + 2);
-    } else if (numOfAllSounds < 15 ) {
-        numberOfSyllables = Math.floor(Math.random() * (6 - 3) + 3);
-    } else if (numOfAllSounds <= 10 ) {
-        numberOfSyllables = Math.floor(Math.random() * (7 - 4) + 4);
-    }else {
         numberOfSyllables = Math.floor(Math.random() * (4 - 2) + 2);
+    } else if (numOfAllSounds < 15 ) {
+        numberOfSyllables = Math.floor(Math.random() * (5 - 3) + 3);
+    } else if (numOfAllSounds <= 10 ) {
+        numberOfSyllables = Math.floor(Math.random() * (6 - 4) + 4);
+    }else {
+        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
     }
 
     for(let i = 0; i < numberOfSyllables; i++) {
@@ -330,9 +330,11 @@ function lengthExplanation() {
 /*Lists each phonotactic rule with examples*/
 
 function showPhonotacticRules() {
-    WordFinalDevoicingExample();
     selectSoundChanges();
+    WordFinalDevoicingExample();
     lowerWordFinalHighVowelsExample();
+    noResonantBeforeConsonant();
+
 }
 
 function WordFinalDevoicingExample() {
@@ -393,6 +395,52 @@ function lowerWordFinalHighVowelsExample() {
     }
 }
 
+function noResonantBeforeConsonant() {
+    let endsInAResonantArray = [];
+    let beginsInConsonantArray = [];
+    let example = document.getElementsByClassName("no-resonant-before-consonant-example");
+    let exampleMeaning = document.getElementsByClassName("no-resonant-before-consonant-example-meaning");
+    let example2 = document.getElementsByClassName("no-resonant-before-consonant-example2");
+    let exampleMeaning2 = document.getElementsByClassName("no-resonant-before-consonant-example-meaning2");
+    
+
+    console.log(example.length)
+    for(let i = 0; i < example.length; i++) {
+        for(let j = 0; j < generatedNouns.length; j++) {
+            let noun = generatedNouns[j];
+            if(resonants.includes(noun[noun.length -1])) {
+                endsInAResonantArray.push(noun)
+            }
+            if(consonants.includes(noun[0])) {
+                beginsInConsonantArray.push(noun)
+            }
+        }
+        
+        if(endsInAResonantArray.length !== 0 && beginsInConsonantArray !== 0) {
+           
+       
+            let randomNoun = endsInAResonantArray[Math.floor(Math.random() * endsInAResonantArray.length)];
+            let randomNounMeaning = nounArray[generatedNouns.indexOf(randomNoun)]
+            example[i].innerHTML = spell(soundChange(randomNoun));
+            exampleMeaning[i].innerHTML = randomNounMeaning;
+
+            let randomNounForCompound = beginsInConsonantArray[Math.floor(Math.random() * beginsInConsonantArray.length)];
+            let randomNounMeaningForCompound = nounArray[generatedNouns.indexOf(randomNounForCompound)]
+            example2[i].innerHTML = spell(soundChange(randomNounForCompound));
+            exampleMeaning2[i].innerHTML = randomNounMeaningForCompound;
+
+            let compound = randomNoun + randomNounForCompound     
+            document.getElementsByClassName("no-resonant-before-consonant-compound")[i].innerHTML = spell(soundChange(compound));
+
+            let compoundMeaning = `${randomNounMeaning}-${randomNounMeaningForCompound}`     
+            document.getElementsByClassName("no-resonant-before-consonant-compound-meaning")[i].innerHTML = compoundMeaning;
+        }
+    }
+        
+        
+    
+}
+
 
 
 let generateLanguageButton = document.getElementById("generate-language");
@@ -412,7 +460,7 @@ function generateLanguage() {
     makeOrthoGuide(allPossibleConsonants);
     lengthExplanation();
     showPhonotacticRules();
-    soundChange("teeeeepi")
+    soundChange("karli")
     
    }
 

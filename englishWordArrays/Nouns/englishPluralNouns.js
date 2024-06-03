@@ -16,6 +16,7 @@ let nounArrayPlural = [
 "bags",
 "bands",
 "barks",
+"barrow",
 "baskets",
 "beads",
 "beaks",

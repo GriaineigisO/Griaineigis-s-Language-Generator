@@ -541,15 +541,7 @@ function choosePalatal() {//there ise a 20% chance that this language has palata
                 }
         
     }
-    randomNum = Math.floor(Math.random() * 40)
-    if (randomNum === 4) {
-        allpalatalAffricates.push("cç");
-        randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseVoicing()) {
-                    allpalatalAffricates.push("ɟʝ")
-                }
-        
-    }
+    
 
 }
 
@@ -1572,4 +1564,4 @@ function generatePhonology() {
 
 }
 
-export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allGlottalFricatives, allVelarFricatives, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, allLongVowels, allLongConsonants, voicingTrueOrFalse};
+export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allGlottalFricatives, allVelarFricatives, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, allLongVowels, allLongConsonants, voicingTrueOrFalse, allHighVowels};

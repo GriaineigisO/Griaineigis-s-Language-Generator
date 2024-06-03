@@ -16,7 +16,7 @@ import intensifierArray from './englishWordArrays/intensifier.js';
 
 import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
-import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants} from './generatePhonology.js';
+import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
 
 //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
 let verbArray = transitiveVerbArray.concat(intransitiveVerbArray); 
@@ -196,7 +196,7 @@ function sendGeneratedAffixesToArray() {
 
 /*************GENERATES EXAMPLES FOR SYLLABLE STRUCTURE************ */
 
-//The key is the list showing what each letter in syllable structure notation stands for. Each item only appears if the language has the relevant syllable strucutre e.g "A 'approximant' will only show if the language has a syllable structure such as CAV, CVA" and so on.
+//The key is the list showing what each letter in syllable structure notation stands for. Each item only appears if the language has the relevant syllable structure e.g "A 'approximant' will only show if the language has a syllable structure such as CAV, CVA" and so on.
 function showSyllableStructureKey() {
     let syllableA = document.getElementById("a-syllable");
     let syllableF = document.getElementById("f-syllable");
@@ -332,20 +332,19 @@ function lengthExplanation() {
 function showPhonotacticRules() {
     WordFinalDevoicingExample();
     selectSoundChanges();
+    lowerWordFinalHighVowelsExample();
 }
 
 function WordFinalDevoicingExample() {
-       //selects words to appear in the example
     let exampleNoun = "";
     let exampleNoun2 = ""
     let compoundNoun = ""
     let randomNounMeaning = "";
     let randomNounMeaning2 = ""
     let possibleExamples = [];
-
     let randomNum = Math.floor(Math.random() * generatedNouns.length)
     if(voiced.length === 0) {
-        console.log("no voicing!")
+        //console.log("no voicing!")
         document.getElementById("wordFinalDevoicing").style.display = "none"; 
     }
     for(let i = 0; i < generatedNouns.length; i++) {
@@ -353,16 +352,14 @@ function WordFinalDevoicingExample() {
         if(voiced.includes(newArray[newArray.length - 1])) {
             let joinedString = newArray.join("")
             possibleExamples.push(joinedString)
-            
         }  
     }
     if(possibleExamples.length === 0) {
         document.getElementById("wordFinalDevoicing").style.display = "none"; 
-        console.log("no nouns ending in voiced consonants!")
+        //console.log("no nouns ending in voiced consonants!")
     } else {
         exampleNoun = possibleExamples[Math.floor(Math.random() * possibleExamples.length)];
         exampleNoun2 =  generatedNouns[randomNum];
-        console.log(exampleNoun)
         compoundNoun = exampleNoun + exampleNoun2;
         randomNounMeaning = nounArray[generatedNouns.indexOf(exampleNoun)];
         randomNounMeaning2 = nounArray[randomNum] 
@@ -374,13 +371,35 @@ function WordFinalDevoicingExample() {
     document.getElementById("word-final-devoicing-example-compound-meaning").innerHTML = `${randomNounMeaning}-${randomNounMeaning2}` 
 }
 
+function lowerWordFinalHighVowelsExample() {
+    let highVowelListSpan = document.getElementsByClassName("high-vowels");
+    for(let i = 0 ; i < highVowelListSpan.length; i++) {
+        highVowelListSpan[i].innerHTML = `/${allHighVowels.join(", ")}/`
+    }
+    let possibleExamples = [];
+    let example = document.getElementsByClassName("lower-high-vowel-example");
+    let exampleMeaning = document.getElementsByClassName("lower-high-vowel-example-meaning");
+    for(let i = 0; i < example.length; i++) {
+        for(let j = 0; j < generatedAdjectives.length; j++) {
+            let randomAdj = generatedAdjectives[j]
+            if(allHighVowels.includes(randomAdj[randomAdj.length -1])) {
+                possibleExamples.push(randomAdj)
+            }
+        }
+        let randomAdj = possibleExamples[Math.floor(Math.random() * possibleExamples.length)];
+        let randomAdjMeaning = adjectiveArray[generatedAdjectives.indexOf(randomAdj)];
+        example[i].innerHTML = spell(soundChange(randomAdj));
+        exampleMeaning[i].innerHTML = randomAdjMeaning;
+    }
+}
+
 
 
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
 function generateLanguage() {
-    
+    selectSoundChanges()
     showGrammarAndDictionary()
     clearGeneratedArrays();
     generateWords();
@@ -393,6 +412,7 @@ function generateLanguage() {
     makeOrthoGuide(allPossibleConsonants);
     lengthExplanation();
     showPhonotacticRules();
+    soundChange("mokgedtobpi")
     
    }
 

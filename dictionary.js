@@ -8,6 +8,7 @@ import adverbArray from './englishWordArrays/adverbs.js'
 import adpositionArray from './englishWordArrays/adpositions.js';
 import intensifierArray from './englishWordArrays/intensifier.js';
 import {spell} from './orthography.js'
+import { soundChange } from './soundchange.js';
 
 function Dictionary(word, partOfSpeech, translation)  {
     this.word = word;

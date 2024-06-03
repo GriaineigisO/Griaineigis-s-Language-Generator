@@ -196,7 +196,7 @@ h1, h2, h3, h4 {
     margin-bottom: 10px;
 }
 
-.this-pronoun, .also, .relative-pronoun, .adverbial-suffix, .relative-pronoun, .nominaliser-suffix, .firstPersonPronoun, .secondPersonPronoun, .adjective, .noun, #noun-copy5, #noun5Also, #adjective5Also, .adjective-copy5, #bahuvrihi, .noun5Also, #adjective1, #noun5AlsoNomSg, .copula-sg-non-past, .copula-pl-non-past, .sg-suffix, .pl-suffix, .here, .there, .that-pronoun, .here, .these-pronoun, .those-pronoun, .noun-acc-sg, .interrogative, .again, .time, .man, .place, .where, .when, .what, .who, .why, .how, .path, .origin, #non-past, .verb, .copy-verb, .first-person-prefix, .second-person-prefix, #plural-verb-suffix, .habitual-suffix, .transitive-verb, .intransitive-verb, .copy-transitive-verb, .copy-intransitive-verb {
+.this-pronoun, .also, .relative-pronoun, .adverbial-suffix, .relative-pronoun, .nominaliser-suffix, .firstPersonPronoun, .secondPersonPronoun, .adjective, .noun, #noun-copy5, #noun5Also, #adjective5Also, .adjective-copy5, #bahuvrihi, .noun5Also, #adjective1, #noun5AlsoNomSg, .copula-sg-non-past, .copula-pl-non-past, .sg-suffix, .pl-suffix, .here, .there, .that-pronoun, .here, .these-pronoun, .those-pronoun, .noun-acc-sg, .interrogative, .again, .time, .man, .place, .where, .when, .what, .who, .why, .how, .path, .origin, #non-past, .verb, .copy-verb, .first-person-prefix, .second-person-prefix, #plural-verb-suffix, .habitual-suffix, .transitive-verb, .intransitive-verb, .copy-transitive-verb, .copy-intransitive-verb, #word-final-devoicing-examplenoun, #word-final-devoicing-example-compound {
     font-style: italic;
 }
 
@@ -306,7 +306,7 @@ h1, h2, h3, h4 {
     }
 }
 
-#nasal-list, #plosive-list, #fricative-list, #rhotic-list, #lateral-list, #approximant-list, #high-vowel-list, #high-mid-vowel-list, #mid-vowel-list, #low-mid-vowel-list, #low-vowel-list, #vowel-quantities, #long-high-vowels, #long-high-mid-vowels, #long-mid-vowels, #long-low-vowels, #diphthong-p, #affricative-list, #a-syllable, #f-syllable, #r-syllable, #n-syllable, #h-syllable, #syllable-example-list, #grammar, #dictionary {
+#nasal-list, #plosive-list, #fricative-list, #rhotic-list, #lateral-list, #approximant-list, #high-vowel-list, #high-mid-vowel-list, #mid-vowel-list, #low-mid-vowel-list, #low-vowel-list, #vowel-quantities, #long-high-vowels, #long-high-mid-vowels, #long-mid-vowels, #long-low-vowels, #diphthong-p, #affricative-list, #a-syllable, #f-syllable, #r-syllable, #n-syllable, #h-syllable, #syllable-example-list, #grammar, #dictionary, #wordFinalDevoicing {
     display: none;
 }
 

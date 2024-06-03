@@ -1,7 +1,15 @@
 let conjunctionArray = [
 "also",
 "and",
-"as well as",
+"as,",
+"as&nbspwell&nbspas",
+"or",
+"but",
+"either",
+"otherwise",
+"however",
+"except",
+
 ]
 
 export default conjunctionArray;

@@ -1,4 +1,4 @@
-import {vowels, consonants, allGlottalFricatives, allVelarFricatives, allAspiratesArray, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, chooseLength} from './generatePhonology.js'
+import {vowels, consonants, allGlottalFricatives, allVelarFricatives, allAspiratesArray, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, voicingTrueOrFalse} from './generatePhonology.js'
 
 
 
@@ -20,13 +20,13 @@ generateLanguageButton.addEventListener("click", randomNumbers);
 let randomNumAlveolarFricative = 0;
 let randomNumPalatalFricative = 0;
 let randomDentalFricative = 0;
-let voicingTrueOrFalse = "";
+//let voicingTrueOrFalse = "";
 let frontö = ";"
 function randomNumbers() {
     randomNumAlveolarFricative = Math.floor(Math.random() * 7);
     randomNumPalatalFricative = Math.floor(Math.random() * 7);
     randomDentalFricative = Math.floor(Math.random() * 2);
-    voicingTrueOrFalse = chooseVoicing();
+    //voicingTrueOrFalse = chooseVoicing();
     frontö = Math.floor(Math.random() * 7);
 
 }
@@ -38,7 +38,7 @@ function spell(word) {
    let wordArray = [];
    if(typeof word === "string") {
         wordArray = Array.from(word)
-   } else {
+   } else if (typeof word === "object") {
     let str = word.join("");
     wordArray = Array.from(str)
    }
@@ -493,7 +493,9 @@ function spell(word) {
 
     //LABIODENTAL APPROXIMANT
     for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "ʋ") {
+        if(wordArray[i] === "ʋ" && consonants.includes("w") === false) {
+            wordArray[i] = "w"
+        } else if(wordArray[i] === "ʋ" && consonants.includes("w")) {
             wordArray[i] = "ụ"
         }
     }
@@ -505,6 +507,27 @@ function spell(word) {
         }
     }
 
+    //LABIALISED CONSONANTS
+    for(let i = 0; i < wordArray[i]; i++) {
+        let randomNum = Math.floor(Math.random() * 3)
+        if(wordArray[i] === "ʷ" && randomNum === 3) {
+            wordArray[i] = "w"
+        } else if(wordArray[i] === "ʷ" && randomNum !== 3) {
+            wordArray[i] = "ʷ"
+        }
+    }
+
+    //Palatalised CONSONANTS
+    for(let i = 0; i < wordArray[i]; i++) {
+        let randomNum = Math.floor(Math.random() * 3)
+        if(wordArray[i] === "ʲ" && randomNum === 0) {
+            wordArray[i] = "j"
+        } else if(wordArray[i] === "ʲ" && randomNum === 1) {
+            wordArray[i] = "’"
+        }else if(wordArray[i] === "ʲ" && randomNum === 2) {
+            wordArray[i] = "ʲ"
+        }
+    }
 
     let final = wordArray.join("");
 

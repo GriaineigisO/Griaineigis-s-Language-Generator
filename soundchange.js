@@ -1,4 +1,6 @@
-import {consonants, vowels} from './generatePhonology.js'
+import {consonants, vowels, chooseVoicing, voicingTrueOrFalse, selectedSyllables} from './generatePhonology.js'
+import { generatedNouns } from './script.js';
+import { spell } from './orthography.js';
 
 // function soundChange(word) {
 
@@ -143,8 +145,113 @@ import {consonants, vowels} from './generatePhonology.js'
 //     return fixAPlusA;
 // }
 
-function soundChange(word) {
-    return word;
+
+
+
+
+
+
+let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "ɦ", "dʒ", "ɟ", "ʁ", "ʒ", "ɟ", "ʕ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", , "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "ð", "ɮ"];
+let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "tʃ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"
+]
+
+let syllablestructuresThatHaveWordFinalConsonants = ["CVC", "VVC", "VVCC", "VCC", "AVC", "CAVCC", "CVN", "CVNC", "VNC", "CVFC", "FCVC", "CCFV", "CVRC", "CVCR", "CRVC", "CVH", "HVC", "FHV", "VC"];
+
+function checkIfWordFinalConsonantsArePossible() {
+    for(let i = 0; i < syllablestructuresThatHaveWordFinalConsonants.length; i++) {
+    if(selectedSyllables.includes(syllablestructuresThatHaveWordFinalConsonants[i]))
+        return true
+    }
 }
 
-export {soundChange};
+
+//A list of titles for every sound change is placed into the array "potentialSoundChanges". Then a random number and selection of these titles are pushed into the "chosenSoundChanges" array. If the "chosenSoundChanges" contains a sound changes title, the sound change may occur.
+
+let potentialSoundChanges = [];
+let chosenSoundChanges = [];
+let wordArray = [];
+let wordFinalDevoicingTrueOrFalse = "";
+
+function selectSoundChanges() {
+    potentialSoundChanges = [];
+    chosenSoundChanges = [];
+    wordArray = [];
+    wordFinalDevoicingTrueOrFalse = "";
+    potentialSoundChanges.push("voiceAssimilationInClusters");
+    potentialSoundChanges.push("wordFinalDevoicing");
+    potentialSoundChanges.push("interVocalicLenition");
+    potentialSoundChanges.push("lenitionofPlosivebeforeOtherPlosive");
+    potentialSoundChanges.push("wordFinalHighVowelsLower");
+   
+    while(chosenSoundChanges.length < 3) {
+        let randomNumber = Math.floor(Math.random()* potentialSoundChanges.length);
+        if(chosenSoundChanges.includes(potentialSoundChanges[randomNumber]) === false) {
+            chosenSoundChanges.push(potentialSoundChanges[randomNumber]) 
+        }
+        
+    }
+}
+
+
+function soundChange(word) {
+    wordArray = Array.from(word)
+
+    
+
+    if(chosenSoundChanges.includes("voiceAssimilationInClusters")) {
+        // if(voicingTrueOrFalse) {
+        //if two consonants of the same PoA but different voicing clusters, the voiceless one is removed
+            for(let i = 0; i < wordArray.length; i++) {
+            if(unvoiced.includes(wordArray[i]) && voiced.includes(wordArray[i + 1])) {
+                let unvoicedIndex = unvoiced.indexOf(wordArray[i])
+                if(wordArray[i + 1] === voiced[unvoicedIndex]) {
+                    wordArray.splice(i, 1);
+                        }          
+            } else {
+                //if two consonants of the same PoA but different voicing clusters, the voiced one is removed
+                for(let i = 0; i < wordArray.length; i++) {
+                    if(unvoiced.includes(wordArray[i]) && voiced.includes(wordArray[i + 1])) {
+                        let unvoicedIndex = unvoiced.indexOf(wordArray[i])
+                        if(wordArray[i + 1] === voiced[unvoicedIndex]) {
+                        wordArray.splice(i+1, 1);
+                        }
+                    }
+                }
+      
+            }
+        }
+    //}
+}
+
+
+    if(chosenSoundChanges.includes("wordFinalDevoicing") && checkIfWordFinalConsonantsArePossible()) {
+        document.getElementById("wordFinalDevoicing").style.display = "block"; 
+
+        if(voiced.includes(wordArray[wordArray.length -1])) {
+            let voicedIndex = voiced.indexOf(wordArray[wordArray.length -1]);
+            wordArray[wordArray.length -1] = unvoiced[voicedIndex] 
+        }
+    } else {
+        document.getElementById("wordFinalDevoicing").style.display = "none"; 
+    }
+        
+
+    console.log(chosenSoundChanges)
+
+    
+    let final = wordArray.join("");
+    return final;
+}
+
+
+
+
+
+let generateLanguageButton = document.getElementById("generate-language");
+generateLanguageButton.addEventListener("click", selectSoundChanges);
+
+
+
+
+
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges};

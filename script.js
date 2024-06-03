@@ -14,8 +14,7 @@ import adverbArray from './englishWordArrays/adverbs.js'
 import adpositionArray from './englishWordArrays/adpositions.js';
 import intensifierArray from './englishWordArrays/intensifier.js';
 
-
-import {soundChange} from './soundchange.js'
+import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants} from './generatePhonology.js';
 
@@ -47,9 +46,6 @@ let singularAffix = "";
 let pluralAffix = "";
 let accusativeAffix  = "";
 let genitiveAffix = "";
-
-
-
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
@@ -105,13 +101,13 @@ function generateWords() {
     //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
     let numOfAllSounds = vowels.length + consonants.length
     if(numOfAllSounds < 20 ) {
-        numberOfSyllables = Math.floor(Math.random() * (4 - 2) + 2);
+        numberOfSyllables = Math.floor(Math.random() * (5 - 2) + 2);
     } else if (numOfAllSounds < 15 ) {
-        numberOfSyllables = Math.floor(Math.random() * (5 - 3) + 3);
+        numberOfSyllables = Math.floor(Math.random() * (6 - 3) + 3);
     } else if (numOfAllSounds <= 10 ) {
-        numberOfSyllables = Math.floor(Math.random() * (6 - 4) + 4);
+        numberOfSyllables = Math.floor(Math.random() * (7 - 4) + 4);
     }else {
-        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+        numberOfSyllables = Math.floor(Math.random() * (4 - 2) + 2);
     }
 
     for(let i = 0; i < numberOfSyllables; i++) {
@@ -291,10 +287,6 @@ function syllableStructureExamples() {
     }
 }
 
-
-
-
-
 function makeOrthoGuide(letter) {
 let orthoUl = document.getElementById("orthography");
     for(let i = 0; i < letter.length; i++) {
@@ -335,6 +327,52 @@ function lengthExplanation() {
 }
 
 
+/*Lists each phonotactic rule with examples*/
+
+function showPhonotacticRules() {
+    WordFinalDevoicingExample();
+    selectSoundChanges();
+}
+
+function WordFinalDevoicingExample() {
+       //selects words to appear in the example
+    let exampleNoun = "";
+    let exampleNoun2 = ""
+    let compoundNoun = ""
+    let randomNounMeaning = "";
+    let randomNounMeaning2 = ""
+    let possibleExamples = [];
+
+    let randomNum = Math.floor(Math.random() * generatedNouns.length)
+    if(voiced.length === 0) {
+        console.log("no voicing!")
+        document.getElementById("wordFinalDevoicing").style.display = "none"; 
+    }
+    for(let i = 0; i < generatedNouns.length; i++) {
+        let newArray = Array.from(generatedNouns[i]);
+        if(voiced.includes(newArray[newArray.length - 1])) {
+            let joinedString = newArray.join("")
+            possibleExamples.push(joinedString)
+            
+        }  
+    }
+    if(possibleExamples.length === 0) {
+        document.getElementById("wordFinalDevoicing").style.display = "none"; 
+        console.log("no nouns ending in voiced consonants!")
+    } else {
+        exampleNoun = possibleExamples[4];
+        exampleNoun2 =  generatedNouns[randomNum];
+        console.log(exampleNoun)
+        compoundNoun = exampleNoun + exampleNoun2;
+        randomNounMeaning = nounArray[generatedNouns.indexOf(exampleNoun)];
+        randomNounMeaning2 = nounArray[randomNum] 
+    }
+            
+    document.getElementById("word-final-devoicing-examplenoun").innerHTML = spell(soundChange(exampleNoun))
+    document.getElementById("word-final-devoicing-examplenounmeaning").innerHTML = randomNounMeaning;
+    document.getElementById("word-final-devoicing-example-compound").innerHTML = spell(soundChange(compoundNoun));
+    document.getElementById("word-final-devoicing-example-compound-meaning").innerHTML = `${randomNounMeaning}-${randomNounMeaning2}` 
+}
 
 
 
@@ -342,6 +380,7 @@ let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
 function generateLanguage() {
+    
     showGrammarAndDictionary()
     clearGeneratedArrays();
     generateWords();
@@ -353,6 +392,8 @@ function generateLanguage() {
     makeOrthoGuide(allPossibleVowels);
     makeOrthoGuide(allPossibleConsonants);
     lengthExplanation();
+    showPhonotacticRules();
+    
    }
 
 export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers};

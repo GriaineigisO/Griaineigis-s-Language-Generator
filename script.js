@@ -412,7 +412,7 @@ function generateLanguage() {
     makeOrthoGuide(allPossibleConsonants);
     lengthExplanation();
     showPhonotacticRules();
-    soundChange("mokgedtobpi")
+    soundChange("teeeeepi")
     
    }
 

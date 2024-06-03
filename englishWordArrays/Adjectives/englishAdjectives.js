@@ -54,7 +54,7 @@ let adjectiveArray = [
 "intelligent",
 "intense",
 "lean",
-"light&nbsp(of weight)",
+"light&nbsp(of&nbspweight)",
 "long",
 "loose",
 "low",

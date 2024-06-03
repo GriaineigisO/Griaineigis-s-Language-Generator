@@ -48,27 +48,7 @@ function spell(word) {
    /***CLEANUP***/ 
     /*move to sound change once the sound change function is back*/
 
-    //the generated words often form doublets across syllable boundries e.g 'ga-ag' > 'gaag'. These can be confused for long vowels or long consonants which is especially unwanted if the language lacks length altogether. So these accidental doublets are removed first.
     
-    
-
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === wordArray[i + 1]) {
-            wordArray.splice(i, 1)
-        } 
-    }
-    //since long vowels in the IPA are marked like 'iː', with ː being an extra character, this loop deletes the following long vowel if it is the same
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i + 1] === "ː" && wordArray[i + 2] === wordArray[i] && wordArray[i + 3] === "ː") {
-            wordArray.splice(i+2, 1)
-            wordArray.splice(i+2, 1)
-        } 
-    }
-   for(let i = 0; i < wordArray.length; i++) {
-    if(wordArray[i] === "ː") {
-        wordArray[i] = wordArray[i - 1]
-     }
-   }
 
    //there were far too many long vowels and consonants generated, so this serves to random shorten many of them to stop the vast majority of vowels in most words being long
     for(let i = 0; i < wordArray.length; i++) {

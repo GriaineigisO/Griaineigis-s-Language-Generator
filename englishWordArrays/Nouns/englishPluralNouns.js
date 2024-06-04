@@ -41,6 +41,7 @@ let nounArrayPlural = [
 "bodies",
 "bolts",
 "bones",
+"books"
 "boots",
 "bottoms",
 "bowls",

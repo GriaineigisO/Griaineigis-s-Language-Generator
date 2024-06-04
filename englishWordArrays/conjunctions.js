@@ -1,7 +1,7 @@
 let conjunctionArray = [
 "also",
 "and",
-"as,",
+"as",
 "as&nbspwell&nbspas",
 "or",
 "but",

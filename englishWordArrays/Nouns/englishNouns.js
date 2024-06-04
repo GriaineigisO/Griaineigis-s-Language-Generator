@@ -40,6 +40,7 @@ let nounArray = [
 "body",
 "bolt",
 "bone",
+"book",
 "boot",
 "bottom",
 "bow",

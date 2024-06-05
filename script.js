@@ -14,7 +14,7 @@ import adverbArray from './englishWordArrays/adverbs.js'
 import adpositionArray from './englishWordArrays/adpositions.js';
 import intensifierArray from './englishWordArrays/intensifier.js';
 
-import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants} from './soundchange.js'
+import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
 
@@ -82,6 +82,7 @@ function clearGeneratedArrays() {
     document.getElementById("orthography").replaceChildren();
     document.getElementById("language-to-english").replaceChildren();
     document.getElementById("english-to-language").replaceChildren();
+    document.getElementById("lenition-before-list").replaceChildren();
 
 }
 
@@ -101,11 +102,11 @@ function generateWords() {
     //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
     let numOfAllSounds = vowels.length + consonants.length
     if(numOfAllSounds < 20 ) {
-        numberOfSyllables = Math.floor(Math.random() * (4 - 2) + 2);
+        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
     } else if (numOfAllSounds < 15 ) {
-        numberOfSyllables = Math.floor(Math.random() * (5 - 3) + 3);
+        numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
     } else if (numOfAllSounds <= 10 ) {
-        numberOfSyllables = Math.floor(Math.random() * (6 - 4) + 4);
+        numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
     }else {
         numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
     }
@@ -330,10 +331,11 @@ function lengthExplanation() {
 /*Lists each phonotactic rule with examples*/
 
 function showPhonotacticRules() {
-    selectSoundChanges();
     WordFinalDevoicingExample();
+    nonHighNonInitialVowelsBecomeAExample();
     lowerWordFinalHighVowelsExample();
     noResonantBeforeConsonant();
+    lenitePlosivesBeforeOtherPlosives();
 
 }
 
@@ -373,6 +375,56 @@ function WordFinalDevoicingExample() {
     document.getElementById("word-final-devoicing-example-compound-meaning").innerHTML = `${randomNounMeaning}-${randomNounMeaning2}` 
 }
 
+function nonHighNonInitialVowelsBecomeAExample() {
+    let containsNonHighVowel = [];
+    let example = document.getElementsByClassName("non-high-non-initial-example");
+    let exampleMeaning = document.getElementsByClassName("non-high-non-initial-example-meaning");
+    let example2 = document.getElementsByClassName("non-high-non-initial-example2");
+    let exampleMeaning2 = document.getElementsByClassName("non-high-non-initial-example-meaning2");
+    
+    //since /a/ if the target vowel, I don't want words that only have the vowels /i u a/
+    for(let i = 0; i < nonHighVowels.length; i++) {
+        if(nonHighVowels[i] === "a" || nonHighVowels[i] === "aː") {
+            nonHighVowels.splice(i, 1)
+        }
+    }
+
+    for(let i = 0; i < example.length; i++) {
+        for(let j = 0; j < generatedNouns.length; j++) {
+            let noun = generatedNouns[j];
+            let num = 0;
+            for(let i = 0; i < noun.length; i++) {
+                if(nonHighVowels.includes(noun[i]) && num === 0) {
+                    containsNonHighVowel.push(noun)
+                }
+                if(vowels.includes(noun[i])) {
+                    num++;
+                }
+             }
+        }
+        
+
+        if(containsNonHighVowel.length !== 0) {
+       
+            let randomNoun = generatedNouns[Math.floor(Math.random() * generatedNouns.length)];
+            let randomNounMeaning = nounArray[generatedNouns.indexOf(randomNoun)]
+            example[i].innerHTML = spell(soundChange(randomNoun));
+            exampleMeaning[i].innerHTML = randomNounMeaning;
+
+            let secondNoun = containsNonHighVowel[Math.floor(Math.random() * containsNonHighVowel.length)];
+            let secondNounMeaning = nounArray[generatedNouns.indexOf(secondNoun)]
+            example2[i].innerHTML = spell(soundChange(secondNoun));
+            exampleMeaning2[i].innerHTML = secondNounMeaning;
+
+            let compound = randomNoun + secondNoun     
+            document.getElementsByClassName("non-high-non-initial-compound")[i].innerHTML = spell(soundChange(compound));
+
+            let compoundMeaning = `${randomNounMeaning}-${secondNounMeaning}`     
+            document.getElementsByClassName("non-high-non-initial-compound-meaning")[i].innerHTML = compoundMeaning;
+            }
+    }
+}
+
 function lowerWordFinalHighVowelsExample() {
     let highVowelListSpan = document.getElementsByClassName("high-vowels");
     for(let i = 0 ; i < highVowelListSpan.length; i++) {
@@ -403,8 +455,6 @@ function noResonantBeforeConsonant() {
     let example2 = document.getElementsByClassName("no-resonant-before-consonant-example2");
     let exampleMeaning2 = document.getElementsByClassName("no-resonant-before-consonant-example-meaning2");
     
-
-    console.log(example.length)
     for(let i = 0; i < example.length; i++) {
         for(let j = 0; j < generatedNouns.length; j++) {
             let noun = generatedNouns[j];
@@ -441,6 +491,60 @@ function noResonantBeforeConsonant() {
     
 }
 
+function lenitePlosivesBeforeOtherPlosives() {
+    let beginsInConsonantArray = [];
+    let endsInConsonantArray = [];
+    let example = document.getElementsByClassName("lenite-plosive-before-other-plosive-example");
+    let exampleMeaning = document.getElementsByClassName("lenite-plosive-before-other-plosive-example-meaning");
+    let example2 = document.getElementsByClassName("lenite-plosive-before-other-plosive-example2");
+    let exampleMeaning2 = document.getElementsByClassName("lenite-plosive-before-other-plosive-example-meaning2");
+
+    for(let i = 0; i < example.length; i++) {
+        for(let j = 0; j < generatedNouns.length; j++) {
+            let noun = generatedNouns[j];
+            if(plosives.includes(noun[noun.length -1])) {
+                endsInConsonantArray.push(noun)
+            }
+            if(plosives.includes(noun[0])) {
+                beginsInConsonantArray.push(noun)
+            }
+        }
+
+        if(endsInConsonantArray.length !== 0 && beginsInConsonantArray !== 0) {
+           
+       
+            let randomNoun = endsInConsonantArray[Math.floor(Math.random() * endsInConsonantArray.length)];
+            let randomNounMeaning = nounArray[generatedNouns.indexOf(randomNoun)]
+            example[i].innerHTML = spell(soundChange(randomNoun));
+            exampleMeaning[i].innerHTML = randomNounMeaning;
+
+            let randomNounForCompound = beginsInConsonantArray[Math.floor(Math.random() * beginsInConsonantArray.length)];
+            let randomNounMeaningForCompound = nounArray[generatedNouns.indexOf(randomNounForCompound)]
+            example2[i].innerHTML = spell(soundChange(randomNounForCompound));
+            exampleMeaning2[i].innerHTML = randomNounMeaningForCompound;
+
+            let compound = randomNoun + randomNounForCompound     
+            document.getElementsByClassName("lenite-plosive-before-other-plosive-example-compound")[i].innerHTML = spell(soundChange(compound));
+
+            let compoundMeaning = `${randomNounMeaning}-${randomNounMeaningForCompound}`     
+            document.getElementsByClassName("lenite-plosive-before-other-plosive-example-compound-meaning")[i].innerHTML = compoundMeaning;
+            }
+        }
+
+
+    for(let i = 0; i < plosives.length; i++) {
+        if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0 && consonants.includes(plosives[i])) {
+            let newLi = document.createElement("li");
+            newLi.innerHTML = `${plosives[i]} > [${lenitionFromPlosives1[i]}] ⟨${spell(lenitionFromPlosives1[i])}⟩`
+            document.getElementById("lenition-before-list").appendChild(newLi)
+        } else if (randomNumForlenitionofPlosivebeforeOtherPlosive === 1 && consonants.includes(plosives[i])) {
+             let newLi = document.createElement("li");
+            newLi.innerHTML = `${plosives[i]} > [${lenitionFromPlosives2[i]}] ⟨${spell(lenitionFromPlosives2[i])}⟩`
+            document.getElementById("lenition-before-list").appendChild(newLi)
+        }
+    }
+}
+
 
 
 let generateLanguageButton = document.getElementById("generate-language");
@@ -460,7 +564,10 @@ function generateLanguage() {
     makeOrthoGuide(allPossibleConsonants);
     lengthExplanation();
     showPhonotacticRules();
-    soundChange("karli")
+    console.log(soundChange("reke"))
+    console.log(soundChange("morko"))
+    console.log(soundChange("reki"))
+    console.log(soundChange("morku"))
     
    }
 

@@ -1,4 +1,5 @@
-import {consonants, vowels, selectedSyllables} from './generatePhonology.js'
+import {consonants, vowels, selectedSyllables, allHighVowels} from './generatePhonology.js';
+import { spell } from './orthography.js';
 
 // function soundChange(word) {
 
@@ -150,12 +151,17 @@ import {consonants, vowels, selectedSyllables} from './generatePhonology.js'
 
 
 let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "ɦ", "dʒ", "ɟ", "ʁ", "ʒ", "ɟ", "ʕ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", , "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "ð", "ɮ"];
-let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "tʃ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"
-]
+let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "tʃ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"]
 let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
 let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ"];
+let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ"< "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ"]
 
 let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
+
+let plosives = ["b", "d", "g", "bʰ", "dʰ", "gʰ", "ɖ", "ɟ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "p", "t", "k", "pʰ", "tʰ", "kʰ", "ʈ", "c", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "ʔ"]
+
+let lenitionFromPlosives1 = ["β", "ð", "ɣ", "β", "ð", "ɣ", "ʐ", "ʝ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "ɸ", "θ", "x", "ɸ", "θ", "x", "θ", "ç", "ɸʲ", "θʲ", "xʲ", "ɸʷ", "θʷ", "xʷ", "ɸʲ", "θʲ", "xʲ", "θʷ", "θʷ", "xʷ", "h"];
+let lenitionFromPlosives2 = ["v", "z", "h", "v", "z", "h", "ʐ", "j", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "f", "s", "h", "f", "s", "h", "ʂ", "j", "fʲ", "sʲ", "hʲ", "fʷ", "sʷ", "hʷ", "fʲ", "sʲ", "hʲ", "fʷ", "stʷ", "hʷ", "h"];
 
 
 let syllablestructuresThatHaveWordFinalConsonants = ["CVC", "VVC", "VVCC", "VCC", "AVC", "CAVCC", "CVNC", "VNC", "CVFC", "FCVC", "CCFV", "CVRC", "CVCR", "CRVC", "CVH", "HVC", "VC"];
@@ -168,6 +174,14 @@ function checkIfWordFinalConsonantsArePossible() {
             return false;
         }
 }
+}
+
+function checkIfThereAreNonHighVowels() {
+    for(let i = 0; i < nonHighVowels.length; i++) {
+        if (vowels.includes(nonHighVowels[i])) {
+            return true;
+        }
+    }
 }
 
 function checkIfVoicingIsPresent() {
@@ -184,8 +198,12 @@ let chosenSoundChanges = [];
 let wordArray = [];
 let wordFinalDevoicingTrueOrFalse = "";
 let randomNumForNoResonantsBeforeConsonants = "";
+let randomNumForlenitionofPlosivebeforeOtherPlosive = "";
 
 function selectSoundChanges() {
+    console.log(checkIfThereAreNonHighVowels())
+
+
     potentialSoundChanges = [];
     chosenSoundChanges = [];
     wordArray = [];
@@ -195,7 +213,7 @@ function selectSoundChanges() {
     potentialSoundChanges.push("lenitionofPlosivebeforeOtherPlosive");
     potentialSoundChanges.push("wordFinalHighVowelsLower");
     potentialSoundChanges.push("NoResonantsBeforeConsonants");
-    potentialSoundChanges.push("PreventPlosivesFromClustering");
+    potentialSoundChanges.push("nonInitialNonHighVowelsBecomeA");
    
     while(chosenSoundChanges.length < 6) {
         let randomNumber = Math.floor(Math.random()* potentialSoundChanges.length);
@@ -207,14 +225,148 @@ function selectSoundChanges() {
     console.log(chosenSoundChanges)
 
     randomNumForNoResonantsBeforeConsonants = Math.floor(Math.random() * 4)
+    randomNumForlenitionofPlosivebeforeOtherPlosive = Math.floor(Math.random() * 2)
 }
-
 
 
 function soundChange(word) {
     wordArray = Array.from(word)
 
-    //The below changes are merely corrective to clean up some awkward unrealistic clusters that often get produced, thus they always apply and are not considered a part of the true sound changes.
+
+    /*********************************************************************************/
+    if(chosenSoundChanges.includes("wordFinalDevoicing") && checkIfWordFinalConsonantsArePossible() && checkIfVoicingIsPresent()) {
+        
+        if(voiced.includes(wordArray[wordArray.length -1])) {
+            document.getElementById("wordFinalDevoicing").style.display = "block"; 
+            let voicedIndex = voiced.indexOf(wordArray[wordArray.length -1]);
+            wordArray[wordArray.length -1] = unvoiced[voicedIndex] 
+                if(voiced.includes(wordArray[wordArray.length -2])) {
+                    let voicedIndex = voiced.indexOf(wordArray[wordArray.length -2]);
+                    wordArray[wordArray.length -2] = unvoiced[voicedIndex] 
+                }
+        }
+    } else {
+        document.getElementById("wordFinalDevoicing").style.display = "none"; 
+    }
+
+    /*********************************************************************************/
+    if(chosenSoundChanges.includes("wordFinalHighVowelsLower")) {
+        document.getElementById("lowersFinalHighVowels").style.display = "block";
+        if(highVowels.includes(wordArray[wordArray.length -1])) {
+            let vowelIndex = highVowels.indexOf(wordArray[wordArray.length -1]);
+            wordArray[wordArray.length -1] = midVowels[vowelIndex]   
+        }
+    } else {
+        document.getElementById("lowersFinalHighVowels").style.display = "none";
+    }
+    /*********************************************************************************/
+
+    if(chosenSoundChanges.includes("NoResonantsBeforeConsonants") && checkIfWordFinalConsonantsArePossible()) {
+        document.getElementById("noResonantsBeforeConsonants").style.display = "block";
+
+        if(randomNumForNoResonantsBeforeConsonants === 0) {
+            //deletes the resonant
+            document.getElementById("resonant-lost").style.display = "block";;
+            for(let i = 0; i < wordArray.length; i++) {
+                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+                    wordArray.splice(i, 1);
+                }
+            }
+        } else {
+             document.getElementById("resonant-lost").style.display = "none";
+         }
+        if(randomNumForNoResonantsBeforeConsonants === 1) {
+            //inserts /i/ between resonant and consonant
+            document.getElementById("epenthetic-i").style.display = "block";
+            for(let i = 0; i < wordArray.length; i++) {
+                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+                    wordArray.splice(i+1, 0, "i");
+                }
+            }
+        } else {
+            document.getElementById("epenthetic-i").style.display = "none";
+        }
+        if(randomNumForNoResonantsBeforeConsonants === 2) {
+            //inserts /u/ between resonant and consonant
+            document.getElementById("epenthetic-u").style.display = "block";
+            for(let i = 0; i < wordArray.length; i++) {
+                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+                    wordArray.splice(i+1, 0, "u");
+                }
+            }
+        } else {
+            document.getElementById("epenthetic-u").style.display = "none";
+        }
+        if(randomNumForNoResonantsBeforeConsonants === 3) {
+            //the resonant and consonant switch places
+            document.getElementById("resonant-metaphesis").style.display = "block";
+            for(let i = 0; i < wordArray.length; i++) {
+                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+                    let resonant = wordArray[i]; 
+                    let followingConsonant = wordArray[i+1];
+                    wordArray[i] = followingConsonant;
+                    wordArray[i+1] = resonant;
+                    if(resonants.includes(wordArray[i]) && resonants.includes(wordArray[i + 1])) {
+                        wordArray.splice(i+1, 0, "u");
+                    }
+                }
+            }
+        } else {
+            document.getElementById("resonant-metaphesis").style.display = "none";
+        }
+        
+    } else {
+       document.getElementById("noResonantsBeforeConsonants").style.display = "none";
+    }
+
+    /*********************************************************************************/
+    if(chosenSoundChanges.includes("lenitionofPlosivebeforeOtherPlosive") && checkIfWordFinalConsonantsArePossible()) {
+        document.getElementById("LenitePlosivesBeforeOtherPlosives").style.display = "block";
+        for(let i = 0; i < wordArray.length; i++) {
+
+            if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
+                if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1])) {
+                    let firstPlosiveIndex = plosives.indexOf(wordArray[i-1])
+                    wordArray[i-1] = lenitionFromPlosives1[firstPlosiveIndex]
+                }
+            } else if(randomNumForlenitionofPlosivebeforeOtherPlosive === 1) {
+                if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1])) {
+                    let firstPlosiveIndex = plosives.indexOf(wordArray[i-1])
+                    wordArray[i-1] = lenitionFromPlosives2[firstPlosiveIndex]
+                }
+            }
+        }
+
+        if(chosenSoundChanges.includes("wordFinalDevoicing")) {
+            document.getElementById("lenition-to-voiced-fricative").style.display = "inline";
+        }     
+    } else {
+        document.getElementById("LenitePlosivesBeforeOtherPlosives").style.display = "none";
+    }
+
+
+    /*********************************************************************************/
+
+    if(chosenSoundChanges.includes("nonInitialNonHighVowelsBecomeA") && checkIfThereAreNonHighVowels()) {
+        document.getElementById("nonHighNonInitialVowelsLowerToA").style.display = "block"
+        document.getElementById("word-final-high-vowels").innerHTML = "now end in /a/:"
+        let num = 0;
+        for(let i = 0; i < wordArray.length; i++) {
+            if(nonHighVowels.includes(wordArray[i]) && num !== 0) {
+                wordArray[i] = "a";
+            }
+            if(vowels.includes(wordArray[i])) {
+                num++;
+            }
+        }
+    } else {
+        document.getElementById("nonHighNonInitialVowelsLowerToA").style.display = "none"
+        document.getElementById("word-final-high-vowels").innerHTML = "now end in mid vowels:"
+    }
+    
+    /*********************************************************************************/
+
+        //The below changes are merely corrective to clean up some awkward unrealistic clusters that often get produced, thus they always apply and are not considered a part of the true sound changes.
         for(let i = 0; i < wordArray.length; i++) {
         if(unvoiced.includes(wordArray[i]) && voiced.includes(wordArray[i + 1])) {
             let unvoicedIndex = unvoiced.indexOf(wordArray[i])
@@ -248,101 +400,8 @@ function soundChange(word) {
         }
     }
 
-    /*********************************************************************************/
-    if(chosenSoundChanges.includes("wordFinalDevoicing") && checkIfWordFinalConsonantsArePossible() && checkIfVoicingIsPresent()) {
-        
-        if(voiced.includes(wordArray[wordArray.length -1])) {
-            document.getElementById("wordFinalDevoicing").style.display = "block"; 
-            let voicedIndex = voiced.indexOf(wordArray[wordArray.length -1]);
-            wordArray[wordArray.length -1] = unvoiced[voicedIndex] 
-                if(voiced.includes(wordArray[wordArray.length -2])) {
-                    let voicedIndex = voiced.indexOf(wordArray[wordArray.length -2]);
-                    wordArray[wordArray.length -2] = unvoiced[voicedIndex] 
-                }
-        }
-    } else {
-        document.getElementById("wordFinalDevoicing").style.display = "none"; 
-    }
 
-    /*********************************************************************************/
-    if(chosenSoundChanges.includes("wordFinalHighVowelsLower")) {
-        document.getElementById("lowersFinalHighVowels").style.display = "block";
-        let newMidVowelsToAddTInventory = [];
-        if(highVowels.includes(wordArray[wordArray.length -1])) {
-            let vowelIndex = highVowels.indexOf(wordArray[wordArray.length -1]);
-            wordArray[wordArray.length -1] = midVowels[vowelIndex]
-            newMidVowelsToAddTInventory.push(midVowels[vowelIndex])
-            if(document.getElementById("mid-vowels").innerHTML === "//") {
-                document.getElementById("mid-vowels").innerHTML = `/hello/`
-                document.getElementById("mid-vowels").style.display = "inline"
-            }
-        }
-    } else {
-        document.getElementById("lowersFinalHighVowels").style.display = "none";
-    }
-    /*********************************************************************************/
-
-    if(chosenSoundChanges.includes("NoResonantsBeforeConsonants") && checkIfWordFinalConsonantsArePossible()) {
-        document.getElementById("noResonantsBeforeConsonants").style.display = "block";
-
-        if(randomNumForNoResonantsBeforeConsonants === 0) {
-            //deletes the resonant
-            console.log("resonant lost")
-            document.getElementById("resonant-lost").style.display = "block";;
-            for(let i = 0; i < wordArray.length; i++) {
-                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
-                    wordArray.splice(i, 1);
-                }
-            }
-        } else {
-             document.getElementById("resonant-lost").style.display = "none";
-         }
-        if(randomNumForNoResonantsBeforeConsonants === 1) {
-            //inserts /i/ between resonant and consonant
-            console.log("epenthetic i")
-            document.getElementById("epenthetic-i").style.display = "block";
-            for(let i = 0; i < wordArray.length; i++) {
-                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
-                    wordArray.splice(i+1, 0, "i");
-                }
-            }
-        } else {
-            document.getElementById("epenthetic-i").style.display = "none";
-        }
-        if(randomNumForNoResonantsBeforeConsonants === 2) {
-            //inserts /u/ between resonant and consonant
-            console.log("epenthetic u")
-            document.getElementById("epenthetic-u").style.display = "block";
-            for(let i = 0; i < wordArray.length; i++) {
-                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
-                    wordArray.splice(i+1, 0, "u");
-                }
-            }
-        } else {
-            document.getElementById("epenthetic-u").style.display = "none";
-        }
-        if(randomNumForNoResonantsBeforeConsonants === 3) {
-            //the resonant and consonant switch places
-            console.log("metathesis")
-            document.getElementById("resonant-metaphesis").style.display = "block";
-            for(let i = 0; i < wordArray.length; i++) {
-                if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
-                    let resonant = wordArray[i]; 
-                    let followingConsonant = wordArray[i+1];
-                    wordArray[i] = followingConsonant;
-                    wordArray[i+1] = resonant;
-                    if(resonants.includes(wordArray[i]) && resonants.includes(wordArray[i + 1])) {
-                        wordArray.splice(i+1, 0, "u");
-                    }
-                }
-            }
-        } else {
-            document.getElementById("resonant-metaphesis").style.display = "none";
-        }
-        
-    } else {
-       document.getElementById("noResonantsBeforeConsonants").style.display = "none";
-    }
+    
         
     //console.log(wordArray)
 
@@ -353,4 +412,4 @@ function soundChange(word) {
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, resonants};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels};

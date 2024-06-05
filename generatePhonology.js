@@ -1374,7 +1374,7 @@ function collectAllVowels() {
     
     document.getElementById("vowel-number").innerHTML = allVowelsArrayFixed.length
 
-    allLongVowels = allLongFrontVowels.concat(allLongBackVowels, allLongCentralVowels, allLongHighVowels, allLongHighMidVowels, allLongMidVowels, allLongLowMidVowels, allLongLowVowels)
+    allLongVowels = allLongFrontVowels.concat(allLongBackVowels, allLongCentralVowels, allLongHighVowels, allLongHighMidVowels, allLongMidVowels, allLongLowMidVowels, allLongLowVowels);
 
     if(allLongVowels.length > 0) {
          document.getElementById("vowel-quantities").style.display = "inline";
@@ -1495,7 +1495,7 @@ function chooseSyllablesToBeUsed() {
         selectedSyllables.push("CCVCC"); //syllables are CV and CCV
     }
     if(randomNum > 10) {
-        randomNum = Math.floor(Math.random() * 11) + 1; //the maximum amount of possible syllable structures a generated language can have is 10
+        randomNum = Math.floor(Math.random() * 6) + 1; //the maximum amount of possible syllable structures a generated language can have is 5
         for(let i = 0; i < randomNum; i++) {
             let randomIndex = Math.floor(Math.random() * allPossibleSyllablesArray.length);
             if(selectedSyllables.includes(allPossibleSyllablesArray[randomIndex])) {

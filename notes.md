@@ -4,13 +4,12 @@ Finish the phonology before doing anything else, even though the rest of the pag
 #Phonology
 
 Phonotactic ideas:
-* Two vowels together must share a quality, like height
-* fricatives can't occur after plosives
-* /f/ can only occur in onset
-* plosives can occur only in onset, either they become fricatives elsewhere or just drop
-* plosives can occur only word initially
-* all non-high vowels in non-initial syllables become /a/
 
+- Two vowels together must share a quality, like height
+- fricatives can't occur after plosives
+- /f/ can only occur in onset
+- plosives can occur only in onset, either they become fricatives elsewhere or just drop
+- plosives can occur only word initially
 
 .
 .
@@ -42,7 +41,6 @@ inflections much like the inflection noun section
 ..
 ---Things to Add Later---
 
-
 at the bottom, generate a block of text when all parts of speech have been
 given. There will be several templates, chosen at random (there will be a button
 to cycle through different templates without changing the rest of the page). e.g
@@ -62,15 +60,16 @@ add more than one meaning to a word, make a psuedo thesaurus? - if a word has re
 terms listed, then the other terms will also be assigned at random
 
 ##Features to be randomized/chosen:
-* Stative verbs vs nominal verbs
-* Word order
-* What noun cases there are
-* If adjectives agree at all, and if so, with what
-* Verb tenses
-* Verb mood
-* Verb aspect
-* Derivational methods
-* Different sets of vocabulary for different climates and cultures? i.e marine terms vs desert vs tundra etc
-* Sets of words to be chosen based on a random culture and habitat. So the vocabulary has a sense of cohesion e.g not having a word both for camel and polarbear
-* Add a placename and personalname generator, which randomly selects a style of name derivation and then generates names using that.
-* Generator for the language name. The name can be derived from a fictional place where it is spoken (using a generated placename), or by using a random noun or adjective + the word language, or by creating an ethnonym for the speakers and then using that + the word language
+
+- Stative verbs vs nominal verbs
+- Word order
+- What noun cases there are
+- If adjectives agree at all, and if so, with what
+- Verb tenses
+- Verb mood
+- Verb aspect
+- Derivational methods
+- Different sets of vocabulary for different climates and cultures? i.e marine terms vs desert vs tundra etc
+- Sets of words to be chosen based on a random culture and habitat. So the vocabulary has a sense of cohesion e.g not having a word both for camel and polarbear
+- Add a placename and personalname generator, which randomly selects a style of name derivation and then generates names using that.
+- Generator for the language name. The name can be derived from a fictional place where it is spoken (using a generated placename), or by using a random noun or adjective + the word language, or by creating an ethnonym for the speakers and then using that + the word language

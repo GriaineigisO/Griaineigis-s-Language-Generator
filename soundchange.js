@@ -1,4 +1,4 @@
-import {consonants, vowels, selectedSyllables, allHighVowels} from './generatePhonology.js';
+import {consonants, vowels, selectedSyllables, allNasalsArray} from './generatePhonology.js';
 import { spell } from './orthography.js';
 
 // function soundChange(word) {
@@ -158,10 +158,10 @@ let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", 
 
 let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
 
-let plosives = ["b", "d", "g", "bʰ", "dʰ", "gʰ", "ɖ", "ɟ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "p", "t", "k", "pʰ", "tʰ", "kʰ", "ʈ", "c", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "ʔ"]
+let plosives = ["b", "d", "g", "bʰ", "dʰ", "gʰ", "ɖ", "ɟ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "p", "t", "k", "pʰ", "tʰ", "kʰ", "ʈ", "c", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "ʔ", "q", "ɢ"]
 
-let lenitionFromPlosives1 = ["β", "ð", "ɣ", "β", "ð", "ɣ", "ʐ", "ʝ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "ɸ", "θ", "x", "ɸ", "θ", "x", "θ", "ç", "ɸʲ", "θʲ", "xʲ", "ɸʷ", "θʷ", "xʷ", "ɸʲ", "θʲ", "xʲ", "θʷ", "θʷ", "xʷ", "h"];
-let lenitionFromPlosives2 = ["v", "z", "h", "v", "z", "h", "ʐ", "j", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "f", "s", "h", "f", "s", "h", "ʂ", "j", "fʲ", "sʲ", "hʲ", "fʷ", "sʷ", "hʷ", "fʲ", "sʲ", "hʲ", "fʷ", "stʷ", "hʷ", "h"];
+let lenitionFromPlosives1 = ["β", "ð", "ɣ", "β", "ð", "ɣ", "ʐ", "ʝ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "ɸ", "θ", "x", "ɸ", "θ", "x", "θ", "ç", "ɸʲ", "θʲ", "xʲ", "ɸʷ", "θʷ", "xʷ", "ɸʲ", "θʲ", "xʲ", "θʷ", "θʷ", "xʷ", "h", "χ", "ʁ"];
+let lenitionFromPlosives2 = ["v", "z", "h", "v", "z", "h", "ʐ", "j", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "f", "s", "h", "f", "s", "h", "ʂ", "j", "fʲ", "sʲ", "hʲ", "fʷ", "sʷ", "hʷ", "fʲ", "sʲ", "hʲ", "fʷ", "stʷ", "hʷ", "h", "h", "h"];
 
 
 let syllablestructuresThatHaveWordFinalConsonants = ["CVC", "VVC", "VVCC", "VCC", "AVC", "CAVCC", "CVNC", "VNC", "CVFC", "FCVC", "CCFV", "CVRC", "CVCR", "CRVC", "CVH", "HVC", "VC"];
@@ -197,38 +197,41 @@ let potentialSoundChanges = [];
 let chosenSoundChanges = [];
 let wordArray = [];
 let wordFinalDevoicingTrueOrFalse = "";
+let randomNumForWordInitialPlosiveClusters = "";
+let randomNumForWordInitialNasalClusters = "";
 let randomNumForNoResonantsBeforeConsonants = "";
 let randomNumForlenitionofPlosivebeforeOtherPlosive = "";
 
 function selectSoundChanges() {
-    console.log(checkIfThereAreNonHighVowels())
-
-
     potentialSoundChanges = [];
     chosenSoundChanges = [];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
+    potentialSoundChanges.push("plosivesCantClusterTogetherWordInitially");
     potentialSoundChanges.push("wordFinalDevoicing");
     potentialSoundChanges.push("interVocalicLenition");
     potentialSoundChanges.push("lenitionofPlosivebeforeOtherPlosive");
     potentialSoundChanges.push("wordFinalHighVowelsLower");
     potentialSoundChanges.push("NoResonantsBeforeConsonants");
     potentialSoundChanges.push("nonInitialNonHighVowelsBecomeA");
+     potentialSoundChanges.push("nasalsCantAppearAfterConsonants");
    
     while(chosenSoundChanges.length < 6) {
         let randomNumber = Math.floor(Math.random()* potentialSoundChanges.length);
         if(chosenSoundChanges.includes(potentialSoundChanges[randomNumber]) === false) {
             chosenSoundChanges.push(potentialSoundChanges[randomNumber]) 
         }
-        
     }
     console.log(chosenSoundChanges)
 
-    randomNumForNoResonantsBeforeConsonants = Math.floor(Math.random() * 4)
-    randomNumForlenitionofPlosivebeforeOtherPlosive = Math.floor(Math.random() * 2)
+    randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 30);
+    randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
+    randomNumForNoResonantsBeforeConsonants = Math.floor(Math.random() * 4);
+    randomNumForlenitionofPlosivebeforeOtherPlosive = Math.floor(Math.random() * 2);
+    
 }
 
-
+//Some sound changes won't be considered as part of an explicitly listed phonotactic, but still apply to stop the output conisting of rare features. For example, the output kept giving words with complex clusters of plosives word initially, which is plausible, but it did it far too much to be natural. In these cases, I intentionally stunt these results by making sound changes to undo them and give these sound changes a very high chance of occuring. So the unusual results can still happen but will be much rarer and thus more natural. These changes will be governed by their own random numbers instead of being chosen based on whether they made it to the chosenSoundChanges array.
 function soundChange(word) {
     wordArray = Array.from(word)
 
@@ -247,6 +250,23 @@ function soundChange(word) {
         }
     } else {
         document.getElementById("wordFinalDevoicing").style.display = "none"; 
+    }
+
+    /*********************************************************************************/
+    if(randomNumForWordInitialPlosiveClusters !== 5) {
+        while(plosives.includes(wordArray[0]) && plosives.includes(wordArray[1])) {
+            wordArray.splice(0, 1);
+        }
+    }
+    
+    /*********************************************************************************/
+    if(randomNumForWordInitialNasalClusters !== 5) {
+        while(allNasalsArray.includes(wordArray[0]) && consonants.includes(wordArray[1])) {
+            wordArray.splice(0, 1);
+        }
+        while(allNasalsArray.includes(wordArray[1]) && consonants.includes(wordArray[0])) {
+            wordArray.splice(1, 1);
+        }
     }
 
     /*********************************************************************************/
@@ -363,6 +383,20 @@ function soundChange(word) {
         document.getElementById("nonHighNonInitialVowelsLowerToA").style.display = "none"
         document.getElementById("word-final-high-vowels").innerHTML = "now end in mid vowels:"
     }
+
+    /*********************************************************************************/
+     if(chosenSoundChanges.includes("nasalsCantAppearAfterConsonants") && checkIfWordFinalConsonantsArePossible()) {
+        document.getElementById("nasalsCantOccurAfterConsonants").style.display = "block";
+        for(let i = 0; i < wordArray.length; i++) {
+            if(consonants.includes(wordArray[i]) && allNasalsArray.includes(wordArray[i+1])) {
+                wordArray.splice(i+1, 0, "i");
+            }
+        }
+     } else {
+        document.getElementById("nasalsCantOccurAfterConsonants").style.display = "none"
+     }
+
+    
     
     /*********************************************************************************/
 

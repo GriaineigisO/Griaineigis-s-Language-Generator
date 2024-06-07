@@ -336,6 +336,7 @@ function showPhonotacticRules() {
     lowerWordFinalHighVowelsExample();
     noResonantBeforeConsonant();
     lenitePlosivesBeforeOtherPlosives();
+    noNasalsAfterConsonants();
 
 }
 
@@ -545,6 +546,50 @@ function lenitePlosivesBeforeOtherPlosives() {
     }
 }
 
+function noNasalsAfterConsonants() {
+    let beginsInANasalArray = [];
+    let endsInConsonantArray = [];
+    let example = document.getElementsByClassName("insert-i-before-nasal-example");
+    let exampleMeaning = document.getElementsByClassName("insert-i-before-nasal-example-meaning");
+    let example2 = document.getElementsByClassName("insert-i-before-nasal-example2");
+    let exampleMeaning2 = document.getElementsByClassName("insert-i-before-nasal-example-meaning2");
+    
+    for(let i = 0; i < example.length; i++) {
+        for(let j = 0; j < generatedNouns.length; j++) {
+            let noun = generatedNouns[j];
+            if(consonants.includes(noun[noun.length -1])) {
+                endsInConsonantArray.push(noun)
+            }
+            if(selectNasals().includes(noun[0])) {
+                beginsInANasalArray.push(noun)
+            }
+        }
+        
+        if(endsInConsonantArray.length !== 0 && beginsInANasalArray !== 0) {
+           
+       
+            let randomNoun = endsInConsonantArray[Math.floor(Math.random() * endsInConsonantArray.length)];
+            let randomNounMeaning = nounArray[generatedNouns.indexOf(randomNoun)]
+            example[i].innerHTML = spell(soundChange(randomNoun));
+            exampleMeaning[i].innerHTML = randomNounMeaning;
+
+            let randomNounForCompound = beginsInANasalArray[Math.floor(Math.random() * beginsInANasalArray.length)];
+            let randomNounMeaningForCompound = nounArray[generatedNouns.indexOf(randomNounForCompound)]
+            example2[i].innerHTML = spell(soundChange(randomNounForCompound));
+            exampleMeaning2[i].innerHTML = randomNounMeaningForCompound;
+
+            let compound = randomNoun + randomNounForCompound     
+            document.getElementsByClassName("insert-i-before-nasal-example-compound")[i].innerHTML = spell(soundChange(compound));
+
+            let compoundMeaning = `${randomNounMeaning}-${randomNounMeaningForCompound}`     
+            document.getElementsByClassName("insert-i-before-nasal-example-compound-meaning")[i].innerHTML = compoundMeaning;
+        }
+    }
+        
+        
+    
+}
+
 
 
 let generateLanguageButton = document.getElementById("generate-language");
@@ -564,10 +609,10 @@ function generateLanguage() {
     makeOrthoGuide(allPossibleConsonants);
     lengthExplanation();
     showPhonotacticRules();
-    console.log(soundChange("reke"))
-    console.log(soundChange("morko"))
-    console.log(soundChange("reki"))
-    console.log(soundChange("morku"))
+    console.log(soundChange("tomne"))
+    console.log(soundChange("dokme"))
+    console.log(soundChange("paletno"))
+    console.log(soundChange("waresmu"))
     
    }
 

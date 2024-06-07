@@ -905,7 +905,7 @@ function selectNasals() {
     if(allNasalsArray.length > 0) {
         document.getElementById("nasal-list").style.display = "block";
     }
-    return allNasalsArray //spanNasalList;
+    return allNasalsArray
 }
 
 function selectPlosives() {
@@ -1564,4 +1564,4 @@ function generatePhonology() {
 
 }
 
-export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allGlottalFricatives, allVelarFricatives, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, allLongVowels, allLongConsonants, voicingTrueOrFalse, allHighVowels};
+export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allGlottalFricatives, allVelarFricatives, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, allLongVowels, allLongConsonants, voicingTrueOrFalse, allHighVowels, allNasalsArray};

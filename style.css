@@ -1,6 +1,7 @@
 body {
     font-family: "breakers", sans-serif;
     background-color: #2c2d36;
+    color: #f5f8f8;
 }
 
 /*--HEADER---*/
@@ -14,6 +15,10 @@ header {
     flex-direction: row;
     justify-content: space-between;
     top: 0;
+}
+
+#title-for-pdf {
+    display: none;
 }
 
 #title-div h1 {
@@ -68,15 +73,15 @@ section {
     margin: 0px 50px 0px 50px;
 }
 
-h1, h2, h3, h4, .headingProot, .headingPmeaning, p, a, li {
+/*h1, h2, h3, h4, .headingProot, .headingPmeaning, p, a, li {
     color: #f5f8f8
-}
+}*/
 
 a:hover {
     color: #dd6f2c
 }
 
-.inputSection, .intro {
+.inputSection, .intro, .grammar, .dictionary {
     margin-left: 4em;
     margin-top: 3em;
 }
@@ -214,9 +219,9 @@ h1, h2, h3, h4 {
     flex-direction: column;
 }
 
-.entry, .entry-english {
+/*.entry, .entry-english {
     color: #f5f8f8;
-}
+}*/
 
 
 
@@ -314,4 +319,55 @@ h1, h2, h3, h4 {
     list-style-type: none;
 }
 
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
 
+
+@media print {
+
+    .intro, header {
+        display: none;
+    }
+    body {
+        height: 29.7cm;
+        width: 21cm;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: black;
+        background-color: white;
+    }
+    #grammar {
+        page-break-after: always;
+    }
+    #language-to-english {
+        page-break-after: always;
+    }
+    #title-for-pdf {
+        display: flex;
+        flex-direction: column;
+        align-content: start;
+        text-align: center;
+        page-break-after: always; 
+    }
+    #pdf2, #pdf4 {
+        font-size: 10mm;
+        font-weight: bold;
+    }
+    #pdf3 {
+        font-style: italic;
+    }
+    #pdf4 {
+        letter-spacing: 8px;
+        text-transform: uppercase;
+    }
+    #pdf5 {
+        font-size: 7mm;
+    }
+    #language-to-english, #english-to-language {
+        column-count: 2;
+    }
+    
+
+    
+}

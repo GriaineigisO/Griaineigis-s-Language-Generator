@@ -1,4 +1,4 @@
-import {consonants, vowels, selectedSyllables, allNasalsArray} from './generatePhonology.js';
+import {consonants, vowels, selectedSyllables, allNasalsArray, selectFricatives} from './generatePhonology.js';
 import { spell } from './orthography.js';
 
 // function soundChange(word) {
@@ -154,7 +154,7 @@ let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "�
 let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "tʃ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"]
 let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
 let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ"];
-let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ"< "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ"]
+let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ"]
 
 let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
 
@@ -201,6 +201,7 @@ let randomNumForWordInitialPlosiveClusters = "";
 let randomNumForWordInitialNasalClusters = "";
 let randomNumForNoResonantsBeforeConsonants = "";
 let randomNumForlenitionofPlosivebeforeOtherPlosive = "";
+let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
 
 function selectSoundChanges() {
     potentialSoundChanges = [];
@@ -222,16 +223,17 @@ function selectSoundChanges() {
             chosenSoundChanges.push(potentialSoundChanges[randomNumber]) 
         }
     }
-    console.log(chosenSoundChanges)
+    //console.log(chosenSoundChanges)
 
-    randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 30);
+    randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
     randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
+    randomNumForNoFricativesAsLatterElementOfInitialClusters = Math.floor(Math.random() * 50);
     randomNumForNoResonantsBeforeConsonants = Math.floor(Math.random() * 4);
     randomNumForlenitionofPlosivebeforeOtherPlosive = Math.floor(Math.random() * 2);
     
 }
 
-//Some sound changes won't be considered as part of an explicitly listed phonotactic, but still apply to stop the output conisting of rare features. For example, the output kept giving words with complex clusters of plosives word initially, which is plausible, but it did it far too much to be natural. In these cases, I intentionally stunt these results by making sound changes to undo them and give these sound changes a very high chance of occuring. So the unusual results can still happen but will be much rarer and thus more natural. These changes will be governed by their own random numbers instead of being chosen based on whether they made it to the chosenSoundChanges array.
+//Some sound changes won't be considered as part of an explicitly listed phonotactic, but still apply to stop the output consisting of rare features. For example, the output kept giving words with complex clusters of plosives word initially, which is plausible, but it did it far too much to be natural. In these cases, I intentionally stunt these results by making sound changes to undo them and give these sound changes a very high chance of occuring. So the unusual results can still happen but will be much rarer and thus more natural. These changes will be governed by their own random numbers instead of being chosen based on whether they made it to the chosenSoundChanges array.
 function soundChange(word) {
     wordArray = Array.from(word)
 
@@ -265,6 +267,13 @@ function soundChange(word) {
             wordArray.splice(0, 1);
         }
         while(allNasalsArray.includes(wordArray[1]) && consonants.includes(wordArray[0])) {
+            wordArray.splice(1, 1);
+        }
+    }
+
+    /*********************************************************************************/
+    if(randomNumForNoFricativesAsLatterElementOfInitialClusters !== 5) {
+        while(consonants.includes(wordArray[0]) && selectFricatives().includes(wordArray[1])) {
             wordArray.splice(1, 1);
         }
     }
@@ -393,7 +402,7 @@ function soundChange(word) {
             }
         }
      } else {
-        document.getElementById("nasalsCantOccurAfterConsonants").style.display = "none"
+        document.getElementById("nasalsCantOccurAfterConsonants").style.display = "none";
      }
 
     

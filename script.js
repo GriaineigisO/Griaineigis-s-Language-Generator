@@ -13,10 +13,13 @@ import conjunctionArray from './englishWordArrays/conjunctions.js'
 import adverbArray from './englishWordArrays/adverbs.js'
 import adpositionArray from './englishWordArrays/adpositions.js';
 import intensifierArray from './englishWordArrays/intensifier.js';
+import nounCases from './allPossibleNounCases.js'
 
 import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
+import {allWordOrders, subjectFinalWordOrders, objectFinalWordOrders, verbFinalWordOrders} from './allPossibleWordOrders.js'
+
 
 //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
 let verbArray = transitiveVerbArray.concat(intransitiveVerbArray); 
@@ -32,6 +35,9 @@ let generatedConjunctions = [];
 let generatedAdverbs = [];
 let generatedAdpositions = [];
 let generatedIntensifiers = [];
+let chosenNounCases = [];
+let grammaticalNumberArray = [];
+let nounGenderArray = [];
 
 let wordThere = "";
 let wordHere = "";
@@ -46,6 +52,8 @@ let singularAffix = "";
 let pluralAffix = "";
 let accusativeAffix  = "";
 let genitiveAffix = "";
+
+
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
@@ -64,6 +72,9 @@ function clearGeneratedArrays() {
     generatedAdverbs = [];
     generatedAdpositions = [];
     generatedIntensifiers = [];
+    chosenNounCases = [];
+    grammaticalNumberArray = [];
+    nounGenderArray = [];
 
     wordThere = "";
     wordHere = "";
@@ -83,6 +94,7 @@ function clearGeneratedArrays() {
     document.getElementById("language-to-english").replaceChildren();
     document.getElementById("english-to-language").replaceChildren();
     document.getElementById("lenition-before-list").replaceChildren();
+    document.getElementById("nouns").replaceChildren();
 
 }
 
@@ -560,7 +572,7 @@ function noNasalsAfterConsonants() {
             if(consonants.includes(noun[noun.length -1])) {
                 endsInConsonantArray.push(noun)
             }
-            if(selectNasals().includes(noun[0])) {
+            if(selectNasals().includes(noun[0]) && vowels.includes(noun[1])) {
                 beginsInANasalArray.push(noun)
             }
         }
@@ -590,7 +602,270 @@ function noNasalsAfterConsonants() {
     
 }
 
+/*********TYPOLOGY RELATED SECTION*********/
 
+let typologyNum = 0;
+function randomNumForTypology() {
+    typologyNum = Math.floor(Math.random() * 3)
+}
+
+function chooseTypology() {
+    let typology = "";
+    if(typologyNum === 0) {
+        document.getElementById("typology").innerHTML = `an isolating language, meaning that there are no affixes in this language and that every morpheme is an independent word.`
+        typology = "isolating"
+    }
+    if(typologyNum === 1) {
+        document.getElementById("typology").innerHTML = `an agglutinative language, meaning that every morpheme has just one meaning assigned to it, and that these morphemes may stack up together. Some aspects of the language may be slightly fusional where sound changes have blended some affixes together.`
+        typology = "agglutinative"
+    }
+    if(typologyNum === 2) {
+        document.getElementById("typology").innerHTML = `a fusional language, meaning that a morpheme may bear more than one unit of meaning.`
+        typology = "fusional"
+    }
+    return typology;
+}
+
+/****************WORD ORDER RELATED SECTION*******/
+let wordOrderNum = 0;
+function randomNumForWordOrder() {
+    wordOrderNum = Math.floor(Math.random() * 6)
+}
+
+function chooseWordOrder() {
+    if(wordOrderNum === 0) {
+        document.getElementById("word-order").innerHTML = `OSV (Object Subject Verb) so a sentence like "The man loves the woman" is phrased "The woman the man loves".`
+        return allWordOrders[0];
+    }
+    if(wordOrderNum === 1) {
+        document.getElementById("word-order").innerHTML = `SOV (Subject Object Verb) so a sentence like "the man loves the woman" is phrased "the man the woman loves".`
+        return allWordOrders[1];
+    }
+    if(wordOrderNum === 2) {
+        document.getElementById("word-order").innerHTML = `SVO (Subject Verb Object) so a sentence like "the man loves the woman" is phrased just as in English.`
+        return allWordOrders[2];
+    }
+    if(wordOrderNum === 3) {
+        document.getElementById("word-order").innerHTML = `VSO (Verb Subject Object) so a sentence like "the man loves the woman" is phrased "loves the man the woman."`
+        return allWordOrders[3];
+    }
+    if(wordOrderNum === 4) {
+        document.getElementById("word-order").innerHTML = `VOS (Verb Subject Object) so a sentence like "the man loves the woman" is phrased "loves the woman the man."`
+        return allWordOrders[4];
+    }
+    if(wordOrderNum === 5) {
+        document.getElementById("word-order").innerHTML = `OVS (Object Verb Subject) so a sentence like "the man loves the woman" is phrased "the woman loves the man".`
+        return allWordOrders[5];
+    }
+}
+
+/*****Noun Gender*******/
+
+let genderNum = 0;
+function randomNumForNounGender() {
+    genderNum = Math.floor(Math.random() * 4)
+}
+
+function chooseNounGender() {
+    const genderHeader = document.createElement("h3")
+    genderHeader.innerHTML = "Noun Gender"
+    const genderP = document.createElement("p");
+
+    if(genderNum === 0) {
+        genderHeader.style.display = "none";
+        genderP.style.display = "none";
+    }
+    if(genderNum === 1) {
+        nounGenderArray.push("animate", "inanimate");
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "animate" and "inanimate". The animate gender encompasses all nouns that refer to living things, as well as some non-living but "dynamic" things such as fire and moving water.`
+    }
+    if(genderNum === 2) {
+        nounGenderArray.push("masculine", "feminine");
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "masculine" and "feminine". Non-living entities are assigned to either gender based on whether the item is thought to be associated more with men or woman, or at random.`
+    }
+    if(genderNum === 3) {
+        nounGenderArray.push("masculine", "feminine", "neuter");
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical genders which are "masculine", "feminine" and "neuter". The neuter gender encompasses all non-living things as well as wild animals. Abstract concepts may be masculine or feminine if thought to be associated more with either, or neuter if not.`
+    }
+    if(genderNum === 4) {
+        nounGenderArray.push("human", "animal", "inanimate");
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical genders which are "human", "animal" and "inanimate". The genders are quite literally as their names describe, with the inanimate gender encompassing plants and non-living things.`
+    }
+    if(genderNum === 5) {
+        nounGenderArray.push("divine", "non-divine");
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "divine" and "non-divine". The divine encompasses any noun referring to gods, whether the noun itself is animate or inanimate i.e an object or place associated with a god is part of the divine gender.`
+    }
+    if(genderNum === 6) {
+        nounGenderArray.push("active", "passive");
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "active" and "passive". The active refers to a noun which can act as an agent of a transitive verb, while the passive is any noun that can't be an agent, even if the subject of a middle voice verb. Nouns referring to living things are active, as well as tools, as they can be agents of transitive verbs e.g "The man saw a deer", "The bat flew in the sky", "The knife cut the cloth". Compare this to passive nouns which can only be subjects of intransitive/middle verbs e.g "The door opened" ("someone opened the door") or "The milk was poured" ("someone poured the milk").`
+    }
+    if(genderNum === 6) {
+        nounGenderArray.push("natural", "artificial");
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "natural" and "artificial". The artificial gender encompasses all nthings made by humans, while the natural gender encompasses everything else. The exact distinction can get quite idiosyncretic however, as abstract concepts thought to be borne purely by humans, such as "mercy" or "hospitality" are part of the artificial gender.`
+    }
+    document.getElementById("nouns").appendChild(genderHeader);
+    document.getElementById("nouns").appendChild(genderP);
+    
+
+
+}
+
+/**********CASE RELATED SECTION***********/
+
+function chooseCases() {
+    //there will be no cases if language is isolating
+    if(chooseTypology() !== "isolating") {
+        //decides if the language has cases or not
+        if(Math.floor(Math.random() * 2) !== 0) {
+            const randomNum = Math.floor(Math.random() * 8);
+            if(randomNum <= 4) {
+                chosenNounCases.push("Nominative");
+                chosenNounCases.push("Accusative");
+                chosenNounCases.push("Genitive");
+                chosenNounCases.push("Dative");
+                }
+            if(randomNum > 4) {
+                chosenNounCases.push("Nominative");
+                chosenNounCases.push("Accusative");
+                chosenNounCases.push("Genitive");
+                chosenNounCases.push("Dative");
+                //chooses additional cases
+                const randomCase = Math.floor(Math.random() * nounCases.length);
+                while(chosenNounCases.length < Math.floor(Math.random() * 15) + 4) {
+                    chosenNounCases.push(nounCases[Math.floor(Math.random() * nounCases.length)])
+                }       
+            }   
+        }
+    }
+}
+
+function explainCases() {
+    if(chosenNounCases.length > 0) {
+        const caseHeader = document.createElement("h3");
+        caseHeader.innerHTML = "Case";
+        document.getElementById("nouns").appendChild(caseHeader)
+
+        const listOfCases = [];
+        chosenNounCases.forEach((element) => listOfCases.push(element));
+        listOfCases.pop()
+        listOfCases.push(` and ${chosenNounCases[chosenNounCases.length -1]}`)
+        let listOfCasesString =  listOfCases.join(", ")
+
+        const caseP = document.createElement("p");
+        caseP.innerHTML = `There are ${chosenNounCases.length} noun cases in <span class="language-name">Kerbekulo</span> which are ${listOfCasesString}.`
+        document.getElementById("nouns").appendChild(caseP)
+
+        if(chosenNounCases.includes("Nominative")) {
+            const nominative = document.createElement("p");
+            nominative.innerHTML = `The <strong>Nominative</strong> case is used to mark the subject of a verb, the noun which is the performer of an action.`
+            document.getElementById("nouns").appendChild(nominative);
+        }
+        if(chosenNounCases.includes("Accusative")) {
+            const accusative = document.createElement("p");
+            accusative.innerHTML = `The <strong>Accusative</strong> case is used to mark the object of a verb, the noun which is the recipient of an action.`
+            document.getElementById("nouns").appendChild(accusative);
+        }
+        if(chosenNounCases.includes("Genitive")) {
+            const genitive = document.createElement("p");
+            genitive.innerHTML = `The <strong>Genitive</strong> case is used to mark possession.`
+            document.getElementById("nouns").appendChild(genitive);
+        }
+        if(chosenNounCases.includes("Dative")) {
+            const dative = document.createElement("p");
+            dative.innerHTML = `The <strong>Dative</strong> case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy.`
+            document.getElementById("nouns").appendChild(dative);
+        }
+        if(chosenNounCases.includes("Ablative")) {
+            const ablative = document.createElement("p");
+            ablative.innerHTML = `The <strong>Ablative</strong> case is used to mark motion away from a noun.`
+            document.getElementById("nouns").appendChild(ablative);
+        }
+        if(chosenNounCases.includes("Locative")) {
+            const locative = document.createElement("p");
+            if(chosenNounCases.includes("Ablative") === false) {
+                locative.innerHTML = `The <strong>Locative</strong> case is used to mark a noun used with an adposition e.g "in the forest" or "on a mountain".`
+            } else {
+                locative.innerHTML = `The <strong>Locative</strong> case is used to a mark a noun alongside an adposition with a static/non-moving meaning e.g "next to a house".`
+            }
+            document.getElementById("nouns").appendChild(locative);
+        }
+        if(chosenNounCases.includes("Inessive")) {
+            const inessive = document.createElement("p");
+            inessive.innerHTML = `The <strong>Inessive</strong> case is used to mark "inside" e.g "in a house", "in a forest".`
+            document.getElementById("nouns").appendChild(inessive);
+        }
+        if(chosenNounCases.includes("Delative")) {
+            const delative = document.createElement("p");
+            delative.innerHTML = `The <strong>Delative</strong> case is used to mark "from" e.g "from a house".`
+            document.getElementById("nouns").appendChild(delative);
+        }
+        if(chosenNounCases.includes("Allative")) {
+            const allative = document.createElement("p");
+            allative.innerHTML = `The <strong>Allative</strong> case is used to mark "to, at" e.g "to a house".`
+            document.getElementById("nouns").appendChild(allative);
+        }
+        if(chosenNounCases.includes("Instrumental")) {
+            const instrumental = document.createElement("p");
+            instrumental.innerHTML = `The <strong>Instrumental</strong> case is used to mark a noun used to do something e.g "the man was stabbed <u>with a knife</u>" or "I traveled <u>by train</u>".`
+            document.getElementById("nouns").appendChild(instrumental);
+        }
+
+    }
+}
+
+/************grammatical number related section********/
+
+let grammaticalNum = 0;
+function randomNumForGrammaticalNumber() {
+    grammaticalNum = Math.floor(Math.random() * 24)
+
+}
+
+function chooseGrammaticalNumbers() {
+    const grammaticalNumHeader = document.createElement("h3");
+    grammaticalNumHeader.innerHTML = "Grammatical Number"
+    const grammaticalNumberP = document.createElement("p");
+    if(grammaticalNum < 4) {
+        grammaticalNumberArray.push("singular", "plural");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical numbers; singular and plural.`
+
+    } else if(grammaticalNum < 7) {
+        grammaticalNumberArray.push("singular", "dual", "plural");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, dual and plural. The dual number is used to mark when there are two of a thing.`
+    } else if(grammaticalNum < 10) {
+        grammaticalNumberArray.push("singular", "plural", "collective");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, dual, plural and collective. The collective is used to mean "all" or "every".`
+    } else if(grammaticalNum < 12) {
+        grammaticalNumberArray.push("singular", "dual", "plural", "collective");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has four grammatical numbers; singular, dual, plural and collective. The dual number is used to mark when there are two of a thing and the collective is used to mean "all" or "every".`
+    } else if(grammaticalNum < 14) {
+        grammaticalNumberArray.push("singular", "dual", "trial", "plural");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has four grammatical numbers; singular, dual, trial and plural. The dual number is used to mark when there are two of a thing and the trial is to mark when there are three.`
+    } else if(grammaticalNum < 16) {
+        grammaticalNumberArray.push("singular", "dual", "trial", "quadral", "plural");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has five grammatical numbers; singular, dual, trial, quadral, and plural. The dual number is used to mark when there are two of a thing and the trial is to mark when there are three. The quadral marks when there are four of a thing.`
+    } else if(grammaticalNum < 18) {
+        grammaticalNumberArray.push("singular", "plural", "greater plural");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, plural and greater plural. The greater plural signifies "a lot of X" or "many X".`
+    } else if(grammaticalNum < 20) {
+        grammaticalNumberArray.push("singular", "plural", "general");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, plural and general. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general).`
+    } else if(grammaticalNum < 21) {
+        grammaticalNumberArray.push("general", "plural");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical numbers; general and plural. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general). Given the context it may also refer to a single noun. It is broadly a "non-plural" number.`
+    } else if(grammaticalNum <= 23) {
+        grammaticalNumberArray.push("general", "singulative", "plural");
+        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; general, singulative and plural. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general). The singulative is derived from the plural and marks a specific and singular instance of a noun.`
+    }
+    document.getElementById("nouns").appendChild(grammaticalNumHeader);
+    document.getElementById("nouns").appendChild(grammaticalNumberP);
+}
+
+/********CASE AND NOUN SECTION, IF CASES EXIST******/
+
+// function caseAndNumber() {
+
+// }
 
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
@@ -609,11 +884,16 @@ function generateLanguage() {
     makeOrthoGuide(allPossibleConsonants);
     lengthExplanation();
     showPhonotacticRules();
-    console.log(soundChange("tomne"))
-    console.log(soundChange("dokme"))
-    console.log(soundChange("paletno"))
-    console.log(soundChange("waresmu"))
-    
+    randomNumForTypology();
+    chooseTypology();
+    randomNumForWordOrder();
+    chooseWordOrder();
+    randomNumForNounGender();
+    chooseNounGender();
+    randomNumForGrammaticalNumber();
+    chooseGrammaticalNumbers();
+    chooseCases();
+    explainCases();
    }
 
 export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers};

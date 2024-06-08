@@ -10,17 +10,16 @@ Phonotactic ideas:
 - /f/ can only occur in onset
 - plosives can occur only in onset, either they become fricatives elsewhere or just drop
 - plosives can occur only word initially
-
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  .
 
 #Verbs
 
@@ -58,6 +57,15 @@ amount of variability in the paragraphs that explain these things
 
 add more than one meaning to a word, make a psuedo thesaurus? - if a word has related
 terms listed, then the other terms will also be assigned at random
+
+when making compounds for dictionary, have each part of a compound be from a specific set of nouns chosen by their meaning e.g
+
+- COLOUR-ANIMAL
+- COLOUR-PLANT
+- TRADE-PERSON
+- SIZE-ANIMAL
+- COLOUR-FOOD
+  etc, to ensure that the compounds aren't totally nonsensical.
 
 ##Features to be randomized/chosen:
 

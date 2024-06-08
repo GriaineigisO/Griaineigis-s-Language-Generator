@@ -13,14 +13,8 @@ Phonotactic ideas:
   .
   .
   .
-  .
-  .
-  .
-  .
-  .
-  .
-  .
-
+# Nouns
+To assign gender to a noun, do it manually by making an array the same length as nounArray and each item will just be the gender, corresponding to the noun at the same index in niunArray. A new array will have to be made for each gender system
 #Verbs
 
 several subsections to discuss each feature in this order:

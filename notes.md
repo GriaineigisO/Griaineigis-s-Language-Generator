@@ -63,9 +63,7 @@ when making compounds for dictionary, have each part of a compound be from a spe
 
 ##Features to be randomized/chosen:
 
-- Stative verbs vs nominal verbs
-- Word order
-- What noun cases there are
+- Stative verbs vs nominal adjectives
 - If adjectives agree at all, and if so, with what
 - Verb tenses
 - Verb mood

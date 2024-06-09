@@ -53,6 +53,7 @@ function makeDictionary() {
         let pOfSpeech = "";
         if(nounArray.includes(englishWords[i])) {
             pOfSpeech = "n";
+            wordWithAffix = languageWords[i];
         } else if (adjectiveArray.includes(englishWords[i])) {
             pOfSpeech = "adj";
             wordWithAffix = languageWords[i]

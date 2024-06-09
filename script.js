@@ -743,7 +743,7 @@ function suffixOrPrefix() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = 7//Math.floor(Math.random() * 9)
+    genderNum = Math.floor(Math.random() * 9)
 }
 
 function chooseNounGender() {
@@ -751,6 +751,7 @@ function chooseNounGender() {
     genderHeader.innerHTML = "Noun Gender"
     const genderP = document.createElement("p");
     const genderPAffixes = document.createElement("p");
+    const genderUl = document.createElement("ul")
 
     //sorts nouns by their gender
    for(let i = 0; i < nounArray.length; i++) {
@@ -993,6 +994,7 @@ function chooseNounGender() {
     if(genderNum === 0) {
         genderHeader.style.display = "none";
         genderP.style.display = "none";
+        genderUl.style.display = "none"
     }
     if(genderNum === 1) {
         nounGenderArray.push("animate", "inanimate");
@@ -1058,6 +1060,66 @@ function chooseNounGender() {
                 let feminineNoun2 = randomFeminineNoun2 + feminineAffix;
                 let feminineNoun3 = randomFeminineNoun3 + feminineAffix;
                 let feminineNoun4 = randomFeminineNoun4 + feminineAffix;
+
+                //takes masculine nouns and derives feminine forms
+                function switchNoungender(englishWord) {
+                    const newLi = document.createElement("li");
+                    let nounIndex = nounArray.indexOf(englishWord);
+                    let bareRoot = generatedNouns[nounIndex];
+                    let mascNoun = bareRoot + masculineAffix;
+                    let femNoun = bareRoot + feminineAffix;
+                    let spanMasc = document.createElement("span");
+                    let spanMascMeaning = document.createElement("span");
+                    spanMasc.style.fontStyle = "italic";
+                    spanMasc.innerHTML = spell(soundChange(mascNoun));
+                    spanMascMeaning.innerHTML = ` "${englishWord}" > `
+                    newLi.appendChild(spanMasc)
+                    newLi.appendChild(spanMascMeaning)
+                    let spanFem = document.createElement("span");
+                    let spanFemMeaning = document.createElement("span");
+                    spanFem.style.fontStyle = "italic";
+                    spanFem.innerHTML = spell(soundChange(femNoun));
+                    newLi.appendChild(spanFem);
+                    let femNounMeaning = "";
+                    //replaces the previously generated word with the new feminine form derived from the masculine
+                    if(englishWord === "bull") {
+                        femNounMeaning = "cow";
+                        generatedNouns[nounArray.indexOf("cow")] = bareRoot;
+                    }
+                    if(englishWord === "horse") {
+                        femNounMeaning = "mare";
+                        generatedNouns[nounArray.indexOf("mare")] = bareRoot;
+                    }
+                    if(englishWord === "pig") {
+                        femNounMeaning = "she-pig";
+                    }
+                    if(englishWord === "wolf") {
+                        femNounMeaning = "she-wolf";
+                    }
+                    if(englishWord === "rooster") {
+                        femNounMeaning = "chicken";
+                        generatedNouns[nounArray.indexOf("chicken")] = bareRoot;
+                    }
+                    if(englishWord === "elk") {
+                        femNounMeaning = "elk doe";
+                    }
+                    if(englishWord === "dog") {
+                        femNounMeaning = "bitch";
+                    }
+                    if(englishWord === "ram") {
+                        femNounMeaning = "ewe";
+                        generatedNouns[nounArray.indexOf("ewe")] = bareRoot;
+                        //the word 'sheep' is now redundant with specifically gendered terms for ram and ewe, so now it will be removed
+                        let sheepIndex = nounArray.indexOf("sheep")
+                        nounArray.splice(sheepIndex, 1);
+                        nounArrayPlural.splice(sheepIndex, 1);
+                        generatedNouns.splice(sheepIndex, 1);
+                    }
+                    spanFemMeaning.innerHTML = ` "${femNounMeaning}"`
+                    newLi.appendChild(spanFemMeaning)
+                    genderUl.appendChild(newLi);
+                }
+
                 genderPAffixes.innerHTML = `Masculine nouns take the suffix <i>-${spell(soundChange(masculineAffix))}</i>:
                 <i>${spell(soundChange(masculineNoun1))}</i> "${randomMasculineNounMeaning1}",
                 <i>${spell(soundChange(masculineNoun2))}</i> "${randomMasculineNounMeaning2}",
@@ -1067,7 +1129,17 @@ function chooseNounGender() {
                 <i>${spell(soundChange(feminineNoun1))}</i> "${randomFeminineNounMeaning1}",
                 <i>${spell(soundChange(feminineNoun2))}</i> "${randomFeminineNounMeaning2}",
                 <i>${spell(soundChange(feminineNoun3))}</i> "${randomFeminineNounMeaning3}",
-                <i>${spell(soundChange(feminineNoun4))}</i> "${randomFeminineNounMeaning4}".`
+                <i>${spell(soundChange(feminineNoun4))}</i> "${randomFeminineNounMeaning4}".<br/>
+                Nouns can switch gender as a form of derivation, a common example is feminine forms of animal names, used to refer to female individuals:`
+                switchNoungender("bull");
+                switchNoungender("ram");
+                switchNoungender("rooster");
+                switchNoungender("horse");
+                switchNoungender("wolf");
+                switchNoungender("pig");
+                switchNoungender("elk");
+                switchNoungender("dog");
+
             } else if(genderSuffixOrPrefix === "prefix") {
                 let masculineNoun1 = masculineAffix + randomMasculineNoun1;
                 let masculineNoun2 = masculineAffix + randomMasculineNoun2;
@@ -1077,6 +1149,66 @@ function chooseNounGender() {
                 let feminineNoun2 = feminineAffix + randomFeminineNoun2;
                 let feminineNoun3 = feminineAffix + randomFeminineNoun3;
                 let feminineNoun4 = feminineAffix + randomFeminineNoun4;
+
+                //takes masculine nouns and derives feminine forms
+                function switchNoungender(englishWord) {
+                    const newLi = document.createElement("li");
+                    let nounIndex = nounArray.indexOf(englishWord);
+                    let bareRoot = generatedNouns[nounIndex];
+                    let mascNoun = masculineAffix + bareRoot;
+                    let femNoun = feminineAffix + bareRoot;
+                    let spanMasc = document.createElement("span");
+                    let spanMascMeaning = document.createElement("span");
+                    spanMasc.style.fontStyle = "italic";
+                    spanMasc.innerHTML = spell(soundChange(mascNoun));
+                    spanMascMeaning.innerHTML = ` "${englishWord}" > `
+                    newLi.appendChild(spanMasc)
+                    newLi.appendChild(spanMascMeaning)
+                    let spanFem = document.createElement("span");
+                    let spanFemMeaning = document.createElement("span");
+                    spanFem.style.fontStyle = "italic";
+                    spanFem.innerHTML = spell(soundChange(femNoun));
+                    newLi.appendChild(spanFem);
+                    let femNounMeaning = "";
+                    //replaces the previously generated word with the new feminine form derived from the masculine
+                    if(englishWord === "bull") {
+                        femNounMeaning = "cow";
+                        generatedNouns[nounArray.indexOf("cow")] = bareRoot;
+                    }
+                    if(englishWord === "horse") {
+                        femNounMeaning = "mare";
+                        generatedNouns[nounArray.indexOf("mare")] = bareRoot;
+                    }
+                    if(englishWord === "pig") {
+                        femNounMeaning = "she-pig";
+                    }
+                    if(englishWord === "wolf") {
+                        femNounMeaning = "she-wolf";
+                    }
+                    if(englishWord === "rooster") {
+                        femNounMeaning = "chicken";
+                        generatedNouns[nounArray.indexOf("chicken")] = bareRoot;
+                    }
+                    if(englishWord === "elk") {
+                        femNounMeaning = "elk doe";
+                    }
+                    if(englishWord === "dog") {
+                        femNounMeaning = "bitch";
+                    }
+                    if(englishWord === "ram") {
+                        femNounMeaning = "ewe";
+                        generatedNouns[nounArray.indexOf("ewe")] = bareRoot;
+                        //the word 'sheep' is now redundant with specifically gendered terms for ram and ewe, so now it will be removed
+                        let sheepIndex = nounArray.indexOf("sheep")
+                        nounArray.splice(sheepIndex, 1);
+                        nounArrayPlural.splice(sheepIndex, 1);
+                        generatedNouns.splice(sheepIndex, 1);
+                    }
+                    spanFemMeaning.innerHTML = ` "${femNounMeaning}"`
+                    newLi.appendChild(spanFemMeaning)
+                    genderUl.appendChild(newLi);
+                }
+
                 genderPAffixes.innerHTML = `Masculine nouns take the prefix <i>${spell(soundChange(masculineAffix))}-</i>:
                 <i>${spell(soundChange(masculineNoun1))}</i> "${randomMasculineNounMeaning1}",
                 <i>${spell(soundChange(masculineNoun2))}</i> "${randomMasculineNounMeaning2}",
@@ -1086,7 +1218,16 @@ function chooseNounGender() {
                 <i>${spell(soundChange(feminineNoun1))}</i> "${randomFeminineNounMeaning1}",
                 <i>${spell(soundChange(feminineNoun2))}</i> "${randomFeminineNounMeaning2}",
                 <i>${spell(soundChange(feminineNoun3))}</i> "${randomFeminineNounMeaning3}",
-                <i>${spell(soundChange(feminineNoun4))}</i> "${randomFeminineNounMeaning4}".`
+                <i>${spell(soundChange(feminineNoun4))}</i> "${randomFeminineNounMeaning4}".
+                Nouns can switch gender as a form of derivation, a common example is feminine forms of animal names, used to refer to female individuals:`
+                switchNoungender("bull");
+                switchNoungender("ram");
+                switchNoungender("rooster");
+                switchNoungender("horse");
+                switchNoungender("wolf");
+                switchNoungender("pig");
+                switchNoungender("elk");
+                switchNoungender("dog");
             }
         }
     }
@@ -1111,6 +1252,66 @@ function chooseNounGender() {
                 let neuterNoun2 = randomNeuterNoun2 + neuterAffix;
                 let neuterNoun3 = randomNeuterNoun3 + neuterAffix;
                 let neuterNoun4 = randomNeuterNoun4 + neuterAffix;
+
+                //takes masculine nouns and derives feminine forms
+                function switchNoungender(englishWord) {
+                    const newLi = document.createElement("li");
+                    let nounIndex = nounArray.indexOf(englishWord);
+                    let bareRoot = generatedNouns[nounIndex];
+                    let mascNoun = bareRoot + masculineAffix;
+                    let femNoun = bareRoot + feminineAffix;
+                    let spanMasc = document.createElement("span");
+                    let spanMascMeaning = document.createElement("span");
+                    spanMasc.style.fontStyle = "italic";
+                    spanMasc.innerHTML = spell(soundChange(mascNoun));
+                    spanMascMeaning.innerHTML = ` "${englishWord}" > `
+                    newLi.appendChild(spanMasc)
+                    newLi.appendChild(spanMascMeaning)
+                    let spanFem = document.createElement("span");
+                    let spanFemMeaning = document.createElement("span");
+                    spanFem.style.fontStyle = "italic";
+                    spanFem.innerHTML = spell(soundChange(femNoun));
+                    newLi.appendChild(spanFem);
+                    let femNounMeaning = "";
+                    //replaces the previously generated word with the new feminine form derived from the masculine
+                    if(englishWord === "bull") {
+                        femNounMeaning = "cow";
+                        generatedNouns[nounArray.indexOf("cow")] = bareRoot;
+                    }
+                    if(englishWord === "horse") {
+                        femNounMeaning = "mare";
+                        generatedNouns[nounArray.indexOf("mare")] = bareRoot;
+                    }
+                    if(englishWord === "pig") {
+                        femNounMeaning = "she-pig";
+                    }
+                    if(englishWord === "wolf") {
+                        femNounMeaning = "she-wolf";
+                    }
+                    if(englishWord === "rooster") {
+                        femNounMeaning = "chicken";
+                        generatedNouns[nounArray.indexOf("chicken")] = bareRoot;
+                    }
+                    if(englishWord === "elk") {
+                        femNounMeaning = "elk doe";
+                    }
+                    if(englishWord === "dog") {
+                        femNounMeaning = "bitch";
+                    }
+                    if(englishWord === "ram") {
+                        femNounMeaning = "ewe";
+                        generatedNouns[nounArray.indexOf("ewe")] = bareRoot;
+                        //the word 'sheep' is now redundant with specifically gendered terms for ram and ewe, so now it will be removed
+                        let sheepIndex = nounArray.indexOf("sheep")
+                        nounArray.splice(sheepIndex, 1);
+                        nounArrayPlural.splice(sheepIndex, 1);
+                        generatedNouns.splice(sheepIndex, 1);
+                    }
+                    spanFemMeaning.innerHTML = ` "${femNounMeaning}"`
+                    newLi.appendChild(spanFemMeaning)
+                    genderUl.appendChild(newLi);
+                }
+
                 genderPAffixes.innerHTML = `Masculine nouns take the suffix <i>-${spell(soundChange(masculineAffix))}</i>:
                 <i>${spell(soundChange(masculineNoun1))}</i> "${randomMasculineNoun2Meaning1}",
                 <i>${spell(soundChange(masculineNoun2))}</i> "${randomMasculineNoun2Meaning2}",
@@ -1125,7 +1326,16 @@ function chooseNounGender() {
                 <i>${spell(soundChange(neuterNoun1))}</i> "${randomNeuterNounMeaning1}",
                 <i>${spell(soundChange(neuterNoun2))}</i> "${randomNeuterNounMeaning2}",
                 <i>${spell(soundChange(neuterNoun3))}</i> "${randomNeuterNounMeaning3}",
-                <i>${spell(soundChange(neuterNoun4))}</i> "${randomNeuterNounMeaning4}".`
+                <i>${spell(soundChange(neuterNoun4))}</i> "${randomNeuterNounMeaning4}".
+                Nouns can switch gender as a form of derivation, a common example is feminine forms of animal names, used to refer to female individuals:`
+                switchNoungender("bull");
+                switchNoungender("ram");
+                switchNoungender("rooster");
+                switchNoungender("horse");
+                switchNoungender("wolf");
+                switchNoungender("pig");
+                switchNoungender("elk");
+                switchNoungender("dog");
                 
             } else if(genderSuffixOrPrefix === "prefix") {
                 let masculineNoun1 = masculineAffix + randomMasculineNoun1;
@@ -1140,6 +1350,66 @@ function chooseNounGender() {
                 let neuterNoun2 = neuterAffix + randomNeuterNoun2;
                 let neuterNoun3 = neuterAffix + randomNeuterNoun3;
                 let neuterNoun4 = neuterAffix + randomNeuterNoun4;
+
+                //takes masculine nouns and derives feminine forms
+                function switchNoungender(englishWord) {
+                    const newLi = document.createElement("li");
+                    let nounIndex = nounArray.indexOf(englishWord);
+                    let bareRoot = generatedNouns[nounIndex];
+                    let mascNoun = masculineAffix + bareRoot;
+                    let femNoun = feminineAffix + bareRoot;
+                    let spanMasc = document.createElement("span");
+                    let spanMascMeaning = document.createElement("span");
+                    spanMasc.style.fontStyle = "italic";
+                    spanMasc.innerHTML = spell(soundChange(mascNoun));
+                    spanMascMeaning.innerHTML = ` "${englishWord}" > `
+                    newLi.appendChild(spanMasc)
+                    newLi.appendChild(spanMascMeaning)
+                    let spanFem = document.createElement("span");
+                    let spanFemMeaning = document.createElement("span");
+                    spanFem.style.fontStyle = "italic";
+                    spanFem.innerHTML = spell(soundChange(femNoun));
+                    newLi.appendChild(spanFem);
+                    let femNounMeaning = "";
+                    //replaces the previously generated word with the new feminine form derived from the masculine
+                    if(englishWord === "bull") {
+                        femNounMeaning = "cow";
+                        generatedNouns[nounArray.indexOf("cow")] = bareRoot;
+                    }
+                    if(englishWord === "horse") {
+                        femNounMeaning = "mare";
+                        generatedNouns[nounArray.indexOf("mare")] = bareRoot;
+                    }
+                    if(englishWord === "pig") {
+                        femNounMeaning = "she-pig";
+                    }
+                    if(englishWord === "wolf") {
+                        femNounMeaning = "she-wolf";
+                    }
+                    if(englishWord === "rooster") {
+                        femNounMeaning = "chicken";
+                        generatedNouns[nounArray.indexOf("chicken")] = bareRoot;
+                    }
+                    if(englishWord === "elk") {
+                        femNounMeaning = "elk doe";
+                    }
+                    if(englishWord === "dog") {
+                        femNounMeaning = "bitch";
+                    }
+                    if(englishWord === "ram") {
+                        femNounMeaning = "ewe";
+                        generatedNouns[nounArray.indexOf("ewe")] = bareRoot;
+                        //the word 'sheep' is now redundant with specifically gendered terms for ram and ewe, so now it will be removed
+                        let sheepIndex = nounArray.indexOf("sheep")
+                        nounArray.splice(sheepIndex, 1);
+                        nounArrayPlural.splice(sheepIndex, 1);
+                        generatedNouns.splice(sheepIndex, 1);
+                    }
+                    spanFemMeaning.innerHTML = ` "${femNounMeaning}"`
+                    newLi.appendChild(spanFemMeaning)
+                    genderUl.appendChild(newLi);
+                }
+
                 genderPAffixes.innerHTML = `Masculine nouns take the prefix <i>${spell(soundChange(masculineAffix))}-</i>:
                 <i>${spell(soundChange(masculineNoun1))}</i> "${randomMasculineNounMeaning1}",
                 <i>${spell(soundChange(masculineNoun2))}</i> "${randomMasculineNounMeaning2}",
@@ -1154,7 +1424,16 @@ function chooseNounGender() {
                 <i>${spell(soundChange(neuterNoun1))}</i> "${randomNeuterNounMeaning1}",
                 <i>${spell(soundChange(neuterNoun2))}</i> "${randomNeuterNounMeaning2}",
                 <i>${spell(soundChange(neuterNoun3))}</i> "${randomNeuterNounMeaning3}",
-                <i>${spell(soundChange(neuterNoun4))}</i> "${randomNeuterNounMeaning4}".`
+                <i>${spell(soundChange(neuterNoun4))}</i> "${randomNeuterNounMeaning4}".
+                Nouns can switch gender as a form of derivation, a common example is feminine forms of animal names, used to refer to female individuals:`
+                switchNoungender("bull");
+                switchNoungender("ram");
+                switchNoungender("rooster");
+                switchNoungender("horse");
+                switchNoungender("wolf");
+                switchNoungender("pig");
+                switchNoungender("elk");
+                switchNoungender("dog");
             }
         }
     }
@@ -1178,6 +1457,44 @@ function chooseNounGender() {
                 let inanimateNoun2 = randomInanimate2Noun2 + inanimate2Affix;
                 let inanimateNoun3 = randomInanimate2Noun3 + inanimate2Affix;
                 let inanimateNoun4 = randomInanimate2Noun4 + inanimate2Affix;
+
+                //takes animal nouns and derives human forms
+                function switchNoungender(englishWord) {
+                    const newLi = document.createElement("li");
+                    let nounIndex = nounArray.indexOf(englishWord);
+                    let bareRoot = generatedNouns[nounIndex];
+                    let animalNoun = bareRoot + animalAffix;
+                    let humanNoun = bareRoot + humanAffix;
+                    let spanAnimal = document.createElement("span");
+                    let spanAnimalMeaning = document.createElement("span");
+                    spanAnimal.style.fontStyle = "italic";
+                    spanAnimal.innerHTML = spell(soundChange(animalNoun));
+                    spanAnimalMeaning.innerHTML = ` "${englishWord}" > `
+                    newLi.appendChild(spanAnimal)
+                    newLi.appendChild(spanAnimalMeaning)
+                    let spanHuman = document.createElement("span");
+                    let spanHumanMeaning = document.createElement("span");
+                    spanHuman.style.fontStyle = "italic";
+                    spanHuman.innerHTML = spell(soundChange(humanNoun));
+                    newLi.appendChild(spanHuman);
+                    let humanNounMeaning = "";
+                    //replaces the previously generated word with the new feminine form derived from the masculine
+                    if(englishWord === "cow") {
+                        humanNounMeaning = "cowherd";
+                        generatedNouns[nounArray.indexOf("cowherd")] = bareRoot;
+                    }
+                    if(englishWord === "sheep") {
+                        humanNounMeaning = "shepherd";
+                    }
+                    if(englishWord === "horse") {
+                        humanNounMeaning = "horsegroom";
+                    }
+
+                    spanHumanMeaning.innerHTML = ` "${humanNounMeaning}"`
+                    newLi.appendChild(spanHumanMeaning)
+                    genderUl.appendChild(newLi);
+                }
+
                 genderPAffixes.innerHTML = `Human nouns take the suffix <i>-${spell(soundChange(humanAffix))}</i>:
                 <i>${spell(soundChange(humanNoun1))}</i> "${humanNounMeaning1}",
                 <i>${spell(soundChange(humanNoun2))}</i> "${humanNounMeaning2}",
@@ -1192,7 +1509,13 @@ function chooseNounGender() {
                 <i>${spell(soundChange(inanimateNoun1))}</i> "${inanimate2NounMeaning1}",
                 <i>${spell(soundChange(inanimateNoun2))}</i> "${inanimate2NounMeaning2}",
                 <i>${spell(soundChange(inanimateNoun3))}</i> "${inanimate2NounMeaning3}",
-                <i>${spell(soundChange(inanimateNoun4))}</i> "${inanimate2NounMeaning4}".<br/>`
+                <i>${spell(soundChange(inanimateNoun4))}</i> "${inanimate2NounMeaning4}".<br/>
+                Terms for keepers of animals can be derived by placing the animal noun in the human gender.`
+
+                switchNoungender("cow");
+                switchNoungender("sheep");
+                switchNoungender("horse");
+
             } else if(genderSuffixOrPrefix === "prefix") {
                 let humanNoun1 = humanAffix + randomHumanNoun1;
                 let humanNoun2 = humanAffix + randomHumanNoun2;
@@ -1206,6 +1529,44 @@ function chooseNounGender() {
                 let inanimateNoun2 = inanimate2Affix + randomInanimate2Noun2;
                 let inanimateNoun3 = inanimate2Affix + randomInanimate2Noun3;
                 let inanimateNoun4 = inanimate2Affix + randomInanimate2Noun4;
+
+                //takes animal nouns and derives human forms
+                function switchNoungender(englishWord) {
+                    const newLi = document.createElement("li");
+                    let nounIndex = nounArray.indexOf(englishWord);
+                    let bareRoot = generatedNouns[nounIndex];
+                    let animalNoun = animalAffix + bareRoot;
+                    let humanNoun = humanAffix + bareRoot;
+                    let spanAnimal = document.createElement("span");
+                    let spanAnimalMeaning = document.createElement("span");
+                    spanAnimal.style.fontStyle = "italic";
+                    spanAnimal.innerHTML = spell(soundChange(animalNoun));
+                    spanAnimalMeaning.innerHTML = ` "${englishWord}" > `
+                    newLi.appendChild(spanAnimal)
+                    newLi.appendChild(spanAnimalMeaning)
+                    let spanHuman = document.createElement("span");
+                    let spanHumanMeaning = document.createElement("span");
+                    spanHuman.style.fontStyle = "italic";
+                    spanHuman.innerHTML = spell(soundChange(humanNoun));
+                    newLi.appendChild(spanHuman);
+                    let humanNounMeaning = "";
+                    //replaces the previously generated word with the new feminine form derived from the masculine
+                    if(englishWord === "cow") {
+                        humanNounMeaning = "cowherd";
+                        generatedNouns[nounArray.indexOf("cowherd")] = bareRoot;
+                    }
+                    if(englishWord === "sheep") {
+                        humanNounMeaning = "shepherd";
+                    }
+                    if(englishWord === "horse") {
+                        humanNounMeaning = "horsegroom";
+                    }
+
+                    spanHumanMeaning.innerHTML = ` "${humanNounMeaning}"`
+                    newLi.appendChild(spanHumanMeaning)
+                    genderUl.appendChild(newLi);
+                }
+
                 genderPAffixes.innerHTML = `Human nouns take the prefix <i>${spell(soundChange(humanAffix))}-</i>:
                 <i>${spell(soundChange(humanNoun1))}</i> "${humanNounMeaning1}",
                 <i>${spell(soundChange(humanNoun2))}</i> "${humanNounMeaning2}",
@@ -1220,7 +1581,11 @@ function chooseNounGender() {
                 <i>${spell(soundChange(inanimateNoun1))}</i> "${inanimate2NounMeaning1}",
                 <i>${spell(soundChange(inanimateNoun2))}</i> "${inanimate2NounMeaning2}",
                 <i>${spell(soundChange(inanimateNoun3))}</i> "${inanimate2NounMeaning3}",
-                <i>${spell(soundChange(inanimateNoun4))}</i> "${inanimate2NounMeaning4}".<br/>`
+                <i>${spell(soundChange(inanimateNoun4))}</i> "${inanimate2NounMeaning4}".<br/>
+                Terms for keepers of animals can be derived by placing the animal noun in the human gender.`
+                switchNoungender("cow");
+                switchNoungender("sheep");
+                switchNoungender("horse");
             }
         }
         
@@ -1371,6 +1736,7 @@ function chooseNounGender() {
     document.getElementById("nouns").appendChild(genderHeader);
     document.getElementById("nouns").appendChild(genderP);
     document.getElementById("nouns").appendChild(genderPAffixes);
+    document.getElementById("nouns").appendChild(genderUl)
 }
 
 /**********CASE RELATED SECTION***********/

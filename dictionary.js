@@ -268,7 +268,6 @@ function makeDictionary() {
         document.getElementById("language-to-english").appendChild(entry);
     }
 
-
     //English to Kerkebulo
     for(let i = 0; i < englishWords.length; i++) {
         let pOfSpeech = "";
@@ -300,8 +299,22 @@ function makeDictionary() {
                 let index = englishWords.indexOf(englishWords[i])
                 if(animInan[index] === "anim") {
                     pOfSpeech = "n.anim";
+                    animateArray.push(generatedNouns[i]);
+                    if(genderSuffixOrPrefix === "suffix") {
+                        wordWithAffix = languageWords[i] + animateAffix;
+                    }
+                    if(genderSuffixOrPrefix === "prefix") {
+                        wordWithAffix = animateAffix + languageWords[i];
+                    }
                 } else if (animInan[index] === "inan"){
                     pOfSpeech = "n.inan";
+                    inanimateArray.push(generatedNouns[i]);
+                    if(genderSuffixOrPrefix === "suffix") {
+                        wordWithAffix = languageWords[i] + inanimateAffix;
+                    }
+                    if(genderSuffixOrPrefix === "prefix") {
+                        wordWithAffix = inanimateAffix + languageWords[i];
+                    }
                 }
             }
             if(nounGenderArray.includes("masculine") && nounGenderArray.includes("feminine") && nounGenderArray.length === 2) {

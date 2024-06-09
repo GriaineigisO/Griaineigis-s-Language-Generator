@@ -50,7 +50,7 @@ const naturalArtificial = [
 "natural",
 "natural",
 "natural",
-"artificial",
+"natural",
 "natural",
 "artificial",
 "natural",

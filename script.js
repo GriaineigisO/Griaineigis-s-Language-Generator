@@ -17,11 +17,17 @@ import nounCases from './allPossibleNounCases.js'
 import animInan from './nounGender/anim_inan.js'
 import mascFem from './nounGender/masc_fem.js'
 import mascFemNeut from './nounGender/masc_fem_neut.js'
+import humanAnimalInan from './nounGender/human_animal_inan.js'
+import activePassive from './nounGender/active_passive.js'
+import naturalArtificial from './nounGender/natural_artificial.js'
+import divineNonDivine from './nounGender/divine_nondivine.js';
+
 
 import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
 import {allWordOrders, subjectFinalWordOrders, objectFinalWordOrders, verbFinalWordOrders} from './allPossibleWordOrders.js'
+
 
 
 //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
@@ -48,6 +54,15 @@ let feminine1Array = [];
 let masculine2Array = [];
 let feminine2Array = [];
 let neuterArray = [];
+let humanArray = [];
+let animalArray = [];
+let inanimateArray2 = [];
+let activeArray = [];
+let passiveArray = [];
+let naturalArray = [];
+let artificialArray = [];
+let divineArray = [];
+let profaneArray = [];
 
 let wordThere = "";
 let wordHere = "";
@@ -67,6 +82,15 @@ let inanimateAffix = "";
 let masculineAffix = "";
 let feminineAffix = "";
 let neuterAffix = "";
+let divineAffix = "";
+let profaneAffix = "";
+let humanAffix = "";
+let animalAffix = "";
+let inanimate2Affix = "";
+let activeAffix = "";
+let passiveAffix = "";
+let naturalAffix = "";
+let artificialAffix = "";
 let genderSuffixOrPrefix = "";
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
@@ -96,6 +120,15 @@ function clearGeneratedArrays() {
     masculine2Array = [];
     feminine2Array = [];
     neuterArray = [];
+    humanArray = [];
+    animalArray = [];
+    inanimateArray2 = [];
+    activeArray = [];
+    passiveArray = [];
+    naturalArray = [];
+    artificialArray = [];
+    divineArray = [];
+    profaneArray = [];
 
     wordThere = "";
     wordHere = "";
@@ -115,6 +148,15 @@ function clearGeneratedArrays() {
     masculineAffix = "";
     feminineAffix = "";
     neuterAffix = "";
+    divineAffix = "";
+    profaneAffix = "";
+    humanAffix = "";
+    animalAffix = "";
+    inanimate2Affix = "";
+    activeAffix = "";
+    passiveAffix = "";
+    naturalAffix = "";
+    artificialAffix = "";
     genderSuffixOrPrefix = "";
 
 
@@ -701,7 +743,7 @@ function suffixOrPrefix() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = 3//Math.floor(Math.random() * 4)
+    genderNum = 7//Math.floor(Math.random() * 9)
 }
 
 function chooseNounGender() {
@@ -730,6 +772,28 @@ function chooseNounGender() {
         }else if (mascFemNeut[index] === "neut"){
             neuterArray.push(nounArray[i]);
         }
+        if(humanAnimalInan[index] === "human") {
+            humanArray.push(nounArray[i]);
+        } else if (humanAnimalInan[index] === "animal"){
+            animalArray.push(nounArray[i]);
+        }else if (humanAnimalInan[index] === "inanimate"){
+            inanimateArray2.push(nounArray[i]);
+        }
+        if(activePassive[index] === "active") {
+            activeArray.push(nounArray[i]);
+        } else if (activePassive[index] === "passive"){
+            passiveArray.push(nounArray[i]);
+        }
+        if(naturalArtificial[index] === "natural") {
+            naturalArray.push(nounArray[i]);
+        } else if (naturalArtificial[index] === "artificial"){
+            artificialArray.push(nounArray[i]);
+        }
+        if(divineNonDivine[index] === "divine") {
+            divineArray.push(nounArray[i]);
+        } else if (divineNonDivine[index] === "profane"){
+            profaneArray.push(nounArray[i]);
+        }
     }
 
     const randomAnimateNoun1 = generatedNouns[nounArray.indexOf(animateArray[Math.floor(Math.random() * animateArray.length)])];
@@ -756,8 +820,6 @@ function chooseNounGender() {
     const randomInanimateNoun4 = generatedNouns[nounArray.indexOf(inanimateArray[Math.floor(Math.random() * inanimateArray.length)])];
     const randomInanimateNounMeaning4 = nounArray[generatedNouns.indexOf(randomInanimateNoun4)]
 
-
-
     const randomMasculineNoun1 = generatedNouns[nounArray.indexOf(masculine1Array[Math.floor(Math.random() * masculine1Array.length)])];
     const randomMasculineNounMeaning1 = nounArray[generatedNouns.indexOf(randomMasculineNoun1)]
  
@@ -781,7 +843,6 @@ function chooseNounGender() {
 
     const randomFeminineNoun4 = generatedNouns[nounArray.indexOf(feminine1Array[Math.floor(Math.random() * feminine1Array.length)])];
     const randomFeminineNounMeaning4 = nounArray[generatedNouns.indexOf(randomFeminineNoun4)]
-
 
     const randomMasculine2Noun1 = generatedNouns[nounArray.indexOf(masculine2Array[Math.floor(Math.random() * masculine2Array.length)])];
     const randomMasculineNoun2Meaning1 = nounArray[generatedNouns.indexOf(randomMasculine2Noun1)]
@@ -818,6 +879,114 @@ function chooseNounGender() {
 
     const randomNeuterNoun4 = generatedNouns[nounArray.indexOf(neuterArray[Math.floor(Math.random() * neuterArray.length)])];
     const randomNeuterNounMeaning4 = nounArray[generatedNouns.indexOf(randomNeuterNoun4)]
+
+    const randomDivineNoun1 = generatedNouns[nounArray.indexOf(divineArray[Math.floor(Math.random() * divineArray.length)])];
+    const DivineNounMeaning1 = nounArray[generatedNouns.indexOf(randomDivineNoun1)]
+
+    const randomDivineNoun2 = generatedNouns[nounArray.indexOf(divineArray[Math.floor(Math.random() * divineArray.length)])];
+    const DivineNounMeaning2 = nounArray[generatedNouns.indexOf(randomDivineNoun2)]
+
+    const randomDivineNoun3 = generatedNouns[nounArray.indexOf(divineArray[Math.floor(Math.random() * divineArray.length)])];
+    const DivineNounMeaning3 = nounArray[generatedNouns.indexOf(randomDivineNoun3)]
+
+    const randomDivineNoun4 = generatedNouns[nounArray.indexOf(divineArray[Math.floor(Math.random() * divineArray.length)])];
+    const DivineNounMeaning4 = nounArray[generatedNouns.indexOf(randomDivineNoun4)]
+
+    const randomProfaneNoun1 = generatedNouns[nounArray.indexOf(profaneArray[Math.floor(Math.random() * profaneArray.length)])];
+    const profaneNounMeaning1 = nounArray[generatedNouns.indexOf(randomProfaneNoun1)]
+
+    const randomProfaneNoun2 = generatedNouns[nounArray.indexOf(profaneArray[Math.floor(Math.random() * profaneArray.length)])];
+    const profaneNounMeaning2 = nounArray[generatedNouns.indexOf(randomProfaneNoun2)]
+
+    const randomProfaneNoun3 = generatedNouns[nounArray.indexOf(profaneArray[Math.floor(Math.random() * profaneArray.length)])];
+    const profaneNounMeaning3 = nounArray[generatedNouns.indexOf(randomProfaneNoun3)]
+
+    const randomProfaneNoun4 = generatedNouns[nounArray.indexOf(profaneArray[Math.floor(Math.random() * profaneArray.length)])];
+    const profaneNounMeaning4 = nounArray[generatedNouns.indexOf(randomProfaneNoun4)]
+
+    const randomHumanNoun1 = generatedNouns[nounArray.indexOf(humanArray[Math.floor(Math.random() * humanArray.length)])];
+    const humanNounMeaning1 = nounArray[generatedNouns.indexOf(randomHumanNoun1)]
+
+    const randomHumanNoun2 = generatedNouns[nounArray.indexOf(humanArray[Math.floor(Math.random() * humanArray.length)])];
+    const humanNounMeaning2 = nounArray[generatedNouns.indexOf(randomHumanNoun2)]
+
+    const randomHumanNoun3 = generatedNouns[nounArray.indexOf(humanArray[Math.floor(Math.random() * humanArray.length)])];
+    const humanNounMeaning3 = nounArray[generatedNouns.indexOf(randomHumanNoun3)]
+
+    const randomHumanNoun4 = generatedNouns[nounArray.indexOf(humanArray[Math.floor(Math.random() * humanArray.length)])];
+    const humanNounMeaning4 = nounArray[generatedNouns.indexOf(randomHumanNoun4)]
+
+    const randomAnimalNoun1 = generatedNouns[nounArray.indexOf(animalArray[Math.floor(Math.random() * animalArray.length)])];
+    const animalNounMeaning1 = nounArray[generatedNouns.indexOf(randomAnimalNoun1)]
+
+    const randomAnimalNoun2 = generatedNouns[nounArray.indexOf(animalArray[Math.floor(Math.random() * animalArray.length)])];
+    const animalNounMeaning2 = nounArray[generatedNouns.indexOf(randomAnimalNoun2)]
+
+    const randomAnimalNoun3 = generatedNouns[nounArray.indexOf(animalArray[Math.floor(Math.random() * animalArray.length)])];
+    const animalNounMeaning3 = nounArray[generatedNouns.indexOf(randomAnimalNoun3)]
+
+    const randomAnimalNoun4 = generatedNouns[nounArray.indexOf(animalArray[Math.floor(Math.random() * animalArray.length)])];
+    const animalNounMeaning4 = nounArray[generatedNouns.indexOf(randomAnimalNoun4)]
+
+    const randomInanimate2Noun1 = generatedNouns[nounArray.indexOf(inanimateArray2[Math.floor(Math.random() * inanimateArray2.length)])];
+    const inanimate2NounMeaning1 = nounArray[generatedNouns.indexOf(randomInanimate2Noun1)]
+
+    const randomInanimate2Noun2 = generatedNouns[nounArray.indexOf(inanimateArray2[Math.floor(Math.random() * inanimateArray2.length)])];
+    const inanimate2NounMeaning2 = nounArray[generatedNouns.indexOf(randomInanimate2Noun2)]
+
+    const randomInanimate2Noun3 = generatedNouns[nounArray.indexOf(inanimateArray2[Math.floor(Math.random() * inanimateArray2.length)])];
+    const inanimate2NounMeaning3 = nounArray[generatedNouns.indexOf(randomInanimate2Noun3)]
+
+    const randomInanimate2Noun4 = generatedNouns[nounArray.indexOf(inanimateArray2[Math.floor(Math.random() * inanimateArray2.length)])];
+    const inanimate2NounMeaning4 = nounArray[generatedNouns.indexOf(randomInanimate2Noun4)];
+
+    const randomActiveNoun1 = generatedNouns[nounArray.indexOf(activeArray[Math.floor(Math.random() * activeArray.length)])];
+    const activeNounMeaning1 = nounArray[generatedNouns.indexOf(randomActiveNoun1)];
+
+    const randomActiveNoun2 = generatedNouns[nounArray.indexOf(activeArray[Math.floor(Math.random() * activeArray.length)])];
+    const activeNounMeaning2 = nounArray[generatedNouns.indexOf(randomActiveNoun2)];
+
+    const randomActiveNoun3 = generatedNouns[nounArray.indexOf(activeArray[Math.floor(Math.random() * activeArray.length)])];
+    const activeNounMeaning3 = nounArray[generatedNouns.indexOf(randomActiveNoun3)];
+
+    const randomActiveNoun4 = generatedNouns[nounArray.indexOf(activeArray[Math.floor(Math.random() * activeArray.length)])];
+    const activeNounMeaning4 = nounArray[generatedNouns.indexOf(randomActiveNoun4)];
+
+    const randomPassiveNoun1 = generatedNouns[nounArray.indexOf(passiveArray[Math.floor(Math.random() * passiveArray.length)])];
+    const passiveNounMeaning1 = nounArray[generatedNouns.indexOf(randomPassiveNoun1)];
+
+    const randomPassiveNoun2 = generatedNouns[nounArray.indexOf(passiveArray[Math.floor(Math.random() * passiveArray.length)])];
+    const passiveNounMeaning2 = nounArray[generatedNouns.indexOf(randomPassiveNoun2)];
+
+    const randomPassiveNoun3 = generatedNouns[nounArray.indexOf(passiveArray[Math.floor(Math.random() * passiveArray.length)])];
+    const passiveNounMeaning3 = nounArray[generatedNouns.indexOf(randomPassiveNoun3)];
+
+    const randomPassiveNoun4 = generatedNouns[nounArray.indexOf(passiveArray[Math.floor(Math.random() * passiveArray.length)])];
+    const passiveNounMeaning4 = nounArray[generatedNouns.indexOf(randomPassiveNoun4)];
+
+    const randomnaturalNoun1 = generatedNouns[nounArray.indexOf(naturalArray[Math.floor(Math.random() * naturalArray.length)])];
+    const naturalNounMeaning1 = nounArray[generatedNouns.indexOf(randomnaturalNoun1)];
+
+    const randomnaturalNoun2 = generatedNouns[nounArray.indexOf(naturalArray[Math.floor(Math.random() * naturalArray.length)])];
+    const naturalNounMeaning2 = nounArray[generatedNouns.indexOf(randomnaturalNoun2)];
+
+    const randomnaturalNoun3 = generatedNouns[nounArray.indexOf(naturalArray[Math.floor(Math.random() * naturalArray.length)])];
+    const naturalNounMeaning3 = nounArray[generatedNouns.indexOf(randomnaturalNoun3)];
+
+    const randomnaturalNoun4 = generatedNouns[nounArray.indexOf(naturalArray[Math.floor(Math.random() * naturalArray.length)])];
+    const naturalNounMeaning4 = nounArray[generatedNouns.indexOf(randomnaturalNoun4)];
+
+    const randomArtificialNoun1 = generatedNouns[nounArray.indexOf(artificialArray[Math.floor(Math.random() * artificialArray.length)])];
+    const artificialNounMeaning1 = nounArray[generatedNouns.indexOf(randomArtificialNoun1)];
+
+    const randomArtificialNoun2 = generatedNouns[nounArray.indexOf(artificialArray[Math.floor(Math.random() * artificialArray.length)])];
+    const artificialNounMeaning2 = nounArray[generatedNouns.indexOf(randomArtificialNoun2)];
+
+    const randomArtificialNoun3 = generatedNouns[nounArray.indexOf(artificialArray[Math.floor(Math.random() * artificialArray.length)])];
+    const artificialNounMeaning3 = nounArray[generatedNouns.indexOf(randomArtificialNoun3)];
+
+    const randomArtificialNoun4 = generatedNouns[nounArray.indexOf(artificialArray[Math.floor(Math.random() * artificialArray.length)])];
+    const artificialNounMeaning4 = nounArray[generatedNouns.indexOf(randomArtificialNoun4)];
 
     genderSuffixOrPrefix = suffixOrPrefix();
     //if there is no gender
@@ -913,7 +1082,7 @@ function chooseNounGender() {
                 <i>${spell(soundChange(masculineNoun2))}</i> "${randomMasculineNounMeaning2}",
                 <i>${spell(soundChange(masculineNoun3))}</i> "${randomMasculineNounMeaning3}",
                 <i>${spell(soundChange(masculineNoun4))}</i> "${randomMasculineNounMeaning4}".<br/>
-                Feminine nouns take the prefix <i>${spell(soundChange(feminineAffix))}-/i>:
+                Feminine nouns take the prefix <i>${spell(soundChange(feminineAffix))}-</i>:
                 <i>${spell(soundChange(feminineNoun1))}</i> "${randomFeminineNounMeaning1}",
                 <i>${spell(soundChange(feminineNoun2))}</i> "${randomFeminineNounMeaning2}",
                 <i>${spell(soundChange(feminineNoun3))}</i> "${randomFeminineNounMeaning3}",
@@ -991,19 +1160,213 @@ function chooseNounGender() {
     }
     if(genderNum === 4) {
         nounGenderArray.push("human", "animal", "inanimate");
-        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical genders which are "human", "animal" and "inanimate". The genders are quite literally as their names describe, with the inanimate gender encompassing plants and non-living things.`
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical genders which are "human", "animal" and "inanimate". The genders are quite literally as their names describe, with the inanimate gender encompassing plants and non-living things.`;
+        if(typologyNum === 1) {
+            humanAffix = generateAffixes();
+            animalAffix = generateAffixes();
+            inanimate2Affix = generateAffixes(); 
+            if(genderSuffixOrPrefix === "suffix") {
+                let humanNoun1 = randomHumanNoun1 + humanAffix;
+                let humanNoun2 = randomHumanNoun2 + humanAffix;
+                let humanNoun3 = randomHumanNoun3 + humanAffix;
+                let humanNoun4 = randomHumanNoun4 + humanAffix;
+                let animalNoun1 = randomAnimalNoun1 + animalAffix;
+                let animalNoun2 = randomAnimalNoun2 + animalAffix;
+                let animalNoun3 = randomAnimalNoun3 + animalAffix;
+                let animalNoun4 = randomAnimalNoun4 + animalAffix;
+                let inanimateNoun1 = randomInanimate2Noun1 + inanimate2Affix;
+                let inanimateNoun2 = randomInanimate2Noun2 + inanimate2Affix;
+                let inanimateNoun3 = randomInanimate2Noun3 + inanimate2Affix;
+                let inanimateNoun4 = randomInanimate2Noun4 + inanimate2Affix;
+                genderPAffixes.innerHTML = `Human nouns take the suffix <i>-${spell(soundChange(humanAffix))}</i>:
+                <i>${spell(soundChange(humanNoun1))}</i> "${humanNounMeaning1}",
+                <i>${spell(soundChange(humanNoun2))}</i> "${humanNounMeaning2}",
+                <i>${spell(soundChange(humanNoun3))}</i> "${humanNounMeaning3}",
+                <i>${spell(soundChange(humanNoun4))}</i> "${humanNounMeaning4}".<br/>
+                Animal nouns take the suffix <i>-${spell(soundChange(animalAffix))}</i>:
+                <i>${spell(soundChange(animalNoun1))}</i> "${animalNounMeaning1}",
+                <i>${spell(soundChange(animalNoun2))}</i> "${animalNounMeaning2}",
+                <i>${spell(soundChange(animalNoun3))}</i> "${animalNounMeaning3}",
+                <i>${spell(soundChange(animalNoun4))}</i> "${animalNounMeaning4}".<br/>
+                Inanimate nouns take the suffix <i>-${spell(soundChange(inanimate2Affix))}</i>:
+                <i>${spell(soundChange(inanimateNoun1))}</i> "${inanimate2NounMeaning1}",
+                <i>${spell(soundChange(inanimateNoun2))}</i> "${inanimate2NounMeaning2}",
+                <i>${spell(soundChange(inanimateNoun3))}</i> "${inanimate2NounMeaning3}",
+                <i>${spell(soundChange(inanimateNoun4))}</i> "${inanimate2NounMeaning4}".<br/>`
+            } else if(genderSuffixOrPrefix === "prefix") {
+                let humanNoun1 = humanAffix + randomHumanNoun1;
+                let humanNoun2 = humanAffix + randomHumanNoun2;
+                let humanNoun3 = humanAffix + randomHumanNoun3;
+                let humanNoun4 = humanAffix + randomHumanNoun4;
+                let animalNoun1 = animalAffix + randomAnimalNoun1;
+                let animalNoun2 = animalAffix + randomAnimalNoun2;
+                let animalNoun3 = animalAffix + randomAnimalNoun3;
+                let animalNoun4 = animalAffix + randomAnimalNoun4;
+                let inanimateNoun1 = inanimate2Affix + randomInanimate2Noun1;
+                let inanimateNoun2 = inanimate2Affix + randomInanimate2Noun2;
+                let inanimateNoun3 = inanimate2Affix + randomInanimate2Noun3;
+                let inanimateNoun4 = inanimate2Affix + randomInanimate2Noun4;
+                genderPAffixes.innerHTML = `Human nouns take the prefix <i>${spell(soundChange(humanAffix))}-</i>:
+                <i>${spell(soundChange(humanNoun1))}</i> "${humanNounMeaning1}",
+                <i>${spell(soundChange(humanNoun2))}</i> "${humanNounMeaning2}",
+                <i>${spell(soundChange(humanNoun3))}</i> "${humanNounMeaning3}",
+                <i>${spell(soundChange(humanNoun4))}</i> "${humanNounMeaning4}".<br/>
+                Animal nouns take the prefix <i>${spell(soundChange(animalAffix))}-</i>:
+                <i>${spell(soundChange(animalNoun1))}</i> "${animalNounMeaning1}",
+                <i>${spell(soundChange(animalNoun2))}</i> "${animalNounMeaning2}",
+                <i>${spell(soundChange(animalNoun3))}</i> "${animalNounMeaning3}",
+                <i>${spell(soundChange(animalNoun4))}</i> "${animalNounMeaning4}".<br/>
+                Inanimate nouns take the prefix <i>${spell(soundChange(inanimate2Affix))}-</i>:
+                <i>${spell(soundChange(inanimateNoun1))}</i> "${inanimate2NounMeaning1}",
+                <i>${spell(soundChange(inanimateNoun2))}</i> "${inanimate2NounMeaning2}",
+                <i>${spell(soundChange(inanimateNoun3))}</i> "${inanimate2NounMeaning3}",
+                <i>${spell(soundChange(inanimateNoun4))}</i> "${inanimate2NounMeaning4}".<br/>`
+            }
+        }
+        
     }
     if(genderNum === 5) {
-        nounGenderArray.push("divine", "non-divine");
-        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "divine" and "non-divine". The divine encompasses any noun referring to gods, whether the noun itself is animate or inanimate i.e an object or place associated with a god is part of the divine gender.`
+        nounGenderArray.push("divine", "profane");
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "divine" and "non-divine". The divine encompasses any noun referring to gods, whether the noun itself is animate or inanimate i.e an object or place associated with a god is part of the divine gender. Parts of the landscape considered sacred are also divine, such as graves, bodies of water and trees. Celestial bodies, like the sun, the moon, stars and clouds are divine, as are certain elements of nature like fire, water and stone. Finally, anything associated with wisdom, knowledge and poetry are divine. Anything else is profane.`;
+        //if agglutinative
+        if(typologyNum === 1) {
+            divineAffix = generateAffixes();
+            profaneAffix = generateAffixes(); 
+            if(genderSuffixOrPrefix === "suffix") {
+                let divineNoun1 = randomDivineNoun1 + divineAffix;
+                let divineNoun2 = randomDivineNoun2 + divineAffix;
+                let divineNoun3 = randomDivineNoun3 + divineAffix;
+                let divineNoun4 = randomDivineNoun4 + divineAffix;
+                let profaneNoun1 = randomProfaneNoun1 + profaneAffix;
+                let profaneNoun2 = randomProfaneNoun2 + profaneAffix;
+                let profaneNoun3 = randomProfaneNoun3 + profaneAffix;
+                let profaneNoun4 = randomProfaneNoun4 + profaneAffix;
+                genderPAffixes.innerHTML = `Divine nouns take the suffix <i>-${spell(soundChange(divineAffix))}</i>:
+                <i>${spell(soundChange(divineNoun1))}</i> "${DivineNounMeaning1}",
+                <i>${spell(soundChange(divineNoun2))}</i> "${DivineNounMeaning2}",
+                <i>${spell(soundChange(divineNoun3))}</i> "${DivineNounMeaning3}",
+                <i>${spell(soundChange(divineNoun4))}</i> "${DivineNounMeaning4}".<br/>
+                Profane nouns take the suffix <i>-${spell(soundChange(profaneAffix))}</i>:
+                <i>${spell(soundChange(profaneNoun1))}</i> "${profaneNounMeaning1}",
+                <i>${spell(soundChange(profaneNoun2))}</i> "${profaneNounMeaning2}",
+                <i>${spell(soundChange(profaneNoun3))}</i> "${profaneNounMeaning3}",
+                <i>${spell(soundChange(profaneNoun4))}</i> "${profaneNounMeaning4}".<br/>`
+            } else if(genderSuffixOrPrefix === "prefix") {
+                let divineNoun1 = divineAffix + randomDivineNoun1;
+                let divineNoun2 = divineAffix + randomDivineNoun2;
+                let divineNoun3 = divineAffix + randomDivineNoun3;
+                let divineNoun4 = divineAffix + randomDivineNoun4;
+                let profaneNoun1 = profaneAffix + randomProfaneNoun1;
+                let profaneNoun2 = profaneAffix + randomProfaneNoun2;
+                let profaneNoun3 = profaneAffix + randomProfaneNoun3;
+                let profaneNoun4 = profaneAffix + randomProfaneNoun4;
+                genderPAffixes.innerHTML = `Divine nouns take the prefix <i>-${spell(soundChange(divineAffix))}-</i>:
+                <i>${spell(soundChange(divineNoun1))}</i> "${DivineNounMeaning1}",
+                <i>${spell(soundChange(divineNoun2))}</i> "${DivineNounMeaning2}",
+                <i>${spell(soundChange(divineNoun3))}</i> "${DivineNounMeaning3}",
+                <i>${spell(soundChange(divineNoun4))}</i> "${DivineNounMeaning4}".<br/>
+                Profane nouns take the prefix <i>${spell(soundChange(profaneAffix))}-</i>:
+                <i>${spell(soundChange(profaneNoun1))}</i> "${profaneNounMeaning1}",
+                <i>${spell(soundChange(profaneNoun2))}</i> "${profaneNounMeaning2}",
+                <i>${spell(soundChange(profaneNoun3))}</i> "${profaneNounMeaning3}",
+                <i>${spell(soundChange(profaneNoun4))}</i> "${profaneNounMeaning4}".<br/>`
+            }
+        }
     }
     if(genderNum === 6) {
         nounGenderArray.push("active", "passive");
-        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "active" and "passive". The active refers to a noun which can act as an agent of a transitive verb, while the passive is any noun that can't be an agent, even if the subject of a middle voice verb. Nouns referring to living things are active, as well as tools, as they can be agents of transitive verbs e.g "The man saw a deer", "The bat flew in the sky", "The knife cut the cloth". Compare this to passive nouns which can only be subjects of intransitive/middle verbs e.g "The door opened" ("someone opened the door") or "The milk was poured" ("someone poured the milk").`
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "active" and "passive". The active refers to a noun which can act as an agent of a transitive verb, while the passive is any noun that can't be an agent, even if the subject of a middle voice verb. Nouns referring to living things are active, as well as tools, as they can be agents of transitive verbs e.g "The man saw a deer", "The bat flew in the sky", "The knife cut the cloth". Compare this to passive nouns which can only be subjects of intransitive/middle verbs e.g "The door opened" ("someone opened the door") or "The milk was poured" ("someone poured the milk").`;
+        //if agglutinative
+        if(typologyNum === 1) {
+            activeAffix = generateAffixes();
+            passiveAffix = generateAffixes(); 
+            if(genderSuffixOrPrefix === "suffix") {
+                let activeNoun1 = randomActiveNoun1 + activeAffix;
+                let activeNoun2 = randomActiveNoun2 + activeAffix;
+                let activeNoun3 = randomActiveNoun3 + activeAffix;
+                let activeNoun4 = randomActiveNoun4 + activeAffix;
+                let passiveNoun1 = randomProfaneNoun1 + passiveAffix;
+                let passiveNoun2 = randomProfaneNoun2 + passiveAffix;
+                let passiveNoun3 = randomProfaneNoun3 + passiveAffix;
+                let passiveNoun4 = randomProfaneNoun4 + passiveAffix;
+                genderPAffixes.innerHTML = `Active nouns take the suffix <i>-${spell(soundChange(activeAffix))}</i>:
+                <i>${spell(soundChange(activeNoun1))}</i> "${activeNounMeaning1}",
+                <i>${spell(soundChange(activeNoun2))}</i> "${activeNounMeaning2}",
+                <i>${spell(soundChange(activeNoun3))}</i> "${activeNounMeaning3}",
+                <i>${spell(soundChange(activeNoun4))}</i> "${activeNounMeaning4}".<br/>
+                Passive nouns take the suffix <i>-${spell(soundChange(passiveAffix))}</i>:
+                <i>${spell(soundChange(passiveNoun1))}</i> "${passiveNounMeaning1}",
+                <i>${spell(soundChange(passiveNoun2))}</i> "${passiveNounMeaning2}",
+                <i>${spell(soundChange(passiveNoun3))}</i> "${passiveNounMeaning3}",
+                <i>${spell(soundChange(passiveNoun4))}</i> "${passiveNounMeaning4}".<br/>`
+            } else if(genderSuffixOrPrefix === "prefix") {
+                let activeNoun1 = activeAffix + randomActiveNoun1;
+                let activeNoun2 = activeAffix + randomActiveNoun2;
+                let activeNoun3 = activeAffix + randomActiveNoun3;
+                let activeNoun4 = activeAffix + randomActiveNoun4 ;
+                let passiveNoun1 = passiveAffix + randomProfaneNoun1;
+                let passiveNoun2 = passiveAffix + randomProfaneNoun2;
+                let passiveNoun3 = passiveAffix + randomProfaneNoun3;
+                let passiveNoun4 = passiveAffix + randomProfaneNoun4;
+                genderPAffixes.innerHTML = `Active nouns take the prefix <i>${spell(soundChange(activeAffix))}-</i>:
+                <i>${spell(soundChange(activeNoun1))}</i> "${activeNounMeaning1}",
+                <i>${spell(soundChange(activeNoun2))}</i> "${activeNounMeaning2}",
+                <i>${spell(soundChange(activeNoun3))}</i> "${activeNounMeaning3}",
+                <i>${spell(soundChange(activeNoun4))}</i> "${activeNounMeaning4}".<br/>
+                Passive nouns take the prefix <i>${spell(soundChange(passiveAffix))}-</i>:
+                <i>${spell(soundChange(passiveNoun1))}</i> "${passiveNounMeaning1}",
+                <i>${spell(soundChange(passiveNoun2))}</i> "${passiveNounMeaning2}",
+                <i>${spell(soundChange(passiveNoun3))}</i> "${passiveNounMeaning3}",
+                <i>${spell(soundChange(passiveNoun4))}</i> "${passiveNounMeaning4}".<br/>`
+            }
+        }
     }
-    if(genderNum === 6) {
+    if(genderNum === 7) {
         nounGenderArray.push("natural", "artificial");
-        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "natural" and "artificial". The artificial gender encompasses all nthings made by humans, while the natural gender encompasses everything else. The exact distinction can get quite idiosyncretic however, as abstract concepts thought to be borne purely by humans, such as "mercy" or "hospitality" are part of the artificial gender.`
+        genderP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical genders which are "natural" and "artificial". The artificial gender encompasses all things made by humans, while the natural gender encompasses everything else. The exact distinction can get quite idiosyncratic however, as abstract concepts thought to be borne purely by humans, such as "mercy" or "hospitality" are part of the artificial gender.`;
+        if(typologyNum === 1) {
+            naturalAffix = generateAffixes();
+            artificialAffix = generateAffixes(); 
+            if(genderSuffixOrPrefix === "suffix") {
+                let naturalNoun1 = randomnaturalNoun1 + naturalAffix;
+                let naturalNoun2 = randomnaturalNoun2 + naturalAffix;
+                let naturalNoun3 = randomnaturalNoun3 + naturalAffix;
+                let naturalNoun4 = randomnaturalNoun4 + naturalAffix;
+                let artificialNoun1 = randomArtificialNoun1 + artificialAffix;
+                let artificialNoun2 = randomArtificialNoun2 + artificialAffix;
+                let artificialNoun3 = randomArtificialNoun3 + artificialAffix;
+                let artificialNoun4 = randomArtificialNoun4 + artificialAffix;
+                genderPAffixes.innerHTML = `Natural nouns take the suffix <i>-${spell(soundChange(naturalAffix))}</i>:
+                <i>${spell(soundChange(naturalNoun1))}</i> "${naturalNounMeaning1}",
+                <i>${spell(soundChange(naturalNoun2))}</i> "${naturalNounMeaning2}",
+                <i>${spell(soundChange(naturalNoun3))}</i> "${naturalNounMeaning3}",
+                <i>${spell(soundChange(naturalNoun4))}</i> "${naturalNounMeaning4}".<br/>
+                Artificial nouns take the suffix <i>-${spell(soundChange(artificialAffix))}</i>:
+                <i>${spell(soundChange(artificialNoun1))}</i> "${artificialNounMeaning1}",
+                <i>${spell(soundChange(artificialNoun2))}</i> "${artificialNounMeaning2}",
+                <i>${spell(soundChange(artificialNoun3))}</i> "${artificialNounMeaning3}",
+                <i>${spell(soundChange(artificialNoun4))}</i> "${artificialNounMeaning4}".<br/>`
+            } else if(genderSuffixOrPrefix === "prefix") {
+                let naturalNoun1 = naturalAffix + randomnaturalNoun1;
+                let naturalNoun2 = naturalAffix + randomnaturalNoun2;
+                let naturalNoun3 = naturalAffix + randomnaturalNoun3;
+                let naturalNoun4 = naturalAffix + randomnaturalNoun4;
+                let artificialNoun1 = artificialAffix + randomArtificialNoun1;
+                let artificialNoun2 = artificialAffix + randomArtificialNoun2;
+                let artificialNoun3 = artificialAffix + randomArtificialNoun3;
+                let artificialNoun4 = artificialAffix + randomArtificialNoun4;
+                genderPAffixes.innerHTML = `Natural nouns take the prefix <i>${spell(soundChange(naturalAffix))}-</i>:
+                <i>${spell(soundChange(naturalNoun1))}</i> "${naturalNounMeaning1}",
+                <i>${spell(soundChange(naturalNoun2))}</i> "${naturalNounMeaning2}",
+                <i>${spell(soundChange(naturalNoun3))}</i> "${naturalNounMeaning3}",
+                <i>${spell(soundChange(naturalNoun4))}</i> "${naturalNounMeaning4}".<br/>
+                Artificial nouns take the prefix <i>${spell(soundChange(artificialAffix))}-</i>:
+                <i>${spell(soundChange(artificialNoun1))}</i> "${artificialNounMeaning1}",
+                <i>${spell(soundChange(artificialNoun2))}</i> "${artificialNounMeaning2}",
+                <i>${spell(soundChange(artificialNoun3))}</i> "${artificialNounMeaning3}",
+                <i>${spell(soundChange(artificialNoun4))}</i> "${artificialNounMeaning4}".<br/>`
+            }
+        }
     }
     document.getElementById("nouns").appendChild(genderHeader);
     document.getElementById("nouns").appendChild(genderP);
@@ -1245,4 +1608,4 @@ function generateLanguage() {
     
    }
 
-export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix};
+export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix};

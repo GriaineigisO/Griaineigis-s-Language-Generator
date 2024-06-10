@@ -744,7 +744,7 @@ function suffixOrPrefix() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = 7//Math.floor(Math.random() * 8)
+    genderNum = Math.floor(Math.random() * 8)
 }
 
 

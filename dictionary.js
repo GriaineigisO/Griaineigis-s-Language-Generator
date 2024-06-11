@@ -99,9 +99,9 @@ function makeDictionary() {
                     }
                 }
             }
-            if(nounGenderArray.includes("masculine") && nounGenderArray.includes("feminine") && nounGenderArray.length === 2) {
+            if(nounGenderArray.includes("masculine1") && nounGenderArray.includes("feminine1") && nounGenderArray.length === 2) {
                 let index = englishWords.indexOf(englishWords[i])
-                if(mascFem[index] === "masc") {
+                if(mascFem[index] === "masculine1") {
                     pOfSpeech = "n.masc";
                     masculine1Array.push(generatedNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
@@ -110,7 +110,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = masculineAffix + languageWords[i];
                     }
-                } else if (mascFem[index] === "fem"){
+                } else if (mascFem[index] === "feminine1"){
                     pOfSpeech = "n.fem";
                     feminine1Array.push(generatedNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
@@ -121,9 +121,9 @@ function makeDictionary() {
                     }
                 }
             }
-            if(nounGenderArray.includes("masculine") && nounGenderArray.includes("feminine") && nounGenderArray.includes("neuter") && nounGenderArray.length === 3) {
+            if(nounGenderArray.includes("masculine2") && nounGenderArray.includes("feminine2") && nounGenderArray.includes("neuter") && nounGenderArray.length === 3) {
                 let index = englishWords.indexOf(englishWords[i])
-                if(mascFemNeut[index] === "masc") {
+                if(mascFemNeut[index] === "masculine2") {
                     pOfSpeech = "n.masc";
                     masculine2Array.push(generatedNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
@@ -132,7 +132,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = masculineAffix + languageWords[i];
                     }
-                } else if (mascFemNeut[index] === "fem"){
+                } else if (mascFemNeut[index] === "feminine2"){
                     pOfSpeech = "n.fem";
                     feminine2Array.push(generatedNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
@@ -141,7 +141,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = feminineAffix + languageWords[i];
                     }
-                } else if (mascFemNeut[index] === "neut"){
+                } else if (mascFemNeut[index] === "neuter"){
                     pOfSpeech = "n.neut";
                     neuterArray.push(generatedNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
@@ -174,7 +174,7 @@ function makeDictionary() {
                     }
                 }
             }
-            if(nounGenderArray.includes("human") && nounGenderArray.includes("animal") && nounGenderArray.includes("inanimate") && nounGenderArray.length === 3) {
+            if(nounGenderArray.includes("human") && nounGenderArray.includes("animal") && nounGenderArray.includes("secondinanimate") && nounGenderArray.length === 3) {
                 let index = englishWords.indexOf(englishWords[i])
                 if(humanAnimalInan[index] === "human") {
                     pOfSpeech = "n.human";
@@ -194,7 +194,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = animalAffix + languageWords[i];
                     }
-                } else if (humanAnimalInan[index] === "inanimate"){
+                } else if (humanAnimalInan[index] === "secondinanimate"){
                     pOfSpeech = "n.inanimate";
                     inanimate2Array.push(generatedNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {

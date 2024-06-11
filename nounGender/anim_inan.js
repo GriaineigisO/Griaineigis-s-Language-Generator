@@ -199,7 +199,7 @@ const animInan = [
 "anim",
 "inan",
 "inan",
-"inan",
+"anim",
 "inan",
 "inan",
 "inan",

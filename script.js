@@ -752,7 +752,7 @@ function chooseWordOrder() {
 
 /*****CHOOSE IF SOMETHING IS MARKED WITH SUFFIX OR PREFIX****/
 function suffixOrPrefix() {
-    if(/*Math.floor(Math.random() * 5)*/4 !== 2) {
+    if(Math.floor(Math.random() * 5) !== 2) {
         return "suffix";
     } else {
         return "prefix";
@@ -763,7 +763,7 @@ function suffixOrPrefix() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = 7//Math.floor(Math.random() * 8)
+    genderNum = 1//Math.floor(Math.random() * 8)
     if(genderNum === 0) {
         document.getElementById("agglutinative-gender").style.display = "none";
     }
@@ -811,7 +811,48 @@ function randomNumForNounGender() {
     }
 }
 
-function selectNouns(genderArray, array, gender) {
+let grammaticalNum = 0;
+function randomNumForGrammaticalNumbers() {
+    grammaticalNum = 2//Math.floor(Math.random() * 24)
+    if(grammaticalNum < 4) {
+        grammaticalNumberArray.push("singular", "plural");
+        document.getElementById("singular-plural-marked-singular").style.display = "block";
+    } else {
+        document.getElementById("singular-plural-marked-singular").style.display = "none";
+    }
+
+    if(grammaticalNum < 7) {
+        grammaticalNumberArray.push("singular", "dual", "plural");
+        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, dual and plural. The dual number is used to mark when there are two of a thing.`
+    } else if(grammaticalNum < 10) {
+        grammaticalNumberArray.push("singular", "plural", "collective");
+        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, dual, plural and collective. The collective is used to mean "all" or "every".`
+    } else if(grammaticalNum < 12) {
+        grammaticalNumberArray.push("singular", "dual", "plural", "collective");
+        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has four grammatical numbers; singular, dual, plural and collective. The dual number is used to mark when there are two of a thing and the collective is used to mean "all" or "every".`
+    } else if(grammaticalNum < 14) {
+        grammaticalNumberArray.push("singular", "dual", "trial", "plural");
+        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has four grammatical numbers; singular, dual, trial and plural. The dual number is used to mark when there are two of a thing and the trial is to mark when there are three.`
+    } else if(grammaticalNum < 16) {
+        grammaticalNumberArray.push("singular", "dual", "trial", "quadral", "plural");
+        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has five grammatical numbers; singular, dual, trial, quadral, and plural. The dual number is used to mark when there are two of a thing and the trial is to mark when there are three. The quadral marks when there are four of a thing.`
+    } else if(grammaticalNum < 18) {
+        grammaticalNumberArray.push("singular", "plural", "greater plural");
+        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, plural and greater plural. The greater plural signifies "a lot of X" or "many X".`
+    } else if(grammaticalNum < 20) {
+        grammaticalNumberArray.push("singular", "plural", "general");
+        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, plural and general. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general).`
+    } else if(grammaticalNum < 21) {
+        grammaticalNumberArray.push("general", "plural");
+        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical numbers; general and plural. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general). Given the context it may also refer to a single noun. It is broadly a "non-plural" number.`
+    } else if(grammaticalNum <= 23) {
+        grammaticalNumberArray.push("general", "singulative", "plural");
+        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; general, singulative and plural. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general). The singulative is derived from the plural and marks a specific and singular instance of a noun.`
+    }
+    
+}
+
+function selectNounsGender(genderArray, array, gender) {
     for(let i = 0; i < nounArray.length; i++) {
         let index = nounArray.indexOf(nounArray[i])
         if(genderArray[index] === gender) {
@@ -827,29 +868,9 @@ function selectNouns(genderArray, array, gender) {
         document.getElementById("noun-meaning" + num.toString() + gender).innerHTML = array[randomNumber]
         num++;
     }
-//creates copy of the noun's meaning
-    let copyNum = 1;
-    for(let i = 0; i < document.getElementsByClassName(gender + "noun-meaning-copy").length; i++) {   
-        let nounMeaning =  document.getElementById("noun-meaning" + copyNum.toString() + gender)
-        let nounMeaningCopy = document.getElementsByClassName("noun-meaning-copy" + copyNum.toString() + gender)
-        for(let j = 0; j < nounMeaningCopy.length; j++) {
-            nounMeaningCopy[j].innerHTML = nounMeaning.innerHTML;
-        }
-        copyNum++;
-    }
-//creates copies of the noun
-    let copyNum2 = 1;
-    for(let i = 0; i < document.getElementsByClassName(gender + "-noun-copy").length; i++) {   
-        let noun =  document.getElementById("noun" + copyNum2.toString() + gender)
-        let nounCopy = document.getElementsByClassName("noun-copy" + copyNum2.toString() + gender)
-            for(let j = 0; j < nounCopy.length; j++) {
-                nounCopy[j].innerHTML = noun.innerHTML;
-            }
-        copyNum2++;
-        }
 }
 
-function inflectNouns(affix, gender) {
+function inflectNounsGender(affix, gender) {
     let spanNoun = document.getElementsByClassName(gender + "-noun");
     
     //adds gender affix
@@ -865,13 +886,84 @@ function inflectNouns(affix, gender) {
             spanNoun[i].innerHTML = spell(soundChange(genderInflected));
         }
     } else if (genderSuffixOrPrefix === "prefix") {
-        document.getElementById(gender +"-noun-suffix-or-prefix").innerHTML = `prefix <i>${spell(soundChange(affix))}-</i>`
+        for(let i = 0; i < genderAffix.length; i++) {
+            genderAffix[i].innerHTML = `prefix <i>${spell(soundChange(affix))}-</i>`
+        }
          for(let i = 0; i < spanNoun.length; i++) {
             let genderRoot = spanNoun[i].innerHTML;
             let genderInflected = affix + genderRoot ;
             spanNoun[i].innerHTML = spell(soundChange(genderInflected));
         }
     }
+    //creates copy of the noun's meaning
+    let copyNum = 5;
+    for(let i = 0; i < document.getElementsByClassName("noun-meaning-copy" + copyNum.toString() + gender).length; i++) {   
+        let nounMeaning =  document.getElementById("noun-meaning" + copyNum.toString() + gender)
+        let nounMeaningCopy = document.getElementsByClassName("noun-meaning-copy" + copyNum.toString() + gender)
+        for(let j = 0; j < nounMeaningCopy.length; j++) {
+            nounMeaningCopy[j].innerHTML = nounMeaning.innerHTML;
+        }
+        copyNum++;
+    }
+//creates copies of the noun
+    let copyNum2 = 5;
+    for(let i = 0; i < document.getElementsByClassName(gender + "-noun-copy").length; i++) {   
+        let noun = document.getElementById("noun" + copyNum2.toString() + gender)
+        let nounCopy = document.getElementsByClassName("noun-copy" + copyNum2.toString() + gender)
+            for(let j = 0; j < nounCopy.length; j++) {
+                nounCopy[j].innerHTML = spell(soundChange(noun.innerHTML));
+            }
+        copyNum2++;
+        }
+}
+
+function inflectNounsSingular() {
+    let spanNoun = document.getElementsByClassName("plural-noun");
+    console.log(spanNoun.length)
+    
+    let pluralSuffixOrPrefix = suffixOrPrefix();
+    let spanPluralAffix = document.getElementsByClassName("plural-affix")
+    if(pluralSuffixOrPrefix === "suffix") {
+        for(let i = 0; i < spanPluralAffix.length; i++) {
+            spanPluralAffix[i].innerHTML = `suffix <i>-${spell(soundChange(pluralAffix))}</i>`
+        }
+        for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let pluralnflected = root + pluralAffix;
+            console.log(pluralnflected)
+            spanNoun[i].innerHTML = spell(soundChange(pluralnflected));
+        }
+    } else if (pluralSuffixOrPrefix === "prefix") {
+        for(let i = 0; i < spanPluralAffix.length; i++) {
+            spanPluralAffix[i].innerHTML = `prefix <i>${spell(soundChange(pluralAffix))}-</i>`
+        }
+         for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let pluralnflected = pluralAffix + root ;
+            console.log(pluralnflected)
+            spanNoun[i].innerHTML = spell(soundChange(pluralnflected));
+        }
+    }
+//     //creates copy of the noun's meaning
+//     let copyNum = 5;
+//     for(let i = 0; i < document.getElementsByClassName("noun-meaning-copy" + copyNum.toString() + gender).length; i++) {   
+//         let nounMeaning =  document.getElementById("noun-meaning" + copyNum.toString() + gender)
+//         let nounMeaningCopy = document.getElementsByClassName("noun-meaning-copy" + copyNum.toString() + gender)
+//         for(let j = 0; j < nounMeaningCopy.length; j++) {
+//             nounMeaningCopy[j].innerHTML = nounMeaning.innerHTML;
+//         }
+//         copyNum++;
+//     }
+// //creates copies of the noun
+//     let copyNum2 = 5;
+//     for(let i = 0; i < document.getElementsByClassName(gender + "-noun-copy").length; i++) {   
+//         let noun = document.getElementById("noun" + copyNum2.toString() + gender)
+//         let nounCopy = document.getElementsByClassName("noun-copy" + copyNum2.toString() + gender)
+//             for(let j = 0; j < nounCopy.length; j++) {
+//                 nounCopy[j].innerHTML = spell(soundChange(noun.innerHTML));
+//             }
+//         copyNum2++;
+//         }
 }
 
 function switchNounGenderMascFem(englishWord) {
@@ -1017,45 +1109,46 @@ function switchNounGenderHumanAnimal(englishWord) {
 }
 
 function AgglutinativeNouns() {
+    
+    selectNounsGender(animInan, animateArray, "anim");
+    inflectNounsGender(animateAffix, "anim");
+    selectNounsGender(animInan, inanimateArray, "inan");
+    inflectNounsGender(inanimateAffix, "inan");
 
-    selectNouns(animInan, animateArray, "anim");
-    inflectNouns(animateAffix, "anim");
-    selectNouns(animInan, inanimateArray, "inan");
-    inflectNouns(inanimateAffix, "inan");
+    selectNounsGender(mascFem, masculine1Array, "masculine1");
+    inflectNounsGender(masculineAffix, "masculine1");
+    selectNounsGender(mascFem, feminine1Array, "feminine1");
+    inflectNounsGender(feminineAffix, "feminine1");
 
-    selectNouns(mascFem, masculine1Array, "masculine1");
-    inflectNouns(masculineAffix, "masculine1");
-    selectNouns(mascFem, feminine1Array, "feminine1");
-    inflectNouns(feminineAffix, "feminine1");
+    selectNounsGender(mascFemNeut, masculine1Array, "masculine2");
+    inflectNounsGender(masculineAffix, "masculine2");
+    selectNounsGender(mascFemNeut, feminine1Array, "feminine2");
+    inflectNounsGender(feminineAffix, "feminine2");
+    selectNounsGender(mascFemNeut, neuterArray, "neuter");
+    inflectNounsGender(neuterAffix, "neuter");
 
-    selectNouns(mascFemNeut, masculine1Array, "masculine2");
-    inflectNouns(masculineAffix, "masculine2");
-    selectNouns(mascFemNeut, feminine1Array, "feminine2");
-    inflectNouns(feminineAffix, "feminine2");
-    selectNouns(mascFemNeut, neuterArray, "neuter");
-    inflectNouns(neuterAffix, "neuter");
+    selectNounsGender(humanAnimalInan, humanArray, "human");
+    inflectNounsGender(humanAffix, "human");
+    selectNounsGender(humanAnimalInan, animalArray, "animal");
+    inflectNounsGender(animalAffix, "animal");
+    selectNounsGender(humanAnimalInan, inanimateArray2, "secondinanimate");
+    inflectNounsGender(inanimate2Affix, "secondinanimate");
 
-    selectNouns(humanAnimalInan, humanArray, "human");
-    inflectNouns(humanAffix, "human");
-    selectNouns(humanAnimalInan, animalArray, "animal");
-    inflectNouns(animalAffix, "animal");
-    selectNouns(humanAnimalInan, inanimateArray2, "secondinanimate");
-    inflectNouns(inanimate2Affix, "secondinanimate");
+    selectNounsGender(activePassive, activeArray, "active");
+    inflectNounsGender(activeAffix, "active");
+    selectNounsGender(activePassive, passiveArray, "passive");
+    inflectNounsGender(passiveAffix, "passive");
 
-    selectNouns(activePassive, activeArray, "active");
-    inflectNouns(activeAffix, "active");
-    selectNouns(activePassive, passiveArray, "passive");
-    inflectNouns(passiveAffix, "passive");
+    selectNounsGender(naturalArtificial, naturalArray, "natural");
+    inflectNounsGender(naturalAffix, "natural");
+    selectNounsGender(naturalArtificial, artificialArray, "artificial");
+    inflectNounsGender(artificialAffix, "artificial");
 
-    selectNouns(naturalArtificial, naturalArray, "natural");
-    inflectNouns(naturalAffix, "natural");
-    selectNouns(naturalArtificial, artificialArray, "artificial");
-    inflectNouns(artificialAffix, "artificial");
+    selectNounsGender(divineNonDivine, divineArray, "divine");
+    inflectNounsGender(divineAffix, "divine");
+    selectNounsGender(divineNonDivine, profaneArray, "profane");
+    inflectNounsGender(profaneAffix, "profane");
 
-    selectNouns(divineNonDivine, divineArray, "divine");
-    inflectNouns(divineAffix, "divine");
-    selectNouns(divineNonDivine, profaneArray, "profane");
-    inflectNouns(profaneAffix, "profane");
 
 
 }
@@ -1184,52 +1277,13 @@ function explainCases() {
 
 /************grammatical number related section********/
 
-let grammaticalNum = 0;
-function randomNumForGrammaticalNumber() {
-    grammaticalNum = 2//Math.floor(Math.random() * 24)
+// let grammaticalNum = 0;
+// function randomNumForGrammaticalNumber() {
+//     grammaticalNum = 2//Math.floor(Math.random() * 24)
 
-}
+// }
 
-function chooseGrammaticalNumbers() {
-    const grammaticalNumberDiv = document.createElement("div");
-    const grammaticalNumHeader = document.createElement("h3");
-    grammaticalNumHeader.innerHTML = "Grammatical Number"
-    const grammaticalNumberP = document.createElement("p");
-    if(grammaticalNum < 4) {
-        grammaticalNumberArray.push("singular", "plural");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical numbers; singular and plural.`
-    } else if(grammaticalNum < 7) {
-        grammaticalNumberArray.push("singular", "dual", "plural");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, dual and plural. The dual number is used to mark when there are two of a thing.`
-    } else if(grammaticalNum < 10) {
-        grammaticalNumberArray.push("singular", "plural", "collective");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, dual, plural and collective. The collective is used to mean "all" or "every".`
-    } else if(grammaticalNum < 12) {
-        grammaticalNumberArray.push("singular", "dual", "plural", "collective");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has four grammatical numbers; singular, dual, plural and collective. The dual number is used to mark when there are two of a thing and the collective is used to mean "all" or "every".`
-    } else if(grammaticalNum < 14) {
-        grammaticalNumberArray.push("singular", "dual", "trial", "plural");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has four grammatical numbers; singular, dual, trial and plural. The dual number is used to mark when there are two of a thing and the trial is to mark when there are three.`
-    } else if(grammaticalNum < 16) {
-        grammaticalNumberArray.push("singular", "dual", "trial", "quadral", "plural");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has five grammatical numbers; singular, dual, trial, quadral, and plural. The dual number is used to mark when there are two of a thing and the trial is to mark when there are three. The quadral marks when there are four of a thing.`
-    } else if(grammaticalNum < 18) {
-        grammaticalNumberArray.push("singular", "plural", "greater plural");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, plural and greater plural. The greater plural signifies "a lot of X" or "many X".`
-    } else if(grammaticalNum < 20) {
-        grammaticalNumberArray.push("singular", "plural", "general");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, plural and general. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general).`
-    } else if(grammaticalNum < 21) {
-        grammaticalNumberArray.push("general", "plural");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical numbers; general and plural. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general). Given the context it may also refer to a single noun. It is broadly a "non-plural" number.`
-    } else if(grammaticalNum <= 23) {
-        grammaticalNumberArray.push("general", "singulative", "plural");
-        grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; general, singulative and plural. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general). The singulative is derived from the plural and marks a specific and singular instance of a noun.`
-    }
-    document.getElementById("nouns").appendChild(grammaticalNumberDiv)
-    grammaticalNumberDiv.appendChild(grammaticalNumHeader);
-    grammaticalNumberDiv.appendChild(grammaticalNumberP);
-}
+
 
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
@@ -1253,6 +1307,8 @@ function generateLanguage() {
     randomNumForWordOrder();
     chooseWordOrder();
     suffixOrPrefix();
+    randomNumForNounGender();
+    randomNumForGrammaticalNumbers();
     switchNounGenderMascFem("bull");
     switchNounGenderMascFem("horse");
     switchNounGenderMascFem("pig");
@@ -1273,13 +1329,12 @@ function generateLanguage() {
     switchNounGenderHumanAnimal("sheep");
     switchNounGenderHumanAnimal("horse");
     AgglutinativeNouns();
+    inflectNounsSingular();
     chooseIfMarkedNominative();
     chooseIfMarkedSingular();
     chooseCases();
     explainCases();
-    randomNumForNounGender();
-    randomNumForGrammaticalNumber();
-    chooseGrammaticalNumbers();
+    
    }
 
 export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix};

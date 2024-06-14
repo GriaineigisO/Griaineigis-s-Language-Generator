@@ -94,6 +94,9 @@ let passiveAffix = "";
 let naturalAffix = "";
 let artificialAffix = "";
 let genderSuffixOrPrefix = "";
+// let singularSuffixOrPrefix = "";
+// let pluralSuffixOrPrefix = "";
+let numberSuffixOrPrefix = "";
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
@@ -171,6 +174,7 @@ function clearGeneratedArrays() {
     document.getElementById("masc-fem-gender-switch1").replaceChildren();
     document.getElementById("masc-fem-gender-switch2").replaceChildren();
     document.getElementById("human-animal-gender-switch").replaceChildren();
+    document.getElementById("agglutinative-case").replaceChildren();
 }
 
 function showGrammarAndDictionary() {
@@ -759,11 +763,32 @@ function suffixOrPrefix() {
     }
 }
 
+//each type of affix has its own function to determine if it is marked with a suffix or prefix, to prevent each affix having different outcomes, i.e one gender being marked with a prefix and another with a suffix. =
+function genderMarkedWithSuffixOrPrefix() {
+    genderSuffixOrPrefix = suffixOrPrefix()
+}
+
+function numberMarkedWithSuffixOrPrefix() {
+    numberSuffixOrPrefix = suffixOrPrefix()
+}
+
+/*****CHOOSE IF THE LANGUAGE HAS A MARKED SINGULAR****/
+function markedSingularOrNot() {
+    if(typologyNum === 1 && Math.floor(Math.random() * 7) === 2) {
+        return true;
+    } else if(typologyNum === 2 && Math.floor(Math.random() * 7) !== 2) {
+        return true;
+    } else {
+        return false;
+    };
+}
+
+
 /*****Noun Gender*******/
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = 1//Math.floor(Math.random() * 8)
+    genderNum = 3//Math.floor(Math.random() * 8)
     if(genderNum === 0) {
         document.getElementById("agglutinative-gender").style.display = "none";
     }
@@ -813,10 +838,36 @@ function randomNumForNounGender() {
 
 let grammaticalNum = 0;
 function randomNumForGrammaticalNumbers() {
-    grammaticalNum = 2//Math.floor(Math.random() * 24)
+    grammaticalNum = Math.floor(Math.random() * 24)
     if(grammaticalNum < 4) {
         grammaticalNumberArray.push("singular", "plural");
-        document.getElementById("singular-plural-marked-singular").style.display = "block";
+        document.getElementById("singular-plural-marked-singular").style.display = "inline";
+        //hides or shows examples of singular and plural nouns based on what noun gender is present
+        if(genderNum === 1) {
+            document.getElementById("anim-inan-singular-plural").style.display = "block";
+        } else {
+            document.getElementById("anim-inan-singular-plural").style.display = "none";
+        }
+        if(genderNum === 2) {
+            document.getElementById("masc-fem-singular-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-singular-plural").style.display = "none";
+        }
+        if(genderNum === 3) {
+            document.getElementById("masc-fem-neut-singular-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-neut-singular-plural").style.display = "none";
+        }
+        if(genderNum === 4) {
+            document.getElementById("human-animal-inan-singular-plural").style.display = "block";
+        } else {
+            document.getElementById("human-animal-inan-singular-plural").style.display = "none";
+        }
+        if(genderNum === 5) {
+            document.getElementById("divine-profane-singular-plural").style.display = "block";
+        } else {
+            document.getElementById("divine-profane-singular-plural").style.display = "none";
+        }
     } else {
         document.getElementById("singular-plural-marked-singular").style.display = "none";
     }
@@ -864,17 +915,17 @@ function selectNounsGender(genderArray, array, gender) {
     for(let i = 0; i < spanNoun.length; i++) {
         let randomNumber = Math.floor(Math.random() * array.length);
         let randomNoun = generatedNouns[nounArray.indexOf(array[randomNumber])] 
-        document.getElementById("noun" + num.toString() + gender).innerHTML = randomNoun;
-        document.getElementById("noun-meaning" + num.toString() + gender).innerHTML = array[randomNumber]
+        document.getElementById("noun" + num.toString() + gender).innerHTML = spell(soundChange(randomNoun));
+        for(let i = 0; i < document.getElementsByClassName("noun-meaning" + num.toString() + gender).length; i++) {
+            document.getElementsByClassName("noun-meaning" + num.toString() + gender)[i].innerHTML = array[randomNumber]
+        }
         num++;
     }
 }
 
 function inflectNounsGender(affix, gender) {
     let spanNoun = document.getElementsByClassName(gender + "-noun");
-    
     //adds gender affix
-    genderSuffixOrPrefix = suffixOrPrefix();
     let genderAffix = document.getElementsByClassName(gender +"-noun-suffix-or-prefix")
     if(genderSuffixOrPrefix === "suffix") {
         for(let i = 0; i < genderAffix.length; i++) {
@@ -917,43 +968,68 @@ function inflectNounsGender(affix, gender) {
         }
 }
 
+//for agglutinative languages with a marked singular
 function inflectNounsSingular() {
-    let spanNoun = document.getElementsByClassName("plural-noun");
-    console.log(spanNoun.length)
+    let spanNoun = document.getElementsByClassName("singular-noun");
     
-    let pluralSuffixOrPrefix = suffixOrPrefix();
+    let spanSingularAffix = document.getElementsByClassName("singular-affix")
+    if(markedSingularOrNot()) {
+        document.getElementById("singular-plural-marked-singular").style.display = "inline";
+        if(numberSuffixOrPrefix === "suffix") {
+            for(let i = 0; i < spanSingularAffix.length; i++) {
+                spanSingularAffix[i].innerHTML = `suffix <i>-${spell(soundChange(singularAffix))}</i>`
+            }
+            for(let i = 0; i < spanNoun.length; i++) {
+                let root = spanNoun[i].innerHTML;
+                let singularInflected = root + singularAffix;
+                spanNoun[i].innerHTML = spell(soundChange(singularInflected));
+            }
+        } else if (numberSuffixOrPrefix === "prefix") {
+            for(let i = 0; i < spanSingularAffix.length; i++) {
+                spanSingularAffix[i].innerHTML = `prefix <i>${spell(soundChange(singularAffix))}-</i>`
+            }
+            for(let i = 0; i < spanNoun.length; i++) {
+                let root = spanNoun[i].innerHTML;
+                let singularInflected = singularAffix + root ;
+                spanNoun[i].innerHTML = spell(soundChange(singularInflected));
+            }
+        }
+    }
+}
+
+function inflectNounsPlural() {
+    let spanNoun = document.getElementsByClassName("plural-noun");
     let spanPluralAffix = document.getElementsByClassName("plural-affix")
-    if(pluralSuffixOrPrefix === "suffix") {
+    if(numberSuffixOrPrefix === "suffix") {
         for(let i = 0; i < spanPluralAffix.length; i++) {
             spanPluralAffix[i].innerHTML = `suffix <i>-${spell(soundChange(pluralAffix))}</i>`
         }
         for(let i = 0; i < spanNoun.length; i++) {
             let root = spanNoun[i].innerHTML;
             let pluralnflected = root + pluralAffix;
-            console.log(pluralnflected)
             spanNoun[i].innerHTML = spell(soundChange(pluralnflected));
         }
-    } else if (pluralSuffixOrPrefix === "prefix") {
+    } else if (numberSuffixOrPrefix === "prefix") {
         for(let i = 0; i < spanPluralAffix.length; i++) {
             spanPluralAffix[i].innerHTML = `prefix <i>${spell(soundChange(pluralAffix))}-</i>`
         }
          for(let i = 0; i < spanNoun.length; i++) {
             let root = spanNoun[i].innerHTML;
             let pluralnflected = pluralAffix + root ;
-            console.log(pluralnflected)
             spanNoun[i].innerHTML = spell(soundChange(pluralnflected));
         }
     }
-//     //creates copy of the noun's meaning
-//     let copyNum = 5;
-//     for(let i = 0; i < document.getElementsByClassName("noun-meaning-copy" + copyNum.toString() + gender).length; i++) {   
-//         let nounMeaning =  document.getElementById("noun-meaning" + copyNum.toString() + gender)
-//         let nounMeaningCopy = document.getElementsByClassName("noun-meaning-copy" + copyNum.toString() + gender)
-//         for(let j = 0; j < nounMeaningCopy.length; j++) {
-//             nounMeaningCopy[j].innerHTML = nounMeaning.innerHTML;
-//         }
-//         copyNum++;
-//     }
+    //makes the noun's translation plural
+    let copyNum = 5;
+    let nounSgMeaning = document.getElementsByClassName("plural-meaning");
+    
+    for(let i = 0; i < nounSgMeaning.length; i++) { 
+        let pluralMeaning =  nounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        // for(let j = 0; j < nounSgMeaning.length; j++) {
+       nounSgMeaning[i].innerHTML = pluralMeaning;
+        // }
+        copyNum++;
+    }
 // //creates copies of the noun
 //     let copyNum2 = 5;
 //     for(let i = 0; i < document.getElementsByClassName(gender + "-noun-copy").length; i++) {   
@@ -970,8 +1046,21 @@ function switchNounGenderMascFem(englishWord) {
     const newLi = document.createElement("li");
     let nounIndex = nounArray.indexOf(englishWord);
     let bareRoot = generatedNouns[nounIndex];
-    let mascNoun = bareRoot + masculineAffix;
-    let femNoun = bareRoot + feminineAffix;
+    let mascNoun = "";
+    let femNoun = "";
+    if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
+        mascNoun = bareRoot + masculineAffix + singularAffix;
+        femNoun = bareRoot + feminineAffix + singularAffix;
+    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
+        mascNoun = masculineAffix + bareRoot + singularAffix;
+        femNoun = feminineAffix + bareRoot + singularAffix;
+    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
+        mascNoun = singularAffix + masculineAffix + bareRoot;
+        femNoun = singularAffix + feminineAffix + bareRoot;
+    }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
+        mascNoun = singularAffix + bareRoot + masculineAffix;
+        femNoun = singularAffix + bareRoot + feminineAffix;
+    }
     let spanMasc = document.createElement("span");
     let spanMascMeaning = document.createElement("span");
     spanMasc.style.fontStyle = "italic";
@@ -1023,8 +1112,22 @@ function switchNounGenderMascFemNeut(englishWord) {
     const newLi = document.createElement("li");
     let nounIndex = nounArray.indexOf(englishWord);
     let bareRoot = generatedNouns[nounIndex];
-    let mascNoun = bareRoot + masculineAffix;
-    let femNoun = bareRoot + feminineAffix;
+    let mascNoun = "";
+    let femNoun = "";
+    if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
+        mascNoun = bareRoot + masculineAffix + singularAffix;
+        femNoun = bareRoot + feminineAffix + singularAffix;
+    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
+        mascNoun = masculineAffix + bareRoot + singularAffix;
+        femNoun = feminineAffix + bareRoot + singularAffix;
+    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
+        mascNoun = singularAffix + masculineAffix + bareRoot;
+        femNoun = singularAffix + feminineAffix + bareRoot;
+    }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
+        mascNoun = singularAffix + bareRoot + masculineAffix;
+        femNoun = singularAffix + bareRoot + feminineAffix;
+    }
+    
     let spanMasc = document.createElement("span");
     let spanMascMeaning = document.createElement("span");
     spanMasc.style.fontStyle = "italic";
@@ -1076,8 +1179,22 @@ function switchNounGenderHumanAnimal(englishWord) {
     const newLi = document.createElement("li");
     let nounIndex = nounArray.indexOf(englishWord);
     let bareRoot = generatedNouns[nounIndex];
-    let animalNoun = bareRoot + animalAffix;
-    let humanNoun = bareRoot + humanAffix;
+    let animalNoun = "";
+    let humanNoun = "";
+    if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
+        animalNoun = bareRoot + animalAffix + singularAffix;
+        humanNoun = bareRoot + humanAffix + singularAffix;
+    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
+        animalNoun = animalAffix + bareRoot + singularAffix;
+        humanNoun = humanAffix + bareRoot + singularAffix;
+    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
+        animalNoun = singularAffix + animalAffix + bareRoot;
+        humanNoun = singularAffix + humanAffix + bareRoot;
+    }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
+        animalNoun = singularAffix + bareRoot + animalAffix;
+        humanNoun = singularAffix + bareRoot + humanAffix;
+    }
+    
     let spanAnimal = document.createElement("span");
     let spanAnimalMeaning = document.createElement("span");
     spanAnimal.style.fontStyle = "italic";
@@ -1109,7 +1226,6 @@ function switchNounGenderHumanAnimal(englishWord) {
 }
 
 function AgglutinativeNouns() {
-    
     selectNounsGender(animInan, animateArray, "anim");
     inflectNounsGender(animateAffix, "anim");
     selectNounsGender(animInan, inanimateArray, "inan");
@@ -1153,10 +1269,7 @@ function AgglutinativeNouns() {
 
 }
 
-
-
 /**********CASE RELATED SECTION***********/
-
 
 function chooseIfMarkedNominative() {
     if(Math.floor(Math.random() * 5) !== 4) {
@@ -1275,16 +1388,6 @@ function explainCases() {
     }
 }
 
-/************grammatical number related section********/
-
-// let grammaticalNum = 0;
-// function randomNumForGrammaticalNumber() {
-//     grammaticalNum = 2//Math.floor(Math.random() * 24)
-
-// }
-
-
-
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
@@ -1307,6 +1410,8 @@ function generateLanguage() {
     randomNumForWordOrder();
     chooseWordOrder();
     suffixOrPrefix();
+    genderMarkedWithSuffixOrPrefix();
+    numberMarkedWithSuffixOrPrefix();
     randomNumForNounGender();
     randomNumForGrammaticalNumbers();
     switchNounGenderMascFem("bull");
@@ -1329,12 +1434,12 @@ function generateLanguage() {
     switchNounGenderHumanAnimal("sheep");
     switchNounGenderHumanAnimal("horse");
     AgglutinativeNouns();
+    inflectNounsPlural();
     inflectNounsSingular();
     chooseIfMarkedNominative();
     chooseIfMarkedSingular();
     chooseCases();
     explainCases();
-    
    }
 
-export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix};
+export {generatedNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix};

@@ -1,4 +1,4 @@
-import {generatedNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix} from './script.js'
+import {generatedNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix} from './script.js'
 import nounArray from './englishWordArrays/Nouns/englishNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import intransitiveVerbArray from './englishWordArrays/Verbs/englishIntransitiveVerbs.js';
@@ -250,8 +250,15 @@ function makeDictionary() {
                 }
             }
         }
-        
 
+        //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
+        if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+            wordWithAffix = wordWithAffix + singularAffix;
+        }
+        if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+            wordWithAffix = singularAffix + wordWithAffix;
+        }
+        
         word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, englishWords[i]);
         //let word1 = new Dictionary(spell(soundChange(languageWords[i])), pOfSpeech, englishWords[i]);
         let headWord = document.createElement("span");
@@ -267,6 +274,7 @@ function makeDictionary() {
         entry.innerHTML = headWord.innerHTML + " " + pOS.innerHTML + " " + meaning.innerHTML;
         document.getElementById("language-to-english").appendChild(entry);
     }
+    
 
     //English to Kerkebulo
     for(let i = 0; i < englishWords.length; i++) {
@@ -317,7 +325,7 @@ function makeDictionary() {
                     }
                 }
             }
-            if(nounGenderArray.includes("masculine") && nounGenderArray.includes("feminine") && nounGenderArray.length === 2) {
+            if(nounGenderArray.includes("masculine1") && nounGenderArray.includes("feminine1") && nounGenderArray.length === 2) {
                 let index = englishWords.indexOf(englishWords[i])
                 if(mascFem[index] === "masc") {
                     pOfSpeech = "n.masc";
@@ -339,9 +347,9 @@ function makeDictionary() {
                     }
                 }
             }
-            if(nounGenderArray.includes("masculine") && nounGenderArray.includes("feminine") && nounGenderArray.includes("neuter") && nounGenderArray.length === 3) {
+            if(nounGenderArray.includes("masculine2") && nounGenderArray.includes("feminine2") && nounGenderArray.includes("neuter") && nounGenderArray.length === 3) {
                 let index = englishWords.indexOf(englishWords[i])
-                if(mascFemNeut[index] === "masc") {
+                if(mascFemNeut[index] === "masculine2") {
                     pOfSpeech = "n.masc";
                     masculine2Array.push(generatedNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
@@ -350,7 +358,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = masculineAffix + languageWords[i];
                     }
-                } else if (mascFemNeut[index] === "fem"){
+                } else if (mascFemNeut[index] === "feminine2"){
                     pOfSpeech = "n.fem";
                     feminine2Array.push(generatedNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
@@ -359,7 +367,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = feminineAffix + languageWords[i];
                     }
-                } else if (mascFemNeut[index] === "neut"){
+                } else if (mascFemNeut[index] === "neuter"){
                     pOfSpeech = "n.neut";
                     neuterArray.push(generatedNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
@@ -392,7 +400,7 @@ function makeDictionary() {
                     }
                 }
             }
-            if(nounGenderArray.includes("human") && nounGenderArray.includes("animal") && nounGenderArray.includes("inanimate") && nounGenderArray.length === 3) {
+            if(nounGenderArray.includes("human") && nounGenderArray.includes("animal") && nounGenderArray.includes("secondinanimate") && nounGenderArray.length === 3) {
                 let index = englishWords.indexOf(englishWords[i])
                 if(humanAnimalInan[index] === "human") {
                     pOfSpeech = "n.human";
@@ -468,6 +476,15 @@ function makeDictionary() {
                 }
             }
         }
+
+        //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
+        if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+            wordWithAffix = wordWithAffix + singularAffix;
+        }
+        if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+            wordWithAffix = singularAffix + wordWithAffix;
+        }
+
     
 
         word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, englishWords[i]);

@@ -13,8 +13,10 @@ Phonotactic ideas:
   .
   .
   .
+
 # Nouns
-To assign gender to a noun, do it manually by making an array the same length as nounArray and each item will just be the gender, corresponding to the noun at the same index in niunArray. A new array will have to be made for each gender system
+
+to add the singular suffx in the dictionary forms, attach it to wordWithAffix after the gender affixes are attached
 #Verbs
 
 several subsections to discuss each feature in this order:

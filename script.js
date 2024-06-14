@@ -788,7 +788,7 @@ function markedSingularOrNot() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = 3//Math.floor(Math.random() * 8)
+    genderNum = Math.floor(Math.random() * 8)
     if(genderNum === 0) {
         document.getElementById("agglutinative-gender").style.display = "none";
     }
@@ -1318,7 +1318,7 @@ function explainCases() {
     if(chosenNounCases.length > 0) {
         const caseHeader = document.createElement("h3");
         caseHeader.innerHTML = "Case";
-        document.getElementById("nouns").appendChild(caseHeader)
+        document.getElementById("agglutinative-case").appendChild(caseHeader)
 
         const listOfCases = [];
         chosenNounCases.forEach((element) => listOfCases.push(element));
@@ -1328,32 +1328,32 @@ function explainCases() {
 
         const caseP = document.createElement("p");
         caseP.innerHTML = `There are ${chosenNounCases.length} noun cases in <span class="language-name">Kerbekulo</span> which are ${listOfCasesString}.`
-        document.getElementById("nouns").appendChild(caseP)
+        document.getElementById("agglutinative-case").appendChild(caseP)
 
         if(chosenNounCases.includes("Nominative")) {
             const nominative = document.createElement("p");
             nominative.innerHTML = `The <strong>Nominative</strong> case is used to mark the subject of a verb, the noun which is the performer of an action.`
-            document.getElementById("nouns").appendChild(nominative);
+            document.getElementById("agglutinative-case").appendChild(nominative);
         }
         if(chosenNounCases.includes("Accusative")) {
             const accusative = document.createElement("p");
             accusative.innerHTML = `The <strong>Accusative</strong> case is used to mark the object of a verb, the noun which is the recipient of an action.`
-            document.getElementById("nouns").appendChild(accusative);
+            document.getElementById("agglutinative-case").appendChild(accusative);
         }
         if(chosenNounCases.includes("Genitive")) {
             const genitive = document.createElement("p");
             genitive.innerHTML = `The <strong>Genitive</strong> case is used to mark possession.`
-            document.getElementById("nouns").appendChild(genitive);
+            document.getElementById("agglutinative-case").appendChild(genitive);
         }
         if(chosenNounCases.includes("Dative")) {
             const dative = document.createElement("p");
             dative.innerHTML = `The <strong>Dative</strong> case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy.`
-            document.getElementById("nouns").appendChild(dative);
+            document.getElementById("agglutinative-case").appendChild(dative);
         }
         if(chosenNounCases.includes("Ablative")) {
             const ablative = document.createElement("p");
             ablative.innerHTML = `The <strong>Ablative</strong> case is used to mark motion away from a noun.`
-            document.getElementById("nouns").appendChild(ablative);
+            document.getElementById("agglutinative-case").appendChild(ablative);
         }
         if(chosenNounCases.includes("Locative")) {
             const locative = document.createElement("p");
@@ -1362,27 +1362,27 @@ function explainCases() {
             } else {
                 locative.innerHTML = `The <strong>Locative</strong> case is used to a mark a noun alongside an adposition with a static/non-moving meaning e.g "next to a house".`
             }
-            document.getElementById("nouns").appendChild(locative);
+            document.getElementById("agglutinative-case").appendChild(locative);
         }
         if(chosenNounCases.includes("Inessive")) {
             const inessive = document.createElement("p");
             inessive.innerHTML = `The <strong>Inessive</strong> case is used to mark "inside" e.g "in a house", "in a forest".`
-            document.getElementById("nouns").appendChild(inessive);
+            document.getElementById("agglutinative-case").appendChild(inessive);
         }
         if(chosenNounCases.includes("Delative")) {
             const delative = document.createElement("p");
             delative.innerHTML = `The <strong>Delative</strong> case is used to mark "from" e.g "from a house".`
-            document.getElementById("nouns").appendChild(delative);
+            document.getElementById("agglutinative-case").appendChild(delative);
         }
         if(chosenNounCases.includes("Allative")) {
             const allative = document.createElement("p");
             allative.innerHTML = `The <strong>Allative</strong> case is used to mark "to, at" e.g "to a house".`
-            document.getElementById("nouns").appendChild(allative);
+            document.getElementById("agglutinative-case").appendChild(allative);
         }
         if(chosenNounCases.includes("Instrumental")) {
             const instrumental = document.createElement("p");
             instrumental.innerHTML = `The <strong>Instrumental</strong> case is used to mark a noun used to do something e.g "the man was stabbed <u>with a knife</u>" or "I traveled <u>by train</u>".`
-            document.getElementById("nouns").appendChild(instrumental);
+            document.getElementById("agglutinative-case").appendChild(instrumental);
         }
 
     }

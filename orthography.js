@@ -71,17 +71,17 @@ function spell(word) {
 
    //there were far too many long vowels and consonants generated, so this serves to random shorten many of them to stop the vast majority of vowels in most words being long
     for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === wordArray[i + 1] && Math.floor(Math.random() * 5) !== 3) {
-            wordArray.splice(i, 1)
-        } 
+        // if(wordArray[i] === wordArray[i + 1] && Math.floor(Math.random() * 5) !== 3) {
+        //     wordArray.splice(i, 1)
+        // } 
         //removes word inital geminates
         if(wordArray[i] === wordArray[0] && wordArray[i] === wordArray[i + 1] && consonants.includes(wordArray[i])) {
             wordArray.splice(i, 1)
         }
         //deletes a vowel if two vowels follow, too many words had long unbroken lines of vowels
-        if(vowels.includes(wordArray[i]) && vowels.includes(wordArray[i + 1]) && vowels.includes(wordArray[i + 2])) {
-            wordArray.splice(i, 1)
-        }
+        // if(vowels.includes(wordArray[i]) && vowels.includes(wordArray[i + 1]) && vowels.includes(wordArray[i + 2])) {
+        //     wordArray.splice(i, 1)
+        // }
     }
    /*^^^move to sound change once the sound change function is back^^^*/
 

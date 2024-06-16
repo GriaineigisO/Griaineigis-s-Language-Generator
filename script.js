@@ -23,7 +23,7 @@ import naturalArtificial from './nounGender/natural_artificial.js'
 import divineNonDivine from './nounGender/divine_nondivine.js';
 
 
-import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels} from './soundchange.js'
+import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
 import {allWordOrders, subjectFinalWordOrders, objectFinalWordOrders, verbFinalWordOrders} from './allPossibleWordOrders.js'
@@ -75,6 +75,12 @@ let adverbialAffix = "";
 let nominaliser = "";
 let singularAffix = "";
 let pluralAffix = "";
+let dualAffix = "";
+let collectiveAffix = "";
+let trialAffix = "";
+let quadralAffix = "";
+let greaterPluralAffix = "";
+let generalAffix = "";
 let accusativeAffix  = "";
 let genitiveAffix = "";
 let animateAffix = "";
@@ -94,8 +100,6 @@ let passiveAffix = "";
 let naturalAffix = "";
 let artificialAffix = "";
 let genderSuffixOrPrefix = "";
-// let singularSuffixOrPrefix = "";
-// let pluralSuffixOrPrefix = "";
 let numberSuffixOrPrefix = "";
 let randomNumForMarkedSingular = "";
 
@@ -147,6 +151,12 @@ function clearGeneratedArrays() {
     nominaliser = "";
     singularAffix = "";
     pluralAffix = "";
+    dualAffix = "";
+    collectiveAffix = "";
+    trialAffix = "";
+    quadralAffix = "";
+    greaterPluralAffix = "";
+    generalAffix = "";
     accusativeAffix  = "";
     genitiveAffix = "";
     animateAffix = "";
@@ -245,14 +255,41 @@ function sendGeneratedWordsToArray() {
     secondPersonPronoun = generateWords();   
 }
 
+//Since almost every had had at least one long vowel, the below function serves to randomly shorten vowels in words to bring the number of long vowels down to a more agreeable number.
+function reduceAmountOfLongVowels(array) {
+    for(let i = 0; i < array.length; i++) {
+        let wordArray = Array.from(array[i])
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ː" && Math.floor(Math.random() * 3) !== 2) {
+            wordArray.splice(i, 1)
+        }
+    }
+        let joinedWord = wordArray.join("");
+        array[i] = joinedWord;
+    }   
+}
+
+//if the syllable structures allows for consonants in the coda, then the function makes it possible for  asuffix to be a single consonant
+let selectedSyllablesAffixes = [];
+function makeSyllableArrayForAffixes() {
+    selectedSyllables.forEach((element) => selectedSyllablesAffixes.push(element))
+    if(selectedSyllablesAffixes.includes("CVC") || selectedSyllablesAffixes.includes("CVCC") || selectedSyllablesAffixes.includes("VC") || selectedSyllablesAffixes.includes("VCC")|| selectedSyllablesAffixes.includes("VVCC")|| selectedSyllablesAffixes.includes("CVN")) {
+        if(randomNumForWordInitialPlosiveClusters === 5) {
+            console.log("hello")
+            selectedSyllablesAffixes.push("C");
+        }
+    }
+}
+
 //I wish to avoid affixes becoming to long, lest they result in very unreasonably long words, especially if a word gains multiple affixes. So This function does the same as generateWords() but prevents overly complex syllable structures and demands that all affixes be monosyllablic. This function may also be used for other morphemes that I'd prefer not be too long.
 function generateAffixes() {
     let resonants = selectRhotics().concat(selectLateralApproximants())
     let newSyllableArray = [];
     let newAffix = "";
-    let numberOfSyllables = 1;    
+    let numberOfSyllables = 1;   
+    
     for(let i = 0; i < numberOfSyllables; i++) {
-        let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
+        let syllable = selectedSyllablesAffixes[Math.floor(Math.random() * selectedSyllablesAffixes.length)]; //chooses a random syllable from array of selected syllables
         let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
         for(let j = 0; j < syllableArray.length; j++) {
             if(syllableArray[j] === "C") {
@@ -303,6 +340,8 @@ function sendGeneratedAffixesToArray() {
     naturalAffix = generateAffixes();
     artificialAffix = generateAffixes();   
 }
+
+
 
 /*************GENERATES EXAMPLES FOR SYLLABLE STRUCTURE************ */
 
@@ -774,9 +813,162 @@ function numberMarkedWithSuffixOrPrefix() {
     numberSuffixOrPrefix = suffixOrPrefix()
 }
 
+function fixAffixes() {
+    //if the sound change of non-initial mid vowels lowering to /a/ applies, it causes a bug where the vowels in the suffix correctly change but only when applied to a word. The suffix listed alone does not experience the change since the vowel in the bare suffix is initial. To fix this, the below function replaces the vowel in each suffix to the correct value of /a/
+    let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ", "ə", "ɛ", "œ", "ɜ", "ɞ", "ʌ", "ɔ", "ɑ", "ɒ", "ɐ", "æ"];
+    if(genderSuffixOrPrefix === "suffix" && document.getElementById("nonHighNonInitialVowelsLowerToA").style.display === "block") {
+        let suffixArray = [];
+        let newSuffixArray = [];
+        suffixArray.push(animateAffix, inanimateAffix, masculineAffix, feminineAffix, masculine2Affix, feminine2Affix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix);
+        if(document.getElementById("lowersFinalHighVowels").style.display === "block") {
+            midVowels.push("i", "u")
+        }
+        for(let i = 0; i < suffixArray.length; i++) {
+            let suffix = Array.from(suffixArray[i])
+            for(let j = 0; j < suffix.length; j++) {
+                if(midVowels.includes(suffix[j])) {
+                    suffix[j] = "a";
+                }    
+            }
+            let joinedSuffix = suffix.join("")
+            newSuffixArray.push(joinedSuffix)
+        }
+        animateAffix = newSuffixArray[0];
+        inanimateAffix = newSuffixArray[1];
+        masculineAffix = newSuffixArray[2];
+        feminineAffix = newSuffixArray[3];
+        masculine2Affix = newSuffixArray[4];
+        feminine2Affix = newSuffixArray[5];
+        neuterAffix = newSuffixArray[6];
+        divineAffix = newSuffixArray[7];
+        profaneAffix = newSuffixArray[8];
+        humanAffix = newSuffixArray[9];
+        animalAffix = newSuffixArray[10];
+        inanimate2Affix =  newSuffixArray[11];
+        activeAffix = newSuffixArray[12];
+        passiveAffix = newSuffixArray[13];
+        naturalAffix = newSuffixArray[14];
+        artificialAffix = newSuffixArray[15];
+    }
+    if(numberSuffixOrPrefix === "suffix" && document.getElementById("nonHighNonInitialVowelsLowerToA").style.display === "block") {
+        let suffixArray = [];
+        let newSuffixArray = [];
+        suffixArray.push(singularAffix, pluralAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, greaterPluralAffix, generalAffix);
+        if(document.getElementById("lowersFinalHighVowels").style.display === "block") {
+            midVowels.push("i", "u")
+        }
+        for(let i = 0; i < suffixArray.length; i++) {
+            let suffix = Array.from(suffixArray[i])
+            for(let j = 0; j < suffix.length; j++) {
+                if(midVowels.includes(suffix[j])) {
+                    suffix[j] = "a";
+                }    
+            }
+            let joinedSuffix = suffix.join("")
+            newSuffixArray.push(joinedSuffix)
+        }
+        singularAffix = newSuffixArray[0];
+        pluralAffix = newSuffixArray[1];
+        dualAffix = newSuffixArray[2];
+        collectiveAffix = newSuffixArray[3];
+        trialAffix = newSuffixArray[4];
+        quadralAffix = newSuffixArray[5];
+        greaterPluralAffix = newSuffixArray[6];
+        generalAffix = newSuffixArray[7];
+    }
+
+    //if word final high vowels lower to mid vowels word finally, then this sound change applies to prefixes listed in isolation which is not good, so this shall fix that
+    if(numberSuffixOrPrefix === "prefix" && document.getElementById("lowersFinalHighVowels").style.display === "block") {
+        let prefixArray = [];
+        let newPrefixArray = [];
+        prefixArray.push(singularAffix, pluralAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, greaterPluralAffix, generalAffix);
+       
+        for(let i = 0; i < prefixArray.length; i++) {
+            let prefix = Array.from(prefixArray[i])
+            for(let j = 0; j < prefix.length; j++) {
+                if(prefix[j] === "e") {
+                    prefix[j] = "i";
+                }  
+                if(prefix[j] === "ø") {
+                    prefix[j] = "y";
+                } 
+                if(prefix[j] === "o") {
+                    prefix[j] = "u";
+                } 
+                if(prefix[j] === "ɘ") {
+                    prefix[j] = "ɨ";
+                } 
+                if(prefix[j] === "ɵ") {
+                    prefix[j] = "ʉ";
+                }    
+                if(prefix[j] === "ɯ") {
+                    prefix[j] = "ɤ";
+                }  
+            }
+            let joinedPrefix = prefix.join("")
+            newPrefixArray.push(joinedPrefix)
+        }
+        singularAffix = newPrefixArray[0];
+        pluralAffix = newPrefixArray[1];
+        dualAffix = newPrefixArray[2];
+        collectiveAffix = newPrefixArray[3];
+        trialAffix = newPrefixArray[4];
+        quadralAffix = newPrefixArray[5];
+        greaterPluralAffix = newPrefixArray[6];
+        generalAffix = newPrefixArray[7];
+    }
+    if(numberSuffixOrPrefix === "prefix" && document.getElementById("lowersFinalHighVowels").style.display === "block") {
+        let prefixArray = [];
+        let newPrefixArray = [];
+        prefixArray.push(animateAffix, inanimateAffix, masculineAffix, feminineAffix, masculine2Affix, feminine2Affix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix);
+       
+        for(let i = 0; i < prefixArray.length; i++) {
+            let prefix = Array.from(prefixArray[i])
+            for(let j = 0; j < prefix.length; j++) {
+                if(prefix[j] === "e") {
+                    prefix[j] = "i";
+                }  
+                if(prefix[j] === "ø") {
+                    prefix[j] = "y";
+                } 
+                if(prefix[j] === "o") {
+                    prefix[j] = "u";
+                } 
+                if(prefix[j] === "ɘ") {
+                    prefix[j] = "ɨ";
+                } 
+                if(prefix[j] === "ɵ") {
+                    prefix[j] = "ʉ";
+                }    
+                if(prefix[j] === "ɯ") {
+                    prefix[j] = "ɤ";
+                }  
+            }
+            let joinedPrefix = prefix.join("")
+            newPrefixArray.push(joinedPrefix)
+        }
+        animateAffix = newPrefixArray[0];
+        inanimateAffix = newPrefixArray[1];
+        masculineAffix = newPrefixArray[2];
+        feminineAffix = newPrefixArray[3];
+        masculine2Affix = newPrefixArray[4];
+        feminine2Affix = newPrefixArray[5];
+        neuterAffix = newPrefixArray[6];
+        divineAffix = newPrefixArray[7];
+        profaneAffix = newPrefixArray[8];
+        humanAffix = newPrefixArray[9];
+        animalAffix = newPrefixArray[10];
+        inanimate2Affix =  newPrefixArray[11];
+        activeAffix = newPrefixArray[12];
+        passiveAffix = newPrefixArray[13];
+        naturalAffix = newPrefixArray[14];
+        artificialAffix = newPrefixArray[15];
+    }
+ }
+
 /*****CHOOSE IF THE LANGUAGE HAS A MARKED SINGULAR****/
 function randomNumMarkedSingular() {
-    randomNumForMarkedSingular = Math.floor(Math.random() * 2)
+    randomNumForMarkedSingular = Math.floor(Math.random() * 4)
 }
 function markedSingularOrNot() {
     if(typologyNum === 1 && randomNumForMarkedSingular === 1) {
@@ -792,7 +984,7 @@ function markedSingularOrNot() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = 2//Math.floor(Math.random() * 8)
+    genderNum = 1//Math.floor(Math.random() * 8)
     if(genderNum === 0) {
         document.getElementById("agglutinative-gender").style.display = "none";
     }
@@ -842,14 +1034,19 @@ function randomNumForNounGender() {
 
 let grammaticalNum = 0;
 function randomNumForGrammaticalNumbers() {
-    grammaticalNum = 2//Math.floor(Math.random() * 24)
+    grammaticalNum = 0//Math.floor(Math.random() * 24)
     if(grammaticalNum < 4) {
         grammaticalNumberArray.push("singular", "plural");
         if(markedSingularOrNot()) {
             document.getElementById("singular-plural-marked-singular").style.display = "inline";
         }
-        
+
         //hides or shows examples of singular and plural nouns based on what noun gender is present
+        if(genderNum === 0) {
+            document.getElementById("no-gender-singular-plural").style.display = "block";
+        } else {
+            document.getElementById("no-gender-singular-plural").style.display = "none";
+        }
         if(genderNum === 1) {
             document.getElementById("anim-inan-singular-plural").style.display = "block";
         } else {
@@ -874,6 +1071,16 @@ function randomNumForGrammaticalNumbers() {
             document.getElementById("divine-profane-singular-plural").style.display = "block";
         } else {
             document.getElementById("divine-profane-singular-plural").style.display = "none";
+        }
+        if(genderNum === 6) {
+            document.getElementById("active-passive-singular-plural").style.display = "block";
+        } else {
+            document.getElementById("active-passive-singular-plural").style.display = "none";
+        }
+        if(genderNum === 7) {
+            document.getElementById("natural-artificial-singular-plural").style.display = "block";
+        } else {
+            document.getElementById("natural-artificial-singular-plural").style.display = "none";
         }
     } else {
         document.getElementById("singular-plural-marked-singular").style.display = "none";
@@ -909,6 +1116,30 @@ function randomNumForGrammaticalNumbers() {
     }
     
 }
+
+function inflectGenderlessNouns() {
+    let spanNoun = document.getElementsByClassName("noun");
+    let num = 1;
+    for(let i = 0; i < spanNoun.length; i++) {
+        let randomNumber = Math.floor(Math.random() * nounArray.length);
+        let randomNoun = generatedNouns[randomNumber];
+        document.getElementById("noun" + num.toString()).innerHTML = spell(soundChange(randomNoun));
+        for(let i = 0; i < document.getElementsByClassName("noun-meaning" + num.toString()).length; i++) {
+            document.getElementsByClassName("noun-meaning" + num.toString())[i].innerHTML = nounArray[randomNumber]
+        }
+        num++;
+    }
+    let copyNum2 = 1;
+    for(let i = 0; i < document.getElementsByClassName("noun-copy").length; i++) {   
+        let noun = document.getElementById("noun" + copyNum2.toString())
+        let nounCopy = document.getElementsByClassName("noun-copy" + copyNum2.toString())
+            for(let j = 0; j < nounCopy.length; j++) {
+                nounCopy[j].innerHTML = spell(soundChange(noun.innerHTML));
+            }
+        copyNum2++;
+        }
+}
+
 
 function selectNounsGender(genderArray, array, gender) {
     for(let i = 0; i < nounArray.length; i++) {
@@ -1229,6 +1460,19 @@ function switchNounGenderHumanAnimal(englishWord) {
         animalNoun = singularAffix + bareRoot + animalAffix;
         humanNoun = singularAffix + bareRoot + humanAffix;
     }
+    if(markedSingularOrNot() === false && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
+        animalNoun = bareRoot + animalAffix;
+        humanNoun = bareRoot + humanAffix;
+    } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
+        animalNoun = animalAffix + bareRoot;
+        humanNoun = humanAffix + bareRoot;
+    } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
+        animalNoun = animalAffix + bareRoot;
+        humanNoun = humanAffix + bareRoot;
+    }else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
+        animalNoun = bareRoot + animalAffix;
+        humanNoun = bareRoot + humanAffix;
+    }
     
     let spanAnimal = document.createElement("span");
     let spanAnimalMeaning = document.createElement("span");
@@ -1432,6 +1676,15 @@ function generateLanguage() {
     clearGeneratedArrays();
     generateWords();
     sendGeneratedWordsToArray();
+    reduceAmountOfLongVowels(generatedNouns);
+    reduceAmountOfLongVowels(generatedAdjectives);
+    reduceAmountOfLongVowels(generatedTransitiveVerbs);
+    reduceAmountOfLongVowels(generatedIntransitiveVerbs);
+    reduceAmountOfLongVowels(generatedConjunctions);
+    reduceAmountOfLongVowels(generatedAdverbs);
+    reduceAmountOfLongVowels(generatedAdpositions);
+    reduceAmountOfLongVowels(generatedIntensifiers);
+    makeSyllableArrayForAffixes();
     generateAffixes();
     sendGeneratedAffixesToArray();
     showSyllableStructureKey();
@@ -1447,11 +1700,14 @@ function generateLanguage() {
     suffixOrPrefix();
     genderMarkedWithSuffixOrPrefix();
     numberMarkedWithSuffixOrPrefix();
+    fixAffixes();
     chooseIfMarkedNominative();
     randomNumMarkedSingular();
     chooseIfMarkedNominative();
+    chooseIfMarkedSingular();
     randomNumForNounGender();
     randomNumForGrammaticalNumbers();
+    inflectGenderlessNouns();
     switchNounGenderMascFem("bull");
     switchNounGenderMascFem("horse");
     switchNounGenderMascFem("pig");

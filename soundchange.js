@@ -1,5 +1,4 @@
 import {consonants, vowels, selectedSyllables, allNasalsArray, selectFricatives} from './generatePhonology.js';
-import { spell } from './orthography.js';
 
 // function soundChange(word) {
 
@@ -153,7 +152,7 @@ import { spell } from './orthography.js';
 let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "ɦ", "dʒ", "ɟ", "ʁ", "ʒ", "ɟ", "ʕ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", , "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "ð", "ɮ"];
 let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "tʃ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"]
 let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
-let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ"];
+let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ", "ə", "ɛ", "œ", "ɜ", "ɞ", "ʌ", "ɔ", "ɑ", "ɒ", "ɐ", "æ"];
 let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ"]
 
 let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
@@ -223,7 +222,6 @@ function selectSoundChanges() {
             chosenSoundChanges.push(potentialSoundChanges[randomNumber]) 
         }
     }
-    //console.log(chosenSoundChanges)
 
     randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
     randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
@@ -442,12 +440,6 @@ function soundChange(word) {
             }
         }
     }
-
-
-    
-        
-    //console.log(wordArray)
-
     let final = wordArray.join("");
     return final;
 }
@@ -455,4 +447,4 @@ function soundChange(word) {
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters};

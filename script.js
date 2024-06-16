@@ -97,6 +97,7 @@ let genderSuffixOrPrefix = "";
 // let singularSuffixOrPrefix = "";
 // let pluralSuffixOrPrefix = "";
 let numberSuffixOrPrefix = "";
+let randomNumForMarkedSingular = "";
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
@@ -165,6 +166,7 @@ function clearGeneratedArrays() {
     naturalAffix = "";
     artificialAffix = "";
     genderSuffixOrPrefix = "";
+    randomNumForMarkedSingular = "";
 
 
     document.getElementById("orthography").replaceChildren();
@@ -773,22 +775,24 @@ function numberMarkedWithSuffixOrPrefix() {
 }
 
 /*****CHOOSE IF THE LANGUAGE HAS A MARKED SINGULAR****/
+function randomNumMarkedSingular() {
+    randomNumForMarkedSingular = Math.floor(Math.random() * 2)
+}
 function markedSingularOrNot() {
-    if(typologyNum === 1 && Math.floor(Math.random() * 7) === 2) {
+    if(typologyNum === 1 && randomNumForMarkedSingular === 1) {
         return true;
-    } else if(typologyNum === 2 && Math.floor(Math.random() * 7) !== 2) {
+    } else if(typologyNum === 2 && randomNumForMarkedSingular !== 2) {
         return true;
     } else {
         return false;
     };
 }
 
-
 /*****Noun Gender*******/
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = Math.floor(Math.random() * 8)
+    genderNum = 2//Math.floor(Math.random() * 8)
     if(genderNum === 0) {
         document.getElementById("agglutinative-gender").style.display = "none";
     }
@@ -838,10 +842,13 @@ function randomNumForNounGender() {
 
 let grammaticalNum = 0;
 function randomNumForGrammaticalNumbers() {
-    grammaticalNum = Math.floor(Math.random() * 24)
+    grammaticalNum = 2//Math.floor(Math.random() * 24)
     if(grammaticalNum < 4) {
         grammaticalNumberArray.push("singular", "plural");
-        document.getElementById("singular-plural-marked-singular").style.display = "inline";
+        if(markedSingularOrNot()) {
+            document.getElementById("singular-plural-marked-singular").style.display = "inline";
+        }
+        
         //hides or shows examples of singular and plural nouns based on what noun gender is present
         if(genderNum === 1) {
             document.getElementById("anim-inan-singular-plural").style.display = "block";
@@ -994,6 +1001,8 @@ function inflectNounsSingular() {
                 spanNoun[i].innerHTML = spell(soundChange(singularInflected));
             }
         }
+    } else {
+        document.getElementById("singular-plural-marked-singular").style.display = "none";
     }
 }
 
@@ -1061,6 +1070,19 @@ function switchNounGenderMascFem(englishWord) {
         mascNoun = singularAffix + bareRoot + masculineAffix;
         femNoun = singularAffix + bareRoot + feminineAffix;
     }
+    if(markedSingularOrNot() === false && genderSuffixOrPrefix === "suffix") {
+        mascNoun = bareRoot + masculineAffix;
+        femNoun = bareRoot + feminineAffix;
+    } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix") {
+        mascNoun = masculineAffix + bareRoot;
+        femNoun = feminineAffix + bareRoot;
+    } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix") {
+        mascNoun = masculineAffix + bareRoot;
+        femNoun = feminineAffix + bareRoot;
+    }else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "suffix") {
+        mascNoun = bareRoot + masculineAffix;
+        femNoun = bareRoot + feminineAffix;
+    }
     let spanMasc = document.createElement("span");
     let spanMascMeaning = document.createElement("span");
     spanMasc.style.fontStyle = "italic";
@@ -1126,6 +1148,19 @@ function switchNounGenderMascFemNeut(englishWord) {
     }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
         mascNoun = singularAffix + bareRoot + masculineAffix;
         femNoun = singularAffix + bareRoot + feminineAffix;
+    }
+    if(markedSingularOrNot()  === false && genderSuffixOrPrefix === "suffix") {
+        mascNoun = bareRoot + masculineAffix;
+        femNoun = bareRoot + feminineAffix;
+    } else if(markedSingularOrNot()  === false  && genderSuffixOrPrefix === "prefix") {
+        mascNoun = masculineAffix + bareRoot;
+        femNoun = feminineAffix + bareRoot;
+    } else if(markedSingularOrNot()  === false  && genderSuffixOrPrefix === "prefix") {
+        mascNoun = masculineAffix + bareRoot;
+        femNoun = feminineAffix + bareRoot;
+    }else if(markedSingularOrNot()  === false  && genderSuffixOrPrefix === "suffix") {
+        mascNoun = bareRoot + masculineAffix;
+        femNoun = bareRoot + feminineAffix;
     }
     
     let spanMasc = document.createElement("span");
@@ -1280,7 +1315,7 @@ function chooseIfMarkedNominative() {
 }
 
 function chooseIfMarkedSingular() {
-    if(/*Math.floor(Math.random() * 5)*/3 !== 4) {
+    if(/*Math.floor(Math.random() * 5)*/4 !== 4) {
         return false;
     } else {
         return true;
@@ -1412,6 +1447,9 @@ function generateLanguage() {
     suffixOrPrefix();
     genderMarkedWithSuffixOrPrefix();
     numberMarkedWithSuffixOrPrefix();
+    chooseIfMarkedNominative();
+    randomNumMarkedSingular();
+    chooseIfMarkedNominative();
     randomNumForNounGender();
     randomNumForGrammaticalNumbers();
     switchNounGenderMascFem("bull");
@@ -1436,8 +1474,6 @@ function generateLanguage() {
     AgglutinativeNouns();
     inflectNounsPlural();
     inflectNounsSingular();
-    chooseIfMarkedNominative();
-    chooseIfMarkedSingular();
     chooseCases();
     explainCases();
    }

@@ -885,7 +885,6 @@ function fixAffixes() {
         prefixArray.push(singularAffix, pluralAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, greaterPluralAffix, generalAffix);
        
         for(let i = 0; i < prefixArray.length; i++) {
-            console.log(prefixArray[i])
             let prefix = Array.from(prefixArray[i])
             for(let j = 0; j < prefix.length; j++) {
                 if(prefix[j] === "e") {
@@ -986,7 +985,7 @@ function markedSingularOrNot() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = 1//Math.floor(Math.random() * 8)
+    genderNum = Math.floor(Math.random() * 8)
     if(genderNum === 0) {
         document.getElementById("agglutinative-gender").style.display = "none";
     }
@@ -1087,9 +1086,11 @@ function randomNumForGrammaticalNumbers() {
         } else {
             document.getElementById("natural-artificial-singular-plural").style.display = "none";
         }
-    } 
+    } else {
+        document.getElementById("singular-plural").style.display = "none";
+    }
 
-    if(grammaticalNum => 4 && grammaticalNum < 7) {
+    if(grammaticalNum >= 4 && grammaticalNum < 7) {
         grammaticalNumberArray.push("singular", "dual", "plural");
         document.getElementById("singular-dual-plural").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1097,7 +1098,50 @@ function randomNumForGrammaticalNumbers() {
         } else {
         document.getElementById("singular-dual-plural-marked-singular").style.display = "none";
         }
-    } 
+         //hides or shows examples of singular and plural nouns based on what noun gender is present
+        if(genderNum === 0) {
+            document.getElementById("no-gender-singular-dual-plural").style.display = "block";
+        } else {
+            document.getElementById("no-gender-singular-dual-plural").style.display = "none";
+        }
+        if(genderNum === 1) {
+            document.getElementById("anim-inan-singular-dual-plural").style.display = "block";
+        } else {
+            document.getElementById("anim-inan-singular-dual-plural").style.display = "none";
+        }
+        if(genderNum === 2) {
+            document.getElementById("masc-fem-singular-dual-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-singular-dual-plural").style.display = "none";
+        }
+        if(genderNum === 3) {
+            document.getElementById("masc-fem-neut-singular-dual-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-neut-singular-dual-plural").style.display = "none";
+        }
+        if(genderNum === 4) {
+            document.getElementById("human-animal-inan-singular-dual-plural").style.display = "block";
+        } else {
+            document.getElementById("human-animal-inan-singular-dual-plural").style.display = "none";
+        }
+        if(genderNum === 5) {
+            document.getElementById("divine-profane-singular-dual-plural").style.display = "block";
+        } else {
+            document.getElementById("divine-profane-singular-dual-plural").style.display = "none";
+        }
+        if(genderNum === 6) {
+            document.getElementById("active-passive-singular-dual-plural").style.display = "block";
+        } else {
+            document.getElementById("active-passive-singular-dual-plural").style.display = "none";
+        }
+        if(genderNum === 7) {
+            document.getElementById("natural-artificial-singular-dual-plural").style.display = "block";
+        } else {
+            document.getElementById("natural-artificial-singular-dual-plural").style.display = "none";
+        }
+    } else {
+        document.getElementById("singular-dual-plural").style.display = "none";
+    }
 
     if(grammaticalNum < 10) {
         grammaticalNumberArray.push("singular", "plural", "collective");
@@ -1294,7 +1338,6 @@ function inflectNounsPlural() {
 function inflectNounsDual() {
     let spanNoun = document.getElementsByClassName("dual-noun");
     let spanDualAffix = document.getElementsByClassName("dual-affix")
-    console.log(spanDualAffix.length)
     if(numberSuffixOrPrefix === "suffix") {
         for(let i = 0; i < spanDualAffix.length; i++) {
             spanDualAffix[i].innerHTML = `suffix <i>-${spell(soundChange(dualAffix))}</i>`
@@ -1315,7 +1358,7 @@ function inflectNounsDual() {
         }
     }
     //makes the noun's translation dual
-    let copyNum = 5;
+    let copyNum = 4;
     let nounSgMeaning = document.getElementsByClassName("dual-meaning");
     
     for(let i = 0; i < nounSgMeaning.length; i++) { 

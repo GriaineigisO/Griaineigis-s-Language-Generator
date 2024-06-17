@@ -797,7 +797,7 @@ function chooseWordOrder() {
 
 /*****CHOOSE IF SOMETHING IS MARKED WITH SUFFIX OR PREFIX****/
 function suffixOrPrefix() {
-    if(Math.floor(Math.random() * 5) !== 2) {
+    if(/*Math.floor(Math.random() * 5)*/2 !== 2) {
         return "suffix";
     } else {
         return "prefix";
@@ -884,6 +884,7 @@ function fixAffixes() {
         prefixArray.push(singularAffix, pluralAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, greaterPluralAffix, generalAffix);
        
         for(let i = 0; i < prefixArray.length; i++) {
+            console.log(prefixArray[i])
             let prefix = Array.from(prefixArray[i])
             for(let j = 0; j < prefix.length; j++) {
                 if(prefix[j] === "e") {
@@ -1140,7 +1141,6 @@ function inflectGenderlessNouns() {
         }
 }
 
-
 function selectNounsGender(genderArray, array, gender) {
     for(let i = 0; i < nounArray.length; i++) {
         let index = nounArray.indexOf(nounArray[i])
@@ -1176,7 +1176,7 @@ function inflectNounsGender(affix, gender) {
         }
     } else if (genderSuffixOrPrefix === "prefix") {
         for(let i = 0; i < genderAffix.length; i++) {
-            genderAffix[i].innerHTML = `prefix <i>${spell(soundChange(affix))}-</i>`
+            genderAffix[i].innerHTML = `prefix <i>${spell(soundChange(affix + "A"))}-</i>`
         }
          for(let i = 0; i < spanNoun.length; i++) {
             let genderRoot = spanNoun[i].innerHTML;
@@ -1224,7 +1224,7 @@ function inflectNounsSingular() {
             }
         } else if (numberSuffixOrPrefix === "prefix") {
             for(let i = 0; i < spanSingularAffix.length; i++) {
-                spanSingularAffix[i].innerHTML = `prefix <i>${spell(soundChange(singularAffix))}-</i>`
+                spanSingularAffix[i].innerHTML = `prefix <i>${spell(soundChange(singularAffix + "A"))}-</i>`
             }
             for(let i = 0; i < spanNoun.length; i++) {
                 let root = spanNoun[i].innerHTML;
@@ -1251,7 +1251,7 @@ function inflectNounsPlural() {
         }
     } else if (numberSuffixOrPrefix === "prefix") {
         for(let i = 0; i < spanPluralAffix.length; i++) {
-            spanPluralAffix[i].innerHTML = `prefix <i>${spell(soundChange(pluralAffix))}-</i>`
+            spanPluralAffix[i].innerHTML = `prefix <i>${spell(soundChange(pluralAffix + "A"))}-</i>`
         }
          for(let i = 0; i < spanNoun.length; i++) {
             let root = spanNoun[i].innerHTML;

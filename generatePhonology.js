@@ -532,7 +532,7 @@ function choosePalatal() {//there ise a 20% chance that this language has palata
         }
     }
     randomNum = Math.floor(Math.random() * 2)
-    if (randomNum === 4) {
+    if (randomNum === 1) {
         allpalatalApproximants.push("j");
         randomNum = Math.floor(Math.random() * 30)
                 if(randomNum === 4 && chooseGemination()) {

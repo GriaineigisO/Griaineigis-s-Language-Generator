@@ -321,6 +321,7 @@ function sendGeneratedAffixesToArray() {
     nominaliser = generateAffixes();
     singularAffix = generateAffixes();
     pluralAffix = generateAffixes();
+    dualAffix = generateAffixes();
     accusativeAffix = generateAffixes();
     genitiveAffix = generateAffixes();
     animateAffix = generateAffixes();
@@ -797,7 +798,7 @@ function chooseWordOrder() {
 
 /*****CHOOSE IF SOMETHING IS MARKED WITH SUFFIX OR PREFIX****/
 function suffixOrPrefix() {
-    if(/*Math.floor(Math.random() * 5)*/2 !== 2) {
+    if(Math.floor(Math.random() * 5) !== 2) {
         return "suffix";
     } else {
         return "prefix";
@@ -1035,12 +1036,15 @@ function randomNumForNounGender() {
 
 let grammaticalNum = 0;
 function randomNumForGrammaticalNumbers() {
-    grammaticalNum = 0//Math.floor(Math.random() * 24)
+    grammaticalNum = 6//Math.floor(Math.random() * 24)
     if(grammaticalNum < 4) {
         grammaticalNumberArray.push("singular", "plural");
+        document.getElementById("singular-plural").style.display = "block";
         if(markedSingularOrNot()) {
             document.getElementById("singular-plural-marked-singular").style.display = "inline";
-        }
+        } else {
+        document.getElementById("singular-plural-marked-singular").style.display = "none";
+    }
 
         //hides or shows examples of singular and plural nouns based on what noun gender is present
         if(genderNum === 0) {
@@ -1083,14 +1087,19 @@ function randomNumForGrammaticalNumbers() {
         } else {
             document.getElementById("natural-artificial-singular-plural").style.display = "none";
         }
-    } else {
-        document.getElementById("singular-plural-marked-singular").style.display = "none";
-    }
+    } 
 
-    if(grammaticalNum < 7) {
+    if(grammaticalNum => 4 && grammaticalNum < 7) {
         grammaticalNumberArray.push("singular", "dual", "plural");
-        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, dual and plural. The dual number is used to mark when there are two of a thing.`
-    } else if(grammaticalNum < 10) {
+        document.getElementById("singular-dual-plural").style.display = "block";
+        if(markedSingularOrNot()) {
+            document.getElementById("singular-dual-plural-marked-singular").style.display = "inline";
+        } else {
+        document.getElementById("singular-dual-plural-marked-singular").style.display = "none";
+        }
+    } 
+
+    if(grammaticalNum < 10) {
         grammaticalNumberArray.push("singular", "plural", "collective");
         // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, dual, plural and collective. The collective is used to mean "all" or "every".`
     } else if(grammaticalNum < 12) {
@@ -1281,6 +1290,53 @@ function inflectNounsPlural() {
 //         copyNum2++;
 //         }
 }
+
+function inflectNounsDual() {
+    let spanNoun = document.getElementsByClassName("dual-noun");
+    let spanDualAffix = document.getElementsByClassName("dual-affix")
+    console.log(spanDualAffix.length)
+    if(numberSuffixOrPrefix === "suffix") {
+        for(let i = 0; i < spanDualAffix.length; i++) {
+            spanDualAffix[i].innerHTML = `suffix <i>-${spell(soundChange(dualAffix))}</i>`
+        }
+        for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let dualInflected = root + dualAffix;
+            spanNoun[i].innerHTML = spell(soundChange(dualInflected));
+        }
+    } else if (numberSuffixOrPrefix === "prefix") {
+        for(let i = 0; i < spanDualAffix.length; i++) {
+            spanDualAffix[i].innerHTML = `prefix <i>${spell(soundChange(dualAffix + "A"))}-</i>`
+        }
+         for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let dualInflected = dualAffix + root ;
+            spanNoun[i].innerHTML = spell(soundChange(dualInflected));
+        }
+    }
+    //makes the noun's translation dual
+    let copyNum = 5;
+    let nounSgMeaning = document.getElementsByClassName("dual-meaning");
+    
+    for(let i = 0; i < nounSgMeaning.length; i++) { 
+        let pluralMeaning =  nounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        // for(let j = 0; j < nounSgMeaning.length; j++) {
+       nounSgMeaning[i].innerHTML = ` two ${pluralMeaning}`;
+        // }
+        copyNum++;
+    }
+// //creates copies of the noun
+//     let copyNum2 = 5;
+//     for(let i = 0; i < document.getElementsByClassName(gender + "-noun-copy").length; i++) {   
+//         let noun = document.getElementById("noun" + copyNum2.toString() + gender)
+//         let nounCopy = document.getElementsByClassName("noun-copy" + copyNum2.toString() + gender)
+//             for(let j = 0; j < nounCopy.length; j++) {
+//                 nounCopy[j].innerHTML = spell(soundChange(noun.innerHTML));
+//             }
+//         copyNum2++;
+//         }
+}
+
 
 function switchNounGenderMascFem(englishWord) {
     const newLi = document.createElement("li");
@@ -1730,6 +1786,7 @@ function generateLanguage() {
     AgglutinativeNouns();
     inflectNounsPlural();
     inflectNounsSingular();
+    inflectNounsDual();
     chooseCases();
     explainCases();
    }

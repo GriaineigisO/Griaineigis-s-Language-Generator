@@ -378,6 +378,7 @@ function soundChange(word) {
         document.getElementById("nonHighNonInitialVowelsLowerToA").style.display = "block"
         document.getElementById("word-final-high-vowels").innerHTML = "now end in /a/:"
         let num = 0;
+        vowels.push("A")
         for(let i = 0; i < wordArray.length; i++) {
             if(nonHighVowels.includes(wordArray[i]) && num !== 0) {
                 wordArray[i] = "a";
@@ -386,6 +387,7 @@ function soundChange(word) {
                 num++;
             }
         }
+        vowels.splice(vowels.length -1), 1
     } else {
         document.getElementById("nonHighNonInitialVowelsLowerToA").style.display = "none"
         document.getElementById("word-final-high-vowels").innerHTML = "now end in mid vowels:"
@@ -444,6 +446,9 @@ function soundChange(word) {
     //to prevent word final sound changes applying to prefixes, when listed in isolation, an "A" is inserted at the end, this for loop serves to remove that "A" after those sound changes have been applied
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "A") {
+            wordArray.splice(i, 1);
+        }
+        if(wordArray[i] === "X") {
             wordArray.splice(i, 1);
         }
     }

@@ -275,7 +275,6 @@ function makeSyllableArrayForAffixes() {
     selectedSyllables.forEach((element) => selectedSyllablesAffixes.push(element))
     if(selectedSyllablesAffixes.includes("CVC") || selectedSyllablesAffixes.includes("CVCC") || selectedSyllablesAffixes.includes("VC") || selectedSyllablesAffixes.includes("VCC")|| selectedSyllablesAffixes.includes("VVCC")|| selectedSyllablesAffixes.includes("CVN")) {
         if(randomNumForWordInitialPlosiveClusters === 5) {
-            console.log("hello")
             selectedSyllablesAffixes.push("C");
         }
     }
@@ -322,6 +321,7 @@ function sendGeneratedAffixesToArray() {
     singularAffix = generateAffixes();
     pluralAffix = generateAffixes();
     dualAffix = generateAffixes();
+    collectiveAffix = generateAffixes();
     accusativeAffix = generateAffixes();
     genitiveAffix = generateAffixes();
     animateAffix = generateAffixes();
@@ -1035,7 +1035,7 @@ function randomNumForNounGender() {
 
 let grammaticalNum = 0;
 function randomNumForGrammaticalNumbers() {
-    grammaticalNum = 6//Math.floor(Math.random() * 24)
+    grammaticalNum = 8//Math.floor(Math.random() * 24)
     if(grammaticalNum < 4) {
         grammaticalNumberArray.push("singular", "plural");
         document.getElementById("singular-plural").style.display = "block";
@@ -1143,13 +1143,61 @@ function randomNumForGrammaticalNumbers() {
         document.getElementById("singular-dual-plural").style.display = "none";
     }
 
-    if(grammaticalNum < 10) {
+    if(grammaticalNum >= 7 && grammaticalNum < 12) {
         grammaticalNumberArray.push("singular", "plural", "collective");
-        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, dual, plural and collective. The collective is used to mean "all" or "every".`
-    } else if(grammaticalNum < 12) {
-        grammaticalNumberArray.push("singular", "dual", "plural", "collective");
-        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has four grammatical numbers; singular, dual, plural and collective. The dual number is used to mark when there are two of a thing and the collective is used to mean "all" or "every".`
-    } else if(grammaticalNum < 14) {
+        document.getElementById("singular-dual-plural-collective").style.display = "block";
+        if(markedSingularOrNot()) {
+            document.getElementById("singular-dual-plural-collective-marked-singular").style.display = "inline";
+        } else {
+        document.getElementById("singular-dual-plural-collective-marked-singular").style.display = "none";
+        }
+        //hides or shows examples of singular and plural nouns based on what noun gender is present
+        if(genderNum === 0) {
+            document.getElementById("no-gender-singular-dual-plural-collective").style.display = "block";
+        } else {
+            document.getElementById("no-gender-singular-dual-plural-collective").style.display = "none";
+        }
+        if(genderNum === 1) {
+            document.getElementById("anim-inan-singular-dual-plural-collective").style.display = "block";
+        } else {
+            document.getElementById("anim-inan-singular-dual-plural-collective").style.display = "none";
+        }
+        if(genderNum === 2) {
+            document.getElementById("masc-fem-singular-dual-plural-collective").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-singular-dual-plural-collective").style.display = "none";
+        }
+        if(genderNum === 3) {
+            document.getElementById("masc-fem-neut-singular-dual-plural-collective").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-neut-singular-dual-plural-collective").style.display = "none";
+        }
+        if(genderNum === 4) {
+            document.getElementById("human-animal-inan-singular-dual-plural-collective").style.display = "block";
+        } else {
+            document.getElementById("human-animal-inan-singular-dual-plural-collective").style.display = "none";
+        }
+        if(genderNum === 5) {
+            document.getElementById("divine-profane-singular-dual-plural-collective").style.display = "block";
+        } else {
+            document.getElementById("divine-profane-singular-dual-plural-collective").style.display = "none";
+        }
+        if(genderNum === 6) {
+            document.getElementById("active-passive-singular-dual-plural-collective").style.display = "block";
+        } else {
+            document.getElementById("active-passive-singular-dual-plural-collective").style.display = "none";
+        }
+        if(genderNum === 7) {
+            document.getElementById("natural-artificial-singular-dual-plural-collective").style.display = "block";
+        } else {
+            document.getElementById("natural-artificial-singular-dual-plural-collective").style.display = "none";
+        }
+    } else {
+        document.getElementById("singular-dual-plural-collective").style.display = "none";
+    }
+    
+    
+    if(grammaticalNum < 14) {
         grammaticalNumberArray.push("singular", "dual", "trial", "plural");
         // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has four grammatical numbers; singular, dual, trial and plural. The dual number is used to mark when there are two of a thing and the trial is to mark when there are three.`
     } else if(grammaticalNum < 16) {
@@ -1220,7 +1268,7 @@ function inflectNounsGender(affix, gender) {
     let genderAffix = document.getElementsByClassName(gender +"-noun-suffix-or-prefix")
     if(genderSuffixOrPrefix === "suffix") {
         for(let i = 0; i < genderAffix.length; i++) {
-            genderAffix[i].innerHTML = `suffix <i>-${spell(soundChange(affix))}</i>`
+            genderAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + affix))}</i>`
         }
         for(let i = 0; i < spanNoun.length; i++) {
             let genderRoot = spanNoun[i].innerHTML;
@@ -1268,7 +1316,7 @@ function inflectNounsSingular() {
         document.getElementById("singular-plural-marked-singular").style.display = "inline";
         if(numberSuffixOrPrefix === "suffix") {
             for(let i = 0; i < spanSingularAffix.length; i++) {
-                spanSingularAffix[i].innerHTML = `suffix <i>-${spell(soundChange(singularAffix))}</i>`
+                spanSingularAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + singularAffix))}</i>`
             }
             for(let i = 0; i < spanNoun.length; i++) {
                 let root = spanNoun[i].innerHTML;
@@ -1295,7 +1343,7 @@ function inflectNounsPlural() {
     let spanPluralAffix = document.getElementsByClassName("plural-affix")
     if(numberSuffixOrPrefix === "suffix") {
         for(let i = 0; i < spanPluralAffix.length; i++) {
-            spanPluralAffix[i].innerHTML = `suffix <i>-${spell(soundChange(pluralAffix))}</i>`
+            spanPluralAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + pluralAffix))}</i>`
         }
         for(let i = 0; i < spanNoun.length; i++) {
             let root = spanNoun[i].innerHTML;
@@ -1340,7 +1388,7 @@ function inflectNounsDual() {
     let spanDualAffix = document.getElementsByClassName("dual-affix")
     if(numberSuffixOrPrefix === "suffix") {
         for(let i = 0; i < spanDualAffix.length; i++) {
-            spanDualAffix[i].innerHTML = `suffix <i>-${spell(soundChange(dualAffix))}</i>`
+            spanDualAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + dualAffix))}</i>`
         }
         for(let i = 0; i < spanNoun.length; i++) {
             let root = spanNoun[i].innerHTML;
@@ -1378,6 +1426,38 @@ function inflectNounsDual() {
 //             }
 //         copyNum2++;
 //         }
+}
+
+function inflectNounsCollective() {
+    let spanNoun = document.getElementsByClassName("collective-noun");
+    let spanCollectiveAffix = document.getElementsByClassName("collective-affix")
+    if(numberSuffixOrPrefix === "suffix") {
+        for(let i = 0; i < spanCollectiveAffix.length; i++) {
+            spanCollectiveAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + collectiveAffix))}</i>`
+        }
+        for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let collectiveInflected = root + collectiveAffix;
+            spanNoun[i].innerHTML = spell(soundChange(collectiveInflected));
+        }
+    } else if (numberSuffixOrPrefix === "prefix") {
+        for(let i = 0; i < spanCollectiveAffix.length; i++) {
+            spanCollectiveAffix[i].innerHTML = `prefix <i>${spell(soundChange(collectiveAffix + "A"))}-</i>`
+        }
+         for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let collectiveInflected = collectiveAffix + root ;
+            spanNoun[i].innerHTML = spell(soundChange(collectiveInflected));
+        }
+    }
+    //makes the noun's translation collective
+    let copyNum = 4;
+    let nounSgMeaning = document.getElementsByClassName("collective-meaning");
+    
+    for(let i = 0; i < nounSgMeaning.length; i++) { 
+       nounSgMeaning[i].innerHTML = `every ${nounSgMeaning[i].innerHTML}`;
+        copyNum++;
+    }
 }
 
 
@@ -1830,6 +1910,7 @@ function generateLanguage() {
     inflectNounsPlural();
     inflectNounsSingular();
     inflectNounsDual();
+    inflectNounsCollective();
     chooseCases();
     explainCases();
    }

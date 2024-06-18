@@ -180,7 +180,7 @@ function spell(word) {
         if(wordArray[i] === "x" && allGlottalFricatives.length > 0 && allAspiratesArray.length > 0) {
             wordArray[i] = "ch"
         }
-        if(wordArray[i] === "x" && allGlottalFricatives.length === 0) {
+        if(wordArray[i] === "x" && allGlottalFricatives.length === 0  && allAspiratesArray.length === 0) {
             wordArray[i] = "h"
         }
         if(wordArray[i] === "ɣ") {

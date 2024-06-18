@@ -441,17 +441,28 @@ function soundChange(word) {
                 }
             }
         }
-    }
+        }
 
-    //to prevent word final sound changes applying to prefixes, when listed in isolation, an "A" is inserted at the end, this for loop serves to remove that "A" after those sound changes have been applied
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "A") {
-            wordArray.splice(i, 1);
+        //to prevent word final sound changes applying to prefixes, when listed in isolation, an "A" is inserted at the end, this for loop serves to remove that "A" after those sound changes have been applied
+        for(let i = 0; i < wordArray.length; i++) {
+            if(wordArray[i] === "A") {
+                wordArray.splice(i, 1);
+            }
+            if(wordArray[i] === "X") {
+                wordArray.splice(i, 1);
+            }
         }
-        if(wordArray[i] === "X") {
-            wordArray.splice(i, 1);
+
+        //prevent preaspirated consonants occuring word initially
+        if(wordArray[0] === "ʰ") {
+            wordArray.splice(0, 1);
         }
-    }
+        //also remove normal /h/ word initially before plosives
+        if(wordArray[0] === "h" && consonants.includes(wordArray[1])) {
+            wordArray.splice(0, 1);
+        }
+        
+
     let final = wordArray.join("");
     return final;
 }

@@ -321,6 +321,7 @@ function sendGeneratedAffixesToArray() {
     singularAffix = generateAffixes();
     pluralAffix = generateAffixes();
     dualAffix = generateAffixes();
+    trialAffix = generateAffixes();
     collectiveAffix = generateAffixes();
     accusativeAffix = generateAffixes();
     genitiveAffix = generateAffixes();
@@ -985,7 +986,7 @@ function markedSingularOrNot() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = Math.floor(Math.random() * 8)
+    genderNum = 7//Math.floor(Math.random() * 8)
     if(genderNum === 0) {
         document.getElementById("agglutinative-gender").style.display = "none";
     }
@@ -1035,7 +1036,7 @@ function randomNumForNounGender() {
 
 let grammaticalNum = 0;
 function randomNumForGrammaticalNumbers() {
-    grammaticalNum = 8//Math.floor(Math.random() * 24)
+    grammaticalNum = 13//Math.floor(Math.random() * 24)
     if(grammaticalNum < 4) {
         grammaticalNumberArray.push("singular", "plural");
         document.getElementById("singular-plural").style.display = "block";
@@ -1196,11 +1197,61 @@ function randomNumForGrammaticalNumbers() {
         document.getElementById("singular-dual-plural-collective").style.display = "none";
     }
     
-    
-    if(grammaticalNum < 14) {
+
+    if(grammaticalNum >= 12 && grammaticalNum < 14) {
         grammaticalNumberArray.push("singular", "dual", "trial", "plural");
-        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has four grammatical numbers; singular, dual, trial and plural. The dual number is used to mark when there are two of a thing and the trial is to mark when there are three.`
-    } else if(grammaticalNum < 16) {
+        document.getElementById("singular-dual-trial-plural").style.display = "block";
+        if(markedSingularOrNot()) {
+            document.getElementById("singular-dual-trial-plural-marked-singular").style.display = "inline";
+        } else {
+        document.getElementById("singular-dual-trial-plural-marked-singular").style.display = "none";
+        }
+        //hides or shows examples of singular and plural nouns based on what noun gender is present
+        if(genderNum === 0) {
+            document.getElementById("no-gender-singular-dual-trial-plural").style.display = "block";
+        } else {
+            document.getElementById("no-gender-singular-dual-trial-plural").style.display = "none";
+        }
+        if(genderNum === 1) {
+            document.getElementById("anim-inan-singular-dual-trial-plural").style.display = "block";
+        } else {
+            document.getElementById("anim-inan-singular-dual-trial-plural").style.display = "none";
+        }
+        if(genderNum === 2) {
+            document.getElementById("masc-fem-singular-dual-trial-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-singular-dual-trial-plural").style.display = "none";
+        }
+        if(genderNum === 3) {
+            document.getElementById("masc-fem-neut-singular-dual-trial-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-neut-singular-dual-trial-plural").style.display = "none";
+        }
+        if(genderNum === 4) {
+            document.getElementById("human-animal-inan-singular-dual-trial-plural").style.display = "block";
+        } else {
+            document.getElementById("human-animal-inan-singular-dual-trial-plural").style.display = "none";
+        }
+        if(genderNum === 5) {
+            document.getElementById("divine-profane-singular-dual-trial-plural").style.display = "block";
+        } else {
+            document.getElementById("divine-profane-singular-dual-trial-plural").style.display = "none";
+        }
+        if(genderNum === 6) {
+            document.getElementById("active-passive-singular-dual-trial-plural").style.display = "block";
+        } else {
+            document.getElementById("active-passive-singular-dual-trial-plural").style.display = "none";
+        }
+        if(genderNum === 7) {
+            document.getElementById("natural-artificial-singular-dual-trial-plural").style.display = "block";
+        } else {
+            document.getElementById("natural-artificial-singular-dual-trial-plural").style.display = "none";
+        }
+    } else {
+        document.getElementById("singular-dual-trial-plural").style.display = "none";
+    }
+    
+    if(grammaticalNum < 16) {
         grammaticalNumberArray.push("singular", "dual", "trial", "quadral", "plural");
         // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has five grammatical numbers; singular, dual, trial, quadral, and plural. The dual number is used to mark when there are two of a thing and the trial is to mark when there are three. The quadral marks when there are four of a thing.`
     } else if(grammaticalNum < 18) {
@@ -1456,6 +1507,41 @@ function inflectNounsCollective() {
     
     for(let i = 0; i < nounSgMeaning.length; i++) { 
        nounSgMeaning[i].innerHTML = `every ${nounSgMeaning[i].innerHTML}`;
+        copyNum++;
+    }
+}
+
+function inflectNounsTrial() {
+    let spanNoun = document.getElementsByClassName("trial-noun");
+    let spanTrialAffix = document.getElementsByClassName("trial-affix")
+    if(numberSuffixOrPrefix === "suffix") {
+        for(let i = 0; i < spanTrialAffix.length; i++) {
+            spanTrialAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + trialAffix))}</i>`
+        }
+        for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let spanTrialAffix = root + trialAffix;
+            spanNoun[i].innerHTML = spell(soundChange(spanTrialAffix));
+        }
+    } else if (numberSuffixOrPrefix === "prefix") {
+        for(let i = 0; i < spanTrialAffix.length; i++) {
+            spanTrialAffix[i].innerHTML = `prefix <i>${spell(soundChange(trialAffix + "A"))}-</i>`
+        }
+         for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let trialInflected = trialAffix + root ;
+            spanNoun[i].innerHTML = spell(soundChange(trialInflected));
+        }
+    }
+    //makes the noun's translation trial
+    let copyNum = 4;
+    let nounSgMeaning = document.getElementsByClassName("trial-meaning");
+    
+    for(let i = 0; i < nounSgMeaning.length; i++) { 
+        let pluralMeaning =  nounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        // for(let j = 0; j < nounSgMeaning.length; j++) {
+       nounSgMeaning[i].innerHTML = `three ${pluralMeaning}`;
+        // }
         copyNum++;
     }
 }
@@ -1911,6 +1997,7 @@ function generateLanguage() {
     inflectNounsSingular();
     inflectNounsDual();
     inflectNounsCollective();
+    inflectNounsTrial();
     chooseCases();
     explainCases();
    }

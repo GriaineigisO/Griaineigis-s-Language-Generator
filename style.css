@@ -319,7 +319,7 @@ h1, h2, h3, h4 {
 #human-animal-inan-singular-dual-plural,
 #divine-profane-singular-dual-plural,
 #active-passive-singular-dual-plural,
-#natural-artificial-singular-dual-plural, #singular-dual-plural-collective-marked-singular{
+#natural-artificial-singular-dual-plural, #singular-dual-plural-collective-marked-singular, #singular-dual-trial-plural, #anim-inan-singular-dual-trial-plural, #masc-fem-singular-dual-trial-plural, #masc-fem-neut-singular-dual-trial-plural, #human-animal-inan-singular-dual-trial-plural, #divine-profane-singular-dual-trial-plural, #active-passive-singular-dual-trial-plural, #natural-artificial-singular-dual-trial-plural{
     display: none;
 }
 

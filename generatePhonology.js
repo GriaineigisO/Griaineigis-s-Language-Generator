@@ -227,7 +227,6 @@ function chooseGemination() {
 }
 
 function chooseAspiration() {
-
         function preAspiration() {
             randomNum = Math.floor(Math.random() * 18);
             let trueOrFalse = "";

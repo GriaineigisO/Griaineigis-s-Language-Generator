@@ -81,6 +81,7 @@ let trialAffix = "";
 let quadralAffix = "";
 let greaterPluralAffix = "";
 let generalAffix = "";
+let singulativeAffix = "";
 let accusativeAffix  = "";
 let genitiveAffix = "";
 let animateAffix = "";
@@ -157,6 +158,7 @@ function clearGeneratedArrays() {
     quadralAffix = "";
     greaterPluralAffix = "";
     generalAffix = "";
+    singulativeAffix = "";
     accusativeAffix  = "";
     genitiveAffix = "";
     animateAffix = "";
@@ -323,7 +325,10 @@ function sendGeneratedAffixesToArray() {
     dualAffix = generateAffixes();
     trialAffix = generateAffixes();
     quadralAffix = generateAffixes();
+    greaterPluralAffix = generateAffixes();
+    generalAffix = generateAffixes();
     collectiveAffix = generateAffixes();
+    singulativeAffix = generateAffixes();
     accusativeAffix = generateAffixes();
     genitiveAffix = generateAffixes();
     animateAffix = generateAffixes();
@@ -988,7 +993,6 @@ function markedSingularOrNot() {
 let genderNum = 0;
 function randomNumForNounGender() {
     genderNum = Math.floor(Math.random() * 16)
-    console.log(genderNum)
     if(genderNum < 9) {
         document.getElementById("agglutinative-gender").style.display = "none";
     }
@@ -1038,7 +1042,7 @@ function randomNumForNounGender() {
 
 let grammaticalNum = 0;
 function randomNumForGrammaticalNumbers() {
-    grammaticalNum = 15//Math.floor(Math.random() * 24)
+    grammaticalNum = Math.floor(Math.random() * 31)
     if(grammaticalNum < 4) {
         grammaticalNumberArray.push("singular", "plural");
         document.getElementById("singular-plural").style.display = "block";
@@ -1200,7 +1204,7 @@ function randomNumForGrammaticalNumbers() {
     }
     
 
-    if(grammaticalNum >= 12 && grammaticalNum < 14) {
+    if(grammaticalNum >= 12 && grammaticalNum < 15) {
         grammaticalNumberArray.push("singular", "dual", "trial", "plural");
         document.getElementById("singular-dual-trial-plural").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1253,7 +1257,7 @@ function randomNumForGrammaticalNumbers() {
         document.getElementById("singular-dual-trial-plural").style.display = "none";
     }
     
-    if(grammaticalNum >= 14 && grammaticalNum < 16) {
+    if(grammaticalNum >= 15 && grammaticalNum < 18) {
         grammaticalNumberArray.push("singular", "dual", "trial", "quadral", "plural");
         document.getElementById("singular-dual-trial-quadral-plural").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1306,18 +1310,205 @@ function randomNumForGrammaticalNumbers() {
        document.getElementById("singular-dual-trial-quadral-plural").style.display = "none";
     }
     
-    if(grammaticalNum < 18) {
+    if(grammaticalNum >= 18 && grammaticalNum < 21) {
         grammaticalNumberArray.push("singular", "plural", "greater plural");
-        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, plural and greater plural. The greater plural signifies "a lot of X" or "many X".`
-    } else if(grammaticalNum < 20) {
+        document.getElementById("singular-plural-greater-plural").style.display = "block";
+        if(markedSingularOrNot()) {
+            document.getElementById("singular-plural-greater-plural-marked-singular").style.display = "inline";
+        } else {
+        document.getElementById("singular-plural-greater-plural-marked-singular").style.display = "none";
+        }
+        //hides or shows examples of singular and plural nouns based on what noun gender is present
+        if(genderNum < 9) {
+            document.getElementById("no-gender-singular-plural-greater-plural").style.display = "block";
+        } else {
+            document.getElementById("no-gender-singular-plural-greater-plural").style.display = "none";
+        }
+        if(genderNum === 9) {
+            document.getElementById("anim-inan-singular-plural-greater-plural").style.display = "block";
+        } else {
+            document.getElementById("anim-inan-singular-plural-greater-plural").style.display = "none";
+        }
+        if(genderNum === 10) {
+            document.getElementById("masc-fem-singular-plural-greater-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-singular-plural-greater-plural").style.display = "none";
+        }
+        if(genderNum === 11) {
+            document.getElementById("masc-fem-neut-singular-plural-greater-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-neut-singular-plural-greater-plural").style.display = "none";
+        }
+        if(genderNum === 12) {
+            document.getElementById("human-animal-inan-singular-plural-greater-plural").style.display = "block";
+        } else {
+            document.getElementById("human-animal-inan-singular-plural-greater-plural").style.display = "none";
+        }
+        if(genderNum === 13) {
+            document.getElementById("divine-profane-singular-plural-greater-plural").style.display = "block";
+        } else {
+            document.getElementById("divine-profane-singular-plural-greater-plural").style.display = "none";
+        }
+        if(genderNum === 14) {
+            document.getElementById("active-passive-singular-plural-greater-plural").style.display = "block";
+        } else {
+            document.getElementById("active-passive-singular-plural-greater-plural").style.display = "none";
+        }
+        if(genderNum === 15) {
+            document.getElementById("natural-artificial-singular-plural-greater-plural").style.display = "block";
+        } else {
+            document.getElementById("natural-artificial-singular-plural-greater-plural").style.display = "none";
+        }
+    } else {
+       document.getElementById("singular-plural-greater-plural").style.display = "none";
+    }
+    
+    if(grammaticalNum >= 21 && grammaticalNum < 24) {
         grammaticalNumberArray.push("singular", "plural", "general");
-        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; singular, plural and general. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general).`
-    } else if(grammaticalNum < 21) {
+        document.getElementById("singular-plural-general").style.display = "block";
+        if(markedSingularOrNot()) {
+            document.getElementById("singular-plural-general-marked-singular").style.display = "inline";
+        } else {
+        document.getElementById("singular-plural-general-marked-singular").style.display = "none";
+        }
+        //hides or shows examples of singular and plural nouns based on what noun gender is present
+        if(genderNum < 9) {
+            document.getElementById("no-gender-singular-plural-general").style.display = "block";
+        } else {
+            document.getElementById("no-gender-singular-plural-general").style.display = "none";
+        }
+        if(genderNum === 9) {
+            document.getElementById("anim-inan-singular-plural-general").style.display = "block";
+        } else {
+            document.getElementById("anim-inan-singular-plural-general").style.display = "none";
+        }
+        if(genderNum === 10) {
+            document.getElementById("masc-fem-singular-plural-general").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-singular-plural-general").style.display = "none";
+        }
+        if(genderNum === 11) {
+            document.getElementById("masc-fem-neut-singular-plural-general").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-neut-singular-plural-general").style.display = "none";
+        }
+        if(genderNum === 12) {
+            document.getElementById("human-animal-inan-singular-plural-general").style.display = "block";
+        } else {
+            document.getElementById("human-animal-inan-singular-plural-general").style.display = "none";
+        }
+        if(genderNum === 13) {
+            document.getElementById("divine-profane-singular-plural-general").style.display = "block";
+        } else {
+            document.getElementById("divine-profane-singular-plural-general").style.display = "none";
+        }
+        if(genderNum === 14) {
+            document.getElementById("active-passive-singular-plural-general").style.display = "block";
+        } else {
+            document.getElementById("active-passive-singular-plural-general").style.display = "none";
+        }
+        if(genderNum === 15) {
+            document.getElementById("natural-artificial-singular-plural-general").style.display = "block";
+        } else {
+            document.getElementById("natural-artificial-singular-plural-general").style.display = "none";
+        }
+    } else {
+       document.getElementById("singular-plural-general").style.display = "none";
+    }
+    
+    if(grammaticalNum >= 24 && grammaticalNum < 27) {
         grammaticalNumberArray.push("general", "plural");
-        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has two grammatical numbers; general and plural. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general). Given the context it may also refer to a single noun. It is broadly a "non-plural" number.`
-    } else if(grammaticalNum <= 23) {
+        document.getElementById("general-plural").style.display = "block";
+        //hides or shows examples of singular and plural nouns based on what noun gender is present
+        if(genderNum < 9) {
+            document.getElementById("no-gender-general-plural").style.display = "block";
+        } else {
+            document.getElementById("no-gender-general-plural").style.display = "none";
+        }
+        if(genderNum === 9) {
+            document.getElementById("anim-inan-general-plural").style.display = "block";
+        } else {
+            document.getElementById("anim-inan-general-plural").style.display = "none";
+        }
+        if(genderNum === 10) {
+            document.getElementById("masc-fem-general-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-general-plural").style.display = "none";
+        }
+        if(genderNum === 11) {
+            document.getElementById("masc-fem-neut-general-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-neut-general-plural").style.display = "none";
+        }
+        if(genderNum === 12) {
+            document.getElementById("human-animal-inan-general-plural").style.display = "block";
+        } else {
+            document.getElementById("human-animal-inan-general-plural").style.display = "none";
+        }
+        if(genderNum === 13) {
+            document.getElementById("divine-profane-general-plural").style.display = "block";
+        } else {
+            document.getElementById("divine-profane-general-plural").style.display = "none";
+        }
+        if(genderNum === 14) {
+            document.getElementById("active-passive-general-plural").style.display = "block";
+        } else {
+            document.getElementById("active-passive-general-plural").style.display = "none";
+        }
+        if(genderNum === 15) {
+            document.getElementById("natural-artificial-general-plural").style.display = "block";
+        } else {
+            document.getElementById("natural-artificial-general-plural").style.display = "none";
+        }
+    } else {
+       document.getElementById("general-plural").style.display = "none";
+    }
+    
+    if(grammaticalNum >= 27 && grammaticalNum < 30) {
         grammaticalNumberArray.push("general", "singulative", "plural");
-        // grammaticalNumberP.innerHTML = `<span class="language-name">Kerbekulo</span> has three grammatical numbers; general, singulative and plural. The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general). The singulative is derived from the plural and marks a specific and singular instance of a noun.`
+        document.getElementById("general-singulative-plural").style.display = "block";
+        if(genderNum < 9) {
+            document.getElementById("no-gender-general-singulative-plural").style.display = "block";
+        } else {
+            document.getElementById("no-gender-general-singulative-plural").style.display = "none";
+        }
+        if(genderNum === 9) {
+            document.getElementById("anim-inan-general-singulative-plural").style.display = "block";
+        } else {
+            document.getElementById("anim-inan-general-singulative-plural").style.display = "none";
+        }
+        if(genderNum === 10) {
+            document.getElementById("masc-fem-general-singulative-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-general-singulative-plural").style.display = "none";
+        }
+        if(genderNum === 11) {
+            document.getElementById("masc-fem-neut-general-singulative-plural").style.display = "block";
+        } else {
+            document.getElementById("masc-fem-neut-general-singulative-plural").style.display = "none";
+        }
+        if(genderNum === 12) {
+            document.getElementById("human-animal-inan-general-singulative-plural").style.display = "block";
+        } else {
+            document.getElementById("human-animal-inan-general-singulative-plural").style.display = "none";
+        }
+        if(genderNum === 13) {
+            document.getElementById("divine-profane-general-singulative-plural").style.display = "block";
+        } else {
+            document.getElementById("divine-profane-general-singulative-plural").style.display = "none";
+        }
+        if(genderNum === 14) {
+            document.getElementById("active-passive-general-singulative-plural").style.display = "block";
+        } else {
+            document.getElementById("active-passive-general-singulative-plural").style.display = "none";
+        }
+        if(genderNum === 15) {
+            document.getElementById("natural-artificial-general-singulative-plural").style.display = "block";
+        } else {
+            document.getElementById("natural-artificial-general-singulative-plural").style.display = "none";
+        }
+    } else {
+       document.getElementById("general-singulative-plural").style.display = "none";
     }
     
 }
@@ -1633,6 +1824,125 @@ function inflectNounsQuadral() {
     }
 }
 
+function inflectNounsGreaterPlural() {
+    let spanNoun = document.getElementsByClassName("greater-plural-noun");
+    let spanGreaterPluralAffix = document.getElementsByClassName("greater-plural-affix")
+    if(numberSuffixOrPrefix === "suffix") {
+        for(let i = 0; i < spanGreaterPluralAffix.length; i++) {
+            spanGreaterPluralAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + greaterPluralAffix))}</i>`
+        }
+        for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let greaterPluralInflected = root + greaterPluralAffix;
+            spanNoun[i].innerHTML = spell(soundChange(greaterPluralInflected));
+        }
+    } else if (numberSuffixOrPrefix === "prefix") {
+        for(let i = 0; i < spanGreaterPluralAffix.length; i++) {
+            spanGreaterPluralAffix[i].innerHTML = `prefix <i>${spell(soundChange(greaterPluralAffix + "A"))}-</i>`
+        }
+         for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let greaterPluralInflected = greaterPluralAffix + root ;
+            spanNoun[i].innerHTML = spell(soundChange(greaterPluralInflected));
+        }
+    }
+    //makes the noun's translation greater plural
+    let copyNum = 4;
+    let nounSgMeaning = document.getElementsByClassName("greater-plural-meaning");
+    
+    for(let i = 0; i < nounSgMeaning.length; i++) { 
+        let pluralMeaning =  nounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        // for(let j = 0; j < nounSgMeaning.length; j++) {
+       nounSgMeaning[i].innerHTML = `a lot of ${pluralMeaning}`;
+        // }
+        copyNum++;
+    }
+}
+
+function inflectNounsGeneral() {
+    let spanNoun = document.getElementsByClassName("general-noun");
+    let spanGeneralAffix = document.getElementsByClassName("general-affix")
+    if(numberSuffixOrPrefix === "suffix") {
+        for(let i = 0; i < spanGeneralAffix.length; i++) {
+            spanGeneralAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + generalAffix))}</i>`
+        }
+        for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let greaterGeneralInflected = root + generalAffix;
+            spanNoun[i].innerHTML = spell(soundChange(greaterGeneralInflected));
+        }
+    } else if (numberSuffixOrPrefix === "prefix") {
+        for(let i = 0; i < spanGeneralAffix.length; i++) {
+            spanGeneralAffix[i].innerHTML = `prefix <i>${spell(soundChange(generalAffix + "A"))}-</i>`
+        }
+         for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let greaterGeneralInflected = generalAffix + root ;
+            spanNoun[i].innerHTML = spell(soundChange(greaterGeneralInflected));
+        }
+    }
+    //makes the noun's translation general - as plural nouns for the singular-plural-general number
+    let copyNum = 4;
+    let nounSgMeaning = document.getElementsByClassName("general-meaning");
+    
+    for(let i = 0; i < nounSgMeaning.length; i++) { 
+        let pluralMeaning =  nounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+       nounSgMeaning[i].innerHTML = `${pluralMeaning}`;
+        copyNum++;
+    }
+
+}
+
+//used specifically for the general number in the general-plural system
+function inflectNounsGeneral1() {
+    let spanNoun = document.getElementsByClassName("general1-noun");
+    for(let i = 0; i < spanNoun.length; i++) {
+        let root = spanNoun[i].innerHTML;
+        spanNoun[i].innerHTML = spell(soundChange(root));
+    }
+    
+    //makes the noun's translation general - as singular nouns for the general-plural number
+    let copyNum1 = 4;
+    let nounSgMeaning1 = document.getElementsByClassName("general1-meaning");
+    
+     for(let i = 0; i < nounSgMeaning1.length; i++) { 
+       nounSgMeaning1[i].innerHTML = `${nounSgMeaning1[i].innerHTML}`;
+        copyNum1++;
+    }
+}
+
+function inflectNounsSingulative() {
+    let spanNoun = document.getElementsByClassName("singulative-noun");
+    let spanSingulativeAffix = document.getElementsByClassName("singulative-affix")
+    if(numberSuffixOrPrefix === "suffix") {
+        for(let i = 0; i < spanSingulativeAffix.length; i++) {
+            spanSingulativeAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + singulativeAffix))}</i>`
+        }
+        for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let greaterSingulativeInflected = root + singulativeAffix;
+            spanNoun[i].innerHTML = spell(soundChange(greaterSingulativeInflected));
+        }
+    } else if (numberSuffixOrPrefix === "prefix") {
+        for(let i = 0; i < spanSingulativeAffix.length; i++) {
+            spanSingulativeAffix[i].innerHTML = `prefix <i>${spell(soundChange(singulativeAffix + "A"))}-</i>`
+        }
+         for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            let greaterSingulativeInflected = singulativeAffix + root ;
+            spanNoun[i].innerHTML = spell(soundChange(greaterSingulativeInflected));
+        }
+    }
+    //makes the noun's translation general - as plural nouns for the singular-plural-general number
+    let copyNum = 4;
+    let nounSgMeaning = document.getElementsByClassName("singulative-meaning");
+    
+    for(let i = 0; i < nounSgMeaning.length; i++) { 
+       nounSgMeaning[i].innerHTML = `${nounSgMeaning[i].innerHTML}`;
+        copyNum++;
+    }
+
+}
 
 function switchNounGenderMascFem(englishWord) {
     const newLi = document.createElement("li");
@@ -2086,6 +2396,10 @@ function generateLanguage() {
     inflectNounsCollective();
     inflectNounsTrial();
     inflectNounsQuadral();
+    inflectNounsGreaterPlural();
+    inflectNounsGeneral();
+    inflectNounsGeneral1();
+    inflectNounsSingulative();
     chooseCases();
     explainCases();
    }

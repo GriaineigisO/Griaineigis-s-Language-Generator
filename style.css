@@ -224,7 +224,23 @@ h1, h2, h3, h4 {
     flex-direction: column;
 }
 
+#generate-language {
+    background-color: #CC005A;
+    color: white;
+    font-size: 15px;
+    height: 50px;
+    width: 300px;
+    border-radius: 40px;
+}
 
+#generate-language:hover {
+    background-color: #600d31;
+}
+
+#generate-language:active {
+    height: 45px;
+    width: 295px;
+}
 
 /* PHONE */
 @media only screen and (max-width: 480px) {

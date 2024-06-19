@@ -993,47 +993,55 @@ function markedSingularOrNot() {
 let genderNum = 0;
 function randomNumForNounGender() {
     genderNum = Math.floor(Math.random() * 16)
+    console.log(genderNum)
     if(genderNum < 9) {
         document.getElementById("agglutinative-gender").style.display = "none";
     }
     if(genderNum === 9) {
         nounGenderArray.push("animate", "inanimate");
+        document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender1").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender1").style.display = "none";
     }
     if(genderNum === 10) {
         nounGenderArray.push("masculine1", "feminine1");
+        document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender2").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender2").style.display = "none";
     }
     if(genderNum === 11) {
         nounGenderArray.push("masculine2", "feminine2", "neuter");
+        document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender3").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender3").style.display = "none";
     }
     if(genderNum === 12) {
         nounGenderArray.push("human", "animal", "secondinanimate");
+        document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender4").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender4").style.display = "none";
     }
     if(genderNum === 13) {
         nounGenderArray.push("divine", "profane");
+        document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender5").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender5").style.display = "none";
     }
     if(genderNum === 14) {
         nounGenderArray.push("active", "passive");
+        document.getElementById("agglutinative-gender").style.display = "block";
          document.getElementById("agglutinative-gender6").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender6").style.display = "none";
     }
     if(genderNum === 15) {
         nounGenderArray.push("natural", "artificial");
+        document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender7").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender7").style.display = "none";
@@ -1043,6 +1051,7 @@ function randomNumForNounGender() {
 let grammaticalNum = 0;
 function randomNumForGrammaticalNumbers() {
     grammaticalNum = Math.floor(Math.random() * 31)
+    console.log(grammaticalNum)
     if(grammaticalNum < 4) {
         grammaticalNumberArray.push("singular", "plural");
         document.getElementById("singular-plural").style.display = "block";

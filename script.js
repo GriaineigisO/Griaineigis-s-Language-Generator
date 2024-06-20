@@ -1229,14 +1229,14 @@ function chooseQuanitifers() {
     severalRow.appendChild(severalTD);
     if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
         let exampleTD = document.createElement("td");
-        exampleTD.innerHTML = `<span class="noun sound-change" id="noun30"></span> <span class="several sound-change"></span>`;
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun30"></span> <span class="several sound-change" id="noun30"></span>`;
         let translationTD = document.createElement("td");
         translationTD.innerHTML = `"several <span class="noun-meaning30 plural-meaning"></span>"`
         severalRow.appendChild(exampleTD);
         severalRow.appendChild(translationTD);
     } else {
         let exampleTD = document.createElement("td");
-        exampleTD.innerHTML = `<span class="several sound-change"></span> <span class="noun sound-change" id="noun29"></span>`;
+        exampleTD.innerHTML = `<span class="several sound-change"></span> <span class="noun sound-change" id="noun30"></span>`;
         let translationTD = document.createElement("td");
         translationTD.innerHTML = `"several <span class="noun-meaning30 plural-meaning"></span>"`
         severalRow.appendChild(exampleTD);

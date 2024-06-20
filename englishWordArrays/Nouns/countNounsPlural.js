@@ -1,12 +1,12 @@
-let nounArrayPlural = [
+let countNounArrayPlural = [
     "acorns",
     "afflictions",
     "alders",
     "anuses",
     "apples",
     "arches",
-    "armies",
     "arms",
+    "armies",
     "arrows",
     "augers",
     "autumns",
@@ -14,7 +14,6 @@ let nounArrayPlural = [
     "badgers",
     "bags",
     "bands",
-    "barks",
     "barrows",
     "baskets",
     "beads",
@@ -160,8 +159,8 @@ let nounArrayPlural = [
     "gullets",
     "gulls",
     "gums",
-    "handles",
     "hands",
+    "handles",
     "hares",
     "hawks",
     "hawthorns",
@@ -298,7 +297,7 @@ let nounArrayPlural = [
     "roots",
     "rows",
     "rules",
-    "salmons",
+    "salmon",
     "sayings",
     "seals",
     "seas",
@@ -383,7 +382,6 @@ let nounArrayPlural = [
     "wagons",
     "walls",
     "wasps",
-    "",
     "weapons",
     "weasels",
     "wedges",
@@ -394,7 +392,6 @@ let nounArrayPlural = [
     "whips",
     "wives",
     "willows",
-    "",
     "winters",
     "wolves",
     "women",
@@ -408,4 +405,4 @@ let nounArrayPlural = [
 ];
 
 
-export default nounArrayPlural;
+export default countNounArrayPlural;

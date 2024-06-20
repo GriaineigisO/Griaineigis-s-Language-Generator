@@ -1,4 +1,4 @@
-let countNounArray = [
+const countNounArray = [
 "acorn",
 "affliction",
 "alder",
@@ -14,7 +14,6 @@ let countNounArray = [
 "badger",
 "bag",
 "band",
-"bark",
 "barrow",
 "basket",
 "bead",
@@ -383,7 +382,6 @@ let countNounArray = [
 "wagon",
 "wall",
 "wasp",
-"water",
 "weapon",
 "weasel",
 "wedge",
@@ -394,7 +392,6 @@ let countNounArray = [
 "whip",
 "wife",
 "willow",
-"wine",
 "winter",
 "wolf",
 "woman",

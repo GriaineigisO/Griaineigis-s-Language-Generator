@@ -103,6 +103,15 @@ function restoreDefault() {
     allPalatalisedConsonants = [];
     allLabialisedPlosives = [];
 
+    allLabialDentalAffricates = [];
+    allLabialAffricates = [];
+    allAlveolarAffricates = [];
+    allPostAlveolarAffricatives = [];
+    allVelarAffricativesArray = [];
+    allUvularlAffricates = [];
+    allGlottalAffricates = [];
+    allUvularAffricativesArray
+
     allFrontVowels = [];
     allBackVowels = [];
     allCentralVowels = [];

@@ -1,5 +1,4 @@
 CURRENTLY DOING MASSIVE OVERHAUL
-Finish the phonology before doing anything else, even though the rest of the page looks like a mess currently
 
 #Phonology
 
@@ -16,7 +15,8 @@ Phonotactic ideas:
 
 # Nouns
 
-to add the singular suffx in the dictionary forms, attach it to wordWithAffix after the gender affixes are attached
+to add the singular suffx in the dictionary forms, attach it to wordWithAffix after the gender affixes are attached.
+Case examples must be added once verbs are done.
 #Verbs
 
 several subsections to discuss each feature in this order:

@@ -1002,7 +1002,7 @@ function selectApproximants() {
 }
 
 function countNumberOfConsonants() {
-  const numberOfConsonants =  selectNasals().length + selectPlosives().length + selectFricatives().length + selectAffricates().length + selectRhotics().length + selectLateralApproximants().length + selectApproximants().length + 1; //for some reason, the result was 1 too low
+  const numberOfConsonants =  selectNasals().length + selectPlosives().length + selectFricatives().length + selectAffricates().length + selectRhotics().length + selectLateralApproximants().length + selectApproximants().length; //for some reason, the result was 1 too low
 
   document.getElementById("consonant-number").innerHTML = numberOfConsonants;
 }

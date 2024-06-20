@@ -109,6 +109,13 @@ let generalAffix = "";
 let singulativeAffix = "";
 let accusativeAffix  = "";
 let genitiveAffix = "";
+let dativeAffix = "";
+let locativeAffix = "";
+let ablativeAffix = "";
+let delativeAffix = "";
+let inessiveAffix = "";
+let instrumentalAffix = "";
+let allativeAffix = "";
 let animateAffix = "";
 let inanimateAffix = "";
 let masculineAffix = "";
@@ -127,6 +134,7 @@ let naturalAffix = "";
 let artificialAffix = "";
 let genderSuffixOrPrefix = "";
 let numberSuffixOrPrefix = "";
+let caseSuffixOrPrefix = "";
 let randomNumForMarkedSingular = "";
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
@@ -203,6 +211,13 @@ function clearGeneratedArrays() {
     singulativeAffix = "";
     accusativeAffix  = "";
     genitiveAffix = "";
+    dativeAffix = "";
+    locativeAffix = "";
+    ablativeAffix = "";
+    delativeAffix = "";
+    inessiveAffix = "";
+    instrumentalAffix = "";
+    allativeAffix = "";
     animateAffix = "";
     inanimateAffix = "";
     masculineAffix = "";
@@ -220,6 +235,7 @@ function clearGeneratedArrays() {
     naturalAffix = "";
     artificialAffix = "";
     genderSuffixOrPrefix = "";
+    caseSuffixOrPrefix = "";
     randomNumForMarkedSingular = "";
 
 
@@ -230,7 +246,6 @@ function clearGeneratedArrays() {
     document.getElementById("masc-fem-gender-switch1").replaceChildren();
     document.getElementById("masc-fem-gender-switch2").replaceChildren();
     document.getElementById("human-animal-gender-switch").replaceChildren();
-    document.getElementById("agglutinative-case").replaceChildren();
 }
 
 function showGrammarAndDictionary() {
@@ -374,6 +389,13 @@ function sendGeneratedAffixesToArray() {
     singulativeAffix = generateAffixes();
     accusativeAffix = generateAffixes();
     genitiveAffix = generateAffixes();
+    dativeAffix = generateAffixes();
+    locativeAffix = generateAffixes();
+    ablativeAffix = generateAffixes();
+    delativeAffix = generateAffixes();
+    inessiveAffix = generateAffixes();
+    instrumentalAffix = generateAffixes();
+    allativeAffix = generateAffixes();
     animateAffix = generateAffixes();
     inanimateAffix = generateAffixes();
     masculineAffix = generateAffixes();
@@ -858,7 +880,11 @@ function genderMarkedWithSuffixOrPrefix() {
 }
 
 function numberMarkedWithSuffixOrPrefix() {
-    numberSuffixOrPrefix = suffixOrPrefix()
+    numberSuffixOrPrefix = suffixOrPrefix();
+}
+
+function caseMarkedWithSuffixOrPrefix() {
+    caseSuffixOrPrefix = suffixOrPrefix();
 }
 
 function fixAffixes() {
@@ -1052,50 +1078,61 @@ function randomNumForNounGender() {
         nounGenderArray.push("masculine1", "feminine1");
         document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender2").style.display = "block";
+        document.getElementById("masc-fem-singulative-example").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender2").style.display = "none";
+        document.getElementById("masc-fem-singulative-example").style.display = "none";
     }
     if(genderNum === 11) {
         nounGenderArray.push("masculine2", "feminine2", "neuter");
         document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender3").style.display = "block";
+        document.getElementById("masc-fem-neut-singulative-example").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender3").style.display = "none";
+        document.getElementById("masc-fem-neut-singulative-example").style.display = "none";
     }
     if(genderNum === 12) {
         nounGenderArray.push("human", "animal", "secondinanimate");
         document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender4").style.display = "block";
+        document.getElementById("human-anim-inan-singulative-example").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender4").style.display = "none";
+        document.getElementById("human-anim-inan-singulative-example").style.display = "none";
     }
     if(genderNum === 13) {
         nounGenderArray.push("divine", "profane");
         document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender5").style.display = "block";
+        document.getElementById("divine-profane-singulative-example").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender5").style.display = "none";
+        document.getElementById("divine-profane-singulative-example").style.display = "none";
     }
     if(genderNum === 14) {
         nounGenderArray.push("active", "passive");
         document.getElementById("agglutinative-gender").style.display = "block";
          document.getElementById("agglutinative-gender6").style.display = "block";
+         document.getElementById("active-passive-singulative-example").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender6").style.display = "none";
+        document.getElementById("active-passive-singulative-example").style.display = "none";
     }
     if(genderNum === 15) {
         nounGenderArray.push("natural", "artificial");
         document.getElementById("agglutinative-gender").style.display = "block";
         document.getElementById("agglutinative-gender7").style.display = "block";
+        document.getElementById("natural-artificial-singulative-example").style.display = "block";
     } else {
         document.getElementById("agglutinative-gender7").style.display = "none";
+        document.getElementById("natural-artificial-singulative-example").style.display = "none";
     }
 }
 
-
 let grammaticalNum = 0;
 function randomNumForGrammaticalNumbers() {
-    grammaticalNum = 29//Math.floor(Math.random() * 31)
+    grammaticalNum = Math.floor(Math.random() * 31)
     if(grammaticalNum < 4) {
         grammaticalNumberArray.push("singular", "plural");
         document.getElementById("singular-plural").style.display = "block";
@@ -1855,7 +1892,6 @@ function inflectMassNounsPlural() {
     }
 }
 
-
 function inflectNounsDual() {
     let spanNoun = document.getElementsByClassName("dual-noun");
     let spanDualAffix = document.getElementsByClassName("dual-affix")
@@ -2473,6 +2509,7 @@ function chooseCases() {
         //decides if the language has cases or not
         if(Math.floor(Math.random() * 2) !== 0) {
             const randomNum = Math.floor(Math.random() * 8);
+            document.getElementById("agglutinative-case").style.display = "block";
             if(randomNum <= 4) {
                 chosenNounCases.push("Nominative");
                 chosenNounCases.push("Accusative");
@@ -2490,79 +2527,144 @@ function chooseCases() {
                     chosenNounCases.push(nounCases[Math.floor(Math.random() * nounCases.length)])
                 }       
             }   
+        } else {
+            document.getElementById("agglutinative-case").style.display = "none";
         }
     }
 }
 
 function explainCases() {
     if(chosenNounCases.length > 0) {
-        const caseHeader = document.createElement("h3");
-        caseHeader.innerHTML = "Case";
-        document.getElementById("agglutinative-case").appendChild(caseHeader)
-
         const listOfCases = [];
         chosenNounCases.forEach((element) => listOfCases.push(element));
         listOfCases.pop()
         listOfCases.push(` and ${chosenNounCases[chosenNounCases.length -1]}`)
         let listOfCasesString =  listOfCases.join(", ")
 
-        const caseP = document.createElement("p");
-        caseP.innerHTML = `There are ${chosenNounCases.length} noun cases in <span class="language-name">Kerbekulo</span> which are ${listOfCasesString}.`
-        document.getElementById("agglutinative-case").appendChild(caseP)
+        document.getElementById("chosen-noun-case-length").innerHTML = chosenNounCases.length;
+        document.getElementById("list-of-cases-agglutinative").innerHTML = listOfCasesString;
 
         if(chosenNounCases.includes("Nominative")) {
-            const nominative = document.createElement("p");
-            nominative.innerHTML = `The <strong>Nominative</strong> case is used to mark the subject of a verb, the noun which is the performer of an action.`
-            document.getElementById("agglutinative-case").appendChild(nominative);
+            document.getElementById("nominative-case-agglutinative").style.display = "block";
+        } else {
+            document.getElementById("nominative-case-agglutinative").style.display = "none";
         }
         if(chosenNounCases.includes("Accusative")) {
-            const accusative = document.createElement("p");
-            accusative.innerHTML = `The <strong>Accusative</strong> case is used to mark the object of a verb, the noun which is the recipient of an action.`
-            document.getElementById("agglutinative-case").appendChild(accusative);
+            document.getElementById("accusative-case-agglutinative").style.display = "block";
+            let accusative = document.getElementsByClassName("accusative-affix");
+            for(let i = 0; i < accusative.length; i++) {
+                if(caseSuffixOrPrefix === "suffix") {
+                accusative[i].innerHTML = `suffix <i>-${spell(soundChange(accusativeAffix +  "A"))}</i>`;
+                } else if(caseSuffixOrPrefix === "prefix") {
+                accusative[i].innerHTML = `prefix <i>${spell(soundChange("X" + accusativeAffix))}-</i>`;
+                }
+            }
+        } else {
+            document.getElementById("accusative-case-agglutinative").style.display = "none";
         }
         if(chosenNounCases.includes("Genitive")) {
-            const genitive = document.createElement("p");
-            genitive.innerHTML = `The <strong>Genitive</strong> case is used to mark possession.`
-            document.getElementById("agglutinative-case").appendChild(genitive);
+            document.getElementById("genitive-case-agglutinative").style.display = "block";
+            let genitive = document.getElementsByClassName("genitive-affix");
+            for(let i = 0; i < genitive.length; i++) {
+                if(caseSuffixOrPrefix === "suffix") {
+                genitive[i].innerHTML = `suffix <i>-${spell(soundChange(genitiveAffix +  "A"))}</i>`;
+                } else if(caseSuffixOrPrefix === "prefix") {
+                genitive[i].innerHTML = `prefix <i>${spell(soundChange("X" + genitiveAffix))}-</i>`;
+                }
+            }
+        } else {
+            document.getElementById("genitive-case-agglutinative").style.display = "none";
         }
         if(chosenNounCases.includes("Dative")) {
-            const dative = document.createElement("p");
-            dative.innerHTML = `The <strong>Dative</strong> case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy.`
-            document.getElementById("agglutinative-case").appendChild(dative);
+            document.getElementById("dative-case-agglutinative").style.display = "block";
+            let dative = document.getElementsByClassName("dative-affix");
+            for(let i = 0; i < dative.length; i++) {
+                if(caseSuffixOrPrefix === "suffix") {
+                dative[i].innerHTML = `suffix <i>-${spell(soundChange(dativeAffix +  "A"))}</i>`;
+                } else if(caseSuffixOrPrefix === "prefix") {
+                dative[i].innerHTML = `prefix <i>${spell(soundChange("X" + dativeAffix))}-</i>`;
+                }
+            }
+        } else {
+            document.getElementById("dative-case-agglutinative").style.display = "none";
         }
         if(chosenNounCases.includes("Ablative")) {
-            const ablative = document.createElement("p");
-            ablative.innerHTML = `The <strong>Ablative</strong> case is used to mark motion away from a noun.`
-            document.getElementById("agglutinative-case").appendChild(ablative);
+            document.getElementById("ablative-case-agglutinative").style.display = "block";
+            let ablative = document.getElementsByClassName("ablative-affix");
+            for(let i = 0; i < ablative.length; i++) {
+                if(caseSuffixOrPrefix === "suffix") {
+                ablative[i].innerHTML = `suffix <i>-${spell(soundChange(ablativeAffix +  "A"))}</i>`;
+                } else if(caseSuffixOrPrefix === "prefix") {
+                ablative[i].innerHTML = `prefix <i>${spell(soundChange("X" + ablativeAffix))}-</i>`;
+                }
+            }
+        } else {
+            document.getElementById("ablative-case-agglutinative").style.display = "none";
         }
         if(chosenNounCases.includes("Locative")) {
-            const locative = document.createElement("p");
-            if(chosenNounCases.includes("Ablative") === false) {
-                locative.innerHTML = `The <strong>Locative</strong> case is used to mark a noun used with an adposition e.g "in the forest" or "on a mountain".`
-            } else {
-                locative.innerHTML = `The <strong>Locative</strong> case is used to a mark a noun alongside an adposition with a static/non-moving meaning e.g "next to a house".`
+            document.getElementById("locative-case-agglutinative").style.display = "block";
+            let locative = document.getElementsByClassName("locative-affix");
+            for(let i = 0; i < locative.length; i++) {
+                if(caseSuffixOrPrefix === "suffix") {
+                locative[i].innerHTML = `suffix <i>-${spell(soundChange(locativeAffix +  "A"))}</i>`;
+                } else if(caseSuffixOrPrefix === "prefix") {
+                locative[i].innerHTML = `prefix <i>${spell(soundChange("X" +locativeAffix))}-</i>`;
+                }
             }
-            document.getElementById("agglutinative-case").appendChild(locative);
+        } else {
+            document.getElementById("locative-case-agglutinative").style.display = "none";
         }
         if(chosenNounCases.includes("Inessive")) {
-            const inessive = document.createElement("p");
-            inessive.innerHTML = `The <strong>Inessive</strong> case is used to mark "inside" e.g "in a house", "in a forest".`
-            document.getElementById("agglutinative-case").appendChild(inessive);
+            document.getElementById("inessive-case-agglutinative").style.display = "block";
+            let inessive = document.getElementsByClassName("inessive-affix");
+            for(let i = 0; i < inessive.length; i++) {
+                if(caseSuffixOrPrefix === "suffix") {
+                inessive[i].innerHTML = `suffix <i>-${spell(soundChange(inessiveAffix +  "A"))}</i>`;
+                } else if(caseSuffixOrPrefix === "prefix") {
+                inessive[i].innerHTML = `prefix <i>${spell(soundChange("X" + inessiveAffix))}-</i>`;
+                }
+            }
+        } else {
+            document.getElementById("inessive-case-agglutinative").style.display = "none";
         }
         if(chosenNounCases.includes("Delative")) {
-            const delative = document.createElement("p");
-            delative.innerHTML = `The <strong>Delative</strong> case is used to mark "from" e.g "from a house".`
-            document.getElementById("agglutinative-case").appendChild(delative);
+            document.getElementById("delative-case-agglutinative").style.display = "block";
+            let delative = document.getElementsByClassName("delative-affix");
+            for(let i = 0; i < delative.length; i++) {
+                if(caseSuffixOrPrefix === "suffix") {
+                delative[i].innerHTML = `suffix <i>-${spell(soundChange(delativeAffix +  "A"))}</i>`;
+                } else if(caseSuffixOrPrefix === "prefix") {
+                delative[i].innerHTML = `prefix <i>${spell(soundChange("X" + delativeAffix))}-</i>`;
+                }
+            }
+        } else {
+            document.getElementById("delative-case-agglutinative").style.display = "none";
         }
         if(chosenNounCases.includes("Allative")) {
-            const allative = document.createElement("p");
-            allative.innerHTML = `The <strong>Allative</strong> case is used to mark "to, at" e.g "to a house".`
-            document.getElementById("agglutinative-case").appendChild(allative);
+            document.getElementById("allative-case-agglutinative").style.display = "block";
+            let allative = document.getElementsByClassName("allative-affix");
+            for(let i = 0; i < allative.length; i++) {
+                if(caseSuffixOrPrefix === "suffix") {
+                allative[i].innerHTML = `suffix <i>-${spell(soundChange(allativeAffix +  "A"))}</i>`;
+                } else if(caseSuffixOrPrefix === "prefix") {
+                allative[i].innerHTML = `prefix <i>${spell(soundChange("X" + allativeAffix))}-</i>`;
+                }
+            }
+        } else {
+            document.getElementById("allative-case-agglutinative").style.display = "none";
         }
         if(chosenNounCases.includes("Instrumental")) {
-            const instrumental = document.createElement("p");
-            instrumental.innerHTML = `The <strong>Instrumental</strong> case is used to mark a noun used to do something e.g "the man was stabbed <u>with a knife</u>" or "I traveled <u>by train</u>".`
-            document.getElementById("agglutinative-case").appendChild(instrumental);
+            document.getElementById("instrumental-case-agglutinative").style.display = "block";
+            let instrumental = document.getElementsByClassName("instrumental-affix");
+            for(let i = 0; i < instrumental.length; i++) {
+                if(caseSuffixOrPrefix === "suffix") {
+                instrumental[i].innerHTML = `suffix <i>-${spell(soundChange(instrumentalAffix +  "A"))}</i>`;
+                } else if(caseSuffixOrPrefix === "prefix") {
+                instrumental[i].innerHTML = `prefix <i>${spell(soundChange("X" + instrumentalAffix))}-</i>`;
+                }
+            }
+        } else {
+            document.getElementById("instrumental-case-agglutinative").style.display = "none";
         }
 
     }
@@ -2608,6 +2710,7 @@ function generateLanguage() {
     suffixOrPrefix();
     genderMarkedWithSuffixOrPrefix();
     numberMarkedWithSuffixOrPrefix();
+    caseMarkedWithSuffixOrPrefix();
     fixAffixes();
     chooseIfMarkedNominative();
     randomNumMarkedSingular();

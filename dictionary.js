@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -59,21 +59,28 @@ function makeDictionary() {
 
        //Kerbekulo to English
     for(let i = 0; i < englishWords.length; i++) {
+        let bareRoots = "";
+        if(typologyNum !== 0) {
+            bareRoots = ` (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`
+        } else {
+            bareRoots = "";
+        }
+        
         let pOfSpeech = "";
         if(countNounArray.includes(englishWords[i])) {
-            pOfSpeech = `n, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+            pOfSpeech = "n" + bareRoots;
             wordWithAffix = languageWords[i];
         } else if(massNounArray.includes(englishWords[i])) {
-        pOfSpeech = `n, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+        pOfSpeech = "n" + bareRoots;
         wordWithAffix = languageWords[i];
         } else if (adjectiveArray.includes(englishWords[i])) {
-            pOfSpeech = `adj, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+            pOfSpeech = "adj" + bareRoots;
             wordWithAffix = languageWords[i];
         } else if (transitiveVerbArray.includes(englishWords[i]) || intransitiveVerbArray.includes(englishWords[i])) {
-            pOfSpeech = `v, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+            pOfSpeech = "v" + bareRoots;
             wordWithAffix = languageWords[i];
         } else if (transitiveVerbArray.includes(englishWords[i]) || intransitiveVerbArray.includes(englishWords[i])) {
-                pOfSpeech = `v, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                pOfSpeech = "v" + bareRoots;
                 wordWithAffix = languageWords[i];
         } else if (adverbArray.includes(englishWords[i])) {
                 pOfSpeech = "adv";
@@ -88,12 +95,12 @@ function makeDictionary() {
                 pOfSpeech = "adv";
                 wordWithAffix = languageWords[i];
         }
-        if(genderNum > 0) {
+        if(genderNum > 0 && typologyNum !== 0) {
             if(nounGenderArray.includes("animate") && nounGenderArray.includes("inanimate")) {
                 if(countNounArray.includes(englishWords[i])) {
                 let index = countNounArray.indexOf(englishWords[i])
                 if(animInan[index] === "anim") {
-                    pOfSpeech = `n.anim, (<i>-${spell(soundChange("A" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.anim" + bareRoots;
                     animateArray.push(generatedCountNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + animateAffix;
@@ -102,7 +109,7 @@ function makeDictionary() {
                         wordWithAffix = animateAffix + languageWords[i];
                     }
                 } else if (animInan[index] === "inan"){
-                    pOfSpeech = `n.inan, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.inan" + bareRoots;
                     inanimateArray.push(generatedCountNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + inanimateAffix;
@@ -116,7 +123,7 @@ function makeDictionary() {
             if(massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i])
                 if(animInanMass[index] === "anim") {
-                    pOfSpeech = `n.anim, (<i>-${spell(soundChange("A" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.anim," +  bareRoots;
                     animalArray.push(generatedMassNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + animateAffix;
@@ -125,7 +132,7 @@ function makeDictionary() {
                         wordWithAffix = animateAffix + languageWords[i];
                     }
                 } else if (animInanMass[index] === "inan"){
-                    pOfSpeech = `n.inan, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.inan" + bareRoots;
                     inanimateArray.push(generatedMassNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + inanimateAffix;
@@ -141,7 +148,7 @@ function makeDictionary() {
                 if(countNounArray.includes(englishWords[i])) {
                 let index = countNounArray.indexOf(englishWords[i])
                 if(mascFem[index] === "masculine1") {
-                    pOfSpeech = `n.masc, (<i>-${spell(soundChange("A" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.masc," +  bareRoots;
                     masculine1Array.push(generatedCountNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + masculineAffix;
@@ -150,7 +157,7 @@ function makeDictionary() {
                         wordWithAffix = masculineAffix + languageWords[i] + "X";
                     }
                 } else if (mascFem[index] === "feminine1"){
-                    pOfSpeech = `n.fem, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.fem" + bareRoots;
                     feminine1Array.push(generatedCountNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + feminineAffix;
@@ -164,7 +171,7 @@ function makeDictionary() {
             if(massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i])
                 if(mascFemMass[index] === "masculine1") {
-                    pOfSpeech = `n.masc, (<i>-${spell(soundChange("A" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.masc," +  bareRoots;
                     masculine1Array.push(generatedMassNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + masculineAffix;
@@ -173,7 +180,7 @@ function makeDictionary() {
                         wordWithAffix = masculineAffix + languageWords[i] + "X";
                     }
                 } else if (mascFemMass[index] === "feminine1"){
-                    pOfSpeech = `n.fem, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.fem" + bareRoots;
                     feminine1Array.push(generatedMassNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + feminineAffix;
@@ -188,7 +195,7 @@ function makeDictionary() {
                 if(countNounArray.includes(englishWords[i])) {
                     let index = countNounArray.indexOf(englishWords[i])
                     if(mascFemNeut[index] === "masculine2") {
-                            pOfSpeech = `n.masc, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                            pOfSpeech = "n.masc" + bareRoots;
                             masculine2Array.push(generatedCountNouns[i]);
                             if(genderSuffixOrPrefix === "suffix") {
                                 wordWithAffix = "X" + languageWords[i] + masculineAffix;
@@ -197,7 +204,7 @@ function makeDictionary() {
                                 wordWithAffix = masculineAffix + languageWords[i];
                             }
                         } else if (mascFemNeut[index] === "feminine2"){
-                            pOfSpeech = `n.fem, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                            pOfSpeech = "n.fem" + bareRoots;
                             feminine2Array.push(generatedCountNouns[i])
                             if(genderSuffixOrPrefix === "suffix") {
                                 wordWithAffix = "X" + languageWords[i] + feminineAffix;
@@ -206,7 +213,7 @@ function makeDictionary() {
                                 wordWithAffix = feminineAffix + languageWords[i];
                             }
                         } else if (mascFemNeut[index] === "neuter"){
-                            pOfSpeech = `n.neut, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                            pOfSpeech = "n.neut" + bareRoots;
                             neuterArray.push(generatedCountNouns[i])
                             if(genderSuffixOrPrefix === "suffix") {
                                 wordWithAffix = "X" + languageWords[i] + neuterAffix;
@@ -219,7 +226,7 @@ function makeDictionary() {
                 if(massNounArray.includes(englishWords[i])) {
                     let index = massNounArray.indexOf(englishWords[i])
                     if(mascFemNeutMass[index] === "masculine2") {
-                            pOfSpeech = `n.masc, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                            pOfSpeech = "n.masc" + bareRoots;
                             masculine2Array.push(generatedMassNouns[i]);
                             if(genderSuffixOrPrefix === "suffix") {
                                 wordWithAffix = "X" + languageWords[i] + masculineAffix;
@@ -228,7 +235,7 @@ function makeDictionary() {
                                 wordWithAffix = masculineAffix + languageWords[i];
                             }
                         } else if (mascFemNeutMass[index] === "feminine2"){
-                            pOfSpeech = `n.fem, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                            pOfSpeech = "n.fem" + bareRoots;
                             feminine2Array.push(generatedMassNouns[i])
                             if(genderSuffixOrPrefix === "suffix") {
                                 wordWithAffix = "X" + languageWords[i] + feminineAffix;
@@ -237,7 +244,7 @@ function makeDictionary() {
                                 wordWithAffix = feminineAffix + languageWords[i];
                             }
                         } else if (mascFemNeutMass[index] === "neuter"){
-                            pOfSpeech = `n.neut, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                            pOfSpeech = "n.neut" + bareRoots;
                             neuterArray.push(generatedMassNouns[i])
                             if(genderSuffixOrPrefix === "suffix") {
                                 wordWithAffix = "X" + languageWords[i] + neuterAffix;
@@ -252,7 +259,7 @@ function makeDictionary() {
                 if(countNounArray.includes(englishWords[i])) {
                 let index = countNounArray.indexOf(englishWords[i])
                 if(divineNonDivine[index] === "divine") {
-                    pOfSpeech = `n.div, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.div" + bareRoots;
                     divineArray.push(generatedCountNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + divineAffix;
@@ -261,7 +268,7 @@ function makeDictionary() {
                         wordWithAffix = divineAffix + languageWords[i];
                     }
                 } else if (divineNonDivine[index] === "profane"){
-                    pOfSpeech = `n.prof, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.prof" + bareRoots;
                     profaneArray.push(generatedCountNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + profaneAffix;
@@ -274,7 +281,7 @@ function makeDictionary() {
                 if(massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i])
                 if(divineNonDivineMass[index] === "divine") {
-                    pOfSpeech = `n.div, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.div" + bareRoots;
                     divineArray.push(generatedMassNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + divineAffix;
@@ -283,7 +290,7 @@ function makeDictionary() {
                         wordWithAffix = divineAffix + languageWords[i];
                     }
                 } else if (divineNonDivineMass[index] === "profane"){
-                    pOfSpeech = `n.prof, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.prof" + bareRoots;
                     profaneArray.push(generatedMassNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + profaneAffix;
@@ -298,7 +305,7 @@ function makeDictionary() {
                 if(countNounArray.includes(englishWords[i])) {
                 let index = countNounArray.indexOf(englishWords[i])
                 if(humanAnimalInan[index] === "human") {
-                    pOfSpeech = `n.human, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.human" + bareRoots;
                     humanArray.push(generatedCountNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + humanAffix;
@@ -307,7 +314,7 @@ function makeDictionary() {
                         wordWithAffix = humanAffix + languageWords[i];
                     }
                 } else if (humanAnimalInan[index] === "animal"){
-                    pOfSpeech = `n.anim, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.anim" + bareRoots;
                     animalArray.push(generatedCountNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + animalAffix;
@@ -316,7 +323,7 @@ function makeDictionary() {
                         wordWithAffix = animalAffix + languageWords[i];
                     }
                 } else if (humanAnimalInan[index] === "secondinanimate"){
-                    pOfSpeech = `n.inan, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.inan" + bareRoots;
                     inanimate2Array.push(generatedCountNouns[i])
                     inanimate2Array.push(generatedMassNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
@@ -330,7 +337,7 @@ function makeDictionary() {
             if(massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i])
                 if(humanAnimalInanMass[index] === "human") {
-                    pOfSpeech = `n.human, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.human" + bareRoots;
                     humanArray.push(generatedMassNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + humanAffix;
@@ -339,7 +346,7 @@ function makeDictionary() {
                         wordWithAffix = humanAffix + languageWords[i];
                     }
                 } else if (humanAnimalInanMass[index] === "animal"){
-                    pOfSpeech = `n.anim, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.anim" + bareRoots;
                     animalArray.push(generatedMassNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + animalAffix;
@@ -348,7 +355,7 @@ function makeDictionary() {
                         wordWithAffix = animalAffix + languageWords[i];
                     }
                 } else if (humanAnimalInanMass[index] === "secondinanimate"){
-                    pOfSpeech = `n.inan, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.inan" + bareRoots;
                     inanimate2Array.push(generatedMassNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + inanimate2Affix;
@@ -363,7 +370,7 @@ function makeDictionary() {
                 if(countNounArray.includes(englishWords[i])) {
                 let index = countNounArray.indexOf(englishWords[i])
                 if(activePassive[index] === "active") {
-                    pOfSpeech = `n.active, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.active" + bareRoots;
                     humanArray.push(generatedCountNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + activeAffix;
@@ -372,7 +379,7 @@ function makeDictionary() {
                         wordWithAffix = activeAffix + languageWords[i];
                     }
                 } else if (activePassive[index] === "passive"){
-                    pOfSpeech = `n.passive, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.passive" + bareRoots;
                     animalArray.push(generatedCountNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + passiveAffix;
@@ -385,7 +392,7 @@ function makeDictionary() {
                 if(massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i])
                 if(activePassiveMass[index] === "active") {
-                    pOfSpeech = `n.active, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.active" + bareRoots;
                     humanArray.push(generatedMassNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + activeAffix;
@@ -394,7 +401,7 @@ function makeDictionary() {
                         wordWithAffix = activeAffix + languageWords[i];
                     }
                 } else if (activePassiveMass[index] === "passive"){
-                    pOfSpeech = `n.passive, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.passive" + bareRoots;
                     animalArray.push(generatedMassNouns[i])
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + passiveAffix;
@@ -409,7 +416,7 @@ function makeDictionary() {
                 if(countNounArray.includes(englishWords[i])) {
                 let index = countNounArray.indexOf(englishWords[i])
                 if(naturalArtificial[index] === "natural") {
-                    pOfSpeech = `n.nat, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.nat" + bareRoots;
                     humanArray.push(generatedCountNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + naturalAffix;
@@ -418,7 +425,7 @@ function makeDictionary() {
                         wordWithAffix = naturalAffix + languageWords[i];
                     }
                 } else if (naturalArtificial[index] === "artificial"){
-                    pOfSpeech = `n.art, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.art" + bareRoots;
                     animalArray.push(generatedCountNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + artificialAffix;
@@ -431,7 +438,7 @@ function makeDictionary() {
              if(massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i])
                 if(naturalArtificialMass[index] === "natural") {
-                    pOfSpeech = `n.nat, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.nat" + bareRoots;
                     humanArray.push(generatedMassNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + naturalAffix;
@@ -440,7 +447,7 @@ function makeDictionary() {
                         wordWithAffix = naturalAffix + languageWords[i];
                     }
                 } else if (naturalArtificialMass[index] === "artificial"){
-                    pOfSpeech = `n.art, (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`;
+                    pOfSpeech = "n.art" + bareRoots;
                     animalArray.push(generatedMassNouns[i]);
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + artificialAffix;
@@ -517,7 +524,7 @@ function makeDictionary() {
                 wordWithAffix = "X" + languageWords[i];
             }
 
-            if(genderNum > 0) {
+            if(genderNum > 0 && typologyNum !== 0) {
             if(nounGenderArray.includes("animate") && nounGenderArray.includes("inanimate") && nounGenderArray.length === 2) {
                 if(countNounArray.includes(englishWords[i])) {
                 let index = countNounArray.indexOf(englishWords[i])

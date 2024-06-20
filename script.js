@@ -26,7 +26,7 @@ import humanAnimalInan from './nounGender/human_animal_inan.js'
 import activePassive from './nounGender/active_passive.js'
 import naturalArtificial from './nounGender/natural_artificial.js'
 import divineNonDivine from './nounGender/divine_nondivine.js';
-
+import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js'
 
 import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
@@ -53,6 +53,11 @@ let generatedConjunctions = [];
 let generatedAdverbs = [];
 let generatedAdpositions = [];
 let generatedIntensifiers = [];
+let generatedSmallQuanitifiers = [];
+let generatedMiddlingQuanitifers = [];
+let generatedBigQuantifiers = [];
+let generatedOpinionQuantifiers = [];
+
 let chosenNounCases = [];
 let grammaticalNumberArray = [];
 let nounGenderArray = [];
@@ -155,6 +160,10 @@ function clearGeneratedArrays() {
     generatedAdverbs = [];
     generatedAdpositions = [];
     generatedIntensifiers = [];
+    generatedSmallQuanitifiers = [];
+    generatedMiddlingQuanitifers = [];
+    generatedBigQuantifiers = [];
+    generatedOpinionQuantifiers = [];
     chosenNounCases = [];
     grammaticalNumberArray = [];
     nounGenderArray = [];
@@ -246,6 +255,7 @@ function clearGeneratedArrays() {
     document.getElementById("masc-fem-gender-switch1").replaceChildren();
     document.getElementById("masc-fem-gender-switch2").replaceChildren();
     document.getElementById("human-animal-gender-switch").replaceChildren();
+    document.getElementById("quantifier-table").replaceChildren();
 }
 
 function showGrammarAndDictionary() {
@@ -309,6 +319,10 @@ function sendGeneratedWordsToArray() {
     adverbArray.forEach((element) => generatedAdverbs.push(generateWords()));
     adpositionArray.forEach((element) => generatedAdpositions.push(generateWords()));
     intensifierArray.forEach((element) => generatedIntensifiers.push(generateWords()));
+    smallQuantifiersArray.forEach((element) => generatedSmallQuanitifiers.push(generateWords()));
+    middingQuantifierArray.forEach((element) => generatedMiddlingQuanitifers.push(generateWords()));
+    bigQuantifierArray.forEach((element) => generatedBigQuantifiers.push(generateWords()));
+    opinionQuantifierArray.forEach((element) => generatedOpinionQuantifiers.push(generateWords()));
     wordThere = generateWords();
     wordHere = generateWords();
     firstPersonPronoun = generateWords();
@@ -812,7 +826,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = 1//Math.floor(Math.random() * 3)
+    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -820,14 +834,23 @@ function chooseTypology() {
     if(typologyNum === 0) {
         document.getElementById("typology").innerHTML = `an isolating language, meaning that there are no affixes in this language and that every morpheme is an independent word.`
         typology = "isolating"
+        document.getElementById("isolating-nouns").style.display = "block";
+    } else {
+        document.getElementById("isolating-nouns").style.display = "none";
     }
     if(typologyNum === 1) {
         document.getElementById("typology").innerHTML = `an agglutinative language, meaning that every morpheme has just one meaning assigned to it, and that these morphemes may stack up together. Some aspects of the language may be slightly fusional where sound changes have blended some affixes together.`
         typology = "agglutinative"
+        document.getElementById("agglutinative-nouns").style.display = "block";
+    } else {
+        document.getElementById("agglutinative-nouns").style.display = "none";
     }
     if(typologyNum === 2) {
         document.getElementById("typology").innerHTML = `a fusional language, meaning that a morpheme may bear more than one unit of meaning.`
         typology = "fusional"
+        document.getElementById("fusional-nouns").style.display = "block";
+    } else {
+        document.getElementById("fusional-nouns").style.display = "none";
     }
     return typology;
 }
@@ -1130,10 +1153,149 @@ function randomNumForNounGender() {
     }
 }
 
-let grammaticalNum = 0;
-function randomNumForGrammaticalNumbers() {
-    grammaticalNum = Math.floor(Math.random() * 31)
-    if(grammaticalNum < 4) {
+//whether the language is head initial or final depends on the word order
+function checkIfHeadInitialOrHeadFinal() {
+    //if the word order is OV, or else VO
+    if(wordOrderNum === 0 || wordOrderNum === 1 || wordOrderNum === 5 ) {
+        document.getElementById("before-or-after-numbers").innerHTML = "after";
+        // document.getElementById("quantifier-few-example-head-first").style.display = "block";
+        // document.getElementById("few-translation-head-first").style.display = "block";
+        return "headFirst";
+    } else if (wordOrderNum === 2 ||wordOrderNum === 3 || wordOrderNum === 4) {
+        document.getElementById("before-or-after-numbers").innerHTML = "before";
+        // document.getElementById("quantifier-few-example-head-final").style.display = "block";
+        // document.getElementById("few-translation-head-final").style.display = "block";
+        return "headFinal"
+    };
+}
+
+/**ISOLATING NOUNS****/
+let grammaticalNumIsolating = 0;
+function randomNumForIsolatingGrammaticalNumbers() {
+    grammaticalNumIsolating = 3//Math.floor(Math.random() * 31)
+    if(grammaticalNumIsolating < 5) {
+        document.getElementById("isolating-quanitifers-only").style.display = "block";
+    }
+}
+
+
+function chooseQuanitifers() {
+    
+    if(typologyNum === 0) {
+    let table = document.getElementById("quantifier-table");
+
+    let headerRow = document.createElement("tr")
+    let quantifierTH = document.createElement("th");
+    quantifierTH.innerHTML = "Quantifier";
+    headerRow.appendChild(quantifierTH);
+
+    let exampleTH = document.createElement("th");
+    exampleTH.innerHTML = "Example";
+    headerRow.appendChild(exampleTH);
+
+    let translationTH = document.createElement("th");
+    translationTH.innerHTML = "Translation";
+    headerRow.appendChild(translationTH);
+    table.appendChild(headerRow);
+
+    //for the quantifier "few"
+    let fewRow = document.createElement("tr");
+    fewRow.setAttribute("id", "quantifier-few");
+    let fewTD = document.createElement("td");
+    fewTD.innerHTML = `<span class="few sound-change"></span> "a few"`
+    fewRow.appendChild(fewTD);
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun29"></span> <span class="few sound-change"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"a few <span class="noun-meaning29 plural-meaning"></span>"`
+        fewRow.appendChild(exampleTD);
+        fewRow.appendChild(translationTD);
+    } else {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="few sound-change"></span> <span class="noun sound-change" id="noun29"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"a few <span class="noun-meaning29 plural-meaning"></span>"`
+        fewRow.appendChild(exampleTD);
+        fewRow.appendChild(translationTD);
+    }
+    table.appendChild(fewRow);
+
+    //for the quantifier "several"
+    let severalRow = document.createElement("tr");
+    severalRow.setAttribute("id", "quantifier-several");
+    let severalTD = document.createElement("td");
+    severalTD.innerHTML = `<span class="several sound-change"></span> "several"`
+    severalRow.appendChild(severalTD);
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun30"></span> <span class="several sound-change"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"several <span class="noun-meaning30 plural-meaning"></span>"`
+        severalRow.appendChild(exampleTD);
+        severalRow.appendChild(translationTD);
+    } else {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="several sound-change"></span> <span class="noun sound-change" id="noun29"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"several <span class="noun-meaning30 plural-meaning"></span>"`
+        severalRow.appendChild(exampleTD);
+        severalRow.appendChild(translationTD);
+    }
+    table.appendChild(severalRow);
+
+    //for the quantifier "a lot of"
+    let aLotOfRow = document.createElement("tr");
+    aLotOfRow.setAttribute("id", "quantifier-a-lot-of");
+    let aLotOfTD = document.createElement("td");
+    aLotOfTD.innerHTML = `<span class="a-lot-of sound-change"></span> "a lot of, many, much"`
+    aLotOfRow.appendChild(aLotOfTD);
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun31"></span> <span class="a-lot-of sound-change"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"a lot of <span class="noun-meaning31 plural-meaning"></span>"`
+        aLotOfRow.appendChild(exampleTD);
+        aLotOfRow.appendChild(translationTD);
+    } else {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="a-lot-of sound-change"></span> <span class="noun sound-change" id="noun31"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"a lot of <span class="noun-meaning31 plural-meaning"></span>"`
+        aLotOfRow.appendChild(exampleTD);
+        aLotOfRow.appendChild(translationTD);
+    }
+    table.appendChild(aLotOfRow);
+    
+    for(let i = 0; i < generatedSmallQuanitifiers.length; i++) {
+        
+    }
+}
+}
+
+function createQuantifiers() {
+    let few = document.getElementsByClassName("few")
+    for(let i = 0; i < few.length; i++) {
+        few[i].innerHTML = generatedSmallQuanitifiers[0];
+    }
+
+    let several = document.getElementsByClassName("several")
+    for(let i = 0; i < several.length; i++) {
+        several[i].innerHTML = generatedMiddlingQuanitifers[0];
+    }
+
+    let aLotOf = document.getElementsByClassName("a-lot-of")
+    for(let i = 0; i < aLotOf.length; i++) {
+        aLotOf[i].innerHTML = generatedBigQuantifiers[0];
+    }
+}
+
+/***AGGLUTINATIVE NOUNS****/
+
+let grammaticalNumAgglutinative = 0;
+function randomNumForAgglutinativeGrammaticalNumbers() {
+    grammaticalNumAgglutinative = Math.floor(Math.random() * 31)
+    if(grammaticalNumAgglutinative < 4) {
         grammaticalNumberArray.push("singular", "plural");
         document.getElementById("singular-plural").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1187,7 +1349,7 @@ function randomNumForGrammaticalNumbers() {
         document.getElementById("singular-plural").style.display = "none";
     }
 
-    if(grammaticalNum >= 4 && grammaticalNum < 7) {
+    if(grammaticalNumAgglutinative >= 4 && grammaticalNumAgglutinative < 7) {
         grammaticalNumberArray.push("singular", "dual", "plural");
         document.getElementById("singular-dual-plural").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1240,7 +1402,7 @@ function randomNumForGrammaticalNumbers() {
         document.getElementById("singular-dual-plural").style.display = "none";
     }
 
-    if(grammaticalNum >= 7 && grammaticalNum < 12) {
+    if(grammaticalNumAgglutinative >= 7 && grammaticalNumAgglutinative < 12) {
         grammaticalNumberArray.push("singular", "plural", "collective");
         document.getElementById("singular-dual-plural-collective").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1294,7 +1456,7 @@ function randomNumForGrammaticalNumbers() {
     }
     
 
-    if(grammaticalNum >= 12 && grammaticalNum < 15) {
+    if(grammaticalNumAgglutinative >= 12 && grammaticalNumAgglutinative < 15) {
         grammaticalNumberArray.push("singular", "dual", "trial", "plural");
         document.getElementById("singular-dual-trial-plural").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1347,7 +1509,7 @@ function randomNumForGrammaticalNumbers() {
         document.getElementById("singular-dual-trial-plural").style.display = "none";
     }
     
-    if(grammaticalNum >= 15 && grammaticalNum < 18) {
+    if(grammaticalNumAgglutinative >= 15 && grammaticalNumAgglutinative < 18) {
         grammaticalNumberArray.push("singular", "dual", "trial", "quadral", "plural");
         document.getElementById("singular-dual-trial-quadral-plural").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1400,7 +1562,7 @@ function randomNumForGrammaticalNumbers() {
        document.getElementById("singular-dual-trial-quadral-plural").style.display = "none";
     }
     
-    if(grammaticalNum >= 18 && grammaticalNum < 21) {
+    if(grammaticalNumAgglutinative >= 18 && grammaticalNumAgglutinative < 21) {
         grammaticalNumberArray.push("singular", "plural", "greater plural");
         document.getElementById("singular-plural-greater-plural").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1453,7 +1615,7 @@ function randomNumForGrammaticalNumbers() {
        document.getElementById("singular-plural-greater-plural").style.display = "none";
     }
     
-    if(grammaticalNum >= 21 && grammaticalNum < 24) {
+    if(grammaticalNumAgglutinative >= 21 && grammaticalNumAgglutinative < 24) {
         grammaticalNumberArray.push("singular", "plural", "general");
         document.getElementById("singular-plural-general").style.display = "block";
         if(markedSingularOrNot()) {
@@ -1506,7 +1668,7 @@ function randomNumForGrammaticalNumbers() {
        document.getElementById("singular-plural-general").style.display = "none";
     }
     
-    if(grammaticalNum >= 24 && grammaticalNum < 27) {
+    if(grammaticalNumAgglutinative >= 24 && grammaticalNumAgglutinative < 27) {
         grammaticalNumberArray.push("general", "plural");
         document.getElementById("general-plural").style.display = "block";
         //hides or shows examples of singular and plural nouns based on what noun gender is present
@@ -1554,7 +1716,7 @@ function randomNumForGrammaticalNumbers() {
        document.getElementById("general-plural").style.display = "none";
     }
     
-    if(grammaticalNum >= 27 && grammaticalNum < 30) {
+    if(grammaticalNumAgglutinative >= 27 && grammaticalNumAgglutinative < 30) {
         grammaticalNumberArray.push("general", "singulative", "plural");
         document.getElementById("general-singulative-plural").style.display = "block";
         if(genderNum < 9) {
@@ -2717,7 +2879,11 @@ function generateLanguage() {
     chooseIfMarkedNominative();
     chooseIfMarkedSingular();
     randomNumForNounGender();
-    randomNumForGrammaticalNumbers();
+    randomNumForIsolatingGrammaticalNumbers();
+    checkIfHeadInitialOrHeadFinal();
+    chooseQuanitifers();
+    createQuantifiers();
+    randomNumForAgglutinativeGrammaticalNumbers();
     inflectGenderlessNouns();
     inflectGenderlessMassNouns();
     switchNounGenderMascFem("bull");
@@ -2754,6 +2920,7 @@ function generateLanguage() {
     inflectMassNounsSingulative();
     chooseCases();
     explainCases();
+    applySoundChangesAndOrtho(document.getElementsByClassName("sound-change"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singular-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("plural-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singular-mass-noun"));
@@ -2769,4 +2936,4 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
    }
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix};
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix};

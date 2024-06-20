@@ -1032,7 +1032,7 @@ function markedSingularOrNot() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = 9//Math.floor(Math.random() * 16)
+    genderNum = Math.floor(Math.random() * 16)
     if(genderNum < 9) {
         document.getElementById("agglutinative-gender").style.display = "none";
         document.getElementById("no-gender-singulative-example").style.display = "block";

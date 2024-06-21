@@ -26,7 +26,9 @@ import humanAnimalInan from './nounGender/human_animal_inan.js'
 import activePassive from './nounGender/active_passive.js'
 import naturalArtificial from './nounGender/natural_artificial.js'
 import divineNonDivine from './nounGender/divine_nondivine.js';
-import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js'
+import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
+import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js';
+import shapeClassifierArray from './ClassifierArrays/shapeClassifiers.js'
 
 import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
@@ -93,6 +95,14 @@ let naturalMassArray = [];
 let artificialMassArray = [];
 let divineMassArray = [];
 let profaneMassArray = [];
+let longAndSlenderArray = [];
+let shortAndWideArray = [];
+let roundArray = [];
+let pointedArray = [];
+let flatArray = [];
+let shapelessArray = [];
+let shapelessMassArray = [];
+
 
 let wordThere = "";
 let wordHere = "";
@@ -141,6 +151,13 @@ let genderSuffixOrPrefix = "";
 let numberSuffixOrPrefix = "";
 let caseSuffixOrPrefix = "";
 let randomNumForMarkedSingular = "";
+let longAndSlenderClassifier = "";
+let shortAndWideClassifier = "";
+let roundClassifier = "";
+let pointedClassifier = "";
+let flatClassifier = "";
+let shapelessClassifier = "";
+
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
@@ -199,6 +216,13 @@ function clearGeneratedArrays() {
     artificialMassArray = [];
     divineMassArray = [];
     profaneMassArray = [];
+    longAndSlenderArray = [];
+    shortAndWideArray = [];
+    roundArray = [];
+    pointedArray = [];
+    flatArray = [];
+    shapelessArray = [];
+    shapelessMassArray = [];
 
     wordThere = "";
     wordHere = "";
@@ -246,6 +270,12 @@ function clearGeneratedArrays() {
     genderSuffixOrPrefix = "";
     caseSuffixOrPrefix = "";
     randomNumForMarkedSingular = "";
+    longAndSlenderClassifier = "";
+    shortAndWideClassifier = "";
+    roundClassifier = "";
+    pointedClassifier = "";
+    flatClassifier = "";
+    shapelessClassifier = "";
 
 
     document.getElementById("orthography").replaceChildren();
@@ -323,6 +353,12 @@ function sendGeneratedWordsToArray() {
     middingQuantifierArray.forEach((element) => generatedMiddlingQuanitifers.push(generateWords()));
     bigQuantifierArray.forEach((element) => generatedBigQuantifiers.push(generateWords()));
     opinionQuantifierArray.forEach((element) => generatedOpinionQuantifiers.push(generateWords()));
+    longAndSlenderClassifier = generateWords();
+    shortAndWideClassifier = generateWords();
+    roundClassifier = generateWords();
+    pointedClassifier = generateWords();
+    flatClassifier = generateWords();
+    shapelessClassifier = generateWords();
     wordThere = generateWords();
     wordHere = generateWords();
     firstPersonPronoun = generateWords();
@@ -561,7 +597,6 @@ function lengthExplanation() {
 }
 
 /*Lists each phonotactic rule with examples*/
-
 function showPhonotacticRules() {
     WordFinalDevoicingExample();
     nonHighNonInitialVowelsBecomeAExample();
@@ -826,7 +861,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -1156,15 +1191,16 @@ function randomNumForNounGender() {
 //whether the language is head initial or final depends on the word order
 function checkIfHeadInitialOrHeadFinal() {
     //if the word order is OV, or else VO
+    let beforeOrAfter = document.getElementsByClassName("before-or-after-numbers");
     if(wordOrderNum === 0 || wordOrderNum === 1 || wordOrderNum === 5 ) {
-        document.getElementById("before-or-after-numbers").innerHTML = "after";
-        // document.getElementById("quantifier-few-example-head-first").style.display = "block";
-        // document.getElementById("few-translation-head-first").style.display = "block";
+        for(let i = 0; i < beforeOrAfter.length; i++) {
+            beforeOrAfter[i].innerHTML = "after";
+        }
         return "headFirst";
     } else if (wordOrderNum === 2 ||wordOrderNum === 3 || wordOrderNum === 4) {
-        document.getElementById("before-or-after-numbers").innerHTML = "before";
-        // document.getElementById("quantifier-few-example-head-final").style.display = "block";
-        // document.getElementById("few-translation-head-final").style.display = "block";
+        for(let i = 0; i < beforeOrAfter.length; i++) {
+            beforeOrAfter[i].innerHTML = "before";
+        }
         return "headFinal"
     };
 }
@@ -1172,15 +1208,17 @@ function checkIfHeadInitialOrHeadFinal() {
 /**ISOLATING NOUNS****/
 let grammaticalNumIsolating = 0;
 function randomNumForIsolatingGrammaticalNumbers() {
-    grammaticalNumIsolating = 3//Math.floor(Math.random() * 31)
+    grammaticalNumIsolating = 8//Math.floor(Math.random() * 31)
     if(grammaticalNumIsolating < 5) {
         document.getElementById("isolating-quanitifers-only").style.display = "block";
     }
+    if(grammaticalNumIsolating >= 5 && grammaticalNumIsolating < 10) {
+        document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "block";
+    }
 }
 
-
 function chooseQuanitifers() {
-    
+    //the quantifiers "few, several" and "a lot of" are always shown by default, the rest are randomly shown or not shown.
     if(typologyNum === 0) {
     let table = document.getElementById("quantifier-table");
 
@@ -1221,6 +1259,31 @@ function chooseQuanitifers() {
     }
     table.appendChild(fewRow);
 
+    //for the quantifier "barely any"
+    let barelyAnyRow = document.createElement("tr");
+    let barelyAnyTD = document.createElement("td");
+    barelyAnyTD.innerHTML = `<span class="barely-any sound-change"></span> "barely any"`
+    barelyAnyRow.appendChild(barelyAnyTD);
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun32"></span> <span class="barely-any sound-change"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"barely any <span class="noun-meaning32 plural-meaning"></span>"`
+        barelyAnyRow.appendChild(exampleTD);
+        barelyAnyRow.appendChild(translationTD);
+    } else {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="barely-any sound-change"></span> <span class="noun sound-change" id="noun32"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"barely any <span class="noun-meaning32 plural-meaning"></span>"`
+        barelyAnyRow.appendChild(exampleTD);
+        barelyAnyRow.appendChild(translationTD);
+    }
+    table.appendChild(barelyAnyRow);
+    if(Math.floor(Math.random() * 4) !== 2) {
+        barelyAnyRow.style.display = "none";
+    }
+
     //for the quantifier "several"
     let severalRow = document.createElement("tr");
     severalRow.setAttribute("id", "quantifier-several");
@@ -1244,11 +1307,36 @@ function chooseQuanitifers() {
     }
     table.appendChild(severalRow);
 
+    //for the quantifier "some"
+    let someRow = document.createElement("tr");
+    let someTD = document.createElement("td");
+    someTD.innerHTML = `<span class="some sound-change"></span> "some"`
+    someRow.appendChild(someTD);
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun33"></span> <span class="some sound-change"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"some <span class="noun-meaning33 plural-meaning"></span>"`
+        someRow.appendChild(exampleTD);
+        someRow.appendChild(translationTD);
+    } else {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="some sound-change"></span> <span class="noun sound-change" id="noun33"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"some <span class="noun-meaning33 plural-meaning"></span>"`
+        someRow.appendChild(exampleTD);
+        someRow.appendChild(translationTD);
+    }
+        table.appendChild(someRow);
+    if(Math.floor(Math.random() * 4) !== 2) {
+        someRow.style.display = "none";
+    } 
+
     //for the quantifier "a lot of"
     let aLotOfRow = document.createElement("tr");
     aLotOfRow.setAttribute("id", "quantifier-a-lot-of");
     let aLotOfTD = document.createElement("td");
-    aLotOfTD.innerHTML = `<span class="a-lot-of sound-change"></span> "a lot of, many, much"`
+    aLotOfTD.innerHTML = `<span class="a-lot-of sound-change"></span> <br/>"a lot of, many, much"`
     aLotOfRow.appendChild(aLotOfTD);
     if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
         let exampleTD = document.createElement("td");
@@ -1266,9 +1354,105 @@ function chooseQuanitifers() {
         aLotOfRow.appendChild(translationTD);
     }
     table.appendChild(aLotOfRow);
-    
-    for(let i = 0; i < generatedSmallQuanitifiers.length; i++) {
-        
+
+    //for the quantifier "some"
+    let greatAmountRow = document.createElement("tr");
+    let greatAmountTD = document.createElement("td");
+    greatAmountTD.innerHTML = `<span class="some sound-change"></span> <br/> "a great amount of, a multitude of"`
+    greatAmountRow.appendChild(greatAmountTD);
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun34"></span> <span class="great-amount sound-change"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"a great amount of <span class="noun-meaning34 plural-meaning"></span>"`
+        greatAmountRow.appendChild(exampleTD);
+        greatAmountRow.appendChild(translationTD);
+    } else {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="great-amount sound-change"></span> <span class="noun sound-change" id="noun34"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"a great amount of <span class="noun-meaning34 plural-meaning"></span>"`
+        greatAmountRow.appendChild(exampleTD);
+        greatAmountRow.appendChild(translationTD);
+    }
+        table.appendChild(greatAmountRow);
+    if(Math.floor(Math.random() * 4) !== 2) {
+        greatAmountRow.style.display = "none";
+    } 
+
+    //for the quantifier "enough"
+    let enoughRow = document.createElement("tr");
+    let enoughTD = document.createElement("td");
+    enoughTD.innerHTML = `<span class="enough sound-change"></span> "enough"`
+    enoughRow.appendChild(enoughTD);
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun35"></span> <span class="enough sound-change"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"enough <span class="noun-meaning35 plural-meaning"></span>"`
+        enoughRow.appendChild(exampleTD);
+        enoughRow.appendChild(translationTD);
+    } else {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="enough sound-change"></span> <span class="noun sound-change" id="noun35"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"enough <span class="noun-meaning35 plural-meaning"></span>"`
+        enoughRow.appendChild(exampleTD);
+        enoughRow.appendChild(translationTD);
+    }
+        table.appendChild(enoughRow);
+    if(Math.floor(Math.random() * 4) !== 2) {
+        enoughRow.style.display = "none";
+    }
+
+    //for the quantifier "too much"
+    let tooMuchRow = document.createElement("tr");
+    let tooMuchTD = document.createElement("td");
+    tooMuchTD.innerHTML = `<span class="too-much sound-change"></span> <br/>"too much, to many"`
+    tooMuchRow.appendChild(tooMuchTD);
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun36"></span> <span class="too-much sound-change"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"too many <span class="noun-meaning36 plural-meaning"></span>"`
+        tooMuchRow.appendChild(exampleTD);
+        tooMuchRow.appendChild(translationTD);
+    } else {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="too-much sound-change"></span> <span class="noun sound-change" id="noun36"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"too many <span class="noun-meaning36 plural-meaning"></span>"`
+        tooMuchRow.appendChild(exampleTD);
+        tooMuchRow.appendChild(translationTD);
+    }
+        table.appendChild(tooMuchRow);
+    if(Math.floor(Math.random() * 4) !== 2) {
+        tooMuchRow.style.display = "none";
+    }
+
+    //for the quantifier "enough"
+    let notEnoughRow = document.createElement("tr");
+    let notEnoughTD = document.createElement("td");
+    notEnoughTD.innerHTML = `<span class="not-enough sound-change"></span> "not enough"`
+    notEnoughRow.appendChild(notEnoughTD);
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="noun sound-change" id="noun37"></span> <span class="not-enough sound-change"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"not enough <span class="noun-meaning37 plural-meaning"></span>"`
+        notEnoughRow.appendChild(exampleTD);
+        notEnoughRow.appendChild(translationTD);
+    } else {
+        let exampleTD = document.createElement("td");
+        exampleTD.innerHTML = `<span class="not-enough sound-change"></span> <span class="noun sound-change" id="noun37"></span>`;
+        let translationTD = document.createElement("td");
+        translationTD.innerHTML = `"not enough <span class="noun-meaning37 plural-meaning"></span>"`
+        notEnoughRow.appendChild(exampleTD);
+        notEnoughRow.appendChild(translationTD);
+    }
+        table.appendChild(notEnoughRow);
+    if(Math.floor(Math.random() * 4) !== 2) {
+        notEnoughRow.style.display = "none";
     }
 }
 }
@@ -1276,19 +1460,164 @@ function chooseQuanitifers() {
 function createQuantifiers() {
     let few = document.getElementsByClassName("few")
     for(let i = 0; i < few.length; i++) {
-        few[i].innerHTML = generatedSmallQuanitifiers[0];
+        few[i].innerHTML = spell(soundChange(generatedSmallQuanitifiers[0]));
     }
 
     let several = document.getElementsByClassName("several")
     for(let i = 0; i < several.length; i++) {
-        several[i].innerHTML = generatedMiddlingQuanitifers[0];
+        several[i].innerHTML = spell(soundChange(generatedMiddlingQuanitifers[0]));
     }
 
     let aLotOf = document.getElementsByClassName("a-lot-of")
     for(let i = 0; i < aLotOf.length; i++) {
-        aLotOf[i].innerHTML = generatedBigQuantifiers[0];
+        aLotOf[i].innerHTML = spell(soundChange(generatedBigQuantifiers[0]));
+    }
+
+    let barelyAny = document.getElementsByClassName("barely-any")
+    for(let i = 0; i < barelyAny.length; i++) {
+        barelyAny[i].innerHTML = spell(soundChange(generatedSmallQuanitifiers[1]));
+    }
+
+    let some = document.getElementsByClassName("some")
+    for(let i = 0; i < some.length; i++) {
+        some[i].innerHTML = spell(soundChange(generatedMiddlingQuanitifers[1]));
+    }
+
+    let greatAmount = document.getElementsByClassName("great-amount")
+    for(let i = 0; i < greatAmount.length; i++) {
+        greatAmount[i].innerHTML = spell(soundChange(generatedBigQuantifiers[1]));
+    }
+
+    let enough = document.getElementsByClassName("enough")
+    for(let i = 0; i < enough.length; i++) {
+        enough[i].innerHTML = spell(soundChange(generatedOpinionQuantifiers[0]));
+    }
+
+    let notEnough = document.getElementsByClassName("not-enough")
+    for(let i = 0; i < notEnough.length; i++) {
+        notEnough[i].innerHTML = spell(soundChange(generatedOpinionQuantifiers[2]));
+    }
+
+    let tooMuch = document.getElementsByClassName("too-much")
+    for(let i = 0; i < tooMuch.length; i++) {
+        tooMuch[i].innerHTML = spell(soundChange(generatedOpinionQuantifiers[1]));
     }
 }
+
+let randomClassifierNum = 0;
+function chooseClassifierSystem() {
+    randomClassifierNum = 0//Math.floor(Math.random() * 3)
+    if(randomClassifierNum === 0) {
+        document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
+    } else if(randomClassifierNum === 1) {
+        document.getElementById("classifier-text").innerHTML = `The categorization of nouns is focused on animacy, with nouns for living things having various categories while all non-living things are lumped into just two categories, edible and inedible.`
+    } else if(randomClassifierNum === 2) {
+        document.getElementById("classifier-text").innerHTML = `Nouns are categorized according to folk taxonomy.`
+    }
+
+    let headFirstClassifierTable = document.getElementsByClassName("headFirst");
+    let headFinalClassifierTable = document.getElementsByClassName("headFinal");
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        for(let i = 0; i < headFirstClassifierTable.length; i++) {
+            headFirstClassifierTable[i].style.display = "block";
+            headFinalClassifierTable[i].style.display = "none";
+        }
+    } else {
+       for(let i = 0; i < headFirstClassifierTable.length; i++) {
+            headFirstClassifierTable[i].style.display = "none";
+            headFinalClassifierTable[i].style.display = "block";
+        } 
+    }
+}
+
+function createClassifiers() {
+    let longAndSlender = document.getElementsByClassName("long-and-slender");
+    for(let i = 0; i < longAndSlender.length; i++) {
+        longAndSlender[i].innerHTML = spell(soundChange(longAndSlenderClassifier));
+    }
+
+    let shortAndWide = document.getElementsByClassName("short-and-wide");
+    for(let i = 0; i < shortAndWide.length; i++) {
+        shortAndWide[i].innerHTML = spell(soundChange(shortAndWideClassifier));
+    }
+
+    let round = document.getElementsByClassName("round");
+    for(let i = 0; i < round.length; i++) {
+        round[i].innerHTML = spell(soundChange(roundClassifier));
+    }
+
+    let pointed = document.getElementsByClassName("pointed");
+    for(let i = 0; i < pointed.length; i++) {
+        pointed[i].innerHTML = spell(soundChange(pointedClassifier));
+    }
+
+    let flat = document.getElementsByClassName("flat");
+    for(let i = 0; i < flat.length; i++) {
+        flat[i].innerHTML = spell(soundChange(flatClassifier));
+    }
+
+    let shapeless = document.getElementsByClassName("shapeless");
+    for(let i = 0; i < shapeless.length; i++) {
+        shapeless[i].innerHTML = spell(soundChange(shapelessClassifier));
+    }
+}
+
+function selectNounsClassifier(classifierArray, array, category) {
+    for(let i = 0; i < countNounArray.length; i++) {
+        let index = countNounArray.indexOf(countNounArray[i])
+        if(classifierArray[index] === category) {
+            array.push(countNounArray[i]);
+        }
+    }
+    let spanNoun = document.getElementsByClassName(category + "-noun");
+    let num = 1;
+    for(let i = 0; i < spanNoun.length; i++) {
+        let randomNumber = Math.floor(Math.random() * array.length);
+        let randomNoun = generatedCountNouns[countNounArray.indexOf(array[randomNumber])] 
+        document.getElementById("noun" + num.toString() + category).innerHTML = randomNoun;
+        for(let i = 0; i < document.getElementsByClassName("noun-meaning" + num.toString() + category).length; i++) {
+            document.getElementsByClassName("noun-meaning" + num.toString() + category)[i].innerHTML = array[randomNumber]
+        }
+        num++;
+    }
+}
+
+function selectMassNounsClassifier(classifierArray, array, category) {
+    for(let i = 0; i < massNounArray.length; i++) {
+        let index = massNounArray.indexOf(massNounArray[i])
+        if(classifierArray[index] === category) {
+            array.push(massNounArray[i]);
+        }
+    }
+    let spanNoun = document.getElementsByClassName(category + "-mass-noun");
+    let num = 1;
+    for(let i = 0; i < spanNoun.length; i++) {
+        let randomNumber = Math.floor(Math.random() * array.length);
+        let randomNoun = generatedCountNouns[massNounArray.indexOf(array[randomNumber])] 
+        document.getElementById("mass-noun" + num.toString() + category).innerHTML = randomNoun;
+        for(let i = 0; i < document.getElementsByClassName("mass-noun-meaning" + num.toString() + category).length; i++) {
+            document.getElementsByClassName("mass-noun-meaning" + num.toString() + category)[i].innerHTML = array[randomNumber]
+        }
+        num++;
+    }
+}
+
+function IsolatingNouns() {
+    selectNounsClassifier(shapeClassifierArray, longAndSlenderArray, "long-and-slender");
+    selectNounsClassifier(shapeClassifierArray, shortAndWideArray, "short-and-wide");
+    selectNounsClassifier(shapeClassifierArray, roundArray, "round");
+    selectNounsClassifier(shapeClassifierArray, pointedArray, "pointed");
+    selectNounsClassifier(shapeClassifierArray, flatArray, "flat");
+    selectNounsClassifier(shapeClassifierArray, shapelessArray , "shapeless");
+
+    selectMassNounsClassifier(shapeClassifierMassArray, longAndSlenderArray, "long-and-slender");
+    selectMassNounsClassifier(shapeClassifierMassArray, shortAndWideArray, "short-and-wide");
+    selectMassNounsClassifier(shapeClassifierMassArray, roundArray, "round");
+    selectMassNounsClassifier(shapeClassifierMassArray, pointedArray, "pointed");
+    selectMassNounsClassifier(shapeClassifierMassArray, flatArray, "flat");
+    selectMassNounsClassifier(shapeClassifierMassArray, shapelessMassArray , "shapeless");
+}
+
 
 /***AGGLUTINATIVE NOUNS****/
 
@@ -2883,6 +3212,9 @@ function generateLanguage() {
     checkIfHeadInitialOrHeadFinal();
     chooseQuanitifers();
     createQuantifiers();
+    chooseClassifierSystem();
+    createClassifiers();
+    IsolatingNouns();
     randomNumForAgglutinativeGrammaticalNumbers();
     inflectGenderlessNouns();
     inflectGenderlessMassNouns();
@@ -2936,4 +3268,4 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
    }
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix};
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating};

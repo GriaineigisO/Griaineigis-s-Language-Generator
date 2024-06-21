@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -24,7 +24,8 @@ import activePassiveMass from './nounGender/active_passive_mass.js'
 import naturalArtificial from './nounGender/natural_artificial.js' 
 import naturalArtificialMass from './nounGender/natural_artificial_mass.js'
 import {soundChange} from './soundchange.js'
-
+import shapeClassifierArray from './ClassifierArrays/shapeClassifiers.js';
+import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js';
 
 const animateArray = [];
 const inanimateArray = [];
@@ -65,7 +66,6 @@ function makeDictionary() {
         } else {
             bareRoots = "";
         }
-        
         let pOfSpeech = "";
         if(countNounArray.includes(englishWords[i])) {
             pOfSpeech = "n" + bareRoots;
@@ -457,6 +457,33 @@ function makeDictionary() {
                     }
                 }
             }
+            }
+        }
+        if(typologyNum === 0 && grammaticalNumIsolating > 5 && randomClassifierNum === 0) {
+            if(countNounArray.includes(englishWords[i])) {
+                let index = countNounArray.indexOf(englishWords[i])
+                if(shapeClassifierArray[index] === "long-and-slender") {
+                    pOfSpeech = "n.long";
+                } else if (shapeClassifierArray[index] === "short-and-wide"){
+                    pOfSpeech = "n.short"
+                } else if (shapeClassifierArray[index] === "round"){
+                    pOfSpeech = "n.round"
+                } else if (shapeClassifierArray[index] === "pointed"){
+                    pOfSpeech = "n.pointed"
+                } else if (shapeClassifierArray[index] === "flat"){
+                    pOfSpeech = "n.flat"
+                } else if (shapeClassifierArray[index] === "shapeless"){
+                    pOfSpeech = "n.shapeless"
+                }
+            }
+            if(massNounArray.includes(englishWords[i])) {
+                let index = massNounArray.indexOf(englishWords[i])
+                if(shapeClassifierMassArray[index] === "shapeless") {
+                    pOfSpeech = "n.shapeless";
+                } else if (shapeClassifierMassArray[index] === "long-and-slender"){
+                    pOfSpeech = "n.long";
+                }
+                
             }
         }
 
@@ -888,6 +915,34 @@ function makeDictionary() {
                     }
                 }
             }
+            }
+            }
+            if(typologyNum === 0 && grammaticalNumIsolating > 5 && randomClassifierNum === 0) {
+            console.log("hello")
+            if(countNounArray.includes(englishWords[i])) {
+                let index = countNounArray.indexOf(englishWords[i])
+                if(shapeClassifierArray[index] === "long-and-slender") {
+                    pOfSpeech = "n.long";
+                } else if (shapeClassifierArray[index] === "short-and-wide"){
+                    pOfSpeech = "n.short"
+                } else if (shapeClassifierArray[index] === "round"){
+                    pOfSpeech = "n.round"
+                } else if (shapeClassifierArray[index] === "pointed"){
+                    pOfSpeech = "n.pointed"
+                } else if (shapeClassifierArray[index] === "flat"){
+                    pOfSpeech = "n.flat"
+                } else if (shapeClassifierArray[index] === "shapeless"){
+                    pOfSpeech = "n.shapeless"
+                }
+            }
+            if(massNounArray.includes(englishWords[i])) {
+                let index = massNounArray.indexOf(englishWords[i])
+                if(shapeClassifierMassArray[index] === "shapeless") {
+                    pOfSpeech = "n.shapeless";
+                } else if (shapeClassifierMassArray[index] === "long-and-slender"){
+                    pOfSpeech = "n.long";
+                }
+                
             }
         }
 

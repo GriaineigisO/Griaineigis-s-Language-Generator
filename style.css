@@ -17,6 +17,10 @@ header {
     top: 0;
 }
 
+a {
+    color: #f5f8f8;
+}
+
 #title-for-pdf {
     display: none;
 }

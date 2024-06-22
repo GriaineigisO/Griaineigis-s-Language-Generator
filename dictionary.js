@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, branchExample, poleExample, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -42,21 +42,26 @@ const inanimate2Array = [];
 const activeArray = [];
 const passiveArray = [];
 
-function Dictionary(word, partOfSpeech, translation)  {
+function Dictionary(word, partOfSpeech, translation, classifierExplanation)  {
     this.word = word;
     this.partOfSpeech = partOfSpeech;
-    this.translation = translation
+    this.translation = translation;
+    this.classifierExplanation = classifierExplanation;
 };
 
 let word1 = "";
 let wordWithAffix = "";
-
+let classifierInfo = "";;
 
 function makeDictionary() {
+
 
     let englishWords = countNounArray.concat(massNounArray, adjectiveArray, transitiveVerbArray, intransitiveVerbArray, adverbArray, conjunctionArray, adpositionArray, intensifierArray);
 
     let languageWords = generatedCountNouns.concat(generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers);
+
+    //to add more to an entry after the english translation
+    
 
        //Kerbekulo to English
     for(let i = 0; i < englishWords.length; i++) {
@@ -70,30 +75,38 @@ function makeDictionary() {
         if(countNounArray.includes(englishWords[i])) {
             pOfSpeech = "n" + bareRoots;
             wordWithAffix = languageWords[i];
+            classifierInfo = "";;
         } else if(massNounArray.includes(englishWords[i])) {
         pOfSpeech = "n" + bareRoots;
         wordWithAffix = languageWords[i];
         } else if (adjectiveArray.includes(englishWords[i])) {
             pOfSpeech = "adj" + bareRoots;
             wordWithAffix = languageWords[i];
+            classifierInfo = "";;
         } else if (transitiveVerbArray.includes(englishWords[i]) || intransitiveVerbArray.includes(englishWords[i])) {
             pOfSpeech = "v" + bareRoots;
             wordWithAffix = languageWords[i];
+            classifierInfo = "";;
         } else if (transitiveVerbArray.includes(englishWords[i]) || intransitiveVerbArray.includes(englishWords[i])) {
                 pOfSpeech = "v" + bareRoots;
                 wordWithAffix = languageWords[i];
+                classifierInfo = "";;
         } else if (adverbArray.includes(englishWords[i])) {
                 pOfSpeech = "adv";
                 wordWithAffix = languageWords[i];
+                classifierInfo = "";;
         }else if (conjunctionArray.includes(englishWords[i])) {
                 pOfSpeech = "conj";
                 wordWithAffix = languageWords[i];
+                classifierInfo = "";;
         }else if (adpositionArray.includes(englishWords[i])) {
                 pOfSpeech = "adpo";
                 wordWithAffix = languageWords[i];
+                classifierInfo = "";;
         }else if (intensifierArray.includes(englishWords[i])) {
                 pOfSpeech = "adv";
                 wordWithAffix = languageWords[i];
+                classifierInfo = "";;
         }
         if(genderNum > 0 && typologyNum !== 0) {
             if(nounGenderArray.includes("animate") && nounGenderArray.includes("inanimate")) {
@@ -108,6 +121,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = animateAffix + languageWords[i];
                     }
+                classifierInfo = "";;
                 } else if (animInan[index] === "inan"){
                     pOfSpeech = "n.inan" + bareRoots;
                     inanimateArray.push(generatedCountNouns[i])
@@ -118,6 +132,7 @@ function makeDictionary() {
                         wordWithAffix = inanimateAffix + languageWords[i];
                     }
                 }
+                classifierInfo = "";;
                 
             }
             if(massNounArray.includes(englishWords[i])) {
@@ -131,6 +146,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = animateAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (animInanMass[index] === "inan"){
                     pOfSpeech = "n.inan" + bareRoots;
                     inanimateArray.push(generatedMassNouns[i])
@@ -140,6 +156,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = inanimateAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
                 
             }
@@ -156,6 +173,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = masculineAffix + languageWords[i] + "X";
                     }
+                    classifierInfo = "";;
                 } else if (mascFem[index] === "feminine1"){
                     pOfSpeech = "n.fem" + bareRoots;
                     feminine1Array.push(generatedCountNouns[i]);
@@ -165,6 +183,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = feminineAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
             }
             
@@ -179,6 +198,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = masculineAffix + languageWords[i] + "X";
                     }
+                    classifierInfo = "";;
                 } else if (mascFemMass[index] === "feminine1"){
                     pOfSpeech = "n.fem" + bareRoots;
                     feminine1Array.push(generatedMassNouns[i]);
@@ -188,6 +208,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = feminineAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
             }
         }
@@ -203,6 +224,7 @@ function makeDictionary() {
                             if(genderSuffixOrPrefix === "prefix") {
                                 wordWithAffix = masculineAffix + languageWords[i];
                             }
+                            classifierInfo = "";;
                         } else if (mascFemNeut[index] === "feminine2"){
                             pOfSpeech = "n.fem" + bareRoots;
                             feminine2Array.push(generatedCountNouns[i])
@@ -212,6 +234,7 @@ function makeDictionary() {
                             if(genderSuffixOrPrefix === "prefix") {
                                 wordWithAffix = feminineAffix + languageWords[i];
                             }
+                            classifierInfo = "";;
                         } else if (mascFemNeut[index] === "neuter"){
                             pOfSpeech = "n.neut" + bareRoots;
                             neuterArray.push(generatedCountNouns[i])
@@ -221,6 +244,7 @@ function makeDictionary() {
                             if(genderSuffixOrPrefix === "prefix") {
                                 wordWithAffix = neuterAffix + languageWords[i];
                             }
+                            classifierInfo = "";;
                         }  
                 }
                 if(massNounArray.includes(englishWords[i])) {
@@ -234,6 +258,7 @@ function makeDictionary() {
                             if(genderSuffixOrPrefix === "prefix") {
                                 wordWithAffix = masculineAffix + languageWords[i];
                             }
+                            classifierInfo = "";;
                         } else if (mascFemNeutMass[index] === "feminine2"){
                             pOfSpeech = "n.fem" + bareRoots;
                             feminine2Array.push(generatedMassNouns[i])
@@ -243,6 +268,7 @@ function makeDictionary() {
                             if(genderSuffixOrPrefix === "prefix") {
                                 wordWithAffix = feminineAffix + languageWords[i];
                             }
+                            classifierInfo = "";;
                         } else if (mascFemNeutMass[index] === "neuter"){
                             pOfSpeech = "n.neut" + bareRoots;
                             neuterArray.push(generatedMassNouns[i])
@@ -252,6 +278,7 @@ function makeDictionary() {
                             if(genderSuffixOrPrefix === "prefix") {
                                 wordWithAffix = neuterAffix + languageWords[i];
                             }
+                            classifierInfo = "";;
                         }  
                 }
             }
@@ -264,9 +291,11 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "suffix") {
                         wordWithAffix = "X" + languageWords[i] + divineAffix;
                     }
+                    classifierInfo = "";;
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = divineAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (divineNonDivine[index] === "profane"){
                     pOfSpeech = "n.prof" + bareRoots;
                     profaneArray.push(generatedCountNouns[i]);
@@ -276,6 +305,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = profaneAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
                 }
                 if(massNounArray.includes(englishWords[i])) {
@@ -289,6 +319,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = divineAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (divineNonDivineMass[index] === "profane"){
                     pOfSpeech = "n.prof" + bareRoots;
                     profaneArray.push(generatedMassNouns[i]);
@@ -298,6 +329,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = profaneAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
             }
             }   
@@ -313,6 +345,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = humanAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (humanAnimalInan[index] === "animal"){
                     pOfSpeech = "n.anim" + bareRoots;
                     animalArray.push(generatedCountNouns[i]);
@@ -322,6 +355,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = animalAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (humanAnimalInan[index] === "secondinanimate"){
                     pOfSpeech = "n.inan" + bareRoots;
                     inanimate2Array.push(generatedCountNouns[i])
@@ -332,6 +366,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = inanimate2Affix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
             }
             if(massNounArray.includes(englishWords[i])) {
@@ -345,6 +380,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = humanAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (humanAnimalInanMass[index] === "animal"){
                     pOfSpeech = "n.anim" + bareRoots;
                     animalArray.push(generatedMassNouns[i]);
@@ -354,6 +390,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = animalAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (humanAnimalInanMass[index] === "secondinanimate"){
                     pOfSpeech = "n.inan" + bareRoots;
                     inanimate2Array.push(generatedMassNouns[i])
@@ -363,6 +400,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = inanimate2Affix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
             }
             }
@@ -378,6 +416,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = activeAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (activePassive[index] === "passive"){
                     pOfSpeech = "n.passive" + bareRoots;
                     animalArray.push(generatedCountNouns[i])
@@ -387,6 +426,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = passiveAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
                 }
                 if(massNounArray.includes(englishWords[i])) {
@@ -400,6 +440,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = activeAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (activePassiveMass[index] === "passive"){
                     pOfSpeech = "n.passive" + bareRoots;
                     animalArray.push(generatedMassNouns[i])
@@ -409,6 +450,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = passiveAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
                 }
             }
@@ -424,6 +466,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = naturalAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (naturalArtificial[index] === "artificial"){
                     pOfSpeech = "n.art" + bareRoots;
                     animalArray.push(generatedCountNouns[i]);
@@ -433,6 +476,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = artificialAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
             }
              if(massNounArray.includes(englishWords[i])) {
@@ -446,6 +490,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = naturalAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 } else if (naturalArtificialMass[index] === "artificial"){
                     pOfSpeech = "n.art" + bareRoots;
                     animalArray.push(generatedMassNouns[i]);
@@ -455,6 +500,7 @@ function makeDictionary() {
                     if(genderSuffixOrPrefix === "prefix") {
                         wordWithAffix = artificialAffix + languageWords[i];
                     }
+                    classifierInfo = "";;
                 }
             }
             }
@@ -464,24 +510,52 @@ function makeDictionary() {
                 let index = countNounArray.indexOf(englishWords[i])
                 if(shapeClassifierArray[index] === "long-and-slender") {
                     pOfSpeech = "n.long";
+                    if(englishWords[i] === "branch" && randomNumForLongAndSlender === 0) {
+                        classifierInfo = `; classifier for long&nbspand&nbspslender nouns: ${branchExample}`
+                    } else if(englishWords[i] === "pole" && randomNumForLongAndSlender === 1) {
+                        classifierInfo = `; classifier for long&nbspand&nbspslender nouns: ${poleExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
                 } else if (shapeClassifierArray[index] === "short-and-wide"){
                     pOfSpeech = "n.short"
+                    if(englishWords[i] === "shoulder" && randomNumForShortAndWide === 0) {
+                        classifierInfo = `; classifier for short&nbspand&nbspwide nouns: ${shoulderExample}`
+                    } else if(englishWords[i] === "wedge" && randomNumForShortAndWide === 1) {
+                        classifierInfo = `; classifier for short&nbspand&nbspwide nouns: ${wedgeExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
                 } else if (shapeClassifierArray[index] === "round"){
                     pOfSpeech = "n.round"
+                    if(englishWords[i] === "apple" && randomNumForRound === 0) {
+                        classifierInfo = `; classifier for round nouns: ${appleExample}`
+                    } else if(englishWords[i] === "pebble" && randomNumForRound === 1) {
+                        classifierInfo = `; classifier for round nouns: ${pebbleExample}`
+                    } else if(englishWords[i] === "ball" && randomNumForRound === 2) {
+                        classifierInfo = `; classifier for round nouns: ${ballExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
                 } else if (shapeClassifierArray[index] === "pointed"){
                     pOfSpeech = "n.pointed"
+                    classifierInfo = "";
                 } else if (shapeClassifierArray[index] === "flat"){
                     pOfSpeech = "n.flat"
+                    classifierInfo = "";
                 } else if (shapeClassifierArray[index] === "shapeless"){
                     pOfSpeech = "n.shapeless"
+                    classifierInfo = "";
                 }
             }
             if(massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i])
                 if(shapeClassifierMassArray[index] === "shapeless") {
                     pOfSpeech = "n.shapeless";
+                    classifierInfo = "";;
                 } else if (shapeClassifierMassArray[index] === "long-and-slender"){
                     pOfSpeech = "n.long";
+                    classifierInfo = "";;
                 }
                 
             }
@@ -505,19 +579,21 @@ function makeDictionary() {
             }
         }
         
-        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, englishWords[i]);
+        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, englishWords[i], classifierInfo);
         //let word1 = new Dictionary(spell(soundChange("A" + languageWords[i] + "A")), pOfSpeech, englishWords[i]);
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");
+        let classiferEtymology = document.createElement("span");
 
         headWord.innerHTML = word1.word;
         pOS.innerHTML = word1.partOfSpeech;
         meaning.innerHTML = `"${word1.translation}"`;
+        classiferEtymology.innerHTML = word1.classifierExplanation;
 
         let entry = document.createElement("div");
         entry.classList.add("entry");
-        entry.innerHTML = headWord.innerHTML + " " + pOS.innerHTML + " " + meaning.innerHTML;
+        entry.innerHTML = `${headWord.innerHTML} ${pOS.innerHTML} ${meaning.innerHTML} ${classiferEtymology.innerHTML}`;
         document.getElementById("language-to-english").appendChild(entry);
     }
     
@@ -918,33 +994,32 @@ function makeDictionary() {
             }
             }
             if(typologyNum === 0 && grammaticalNumIsolating > 5 && randomClassifierNum === 0) {
-            console.log("hello")
-            if(countNounArray.includes(englishWords[i])) {
-                let index = countNounArray.indexOf(englishWords[i])
-                if(shapeClassifierArray[index] === "long-and-slender") {
-                    pOfSpeech = "n.long";
-                } else if (shapeClassifierArray[index] === "short-and-wide"){
-                    pOfSpeech = "n.short"
-                } else if (shapeClassifierArray[index] === "round"){
-                    pOfSpeech = "n.round"
-                } else if (shapeClassifierArray[index] === "pointed"){
-                    pOfSpeech = "n.pointed"
-                } else if (shapeClassifierArray[index] === "flat"){
-                    pOfSpeech = "n.flat"
-                } else if (shapeClassifierArray[index] === "shapeless"){
-                    pOfSpeech = "n.shapeless"
+                if(countNounArray.includes(englishWords[i])) {
+                    let index = countNounArray.indexOf(englishWords[i]);
+                    if(shapeClassifierArray[index] === "long-and-slender") {
+                        pOfSpeech = "n.long";
+                    } else if (shapeClassifierArray[index] === "short-and-wide"){
+                        pOfSpeech = "n.short";
+                    } else if (shapeClassifierArray[index] === "round"){
+                        pOfSpeech = "n.round";
+                    } else if (shapeClassifierArray[index] === "pointed"){
+                        pOfSpeech = "n.pointed";
+                    } else if (shapeClassifierArray[index] === "flat"){
+                        pOfSpeech = "n.flat";
+                    } else if (shapeClassifierArray[index] === "shapeless"){
+                        pOfSpeech = "n.shapeless";
+                    }
+                }
+                if(massNounArray.includes(englishWords[i])) {
+                    let index = massNounArray.indexOf(englishWords[i])
+                    if(shapeClassifierMassArray[index] === "shapeless") {
+                        pOfSpeech = "n.shapeless";
+                    } else if (shapeClassifierMassArray[index] === "long-and-slender"){
+                        pOfSpeech = "n.long";
+                    }
+                    
                 }
             }
-            if(massNounArray.includes(englishWords[i])) {
-                let index = massNounArray.indexOf(englishWords[i])
-                if(shapeClassifierMassArray[index] === "shapeless") {
-                    pOfSpeech = "n.shapeless";
-                } else if (shapeClassifierMassArray[index] === "long-and-slender"){
-                    pOfSpeech = "n.long";
-                }
-                
-            }
-        }
 
 
     //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
@@ -966,7 +1041,6 @@ function makeDictionary() {
         }
 
         word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, englishWords[i]);
-        //let word1 = new Dictionary(spell(soundChange("A" + languageWords[i] + "A")), pOfSpeech, englishWords[i]);
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");
@@ -999,21 +1073,28 @@ function makeDictionary() {
     }
 
     //styles each part of the entry by turning the single string into three span elements. If the part of speech is a noun, adjective or verb with a bare root listed in the entry, then the length of entryDiv will be 4, if not, the length will be 3
-    for(let i = 0; i < entryDiv.length; i++) {
-            let entryText = entryDiv[i].innerHTML;
-            let newArray = entryText.split(" ")
-            let headWordText = ""
-            let pOSText = ""
-            let translationText = ""
-        if(newArray.length === 4) {
-            headWordText = newArray[0];
-            pOSText = newArray[1] + " " + newArray[2];
-            translationText = newArray[3];
-        } else if(newArray.length === 3) {
+    
+    for(let i = 0; i < entryDiv.length; i++) {    
+        let entryText = entryDiv[i].innerHTML;
+            let newArray = entryText.split(" ");
+            let headWordText = "";
+            let pOSText = "";
+            let translationText = "";
+            let classifierInfotext = ""; 
+
             headWordText = newArray[0];
             pOSText = newArray[1];
             translationText = newArray[2];
-        }
+
+            //if the word is also a classifier, this is to include a note of such in the entry
+            if(newArray[3] === ";" && newArray[4] === "classifier") {
+                classifierInfotext = `${newArray[3]} ${newArray[4]} ${newArray[5]} ${newArray[6]} ${newArray[7]} ${newArray[8]} ${newArray[9]} ${newArray[10]}`
+            } else {
+                classifierInfotext = newArray[3];
+            }
+            
+            
+        
 
         let headWord = document.createElement("span");
         headWord.innerHTML = headWordText;
@@ -1030,10 +1111,16 @@ function makeDictionary() {
         translation.style.fontSize = "18px";
         translation.innerHTML = translationText;
 
+        //for additional information in entries such as etmyology and such
+        let classifierEtymology = document.createElement("span");
+        classifierEtymology.style.fontSize = "16px";
+        classifierEtymology.innerHTML = classifierInfotext;
+
         entryDiv[i].innerHTML = "";
         entryDiv[i].appendChild(headWord)
         entryDiv[i].appendChild(pOS)
         entryDiv[i].appendChild(translation)
+        entryDiv[i].appendChild(classifierEtymology)
 
     }
 

@@ -353,7 +353,6 @@ function sendGeneratedWordsToArray() {
     middingQuantifierArray.forEach((element) => generatedMiddlingQuanitifers.push(generateWords()));
     bigQuantifierArray.forEach((element) => generatedBigQuantifiers.push(generateWords()));
     opinionQuantifierArray.forEach((element) => generatedOpinionQuantifiers.push(generateWords()));
-    longAndSlenderClassifier = generateWords();
     shortAndWideClassifier = generateWords();
     roundClassifier = generateWords();
     pointedClassifier = generateWords();
@@ -1530,18 +1529,78 @@ function chooseClassifierSystem() {
     }
 }
 
+//assigns either a randomly generated word to be a classifier, or it chooses a relevant pre-existing noun to be used as a classifier. If
+let randomNumForLongAndSlender = 0;
+let randomNumForShortAndWide = 0;
+let randomNumForRound = 0;
 function createClassifiers() {
+    //to count how many classifiers are derived from pre-existing words vs which are generated 
+    let classifiersWithEtymology = 0;
+    let longAndSlenderExample = "";
+    let shortAndWideExample = "";
+    let roundExample = "";
+    let classifierEtymologyArray = [];
+    
     let longAndSlender = document.getElementsByClassName("long-and-slender");
+    randomNumForLongAndSlender = Math.floor(Math.random() * 3);
+    if(randomNumForLongAndSlender === 0) {
+        longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("branch")]
+        classifiersWithEtymology++;
+        longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "branch"`;
+        classifierEtymologyArray.push(longAndSlenderExample);
+    } else if (randomNumForLongAndSlender === 1) {
+        longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("pole")]
+        classifiersWithEtymology++;
+        longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "pole"`;
+       classifierEtymologyArray.push(longAndSlenderExample);
+    } else if (randomNumForLongAndSlender === 2) {
+        longAndSlenderClassifier = generateWords();
+        
+    }
     for(let i = 0; i < longAndSlender.length; i++) {
         longAndSlender[i].innerHTML = spell(soundChange(longAndSlenderClassifier));
     }
 
     let shortAndWide = document.getElementsByClassName("short-and-wide");
+    randomNumForShortAndWide = Math.floor(Math.random() * 2);
+     if(randomNumForShortAndWide === 0) {
+        shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("shoulder")]
+        classifiersWithEtymology++;
+        shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "shoulder"`;
+        classifierEtymologyArray.push(shortAndWideExample);
+    } else if(randomNumForShortAndWide === 1) {
+        shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("wedge")]
+        classifiersWithEtymology++;
+        shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "wedge"`;
+        classifierEtymologyArray.push(shortAndWideExample);
+    } else if (randomNumForShortAndWide === 1) {
+        shortAndWideClassifier = generateWords(); 
+    }
     for(let i = 0; i < shortAndWide.length; i++) {
         shortAndWide[i].innerHTML = spell(soundChange(shortAndWideClassifier));
     }
 
+
     let round = document.getElementsByClassName("round");
+    randomNumForRound = 0//Math.floor(Math.random() * 4);
+     if(randomNumForRound === 0) {
+        roundClassifier = generatedCountNouns[countNounArray.indexOf("apple")]
+        classifiersWithEtymology++;
+        roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "apple"`;
+        classifierEtymologyArray.push(roundExample);
+    } else if(randomNumForRound === 1) {
+        roundClassifier = generatedCountNouns[countNounArray.indexOf("pebble")]
+        classifiersWithEtymology++;
+        roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "pebble"`;
+        classifierEtymologyArray.push(roundExample);
+    }else if(randomNumForRound === 2) {
+        roundClassifier = generatedCountNouns[countNounArray.indexOf("ball")]
+        classifiersWithEtymology++;
+        roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "ball"`;
+        classifierEtymologyArray.push(roundExample);
+    } else if (randomNumForRound === 3) {
+        roundClassifier = generateWords(); 
+    }
     for(let i = 0; i < round.length; i++) {
         round[i].innerHTML = spell(soundChange(roundClassifier));
     }
@@ -1560,6 +1619,20 @@ function createClassifiers() {
     for(let i = 0; i < shapeless.length; i++) {
         shapeless[i].innerHTML = spell(soundChange(shapelessClassifier));
     }
+
+    if(classifiersWithEtymology > 0) {
+        document.getElementById("classifiers-etymology").style.display = "block";
+    } else {
+        document.getElementById("classifiers-etymology").style.display = "none";
+    }
+
+    const listOfSpans = [];
+     classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
+        listOfSpans.pop()
+        listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
+        let listOfSpansString =  listOfSpans.join(", ")
+        document.getElementById("classifiers-etymology-examples").innerHTML = listOfSpansString;
+
 }
 
 function selectNounsClassifier(classifierArray, array, category) {
@@ -1593,7 +1666,7 @@ function selectMassNounsClassifier(classifierArray, array, category) {
     let num = 1;
     for(let i = 0; i < spanNoun.length; i++) {
         let randomNumber = Math.floor(Math.random() * array.length);
-        let randomNoun = generatedCountNouns[massNounArray.indexOf(array[randomNumber])] 
+        let randomNoun = generatedMassNouns[massNounArray.indexOf(array[randomNumber])] 
         document.getElementById("mass-noun" + num.toString() + category).innerHTML = randomNoun;
         for(let i = 0; i < document.getElementsByClassName("mass-noun-meaning" + num.toString() + category).length; i++) {
             document.getElementsByClassName("mass-noun-meaning" + num.toString() + category)[i].innerHTML = array[randomNumber]
@@ -3161,6 +3234,56 @@ function explainCases() {
     }
 }
 
+let branchExample = "";
+let poleExample = "";
+let shoulderExample = "";
+let wedgeExample = "";
+let appleExample = "";
+let pebbleExample = "";
+let ballExample = "";
+let arrowExample = "";
+let slabExample = "";
+let exampleArray = [];
+
+function classifierExamplesInDictionaryEntries(word, array) {
+
+    let classifier = generatedCountNouns[countNounArray.indexOf(word)]
+    let randomNoun = generatedCountNouns[countNounArray.indexOf(array[Math.floor(Math.random() * array.length)])]
+    let randomNounEnglishTranslation = countNounArrayPlural[generatedCountNouns.indexOf(randomNoun)]
+    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        let example = `<strong><i>${spell(soundChange(randomNoun))} ${spell(soundChange(classifier))}</strong></i> "${randomNounEnglishTranslation}"`
+        exampleArray.push(example);
+    } else if (checkIfHeadInitialOrHeadFinal() === "headFinal") {
+        let example = `<strong><i>${spell(soundChange(classifier))} ${spell(soundChange(randomNoun))}</strong></i> "${randomNounEnglishTranslation}"`
+        exampleArray.push(example);
+    }
+}
+
+function callClassifierExamples() {
+    classifierExamplesInDictionaryEntries("branch", longAndSlenderArray);
+    branchExample = exampleArray[0];
+    
+    classifierExamplesInDictionaryEntries("pole", longAndSlenderArray);
+    poleExample = exampleArray[1];
+
+    classifierExamplesInDictionaryEntries("shoulder", shortAndWideArray);
+    shoulderExample = exampleArray[2];
+
+    classifierExamplesInDictionaryEntries("wedge", shortAndWideArray);
+    wedgeExample = exampleArray[3];
+
+    classifierExamplesInDictionaryEntries("apple", roundArray);
+    appleExample = exampleArray[4];
+
+    classifierExamplesInDictionaryEntries("pebble", roundArray);
+    pebbleExample = exampleArray[5];
+
+    classifierExamplesInDictionaryEntries("ball", roundArray);
+    ballExample = exampleArray[6];
+}
+
+
+
 function applySoundChangesAndOrtho(element) {
     for(let i = 0; i <  element.length; i++) {
         element[i].innerHTML = spell(soundChange(element[i].innerHTML));
@@ -3252,6 +3375,7 @@ function generateLanguage() {
     inflectMassNounsSingulative();
     chooseCases();
     explainCases();
+    callClassifierExamples();
     applySoundChangesAndOrtho(document.getElementsByClassName("sound-change"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singular-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("plural-noun"));
@@ -3268,4 +3392,4 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
    }
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating};
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, branchExample, poleExample, randomNumForLongAndSlender, randomNumForShortAndWide, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, randomNumForRound};

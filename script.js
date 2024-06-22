@@ -102,6 +102,7 @@ let pointedArray = [];
 let flatArray = [];
 let shapelessArray = [];
 let shapelessMassArray = [];
+let exampleArray = [];
 
 
 let wordThere = "";
@@ -223,6 +224,7 @@ function clearGeneratedArrays() {
     flatArray = [];
     shapelessArray = [];
     shapelessMassArray = [];
+    exampleArray = [];
 
     wordThere = "";
     wordHere = "";
@@ -1582,7 +1584,7 @@ function createClassifiers() {
 
 
     let round = document.getElementsByClassName("round");
-    randomNumForRound = 0//Math.floor(Math.random() * 4);
+    randomNumForRound = Math.floor(Math.random() * 4);
      if(randomNumForRound === 0) {
         roundClassifier = generatedCountNouns[countNounArray.indexOf("apple")]
         classifiersWithEtymology++;
@@ -3243,7 +3245,7 @@ let pebbleExample = "";
 let ballExample = "";
 let arrowExample = "";
 let slabExample = "";
-let exampleArray = [];
+
 
 function classifierExamplesInDictionaryEntries(word, array) {
 
@@ -3262,7 +3264,7 @@ function classifierExamplesInDictionaryEntries(word, array) {
 function callClassifierExamples() {
     classifierExamplesInDictionaryEntries("branch", longAndSlenderArray);
     branchExample = exampleArray[0];
-    
+
     classifierExamplesInDictionaryEntries("pole", longAndSlenderArray);
     poleExample = exampleArray[1];
 

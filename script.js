@@ -862,7 +862,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -1209,7 +1209,7 @@ function checkIfHeadInitialOrHeadFinal() {
 /**ISOLATING NOUNS****/
 let grammaticalNumIsolating = 0;
 function randomNumForIsolatingGrammaticalNumbers() {
-    grammaticalNumIsolating = 8//Math.floor(Math.random() * 31)
+    grammaticalNumIsolating = Math.floor(Math.random() * 31)
     if(grammaticalNumIsolating < 5) {
         document.getElementById("isolating-quanitifers-only").style.display = "block";
     }

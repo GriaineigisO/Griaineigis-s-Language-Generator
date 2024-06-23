@@ -50,9 +50,21 @@ Phonotactic ideas:
 
 # Nouns
 
-- Isolating languages have a possibility of forming plurals simply by repeating the noun.
-
+- Nominal conjunctions - are two nouns conjoined differently than two adjectives or two verbs? If so, how?
+- Can nouns be topicalised? If so, then how? word order change? affixation? particles?
 - Case examples must be added once verbs are done.
+
+# Adjectives
+
+- What degrees of comparison are there? Are they formed with affixation? particles? reduplication>
+- big
+- bigger
+- slightly bigger
+- a lot bigger
+- Is there a superlative? is the construction based on the comparative (e.g like in Estonian) or does it have its own. What degrees of superlative are there?
+- biggest
+- biggest by far
+- How are similies handles? "as big as X"
 
 # Verbs
 
@@ -68,8 +80,8 @@ inflections much like the inflection noun section
 
 # Derivation
 
-- When new words are created, figure out how to add them to the dicitonary. The language word can be pushed to the appriopiate generatedArray, but since dictionary.js imports the english word arrays right from the source files and not via script.js, I can't simply push the derived word's meaning to the english word array. I'll have to import the english word array to dictionary.js via script.ja, to allow me to change them before they are use to create the dictionary
-- fogure out how to determine the newly generated word's meaning. I may have to create several arrays with each pssible outcome
+- When new words are created, figure out how to add them to the dictionary. The language word can be pushed to the appropriate generatedArray, but since dictionary.js imports the english word arrays right from the source files and not via script.js, I can't simply push the derived word's meaning to the english word array. I'll have to import the english word array to dictionary.js via script.ja, to allow me to change them before they are use to create the dictionary
+- figure out how to determine the newly generated word's meaning. I may have to create several arrays with each possible outcome
 
 # Things to Add Later, but are not a current priority
 

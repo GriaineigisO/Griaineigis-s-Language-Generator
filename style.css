@@ -62,6 +62,10 @@ a {
     font-size: 20px;
 }
 
+.language-name {
+    text-transform: capitalize;
+}
+
 table, .inflection {
     border-radius: 10px;
     border: 1px solid black;
@@ -249,6 +253,7 @@ h1, h2, h3, h4 {
 #nasal-list,
 #plosive-list,
 #fricative-list,
+#affricative-list,
 #rhotic-list,
 #lateral-list,
 #approximant-list,

@@ -367,6 +367,15 @@ function sendGeneratedWordsToArray() {
     secondPersonPronoun = generateWords();   
 }
 
+//This is simply a placeholder until I have created derivational methodfs suitable to create a name with an actual etymology. Until then, a purely generated and meaningless name will suffice
+function generateRandomNameForLanguage () {
+    let languageName = document.getElementsByClassName("language-name");
+    let newName = spell(soundChange(generateWords()));
+    for(let i = 0; i < languageName.length; i++) {
+        languageName[i].innerHTML = newName;
+    }
+}
+
 //Since almost every had had at least one long vowel, the below function serves to randomly shorten vowels in words to bring the number of long vowels down to a more agreeable number.
 function reduceAmountOfLongVowels(array) {
     for(let i = 0; i < array.length; i++) {
@@ -1213,9 +1222,11 @@ function randomNumForIsolatingGrammaticalNumbers() {
     grammaticalNumIsolating = Math.floor(Math.random() * 11)
     if(grammaticalNumIsolating < 5) {
         document.getElementById("isolating-quanitifers-only").style.display = "block";
+        document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "none";
     } 
     if(grammaticalNumIsolating >= 5 && grammaticalNumIsolating < 10) {
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "block";
+        document.getElementById("isolating-quanitifers-only").style.display = "none";
     }
 }
 
@@ -1460,7 +1471,7 @@ function chooseQuanitifers() {
 
     if(grammaticalNumIsolating < 5) {
         document.getElementById("quantifier-table-1").appendChild(table);
-    } else if (grammaticalNumIsolating > 5) {
+    } else if (grammaticalNumIsolating >= 5) {
         document.getElementById("quantifier-table-2").appendChild(table);
     }
 }
@@ -3469,6 +3480,7 @@ function generateLanguage() {
     chooseCases();
     explainCases();
     callClassifierExamples();
+    generateRandomNameForLanguage();
     applySoundChangesAndOrtho(document.getElementsByClassName("sound-change"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singular-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("plural-noun"));

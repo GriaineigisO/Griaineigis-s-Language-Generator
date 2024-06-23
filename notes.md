@@ -31,6 +31,7 @@ inflections much like the inflection noun section
 # Derivation
 
 * When new words are created, figure out how to add them to the dicitonary. The language word can be pushed to the appriopiate generatedArray, but since dictionary.js imports the english word arrays right from the source files and not via script.js, I can't simply push the derived word's meaning to the english word array. I'll have to import the english word array to dictionary.js via script.ja, to allow me to change them before they are use to create the dictionary
+* fogure out how to determine the newly generated word's meaning. I may have to create several arrays with each pssible outcome
 
 # Things to Add Later, but are not a current priority
 

@@ -15,7 +15,6 @@ Phonotactic ideas:
 
 # Nouns
 
-to add the singular suffx in the dictionary forms, attach it to wordWithAffix after the gender affixes are attached.
 Case examples must be added once verbs are done.
 #Verbs
 
@@ -35,6 +34,8 @@ inflections much like the inflection noun section
 .
 ..
 ---Things to Add Later---
+
+add example sentences for each word in the dictionary. Whether it actually shows will be random
 
 at the bottom, generate a block of text when all parts of speech have been
 given. There will be several templates, chosen at random (there will be a button

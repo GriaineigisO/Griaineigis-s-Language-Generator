@@ -1,36 +1,36 @@
 # Immediate To-Do List
 
 - Finish giving the rest of the classifiers etymologies.
-  ** pointed < "arrow"
-  ** flat < "slab"
-  \*\* shapeless < "air"
+  - pointed < "arrow"
+  - flat < "slab"
+  - shapeless < "air"
 - Add animacy based classifiers
-  ** man < "man"
-  ** woman < woman
-  ** child < child
-  ** wild animal < "foot", "wolf", "
-  ** domestic animal for meat < "meat", "food", "cow", "goat"
-  ** domestic animal for fur < "fur", "skin", "pelt", "sheep",
-  ** domestic animal for labour < "work", "labour", "push", "horse"
-  ** domestic animal for milk < "milk", "udder", "goat", "cow"
-  ** inedible < "thing", "rock",
-  ** edible < "basket", "berry"
+  - man < "man"
+  - woman < woman
+  - child < child
+  - wild animal < "foot", "wolf", "
+  - domestic animal for meat < "meat", "food", "cow", "goat"
+  - domestic animal for fur < "fur", "skin", "pelt", "sheep",
+  - domestic animal for labour < "work", "labour", "push", "horse", "hoof", "donkey"
+  - domestic animal for milk < "milk", "udder", "goat", "cow"
+  - inedible < "thing", "rock",
+  - edible < "basket", "berry"
 - Add this classifier system
-  ** human < "man",
-  ** tree < "oak", "alder", "elm", "beech" etc
-  ** grass < "grass"
-  ** flower < "flower"
-  ** land animal < "land"
-  ** sea animal < "water", "sea", "fish"
-  ** flying animal < "sky", "cloud", "wing"
-  ** word < "word", "mouth"
-  ** tool < "axe", handle", "hammer", "plough"
-  ** natural inanimate < "rock", "dirt", "mud"
-  \*\* liquid < "drop", "pool", "glass"
+  - human < "man",
+  - tree < "oak", "alder", "elm", "beech" etc
+  - grass < "grass"
+  - flower < "flower"
+  - land animal < "land"
+  - sea animal < "water", "sea", "fish"
+  - flying animal < "sky", "cloud", "wing"
+  - word < "word", "mouth"
+  - tool < "axe", handle", "hammer", "plough"
+  - natural inanimate < "rock", "dirt", "mud"
+  - liquid < "drop", "pool", "glass"
 - Add another, very extensive set of classifiers, similar to the amount that Chinese has. This will take some time to finish.
 - Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
-  ** Etymologies for the plural: all, children, people, third person plural, three.
-  ** The plural may also be formed simply by repeating the noun twice.
+  - Etymologies for the plural: all, children, people, third person plural, three.
+  - The plural may also be formed simply by repeating the noun twice.
 
 # Phonology
 
@@ -83,12 +83,13 @@ inflections much like the inflection noun section
 - add more than one meaning to a word, make a psuedo thesaurus? - if a word has related
   terms listed, then the other terms will also be assigned at random
 
-- when making compounds for dictionary, have each part of a compound be from a specific set of nouns chosen by their meaning to ensure that the compounds aren't totally nonsensical.
-  ** COLOUR-ANIMAL
-  ** COLOUR-PLANT
-  ** TRADE-PERSON
-  ** SIZE-ANIMAL
-  \*\* COLOUR-FOOD
+_-_ when making compounds for dictionary, have each part of a compound be from a specific set of nouns chosen by their meaning to ensure that the compounds aren't totally nonsensical.
+
+- COLOUR-ANIMAL
+- COLOUR-PLANT
+- TRADE-PERSON
+- SIZE-ANIMAL
+- COLOUR-FOOD
 
 - Common phrases like greetings to be generated a wide variety of ways, randomly chosen of course.
 

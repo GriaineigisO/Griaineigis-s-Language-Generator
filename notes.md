@@ -16,7 +16,8 @@ Phonotactic ideas:
 # Nouns
 
 Case examples must be added once verbs are done.
-#Verbs
+
+# Verbs
 
 several subsections to discuss each feature in this order:
 

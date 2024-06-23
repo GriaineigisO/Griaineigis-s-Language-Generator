@@ -57,13 +57,13 @@ Phonotactic ideas:
 # Adjectives
 
 - What degrees of comparison are there? Are they formed with affixation? particles? reduplication>
-- big
-- bigger
-- slightly bigger
-- a lot bigger
+  - big
+  - bigger
+  - slightly bigger
+  - a lot bigger
 - Is there a superlative? is the construction based on the comparative (e.g like in Estonian) or does it have its own. What degrees of superlative are there?
-- biggest
-- biggest by far
+  - biggest
+  - biggest by far
 - How are similies handles? "as big as X"
 
 # Verbs

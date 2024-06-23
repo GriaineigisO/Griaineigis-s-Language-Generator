@@ -287,7 +287,8 @@ function clearGeneratedArrays() {
     document.getElementById("masc-fem-gender-switch1").replaceChildren();
     document.getElementById("masc-fem-gender-switch2").replaceChildren();
     document.getElementById("human-animal-gender-switch").replaceChildren();
-    document.getElementById("quantifier-table").replaceChildren();
+    document.getElementById("quantifier-table-1").replaceChildren();
+    document.getElementById("quantifier-table-2").replaceChildren();
 }
 
 function showGrammarAndDictionary() {
@@ -1209,10 +1210,10 @@ function checkIfHeadInitialOrHeadFinal() {
 /**ISOLATING NOUNS****/
 let grammaticalNumIsolating = 0;
 function randomNumForIsolatingGrammaticalNumbers() {
-    grammaticalNumIsolating = Math.floor(Math.random() * 31)
+    grammaticalNumIsolating = Math.floor(Math.random() * 11)
     if(grammaticalNumIsolating < 5) {
         document.getElementById("isolating-quanitifers-only").style.display = "block";
-    }
+    } 
     if(grammaticalNumIsolating >= 5 && grammaticalNumIsolating < 10) {
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "block";
     }
@@ -1221,7 +1222,8 @@ function randomNumForIsolatingGrammaticalNumbers() {
 function chooseQuanitifers() {
     //the quantifiers "few, several" and "a lot of" are always shown by default, the rest are randomly shown or not shown.
     if(typologyNum === 0) {
-    let table = document.getElementById("quantifier-table");
+    let table = document.createElement("table");
+    table.classList.add("example-table")
 
     let headerRow = document.createElement("tr")
     let quantifierTH = document.createElement("th");
@@ -1454,6 +1456,12 @@ function chooseQuanitifers() {
         table.appendChild(notEnoughRow);
     if(Math.floor(Math.random() * 4) !== 2) {
         notEnoughRow.style.display = "none";
+    }
+
+    if(grammaticalNumIsolating < 5) {
+        document.getElementById("quantifier-table-1").appendChild(table);
+    } else if (grammaticalNumIsolating > 5) {
+        document.getElementById("quantifier-table-2").appendChild(table);
     }
 }
 }
@@ -1812,7 +1820,6 @@ function callClassifierExamples() {
 
 }
 
-
 function IsolatingNouns() {
     selectNounsClassifier(shapeClassifierArray, longAndSlenderArray, "long-and-slender");
     selectNounsClassifier(shapeClassifierArray, shortAndWideArray, "short-and-wide");
@@ -1829,9 +1836,7 @@ function IsolatingNouns() {
     selectMassNounsClassifier(shapeClassifierMassArray, shapelessMassArray , "shapeless");
 }
 
-
 /***AGGLUTINATIVE NOUNS****/
-
 let grammaticalNumAgglutinative = 0;
 function randomNumForAgglutinativeGrammaticalNumbers() {
     grammaticalNumAgglutinative = Math.floor(Math.random() * 31)

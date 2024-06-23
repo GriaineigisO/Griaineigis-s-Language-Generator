@@ -28,6 +28,10 @@ several subsections to discuss each feature in this order:
 then make a section to show tables with each verb in all possible
 inflections much like the inflection noun section
 
+# Derivation
+
+* When new words are created, figure out how to add them to the dicitonary. The language word can be pushed to the appriopiate generatedArray, but since dictionary.js imports the english word arrays right from the source files and not via script.js, I can't simply push the derived word's meaning to the english word array. I'll have to import the english word array to dictionary.js via script.ja, to allow me to change them before they are use to create the dictionary
+
 # Things to Add Later, but are not a current priority
 
 * add example sentences for each word in the dictionary. Whether it actually shows will be random

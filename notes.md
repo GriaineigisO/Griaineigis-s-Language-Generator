@@ -48,6 +48,8 @@ terms listed, then the other terms will also be assigned at random
 ** SIZE-ANIMAL
 ** COLOUR-FOOD
 
+* Common phrases like greetings to be generated a wide variety of ways, randomly chosen of course.
+
 ## Features to be randomized/chosen
 
 - Stative verbs vs nominal adjectives

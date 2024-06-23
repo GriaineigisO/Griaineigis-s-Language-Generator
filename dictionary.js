@@ -1082,15 +1082,26 @@ function makeDictionary() {
             let translationText = "";
             let classifierInfotext = ""; 
 
-            headWordText = newArray[0];
-            pOSText = newArray[1];
-            translationText = newArray[2];
-
-            //if the word is also a classifier, this is to include a note of such in the entry
-            if(newArray[3] === ";" && newArray[4] === "classifier") {
-                classifierInfotext = `${newArray[3]} ${newArray[4]} ${newArray[5]} ${newArray[6]} ${newArray[7]} ${newArray[8]} ${newArray[9]} ${newArray[10]}`
-            } else {
-                classifierInfotext = newArray[3];
+            //how the entries are displayed depends on the typology, for example, isolating languages don't need to list the bare root
+            //if typology is isolating
+            if(typologyNum === 0) {
+                //if the word is also a classifier, this is to include a note of such in the entry
+                if(newArray[3] === ";" && newArray[4] === "classifier") {
+                    headWordText = newArray[0];
+                pOSText = newArray[1];
+                translationText = newArray[2];
+                    classifierInfotext = `${newArray[3]} ${newArray[4]} ${newArray[5]} ${newArray[6]} ${newArray[7]} ${newArray[8]} ${newArray[9]} ${newArray[10]}`
+                } else {
+                    headWordText = newArray[0];
+                    pOSText = newArray[1];
+                    translationText = newArray[2];
+                    classifierInfotext = newArray[3];
+                }
+            } else if(typologyNum === 1) { //if typology is agglutinative, the bare root is newArray[2] listed after the part of speech
+                headWordText = newArray[0];
+                pOSText = newArray[1] + " " + newArray[2];
+                translationText = newArray[3];
+                classifierInfotext = newArray[4];
             }
             
             

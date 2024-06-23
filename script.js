@@ -862,7 +862,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -1575,7 +1575,7 @@ function createClassifiers() {
         classifiersWithEtymology++;
         shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "wedge"`;
         classifierEtymologyArray.push(shortAndWideExample);
-    } else if (randomNumForShortAndWide === 1) {
+    } else if (randomNumForShortAndWide === 2) {
         shortAndWideClassifier = generateWords(); 
     }
     for(let i = 0; i < shortAndWide.length; i++) {
@@ -1629,12 +1629,16 @@ function createClassifiers() {
     }
 
     const listOfSpans = [];
+    if(classifierEtymologyArray.length === 1) {
+        let joinedString = classifierEtymologyArray.join();
+        document.getElementById("classifiers-etymology-examples").innerHTML = `${joinedString}.`;
+    } else {
      classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
         listOfSpans.pop()
         listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
         let listOfSpansString =  listOfSpans.join(", ")
         document.getElementById("classifiers-etymology-examples").innerHTML = listOfSpansString;
-
+    }
 }
 
 function selectNounsClassifier(classifierArray, array, category) {

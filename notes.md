@@ -8,8 +8,7 @@ Phonotactic ideas:
 - plosives can occur only in onset, either they become fricatives elsewhere or just drop
 - plosives can occur only word initially
 * Use inspiration from real language's sound changes. Use the Proto-Finnic > Proto-Livonian sound changes for inspiration too
-  .
-  .
+  
 
 # Nouns
 

@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, branchExample, poleExample, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -539,10 +539,24 @@ function makeDictionary() {
                     }
                 } else if (shapeClassifierArray[index] === "pointed"){
                     pOfSpeech = "n.pointed"
-                    classifierInfo = "";
+                    if(englishWords[i] === "arrow" && randomNumForPointed === 0) {
+                        classifierInfo = `; classifier for pointed nouns: ${arrowExample}`
+                    } else if(englishWords[i] === "thorn" && randomNumForPointed === 1) {
+                        classifierInfo = `; classifier for pointed nouns: ${thornExample}`
+                    } else if(englishWords[i] === "fork" && randomNumForPointed === 2) {
+                        classifierInfo = `; classifier for pointed nouns: ${forkExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
                 } else if (shapeClassifierArray[index] === "flat"){
                     pOfSpeech = "n.flat"
-                    classifierInfo = "";
+                    if(englishWords[i] === "slab" && randomNumForFlat === 0) {
+                        classifierInfo = `; classifier for flat nouns: ${slabExample}`
+                    } else if(englishWords[i] === "face" && randomNumForFlat === 1) {
+                        classifierInfo = `; classifier for flat nouns: ${faceExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
                 } else if (shapeClassifierArray[index] === "shapeless"){
                     pOfSpeech = "n.shapeless"
                     classifierInfo = "";
@@ -552,10 +566,13 @@ function makeDictionary() {
                 let index = massNounArray.indexOf(englishWords[i])
                 if(shapeClassifierMassArray[index] === "shapeless") {
                     pOfSpeech = "n.shapeless";
-                    classifierInfo = "";;
+                    if(englishWords[i] === "air" && randomNumForShapeless === 0) {
+                        classifierInfo = `; classifier for shapeless nouns: ${airExample}`
+                    } else 
+                    classifierInfo = "";
                 } else if (shapeClassifierMassArray[index] === "long-and-slender"){
                     pOfSpeech = "n.long";
-                    classifierInfo = "";;
+                    classifierInfo = "";
                 }
                 
             }
@@ -1104,9 +1121,6 @@ function makeDictionary() {
                 classifierInfotext = newArray[4];
             }
             
-            
-        
-
         let headWord = document.createElement("span");
         headWord.innerHTML = headWordText;
         headWord.style.fontWeight = "bold";
@@ -1132,7 +1146,6 @@ function makeDictionary() {
         entryDiv[i].appendChild(pOS)
         entryDiv[i].appendChild(translation)
         entryDiv[i].appendChild(classifierEtymology)
-
     }
 
      for(let i = 0; i < entryEnglish.length; i++) {

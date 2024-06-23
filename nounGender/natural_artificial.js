@@ -320,6 +320,7 @@ const naturalArtificial = [
 "natural",
 "natural",
 "natural",
+"natural",
 "artificial",
 "natural",
 "natural",

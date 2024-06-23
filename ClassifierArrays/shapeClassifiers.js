@@ -318,6 +318,7 @@ const shapeClassifierArray = [
 "short-and-wide",
 "long-and-slender",
 "round",
+"flat",
 "long-and-slender",
 "round",
 "long-and-slender",

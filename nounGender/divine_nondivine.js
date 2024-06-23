@@ -324,6 +324,7 @@ const divineNonDivine = [
 "profane",
 "profane",
 "profane",
+"profane",
 "divine",
 "profane",
 "divine",

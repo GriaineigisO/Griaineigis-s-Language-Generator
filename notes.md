@@ -1,9 +1,6 @@
 # Immediate To-Do List
 
-- Finish giving the rest of the classifiers etymologies.
-  - pointed < "arrow"
-  - flat < "slab"
-  - shapeless < "air"
+- Make it so that the quantifiers show up for languages with classifiers too
 - Add animacy based classifiers
   - man < "man"
   - woman < woman
@@ -65,6 +62,13 @@ Phonotactic ideas:
   - biggest
   - biggest by far
 - How are similies handles? "as big as X"
+
+# Copula
+
+- is the copula just the verb "to be"? or is it/are they a set of particles?
+- If copulas are particles, ideas on where to use them are:
+  - between adjectives and nouns
+  - between possessed nouns and possesser nouns
 
 # Verbs
 

@@ -318,6 +318,7 @@ const countNounArray = [
 "sign",
 "sinew",
 "skull",
+"slab",
 "slug",
 "snail",
 "snake",

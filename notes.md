@@ -1,5 +1,3 @@
-CURRENTLY DOING MASSIVE OVERHAUL
-
 # Phonology
 
 Phonotactic ideas:

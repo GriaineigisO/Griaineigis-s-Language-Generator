@@ -1558,7 +1558,7 @@ function createClassifiers() {
     let classifierEtymologyArray = [];
     
     let longAndSlender = document.getElementsByClassName("long-and-slender");
-    randomNumForLongAndSlender = Math.floor(Math.random() * 3);
+    randomNumForLongAndSlender = Math.floor(Math.random() * 4);
     if(randomNumForLongAndSlender === 0) {
         longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("branch")]
         classifiersWithEtymology++;
@@ -1569,7 +1569,7 @@ function createClassifiers() {
         classifiersWithEtymology++;
         longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "pole"`;
        classifierEtymologyArray.push(longAndSlenderExample);
-    } else if (randomNumForLongAndSlender === 2) {
+    } else if (randomNumForLongAndSlender > 1) {
         longAndSlenderClassifier = generateWords();
         
     }
@@ -1578,7 +1578,7 @@ function createClassifiers() {
     }
 
     let shortAndWide = document.getElementsByClassName("short-and-wide");
-    randomNumForShortAndWide = Math.floor(Math.random() * 2);
+    randomNumForShortAndWide = Math.floor(Math.random() * 4);
      if(randomNumForShortAndWide === 0) {
         shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("shoulder")]
         classifiersWithEtymology++;
@@ -1589,7 +1589,7 @@ function createClassifiers() {
         classifiersWithEtymology++;
         shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "wedge"`;
         classifierEtymologyArray.push(shortAndWideExample);
-    } else if (randomNumForShortAndWide === 2) {
+    } else if (randomNumForShortAndWide > 1) {
         shortAndWideClassifier = generateWords(); 
     }
     for(let i = 0; i < shortAndWide.length; i++) {
@@ -1597,7 +1597,7 @@ function createClassifiers() {
     }
 
     let round = document.getElementsByClassName("round");
-    randomNumForRound = Math.floor(Math.random() * 4);
+    randomNumForRound = Math.floor(Math.random() * 5);
      if(randomNumForRound === 0) {
         roundClassifier = generatedCountNouns[countNounArray.indexOf("apple")]
         classifiersWithEtymology++;
@@ -1613,7 +1613,7 @@ function createClassifiers() {
         classifiersWithEtymology++;
         roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "ball"`;
         classifierEtymologyArray.push(roundExample);
-    } else if (randomNumForRound === 3) {
+    } else if (randomNumForRound > 2) {
         roundClassifier = generateWords(); 
     }
     for(let i = 0; i < round.length; i++) {
@@ -1621,7 +1621,7 @@ function createClassifiers() {
     }
 
     let pointed = document.getElementsByClassName("pointed");
-    randomNumForPointed = Math.floor(Math.random() * 2);
+    randomNumForPointed = Math.floor(Math.random() * 5);
      if(randomNumForPointed === 0) {
         pointedClassifier = generatedCountNouns[countNounArray.indexOf("arrow")]
         classifiersWithEtymology++;
@@ -1637,7 +1637,7 @@ function createClassifiers() {
         classifiersWithEtymology++;
         pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "fork"`;
         classifierEtymologyArray.push(pointedExample);
-    } else if (randomNumForPointed === 3) {
+    } else if (randomNumForPointed> 2) {
         pointedClassifier = generateWords(); 
     }
     for(let i = 0; i < pointed.length; i++) {
@@ -1645,7 +1645,7 @@ function createClassifiers() {
     }
 
     let flat = document.getElementsByClassName("flat");
-    randomNumForFlat = Math.floor(Math.random() * 3);
+    randomNumForFlat = Math.floor(Math.random() * 5);
     if(randomNumForFlat === 0) {
         flatClassifier = generatedCountNouns[countNounArray.indexOf("slab")]
         classifiersWithEtymology++;
@@ -1656,7 +1656,7 @@ function createClassifiers() {
         classifiersWithEtymology++;
         flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "face"`;
         classifierEtymologyArray.push(flatExample);
-    } else if (randomNumForFlat === 2) {
+    } else if (randomNumForFlat > 1) {
         flatClassifier = generateWords(); 
     }
     for(let i = 0; i < flat.length; i++) {
@@ -1664,13 +1664,13 @@ function createClassifiers() {
     }
 
     let shapeless = document.getElementsByClassName("shapeless");
-    randomNumForShapeless = 0//Math.floor(Math.random() * 2);
+    randomNumForShapeless = Math.floor(Math.random() * 4);
     if(randomNumForShapeless === 0) {
         shapelessClassifier = generatedMassNouns[massNounArray.indexOf("air")]
         classifiersWithEtymology++;
         shapelessExample = `<i>${spell(soundChange(shapelessClassifier))}</i> "air"`;
         classifierEtymologyArray.push(shapelessExample);
-    } else if (randomNumForShapeless === 1) {
+    } else if (randomNumForShapeless > 0) {
         shapelessClassifier = generateWords(); 
     }
     for(let i = 0; i < shapeless.length; i++) {

@@ -30,44 +30,27 @@ several subsections to discuss each feature in this order:
 
 then make a section to show tables with each verb in all possible
 inflections much like the inflection noun section
-.
-.
-.
-.
-.
-..
----Things to Add Later---
 
-add example sentences for each word in the dictionary. Whether it actually shows will be random
+# Things to Add Later, but are not a current priority
 
-at the bottom, generate a block of text when all parts of speech have been
+* add example sentences for each word in the dictionary. Whether it actually shows will be random
+
+* at the bottom, generate a block of text when all parts of speech have been
 given. There will be several templates, chosen at random (there will be a button
 to cycle through different templates without changing the rest of the page). e.g
 &{det} &{adj} &{noun} &{verb} &{conj} that white horse ran
 
-Make it so that the input section does not show on printed PDFs, turn the scroll sections
-into-non- scrolling sections in printed PDFs
-
-add different typologies (isolating, aglutinative, fusional) and the ability to have them
-be randomly chosen
-
-Specfiic features also become random. Like what, if any, cases, aspects, tenses etc
-are present, and also how these features are even marked. Based either on user choice or random choice. This will mean a high
-amount of variability in the paragraphs that explain these things
-
-add more than one meaning to a word, make a psuedo thesaurus? - if a word has related
+* add more than one meaning to a word, make a psuedo thesaurus? - if a word has related
 terms listed, then the other terms will also be assigned at random
 
-when making compounds for dictionary, have each part of a compound be from a specific set of nouns chosen by their meaning e.g
+* when making compounds for dictionary, have each part of a compound be from a specific set of nouns chosen by their meaning to ensure that the compounds aren't totally nonsensical.
+** COLOUR-ANIMAL
+** COLOUR-PLANT
+** TRADE-PERSON
+** SIZE-ANIMAL
+** COLOUR-FOOD
 
-- COLOUR-ANIMAL
-- COLOUR-PLANT
-- TRADE-PERSON
-- SIZE-ANIMAL
-- COLOUR-FOOD
-  etc, to ensure that the compounds aren't totally nonsensical.
-
-##Features to be randomized/chosen:
+## Features to be randomized/chosen
 
 - Stative verbs vs nominal adjectives
 - If adjectives agree at all, and if so, with what

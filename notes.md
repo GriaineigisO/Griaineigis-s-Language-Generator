@@ -15,7 +15,9 @@ Phonotactic ideas:
 
 # Nouns
 
-Case examples must be added once verbs are done.
+* Isolating languages have a possibility of forming plurals simply by repeating the noun.
+
+* Case examples must be added once verbs are done.
 
 # Verbs
 

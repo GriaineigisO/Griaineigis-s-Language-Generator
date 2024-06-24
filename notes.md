@@ -11,7 +11,7 @@ function generateWords() {
 	let randomNum = Math.floor(Math.random() * 30);
 	if (allGeneratedWordsArray.includes(newWord)) {
 		if (randomNum === 6) {
-		return newWord:
+			return newWord:
 		} else {
 			newWord = generateWord();
 			allGeneratedWordsArray.push(newWord)

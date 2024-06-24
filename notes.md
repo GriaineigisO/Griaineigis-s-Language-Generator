@@ -9,6 +9,7 @@ function generateWords() {
 	...
 	newWord = newSyllableArray.join("");
 	let randomNum = Math.floor(Math.random() * 30);
+	//if the generated word is a homophone with an already existing word
 	if (allGeneratedWordsArray.includes(newWord)) {
 		if (randomNum === 6) {
 			//homophone accepted

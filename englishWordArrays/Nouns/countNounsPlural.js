@@ -65,6 +65,7 @@ let countNounArrayPlural = [
     "cherries",
     "chickens",
     "chickpeas",
+    "children",
     "chins",
     "circles",
     "cliffs",

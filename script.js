@@ -1881,7 +1881,7 @@ function createAnimacyClassifiers() {
     }
 
     let child = document.getElementsByClassName("child");
-   randomNumForChild = 0//Math.floor(Math.random() * 2);
+   randomNumForChild = Math.floor(Math.random() * 2);
    if(randomNumForChild === 0) {
        childClassifier = generatedCountNouns[countNounArray.indexOf("child")]
        classifiersWithEtymology++;
@@ -2039,7 +2039,7 @@ function callClassifierExamples() {
     classifierExamplesInDictionaryEntries("woman", womanArray);
     womanExample = exampleArray[14];
 
-    classifierExamplesInDictionaryEntries("woman", childArray);
+    classifierExamplesInDictionaryEntries("child", childArray);
     childExample = exampleArray[15];
 }
 

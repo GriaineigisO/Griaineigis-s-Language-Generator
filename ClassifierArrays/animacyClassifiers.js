@@ -65,6 +65,7 @@ const animacyClassifierArray = [
 "edible",
 "meat",
 "inedible",
+"child",
 "inedible",
 "inedible",
 "inedible",

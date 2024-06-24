@@ -595,7 +595,14 @@ function makeDictionary() {
                     } else {
                         classifierInfo = "";
                     }
-                } 
+                } else if(animacyClassifierArray[index] === "child") {
+                   pOfSpeech = "n.child";
+                   if(englishWords[i] === "child" && randomNumForChild === 0) {
+                       classifierInfo = `; classifier for child nouns: ${childExample}`
+                   } else {
+                       classifierInfo = "";
+                   }
+               }
             }
         }
 

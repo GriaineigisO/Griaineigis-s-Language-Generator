@@ -65,6 +65,7 @@ const humanAnimalInan = [
 "secondinanimate",
 "animal",
 "secondinanimate",
+"human",
 "secondinanimate",
 "secondinanimate",
 "secondinanimate",

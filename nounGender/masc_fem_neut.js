@@ -74,6 +74,7 @@ const masculine2feminine2neuter = [
 "neuter",
 "neuter",
 "neuter",
+"neuter",
 "feminine2",
 "masculine2",
 "feminine2",

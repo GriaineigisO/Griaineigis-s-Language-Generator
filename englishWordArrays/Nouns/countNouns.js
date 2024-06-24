@@ -65,6 +65,7 @@ const countNounArray = [
 "cherry",
 "chicken",
 "chickpea",
+"child",
 "chin",
 "circle",
 "cliff",

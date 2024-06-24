@@ -66,6 +66,7 @@ const shapeClassifierArray = [
 "short-and-wide",
 "round",
 "short-and-wide",
+"short-and-wide",
 "round",
 "flat",
 "shapeless",

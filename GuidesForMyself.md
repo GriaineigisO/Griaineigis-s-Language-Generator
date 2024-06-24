@@ -1,3 +1,10 @@
+# Index
+
+- Classifiers
+- How to add a classifier to a pre-existing classifier system
+- Words
+- Adding a new word
+
 # Classifiers
 
 ## How to add a classifier to a pre-existing classifier system
@@ -24,7 +31,7 @@ In this example, the "child" classifier will be added to the Animate classifier 
    }
    ```
 
-   In the line `childClassifier = generatedCountNouns[countNounArray.indexOf("child")]`, the please make sure that the word within the `.indexOf` method already exists in the dictionary. This will not work if the wrd ha snot yet been added.
+   In the line `childClassifier = generatedCountNouns[countNounArray.indexOf("child")]`, please make sure that the word within the `.indexOf` method already exists in the dictionary. This will not work if the word has not yet been added.
 
    When `randomNumForChild` is 0, the word for the child classifier will be taken from a pre-existing noun, in this case the noun "child". You can add as many possible nouns as you want, so long as the last `else if` is `childClassifier = generateWords();`.
 
@@ -67,7 +74,7 @@ In this example, the "child" classifier will be added to the Animate classifier 
    <tr>
        <td><strong>Child</strong></td>
        <td><span class="child"></span></td>
-       <td><span class="woman"></span> <span class="child-noun sound-change" id="noun1child"></span></td>
+       <td><span class="child"></span> <span class="child-noun sound-change" id="noun1child"></span></td>
        <td>"<span class="noun-meaning1child plural-meaning"></span>"</td>
    </tr>
    ```
@@ -78,11 +85,29 @@ In this example, the "child" classifier will be added to the Animate classifier 
    <tr>
        <td><strong>Child</strong></td>
        <td><span class="child"></span></td>
-       <td><span class="child-noun sound-change" id="noun1child"></span> <span class="woman"></span></td>
+       <td><span class="child-noun sound-change" id="noun1child"></span> <span class="child"></span></td>
        <td>"<span class="noun-meaning1child plural-meaning"></span>"</td>
    </tr>
    ```
 
-8. Go to `styles.css` and add `.child-noun` to the massive list of css selectors to make it italic.
+8. Go to `styles.css` and add `.child-noun` and `.child` to the massive list of css selectors to make it italic.
 
 9. The new classifier has now been added.
+
+# Words
+
+## Adding a New Noun
+
+1. Open the folder `englishWordArrays`. Then open the folder `Nouns`.
+
+2. Determine if the new word is a count noun or mass noun. Go to either `countNouns.js` or `massNouns.js`. In the file, add the new word. The arrays are alphabetically sorted.
+
+3. If you added a count noun, go to `countNounsPLural.js`. Go to the same line as that which you added the new word to in `countNouns.js`. For example, the word "child" was added to line 68, so in `countNounsPLural.js` the plural form "children" will be added to line 68.
+
+4. If you added a mass noun, go to `singulativeMassNouns.js` and add the appropriate singulative form to the same line in that file. For example, if the word "water" was added to line 25, the singulative form "drop of water" will be added to line 25 in `singulativeMassNouns.js`. Then go to `pluralSingulativeMassNouns.js` and add the plural form of the singulative at the same line again, in this example it would be "drops of water" on line 25.
+
+5. The gender of the word must now be listed in each gender array. Open the folder `nounGender`. In each file in this folder, at the same line that the new word added in either `countNouns.js` or `massNouns.js`, add which gender this word is. Do this for every gender file there. If the new noun is a mass noun, then add it to the mass noun version of the file which will have the same name but with "Mass" at the end.
+
+6. Now the same must be done but for the classifier systems. Open the folder `ClassifierArrays` and follow the same process as listed in step 5.
+
+7. The new noun has now been added.

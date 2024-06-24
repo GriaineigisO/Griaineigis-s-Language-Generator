@@ -6,15 +6,15 @@ The allGeneratedWordsArray will store all generated words. It has no functiin be
 ```
 let allGeneratedWordsArray = [];
 function generateWords() {
-	...
-	newWord = newSyllableArray.join("");
-	if (allGeneratedWordsArray.includes(newWord)) {
-		newWord = generateWord();
-		allGeneratedWordsArray.push(newWord)
-		return newWord;
-	} else {
-	return newWord;
-	}
+...
+newWord = newSyllableArray.join("");
+if (allGeneratedWordsArray.includes(newWord)) {
+newWord = generateWord();
+allGeneratedWordsArray.push(newWord)
+return newWord;
+} else {
+return newWord;
+}
 }
 ```
 

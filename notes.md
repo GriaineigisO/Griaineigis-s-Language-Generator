@@ -11,8 +11,10 @@ function generateWords() {
 	let randomNum = Math.floor(Math.random() * 30);
 	if (allGeneratedWordsArray.includes(newWord)) {
 		if (randomNum === 6) {
+			//homophone accepted
 			return newWord:
 		} else {
+			//homophone rejected and replaced with a new word
 			newWord = generateWord();
 			allGeneratedWordsArray.push(newWord)
 			return newWord;

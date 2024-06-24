@@ -2,16 +2,21 @@
 
 ## Code to stop lots of homophomes
 
-The allGeneratedWordsArray will store all generated words. It has no functiin beyond this. When a new word is generated, it will then be checked if allGeneratedWordsArray already has the same sounding word. If not, then the newly generated word is returned and accepted as a word. I am not sure what will happen if the word is already present, will the function just make a new one or perhaps return nothing
+The allGeneratedWordsArray will store all generated words. It has no functiin beyond this. When a new word is generated, it will then be checked if allGeneratedWordsArray already has the same sounding word. If not, then the newly generated word is returned and accepted as a word. I am not sure what will happen if the word is already present, will the function just make a new one or perhaps return nothing. The randomNum allows for a minority of homophones to exist, but the vast majority will be pruned.
 ```
 let allGeneratedWordsArray = [];
 function generateWords() {
 	...
 	newWord = newSyllableArray.join("");
+	let randomNum = Math.floor(Math.random() * 30);
 	if (allGeneratedWordsArray.includes(newWord)) {
-		newWord = generateWord();
-		allGeneratedWordsArray.push(newWord)
-		return newWord;
+		if (randomNum === 6) {
+		return newWord:
+		} else {
+			newWord = generateWord();
+			allGeneratedWordsArray.push(newWord)
+			return newWord;
+			}
 	} else {
 		return newWord;
 	}

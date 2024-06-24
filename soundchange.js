@@ -267,12 +267,21 @@ function soundChange(word) {
         while(allNasalsArray.includes(wordArray[1]) && consonants.includes(wordArray[0])) {
             wordArray.splice(1, 1);
         }
+        while(allNasalsArray.includes(wordArray[1]) && consonants.includes(wordArray[2]) && wordArray[0] === "X") {
+            wordArray.splice(1, 1);
+        }
+        while(allNasalsArray.includes(wordArray[2]) && consonants.includes(wordArray[1]) && wordArray[0] === "X") {
+            wordArray.splice(2, 1);
+        }
     }
 
     /*********************************************************************************/
     if(randomNumForNoFricativesAsLatterElementOfInitialClusters !== 5) {
         while(consonants.includes(wordArray[0]) && selectFricatives().includes(wordArray[1])) {
             wordArray.splice(1, 1);
+        }
+        while(consonants.includes(wordArray[1]) && selectFricatives().includes(wordArray[2]) && wordArray[0] === "X") {
+            wordArray.splice(2, 1);
         }
     }
 

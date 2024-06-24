@@ -1115,10 +1115,19 @@ function makeDictionary() {
                     classifierInfotext = newArray[3];
                 }
             } else if(typologyNum === 1) { //if typology is agglutinative, the bare root is newArray[2] listed after the part of speech
-                headWordText = newArray[0];
-                pOSText = newArray[1] + " " + newArray[2];
-                translationText = newArray[3];
-                classifierInfotext = newArray[4];
+                //adverbs, conjunctions and adpositions don't need to have bare roots shown, thus the length of their newArray is different
+                if(newArray[1] === "conj" || newArray[1] === "adv" || newArray[1] === "adpo") {
+                    headWordText = newArray[0];
+                    pOSText = newArray[1]
+                    translationText = newArray[2];
+                    classifierInfotext = newArray[3];
+                } else {
+                    headWordText = newArray[0];
+                    pOSText = newArray[1] + " " + newArray[2];
+                    translationText = newArray[3];
+                    classifierInfotext = newArray[4];
+                }
+                
             }
             
         let headWord = document.createElement("span");

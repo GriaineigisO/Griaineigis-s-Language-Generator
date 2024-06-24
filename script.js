@@ -872,7 +872,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {

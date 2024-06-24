@@ -78,9 +78,23 @@ several subsections to discuss each feature in this order:
 - imperative mood
 - gerunds
 - participles
+- Plural verbs
 
 then make a section to show tables with each verb in all possible
 inflections much like the inflection noun section
+
+# Pronouns
+- Is there is a dedicated third person?
+- inclusive vs exclusive distinction
+- gender differences depending on wnat gender system is present, are 1st and 2nd pronouns affected also? Assuming a masculine-feminine system. Perhaps pronouns in the divine gender can be used to refer to humans filling divine roles (priests, augurs) and gods
+
+# Possession
+- Alienable vs inalienable possession. 
+	- Alienable possession shown by
+		- Dative construction e.g "the car to me"
+		- adpositional "with, by, on at" etc
+		- B-possession "the car (that) belongs to me"
+		- some kind of "distance" derivational affix?/particle?
 
 # Derivation
 

@@ -8,12 +8,16 @@ let allGeneratedWordsArray = [];
 function generateWords() {
 	...
 	newWord = newSyllableArray.join("");
-	if (allGeneratedWordsArray.includes(newWord) === false) {
+	if (allGeneratedWordsArray.includes(newWord)) {
+		newWord = generateWord();
 		allGeneratedWordsArray.push(newWord)
 		return newWord;
+	} else {
+	return newWord;
 	}
 }
 
+Hopefully this does not cause an infinite loop
 
 
 - Add animacy based classifiers

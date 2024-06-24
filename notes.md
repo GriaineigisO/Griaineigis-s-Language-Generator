@@ -46,7 +46,7 @@ Phonotactic ideas:
 - Use reduplication? The affix can be created by copying the host word, splitting the word into an array and only copying the first N amount of indexes into a new array, which is then joined to form a string. This must happen dymanically with each new word. E.g "buldoris" > copyArray["b", "u", "l", "d", "o", "r", "i", "s"] > randomNum === 3 > newArray["b", "u", "l"] > "bul" > "bulbuldoris".
 
 # Negation
-- There may be a singular negative morpheme, and various derivations of it (e.g *ne- > none, nobody, no, not) or various unrelated negators
+- There may be a singular negative morpheme, and various derivations of it (e.g *ne- > none, nobody, no, not) or various unrelated negators. These other negators may be derived from existeing vocabulary in the same manner as french pas
 - for fusional and agglutinative languages, is negation done with affixation or with a particle?
 - verbs may be negated with a negative verb like Uralic languages
 

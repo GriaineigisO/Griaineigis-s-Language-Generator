@@ -1872,13 +1872,27 @@ function createAnimacyClassifiers() {
         classifiersWithEtymology++;
         womanExample = `<i>${spell(soundChange(womanClassifier))}</i> "woman"`;
         classifierEtymologyArray.push(womanExample);
-    } else if (randomNumForMan === 1) {
+    } else if (randomNumForWoman === 1) {
         womanClassifier = generateWords();
         
     }
     for(let i = 0; i < woman.length; i++) {
         woman[i].innerHTML = spell(soundChange(womanClassifier));
     }
+
+    let child = document.getElementsByClassName("child");
+   randomNumForChild = 0//Math.floor(Math.random() * 2);
+   if(randomNumForChild === 0) {
+       childClassifier = generatedCountNouns[countNounArray.indexOf("child")]
+       classifiersWithEtymology++;
+       childExample = `<i>${spell(soundChange(childClassifier))}</i> "child"`;
+       classifierEtymologyArray.push(childExample);
+   } else if (randomNumForChild === 1) {
+       childClassifier = generateWords();
+   }
+   for(let i = 0; i < child.length; i++) {
+       child[i].innerHTML = spell(soundChange(childClassifier));
+   }
 
 
     const listOfSpans = [];
@@ -1948,7 +1962,8 @@ let slabExample = "";
 let faceExample = "";
 let airExample = "";
 let manExample = "";
-let womanExample ="";
+let womanExample = "";
+let childExample = "";
 
 function classifierExamplesInDictionaryEntries(word, array) {
 
@@ -2023,6 +2038,9 @@ function callClassifierExamples() {
 
     classifierExamplesInDictionaryEntries("woman", womanArray);
     womanExample = exampleArray[14];
+
+    classifierExamplesInDictionaryEntries("woman", childArray);
+    childExample = exampleArray[15];
 }
 
 function IsolatingNouns() {
@@ -2035,6 +2053,7 @@ function IsolatingNouns() {
 
     selectNounsClassifier(animacyClassifierArray, manArray, "man");
     selectNounsClassifier(animacyClassifierArray, womanArray, "woman");
+    selectNounsClassifier(animacyClassifierArray, childArray, "child");
 
     selectMassNounsClassifier(shapeClassifierMassArray, longAndSlenderArray, "long-and-slender");
     selectMassNounsClassifier(shapeClassifierMassArray, shortAndWideArray, "short-and-wide");
@@ -3703,4 +3722,4 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
    }
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman};
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample};

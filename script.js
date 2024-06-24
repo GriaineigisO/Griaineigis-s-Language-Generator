@@ -103,6 +103,7 @@ let flatArray = [];
 let shapelessArray = [];
 let shapelessMassArray = [];
 let exampleArray = [];
+let allGeneratedWordsArray = [];
 
 
 let wordThere = "";
@@ -225,6 +226,7 @@ function clearGeneratedArrays() {
     shapelessArray = [];
     shapelessMassArray = [];
     exampleArray = [];
+    allGeneratedWordsArray = [];
 
     wordThere = "";
     wordHere = "";
@@ -296,12 +298,11 @@ function showGrammarAndDictionary() {
     document.getElementById("dictionary").style.display = "block";
 }
 
-//generates the words by giving each one a random amount of syllables, and choosing each syllable to be structured according to a randomly chosen syllable structure from the language's chosen options of syllable structures.
-function generateWords() {
+//if the generateWord() function below produces a homophone, this function is invoked to replace that homophone with a newly generated word
+function generateSecondWord() {
     let resonants = selectRhotics().concat(selectLateralApproximants())
     let newSyllableArray = [];
     let newWord = "";
-
 
     let numberOfSyllables = 0;
     //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
@@ -338,7 +339,83 @@ function generateWords() {
         }  
     }
     newWord = newSyllableArray.join("");
-    return newWord;
+    console.log(newWord)
+	return newWord;
+}
+
+//generates the words by giving each one a random amount of syllables, and choosing each syllable to be structured according to a randomly chosen syllable structure from the language's chosen options of syllable structures.
+function generateWords() {
+    let resonants = selectRhotics().concat(selectLateralApproximants())
+    let newSyllableArray = [];
+    let newWord = "";
+
+    let numberOfSyllables = 0;
+    //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
+    let numOfAllSounds = vowels.length + consonants.length
+    if(numOfAllSounds < 20 ) {
+        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+    } else if (numOfAllSounds < 15 ) {
+        numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
+    } else if (numOfAllSounds <= 10 ) {
+        numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
+    }else {
+        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+    }
+
+    for(let i = 0; i < numberOfSyllables; i++) {
+        let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
+        let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
+        for(let j = 0; j < syllableArray.length; j++) {
+            if(syllableArray[j] === "C") {
+                newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
+            } else if (syllableArray[j] === "V"){
+                newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);  
+            } else if (syllableArray[j] === "F"){
+                newSyllableArray.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
+            } else if (syllableArray[j] === "A"){
+                newSyllableArray.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
+            } else if (syllableArray[j] === "N"){
+                newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
+            } else if (syllableArray[j] === "R"){
+                newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
+            }else if (syllableArray[j] === "H"){
+                newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
+            }
+        }  
+    }
+    newWord = newSyllableArray.join("");
+    console.log(newWord)
+    let randomNum = Math.floor(Math.random() * 100);
+	//if the generated word is a homophone with an already existing word
+    console.log(allGeneratedWordsArray.sort())
+	if (allGeneratedWordsArray.includes(newWord)) {
+        console.log("homophone detected")
+		if (randomNum === 6) {
+			//homophone accepted
+            console.log("homophone accepted")
+            allGeneratedWordsArray.push(newWord);
+			return newWord;
+		} else {
+			console.log("homophone rejected")
+            //homophone rejected and replaced with a new word
+			//newWord = generateSecondWord();
+            //console.log(newWord);
+			//allGeneratedWordsArray.push(newWord);
+            let newWordReplacement = generateSecondWord();
+            console.log(newWordReplacement)
+            if(allGeneratedWordsArray.includes(newWordReplacement) === false) {
+                allGeneratedWordsArray.push(newWordReplacement);
+                return newWordReplacement;
+            } else {
+                console.log("replacement was  ahomophone")
+            }
+			
+			}
+	} else {
+        console.log("homophone not detected")
+        allGeneratedWordsArray.push(newWord);
+		return newWord;
+	}
 }
 
 //sends each word, generated by the function above, to the appropriate array
@@ -1127,7 +1204,13 @@ function markedSingularOrNot() {
 
 let genderNum = 0;
 function randomNumForNounGender() {
-    genderNum = Math.floor(Math.random() * 16)
+    //if the language is isolating, then by default there will be no gender
+    if(typologyNum === 0) {
+        genderNum = 0;
+    } else {
+        genderNum = Math.floor(Math.random() * 16)
+    }
+    
     if(genderNum < 9) {
         document.getElementById("agglutinative-gender").style.display = "none";
         document.getElementById("no-gender-singulative-example").style.display = "block";
@@ -1550,7 +1633,7 @@ function chooseClassifierSystem() {
     }
 }
 
-//assigns either a randomly generated word to be a classifier, or it chooses a relevant pre-existing noun to be used as a classifier. If
+//assigns either a randomly generated word to be a classifier, or it chooses a relevant pre-existing noun to be used as a classifier. 
 let randomNumForLongAndSlender = 0;
 let randomNumForShortAndWide = 0;
 let randomNumForRound = 0;
@@ -2903,77 +2986,80 @@ function switchNounGenderMascFem(englishWord) {
     let bareRoot = generatedCountNouns[nounIndex];
     let mascNoun = "";
     let femNoun = "";
-    if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
-        mascNoun = bareRoot + masculineAffix + singularAffix;
-        femNoun = bareRoot + feminineAffix + singularAffix;
-    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
-        mascNoun = masculineAffix + bareRoot + singularAffix;
-        femNoun = feminineAffix + bareRoot + singularAffix;
-    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
-        mascNoun = singularAffix + masculineAffix + bareRoot;
-        femNoun = singularAffix + feminineAffix + bareRoot;
-    }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
-        mascNoun = singularAffix + bareRoot + masculineAffix;
-        femNoun = singularAffix + bareRoot + feminineAffix;
+    
+    if(genderNum === 10) {
+        if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
+            mascNoun = bareRoot + masculineAffix + singularAffix;
+            femNoun = bareRoot + feminineAffix + singularAffix;
+        } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
+            mascNoun = masculineAffix + bareRoot + singularAffix;
+            femNoun = feminineAffix + bareRoot + singularAffix;
+        } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
+            mascNoun = singularAffix + masculineAffix + bareRoot;
+            femNoun = singularAffix + feminineAffix + bareRoot;
+        }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
+            mascNoun = singularAffix + bareRoot + masculineAffix;
+            femNoun = singularAffix + bareRoot + feminineAffix;
+        }
+        if(markedSingularOrNot() === false && genderSuffixOrPrefix === "suffix") {
+            mascNoun = bareRoot + masculineAffix;
+            femNoun = bareRoot + feminineAffix;
+        } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix") {
+            mascNoun = masculineAffix + bareRoot;
+            femNoun = feminineAffix + bareRoot;
+        } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix") {
+            mascNoun = masculineAffix + bareRoot;
+            femNoun = feminineAffix + bareRoot;
+        }else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "suffix") {
+            mascNoun = bareRoot + masculineAffix;
+            femNoun = bareRoot + feminineAffix;
+        }
+        let spanMasc = document.createElement("span");
+        let spanMascMeaning = document.createElement("span");
+        spanMasc.style.fontStyle = "italic";
+        spanMasc.innerHTML = spell(soundChange(mascNoun));
+        spanMascMeaning.innerHTML = ` "${englishWord}" > `
+        newLi.appendChild(spanMasc)
+        newLi.appendChild(spanMascMeaning)
+        let spanFem = document.createElement("span");
+        let spanFemMeaning = document.createElement("span");
+        spanFem.style.fontStyle = "italic";
+        spanFem.innerHTML = spell(soundChange(femNoun));
+        newLi.appendChild(spanFem);
+        let femNounMeaning = "";
+        //replaces the previously generated word with the new feminine form derived from the masculine
+        if(englishWord === "bull") {
+            femNounMeaning = "cow";
+            generatedCountNouns[countNounArray.indexOf("cow")] = bareRoot;
+        }
+        if(englishWord === "horse") {
+            femNounMeaning = "mare";
+            generatedCountNouns[countNounArray.indexOf("mare")] = bareRoot;
+        }
+        if(englishWord === "pig") {
+            femNounMeaning = "she-pig";
+        }
+        if(englishWord === "wolf") {
+            femNounMeaning = "she-wolf";
+        }
+        if(englishWord === "rooster") {
+            femNounMeaning = "chicken";
+            generatedCountNouns[countNounArray.indexOf("chicken")] = bareRoot;
+        }
+        if(englishWord === "elk") {
+            femNounMeaning = "elk doe";
+        }
+        if(englishWord === "dog") {
+            femNounMeaning = "bitch";
+        }
+        if(englishWord === "ram") {
+            femNounMeaning = "ewe";
+            generatedCountNouns[countNounArray.indexOf("ewe")] = bareRoot;
+        }
+        spanFemMeaning.innerHTML = ` "${femNounMeaning}"`
+        newLi.appendChild(spanFemMeaning)
+        document.getElementById("masc-fem-gender-switch1").appendChild(newLi);
     }
-    if(markedSingularOrNot() === false && genderSuffixOrPrefix === "suffix") {
-        mascNoun = bareRoot + masculineAffix;
-        femNoun = bareRoot + feminineAffix;
-    } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix") {
-        mascNoun = masculineAffix + bareRoot;
-        femNoun = feminineAffix + bareRoot;
-    } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix") {
-        mascNoun = masculineAffix + bareRoot;
-        femNoun = feminineAffix + bareRoot;
-    }else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "suffix") {
-        mascNoun = bareRoot + masculineAffix;
-        femNoun = bareRoot + feminineAffix;
-    }
-    let spanMasc = document.createElement("span");
-    let spanMascMeaning = document.createElement("span");
-    spanMasc.style.fontStyle = "italic";
-    spanMasc.innerHTML = spell(soundChange(mascNoun));
-    spanMascMeaning.innerHTML = ` "${englishWord}" > `
-    newLi.appendChild(spanMasc)
-    newLi.appendChild(spanMascMeaning)
-    let spanFem = document.createElement("span");
-    let spanFemMeaning = document.createElement("span");
-    spanFem.style.fontStyle = "italic";
-    spanFem.innerHTML = spell(soundChange(femNoun));
-    newLi.appendChild(spanFem);
-    let femNounMeaning = "";
-    //replaces the previously generated word with the new feminine form derived from the masculine
-    if(englishWord === "bull") {
-        femNounMeaning = "cow";
-        generatedCountNouns[countNounArray.indexOf("cow")] = bareRoot;
-    }
-    if(englishWord === "horse") {
-        femNounMeaning = "mare";
-        generatedCountNouns[countNounArray.indexOf("mare")] = bareRoot;
-    }
-    if(englishWord === "pig") {
-        femNounMeaning = "she-pig";
-    }
-    if(englishWord === "wolf") {
-        femNounMeaning = "she-wolf";
-    }
-    if(englishWord === "rooster") {
-        femNounMeaning = "chicken";
-        generatedCountNouns[countNounArray.indexOf("chicken")] = bareRoot;
-    }
-    if(englishWord === "elk") {
-        femNounMeaning = "elk doe";
-    }
-    if(englishWord === "dog") {
-        femNounMeaning = "bitch";
-    }
-    if(englishWord === "ram") {
-        femNounMeaning = "ewe";
-        generatedCountNouns[countNounArray.indexOf("ewe")] = bareRoot;
-    }
-    spanFemMeaning.innerHTML = ` "${femNounMeaning}"`
-    newLi.appendChild(spanFemMeaning)
-    document.getElementById("masc-fem-gender-switch1").appendChild(newLi);
 }
 
 function switchNounGenderMascFemNeut(englishWord) {
@@ -2982,78 +3068,80 @@ function switchNounGenderMascFemNeut(englishWord) {
     let bareRoot = generatedCountNouns[nounIndex];
     let mascNoun = "";
     let femNoun = "";
-    if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
-        mascNoun = bareRoot + masculineAffix + singularAffix;
-        femNoun = bareRoot + feminineAffix + singularAffix;
-    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
-        mascNoun = masculineAffix + bareRoot + singularAffix;
-        femNoun = feminineAffix + bareRoot + singularAffix;
-    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
-        mascNoun = singularAffix + masculineAffix + bareRoot;
-        femNoun = singularAffix + feminineAffix + bareRoot;
-    }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
-        mascNoun = singularAffix + bareRoot + masculineAffix;
-        femNoun = singularAffix + bareRoot + feminineAffix;
+    if(genderNum === 11) {
+        if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
+            mascNoun = bareRoot + masculineAffix + singularAffix;
+            femNoun = bareRoot + feminineAffix + singularAffix;
+        } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
+            mascNoun = masculineAffix + bareRoot + singularAffix;
+            femNoun = feminineAffix + bareRoot + singularAffix;
+        } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
+            mascNoun = singularAffix + masculineAffix + bareRoot;
+            femNoun = singularAffix + feminineAffix + bareRoot;
+        }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
+            mascNoun = singularAffix + bareRoot + masculineAffix;
+            femNoun = singularAffix + bareRoot + feminineAffix;
+        }
+        if(markedSingularOrNot()  === false && genderSuffixOrPrefix === "suffix") {
+            mascNoun = bareRoot + masculineAffix;
+            femNoun = bareRoot + feminineAffix;
+        } else if(markedSingularOrNot()  === false  && genderSuffixOrPrefix === "prefix") {
+            mascNoun = masculineAffix + bareRoot;
+            femNoun = feminineAffix + bareRoot;
+        } else if(markedSingularOrNot()  === false  && genderSuffixOrPrefix === "prefix") {
+            mascNoun = masculineAffix + bareRoot;
+            femNoun = feminineAffix + bareRoot;
+        }else if(markedSingularOrNot()  === false  && genderSuffixOrPrefix === "suffix") {
+            mascNoun = bareRoot + masculineAffix;
+            femNoun = bareRoot + feminineAffix;
+        }
+        
+        let spanMasc = document.createElement("span");
+        let spanMascMeaning = document.createElement("span");
+        spanMasc.style.fontStyle = "italic";
+        spanMasc.innerHTML = spell(soundChange(mascNoun));
+        spanMascMeaning.innerHTML = ` "${englishWord}" > `
+        newLi.appendChild(spanMasc)
+        newLi.appendChild(spanMascMeaning)
+        let spanFem = document.createElement("span");
+        let spanFemMeaning = document.createElement("span");
+        spanFem.style.fontStyle = "italic";
+        spanFem.innerHTML = spell(soundChange(femNoun));
+        newLi.appendChild(spanFem);
+        let femNounMeaning = "";
+        //replaces the previously generated word with the new feminine form derived from the masculine
+        if(englishWord === "bull") {
+            femNounMeaning = "cow";
+            generatedCountNouns[countNounArray.indexOf("cow")] = bareRoot;
+        }
+        if(englishWord === "horse") {
+            femNounMeaning = "mare";
+            generatedCountNouns[countNounArray.indexOf("mare")] = bareRoot;
+        }
+        if(englishWord === "pig") {
+            femNounMeaning = "she-pig";
+        }
+        if(englishWord === "wolf") {
+            femNounMeaning = "she-wolf";
+        }
+        if(englishWord === "rooster") {
+            femNounMeaning = "chicken";
+            generatedCountNouns[countNounArray.indexOf("chicken")] = bareRoot;
+        }
+        if(englishWord === "elk") {
+            femNounMeaning = "elk doe";
+        }
+        if(englishWord === "dog") {
+            femNounMeaning = "bitch";
+        }
+        if(englishWord === "ram") {
+            femNounMeaning = "ewe";
+            generatedCountNouns[countNounArray.indexOf("ewe")] = bareRoot;
+        }
+        spanFemMeaning.innerHTML = ` "${femNounMeaning}"`
+        newLi.appendChild(spanFemMeaning)
+        document.getElementById("masc-fem-gender-switch2").appendChild(newLi);
     }
-    if(markedSingularOrNot()  === false && genderSuffixOrPrefix === "suffix") {
-        mascNoun = bareRoot + masculineAffix;
-        femNoun = bareRoot + feminineAffix;
-    } else if(markedSingularOrNot()  === false  && genderSuffixOrPrefix === "prefix") {
-        mascNoun = masculineAffix + bareRoot;
-        femNoun = feminineAffix + bareRoot;
-    } else if(markedSingularOrNot()  === false  && genderSuffixOrPrefix === "prefix") {
-        mascNoun = masculineAffix + bareRoot;
-        femNoun = feminineAffix + bareRoot;
-    }else if(markedSingularOrNot()  === false  && genderSuffixOrPrefix === "suffix") {
-        mascNoun = bareRoot + masculineAffix;
-        femNoun = bareRoot + feminineAffix;
-    }
-    
-    let spanMasc = document.createElement("span");
-    let spanMascMeaning = document.createElement("span");
-    spanMasc.style.fontStyle = "italic";
-    spanMasc.innerHTML = spell(soundChange(mascNoun));
-    spanMascMeaning.innerHTML = ` "${englishWord}" > `
-    newLi.appendChild(spanMasc)
-    newLi.appendChild(spanMascMeaning)
-    let spanFem = document.createElement("span");
-    let spanFemMeaning = document.createElement("span");
-    spanFem.style.fontStyle = "italic";
-    spanFem.innerHTML = spell(soundChange(femNoun));
-    newLi.appendChild(spanFem);
-    let femNounMeaning = "";
-    //replaces the previously generated word with the new feminine form derived from the masculine
-    if(englishWord === "bull") {
-        femNounMeaning = "cow";
-        generatedCountNouns[countNounArray.indexOf("cow")] = bareRoot;
-    }
-    if(englishWord === "horse") {
-        femNounMeaning = "mare";
-        generatedCountNouns[countNounArray.indexOf("mare")] = bareRoot;
-    }
-    if(englishWord === "pig") {
-        femNounMeaning = "she-pig";
-    }
-    if(englishWord === "wolf") {
-        femNounMeaning = "she-wolf";
-    }
-    if(englishWord === "rooster") {
-        femNounMeaning = "chicken";
-        generatedCountNouns[countNounArray.indexOf("chicken")] = bareRoot;
-    }
-    if(englishWord === "elk") {
-        femNounMeaning = "elk doe";
-    }
-    if(englishWord === "dog") {
-        femNounMeaning = "bitch";
-    }
-    if(englishWord === "ram") {
-        femNounMeaning = "ewe";
-        generatedCountNouns[countNounArray.indexOf("ewe")] = bareRoot;
-    }
-    spanFemMeaning.innerHTML = ` "${femNounMeaning}"`
-    newLi.appendChild(spanFemMeaning)
-    document.getElementById("masc-fem-gender-switch2").appendChild(newLi);
 }
 
 function switchNounGenderHumanAnimal(englishWord) {
@@ -3062,61 +3150,64 @@ function switchNounGenderHumanAnimal(englishWord) {
     let bareRoot = generatedCountNouns[nounIndex];
     let animalNoun = "";
     let humanNoun = "";
-    if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
-        animalNoun = bareRoot + animalAffix + singularAffix;
-        humanNoun = bareRoot + humanAffix + singularAffix;
-    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
-        animalNoun = animalAffix + bareRoot + singularAffix;
-        humanNoun = humanAffix + bareRoot + singularAffix;
-    } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
-        animalNoun = singularAffix + animalAffix + bareRoot;
-        humanNoun = singularAffix + humanAffix + bareRoot;
-    }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
-        animalNoun = singularAffix + bareRoot + animalAffix;
-        humanNoun = singularAffix + bareRoot + humanAffix;
-    }
-    if(markedSingularOrNot() === false && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
-        animalNoun = bareRoot + animalAffix;
-        humanNoun = bareRoot + humanAffix;
-    } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
-        animalNoun = animalAffix + bareRoot;
-        humanNoun = humanAffix + bareRoot;
-    } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
-        animalNoun = animalAffix + bareRoot;
-        humanNoun = humanAffix + bareRoot;
-    }else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
-        animalNoun = bareRoot + animalAffix;
-        humanNoun = bareRoot + humanAffix;
-    }
     
-    let spanAnimal = document.createElement("span");
-    let spanAnimalMeaning = document.createElement("span");
-    spanAnimal.style.fontStyle = "italic";
-    spanAnimal.innerHTML = spell(soundChange(animalNoun));
-    spanAnimalMeaning.innerHTML = ` "${englishWord}" > `
-    newLi.appendChild(spanAnimal)
-    newLi.appendChild(spanAnimalMeaning)
-    let spanHuman = document.createElement("span");
-    let spanHumanMeaning = document.createElement("span");
-    spanHuman.style.fontStyle = "italic";
-    spanHuman.innerHTML = spell(soundChange(humanNoun));
-    newLi.appendChild(spanHuman);
-    let humanNounMeaning = "";
-    //replaces the previously generated word with the new feminine form derived from the masculine
-    if(englishWord === "cow") {
-        humanNounMeaning = "cowherd";
-        generatedCountNouns[countNounArray.indexOf("cowherd")] = bareRoot;
-    }
-    if(englishWord === "sheep") {
-        humanNounMeaning = "shepherd";
-    }
-    if(englishWord === "horse") {
-        humanNounMeaning = "horsegroom";
-    }
+    if(genderNum === 12) {
+        if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
+            animalNoun = bareRoot + animalAffix + singularAffix;
+            humanNoun = bareRoot + humanAffix + singularAffix;
+        } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
+            animalNoun = animalAffix + bareRoot + singularAffix;
+            humanNoun = humanAffix + bareRoot + singularAffix;
+        } else if(markedSingularOrNot() && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
+            animalNoun = singularAffix + animalAffix + bareRoot;
+            humanNoun = singularAffix + humanAffix + bareRoot;
+        }else if(markedSingularOrNot() && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
+            animalNoun = singularAffix + bareRoot + animalAffix;
+            humanNoun = singularAffix + bareRoot + humanAffix;
+        }
+        if(markedSingularOrNot() === false && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "suffix") {
+            animalNoun = bareRoot + animalAffix;
+            humanNoun = bareRoot + humanAffix;
+        } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "suffix") {
+            animalNoun = animalAffix + bareRoot;
+            humanNoun = humanAffix + bareRoot;
+        } else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "prefix" && numberSuffixOrPrefix === "prefix") {
+            animalNoun = animalAffix + bareRoot;
+            humanNoun = humanAffix + bareRoot;
+        }else if(markedSingularOrNot() === false  && genderSuffixOrPrefix === "suffix" && numberSuffixOrPrefix === "prefix") {
+            animalNoun = bareRoot + animalAffix;
+            humanNoun = bareRoot + humanAffix;
+        }
+        
+        let spanAnimal = document.createElement("span");
+        let spanAnimalMeaning = document.createElement("span");
+        spanAnimal.style.fontStyle = "italic";
+        spanAnimal.innerHTML = spell(soundChange(animalNoun));
+        spanAnimalMeaning.innerHTML = ` "${englishWord}" > `
+        newLi.appendChild(spanAnimal)
+        newLi.appendChild(spanAnimalMeaning)
+        let spanHuman = document.createElement("span");
+        let spanHumanMeaning = document.createElement("span");
+        spanHuman.style.fontStyle = "italic";
+        spanHuman.innerHTML = spell(soundChange(humanNoun));
+        newLi.appendChild(spanHuman);
+        let humanNounMeaning = "";
+        //replaces the previously generated word with the new feminine form derived from the masculine
+        if(englishWord === "cow") {
+            humanNounMeaning = "cowherd";
+            generatedCountNouns[countNounArray.indexOf("cowherd")] = bareRoot;
+        }
+        if(englishWord === "sheep") {
+            humanNounMeaning = "shepherd";
+        }
+        if(englishWord === "horse") {
+            humanNounMeaning = "horsegroom";
+        }
 
-    spanHumanMeaning.innerHTML = ` "${humanNounMeaning}"`
-    newLi.appendChild(spanHumanMeaning)
-    document.getElementById("human-animal-gender-switch").appendChild(newLi);
+        spanHumanMeaning.innerHTML = ` "${humanNounMeaning}"`
+        newLi.appendChild(spanHumanMeaning)
+        document.getElementById("human-animal-gender-switch").appendChild(newLi);
+    }
 }
 
 function AgglutinativeNouns() {

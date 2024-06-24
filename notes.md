@@ -55,7 +55,7 @@ Phonotactic ideas:
 - Nominal conjunctions - are two nouns conjoined differently than two adjectives or two verbs? If so, how?
 - Can nouns be topicalised? If so, then how? word order change? affixation? particles?
 - Case examples must be added once verbs are done.
-- Nouns may have negative forms derived with affixation. E.g "sorus" "cat" > "sorusne" "that which is not a cat"
+- Nouns may have negative forms derived with affixation. E.g "sorus" "cat" > "sorusne" "that which is not a cat" just likd the prefix non-
 
 # Adjectives
 - are adjective nominal or verbal in nature?

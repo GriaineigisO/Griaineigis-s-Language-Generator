@@ -8,13 +8,14 @@ let allGeneratedWordsArray = [];
 function generateWords() {
 	...
 	newWord = newSyllableArray.join("");
-	if (allGeneratedWordsArray.includes(newWord) === fakse) {
+	if (allGeneratedWordsArray.includes(newWord) === false) {
 		allGeneratedWordsArray.push(newWord)
 		return newWord;
 	}
 }
 
-- Make it so that the quantifiers show up for languages with classifiers too
+
+
 - Add animacy based classifiers
   - man < "man"
   - woman < woman

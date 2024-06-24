@@ -1,45 +1,18 @@
 # Immediate To-Do List
 
-## Code to stop lots of homophomes
-
-The allGeneratedWordsArray will store all generated words. It has no functiin beyond this. When a new word is generated, it will then be checked if allGeneratedWordsArray already has the same sounding word. If not, then the newly generated word is returned and accepted as a word. I am not sure what will happen if the word is already present, will the function just make a new one or perhaps return nothing. The randomNum allows for a minority of homophones to exist, but the vast majority will be pruned.
-```
-let allGeneratedWordsArray = [];
-function generateWords() {
-	...
-	newWord = newSyllableArray.join("");
-	let randomNum = Math.floor(Math.random() * 30);
-	//if the generated word is a homophone with an already existing word
-	if (allGeneratedWordsArray.includes(newWord)) {
-		if (randomNum === 6) {
-			//homophone accepted
-			return newWord:
-		} else {
-			//homophone rejected and replaced with a new word
-			newWord = generateWord();
-			allGeneratedWordsArray.push(newWord)
-			return newWord;
-			}
-	} else {
-		return newWord;
-	}
-}
-```
-
-Hopefully this does not cause an infinite loop
-
-
 - Add animacy based classifiers
+
   - man < "man"
   - woman < woman
   - child < child
   - wild animal < "foot", "wolf", "
-  - domestic animal for meat < "meat", "food", "cow", "goat"
+  - domestic animal for meat < "meat", "food", "goat"
   - domestic animal for fur < "fur", "skin", "pelt", "sheep",
   - domestic animal for labour < "work", "labour", "push", "horse", "hoof", "donkey"
-  - domestic animal for milk < "milk", "udder", "goat", "cow"
+  - domestic animal for milk < "milk", "udder", "cow"
   - inedible < "thing", "rock",
   - edible < "basket", "berry"
+
 - Add this classifier system
   - human < "man",
   - tree < "oak", "alder", "elm", "beech" etc
@@ -74,7 +47,8 @@ Phonotactic ideas:
 - Use reduplication? The affix can be created by copying the host word, splitting the word into an array and only copying the first N amount of indexes into a new array, which is then joined to form a string. This must happen dymanically with each new word. E.g "buldoris" > copyArray["b", "u", "l", "d", "o", "r", "i", "s"] > randomNum === 3 > newArray["b", "u", "l"] > "bul" > "bulbuldoris".
 
 # Negation
-- There may be a singular negative morpheme, and various derivations of it (e.g *ne- > none, nobody, no, not) or various unrelated negators. These other negators may be derived from existeing vocabulary in the same manner as french pas
+
+- There may be a singular negative morpheme, and various derivations of it (e.g \*ne- > none, nobody, no, not) or various unrelated negators. These other negators may be derived from existeing vocabulary in the same manner as french pas
 - for fusional and agglutinative languages, is negation done with affixation or with a particle?
 - verbs may be negated with a negative verb like Uralic languages
 
@@ -86,6 +60,7 @@ Phonotactic ideas:
 - Nouns may have negative forms derived with affixation. E.g "sorus" "cat" > "sorusne" "that which is not a cat" just likd the prefix non-
 
 # Adjectives
+
 - are adjective nominal or verbal in nature?
 - What degrees of comparison are there? Are they formed with affixation? particles? reduplication>
   - big
@@ -118,17 +93,19 @@ then make a section to show tables with each verb in all possible
 inflections much like the inflection noun section
 
 # Pronouns
+
 - Is there is a dedicated third person?
 - inclusive vs exclusive distinction
 - gender differences depending on wnat gender system is present, are 1st and 2nd pronouns affected also? Assuming a masculine-feminine system. Perhaps pronouns in the divine gender can be used to refer to humans filling divine roles (priests, augurs) and gods
 
 # Possession
-- Alienable vs inalienable possession. 
-	- Alienable possession shown by
-		- Dative construction e.g "the car to me"
-		- adpositional "with, by, on at" etc
-		- B-possession "the car (that) belongs to me"
-		- some kind of "distance" derivational affix?/particle?
+
+- Alienable vs inalienable possession.
+  - Alienable possession shown by
+    - Dative construction e.g "the car to me"
+    - adpositional "with, by, on at" etc
+    - B-possession "the car (that) belongs to me"
+    - some kind of "distance" derivational affix?/particle?
 
 # Derivation
 

@@ -28,7 +28,9 @@ import naturalArtificial from './nounGender/natural_artificial.js'
 import divineNonDivine from './nounGender/divine_nondivine.js';
 import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
 import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js';
-import shapeClassifierArray from './ClassifierArrays/shapeClassifiers.js'
+import shapeClassifierArray from './ClassifierArrays/shapeClassifiers.js';
+import animacyClassifierArray from './ClassifierArrays/animacyClassifiers.js'
+import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMass.js'
 
 import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
@@ -104,7 +106,16 @@ let shapelessArray = [];
 let shapelessMassArray = [];
 let exampleArray = [];
 let allGeneratedWordsArray = [];
-
+let manArray = [];
+let womanArray = [];
+let childArray = [];
+let wildAnimalArray = [];
+let meatArray = [];
+let furArray = [];
+let labourArray = [];
+let milkArray = [];
+let edibleArray = [];
+let inedibleArray = [];
 
 let wordThere = "";
 let wordHere = "";
@@ -159,6 +170,16 @@ let roundClassifier = "";
 let pointedClassifier = "";
 let flatClassifier = "";
 let shapelessClassifier = "";
+let manClassifier = "";
+let womanClassifier = "";
+let childClassifier = "";
+let wildAnimalClassifier = "";
+let meatClassifier = "";
+let furClassifier = "";
+let labourClassifier = "";
+let milkClassifier = "";
+let edibleClassifier = "";
+let inedibleClassifier = "";
 
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
@@ -227,6 +248,17 @@ function clearGeneratedArrays() {
     shapelessMassArray = [];
     exampleArray = [];
     allGeneratedWordsArray = [];
+    manArray = [];
+    womanArray = [];
+    childArray = [];
+    wildAnimalArray = [];
+    meatArray = [];
+    furArray = [];
+    labourArray = [];
+    milkArray = [];
+    edibleArray = [];
+    inedibleArray = [];
+
 
     wordThere = "";
     wordHere = "";
@@ -280,6 +312,16 @@ function clearGeneratedArrays() {
     pointedClassifier = "";
     flatClassifier = "";
     shapelessClassifier = "";
+    manClassifier = "";
+    womanClassifier = "";
+    childClassifier = "";
+    wildAnimalClassifier = "";
+    meatClassifier = "";
+    furClassifier = "";
+    labourClassifier = "";
+    milkClassifier = "";
+    edibleClassifier = "";
+    inedibleClassifier = "";
 
 
     document.getElementById("orthography").replaceChildren();
@@ -339,7 +381,6 @@ function generateSecondWord() {
         }  
     }
     newWord = newSyllableArray.join("");
-    console.log(newWord)
 	return newWord;
 }
 
@@ -384,35 +425,27 @@ function generateWords() {
         }  
     }
     newWord = newSyllableArray.join("");
-    console.log(newWord)
     let randomNum = Math.floor(Math.random() * 100);
 	//if the generated word is a homophone with an already existing word
-    console.log(allGeneratedWordsArray.sort())
 	if (allGeneratedWordsArray.includes(newWord)) {
-        console.log("homophone detected")
 		if (randomNum === 6) {
 			//homophone accepted
-            console.log("homophone accepted")
             allGeneratedWordsArray.push(newWord);
 			return newWord;
 		} else {
-			console.log("homophone rejected")
             //homophone rejected and replaced with a new word
 			//newWord = generateSecondWord();
             //console.log(newWord);
 			//allGeneratedWordsArray.push(newWord);
             let newWordReplacement = generateSecondWord();
-            console.log(newWordReplacement)
             if(allGeneratedWordsArray.includes(newWordReplacement) === false) {
                 allGeneratedWordsArray.push(newWordReplacement);
                 return newWordReplacement;
             } else {
-                console.log("replacement was  ahomophone")
-            }
-			
-			}
+                return newWordReplacement;
+            }			
+		}
 	} else {
-        console.log("homophone not detected")
         allGeneratedWordsArray.push(newWord);
 		return newWord;
 	}
@@ -453,7 +486,7 @@ function generateRandomNameForLanguage () {
     }
 }
 
-//Since almost every had had at least one long vowel, the below function serves to randomly shorten vowels in words to bring the number of long vowels down to a more agreeable number.
+//Since almost every word had had at least one long vowel, the below function serves to randomly shorten vowels in words to bring the number of long vowels down to a more agreeable number.
 function reduceAmountOfLongVowels(array) {
     for(let i = 0; i < array.length; i++) {
         let wordArray = Array.from(array[i])
@@ -949,7 +982,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -981,7 +1014,7 @@ function chooseTypology() {
 /****************WORD ORDER RELATED SECTION*******/
 let wordOrderNum = 0;
 function randomNumForWordOrder() {
-    wordOrderNum = Math.floor(Math.random() * 6)
+    wordOrderNum = 2//Math.floor(Math.random() * 6)
 }
 
 function chooseWordOrder() {
@@ -1190,6 +1223,7 @@ function fixAffixes() {
 function randomNumMarkedSingular() {
     randomNumForMarkedSingular = Math.floor(Math.random() * 4)
 }
+
 function markedSingularOrNot() {
     if(typologyNum === 1 && randomNumForMarkedSingular === 1) {
         return true;
@@ -1302,7 +1336,7 @@ function checkIfHeadInitialOrHeadFinal() {
 /**ISOLATING NOUNS****/
 let grammaticalNumIsolating = 0;
 function randomNumForIsolatingGrammaticalNumbers() {
-    grammaticalNumIsolating = Math.floor(Math.random() * 11)
+    grammaticalNumIsolating = 8//Math.floor(Math.random() * 11)
     if(grammaticalNumIsolating < 5) {
         document.getElementById("isolating-quanitifers-only").style.display = "block";
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "none";
@@ -1609,9 +1643,10 @@ function createQuantifiers() {
 
 let randomClassifierNum = 0;
 function chooseClassifierSystem() {
-    randomClassifierNum = 0//Math.floor(Math.random() * 3)
+    randomClassifierNum = 1//Math.floor(Math.random() * 3)
     if(randomClassifierNum === 0) {
         document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
+        document.getElementById("shape-based-classifier-tables").style.display = "block";
     } else if(randomClassifierNum === 1) {
         document.getElementById("classifier-text").innerHTML = `The categorization of nouns is focused on animacy, with nouns for living things having various categories while all non-living things are lumped into just two categories, edible and inedible.`
     } else if(randomClassifierNum === 2) {
@@ -1640,7 +1675,7 @@ let randomNumForRound = 0;
 let randomNumForPointed = 0;
 let randomNumForFlat = 0;
 let randomNumForShapeless = 0;
-function createClassifiers() {
+function createShapeClassifiers() {
     //to count how many classifiers are derived from pre-existing words vs which are generated 
     let classifiersWithEtymology = 0;
     let longAndSlenderExample = "";
@@ -1772,21 +1807,90 @@ function createClassifiers() {
     }
 
     if(classifiersWithEtymology > 0) {
-        document.getElementById("classifiers-etymology").style.display = "block";
+        document.getElementById("shape-classifiers-etymology").style.display = "block";
     } else {
-        document.getElementById("classifiers-etymology").style.display = "none";
+        document.getElementById("shape-classifiers-etymology").style.display = "none";
     }
 
     const listOfSpans = [];
     if(classifierEtymologyArray.length === 1) {
         let joinedString = classifierEtymologyArray.join();
-        document.getElementById("classifiers-etymology-examples").innerHTML = `${joinedString}.`;
+        document.getElementById("shape-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
     } else {
      classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
         listOfSpans.pop()
         listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
         let listOfSpansString =  listOfSpans.join(", ")
-        document.getElementById("classifiers-etymology-examples").innerHTML = listOfSpansString;
+        document.getElementById("shape-classifiers-etymology-examples").innerHTML = listOfSpansString;
+    }
+}
+
+let randomNumForMan = 0;
+let randomNumForWoman = 0;
+let randomNumForChild = 0;
+let randomNumForWildAnimal = 0;
+let randomNumForMeat = 0;
+let randomNumForFur = 0;
+let randomNumForLabour = 0;
+let randomNumForMilk = 0;
+let randomNumForEdible = 0;
+let randomNumForInEdible = 0;
+function createAnimacyClassifiers() {
+    //to count how many classifiers are derived from pre-existing words vs which are generated 
+    let classifiersWithEtymology = 0;
+    let manExample = "";
+    let womanExample = "";
+    let childExample = "";
+    let wildAnimalExample = "";
+    let meatExample = "";
+    let furExample = "";
+    let labourExample = "";
+    let milkExample = "";
+    let edibleExample = "";
+    let inedibleExample = "";
+    let classifierEtymologyArray = [];
+    
+    let man = document.getElementsByClassName("man");
+    randomNumForMan = Math.floor(Math.random() * 2);
+    if(randomNumForMan === 0) {
+        manClassifier = generatedCountNouns[countNounArray.indexOf("man")]
+        classifiersWithEtymology++;
+        manExample = `<i>${spell(soundChange(manClassifier))}</i> "man"`;
+        classifierEtymologyArray.push(manExample);
+    } else if (randomNumForMan === 1) {
+        manClassifier = generateWords();
+        
+    }
+    for(let i = 0; i < man.length; i++) {
+        man[i].innerHTML = spell(soundChange(manClassifier));
+    }
+
+    let woman = document.getElementsByClassName("woman");
+    randomNumForWoman = 0//Math.floor(Math.random() * 2);
+    if(randomNumForWoman === 0) {
+        womanClassifier = generatedCountNouns[countNounArray.indexOf("woman")]
+        classifiersWithEtymology++;
+        womanExample = `<i>${spell(soundChange(womanClassifier))}</i> "woman"`;
+        classifierEtymologyArray.push(womanExample);
+    } else if (randomNumForMan === 1) {
+        womanClassifier = generateWords();
+        
+    }
+    for(let i = 0; i < woman.length; i++) {
+        woman[i].innerHTML = spell(soundChange(womanClassifier));
+    }
+
+
+    const listOfSpans = [];
+    if(classifierEtymologyArray.length === 1) {
+        let joinedString = classifierEtymologyArray.join();
+        document.getElementById("animacy-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
+    } else {
+     classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
+        listOfSpans.pop()
+        listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
+        let listOfSpansString =  listOfSpans.join(", ")
+        document.getElementById("animacy-classifiers-etymology-examples").innerHTML = listOfSpansString;
     }
 }
 
@@ -1843,6 +1947,8 @@ let forkExample = "";
 let slabExample = "";
 let faceExample = "";
 let airExample = "";
+let manExample = "";
+let womanExample ="";
 
 function classifierExamplesInDictionaryEntries(word, array) {
 
@@ -1912,6 +2018,11 @@ function callClassifierExamples() {
     MassclassifierExamplesInDictionaryEntries("air", shapelessMassArray);
     airExample = exampleArray[12];
 
+    classifierExamplesInDictionaryEntries("man", manArray);
+    manExample = exampleArray[13];
+
+    classifierExamplesInDictionaryEntries("woman", womanArray);
+    womanExample = exampleArray[14];
 }
 
 function IsolatingNouns() {
@@ -1921,6 +2032,9 @@ function IsolatingNouns() {
     selectNounsClassifier(shapeClassifierArray, pointedArray, "pointed");
     selectNounsClassifier(shapeClassifierArray, flatArray, "flat");
     selectNounsClassifier(shapeClassifierArray, shapelessArray , "shapeless");
+
+    selectNounsClassifier(animacyClassifierArray, manArray, "man");
+    selectNounsClassifier(animacyClassifierArray, womanArray, "woman");
 
     selectMassNounsClassifier(shapeClassifierMassArray, longAndSlenderArray, "long-and-slender");
     selectMassNounsClassifier(shapeClassifierMassArray, shortAndWideArray, "short-and-wide");
@@ -3531,7 +3645,8 @@ function generateLanguage() {
     chooseQuanitifers();
     createQuantifiers();
     chooseClassifierSystem();
-    createClassifiers();
+    createShapeClassifiers();
+    createAnimacyClassifiers();
     IsolatingNouns();
     randomNumForAgglutinativeGrammaticalNumbers();
     inflectGenderlessNouns();
@@ -3588,4 +3703,4 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
    }
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless};
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman};

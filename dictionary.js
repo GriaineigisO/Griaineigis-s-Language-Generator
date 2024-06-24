@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -26,6 +26,7 @@ import naturalArtificialMass from './nounGender/natural_artificial_mass.js'
 import {soundChange} from './soundchange.js'
 import shapeClassifierArray from './ClassifierArrays/shapeClassifiers.js';
 import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js';
+import animacyClassifierArray from './ClassifierArrays/animacyClassifiers.js';
 
 const animateArray = [];
 const inanimateArray = [];
@@ -575,6 +576,26 @@ function makeDictionary() {
                     classifierInfo = "";
                 }
                 
+            }
+        }
+        if(typologyNum === 0 && grammaticalNumIsolating > 5 && randomClassifierNum === 1) {
+            if(countNounArray.includes(englishWords[i])) {
+                let index = countNounArray.indexOf(englishWords[i])
+                if(animacyClassifierArray[index] === "man") {
+                    pOfSpeech = "n.man";
+                    if(englishWords[i] === "man" && randomNumForMan === 0) {
+                        classifierInfo = `; classifier for man nouns: ${manExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
+                } else if(animacyClassifierArray[index] === "woman") {
+                    pOfSpeech = "n.woman";
+                    if(englishWords[i] === "woman" && randomNumForWoman === 0) {
+                        classifierInfo = `; classifier for woman nouns: ${womanExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
+                } 
             }
         }
 

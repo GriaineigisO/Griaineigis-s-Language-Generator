@@ -1,11 +1,115 @@
 # Index
 
 - Classifiers
+  - How to add a new classifier system
   - How to add a classifier to a pre-existing classifier system
 - Words
   - Adding a new word
 
 # Classifiers
+
+## How to add a new classifier system
+
+In this example, the "short generic" classifier system will be added.
+
+1. in `script.js`, there is a list of functions named `createXClassifiers()` (X being the name of the classifier system). After the last of these functions, add `function createShortGenericClassifiers()`. Call the function in the `generateLanguage()` under the most recent `createXClassifiers()` function.
+
+2. Back to the `createShortGenericClassifiers()` function. Directly above where the function is declared, write a list of variable declarations. These will be the random numbers used within the function. They should be titled `randomNumFor` and then the name of each specific classifier in the given system. In this example, this list of variable declarations looks like:
+
+   ```
+   let randomNumForHuman = 0;
+   let randomNumForTree = 0;
+   let randomNumForGrass = 0;
+   let randomNumForFlower = 0;
+   let randomNumForLandAnimal = 0;
+   let randomNumForSeaAnimal = 0;
+   let randomNumForFlyingAnimal = 0;
+   let randomNumForWord = 0;
+   let randomNumForTool = 0;
+   let randomNumForNatural = 0;
+   let randomNumForLiquid = 0;
+   function createShortGenericClassifiers() {
+   }
+   ```
+
+3. Within the function itself, at the very top, there is yet another list of variable delcarations. The first two will always be the same regardless of the classifier system, they are:
+
+   ```
+   let classifiersWithEtymology = 0;
+   let classifierEtymologyArray = [];
+   ```
+
+After that, a list of variables will be declared with the format `let XExample = "";` where "X" is the name of each individual classifier:
+
+    ```
+    let humanExample = "";
+    let treeExample = "";
+    let grassExample = "";
+    let flowerExample = "";
+    let landAnimalExample = "";
+    let seaAnimalExample = "";
+    let flyingAnimalExample = "";
+    let wordExample = "";
+    let toolExample = "";
+    let naturalExample = "";
+    let liquidExample = "";
+    ```
+
+4. At the very bottom of the function, add the following code. This creates a sentence explaining the origin of any classifier that comes from a pre-existing word.
+
+   ```
+   const listOfSpans = [];
+   if(classifierEtymologyArray.length === 1) {
+       let joinedString = classifierEtymologyArray.join();
+       document.getElementById("short-generic-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
+   } else {
+    classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
+       listOfSpans.pop()
+       listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
+       let listOfSpansString =  listOfSpans.join(", ")
+       document.getElementById("short-generic-classifiers-etymology-examples").innerHTML = listOfSpansString;
+   }
+   ```
+
+5. To add the corresponding HTML for the code in step 4, go to `index.html`. Open the following `div`s: `nouns` > `isolating-nouns` > `isolating-quanitifers-and-classifiers-purely-numerical`. At the bottom of `isolating-quanitifers-and-classifiers-purely-numerical`, add the follwing `div`:
+
+   ```
+   <div id="short-generic-based-classifier-tables">
+
+   </div>
+   ```
+
+6. In said `div`, add the following table. The number after `classifier-table-` should be one greater than the last table of the previous classifier system.
+
+   ```
+   <div id="short-generic-based-classifier-tables">
+             <table class="example-table headFinal" id="classifier-table-4-headFinal">
+               <tr>
+                 <th>Category</th>
+                 <th>Classifier</th>
+                 <th>Example</th>
+                 <th>Translation</th>
+               </tr>
+               <tr>
+                 <!--add classifiers here-->
+               </tr>
+             </table>
+           </div>
+   ```
+
+7. Under the table add the following code:
+
+   ```
+   <p id="short-generic-classifiers-etymology">Some classifiers are derived from pre-existing words such as <span id="short-generic-classifiers-etymology-examples"></span></p>
+   ```
+
+8. Finally, in the function `chooseClassifierSystem()`, add this `else if` at the end of the if-statement. `X` should be one number higher than in the last `else if` statement. Change the `.innerHTML` to an appropriate description of the classifier system.
+
+   ```
+   else if(randomClassifierNum === X) {
+       document.getElementById("short-generic-based-classifier-tables").innerHTML = `Nouns are assigned classifiers based on which semantic category they fall into, based more on folk taxonomy than anything else.`
+   }
+   ```
 
 ## How to add a classifier to a pre-existing classifier system
 

@@ -334,7 +334,7 @@ h1, h2, h3, h4 {
 #quantifier-few-example-head-first,
 #few-translation-head-first,
 #quantifier-few-example-head-final,
-#few-translation-head-final, #classifier-table-1-headFirst, #classifier-table-1-headFinal, #shape-based-classifier-tables {
+#few-translation-head-final, #classifier-table-1-headFirst, #classifier-table-1-headFinal, #shape-based-classifier-tables, #animacy-based-classifier-tables, #short-generic-based-classifier-tables {
     display: none;
 }
 

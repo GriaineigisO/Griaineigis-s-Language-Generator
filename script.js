@@ -1644,14 +1644,16 @@ function createQuantifiers() {
 
 let randomClassifierNum = 0;
 function chooseClassifierSystem() {
-    randomClassifierNum = 1//Math.floor(Math.random() * 3)
+    randomClassifierNum = 2//Math.floor(Math.random() * 3)
     if(randomClassifierNum === 0) {
         document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
         document.getElementById("shape-based-classifier-tables").style.display = "block";
     } else if(randomClassifierNum === 1) {
         document.getElementById("classifier-text").innerHTML = `The categorization of nouns is focused on animacy, with nouns for living things having various categories while all non-living things are lumped into just two categories, edible and inedible.`
+        document.getElementById("animacy-based-classifier-tables").style.display = "block";
     } else if(randomClassifierNum === 2) {
-        document.getElementById("classifier-text").innerHTML = `Nouns are categorized according to folk taxonomy.`
+        document.getElementById("classifier-text").innerHTML = `Nouns are assigned classifiers based on which semantic category they fall into, based more on folk taxonomy than anything else.`
+        document.getElementById("short-generic-based-classifier-tables").style.display = "block";
     }
 
     let headFirstClassifierTable = document.getElementsByClassName("headFirst");
@@ -2027,7 +2029,7 @@ function createAnimacyClassifiers() {
     }
 
     let edible = document.getElementsByClassName("edible");
-    randomNumForEdible = 1//Math.floor(Math.random() * 4);
+    randomNumForEdible = Math.floor(Math.random() * 4);
     if(randomNumForEdible === 0) {
         edibleClassifier = generatedCountNouns[countNounArray.indexOf("basket")]
         classifiersWithEtymology++;
@@ -2055,6 +2057,47 @@ function createAnimacyClassifiers() {
         listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
         let listOfSpansString =  listOfSpans.join(", ")
         document.getElementById("animacy-classifiers-etymology-examples").innerHTML = listOfSpansString;
+    }
+}
+
+let randomNumForHuman = 0;
+let randomNumForTree = 0;
+let randomNumForGrass = 0;
+let randomNumForFlower = 0;
+let randomNumForLandAnimal = 0;
+let randomNumForSeaAnimal = 0;
+let randomNumForFlyingAnimal = 0;
+let randomNumForWord = 0;
+let randomNumForTool = 0;
+let randomNumForNatural = 0;
+let randomNumForLiquid = 0;
+function createShortGenericClassifiers() {
+    let classifiersWithEtymology = 0;
+    let classifierEtymologyArray = [];
+    let humanExample = "";
+    let treeExample = "";
+    let grassExample = "";
+    let flowerExample = "";
+    let landAnimalExample = "";
+    let seaAnimalExample = "";
+    let flyingAnimalExample = "";
+    let wordExample = "";
+    let toolExample = "";
+    let naturalExample = "";
+    let liquidExample = "";
+
+
+
+    const listOfSpans = [];
+   if(classifierEtymologyArray.length === 1) {
+       let joinedString = classifierEtymologyArray.join();
+       document.getElementById("short-generic-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
+   } else {
+    classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
+       listOfSpans.pop()
+       listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
+       let listOfSpansString =  listOfSpans.join(", ")
+       document.getElementById("short-generic-classifiers-etymology-examples").innerHTML = listOfSpansString;
     }
 }
 
@@ -3944,6 +3987,7 @@ function generateLanguage() {
     chooseClassifierSystem();
     createShapeClassifiers();
     createAnimacyClassifiers();
+    createShortGenericClassifiers();
     IsolatingNouns();
     randomNumForAgglutinativeGrammaticalNumbers();
     inflectGenderlessNouns();

@@ -128,6 +128,18 @@ _-_ when making compounds for dictionary, have each part of a compound be from a
 
 - Common phrases like greetings to be generated a wide variety of ways, randomly chosen of course.
 
+## Choosing Vocabulary
+
+To prevent the exact same set of English words being chosen every time, there will be certian if-statements to control what words are added. Mostly cultural and habiat soecies vocab
+
+1. Habitat: temperate forest, upland area, tropical rainforest, desert, swamps, bogs, temperate forests, taiga, tundra (several may be chosen if different habitats can co-exist side by side)
+2. lifestyle: hunter-gatherer, agricultural, pastoralist (if the speaker have trade, then they may have words for traded goods from other lifestyles)
+3 governance: fuedal, small bands of families, tribal confederation etc
+4 Military class?
+
+Colour metaohors? 
+
+
 ## Features to be randomized/chosen
 
 - Stative verbs vs nominal adjectives

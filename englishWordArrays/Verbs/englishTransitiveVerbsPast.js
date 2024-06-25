@@ -109,6 +109,7 @@ let transitiveVerbPastArray = [
 "propelled",
 "protected",
 "pulled",
+"pushed",
 "put",
 "raked",
 "read",

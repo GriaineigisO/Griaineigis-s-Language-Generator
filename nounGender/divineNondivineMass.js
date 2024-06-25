@@ -23,6 +23,7 @@ const divineNonDivineMass = [
     "profane",
     "profane",
     "profane",
+    "profane",
     "divine",
     "profane",
     "divine",

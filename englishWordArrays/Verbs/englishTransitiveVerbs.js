@@ -109,6 +109,7 @@ let transitiveVerbArray = [
 "propel",
 "protect",
 "pull",
+"push",
 "put",
 "rake",
 "read",

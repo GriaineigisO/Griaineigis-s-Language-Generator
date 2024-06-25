@@ -25,6 +25,8 @@ const shapeClassifierMassArray = [
 "shapeless",
 "shapeless",
 "shapeless",
+"shapeless",
+"shapeless",
 ]
 
 export default shapeClassifierMassArray;

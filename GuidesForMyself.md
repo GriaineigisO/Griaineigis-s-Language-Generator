@@ -31,7 +31,7 @@ In this example, the "child" classifier will be added to the Animate classifier 
    }
    ```
 
-   In the line `childClassifier = generatedCountNouns[countNounArray.indexOf("child")]`, please make sure that the word within the `.indexOf` method already exists in the dictionary. This will not work if the word has not yet been added.
+   In the line `childClassifier = generatedCountNouns[countNounArray.indexOf("child")]`, please make sure that the word within the `.indexOf` method already exists in the dictionary. This will not work if the word has not yet been added. If the noun if a mass noun then be sure to use `generatedMassNouns[massNounArray.indexOf()` instead of `generatedCountNouns[countNounArray.indexOf()`. It is possible to use a verb or adjective root as a classifier, in such a case, use the functions `verbClassifierExamplesInDictionaryEntries()` and `adjectiveClassifierExamplesInDictionaryEntries` instead.
 
    When `randomNumForChild` is 0, the word for the child classifier will be taken from a pre-existing noun, in this case the noun "child". You can add as many possible nouns as you want, so long as the last `else if` is `childClassifier = generateWords();`.
 

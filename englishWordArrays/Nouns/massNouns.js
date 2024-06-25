@@ -12,6 +12,7 @@ const massNounArray = [
     "grass",
     "ice",
     "iron",
+    "labour",
     "meat",
     "milk",
     "mud",

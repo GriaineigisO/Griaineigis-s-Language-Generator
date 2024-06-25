@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -626,18 +626,43 @@ function makeDictionary() {
                    }  else {
                        classifierInfo = "";
                    }
-               }
-            }
+               } else if(animacyClassifierArray[index] === "labour") {
+                   pOfSpeech = "n.labour";
+                   if(englishWords[i] === "horse" && randomNumForLabour === 2) {
+                       classifierInfo = `; classifier for labour nouns: ${horseExample}`
+                   } else if(englishWords[i] === "donkey" && randomNumForLabour === 4) {
+                       classifierInfo = `; classifier for labour nouns: ${donkeyExample}`
+                   } else {
+                       classifierInfo = "";
+                   }
+               } else if(animacyClassifierArray[index] === "inedible") {
+                   pOfSpeech = "n.inedible";
+                   if(englishWords[i] === "hoof" && randomNumForLabour === 3) {
+                       classifierInfo = `; classifier for labour nouns: ${hoofExample}`
+                   }  else {
+                       classifierInfo = "";
+                   }
+                }
             if(massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i]);
                 if(animacyClassifierArray[index] === "inedible") {
                    pOfSpeech = "n.inedible";
                    if(englishWords[i] === "skin" && randomNumForFur === 0) {
                        classifierInfo = `; classifier for fur nouns: ${skinExample}`
+                   } else if(englishWords[i] === "labour" && randomNumForLabour === 0) {
+                       classifierInfo = `; classifier for labour nouns: ${labourExample}`
                    }  else {
                        classifierInfo = "";
                    }
                }
+            }
+            if(transitiveVerbArray.includes(englishWords[i])) {
+                   if(englishWords[i] === "push" && randomNumForLabour === 1) {
+                       classifierInfo = `; classifier for labour nouns: ${pushExample}`
+                   } else {
+                       classifierInfo = "";
+                   }
+               
             }
         }
 
@@ -676,6 +701,7 @@ function makeDictionary() {
         entry.innerHTML = `${headWord.innerHTML} ${pOS.innerHTML} ${meaning.innerHTML} ${classiferEtymology.innerHTML}`;
         document.getElementById("language-to-english").appendChild(entry);
     }
+}
     
 
     //English to Kerkebulo

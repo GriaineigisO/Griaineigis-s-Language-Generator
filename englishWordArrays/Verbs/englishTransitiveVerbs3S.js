@@ -109,6 +109,7 @@ let transitiveVerb3SArray = [
 "propels",
 "protects",
 "pulls",
+"pushes",
 "puts",
 "rakes",
 "reads",

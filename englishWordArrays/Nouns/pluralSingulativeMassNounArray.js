@@ -12,6 +12,7 @@ const pluralSingulativeMassNounArray = [
     "blades&nbspof&nbspgrass",
     "chunks&nbspof&nbspice",
     "chunks&nbspof&nbspiron",
+    "works&nbspof&nbsplabour",
     "cuts&nbspof&nbspmeat",
     "drops&nbspof&nbspmilk",
     "clumps&nbspof&nbspmud",
@@ -26,6 +27,7 @@ const pluralSingulativeMassNounArray = [
     "drops&nbspof&nbspwater",
     "gusts&nbspof&nbspwind",
     "glasses&nbspof&nbspwine",
+    "periods&nbspof&nbspwork",
 ]
 
 export default pluralSingulativeMassNounArray;

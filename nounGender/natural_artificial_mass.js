@@ -18,6 +18,7 @@ const naturalArtificialMass = [
     "natural",
     "natural",
     "natural",
+    "natural",
     "artificial",
     "natural",
     "natural",

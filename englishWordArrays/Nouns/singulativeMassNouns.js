@@ -12,6 +12,7 @@ const singulativeMassNounArray = [
     "blade&nbspof&nbspgrass",
     "chunk&nbspof&nbspice",
     "chunk&nbspof&nbspiron",
+    "work&nbspof&nbsplabour",
     "cut&nbspof&nbspmeat",
     "drop&nbspof&nbspmilk",
     "clump&nbspof&nbspmud",
@@ -26,6 +27,7 @@ const singulativeMassNounArray = [
     "drop&nbspof&nbspwater",
     "gust&nbspof&nbspwind",
     "glass&nbspof&nbspwine",
+    "period&nbspof&nbspwork",
 ]
 
 export default singulativeMassNounArray;

@@ -2,13 +2,12 @@
 
 - Add animacy based classifiers
 
-  - domestic animal for labour < "work", "labour", "push", "horse", "hoof", "donkey"
   - domestic animal for milk < "milk", "udder", "cow"
   - inedible < "thing", "rock",
   - edible < "basket", "berry"
 
 - Add this classifier system
-  - human < "man",
+  - human < "man", "human", "person"
   - tree < "oak", "alder", "elm", "beech" etc
   - grass < "grass"
   - flower < "flower"
@@ -134,11 +133,10 @@ To prevent the exact same set of English words being chosen every time, there wi
 
 1. Habitat: temperate forest, upland area, tropical rainforest, desert, swamps, bogs, temperate forests, taiga, tundra (several may be chosen if different habitats can co-exist side by side)
 2. lifestyle: hunter-gatherer, agricultural, pastoralist (if the speaker have trade, then they may have words for traded goods from other lifestyles)
-3 governance: fuedal, small bands of families, tribal confederation etc
-4 Military class?
+   3 governance: fuedal, small bands of families, tribal confederation etc
+   4 Military class?
 
-Colour metaohors? 
-
+Colour metaohors?
 
 ## Features to be randomized/chosen
 

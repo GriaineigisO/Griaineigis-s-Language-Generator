@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -637,24 +637,57 @@ function makeDictionary() {
                    }
                } else if(animacyClassifierArray[index] === "inedible") {
                    pOfSpeech = "n.inedible";
-                   if(englishWords[i] === "hoof" && randomNumForLabour === 3) {
+                   if(englishWords[i] === "thing" && randomNumForInEdible === 0) {
+                       classifierInfo = `; classifier for inedible nouns: ${thingExample}`
+                   } else if(englishWords[i] === "rock" && randomNumForInEdible === 1) {
+                       classifierInfo = `; classifier for inedible nouns: ${rockExample}`
+                   } else if(englishWords[i] === "udder" && randomNumForMilk === 1) {
+                       classifierInfo = `; classifier for milk nouns: ${udderExample}`
+                   }  else if(englishWords[i] === "hoof" && randomNumForLabour === 3) {
                        classifierInfo = `; classifier for labour nouns: ${hoofExample}`
-                   }  else {
+                   }  else if(englishWords[i] === "basket" && randomNumForEdible === 0) {
+                       classifierInfo = `; classifier for edible nouns: ${basketExample}`
+                   } else {
+                       classifierInfo = "";
+                   }
+                } else if(animacyClassifierArray[index] === "milk") {
+                   pOfSpeech = "n.milk";
+                   if(englishWords[i] === "cow" && randomNumForMilk === 2) {
+                       classifierInfo = `; classifier for milk nouns: ${cowExample}`
+                   } else {
+                       classifierInfo = "";
+                   }
+                } else if(animacyClassifierArray[index] === "edible") {
+                   pOfSpeech = "n.edible";
+                   if(englishWords[i] === "berry" && randomNumForEdible === 1) {
+                       classifierInfo = `; classifier for edible nouns: ${berryExample}`
+                   } else {
                        classifierInfo = "";
                    }
                 }
+
+            }
             if(massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i]);
-                if(animacyClassifierArray[index] === "inedible") {
+                if(animacyClassifierMassArray[index] === "inedible") {
                    pOfSpeech = "n.inedible";
                    if(englishWords[i] === "skin" && randomNumForFur === 0) {
                        classifierInfo = `; classifier for fur nouns: ${skinExample}`
                    } else if(englishWords[i] === "labour" && randomNumForLabour === 0) {
                        classifierInfo = `; classifier for labour nouns: ${labourExample}`
-                   }  else {
+                   } else {
                        classifierInfo = "";
                    }
-               }
+               } 
+           
+                if(animacyClassifierMassArray[index] === "edible") {
+                    pOfSpeech = "n.edible";
+                    if(englishWords[i] === "milk" && randomNumForMilk === 0) {
+                        classifierInfo = `; classifier for milk nouns: ${milkExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
+                }
             }
             if(transitiveVerbArray.includes(englishWords[i])) {
                    if(englishWords[i] === "push" && randomNumForLabour === 1) {
@@ -685,7 +718,6 @@ function makeDictionary() {
         }
         
         word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, englishWords[i], classifierInfo);
-        //let word1 = new Dictionary(spell(soundChange("A" + languageWords[i] + "A")), pOfSpeech, englishWords[i]);
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");
@@ -701,7 +733,7 @@ function makeDictionary() {
         entry.innerHTML = `${headWord.innerHTML} ${pOS.innerHTML} ${meaning.innerHTML} ${classiferEtymology.innerHTML}`;
         document.getElementById("language-to-english").appendChild(entry);
     }
-}
+
     
 
     //English to Kerkebulo

@@ -1,11 +1,5 @@
 # Immediate To-Do List
 
-- Add animacy based classifiers
-
-  - domestic animal for milk < "milk", "udder", "cow"
-  - inedible < "thing", "rock",
-  - edible < "basket", "berry"
-
 - Add this classifier system
   - human < "man", "human", "person"
   - tree < "oak", "alder", "elm", "beech" etc
@@ -51,10 +45,10 @@ Phonotactic ideas:
 - Can nouns be topicalised? If so, then how? word order change? affixation? particles?
 - Case examples must be added once verbs are done.
 - Definiteness
-	- marked with affixes or by a demonstrative
-	- derived from a demonstrative? or from some sort of topicaliser, or a partitive like construction
-	- agrees with gender if there is gender
-		- do the articles take the same gender endings? or a different set, or perhaps the article and gender affixes are blended together
+  - marked with affixes or by a demonstrative
+  - derived from a demonstrative? or from some sort of topicaliser, or a partitive like construction
+  - agrees with gender if there is gender
+    - do the articles take the same gender endings? or a different set, or perhaps the article and gender affixes are blended together
 - Nouns may have negative forms derived with affixation. E.g "sorus" "cat" > "sorusne" "that which is not a cat" just likd the prefix non-
 
 # Adjectives

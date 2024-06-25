@@ -19,6 +19,7 @@ const singulativeMassNounArray = [
     "drop&nbspof&nbspsaliva",
     "grain&nbspof&nbspsand",
     "portion&nbspof&nbspsauce",
+    "piece&nbspof&nbspskin",
     "wisp&nbspof&nbspsmoke",
     "wisp&nbspof&nbspsteam",
     "bead&nbspof&nbspsweat",

@@ -19,6 +19,7 @@ const massNounArray = [
     "saliva",
     "sand",
     "sauce",
+    "skin",
     "smoke",
     "steam",
     "sweat",

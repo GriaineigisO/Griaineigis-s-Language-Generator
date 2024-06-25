@@ -2,12 +2,6 @@
 
 - Add animacy based classifiers
 
-  - man < "man"
-  - woman < woman
-  - child < child
-  - wild animal < "foot", "wolf", "
-  - domestic animal for meat < "meat", "food", "goat"
-  - domestic animal for fur < "fur", "skin", "pelt", "sheep",
   - domestic animal for labour < "work", "labour", "push", "horse", "hoof", "donkey"
   - domestic animal for milk < "milk", "udder", "cow"
   - inedible < "thing", "rock",

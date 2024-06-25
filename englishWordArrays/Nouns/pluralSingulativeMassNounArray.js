@@ -19,6 +19,7 @@ const pluralSingulativeMassNounArray = [
     "drops&nbspof&nbspsaliva",
     "grains&nbspof&nbspsand",
     "portions&nbspof&nbspsauce",
+    "pieces&nbspof&nbspskin",
     "wisps&nbspof&nbspsmoke",
     "wisps&nbspof&nbspsteam",
     "beads&nbspof&nbspsweat",

@@ -25,6 +25,7 @@ const humanAnimalInanMass = [
     "secondinanimate",
     "secondinanimate",
     "secondinanimate",
+    "secondinanimate",
 ]
 
 export default humanAnimalInanMass;

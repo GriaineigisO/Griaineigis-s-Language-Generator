@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -27,6 +27,7 @@ import {soundChange} from './soundchange.js'
 import shapeClassifierArray from './ClassifierArrays/shapeClassifiers.js';
 import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js';
 import animacyClassifierArray from './ClassifierArrays/animacyClassifiers.js';
+import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMass.js';
 
 const animateArray = [];
 const inanimateArray = [];
@@ -107,7 +108,7 @@ function makeDictionary() {
         }else if (intensifierArray.includes(englishWords[i])) {
                 pOfSpeech = "adv";
                 wordWithAffix = languageWords[i];
-                classifierInfo = "";;
+                classifierInfo = "";
         }
         if(genderNum > 0 && typologyNum !== 0) {
             if(nounGenderArray.includes("animate") && nounGenderArray.includes("inanimate")) {
@@ -602,6 +603,40 @@ function makeDictionary() {
                    } else {
                        classifierInfo = "";
                    }
+               } else if(animacyClassifierArray[index] === "wild-animal") {
+                   pOfSpeech = "n.wild";
+                   if(englishWords[i] === "wolf" && randomNumForWildAnimal === 0) {
+                       classifierInfo = `; classifier for wild&nbspanimal nouns: ${wolfExample}`
+                   } else if(englishWords[i] === "bear" && randomNumForWildAnimal === 1) {
+                       classifierInfo = `; classifier for wild&nbspanimal nouns: ${bearExample}`
+                   } else {
+                       classifierInfo = "";
+                   }
+               } else if(animacyClassifierArray[index] === "meat") {
+                   pOfSpeech = "n.meat";
+                   if(englishWords[i] === "goat" && randomNumForMeat === 0) {
+                       classifierInfo = `; classifier for meat nouns: ${goatExample}`
+                   }  else {
+                       classifierInfo = "";
+                   }
+               } else if(animacyClassifierArray[index] === "fur") {
+                   pOfSpeech = "n.fur";
+                   if(englishWords[i] === "sheep" && randomNumForFur === 1) {
+                       classifierInfo = `; classifier for fur nouns: ${sheepExample}`
+                   }  else {
+                       classifierInfo = "";
+                   }
+               }
+            }
+            if(massNounArray.includes(englishWords[i])) {
+                let index = massNounArray.indexOf(englishWords[i]);
+                if(animacyClassifierArray[index] === "inedible") {
+                   pOfSpeech = "n.inedible";
+                   if(englishWords[i] === "skin" && randomNumForFur === 0) {
+                       classifierInfo = `; classifier for fur nouns: ${skinExample}`
+                   }  else {
+                       classifierInfo = "";
+                   }
                }
             }
         }
@@ -1061,6 +1096,41 @@ function makeDictionary() {
                         pOfSpeech = "n.shapeless";
                     } else if (shapeClassifierMassArray[index] === "long-and-slender"){
                         pOfSpeech = "n.long";
+                    }
+                    
+                }
+            }
+            if(typologyNum === 0 && grammaticalNumIsolating > 5 && randomClassifierNum === 1) {
+                if(countNounArray.includes(englishWords[i])) {
+                    let index = countNounArray.indexOf(englishWords[i]);
+                    if(animacyClassifierArray[index] === "man") {
+                        pOfSpeech = "n.man";
+                    } else if (animacyClassifierArray[index] === "woman"){
+                        pOfSpeech = "n.woman";
+                    } else if (animacyClassifierArray[index] === "child"){
+                        pOfSpeech = "n.child";
+                    } else if (animacyClassifierArray[index] === "wild-animal"){
+                        pOfSpeech = "n.wild";
+                    } else if (animacyClassifierArray[index] === "meat"){
+                        pOfSpeech = "n.meat";
+                    } else if (animacyClassifierArray[index] === "fur"){
+                        pOfSpeech = "n.fur";
+                    } else if (animacyClassifierArray[index] === "labour"){
+                        pOfSpeech = "n.labour";
+                    } else if (animacyClassifierArray[index] === "milk"){
+                        pOfSpeech = "n.milk";
+                    } else if (animacyClassifierArray[index] === "edible"){
+                        pOfSpeech = "n.edible";
+                    } else if (animacyClassifierArray[index] === "inedible"){
+                        pOfSpeech = "n.inedible";
+                    }
+                }
+                if(massNounArray.includes(englishWords[i])) {
+                    let index = massNounArray.indexOf(englishWords[i])
+                    if(animacyClassifierMassArray[index] === "edible") {
+                        pOfSpeech = "n.edible";
+                    } else if (animacyClassifierMassArray[index] === "inedible"){
+                        pOfSpeech = "n.inedible";
                     }
                     
                 }

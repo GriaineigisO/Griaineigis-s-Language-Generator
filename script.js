@@ -1881,18 +1881,70 @@ function createAnimacyClassifiers() {
     }
 
     let child = document.getElementsByClassName("child");
-   randomNumForChild = Math.floor(Math.random() * 2);
-   if(randomNumForChild === 0) {
-       childClassifier = generatedCountNouns[countNounArray.indexOf("child")]
-       classifiersWithEtymology++;
-       childExample = `<i>${spell(soundChange(childClassifier))}</i> "child"`;
-       classifierEtymologyArray.push(childExample);
-   } else if (randomNumForChild === 1) {
-       childClassifier = generateWords();
-   }
-   for(let i = 0; i < child.length; i++) {
-       child[i].innerHTML = spell(soundChange(childClassifier));
-   }
+    randomNumForChild = Math.floor(Math.random() * 2);
+    if(randomNumForChild === 0) {
+        childClassifier = generatedCountNouns[countNounArray.indexOf("child")]
+        classifiersWithEtymology++;
+        childExample = `<i>${spell(soundChange(childClassifier))}</i> "child"`;
+        classifierEtymologyArray.push(childExample);
+    } else if (randomNumForChild === 1) {
+        childClassifier = generateWords();
+    }
+    for(let i = 0; i < child.length; i++) {
+        child[i].innerHTML = spell(soundChange(childClassifier));
+    }
+
+    let wildAnimal = document.getElementsByClassName("wild-animal");
+    randomNumForWildAnimal = 1//Math.floor(Math.random() * 5);
+    if(randomNumForWildAnimal === 0) {
+        wildAnimalClassifier = generatedCountNouns[countNounArray.indexOf("wolf")]
+        classifiersWithEtymology++;
+        wildAnimalExample = `<i>${spell(soundChange(wildAnimalClassifier))}</i> "wolf"`;
+        classifierEtymologyArray.push(wildAnimalExample);
+    } else if(randomNumForWildAnimal === 1) {
+        wildAnimalClassifier = generatedCountNouns[countNounArray.indexOf("bear")]
+        classifiersWithEtymology++;
+        wildAnimalExample = `<i>${spell(soundChange(wildAnimalClassifier))}</i> "bear"`;
+        classifierEtymologyArray.push(wildAnimalExample);
+    } else if (randomNumForWildAnimal > 1) {
+        wildAnimalClassifier = generateWords();
+    }
+    for(let i = 0; i < wildAnimal.length; i++) {
+        wildAnimal[i].innerHTML = spell(soundChange(wildAnimalClassifier));
+    }
+
+    let meat = document.getElementsByClassName("meat");
+    randomNumForMeat = Math.floor(Math.random() * 5);
+    if(randomNumForMeat === 0) {
+        meatClassifier = generatedCountNouns[countNounArray.indexOf("goat")]
+        classifiersWithEtymology++;
+        meatExample = `<i>${spell(soundChange(meatClassifier))}</i> "goat"`;
+        classifierEtymologyArray.push(meatExample);
+    } else if (randomNumForMeat > 1) {
+        meatClassifier = generateWords();
+    }
+    for(let i = 0; i < meat.length; i++) {
+        meat[i].innerHTML = spell(soundChange(meatClassifier));
+    }
+
+    let fur = document.getElementsByClassName("fur");
+    randomNumForFur = 1//Math.floor(Math.random() * 5);
+    if(randomNumForFur === 0) {
+        furClassifier = generatedMassNouns[massNounArray.indexOf("skin")]
+        classifiersWithEtymology++;
+        furExample = `<i>${spell(soundChange(furClassifier))}</i> "skin"`;
+        classifierEtymologyArray.push(furExample);
+    } else if(randomNumForFur === 1) {
+        furClassifier = generatedCountNouns[countNounArray.indexOf("sheep")]
+        classifiersWithEtymology++;
+        furExample = `<i>${spell(soundChange(furClassifier))}</i> "sheep"`;
+        classifierEtymologyArray.push(furExample);
+    } else if (randomNumForFur > 1) {
+        furClassifier = generateWords();
+    }
+    for(let i = 0; i < fur.length; i++) {
+        fur[i].innerHTML = spell(soundChange(furClassifier));
+    }
 
 
     const listOfSpans = [];
@@ -1964,26 +2016,31 @@ let airExample = "";
 let manExample = "";
 let womanExample = "";
 let childExample = "";
+let wolfExample = "";
+let bearExample = "";
+let goatExample = "";
+let skinExample = "";
+let sheepExample = "";
 
-function classifierExamplesInDictionaryEntries(word, array) {
+function classifierExamplesInDictionaryEntries(word, array, countOrMassWord, countOrMassRandomWord) {
 
-    let classifier = generatedCountNouns[countNounArray.indexOf(word)]
-    let randomNoun = generatedCountNouns[countNounArray.indexOf(array[Math.floor(Math.random() * array.length)])]
-    let randomNounEnglishTranslation = countNounArrayPlural[generatedCountNouns.indexOf(randomNoun)]
-    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
-        let example = `<strong><i>${spell(soundChange(randomNoun))} ${spell(soundChange(classifier))}</strong></i> "${randomNounEnglishTranslation}"`
-        exampleArray.push(example);
-    } else if (checkIfHeadInitialOrHeadFinal() === "headFinal") {
-        let example = `<strong><i>${spell(soundChange(classifier))} ${spell(soundChange(randomNoun))}</strong></i> "${randomNounEnglishTranslation}"`
-        exampleArray.push(example);
+    let classifier = "";
+    if(countOrMassWord === "count") { 
+        classifier = generatedCountNouns[countNounArray.indexOf(word)]
+    } else if (countOrMassWord === "mass") {
+        classifier = generatedMassNouns[massNounArray.indexOf(word)]
     }
-}
 
-function MassclassifierExamplesInDictionaryEntries(word, array) {
-    let classifier = generatedMassNouns[massNounArray.indexOf(word)]
-
-    let randomNoun = generatedMassNouns[massNounArray.indexOf(array[Math.floor(Math.random() * array.length)])]
-    let randomNounEnglishTranslation = pluralSingulativeMassNounArray[generatedMassNouns.indexOf(randomNoun)]
+    let randomNoun = "";
+    let randomNounEnglishTranslation = "";
+    if(countOrMassRandomWord === "count") {
+        randomNoun = generatedCountNouns[countNounArray.indexOf(array[Math.floor(Math.random() * array.length)])]
+        randomNounEnglishTranslation = countNounArrayPlural[generatedCountNouns.indexOf(randomNoun)]
+    } else if (countOrMassRandomWord === "mass") {
+        randomNoun = generatedMassNouns[massNounArray.indexOf(array[Math.floor(Math.random() * array.length)])]
+        randomNounEnglishTranslation = pluralSingulativeMassNounArray[generatedMassNouns.indexOf(randomNoun)]
+    }
+   
     if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
         let example = `<strong><i>${spell(soundChange(randomNoun))} ${spell(soundChange(classifier))}</strong></i> "${randomNounEnglishTranslation}"`
         exampleArray.push(example);
@@ -1994,53 +2051,68 @@ function MassclassifierExamplesInDictionaryEntries(word, array) {
 }
 
 function callClassifierExamples() {
-    classifierExamplesInDictionaryEntries("branch", longAndSlenderArray);
+    classifierExamplesInDictionaryEntries("branch", longAndSlenderArray, "count", "count");
     branchExample = exampleArray[0];
 
-    classifierExamplesInDictionaryEntries("pole", longAndSlenderArray);
+    classifierExamplesInDictionaryEntries("pole", longAndSlenderArray, "count", "count");
     poleExample = exampleArray[1];
 
-    classifierExamplesInDictionaryEntries("shoulder", shortAndWideArray);
+    classifierExamplesInDictionaryEntries("shoulder", shortAndWideArray, "count", "count");
     shoulderExample = exampleArray[2];
 
-    classifierExamplesInDictionaryEntries("wedge", shortAndWideArray);
+    classifierExamplesInDictionaryEntries("wedge", shortAndWideArray, "count", "count");
     wedgeExample = exampleArray[3];
 
-    classifierExamplesInDictionaryEntries("apple", roundArray);
+    classifierExamplesInDictionaryEntries("apple", roundArray, "count", "count");
     appleExample = exampleArray[4];
 
-    classifierExamplesInDictionaryEntries("pebble", roundArray);
+    classifierExamplesInDictionaryEntries("pebble", roundArray, "count", "count");
     pebbleExample = exampleArray[5];
 
-    classifierExamplesInDictionaryEntries("ball", roundArray);
+    classifierExamplesInDictionaryEntries("ball", roundArray, "count", "count");
     ballExample = exampleArray[6];
 
-    classifierExamplesInDictionaryEntries("arrow", pointedArray);
+    classifierExamplesInDictionaryEntries("arrow", pointedArray, "count", "count");
     arrowExample = exampleArray[7];
 
-    classifierExamplesInDictionaryEntries("thorn", pointedArray);
+    classifierExamplesInDictionaryEntries("thorn", pointedArray, "count", "count");
     thornExample = exampleArray[8];
 
-    classifierExamplesInDictionaryEntries("fork", pointedArray);
+    classifierExamplesInDictionaryEntries("fork", pointedArray, "count", "count");
     forkExample = exampleArray[9];
 
-    classifierExamplesInDictionaryEntries("slab", flatArray);
+    classifierExamplesInDictionaryEntries("slab", flatArray, "count", "count");
     slabExample = exampleArray[10];
 
-    classifierExamplesInDictionaryEntries("face", flatArray);
+    classifierExamplesInDictionaryEntries("face", flatArray, "count", "count");
     faceExample = exampleArray[11];
 
-    MassclassifierExamplesInDictionaryEntries("air", shapelessMassArray);
+    classifierExamplesInDictionaryEntries("air", shapelessMassArray, "mass", "mass");
     airExample = exampleArray[12];
 
-    classifierExamplesInDictionaryEntries("man", manArray);
+    classifierExamplesInDictionaryEntries("man", manArray, "count", "count");
     manExample = exampleArray[13];
 
-    classifierExamplesInDictionaryEntries("woman", womanArray);
+    classifierExamplesInDictionaryEntries("woman", womanArray, "count", "count");
     womanExample = exampleArray[14];
 
-    classifierExamplesInDictionaryEntries("child", childArray);
+    classifierExamplesInDictionaryEntries("child", childArray, "count", "count");
     childExample = exampleArray[15];
+
+    classifierExamplesInDictionaryEntries("wolf", wildAnimalArray, "count", "count");
+    wolfExample = exampleArray[16];
+
+    classifierExamplesInDictionaryEntries("bear", wildAnimalArray, "count", "count");
+    bearExample = exampleArray[17];
+
+    classifierExamplesInDictionaryEntries("goat", meatArray, "count", "count");
+    goatExample = exampleArray[18];
+
+    classifierExamplesInDictionaryEntries("skin", furArray, "mass", "count");
+    skinExample = exampleArray[19];
+
+    classifierExamplesInDictionaryEntries("sheep", furArray, "count", "count");
+    sheepExample = exampleArray[20];
 }
 
 function IsolatingNouns() {
@@ -2054,6 +2126,9 @@ function IsolatingNouns() {
     selectNounsClassifier(animacyClassifierArray, manArray, "man");
     selectNounsClassifier(animacyClassifierArray, womanArray, "woman");
     selectNounsClassifier(animacyClassifierArray, childArray, "child");
+    selectNounsClassifier(animacyClassifierArray, wildAnimalArray, "wild-animal");
+    selectNounsClassifier(animacyClassifierArray, meatArray, "meat");
+    selectNounsClassifier(animacyClassifierArray, furArray, "fur");
 
     selectMassNounsClassifier(shapeClassifierMassArray, longAndSlenderArray, "long-and-slender");
     selectMassNounsClassifier(shapeClassifierMassArray, shortAndWideArray, "short-and-wide");
@@ -3722,4 +3797,4 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
    }
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample};
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample};

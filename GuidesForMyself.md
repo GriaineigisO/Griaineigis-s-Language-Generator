@@ -1,9 +1,9 @@
 # Index
 
 - Classifiers
-- How to add a classifier to a pre-existing classifier system
+  - How to add a classifier to a pre-existing classifier system
 - Words
-- Adding a new word
+  - Adding a new word
 
 # Classifiers
 
@@ -37,9 +37,11 @@ In this example, the "child" classifier will be added to the Animate classifier 
 
 3. In the function `callClassifierExamples()` put this at the bottom. make sure that the index of `exampleArray` is one number higher than the previous line of code.
 
-   ```classifierExamplesInDictionaryEntries("child", childArray);
+   ```classifierExamplesInDictionaryEntries("child", childArray, "count", "count");
    childExample = exampleArray[15];
    ```
+
+   The first "count" is for when the noun being used as the classifier is a count noun. The second "count" is for when the random noun chosen for the example is a count noun. Choose either to "mass" if need be.
 
 4. In the function `isolatingNouns()` put this near the other classifiers of the same classifier system.
 

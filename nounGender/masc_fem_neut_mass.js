@@ -25,6 +25,7 @@ const mascFemNeutMass = [
     "neuter",
     "neuter",
     "neuter",
+    "neuter",
 
 ]
 

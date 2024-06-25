@@ -37,7 +37,8 @@ In this example, the "child" classifier will be added to the Animate classifier 
 
 3. In the function `callClassifierExamples()` put this at the bottom. make sure that the index of `exampleArray` is one number higher than the previous line of code.
 
-   ```classifierExamplesInDictionaryEntries("child", childArray, "count", "count");
+   ```
+   classifierExamplesInDictionaryEntries("child", childArray, "count", "count");
    childExample = exampleArray[15];
    ```
 

@@ -740,7 +740,6 @@ function makeDictionary() {
                 } else if(shortGenericClassifierArray[index] === "natural-inanimate") {
                     pOfSpeech = "n.nat-inan";
                     if(englishWords[i] === "land" && randomNumForLandAnimal === 0) {
-                        console.log(landExample)
                         classifierInfo = `; classifier for land&nbspanimal nouns: ${landExample}`
                     } else {
                         classifierInfo = "";
@@ -762,10 +761,17 @@ function makeDictionary() {
                     } else {
                         classifierInfo = "";
                     }
-                } 
+                }  else if (shortGenericClassifierMassArray[index] === "tool") {
+                    pOfSpeech = "n.tool";
+                    classifierInfo = "";
+                }  else if (shortGenericClassifierMassArray[index] === "natural-inanimate") {
+                    pOfSpeech = "n.nat-inan";
+                    classifierInfo = "";
+                }
+            }
             }
             
-        }
+        
 
         //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
         if(countNounArray.includes(englishWords[i])) {

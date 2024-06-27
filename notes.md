@@ -1,9 +1,6 @@
 # Immediate To-Do List
 
 - Add this classifier system
-  - grass < "grass"
-  - flower < "flower"
-  - land animal < "land"
   - sea animal < "water", "sea", "fish"
   - flying animal < "sky", "cloud", "wing"
   - word < "word", "mouth"

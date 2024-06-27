@@ -7,6 +7,7 @@
   - tool < "axe", handle", "hammer", "plough"
   - natural inanimate < "rock", "dirt", "mud"
   - liquid < "drop", "pool", "glass"
+- figure out how to prevent mass occurances of homophones
 - Add another, very extensive set of classifiers, similar to the amount that Chinese has. This will take some time to finish.
 - Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
   - Etymologies for the plural: all, children, people, third person plural, three.

@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -28,6 +28,7 @@ import shapeClassifierArray from './ClassifierArrays/shapeClassifiers.js';
 import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js';
 import animacyClassifierArray from './ClassifierArrays/animacyClassifiers.js';
 import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMass.js';
+import shortGenericClassifierArray from './ClassifierArrays/shortGenericClassifers.js';
 
 const animateArray = [];
 const inanimateArray = [];
@@ -696,6 +697,23 @@ function makeDictionary() {
                        classifierInfo = "";
                    }
                
+            }
+        }
+        if(typologyNum === 0 && grammaticalNumIsolating > 5 && randomClassifierNum === 2) {
+            if(countNounArray.includes(englishWords[i])) {
+                let index = countNounArray.indexOf(englishWords[i])
+                if(shortGenericClassifierArray[index] === "human2") {
+                    pOfSpeech = "n.human";
+                    if(englishWords[i] === "man" && randomNumForHuman === 0) {
+                        classifierInfo = `; classifier for human nouns: ${manExample2}`
+                    } else if(englishWords[i] === "human" && randomNumForHuman === 1) {
+                        classifierInfo = `; classifier for human nouns: ${humanExample}`
+                    } else if(englishWords[i] === "person" && randomNumForHuman === 2) {
+                        classifierInfo = `; classifier for human nouns: ${personExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
+                }
             }
         }
 

@@ -49,10 +49,7 @@ function spell(word) {
 
    //the generated words often form doublets across syllable boundries e.g 'ga-ag' > 'gaag'. These can be confused for long vowels or long consonants which is especially unwanted if the language lacks length altogether. So these accidental doublets are removed first.
     for(let i = 0; i < wordArray.length; i++) {
-        // if(wordArray[i] === wordArray[i + 1] && wordArray[i + 2]) {
-        //     wordArray.splice(i, 2)
-        // } 
-        if(wordArray[i] === wordArray[i + 1]) {
+        while(wordArray[i] === wordArray[i + 1]) {
             wordArray.splice(i, 1)
         } 
     }
@@ -78,10 +75,6 @@ function spell(word) {
         if(wordArray[i] === wordArray[0] && wordArray[i] === wordArray[i + 1] && consonants.includes(wordArray[i])) {
             wordArray.splice(i, 1)
         }
-        //deletes a vowel if two vowels follow, too many words had long unbroken lines of vowels
-        // if(vowels.includes(wordArray[i]) && vowels.includes(wordArray[i + 1]) && vowels.includes(wordArray[i + 2])) {
-        //     wordArray.splice(i, 1)
-        // }
     }
    /*^^^move to sound change once the sound change function is back^^^*/
 

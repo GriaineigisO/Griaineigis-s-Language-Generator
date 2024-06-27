@@ -111,6 +111,8 @@ After that, a list of variables will be declared with the format `let XExample =
    }
    ```
 
+9. You must now assign each noun to a certain classifier. In the folder `ClassiferArrays` make a two `.js` files, one named `shortGenericClassifers.js` and `shortGenericClassifersMass.js`. In Each file, make an array. `shortGenericClassifers.js` will correspond to the file `countNouns.js` and `shortGenericClassifersMass.js` with `massNouns.js`. Each line in the array will corrspond with a noun in each list, so make sure that the classifier is in the exact same line as the noun. Export the array and then import it to `script.js`.
+
 ## How to add a classifier to a pre-existing classifier system
 
 In this example, the "child" classifier will be added to the Animate classifier system.

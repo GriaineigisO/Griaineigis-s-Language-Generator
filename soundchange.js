@@ -235,7 +235,6 @@ function selectSoundChanges() {
 function soundChange(word) {
     wordArray = Array.from(word)
 
-
     /*********************************************************************************/
     if(chosenSoundChanges.includes("wordFinalDevoicing") && checkIfWordFinalConsonantsArePossible() && checkIfVoicingIsPresent()) {
         

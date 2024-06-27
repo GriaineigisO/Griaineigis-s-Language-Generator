@@ -143,6 +143,8 @@ let treeClassifierMassArray = [];
 let grassClassifierMassArray = [];
 let flowerClassifierArray = [];
 let flowerClassifierMassArray = [];
+let landAnimalClassifierArray = [];
+let landAnimalClassifierMassArray = [];
 
 let wordThere = "";
 let wordHere = "";
@@ -211,12 +213,11 @@ let humanClassifier = "";
 let treeClassifier = "";
 let grassClassifier = "";
 let flowerClassifier = "";
-
+let landAnimalClassifier = "";
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
 let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "tʃ", "dʒ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ"]
-
 
 //Without this, every single generated noun from every single generation would remain in the arrays, causing words from
 //previous generations to show up in current ones! This clears the arrays upon each click of the button, before they are
@@ -314,6 +315,8 @@ function clearGeneratedArrays() {
     treeClassifierMassArray = [];
     grassClassifierMassArray = [];
     flowerClassifierArray = [];
+    landAnimalClassifierArray = [];
+    landAnimalClassifierMassArray = [];
 
 
     wordThere = "";
@@ -382,6 +385,7 @@ function clearGeneratedArrays() {
     treeClassifier = "";
     grassClassifier = "";
     flowerClassifier = "";
+    landAnimalClassifier = "";
 
     document.getElementById("orthography").replaceChildren();
     document.getElementById("language-to-english").replaceChildren();
@@ -2219,6 +2223,20 @@ function createShortGenericClassifiers() {
        flower[i].innerHTML = spell(soundChange(flowerClassifier));
    }
 
+   let landAnimal = document.getElementsByClassName("land-animal");
+   randomNumForLandAnimal = Math.floor(Math.random() * 2);
+   if(randomNumForLandAnimal === 0) {
+       landAnimalClassifier = generatedCountNouns[countNounArray.indexOf("land")]
+       classifiersWithEtymology++;
+       landAnimalExample = `<i>${spell(soundChange(landAnimalClassifier))}</i> "land"`;
+       classifierEtymologyArray.push(landAnimalExample);
+   } else if (randomNumForLandAnimal === 1) {
+       landAnimalClassifier = generateWords();
+   }
+   for(let i = 0; i < landAnimal.length; i++) {
+       landAnimal[i].innerHTML = spell(soundChange(landAnimalClassifier));
+   }
+
     const listOfSpans = [];
    if(classifierEtymologyArray.length === 1) {
        let joinedString = classifierEtymologyArray.join();
@@ -2315,9 +2333,9 @@ let elmExample = "";
 let beechExample = "";
 let grassExample = "";
 let flowerExample = "";
+let landExample = "";
 
 function classifierExamplesInDictionaryEntries(word, array, countOrMassWord, countOrMassRandomWord) {
-
     let classifier = "";
     if(countOrMassWord === "count") { 
         classifier = generatedCountNouns[countNounArray.indexOf(word)]
@@ -2330,11 +2348,11 @@ function classifierExamplesInDictionaryEntries(word, array, countOrMassWord, cou
     if(countOrMassRandomWord === "count") {
         randomNoun = generatedCountNouns[countNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
         randomNounEnglishTranslation = countNounArrayPlural[generatedCountNouns.indexOf(randomNoun)]; 
-        console.log(`count ${word} - ${array} - ${randomNounEnglishTranslation} `)
+        //console.log(`count ${word} - ${array} - ${randomNounEnglishTranslation} `)
     } else if (countOrMassRandomWord === "mass") {
         randomNoun = generatedMassNouns[massNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
         randomNounEnglishTranslation = pluralSingulativeMassNounArray[generatedMassNouns.indexOf(randomNoun)];
-        console.log(`mass ${word} - ${array} - ${randomNounEnglishTranslation} `)
+        //console.log(`mass ${word} - ${array} - ${randomNounEnglishTranslation} `)
     }
 
     
@@ -2525,6 +2543,9 @@ function callClassifierExamples() {
 
     classifierExamplesInDictionaryEntries("flower", flowerClassifierArray, "count", "count");
     flowerExample = exampleArray[41];
+
+    classifierExamplesInDictionaryEntries("land", landAnimalClassifierArray, "count", "count");
+    landExample = exampleArray[42];
 }
 
 function IsolatingNouns() {
@@ -2550,8 +2571,8 @@ function IsolatingNouns() {
     selectNounsClassifier(shortGenericClassifierArray, treeClassifierArray, "tree");
     selectNounsClassifier(shortGenericClassifierArray, grassClassifierArray, "grass");
     selectNounsClassifier(shortGenericClassifierArray, flowerClassifierArray, "flower");
-    /*selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "land-animal");
-    selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "water-animal");
+    selectNounsClassifier(shortGenericClassifierArray, landAnimalClassifierArray, "land-animal");
+    /*selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "water-animal");
     selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "flying-animal");
     selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "word");
     selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "tool");
@@ -2581,8 +2602,8 @@ function IsolatingNouns() {
     selectMassNounsClassifier(shortGenericClassifierMassArray, treeClassifierMassArray, "tree");
     selectMassNounsClassifier(shortGenericClassifierMassArray, grassClassifierMassArray, "grass");
     selectMassNounsClassifier(shortGenericClassifierArray, flowerClassifierMassArray, "flower");
-    /*selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "land-animal");
-    selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "water-animal");
+    selectMassNounsClassifier(shortGenericClassifierArray, landAnimalClassifierMassArray, "land-animal");
+    /*selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "water-animal");
     selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "flying-animal");
     selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "word");
     selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "tool");
@@ -4250,4 +4271,4 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
    }
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample};
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample, randomNumForLandAnimal, landExample};

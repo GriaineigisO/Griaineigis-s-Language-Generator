@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, flowerExample, randomNumForFlower} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -29,6 +29,7 @@ import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js
 import animacyClassifierArray from './ClassifierArrays/animacyClassifiers.js';
 import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMass.js';
 import shortGenericClassifierArray from './ClassifierArrays/shortGenericClassifers.js';
+import shortGenericClassifierMassArray from './ClassifierArrays/shortGenericClassifersMass.js';
 
 const animateArray = [];
 const inanimateArray = [];
@@ -726,15 +727,32 @@ function makeDictionary() {
                     } else {
                         classifierInfo = "";
                     }
+                } else if(shortGenericClassifierArray[index] === "grass") {
+                    pOfSpeech = "n.grass";
+                } else if(shortGenericClassifierArray[index] === "flower") {
+                    pOfSpeech = "n.flower";
+                    if(englishWords[i] === "flower" && randomNumForFlower === 0) {
+                        classifierInfo = `; classifier for flower nouns: ${flowerExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
                 }
             }
             if (massNounArray.includes(englishWords[i])) {
                 let index = massNounArray.indexOf(englishWords[i]);
-                if(shortGenericClassifierArray[index] === "human2") {
+                if(shortGenericClassifierMassArray[index] === "human2") {
                     pOfSpeech = "n.human";
                     classifierInfo = "";
+                } else if (shortGenericClassifierMassArray[index] === "grass") {
+                    pOfSpeech = "n.grass";
+                    if(englishWords[i] === "grass" && randomNumForGrass === 0) {
+                        classifierInfo = `; classifier for grass nouns: ${grassExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
                 }
             }
+            
         }
 
         //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
@@ -754,6 +772,7 @@ function makeDictionary() {
                 wordWithAffix = singularAffix + wordWithAffix;
             }
         }
+    
         
         word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, englishWords[i], classifierInfo);
         let headWord = document.createElement("span");
@@ -770,8 +789,9 @@ function makeDictionary() {
         entry.classList.add("entry");
         entry.innerHTML = `${headWord.innerHTML} ${pOS.innerHTML} ${meaning.innerHTML} ${classiferEtymology.innerHTML}`;
         document.getElementById("language-to-english").appendChild(entry);
-    }
+        }   
 
+    
     
 
     //English to Kerkebulo

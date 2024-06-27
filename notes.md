@@ -1,8 +1,6 @@
 # Immediate To-Do List
 
 - Add this classifier system
-  - human < "man", "human", "person"
-  - tree < "oak", "alder", "elm", "beech" etc
   - grass < "grass"
   - flower < "flower"
   - land animal < "land"

@@ -4,6 +4,8 @@
 
 An object may be used by a classifier not because it meets the original requirement, but because it bears some percieved similarity with a noun already modified by the classifier. e.g cutting of (shavings, cut lock of hair - an by extension brush) and "dull percussive object" > drumstick > bow (for stringed instruments) > any musical utensils as well as a bow for archery and thus bent elongated shapes - thus a classifier gained a new subset of shapes
 
+not all classifiers below will be listed, there will be a minimum number, and extra ones wil be added randomly, with a great number generally preferred. The extensions will also be optionally added, and one classifier can have many extensions which may or may not appear.
+
 1. Objects with protruding top (hat, hill, mountain)
 2. orginised gathering of people, social organization ("family, army, tribe, clan, crowd)
 3. Small round objects (grain, bead, seed)

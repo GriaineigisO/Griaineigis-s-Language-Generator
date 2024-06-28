@@ -1,7 +1,67 @@
 # Immediate To-Do List
 
-- figure out how to prevent mass occurances of homophones
 - Add another, very extensive set of classifiers, similar to the amount that Chinese has. This will take some time to finish.
+
+An object may be used by a classifier not because it meets the original requirement, but because it bears some percieved similarity with a noun already modified by the classifier. e.g cutting of (shavings, cut lock of hair - an by extension brush) and "dull percussive object" > drumstick > bow (for stringed instruments) > any musical utensils as well as a bow for archery and thus bent elongated shapes - thus a classifier gained a new subset of shapes
+
+1. Objects with protruding top (hat, hill, mountain)
+2. orginised gathering of people, social organization ("family, army, tribe, clan, crowd)
+3. Small round objects (grain, bead, seed)
+4. Small flat objects (coin, pebble, shell)
+5. Buildings with explicit purpose (gathering hall, storeroom, temple)
+6. Songs, poems, prose, prayers, proverbs
+7. Slices/flimsy flat and thin objects (of bread, of meat, page, leaf, membrane)
+8. entrances, doorways, places of transition, liminal spaces
+9. "head" - domestic animal
+10. length of long non-rigid objects: straw, rope, string, sinew, road, path (and thus route, direction, way), fish, eel (and thus other aquatic life)
+11. long rigid objects (spear, shaft, branch, pole, pike, stake, post, sword, bar)
+12. handful (sand, beans, flour, dirt, snow)
+13. bagful of, sackful of, packet of, pocketful of (dice, money, smoked meat, grain)
+14. stack of, column of, layer of (paper, tiles, sheets)
+15. droplet, drop of (blood, water, oil)
+16. pair of (shoes, legs, arms, hands, eyes, romantic couple)
+17. cup of
+18. serving of food, bowl of, plate of
+19. row of (trees, building, posts)
+20. bundle of stick/pole shaped things
+21. barrel of, wagonful of, boatful of, shipment of, items packed into a mode of transport
+22. strand of (hair, smoke, grass, straw)
+23. set of, complete collection of a set number of items
+24. number of revolutions (day-night, seasons, spin of a wheel, crank, winding of rope)
+25. gust of, outburst of (wind, confessions, emotion, truth)
+26. pouring of (serving of liquid, libation)
+27. chunk of, clump of - irregularly shaped cutting/breaking off from a larger mass (flint blade, rock, ingot)
+28. shovelful of
+29. netful of (catch of fish)
+30. cluster of, spaced out group of solid objects (stars, mountains, boulders)
+31. distance
+32. fieldful of (herds, informal gatherings, crowds in public places)
+33. spoonful of/single bite fo food, sip of a drink
+34. object with rounded top, lump if (hill, wart, breast, bump, brow, knuckle)
+35. smattering of, splattering of (loosely grouped together collection of irregularly shaped objects, mostly liquids)
+36. broad, flat and solid surface (board, floor, slab, table, door)
+37. stick of degradable material (chalk, candle, charcoal, incense)
+38. wisp of, flow of, hint of (scent, influence, clue, steam, cloud, river, stream)
+39. roll of/sheet of wrapable material (cloth, scroll, rug, sail)
+40. mental/sensory process (thought, memory, sight of, sniff, sound)
+41. instance of a violent action (strike, blow, attack, hostility, hatred)
+42. instance of a loving action (kiss, hug, embrace, wedding, relationship, love)
+43. instance of a reciprocal action (exchange, swap, trade, purchase, favour, revenge)
+44. instance of movement (journey, walk, boat journey) and by extension change, transformation, transition,
+45. selection of, display of, spread of items across a flat surface (items spread out in a market for display, of text: paragraph), coat of paint, of open habitats (swamp, meadow, steppe, grassland, sea)
+46. protrusions from a surface (wall, boulder, cliff, shelf, limb, branch)
+47. intrusions into a surface/hole (ditch, hole, pit, well, tunnel, cavity, ravine, valley, furrow, gulley), crease, dent, wound, slit, window
+48. enclosed space where a person may go: room, house, cabin, shelter, cavity, cave, tent, realm, world, cell, cage (and by extension entrapment, captivity, traps, snares, deception, trickery)
+49. sharp piercing or cutting objects (needle, sword, arrow, pin, thorn, stinger, splinter, pick, knife, scythe, axe, blade, javeline, tooth, edge, plough)
+50. dull percussive object (club, rod, hammer, mallet, mace, bow > and by extension bow for string instruments and any musical utensils, and by more extension music), bent elongated objects: bow (of archery), hook, rib, curved beam, arch
+51. strip of (of bark, belt, whip, )
+52. cutting of (shavings, cut lock of hair - an by extension brush), shaving of (sandpaper and by extension powder), outpour of droplets (rain, hail, snow)
+53. instances of, times
+54. completed action
+55. eon of, unspecified long time of
+56. day of
+57. general classifier for anything else
+
 - Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
   - Etymologies for the plural: all, children, people, third person plural, three.
   - The plural may also be formed simply by repeating the noun twice.

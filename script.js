@@ -440,49 +440,67 @@ function showGrammarAndDictionary() {
     document.getElementById("dictionary").style.display = "block";
 }
 
-//if the generateWord() function below produces a homophone, this function is invoked to replace that homophone with a newly generated word
-// function generateSecondWord() {
-//     let resonants = selectRhotics().concat(selectLateralApproximants())
-//     let newSyllableArray = [];
-//     let newWord = "";
+//if the generateWord() function below produces a homophone, this function is invoked within removeHomophones() to replace that homophone with a newly generated word
+function generateSecondWord() {
+    let resonants = selectRhotics().concat(selectLateralApproximants())
+    let newSyllableArray = [];
+    let newWord = "";
 
-//     let numberOfSyllables = 0;
-//     //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
-//     let numOfAllSounds = vowels.length + consonants.length
-//     if(numOfAllSounds < 20 ) {
-//         numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
-//     } else if (numOfAllSounds < 15 ) {
-//         numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
-//     } else if (numOfAllSounds <= 10 ) {
-//         numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
-//     }else {
-//         numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
-//     }
+    let numberOfSyllables = 0;
+    //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
+    let numOfAllSounds = vowels.length + consonants.length
+    if(numOfAllSounds < 20 ) {
+        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+    } else if (numOfAllSounds < 15 ) {
+        numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
+    } else if (numOfAllSounds <= 10 ) {
+        numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
+    }else {
+        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+    }
 
-//     for(let i = 0; i < numberOfSyllables; i++) {
-//         let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
-//         let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
-//         for(let j = 0; j < syllableArray.length; j++) {
-//             if(syllableArray[j] === "C") {
-//                 newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
-//             } else if (syllableArray[j] === "V"){
-//                 newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);  
-//             } else if (syllableArray[j] === "F"){
-//                 newSyllableArray.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
-//             } else if (syllableArray[j] === "A"){
-//                 newSyllableArray.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
-//             } else if (syllableArray[j] === "N"){
-//                 newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
-//             } else if (syllableArray[j] === "R"){
-//                 newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
-//             }else if (syllableArray[j] === "H"){
-//                 newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
-//             }
-//         }  
-//     }
-//     newWord = newSyllableArray.join("");
-// 	return newWord;
-// }
+    for(let i = 0; i < numberOfSyllables; i++) {
+        let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
+        let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
+        for(let j = 0; j < syllableArray.length; j++) {
+            if(syllableArray[j] === "C") {
+                newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
+            } else if (syllableArray[j] === "V"){
+                newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);  
+            } else if (syllableArray[j] === "F"){
+                newSyllableArray.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
+            } else if (syllableArray[j] === "A"){
+                newSyllableArray.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
+            } else if (syllableArray[j] === "N"){
+                newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
+            } else if (syllableArray[j] === "R"){
+                newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
+            }else if (syllableArray[j] === "H"){
+                newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
+            }
+        }  
+    }
+    newWord = newSyllableArray.join("");
+	return newWord;
+}
+
+//As far too many homophones were made with some regularity, this function replaces most homophones with new words
+function removeHomophones(word) {
+    //1% of homophones will be allowed to remain
+    if(Math.floor(Math.random() * 100) !== 1) {
+        if(allGeneratedWordsArray.includes(word)) {
+            //console.log(`homophone found! - ${word} is the same as ${allGeneratedWordsArray[allGeneratedWordsArray.indexOf(word)]}`)
+            let replacement = generateSecondWord()
+            //console.log(`replaced with ${replacement}`)
+            return replacement;
+        } else {
+            allGeneratedWordsArray.push(word);
+            return word;
+        }
+    } else {
+        return word
+    }
+}
 
 //generates the words by giving each one a random amount of syllables, and choosing each syllable to be structured according to a randomly chosen syllable structure from the language's chosen options of syllable structures.
 function generateWords() {
@@ -494,13 +512,13 @@ function generateWords() {
     //if an inventory is small, then it needs more syllables per word to prevent large amounts of homophones
     let numOfAllSounds = vowels.length + consonants.length
     if(numOfAllSounds < 20 ) {
-        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+        numberOfSyllables = Math.floor(Math.random() * (4 - 2) + 2);
     } else if (numOfAllSounds < 15 ) {
-        numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
+        numberOfSyllables = Math.floor(Math.random() * (5 - 3) + 3);
     } else if (numOfAllSounds <= 10 ) {
-        numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
+        numberOfSyllables = Math.floor(Math.random() * (6 - 4) + 4);
     }else {
-        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+        numberOfSyllables = Math.floor(Math.random() * (4 - 2) + 2);
     }
 
     for(let i = 0; i < numberOfSyllables; i++) {
@@ -544,7 +562,7 @@ function generateWords() {
 	// 	return newWord;
 	// }
 
-    return newWord;
+    return removeHomophones(newWord);
 }
 
 //sends each word, generated by the function above, to the appropriate array
@@ -1740,7 +1758,7 @@ function createQuantifiers() {
 
 let randomClassifierNum = 0;
 function chooseClassifierSystem() {
-    randomClassifierNum = 2//Math.floor(Math.random() * 3)
+    randomClassifierNum = Math.floor(Math.random() * 3)
     if(randomClassifierNum === 0) {
         document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
         document.getElementById("shape-based-classifier-tables").style.display = "block";
@@ -4530,5 +4548,6 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
    }
+
 
 export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample};

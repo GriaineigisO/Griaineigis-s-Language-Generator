@@ -960,7 +960,7 @@ function selectAffricates() {
         spanAffricativeList[i].innerHTML = `/${allAffricativesArrayFixed.join(", ")}/`;
     }
     if(allAffricativesArray.length > 0) {
-        document.getElementById("affricative-list").style.display = "block";
+        document.getElementById("affricate-list").style.display = "block";
     }
     return allAffricativesArrayFixed;
 }

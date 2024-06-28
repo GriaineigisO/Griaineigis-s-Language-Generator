@@ -1,4 +1,4 @@
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, flowerExample, randomNumForFlower, randomNumForLandAnimal, landExample} from './script.js'
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, flowerExample, randomNumForFlower, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample} from './script.js'
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
@@ -741,12 +741,62 @@ function makeDictionary() {
                     pOfSpeech = "n.nat-inan";
                     if(englishWords[i] === "land" && randomNumForLandAnimal === 0) {
                         classifierInfo = `; classifier for land&nbspanimal nouns: ${landExample}`
+                    } if(englishWords[i] === "sky" && randomNumForFlyingAnimal === 0) {
+                        classifierInfo = `; classifier for flying&nbspanimal nouns: ${skyExample}`
+                    } if(englishWords[i] === "cloud" && randomNumForFlyingAnimal === 1) {
+                        classifierInfo = `; classifier for flying&nbspanimal nouns: ${cloudExample}`
+                    } if(englishWords[i] === "wing" && randomNumForFlyingAnimal === 2) {
+                        classifierInfo = `; classifier for flying&nbspanimal nouns: ${wingExample}`
+                    } if(englishWords[i] === "rock" && randomNumForNatural === 0) {
+                        classifierInfo = `; classifier for natural&nbspinanimate nouns: ${rockExample2}`
                     } else {
                         classifierInfo = "";
                     }
-                } else if(shortGenericClassifierArray[index] === "land") {
+                } else if(shortGenericClassifierArray[index] === "land-animal") {
                     pOfSpeech = "n.land";
                     classifierInfo = "";
+                }  else if(shortGenericClassifierArray[index] === "water-animal") {
+                    pOfSpeech = "n.water";
+                    if(englishWords[i] === "fish" && randomNumForWaterAnimal === 2) {
+                        classifierInfo = `; classifier for water&nbspanimal nouns: ${fishExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
+                }  else if(shortGenericClassifierArray[index] === "liquid") {
+                    pOfSpeech = "n.liquid";
+                    if(englishWords[i] === "sea" && randomNumForWaterAnimal === 1) {
+                        classifierInfo = `; classifier for water&nbspanimal nouns: ${seaExample}`
+                    } else if(englishWords[i] === "drop" && randomNumForLiquid === 0) {
+                        classifierInfo = `; classifier for liquid nouns: ${dropExample}`
+                    }  else if(englishWords[i] === "pool" && randomNumForLiquid === 1) {
+                        classifierInfo = `; classifier for liquid nouns: ${poolExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
+                }  else if(shortGenericClassifierArray[index] === "word") {
+                    pOfSpeech = "n.word";
+                    if(englishWords[i] === "word" && randomNumForWord === 0) {
+                        classifierInfo = `; classifier for word nouns: ${wordExample}`
+                    } if(englishWords[i] === "mouth" && randomNumForWord === 1) {
+                        classifierInfo = `; classifier for word nouns: ${mouthExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
+                }  else if(shortGenericClassifierArray[index] === "tool") {
+                    pOfSpeech = "n.tool";
+                    if(englishWords[i] === "axe" && randomNumForTool === 0) {
+                        classifierInfo = `; classifier for tool nouns: ${axeExample}`
+                    } else if(englishWords[i] === "handle" && randomNumForTool === 1) {
+                        classifierInfo = `; classifier for tool nouns: ${handleExample}`
+                    }  else if(englishWords[i] === "hammer" && randomNumForTool === 2) {
+                        classifierInfo = `; classifier for tool nouns: ${hammerExample}`
+                    }  else if(englishWords[i] === "plough" && randomNumForTool === 3) {
+                        classifierInfo = `; classifier for tool nouns: ${ploughExample}`
+                    }  else if(englishWords[i] === "cup" && randomNumForLiquid === 2) {
+                        classifierInfo = `; classifier for liquid nouns: ${cupExample}`
+                    }  else {
+                        classifierInfo = "";
+                    }
                 }
             }
             if (massNounArray.includes(englishWords[i])) {
@@ -766,7 +816,20 @@ function makeDictionary() {
                     classifierInfo = "";
                 }  else if (shortGenericClassifierMassArray[index] === "natural-inanimate") {
                     pOfSpeech = "n.nat-inan";
-                    classifierInfo = "";
+                    if(englishWords[i] === "dirt" && randomNumForNatural === 1) {
+                        classifierInfo = `; classifier for natural&nbspinanimate nouns: ${dirtExample}`
+                    } else if(englishWords[i] === "mud" && randomNumForNatural === 2) {
+                        classifierInfo = `; classifier for natural&nbspinanimate nouns: ${mudExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
+                }   else if (shortGenericClassifierMassArray[index] === "liquid") {
+                    pOfSpeech = "n.water";
+                    if(englishWords[i] === "water" && randomNumForWaterAnimal === 0) {
+                        classifierInfo = `; classifier for water&nbspanimal nouns: ${waterExample}`
+                    } else {
+                        classifierInfo = "";
+                    }
                 }
             }
             }

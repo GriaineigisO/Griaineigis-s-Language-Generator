@@ -145,6 +145,19 @@ let flowerClassifierArray = [];
 let flowerClassifierMassArray = [];
 let landAnimalClassifierArray = [];
 let landAnimalClassifierMassArray = [];
+let waterAnimalClassifierArray = [];
+let waterAnimalClassifierMassArray = [];
+let flyingAnimalClassifierMassArray = [];
+let flyingAnimalClassifierArray = [];
+let wordClassifierArray = [];
+let wordClassifierMassArray = [];
+let toolClassifierArray = [];
+let toolClassifierMassArray = [];
+let naturalInanimateClassifierArray = [];
+let naturalInanimateClassifierMassArray = [];
+let liquidClassifierArray = [];
+let liquidClassifierMassArray = [];
+
 
 let wordThere = "";
 let wordHere = "";
@@ -214,6 +227,13 @@ let treeClassifier = "";
 let grassClassifier = "";
 let flowerClassifier = "";
 let landAnimalClassifier = "";
+let waterAnimalClassifier = "";
+let flyingAnimalClassifier = "";
+let wordClassifier = "";
+let toolClassifier = "";
+let naturalInanimateClassifier = "";
+let liquidClassifier = "";
+
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
@@ -317,7 +337,18 @@ function clearGeneratedArrays() {
     flowerClassifierArray = [];
     landAnimalClassifierArray = [];
     landAnimalClassifierMassArray = [];
-
+    waterAnimalClassifierArray = [];
+    waterAnimalClassifierMassArray = [];
+    flyingAnimalClassifierMassArray = [];
+    flyingAnimalClassifierArray = [];
+    wordClassifierArray = [];
+    wordClassifierMassArray = [];
+    toolClassifierArray = [];
+    toolClassifierMassArray = [];
+    naturalInanimateClassifierArray = [];
+    naturalInanimateClassifierMassArray = [];
+    liquidClassifierArray = [];
+    liquidClassifierMassArray = [];
 
     wordThere = "";
     wordHere = "";
@@ -386,6 +417,12 @@ function clearGeneratedArrays() {
     grassClassifier = "";
     flowerClassifier = "";
     landAnimalClassifier = "";
+    waterAnimalClassifier = "";
+    flyingAnimalClassifier = "";
+    wordClassifier = "";
+    toolClassifier = "";
+    naturalInanimateClassifier = "";
+    liquidClassifier = "";
 
     document.getElementById("orthography").replaceChildren();
     document.getElementById("language-to-english").replaceChildren();
@@ -404,48 +441,48 @@ function showGrammarAndDictionary() {
 }
 
 //if the generateWord() function below produces a homophone, this function is invoked to replace that homophone with a newly generated word
-function generateSecondWord() {
-    let resonants = selectRhotics().concat(selectLateralApproximants())
-    let newSyllableArray = [];
-    let newWord = "";
+// function generateSecondWord() {
+//     let resonants = selectRhotics().concat(selectLateralApproximants())
+//     let newSyllableArray = [];
+//     let newWord = "";
 
-    let numberOfSyllables = 0;
-    //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
-    let numOfAllSounds = vowels.length + consonants.length
-    if(numOfAllSounds < 20 ) {
-        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
-    } else if (numOfAllSounds < 15 ) {
-        numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
-    } else if (numOfAllSounds <= 10 ) {
-        numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
-    }else {
-        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
-    }
+//     let numberOfSyllables = 0;
+//     //if an inventory is small, then it needs more syllables per work to prevent large amounts of homophones
+//     let numOfAllSounds = vowels.length + consonants.length
+//     if(numOfAllSounds < 20 ) {
+//         numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+//     } else if (numOfAllSounds < 15 ) {
+//         numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
+//     } else if (numOfAllSounds <= 10 ) {
+//         numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
+//     }else {
+//         numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+//     }
 
-    for(let i = 0; i < numberOfSyllables; i++) {
-        let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
-        let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
-        for(let j = 0; j < syllableArray.length; j++) {
-            if(syllableArray[j] === "C") {
-                newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
-            } else if (syllableArray[j] === "V"){
-                newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);  
-            } else if (syllableArray[j] === "F"){
-                newSyllableArray.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
-            } else if (syllableArray[j] === "A"){
-                newSyllableArray.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
-            } else if (syllableArray[j] === "N"){
-                newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
-            } else if (syllableArray[j] === "R"){
-                newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
-            }else if (syllableArray[j] === "H"){
-                newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
-            }
-        }  
-    }
-    newWord = newSyllableArray.join("");
-	return newWord;
-}
+//     for(let i = 0; i < numberOfSyllables; i++) {
+//         let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
+//         let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
+//         for(let j = 0; j < syllableArray.length; j++) {
+//             if(syllableArray[j] === "C") {
+//                 newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
+//             } else if (syllableArray[j] === "V"){
+//                 newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);  
+//             } else if (syllableArray[j] === "F"){
+//                 newSyllableArray.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
+//             } else if (syllableArray[j] === "A"){
+//                 newSyllableArray.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
+//             } else if (syllableArray[j] === "N"){
+//                 newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
+//             } else if (syllableArray[j] === "R"){
+//                 newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
+//             }else if (syllableArray[j] === "H"){
+//                 newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
+//             }
+//         }  
+//     }
+//     newWord = newSyllableArray.join("");
+// 	return newWord;
+// }
 
 //generates the words by giving each one a random amount of syllables, and choosing each syllable to be structured according to a randomly chosen syllable structure from the language's chosen options of syllable structures.
 function generateWords() {
@@ -488,23 +525,26 @@ function generateWords() {
         }  
     }
     newWord = newSyllableArray.join("");
-    let randomNum = Math.floor(Math.random() * 100);
+    //let randomNum = Math.floor(Math.random() * 100);
 	//if the generated word is a homophone with an already existing word
-	if (allGeneratedWordsArray.includes(newWord)) {
-		if (randomNum === 6) {
-			//homophone accepted
-            allGeneratedWordsArray.push(newWord);
-			return newWord;
-		} else {
-            //homophone rejected and replaced with a new word
-            let newWordReplacement = generateSecondWord();
-            allGeneratedWordsArray.push(newWordReplacement);
-            return newWordReplacement;		
-		}
-	} else {
-        allGeneratedWordsArray.push(newWord);
-		return newWord;
-	}
+    //The solution to prevent homophones didn't work and threw errors, try another solution
+	// if (allGeneratedWordsArray.includes(newWord)) {
+	// 	if (randomNum === 6) {
+	// 		//homophone accepted
+    //         allGeneratedWordsArray.push(newWord);
+	// 		return newWord;
+	// 	} else {
+    //         //homophone rejected and replaced with a new word
+    //         let newWordReplacement = generateSecondWord();
+    //         allGeneratedWordsArray.push(newWordReplacement);
+    //         return newWordReplacement;		
+	// 	}
+	// } else {
+    //     allGeneratedWordsArray.push(newWord);
+	// 	return newWord;
+	// }
+
+    return newWord;
 }
 
 //sends each word, generated by the function above, to the appropriate array
@@ -1070,7 +1110,7 @@ function chooseTypology() {
 /****************WORD ORDER RELATED SECTION*******/
 let wordOrderNum = 0;
 function randomNumForWordOrder() {
-    wordOrderNum = 2//Math.floor(Math.random() * 6)
+    wordOrderNum = 0//Math.floor(Math.random() * 6)
 }
 
 function chooseWordOrder() {
@@ -2121,7 +2161,7 @@ let randomNumForTree = 0;
 let randomNumForGrass = 0;
 let randomNumForFlower = 0;
 let randomNumForLandAnimal = 0;
-let randomNumForSeaAnimal = 0;
+let randomNumForWaterAnimal = 0;
 let randomNumForFlyingAnimal = 0;
 let randomNumForWord = 0;
 let randomNumForTool = 0;
@@ -2135,7 +2175,7 @@ function createShortGenericClassifiers() {
     let grassExample = "";
     let flowerExample = "";
     let landAnimalExample = "";
-    let seaAnimalExample = "";
+    let waterAnimalExample = "";
     let flyingAnimalExample = "";
     let wordExample = "";
     let toolExample = "";
@@ -2237,6 +2277,150 @@ function createShortGenericClassifiers() {
        landAnimal[i].innerHTML = spell(soundChange(landAnimalClassifier));
    }
 
+   let waterAnimal = document.getElementsByClassName("water-animal");
+   randomNumForWaterAnimal = Math.floor(Math.random() * 5);
+   if(randomNumForWaterAnimal === 0) {
+       waterAnimalClassifier = generatedMassNouns[massNounArray.indexOf("water")]
+       classifiersWithEtymology++;
+       waterAnimalExample = `<i>${spell(soundChange(waterAnimalClassifier))}</i> "water"`;
+       classifierEtymologyArray.push(waterAnimalExample);
+   } if(randomNumForWaterAnimal === 1) {
+       waterAnimalClassifier = generatedCountNouns[countNounArray.indexOf("sea")]
+       classifiersWithEtymology++;
+       waterAnimalExample = `<i>${spell(soundChange(waterAnimalClassifier))}</i> "sea"`;
+       classifierEtymologyArray.push(waterAnimalExample);
+   }  if(randomNumForWaterAnimal === 2) {
+       waterAnimalClassifier = generatedCountNouns[countNounArray.indexOf("fish")]
+       classifiersWithEtymology++;
+       waterAnimalExample = `<i>${spell(soundChange(waterAnimalClassifier))}</i> "fish"`;
+       classifierEtymologyArray.push(waterAnimalExample);
+   }else if (randomNumForWaterAnimal > 2) {
+       waterAnimalClassifier = generateWords();
+   }
+   for(let i = 0; i < waterAnimal.length; i++) {
+       waterAnimal[i].innerHTML = spell(soundChange(waterAnimalClassifier));
+   }
+
+   let flyingAnimal = document.getElementsByClassName("flying-animal");
+   randomNumForFlyingAnimal = 3//Math.floor(Math.random() * 5);
+   if(randomNumForFlyingAnimal === 0) {
+       flyingAnimalClassifier = generatedCountNouns[countNounArray.indexOf("sky")]
+       classifiersWithEtymology++;
+       flyingAnimalExample = `<i>${spell(soundChange(flyingAnimalClassifier))}</i> "sky"`;
+       classifierEtymologyArray.push(flyingAnimalExample);
+   } else if(randomNumForFlyingAnimal === 1) {
+       flyingAnimalClassifier = generatedCountNouns[countNounArray.indexOf("cloud")]
+       classifiersWithEtymology++;
+       flyingAnimalExample = `<i>${spell(soundChange(flyingAnimalClassifier))}</i> "cloud"`;
+       classifierEtymologyArray.push(flyingAnimalExample);
+   }  else if(randomNumForFlyingAnimal === 2) {
+       flyingAnimalClassifier = generatedCountNouns[countNounArray.indexOf("wing")]
+       classifiersWithEtymology++;
+       flyingAnimalExample = `<i>${spell(soundChange(flyingAnimalClassifier))}</i> "wing"`;
+       classifierEtymologyArray.push(flyingAnimalExample);
+   } else if (randomNumForFlyingAnimal > 2) {
+       flyingAnimalClassifier = generateWords();
+   }
+   for(let i = 0; i < flyingAnimal.length; i++) {
+       flyingAnimal[i].innerHTML = spell(soundChange(flyingAnimalClassifier));
+   }
+
+   let word = document.getElementsByClassName("word");
+   randomNumForWord = Math.floor(Math.random() * 5);
+   if(randomNumForWord === 0) {
+       wordClassifier = generatedCountNouns[countNounArray.indexOf("word")]
+       classifiersWithEtymology++;
+       wordExample = `<i>${spell(soundChange(wordClassifier))}</i> "word"`;
+       classifierEtymologyArray.push(wordExample);
+   } else if(randomNumForWord === 1) {
+       wordClassifier = generatedCountNouns[countNounArray.indexOf("mouth")]
+       classifiersWithEtymology++;
+       wordExample = `<i>${spell(soundChange(wordClassifier))}</i> "mouth"`;
+       classifierEtymologyArray.push(wordExample);
+   } else if (randomNumForWord > 1) {
+       wordClassifier = generateWords();
+   }
+   for(let i = 0; i < word.length; i++) {
+       word[i].innerHTML = spell(soundChange(wordClassifier));
+   }
+
+   let tool = document.getElementsByClassName("tool");
+   randomNumForTool = Math.floor(Math.random() * 5);
+   if(randomNumForTool === 0) {
+       toolClassifier = generatedCountNouns[countNounArray.indexOf("axe")]
+       classifiersWithEtymology++;
+       toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "axe"`;
+       classifierEtymologyArray.push(toolExample);
+   } else if(randomNumForTool === 1) {
+       toolClassifier = generatedCountNouns[countNounArray.indexOf("handle")]
+       classifiersWithEtymology++;
+       toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "handle"`;
+       classifierEtymologyArray.push(toolExample);
+   } else if(randomNumForTool === 2) {
+       toolClassifier = generatedCountNouns[countNounArray.indexOf("hammer")]
+       classifiersWithEtymology++;
+       toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "hammer"`;
+       classifierEtymologyArray.push(toolExample);
+   }  else if(randomNumForTool === 3) {
+       toolClassifier = generatedCountNouns[countNounArray.indexOf("plough")]
+       classifiersWithEtymology++;
+       toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "plough"`;
+       classifierEtymologyArray.push(toolExample);
+   }else if (randomNumForTool > 3) {
+       toolClassifier = generateWords();
+   }
+   for(let i = 0; i < tool.length; i++) {
+       tool[i].innerHTML = spell(soundChange(toolClassifier));
+   }
+
+   let naturalInan = document.getElementsByClassName("natural-inanimate");
+   randomNumForNatural = Math.floor(Math.random() * 5);
+   if(randomNumForNatural === 0) {
+       naturalInanimateClassifier = generatedCountNouns[countNounArray.indexOf("rock")]
+       classifiersWithEtymology++;
+       naturalExample = `<i>${spell(soundChange(naturalInanimateClassifier))}</i> "rock"`;
+       classifierEtymologyArray.push(naturalExample);
+   } if(randomNumForNatural === 1) {
+       naturalInanimateClassifier = generatedMassNouns[massNounArray.indexOf("dirt")]
+       classifiersWithEtymology++;
+       naturalExample = `<i>${spell(soundChange(naturalInanimateClassifier))}</i> "dirt"`;
+       classifierEtymologyArray.push(naturalExample);
+   }  if(randomNumForNatural === 2) {
+       naturalInanimateClassifier = generatedMassNouns[massNounArray.indexOf("mud")]
+       classifiersWithEtymology++;
+       naturalExample = `<i>${spell(soundChange(naturalInanimateClassifier))}</i> "mud"`;
+       classifierEtymologyArray.push(naturalExample);
+   } else if (randomNumForNatural > 2) {
+       naturalInanimateClassifier = generateWords();
+   }
+   for(let i = 0; i < naturalInan.length; i++) {
+       naturalInan[i].innerHTML = spell(soundChange(naturalInanimateClassifier));
+   }
+
+   let liquid = document.getElementsByClassName("liquid");
+   randomNumForLiquid = Math.floor(Math.random() * 5);
+   if(randomNumForLiquid === 0) {
+       liquidClassifier = generatedCountNouns[countNounArray.indexOf("drop")]
+       classifiersWithEtymology++;
+       liquidExample = `<i>${spell(soundChange(liquidClassifier))}</i> "drop"`;
+       classifierEtymologyArray.push(liquidExample);
+   } if(randomNumForLiquid === 1) {
+       liquidClassifier = generatedCountNouns[countNounArray.indexOf("pool")]
+       classifiersWithEtymology++;
+       liquidExample = `<i>${spell(soundChange(liquidClassifier))}</i> "pool"`;
+       classifierEtymologyArray.push(liquidExample);
+   }  if(randomNumForLiquid === 2) {
+       liquidClassifier = generatedCountNouns[countNounArray.indexOf("cup")]
+       classifiersWithEtymology++;
+       liquidExample = `<i>${spell(soundChange(liquidClassifier))}</i> "cup"`;
+       classifierEtymologyArray.push(liquidExample);
+   } else if (randomNumForLiquid > 2) {
+       liquidClassifier = generateWords();
+   }
+   for(let i = 0; i < liquid.length; i++) {
+       liquid[i].innerHTML = spell(soundChange(liquidClassifier));
+   }
+
     const listOfSpans = [];
    if(classifierEtymologyArray.length === 1) {
        let joinedString = classifierEtymologyArray.join();
@@ -2334,6 +2518,24 @@ let beechExample = "";
 let grassExample = "";
 let flowerExample = "";
 let landExample = "";
+let waterExample = "";
+let seaExample = "";
+let fishExample = "";
+let skyExample = "";
+let cloudExample = "";
+let wingExample = "";
+let wordExample = "";
+let mouthExample = "";
+let axeExample = "";
+let handleExample = "";
+let hammerExample = "";
+let ploughExample = "";
+let rockExample2 = "";
+let dirtExample = "";
+let mudExample = "";
+let dropExample = "";
+let poolExample = "";
+let cupExample = "";
 
 function classifierExamplesInDictionaryEntries(word, array, countOrMassWord, countOrMassRandomWord) {
     let classifier = "";
@@ -2348,22 +2550,26 @@ function classifierExamplesInDictionaryEntries(word, array, countOrMassWord, cou
     if(countOrMassRandomWord === "count") {
         randomNoun = generatedCountNouns[countNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
         randomNounEnglishTranslation = countNounArrayPlural[generatedCountNouns.indexOf(randomNoun)]; 
-        //console.log(`count ${word} - ${array} - ${randomNounEnglishTranslation} `)
+        //console.log(`count ${word} - ${array}  - ${randomNoun} -  ${randomNounEnglishTranslation} `)
     } else if (countOrMassRandomWord === "mass") {
         randomNoun = generatedMassNouns[massNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
         randomNounEnglishTranslation = pluralSingulativeMassNounArray[generatedMassNouns.indexOf(randomNoun)];
-        //console.log(`mass ${word} - ${array} - ${randomNounEnglishTranslation} `)
+        //console.log(`mass ${word} - ${array} - ${randomNoun} - ${randomNounEnglishTranslation} `)
     }
 
-    
+    //console.log(`${word} - ${classifier} - ${array} - ${randomNoun} - ${randomNounEnglishTranslation} `)
 
     if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
         let example = `<strong><i>${spell(soundChange(randomNoun))} ${spell(soundChange(classifier))}</strong></i> "${randomNounEnglishTranslation}"`
         exampleArray.push(example);
+        //console.log(example)
     } else if (checkIfHeadInitialOrHeadFinal() === "headFinal") {
         let example = `<strong><i>${spell(soundChange(classifier))} ${spell(soundChange(randomNoun))}</strong></i> "${randomNounEnglishTranslation}"`
         exampleArray.push(example);
+        //console.log(example)
     }
+
+    
 }
 
 function verbClassifierExamplesInDictionaryEntries(word, array, transitiveOrIntransitive, countOrMassRandomWord) {
@@ -2546,6 +2752,60 @@ function callClassifierExamples() {
 
     classifierExamplesInDictionaryEntries("land", landAnimalClassifierArray, "count", "count");
     landExample = exampleArray[42];
+
+    classifierExamplesInDictionaryEntries("water", waterAnimalClassifierArray, "mass", "count");
+    waterExample = exampleArray[43];
+
+    classifierExamplesInDictionaryEntries("sea", waterAnimalClassifierArray, "count", "count");
+    seaExample = exampleArray[44];
+
+    classifierExamplesInDictionaryEntries("fish", waterAnimalClassifierArray, "count", "count");
+    fishExample = exampleArray[45];
+
+    classifierExamplesInDictionaryEntries("sky", flyingAnimalClassifierArray, "count", "count");
+    skyExample = exampleArray[46];
+
+    classifierExamplesInDictionaryEntries("cloud", flyingAnimalClassifierArray, "count", "count");
+    cloudExample = exampleArray[47];
+
+    classifierExamplesInDictionaryEntries("wing", flyingAnimalClassifierArray, "count", "count");
+    wingExample = exampleArray[48];
+
+    classifierExamplesInDictionaryEntries("word", wordClassifierArray, "count", "count");
+    wordExample = exampleArray[49];
+
+    classifierExamplesInDictionaryEntries("mouth", wordClassifierArray, "count", "count");
+    mouthExample = exampleArray[50];
+
+    classifierExamplesInDictionaryEntries("axe", toolClassifierArray, "count", "count");
+    axeExample = exampleArray[51];
+
+    classifierExamplesInDictionaryEntries("handle", toolClassifierArray, "count", "count");
+    handleExample = exampleArray[52];
+
+    classifierExamplesInDictionaryEntries("hammer", toolClassifierArray, "count", "count");
+    hammerExample = exampleArray[53];
+
+    classifierExamplesInDictionaryEntries("plough", toolClassifierArray, "count", "count");
+    ploughExample = exampleArray[54];
+
+    classifierExamplesInDictionaryEntries("rock", naturalInanimateClassifierArray, "count", "count");
+    rockExample2 = exampleArray[55];
+
+    classifierExamplesInDictionaryEntries("dirt", naturalInanimateClassifierArray, "mass", "count");
+    dirtExample = exampleArray[56];
+
+    classifierExamplesInDictionaryEntries("mud", naturalInanimateClassifierArray, "mass", "count");
+    mudExample = exampleArray[57];
+
+    classifierExamplesInDictionaryEntries("drop", liquidClassifierArray, "count", "count");
+    dropExample = exampleArray[58];
+
+    classifierExamplesInDictionaryEntries("pool", liquidClassifierArray, "count", "count");
+    poolExample = exampleArray[59];
+
+    classifierExamplesInDictionaryEntries("cup", liquidClassifierArray, "count", "count");
+    cupExample = exampleArray[60];
 }
 
 function IsolatingNouns() {
@@ -2572,12 +2832,12 @@ function IsolatingNouns() {
     selectNounsClassifier(shortGenericClassifierArray, grassClassifierArray, "grass");
     selectNounsClassifier(shortGenericClassifierArray, flowerClassifierArray, "flower");
     selectNounsClassifier(shortGenericClassifierArray, landAnimalClassifierArray, "land-animal");
-    /*selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "water-animal");
-    selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "flying-animal");
-    selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "word");
-    selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "tool");
-    selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "natural-inanimate");
-    selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "liquid");*/
+    selectNounsClassifier(shortGenericClassifierArray, waterAnimalClassifierArray, "water-animal");
+    selectNounsClassifier(shortGenericClassifierArray, flyingAnimalClassifierArray, "flying-animal");
+    selectNounsClassifier(shortGenericClassifierArray, wordClassifierArray, "word");
+    selectNounsClassifier(shortGenericClassifierArray, toolClassifierArray, "tool");
+    selectNounsClassifier(shortGenericClassifierArray, naturalInanimateClassifierArray, "natural-inanimate");
+    selectNounsClassifier(shortGenericClassifierArray, liquidClassifierArray, "liquid");
 
 
     selectMassNounsClassifier(shapeClassifierMassArray, longAndSlenderMassArray, "long-and-slender");
@@ -2601,14 +2861,14 @@ function IsolatingNouns() {
     selectMassNounsClassifier(shortGenericClassifierMassArray, humanClassifierMassArray, "human2");
     selectMassNounsClassifier(shortGenericClassifierMassArray, treeClassifierMassArray, "tree");
     selectMassNounsClassifier(shortGenericClassifierMassArray, grassClassifierMassArray, "grass");
-    selectMassNounsClassifier(shortGenericClassifierArray, flowerClassifierMassArray, "flower");
-    selectMassNounsClassifier(shortGenericClassifierArray, landAnimalClassifierMassArray, "land-animal");
-    /*selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "water-animal");
-    selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "flying-animal");
-    selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "word");
-    selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "tool");
-    selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "natural-inanimate");
-    selectMassNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "liquid");*/
+    selectMassNounsClassifier(shortGenericClassifierMassArray, flowerClassifierMassArray, "flower");
+    selectMassNounsClassifier(shortGenericClassifierMassArray, landAnimalClassifierMassArray, "land-animal");
+    selectMassNounsClassifier(shortGenericClassifierMassArray, waterAnimalClassifierMassArray, "water-animal");
+    selectMassNounsClassifier(shortGenericClassifierMassArray, flyingAnimalClassifierMassArray, "flying-animal");
+    selectMassNounsClassifier(shortGenericClassifierMassArray, wordClassifierMassArray, "word");
+    selectMassNounsClassifier(shortGenericClassifierMassArray, toolClassifierMassArray, "tool");
+    selectMassNounsClassifier(shortGenericClassifierMassArray, naturalInanimateClassifierMassArray, "natural-inanimate");
+    selectMassNounsClassifier(shortGenericClassifierMassArray, liquidClassifierMassArray, "liquid");
 }
 
 /***AGGLUTINATIVE NOUNS****/
@@ -4271,4 +4531,4 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
    }
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample, randomNumForLandAnimal, landExample};
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample};

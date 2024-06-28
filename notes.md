@@ -109,6 +109,11 @@ inflections much like the inflection noun section
   to cycle through different templates without changing the rest of the page). e.g
   &{det} &{adj} &{noun} &{verb} &{conj} that white horse ran
 - Tri-consonental roots? How will I go about adding that?
+	Example root: M-G-D
+	example morpheme: plural is CoCCa 
+	Insert "o" at [1] and [a] at [-1]
+	how to generate this template? CoCCa. by populating an array, at each index, the item may be "C" or a random vowel. There is a max allowance of 3 "C"'s
+	Then when it is inflecting, it loops through the affix array, in each loop it asks if the item is "C", if so, then the loop "continues" onto the next index until it finds an item that is not "C" aka the vowel. It then saves the item itself and the index. In this case, there is an "o" at index [1], and thus to inflect the root an "o" will be inserted at index [1]
 - add more than one meaning to a word, make a psuedo thesaurus? - if a word has related
   terms listed, then the other terms will also be assigned at random
 

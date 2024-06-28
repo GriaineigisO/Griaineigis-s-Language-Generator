@@ -108,7 +108,7 @@ inflections much like the inflection noun section
   given. There will be several templates, chosen at random (there will be a button
   to cycle through different templates without changing the rest of the page). e.g
   &{det} &{adj} &{noun} &{verb} &{conj} that white horse ran
-
+- Tri-consonental roots? How will I go about adding that?
 - add more than one meaning to a word, make a psuedo thesaurus? - if a word has related
   terms listed, then the other terms will also be assigned at random
 

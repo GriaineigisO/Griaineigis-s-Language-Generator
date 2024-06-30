@@ -178,9 +178,9 @@ function restoreDefault() {
 //The functions here will decide if the language has a set of consonants based on Place of Articulation, such a retroflex, palatal etc. The very core PoA like velar, labial and alveolar will be chosen by default, as it is very rare for a language to lack those
 
 let voicingTrueOrFalse = ""
+let randomVoiceNum = Math.floor(Math.random() * 4);
 function chooseVoicing() {//there is a 33% chance that this language will lack voicing
-    let randomNum = Math.floor(Math.random() * 4);
-    if (randomNum === 2) { 
+    if (randomVoiceNum === 2) { 
         voicingTrueOrFalse = false;
     } else {
         voicingTrueOrFalse = true;
@@ -195,7 +195,7 @@ function chooseVoicing() {//there is a 33% chance that this language will lack v
             allAlveolarFricativesArray.push("z");
         }
     }
-    //return trueOrFalse;
+    return trueOrFalse;
 }
 
 function chooseGemination() {
@@ -300,7 +300,7 @@ function chooseAspiration() {
 }
 
 function chooseLabial() {
-    let randomNum = Math.floor(Math.random() * 21);
+    let randomNum = Math.floor(Math.random() * 15);
     if (randomNum === 4) {
         allLabialFricativesArray.push("ɸ");
         randomNum = Math.floor(Math.random() * 6)
@@ -419,7 +419,7 @@ function chooseAlveolar() {
             allLateralFricatives.push("ɮ");
         }
     }
-     randomNum = Math.floor(Math.random() * 30);
+     randomNum = Math.floor(Math.random() * 20);
     if (randomNum === 23) { 
         allAlveolarAffricates.push("ts");
         randomNum = Math.floor(Math.random() * 4);
@@ -447,10 +447,10 @@ function choosePostAlveolar() {
                     allLongConsonants.push("ʒː")
                 }
         }
-        randomNum = Math.floor(Math.random() * 11)
+        randomNum = Math.floor(Math.random() * 9)
         if(randomNum === 4) {
             allPostAlveolaraffricates.push("tʃ");
-            randomNum = Math.floor(Math.random() * 11)
+            randomNum = Math.floor(Math.random() * 5)
             if(randomNum === 4 && chooseVoicing()) {
                 allPostAlveolaraffricates.push("dʒ")
             }
@@ -674,7 +674,7 @@ function choosePharyngeal() {
                     allLongConsonants.push("ħː")
                 }
         if(chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 11);
+            randomNum = Math.floor(Math.random() * 10);
             if (randomNum !== 4) {
                 allPharyngealFricatives.push("ʕ");
                 randomNum = Math.floor(Math.random() * 40)

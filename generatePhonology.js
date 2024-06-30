@@ -198,10 +198,10 @@ function chooseVoicing() {//there is a 33% chance that this language will lack v
     return trueOrFalse;
 }
 
+let randomGeminationNum = Math.floor(Math.random() * 21);
 function chooseGemination() {
-    let randomNum = Math.floor(Math.random() * 21);
     let trueOrFalse = "";
-    if(randomNum === 4 ) {
+    if(randomGeminationNum === 4 ) {
         trueOrFalse = true;
     } else {
         trueOrFalse = false;

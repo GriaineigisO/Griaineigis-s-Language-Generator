@@ -34,11 +34,11 @@ let allpalatalApproximants = [];
 let allLabialDentalAffricates = [];
 let allLabialAffricates = [];
 let allAlveolarAffricates = [];
-let allPostAlveolarAffricatives = [];
-let allVelarAffricativesArray = [];
+let allPostAlveolaraffricates = [];
+let allVelaraffricatesArray = [];
 let allUvularlAffricates = [];
 let allGlottalAffricates = [];
-let allUvularAffricativesArray
+let allUvularaffricatesArray
 
 let allAspiratesArray = [];
 
@@ -99,18 +99,18 @@ function restoreDefault() {
     allGlottalFricatives = [];
     allLateralFricatives = [];
     allPalatalFricatives = [];
-    allUvularAffricativesArray = [];
+    allUvularaffricatesArray = [];
     allPalatalisedConsonants = [];
     allLabialisedPlosives = [];
 
     allLabialDentalAffricates = [];
     allLabialAffricates = [];
     allAlveolarAffricates = [];
-    allPostAlveolarAffricatives = [];
-    allVelarAffricativesArray = [];
+    allPostAlveolaraffricates = [];
+    allVelaraffricatesArray = [];
     allUvularlAffricates = [];
     allGlottalAffricates = [];
-    allUvularAffricativesArray
+    allUvularaffricatesArray
 
     allFrontVowels = [];
     allBackVowels = [];
@@ -449,10 +449,10 @@ function choosePostAlveolar() {
         }
         randomNum = Math.floor(Math.random() * 11)
         if(randomNum === 4) {
-            allPostAlveolarAffricatives.push("tʃ");
+            allPostAlveolaraffricates.push("tʃ");
             randomNum = Math.floor(Math.random() * 11)
             if(randomNum === 4 && chooseVoicing()) {
-                allPostAlveolarAffricatives.push("dʒ")
+                allPostAlveolaraffricates.push("dʒ")
             }
         }
         
@@ -573,11 +573,11 @@ function chooseVelar() {
         }
         randomNum = Math.floor(Math.random() * 31);
         if(randomNum === 4 && chooseGemination()) {
-            allVelarAffricativesArray.push("kx");
+            allVelaraffricatesArray.push("kx");
             if(chooseVoicing()) {
             randomNum = Math.floor(Math.random() * 11)
                 if(randomNum === 4 && chooseGemination()) {
-                    allVelarAffricativesArray.push("gɣ")
+                    allVelaraffricatesArray.push("gɣ")
                 }
         }
         }
@@ -653,11 +653,11 @@ function chooseUvular() {
             }
         randomNum = Math.floor(Math.random() * 34);
             if (randomNum === 4) {
-                allUvularAffricativesArray.push("q͡χ");
+                allUvularaffricatesArray.push("q͡χ");
                 if(chooseVoicing()) {
                     randomNum = Math.floor(Math.random() * 30);
                     if (randomNum === 4) {
-                        allUvularAffricativesArray.push("ɢ͡ʁ");
+                        allUvularaffricatesArray.push("ɢ͡ʁ");
                     }
                 }
             }
@@ -949,20 +949,20 @@ function selectFricatives() {
 }
 
 function selectAffricates() {
-    let spanAffricativeList = document.getElementsByClassName("affricative-list");
-    let allAffricativesArray = allLabialDentalAffricates.concat(allLabialAffricates, allAlveolarAffricates, allPostAlveolarAffricatives, allVelarAffricativesArray, allUvularlAffricates, allGlottalAffricates);
+    let spanAffricateList = document.getElementsByClassName("affricate-list");
+    let allaffricatesArray = allLabialDentalAffricates.concat(allLabialAffricates, allAlveolarAffricates, allPostAlveolaraffricates, allVelaraffricatesArray, allUvularlAffricates, allGlottalAffricates);
 
-    let allAffricativesArrayFixed = allAffricativesArray.filter((element, index) => { //removes duplicates
-        return allAffricativesArray.indexOf(element) === index;
+    let allAffricatesArrayFixed = allaffricatesArray.filter((element, index) => { //removes duplicates
+        return allaffricatesArray.indexOf(element) === index;
     });
 
-    for(let i = 0; i < spanAffricativeList.length; i++) {
-        spanAffricativeList[i].innerHTML = `/${allAffricativesArrayFixed.join(", ")}/`;
+    for(let i = 0; i < spanAffricateList.length; i++) {
+        spanAffricateList[i].innerHTML = `/${allAffricatesArrayFixed.join(", ")}/`;
     }
-    if(allAffricativesArray.length > 0) {
+    if(allaffricatesArray.length > 0) {
         document.getElementById("affricate-list").style.display = "block";
     }
-    return allAffricativesArrayFixed;
+    return allAffricatesArrayFixed;
 }
 
 function selectRhotics() {
@@ -1009,7 +1009,7 @@ function countNumberOfConsonants() {
 
 
 function collectAllConsonants() {
-    consonants = allNasalsArray.concat(allLabialPlosivesArray, allAlveolarPlosivesArray, allVelarPlosivesArray, allLabialFricativesArray, allAlveolarFricativesArray, allVelarFricatives, allAlveolarRhoticsArray, allLateralsArray, allLabialApproximants, allpalatalApproximants, allPalatalPlosivesArray, allPostAlveolarFricatives, allpalatalAffricates, allPalatalFricatives, allDentalFricatives, allLabioDentalArray, allLabialDentalApproximants, allUvularPlosivesArray, allUvularFricativesArray, allPharyngealFricatives, allGlottalPlosives, allGlottalFricatives, allLateralFricatives, allLabialDentalAffricates, allLabialAffricates, allAlveolarAffricates, allPostAlveolarAffricatives, allVelarAffricativesArray, allUvularlAffricates, allGlottalAffricates, allPalatalisedConsonants, allLabialisedPlosives);
+    consonants = allNasalsArray.concat(allLabialPlosivesArray, allAlveolarPlosivesArray, allVelarPlosivesArray, allLabialFricativesArray, allAlveolarFricativesArray, allVelarFricatives, allAlveolarRhoticsArray, allLateralsArray, allLabialApproximants, allpalatalApproximants, allPalatalPlosivesArray, allPostAlveolarFricatives, allpalatalAffricates, allPalatalFricatives, allDentalFricatives, allLabioDentalArray, allLabialDentalApproximants, allUvularPlosivesArray, allUvularFricativesArray, allPharyngealFricatives, allGlottalPlosives, allGlottalFricatives, allLateralFricatives, allLabialDentalAffricates, allLabialAffricates, allAlveolarAffricates, allPostAlveolaraffricates, allVelaraffricatesArray, allUvularlAffricates, allGlottalAffricates, allPalatalisedConsonants, allLabialisedPlosives);
     
 }
 

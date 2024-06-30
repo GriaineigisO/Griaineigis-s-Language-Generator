@@ -433,6 +433,7 @@ function clearGeneratedArrays() {
     document.getElementById("human-animal-gender-switch").replaceChildren();
     document.getElementById("quantifier-table-1").replaceChildren();
     document.getElementById("quantifier-table-2").replaceChildren();
+    document.getElementById("long-classifier-system").replaceChildren();
 }
 
 function showGrammarAndDictionary() {
@@ -1096,7 +1097,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -1450,7 +1451,7 @@ function checkIfHeadInitialOrHeadFinal() {
 /**ISOLATING NOUNS****/
 let grammaticalNumIsolating = 0;
 function randomNumForIsolatingGrammaticalNumbers() {
-    grammaticalNumIsolating = Math.floor(Math.random() * 11)
+    grammaticalNumIsolating = 8//Math.floor(Math.random() * 11)
     if(grammaticalNumIsolating < 5) {
         document.getElementById("isolating-quanitifers-only").style.display = "block";
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "none";
@@ -1758,7 +1759,7 @@ function createQuantifiers() {
 
 let randomClassifierNum = 0;
 function chooseClassifierSystem() {
-    randomClassifierNum = Math.floor(Math.random() * 3)
+    randomClassifierNum = 3//Math.floor(Math.random() * 4)
     if(randomClassifierNum === 0) {
         document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
         document.getElementById("shape-based-classifier-tables").style.display = "block";
@@ -1768,6 +1769,9 @@ function chooseClassifierSystem() {
     } else if(randomClassifierNum === 2) {
         document.getElementById("classifier-text").innerHTML = `Nouns are assigned classifiers based on which semantic category they fall into, based more on folk taxonomy than anything else.`
         document.getElementById("short-generic-based-classifier-tables").style.display = "block";
+    }  else if(randomClassifierNum === 3) {
+        document.getElementById("classifier-text").innerHTML = `Often the most important form of categorisation is the shape of the object, though other, often secondary forms of categorization have developed.`
+        document.getElementById("long-classifier-system").style.display = "block";
     }
 
     let headFirstClassifierTable = document.getElementsByClassName("headFirst");
@@ -2449,6 +2453,147 @@ function createShortGenericClassifiers() {
        listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
        let listOfSpansString =  listOfSpans.join(", ")
        document.getElementById("short-generic-classifiers-etymology-examples").innerHTML = listOfSpansString;
+    }
+}
+
+//to create the most extensive classifier system, a different approach is taken. Each classifier will receive its own paragraph instead of using tables, with more elaborate examples and explanations. There will be greater randomization as to what categories are even included.
+function makeExamples(word, classifier, countOrMass) {
+    let generatedArray = "";
+    let nounArray = "";
+    if (countOrMass = "count") {
+        generatedArray = generatedCountNouns;
+        nounArray = countNounArray;
+    } else {
+        generatedArray = generatedMassNouns;
+        nounArray = massNounArray;
+    }
+
+    if (checkIfHeadInitialOrHeadFinal() === "headFirst") {
+        return `<i>${spell(soundChange(generatedArray[nounArray.indexOf(word)]))} ${spell(soundChange(classifier))}</i> "${word}"`;
+    } else {
+        return `<i>${spell(soundChange(classifier))} ${spell(soundChange(generatedArray[nounArray.indexOf(word)]))}</i> "${word}"`;
+    }
+}
+
+function createLongClassifiers() {
+    if(randomClassifierNum === 3) {
+
+        let allClassifiers = ["protruding-top", "orginised-gathering", "small-round", "small-flat", "building", "song", "slice", "entrance", "domestic-animal", "long-non-rigid", "long-rigid", "handful", "bagful", "stock", "droplet", "pair", "cup", "serving-food", "row", "bundle", "barrel", "strand", "set", "revolution", "gust", "pouring", "chunk", "shovelful", "netful", "cluster", "fieldful", "spoonful", "rounded-top", "smattering", "broad-flat", "degradable", "wisp", "roll", "mental-sensory", "violent-action", "loving-action", "reciprocal-action", "movement", "selection", "protrusions", "intrusions", "enclosed-space", "piercing-cutting", "percussive", "strip", "cutting", "instance", "completed-action", "eon", "day"];
+
+        let chosenClassifiers = [];
+        let randomNum = Math.floor(Math.random() * (allClassifiers.length - 12)) + 12;     
+
+        for(let i = 0; i < randomNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allClassifiers.length);
+            chosenClassifiers.push(allClassifiers[randomIndex])
+            allClassifiers.splice(randomIndex, 1)
+        }
+
+        /*Protruding top********************/
+        if(chosenClassifiers.includes("protruding-top")) {
+            let protrudingClassifier = generateWords();
+
+            let allExamples = [];
+            let spearHeadExample = makeExamples("spear", protrudingClassifier, "count");
+            allExamples.push(spearHeadExample);
+            let hatExample = makeExamples("hat", protrudingClassifier, "count");
+            allExamples.push(hatExample);
+            let mountainExample = makeExamples("mountain", protrudingClassifier, "count");
+            allExamples.push(mountainExample);
+            let hillExample = makeExamples("hill", protrudingClassifier, "count");
+            allExamples.push(hillExample);
+            let dorsalFinExample = makeExamples("dorsal&nbspfin", protrudingClassifier, "count");
+            allExamples.push(dorsalFinExample);
+            let towerExample = makeExamples("tower", protrudingClassifier, "count");
+            allExamples.push(towerExample);
+            let roofExample = makeExamples("roof", protrudingClassifier, "count");
+            allExamples.push(roofExample);
+            let barrowExample = makeExamples("barrow", protrudingClassifier, "count");   
+            allExamples.push(barrowExample);
+
+            let chosenExamples = []; 
+            let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+            for(let i= 0; i < randomExampleNum; i++) {
+                let randomIndex = Math.floor(Math.random() * allExamples.length);
+                chosenExamples.push(allExamples[randomIndex]);
+                allExamples.splice(randomIndex, 1);
+            }
+            
+            const listOfExamples = [];
+            chosenExamples.forEach((element) => listOfExamples.push(element));
+            listOfExamples.pop()
+            listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+            let protrudingExamples =  listOfExamples.join(", ")
+
+            let protrudingDiv = document.createElement("div");
+            protrudingDiv.classList.add("long-classifier-div");
+            protrudingDiv.setAttribute("id", "protruding-classifiers");
+            let protrudingH3 = document.createElement("h3");
+            protrudingH3.innerHTML = `Protruding Objects - <i>${spell(soundChange(protrudingClassifier))}</i>`;
+            let protrudingP = document.createElement("p");
+            protrudingP.innerHTML = `<i>${spell(soundChange(protrudingClassifier))}</i> is used for objects with a protruding top, or those that are protruding tops: ${protrudingExamples}`;
+
+            document.getElementById("long-classifier-system").appendChild(protrudingDiv);
+            document.getElementById("protruding-classifiers").appendChild(protrudingH3);
+            document.getElementById("protruding-classifiers").appendChild(protrudingP);
+        }
+
+        /*orginised gatnering********************/
+        // if(chosenClassifiers.includes("orginised-gathering")) {
+            let gatheringClassifier = generateWords();
+            
+            let allExamples = [];
+            allExamples.push(
+                makeExamples("army", gatheringClassifier, "count"),
+                makeExamples("band", gatheringClassifier, "count"),
+                makeExamples("troop", gatheringClassifier, "count"),
+                makeExamples("family", gatheringClassifier, "count"),
+                makeExamples("lineage", gatheringClassifier, "count"),
+            );
+
+            let chosenExamples = []; 
+            let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+            for(let i= 0; i < randomExampleNum; i++) {
+                let randomIndex = Math.floor(Math.random() * allExamples.length);
+                chosenExamples.push(allExamples[randomIndex]);
+                allExamples.splice(randomIndex, 1);
+            }
+            
+            const listOfExamples = [];
+            chosenExamples.forEach((element) => listOfExamples.push(element));
+            listOfExamples.pop()
+            listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+            let examples =  listOfExamples.join(", ")
+
+            let gatheringDiv = document.createElement("div");
+            gatheringDiv.classList.add("long-classifier-div");
+            gatheringDiv.setAttribute("id", "gathering-classifiers");
+            let gatheringH3 = document.createElement("h3");
+            gatheringH3.innerHTML = `Gatherings of people - <i>${spell(soundChange(gatheringClassifier))}</i>`;
+            let gatheringP = document.createElement("p");
+            gatheringP.innerHTML = `<i>${spell(soundChange(gatheringClassifier))}</i> is used for orginised gatherings of people, social organizations and kinship groups. Incidental gatherings, such as public crowds are not included: ${examples}`;
+
+            document.getElementById("long-classifier-system").appendChild(gatheringDiv);
+            document.getElementById("gathering-classifiers").appendChild(gatheringH3);
+            document.getElementById("gathering-classifiers").appendChild(gatheringP);
+       // }
+
+        /*General Classifier***************/
+        let generalClassifier = generateWords();
+        
+        let generalDiv = document.createElement("div");
+        generalDiv.classList.add("long-classifier-div");
+        generalDiv.setAttribute("id", "general-classifiers");
+        let generalH3 = document.createElement("h3");
+        generalH3.innerHTML = `General Classifier - <i>${spell(soundChange(generalClassifier))}</i>`
+
+        let generalP = document.createElement("p");
+        generalP.innerHTML = `The classifier <i>${spell(soundChange(generalClassifier))}</i> is used for any noun which does not fit any other category mentioned above. It may also be used with any noun, where the speaker is unsure of which specific classifier to use, either due to the noun being fairly obscure or perhaps a loanword. It is also fairly common for children to use this classifier extensively while they are still in the process of acquiring the language.`
+
+        document.getElementById("long-classifier-system").appendChild(generalDiv);
+        document.getElementById("general-classifiers").appendChild(generalH3);
+        document.getElementById("general-classifiers").appendChild(generalP);
+        
     }
 }
 
@@ -4493,6 +4638,7 @@ function generateLanguage() {
     createShapeClassifiers();
     createAnimacyClassifiers();
     createShortGenericClassifiers();
+    createLongClassifiers();
     IsolatingNouns();
     randomNumForAgglutinativeGrammaticalNumbers();
     inflectGenderlessNouns();

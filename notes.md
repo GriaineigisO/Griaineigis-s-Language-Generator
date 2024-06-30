@@ -6,7 +6,9 @@ An object may be used by a classifier not because it meets the original requirem
 
 not all classifiers below will be listed, there will be a minimum number, and extra ones wil be added randomly, with a great number generally preferred. The extensions will also be optionally added, and one classifier can have many extensions which may or may not appear.
 
-1. Objects with protruding top (hat, hill, mountain)
+Add these nouns and use them as examples for orginised gathering
+clan, tribe, council, meeting, audience, buffet, feast, banquet, festival
+
 2. orginised gathering of people, social organization ("family, army, tribe, clan, crowd)
 3. Small round objects (grain, bead, seed)
 4. Small flat objects (coin, pebble, shell)
@@ -36,33 +38,32 @@ not all classifiers below will be listed, there will be a minimum number, and ex
 28. shovelful of
 29. netful of (catch of fish)
 30. cluster of, spaced out group of solid objects (stars, mountains, boulders)
-31. distance
-32. fieldful of (herds, informal gatherings, crowds in public places)
-33. spoonful of/single bite fo food, sip of a drink
-34. object with rounded top, lump if (hill, wart, breast, bump, brow, knuckle)
-35. smattering of, splattering of (loosely grouped together collection of irregularly shaped objects, mostly liquids)
-36. broad, flat and solid surface (board, floor, slab, table, door)
-37. stick of degradable material (chalk, candle, charcoal, incense)
-38. wisp of, flow of, hint of (scent, influence, clue, steam, cloud, river, stream)
-39. roll of/sheet of wrapable material (cloth, scroll, rug, sail)
-40. mental/sensory process (thought, memory, sight of, sniff, sound)
-41. instance of a violent action (strike, blow, attack, hostility, hatred)
-42. instance of a loving action (kiss, hug, embrace, wedding, relationship, love)
-43. instance of a reciprocal action (exchange, swap, trade, purchase, favour, revenge)
-44. instance of movement (journey, walk, boat journey) and by extension change, transformation, transition,
-45. selection of, display of, spread of items across a flat surface (items spread out in a market for display, of text: paragraph), coat of paint, of open habitats (swamp, meadow, steppe, grassland, sea)
-46. protrusions from a surface (wall, boulder, cliff, shelf, limb, branch)
-47. intrusions into a surface/hole (ditch, hole, pit, well, tunnel, cavity, ravine, valley, furrow, gulley), crease, dent, wound, slit, window
-48. enclosed space where a person may go: room, house, cabin, shelter, cavity, cave, tent, realm, world, cell, cage (and by extension entrapment, captivity, traps, snares, deception, trickery)
-49. sharp piercing or cutting objects (needle, sword, arrow, pin, thorn, stinger, splinter, pick, knife, scythe, axe, blade, javeline, tooth, edge, plough)
-50. dull percussive object (club, rod, hammer, mallet, mace, bow > and by extension bow for string instruments and any musical utensils, and by more extension music), bent elongated objects: bow (of archery), hook, rib, curved beam, arch
-51. strip of (of bark, belt, whip, )
-52. cutting of (shavings, cut lock of hair - an by extension brush), shaving of (sandpaper and by extension powder), outpour of droplets (rain, hail, snow)
-53. instances of, times
-54. completed action
-55. eon of, unspecified long time of
-56. day of
-57. general classifier for anything else
+31. fieldful of (herds, informal gatherings, crowds in public places)
+32. spoonful of/single bite fo food, sip of a drink
+33. object with rounded top, lump if (hill, wart, breast, bump, brow, knuckle)
+34. smattering of, splattering of (loosely grouped together collection of irregularly shaped objects, mostly liquids)
+35. broad, flat and solid surface (board, floor, slab, table, door)
+36. stick of degradable material (chalk, candle, charcoal, incense)
+37. wisp of, flow of, hint of (scent, influence, clue, steam, cloud, river, stream)
+38. roll of/sheet of wrapable material (cloth, scroll, rug, sail)
+39. mental/sensory process (thought, memory, sight of, sniff, sound)
+40. instance of a violent action (strike, blow, attack, hostility, hatred)
+41. instance of a loving action (kiss, hug, embrace, wedding, relationship, love)
+42. instance of a reciprocal action (exchange, swap, trade, purchase, favour, revenge)
+43. instance of mov from A to B (journey, walk, boat journey) and by extension change, transformation, transition,
+44. selection of, display of, spread of items across a flat surface (items spread out in a market for display, of text: paragraph), coat of paint, of open habitats (swamp, meadow, steppe, grassland, sea)
+45. protrusions from a surface (wall, boulder, cliff, shelf, limb, branch)
+46. intrusions into a surface/hole (ditch, hole, pit, well, tunnel, cavity, ravine, valley, furrow, gulley), crease, dent, wound, slit, window
+47. enclosed space where a person may go: room, house, cabin, shelter, cavity, cave, tent, realm, world, cell, cage (and by extension entrapment, captivity, traps, snares, deception, trickery)
+48. sharp piercing or cutting objects (needle, sword, arrow, pin, thorn, stinger, splinter, pick, knife, scythe, axe, blade, javeline, tooth, edge, plough)
+49. dull percussive object (club, rod, hammer, mallet, mace, bow > and by extension bow for string instruments and any musical utensils, and by more extension music), bent elongated objects: bow (of archery), hook, rib, curved beam, arch
+50. strip of (of bark, belt, whip, )
+51. cutting of (shavings, cut lock of hair - an by extension brush), shaving of (sandpaper and by extension powder), outpour of droplets (rain, hail, snow)
+52. instances of, times
+53. completed action
+54. eon of, unspecified long time of
+55. day of
+56. general classifier for anything else
 
 - Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
   - Etymologies for the plural: all, children, people, third person plural, three.

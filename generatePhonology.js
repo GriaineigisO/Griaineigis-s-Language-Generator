@@ -190,12 +190,12 @@ function chooseVoicing() {//there is a 33% chance that this language will lack v
         allAlveolarPlosivesArray.push("d");
         allVelarPlosivesArray.push("g");
         
-        randomNum = Math.floor(Math.random() * 3);
+        let randomNum = Math.floor(Math.random() * 3);
         if(randomNum === 1) {//there is a 50% chance that there will be /z/
             allAlveolarFricativesArray.push("z");
         }
     }
-    return trueOrFalse;
+    return voicingTrueOrFalse;
 }
 
 let randomGeminationNum = Math.floor(Math.random() * 21);
@@ -220,7 +220,7 @@ function chooseGemination() {
         allAlveolarFricativesArray.push("sː");
         allLongConsonants.push("sː");
         
-        randomNum = Math.floor(Math.random() * 10);
+        let randomNum = Math.floor(Math.random() * 10);
         if(randomNum === 1 && chooseVoicing()) {//there is a 50% chance that there will be /z/
             allLabialPlosivesArray.push("bː");
             allLongConsonants.push("bː");
@@ -726,7 +726,7 @@ function chooseGlottal() {
 }
 
 function choosePalatalised() {
-    let randomNum = Math.floor(Math.random() * 14);
+    let randomNum = 5//Math.floor(Math.random() * 14);
     if(randomNum === 5) {
         allPalatalisedConsonants.push("tʲ");
         allAlveolarPlosivesArray.push("tʲ");

@@ -2510,6 +2510,8 @@ function createLongClassifiers() {
             allExamples.push(roofExample);
             let barrowExample = makeExamples("barrow", protrudingClassifier, "count");   
             allExamples.push(barrowExample);
+             let teatExample = makeExamples("teat", protrudingClassifier, "count");   
+            allExamples.push(teatExample);
 
             let chosenExamples = []; 
             let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
@@ -2539,7 +2541,7 @@ function createLongClassifiers() {
         }
 
         /*orginised gatnering********************/
-        // if(chosenClassifiers.includes("orginised-gathering")) {
+        if(chosenClassifiers.includes("orginised-gathering")) {
             let gatheringClassifier = generateWords();
             
             let allExamples = [];
@@ -2549,6 +2551,14 @@ function createLongClassifiers() {
                 makeExamples("troop", gatheringClassifier, "count"),
                 makeExamples("family", gatheringClassifier, "count"),
                 makeExamples("lineage", gatheringClassifier, "count"),
+                makeExamples("clan", gatheringClassifier, "count"),
+                makeExamples("tribe", gatheringClassifier, "count"),
+                makeExamples("council", gatheringClassifier, "count"),
+                makeExamples("meeting", gatheringClassifier, "count"),
+                makeExamples("buffet", gatheringClassifier, "count"),
+                makeExamples("feast", gatheringClassifier, "count"),
+                makeExamples("festival", gatheringClassifier, "count"),
+                makeExamples("audience", gatheringClassifier, "count"),
             );
 
             let chosenExamples = []; 
@@ -2576,7 +2586,56 @@ function createLongClassifiers() {
             document.getElementById("long-classifier-system").appendChild(gatheringDiv);
             document.getElementById("gathering-classifiers").appendChild(gatheringH3);
             document.getElementById("gathering-classifiers").appendChild(gatheringP);
-       // }
+        }
+
+        /*small round objects********************/
+        //if(chosenClassifiers.includes("small-round")) {
+            let smallRoundClassifier = generateWords();
+            
+            let allExamples = [];
+            allExamples.push(
+                makeExamples("grain", smallRoundClassifier, "count"),
+                makeExamples("bead", smallRoundClassifier, "count"),
+                makeExamples("seed", smallRoundClassifier, "count"),
+                makeExamples("turnip", smallRoundClassifier, "count"),
+                makeExamples("onion", smallRoundClassifier, "count"),
+                makeExamples("kidney", smallRoundClassifier, "count"),
+                makeExamples("kernel", smallRoundClassifier, "count"),
+                makeExamples("egg", smallRoundClassifier, "count"),
+                makeExamples("cherry", smallRoundClassifier, "count"),
+                makeExamples("berry", smallRoundClassifier, "count"),
+                makeExamples("bee", smallRoundClassifier, "count"),
+                makeExamples("bean", smallRoundClassifier, "count"),
+                makeExamples("apple", smallRoundClassifier, "count"),
+                makeExamples("acorn", smallRoundClassifier, "count"),
+            );
+
+            let chosenExamples = []; 
+            let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+            for(let i= 0; i < randomExampleNum; i++) {
+                let randomIndex = Math.floor(Math.random() * allExamples.length);
+                chosenExamples.push(allExamples[randomIndex]);
+                allExamples.splice(randomIndex, 1);
+            }
+            
+            const listOfExamples = [];
+            chosenExamples.forEach((element) => listOfExamples.push(element));
+            listOfExamples.pop()
+            listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+            let examples =  listOfExamples.join(", ")
+
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("small-round-div");
+            classifierDiv.setAttribute("id", "small-round");
+            let classifierH3 = document.createElement("h3");
+            classifierH3.innerHTML = `Small round objects - <i>${spell(soundChange(smallRoundClassifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = `<i>${spell(soundChange(smallRoundClassifier))}</i> is used for small round objects: ${examples}`;
+
+            document.getElementById("long-classifier-system").appendChild(classifierDiv);
+            document.getElementById("small-round").appendChild(classifierH3);
+            document.getElementById("small-round").appendChild(classifierP);
+        //}
 
         /*General Classifier***************/
         let generalClassifier = generateWords();

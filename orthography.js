@@ -43,7 +43,6 @@ function spell(word) {
     wordArray = Array.from(str)
    }
    
-
    
    /***CLEANUP***/ 
 
@@ -279,8 +278,10 @@ function spell(word) {
         if(wordArray[i] === "ɲ" && randomNumPalatalFricative > 1) {
             wordArray[i] = "ñ"
         }
-        if(wordArray[i] === "ʎ" && randomNumPalatalFricative > 1) {
-            wordArray[i] = "ʎ"
+        if(wordArray[i] === "ʎ" && randomNumPalatalFricative > 1 && consonants.includes("lː")) {
+            wordArray[i] = "ll"
+        } else if (wordArray[i] === "ʎ") {
+            wordArray[i] = "ļ"
         }
     }
 
@@ -511,13 +512,53 @@ function spell(word) {
 
     //Palatalised CONSONANTS
     for(let i = 0; i < wordArray[i]; i++) {
-        let randomNum = Math.floor(Math.random() * 3)
+        let randomNum = 5//Math.floor(Math.random() * 5)
+
+        console.log("hello")
+      
         if(wordArray[i] === "ʲ" && randomNum === 0) {
             wordArray[i] = "j"
-        } else if(wordArray[i] === "ʲ" && randomNum === 1) {
+        }
+        if(wordArray[i] === "ʲ" && randomNum === 1) {
             wordArray[i] = "’"
-        }else if(wordArray[i] === "ʲ" && randomNum === 2) {
+        }
+        if(wordArray[i] === "ʲ" && randomNum === 2) {
             wordArray[i] = "ʲ"
+        } 
+        if(wordArray[i] === "ʲ" && randomNum > 2) {
+            console.log("hello")
+            if(wordArray[i - 1] === "t") {
+                wordArray[i - 1] = "ț"
+                 wordArray.splice(i, 1)
+            }
+            if(wordArray[i - 1] === "d") {
+                wordArray[i - 1] = "d̦"
+                 wordArray.splice(i, 1)
+            }
+            if(wordArray[i - 1] === "k") {
+                wordArray[i - 1] = "ķ"
+                 wordArray.splice(i, 1)
+            }
+            if(wordArray[i - 1] === "g") {
+                wordArray[i - 1] = "ģ"
+                 wordArray.splice(i, 1)
+            }
+            if(wordArray[i - 1] === "s") {
+                wordArray[i - 1] = "ș"
+                 wordArray.splice(i, 1)
+            }
+            if(wordArray[i - 1] === "l") {
+                wordArray[i - 1] = "ļ"
+                 wordArray.splice(i, 1)
+            }
+            if(wordArray[i - 1] === "n") {
+                wordArray[i - 1] = "ņ"
+                 wordArray.splice(i, 1)
+            }
+            if(wordArray[i - 1] === "r") {
+                wordArray[i - 1] = "ŗ"
+                 wordArray.splice(i, 1)
+            }            
         }
     }
 

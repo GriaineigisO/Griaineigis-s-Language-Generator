@@ -6,10 +6,6 @@ An object may be used by a classifier not because it meets the original requirem
 
 not all classifiers below will be listed, there will be a minimum number, and extra ones wil be added randomly, with a great number generally preferred. The extensions will also be optionally added, and one classifier can have many extensions which may or may not appear.
 
-Add these nouns and use them as examples for orginised gathering
-clan, tribe, council, meeting, audience, buffet, feast, banquet, festival
-
-2. orginised gathering of people, social organization ("family, army, tribe, clan, crowd)
 3. Small round objects (grain, bead, seed)
 4. Small flat objects (coin, pebble, shell)
 5. Buildings with explicit purpose (gathering hall, storeroom, temple)

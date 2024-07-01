@@ -2548,7 +2548,7 @@ function createLongClassifiers() {
                 document.getElementById("protruding-classifiers").appendChild(protrudingP);
             }
 
-            /*orginised gatnering********************/
+            /*organized gathering********************/
             if(chosenClassifiers.includes("orginised-gathering")) {
                 let gatheringClassifier = generateWords();
                 
@@ -2589,7 +2589,7 @@ function createLongClassifiers() {
                 let gatheringH3 = document.createElement("h3");
                 gatheringH3.innerHTML = `Gatherings of people - <i>${spell(soundChange(gatheringClassifier))}</i>`;
                 let gatheringP = document.createElement("p");
-                gatheringP.innerHTML = `<i>${spell(soundChange(gatheringClassifier))}</i> is used for orginised gatherings of people, social organizations and kinship groups. Incidental gatherings, such as public crowds are not included: ${examples}`;
+                gatheringP.innerHTML = `<i>${spell(soundChange(gatheringClassifier))}</i> is used for orginised gatherings of people, social organizations and kinship groups. Incidental gatherings such as public crowds are not included: ${examples}`;
 
                 document.getElementById("long-classifier-system").appendChild(gatheringDiv);
                 document.getElementById("gathering-classifiers").appendChild(gatheringH3);
@@ -2597,7 +2597,7 @@ function createLongClassifiers() {
             }
 
             /*small round objects********************/
-            //if(chosenClassifiers.includes("small-round")) {
+            if(chosenClassifiers.includes("small-round")) {
                 let smallRoundClassifier = generateWords();
                 
                 let allExamples = [];
@@ -2616,6 +2616,12 @@ function createLongClassifiers() {
                     makeExamples("bean", smallRoundClassifier, "count"),
                     makeExamples("apple", smallRoundClassifier, "count"),
                     makeExamples("acorn", smallRoundClassifier, "count"),
+                    makeExamples("eye", smallRoundClassifier, "count"),
+                    makeExamples("garlic", smallRoundClassifier, "count"),
+                    makeExamples("ball", smallRoundClassifier, "count"),
+                    makeExamples("pea", smallRoundClassifier, "count"),
+                    makeExamples("fist", smallRoundClassifier, "count"),
+                    makeExamples("knee", smallRoundClassifier, "count"),
                 );
 
                 let chosenExamples = []; 
@@ -2638,11 +2644,113 @@ function createLongClassifiers() {
                 let classifierH3 = document.createElement("h3");
                 classifierH3.innerHTML = `Small round objects - <i>${spell(soundChange(smallRoundClassifier))}</i>`;
                 let classifierP = document.createElement("p");
-                classifierP.innerHTML = `<i>${spell(soundChange(smallRoundClassifier))}</i> is used for small round objects: ${examples}`;
+                classifierP.innerHTML = `<i>${spell(soundChange(smallRoundClassifier))}</i> is used for small round objects: ${examples} <span id="small-round-bug"></span>`;
 
                 document.getElementById("long-classifier-system").appendChild(classifierDiv);
                 document.getElementById("small-round").appendChild(classifierH3);
                 document.getElementById("small-round").appendChild(classifierP);
+
+                /*extensions to classifier usage*/
+                /*Decides if the classifier is extended in use to refer to bugs*/
+                let beeWord = spell(soundChange(generatedCountNouns[countNounArray.indexOf("bee")]));
+                let randomNumForBugExtension = Math.floor(Math.random() * 5);
+                if (randomNumForBugExtension === 3) {
+                    let allBugExamples = [];
+                    allBugExamples.push(
+                        makeExamples("spider", smallRoundClassifier, "count"),
+                        makeExamples("louse", smallRoundClassifier, "count"),
+                        makeExamples("weevil", smallRoundClassifier, "count"),
+                        makeExamples("worm", smallRoundClassifier, "count"),
+                        makeExamples("leech", smallRoundClassifier, "count"),
+                        makeExamples("maggot", smallRoundClassifier, "count"),
+                        makeExamples("tick", smallRoundClassifier, "count"),
+                    );
+                    let chosenBugExamples = []; 
+                    let randomBugExampleNum = Math.floor(Math.random() * (allBugExamples.length - 4)) + 4;
+                    for(let i= 0; i < randomBugExampleNum; i++) {
+                        let randomIndex = Math.floor(Math.random() * allBugExamples.length);
+                        chosenBugExamples.push(allBugExamples[randomIndex]);
+                        allBugExamples.splice(randomIndex, 1);
+                    }
+                    const listOfBugExamples = [];
+                    chosenBugExamples.forEach((element) => listOfBugExamples.push(element));
+                    listOfBugExamples.pop()
+                    listOfBugExamples.push(` and ${chosenBugExamples[chosenBugExamples.length -1]}.`)
+                    let bugExamples =  listOfBugExamples.join(", ")
+                
+                    document.getElementById("small-round-bug").innerHTML = `Due to being applied to <i>${beeWord}</i> "bee", the classifer <i>${spell(soundChange(smallRoundClassifier))}</i> may also be used with any nouns referring to bugs regardless of the shape of the bug itself: ${bugExamples}`;
+                }
+            }
+
+            /*small flat********************/
+            //if(chosenClassifiers.includes("small-flat")) {
+                let smallFlatClassifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("pebble", smallFlatClassifier, "count"),
+                    makeExamples("ring", smallFlatClassifier, "count"),
+                    makeExamples("coin", smallFlatClassifier, "count"),
+                    makeExamples("shell", smallFlatClassifier, "count"),
+                    makeExamples("ear", smallFlatClassifier, "count"),
+                    makeExamples("leaf", smallFlatClassifier, "count"),
+                    makeExamples("hand", smallFlatClassifier, "count"),
+                    makeExamples("palm", smallFlatClassifier, "count"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let smallFlatDiv = document.createElement("div");
+                smallFlatDiv.classList.add("small-flat-div");
+                smallFlatDiv.setAttribute("id", "small-flat");
+                let smallFlatH3 = document.createElement("h3");
+                smallFlatH3.innerHTML = `Small flat objects- <i>${spell(soundChange(smallFlatClassifier))}</i>`;
+                let smallFlatP = document.createElement("p");
+                smallFlatP.innerHTML = `<i>${spell(soundChange(smallFlatClassifier))}</i> is used for small flat objects: ${examples} <span id="small-flat-jewelry"></span>`;
+
+                document.getElementById("long-classifier-system").appendChild(smallFlatDiv);
+                document.getElementById("gathering-classifiers").appendChild(smallFlatH3);
+                document.getElementById("gathering-classifiers").appendChild(smallFlatP);
+
+                /*extensions to classifier usage*/
+                /*Decides if the classifier is extended in use to refer to jewelry*/
+                let jewelWord = spell(soundChange(generatedCountNouns[countNounArray.indexOf("ring")]));
+                let randomNumForJewelExtension = 3//Math.floor(Math.random() * 5);
+                if (randomNumForJewelExtension === 3) {
+                    let allJewelExamples = [];
+                    allJewelExamples.push(
+                        makeExamples("bracelet", smallFlatClassifier, "count"),
+                        makeExamples("jewel", smallFlatClassifier, "count"),
+                        makeExamples("necklace", smallFlatClassifier, "count"),
+                        makeExamples("pendant", smallFlatClassifier, "count"),
+                    )
+                    let chosenJewelExamples = []; 
+                    let randomJewelExampleNum = Math.floor(Math.random() * (allJewelExamples.length - 4)) + 4;
+                    for(let i= 0; i < randomJewelExampleNum; i++) {
+                        let randomIndex = Math.floor(Math.random() * allJewelExamples.length);
+                        chosenJewelExamples.push(allJewelExamples[randomIndex]);
+                        allJewelExamples.splice(randomIndex, 1);
+                    }
+                    const listOfJewelExamples = [];
+                    chosenJewelExamples.forEach((element) => listOfJewelExamples.push(element));
+                    listOfJewelExamples.pop()
+                    listOfJewelExamples.push(` and ${chosenJewelExamples[chosenJewelExamples.length -1]}.`)
+                    let jewelExamples =  listOfJewelExamples.join(", ")
+                
+                    document.getElementById("small-flat-jewelry").innerHTML = `This classifier extended in usage to also be used with nouns referring to jewelry, thanks to originally referring to the small flat piece of jewelry <i>${jewelWord}</i> "ring": ${jewelExamples}`;
+                }
             //}
 
             /*General Classifier***************/
@@ -3817,7 +3925,6 @@ function inflectNounsSingular() {
 }
 
 function inflectNounsPlural() {
-    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("plural-noun");
     let spanPluralAffix = document.getElementsByClassName("plural-affix")
 
@@ -3848,7 +3955,6 @@ function inflectNounsPlural() {
        nounSgMeaning[i].innerHTML = pluralMeaning;
         copyNum++;
     }
-}
 }
 
 function inflectMassNounsPlural() {

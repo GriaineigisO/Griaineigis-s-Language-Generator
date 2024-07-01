@@ -726,7 +726,7 @@ function chooseGlottal() {
 }
 
 function choosePalatalised() {
-    let randomNum = 5//Math.floor(Math.random() * 14);
+    let randomNum = Math.floor(Math.random() * 14);
     if(randomNum === 5) {
         allPalatalisedConsonants.push("tʲ");
         allAlveolarPlosivesArray.push("tʲ");

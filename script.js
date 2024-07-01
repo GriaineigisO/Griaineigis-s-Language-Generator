@@ -1759,33 +1759,35 @@ function createQuantifiers() {
 
 let randomClassifierNum = 0;
 function chooseClassifierSystem() {
-    randomClassifierNum = 3//Math.floor(Math.random() * 4)
-    if(randomClassifierNum === 0) {
-        document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
-        document.getElementById("shape-based-classifier-tables").style.display = "block";
-    } else if(randomClassifierNum === 1) {
-        document.getElementById("classifier-text").innerHTML = `The categorization of nouns is focused on animacy, with nouns for living things having various categories while all non-living things are lumped into just two categories, edible and inedible.`
-        document.getElementById("animacy-based-classifier-tables").style.display = "block";
-    } else if(randomClassifierNum === 2) {
-        document.getElementById("classifier-text").innerHTML = `Nouns are assigned classifiers based on which semantic category they fall into, based more on folk taxonomy than anything else.`
-        document.getElementById("short-generic-based-classifier-tables").style.display = "block";
-    }  else if(randomClassifierNum === 3) {
-        document.getElementById("classifier-text").innerHTML = `Often the most important form of categorisation is the shape of the object, though other, often secondary forms of categorization have developed.`
-        document.getElementById("long-classifier-system").style.display = "block";
-    }
-
-    let headFirstClassifierTable = document.getElementsByClassName("headFirst");
-    let headFinalClassifierTable = document.getElementsByClassName("headFinal");
-    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
-        for(let i = 0; i < headFirstClassifierTable.length; i++) {
-            headFirstClassifierTable[i].style.display = "block";
-            headFinalClassifierTable[i].style.display = "none";
+    if(typologyNum === 0) {
+        randomClassifierNum = 3//Math.floor(Math.random() * 4)
+        if(randomClassifierNum === 0) {
+            document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
+            document.getElementById("shape-based-classifier-tables").style.display = "block";
+        } else if(randomClassifierNum === 1) {
+            document.getElementById("classifier-text").innerHTML = `The categorization of nouns is focused on animacy, with nouns for living things having various categories while all non-living things are lumped into just two categories, edible and inedible.`
+            document.getElementById("animacy-based-classifier-tables").style.display = "block";
+        } else if(randomClassifierNum === 2) {
+            document.getElementById("classifier-text").innerHTML = `Nouns are assigned classifiers based on which semantic category they fall into, based more on folk taxonomy than anything else.`
+            document.getElementById("short-generic-based-classifier-tables").style.display = "block";
+        }  else if(randomClassifierNum === 3) {
+            document.getElementById("classifier-text").innerHTML = `Often the most important form of categorisation is the shape of the object, though other, often secondary forms of categorization have developed.`
+            document.getElementById("long-classifier-system").style.display = "block";
         }
-    } else {
-       for(let i = 0; i < headFirstClassifierTable.length; i++) {
-            headFirstClassifierTable[i].style.display = "none";
-            headFinalClassifierTable[i].style.display = "block";
-        } 
+
+        let headFirstClassifierTable = document.getElementsByClassName("headFirst");
+        let headFinalClassifierTable = document.getElementsByClassName("headFinal");
+        if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+            for(let i = 0; i < headFirstClassifierTable.length; i++) {
+                headFirstClassifierTable[i].style.display = "block";
+                headFinalClassifierTable[i].style.display = "none";
+            }
+        } else {
+        for(let i = 0; i < headFirstClassifierTable.length; i++) {
+                headFirstClassifierTable[i].style.display = "none";
+                headFinalClassifierTable[i].style.display = "block";
+            } 
+        }
     }
 }
 
@@ -1797,152 +1799,154 @@ let randomNumForPointed = 0;
 let randomNumForFlat = 0;
 let randomNumForShapeless = 0;
 function createShapeClassifiers() {
-    //to count how many classifiers are derived from pre-existing words vs which are generated 
-    let classifiersWithEtymology = 0;
-    let longAndSlenderExample = "";
-    let shortAndWideExample = "";
-    let roundExample = "";
-    let pointedExample = "";
-    let flatExample = "";
-    let shapelessExample = "";
-    let classifierEtymologyArray = [];
-    
-    let longAndSlender = document.getElementsByClassName("long-and-slender");
-    randomNumForLongAndSlender = Math.floor(Math.random() * 4);
-    if(randomNumForLongAndSlender === 0) {
-        longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("branch")]
-        classifiersWithEtymology++;
-        longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "branch"`;
-        classifierEtymologyArray.push(longAndSlenderExample);
-    } else if (randomNumForLongAndSlender === 1) {
-        longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("pole")]
-        classifiersWithEtymology++;
-        longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "pole"`;
-       classifierEtymologyArray.push(longAndSlenderExample);
-    } else if (randomNumForLongAndSlender > 1) {
-        longAndSlenderClassifier = generateWords();
+    if(typologyNum === 0) {
+        //to count how many classifiers are derived from pre-existing words vs which are generated 
+        let classifiersWithEtymology = 0;
+        let longAndSlenderExample = "";
+        let shortAndWideExample = "";
+        let roundExample = "";
+        let pointedExample = "";
+        let flatExample = "";
+        let shapelessExample = "";
+        let classifierEtymologyArray = [];
         
-    }
-    for(let i = 0; i < longAndSlender.length; i++) {
-        longAndSlender[i].innerHTML = spell(soundChange(longAndSlenderClassifier));
-    }
+        let longAndSlender = document.getElementsByClassName("long-and-slender");
+        randomNumForLongAndSlender = Math.floor(Math.random() * 4);
+        if(randomNumForLongAndSlender === 0) {
+            longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("branch")]
+            classifiersWithEtymology++;
+            longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "branch"`;
+            classifierEtymologyArray.push(longAndSlenderExample);
+        } else if (randomNumForLongAndSlender === 1) {
+            longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("pole")]
+            classifiersWithEtymology++;
+            longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "pole"`;
+        classifierEtymologyArray.push(longAndSlenderExample);
+        } else if (randomNumForLongAndSlender > 1) {
+            longAndSlenderClassifier = generateWords();
+            
+        }
+        for(let i = 0; i < longAndSlender.length; i++) {
+            longAndSlender[i].innerHTML = spell(soundChange(longAndSlenderClassifier));
+        }
 
-    let shortAndWide = document.getElementsByClassName("short-and-wide");
-    randomNumForShortAndWide = Math.floor(Math.random() * 4);
-     if(randomNumForShortAndWide === 0) {
-        shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("shoulder")]
-        classifiersWithEtymology++;
-        shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "shoulder"`;
-        classifierEtymologyArray.push(shortAndWideExample);
-    } else if(randomNumForShortAndWide === 1) {
-        shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("wedge")]
-        classifiersWithEtymology++;
-        shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "wedge"`;
-        classifierEtymologyArray.push(shortAndWideExample);
-    } else if (randomNumForShortAndWide > 1) {
-        shortAndWideClassifier = generateWords(); 
-    }
-    for(let i = 0; i < shortAndWide.length; i++) {
-        shortAndWide[i].innerHTML = spell(soundChange(shortAndWideClassifier));
-    }
+        let shortAndWide = document.getElementsByClassName("short-and-wide");
+        randomNumForShortAndWide = Math.floor(Math.random() * 4);
+        if(randomNumForShortAndWide === 0) {
+            shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("shoulder")]
+            classifiersWithEtymology++;
+            shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "shoulder"`;
+            classifierEtymologyArray.push(shortAndWideExample);
+        } else if(randomNumForShortAndWide === 1) {
+            shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("wedge")]
+            classifiersWithEtymology++;
+            shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "wedge"`;
+            classifierEtymologyArray.push(shortAndWideExample);
+        } else if (randomNumForShortAndWide > 1) {
+            shortAndWideClassifier = generateWords(); 
+        }
+        for(let i = 0; i < shortAndWide.length; i++) {
+            shortAndWide[i].innerHTML = spell(soundChange(shortAndWideClassifier));
+        }
 
-    let round = document.getElementsByClassName("round");
-    randomNumForRound = Math.floor(Math.random() * 5);
-     if(randomNumForRound === 0) {
-        roundClassifier = generatedCountNouns[countNounArray.indexOf("apple")]
-        classifiersWithEtymology++;
-        roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "apple"`;
-        classifierEtymologyArray.push(roundExample);
-    } else if(randomNumForRound === 1) {
-        roundClassifier = generatedCountNouns[countNounArray.indexOf("pebble")]
-        classifiersWithEtymology++;
-        roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "pebble"`;
-        classifierEtymologyArray.push(roundExample);
-    }else if(randomNumForRound === 2) {
-        roundClassifier = generatedCountNouns[countNounArray.indexOf("ball")]
-        classifiersWithEtymology++;
-        roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "ball"`;
-        classifierEtymologyArray.push(roundExample);
-    } else if (randomNumForRound > 2) {
-        roundClassifier = generateWords(); 
-    }
-    for(let i = 0; i < round.length; i++) {
-        round[i].innerHTML = spell(soundChange(roundClassifier));
-    }
+        let round = document.getElementsByClassName("round");
+        randomNumForRound = Math.floor(Math.random() * 5);
+        if(randomNumForRound === 0) {
+            roundClassifier = generatedCountNouns[countNounArray.indexOf("apple")]
+            classifiersWithEtymology++;
+            roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "apple"`;
+            classifierEtymologyArray.push(roundExample);
+        } else if(randomNumForRound === 1) {
+            roundClassifier = generatedCountNouns[countNounArray.indexOf("pebble")]
+            classifiersWithEtymology++;
+            roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "pebble"`;
+            classifierEtymologyArray.push(roundExample);
+        }else if(randomNumForRound === 2) {
+            roundClassifier = generatedCountNouns[countNounArray.indexOf("ball")]
+            classifiersWithEtymology++;
+            roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "ball"`;
+            classifierEtymologyArray.push(roundExample);
+        } else if (randomNumForRound > 2) {
+            roundClassifier = generateWords(); 
+        }
+        for(let i = 0; i < round.length; i++) {
+            round[i].innerHTML = spell(soundChange(roundClassifier));
+        }
 
-    let pointed = document.getElementsByClassName("pointed");
-    randomNumForPointed = Math.floor(Math.random() * 5);
-     if(randomNumForPointed === 0) {
-        pointedClassifier = generatedCountNouns[countNounArray.indexOf("arrow")]
-        classifiersWithEtymology++;
-        pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "arrow"`;
-        classifierEtymologyArray.push(pointedExample);
-    } else if(randomNumForPointed === 1) {
-        pointedClassifier = generatedCountNouns[countNounArray.indexOf("thorn")]
-        classifiersWithEtymology++;
-        pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "thorn"`;
-        classifierEtymologyArray.push(pointedExample);
-    } else if(randomNumForPointed === 2) {
-        pointedClassifier = generatedCountNouns[countNounArray.indexOf("fork")]
-        classifiersWithEtymology++;
-        pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "fork"`;
-        classifierEtymologyArray.push(pointedExample);
-    } else if (randomNumForPointed> 2) {
-        pointedClassifier = generateWords(); 
-    }
-    for(let i = 0; i < pointed.length; i++) {
-        pointed[i].innerHTML = spell(soundChange(pointedClassifier));
-    }
+        let pointed = document.getElementsByClassName("pointed");
+        randomNumForPointed = Math.floor(Math.random() * 5);
+        if(randomNumForPointed === 0) {
+            pointedClassifier = generatedCountNouns[countNounArray.indexOf("arrow")]
+            classifiersWithEtymology++;
+            pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "arrow"`;
+            classifierEtymologyArray.push(pointedExample);
+        } else if(randomNumForPointed === 1) {
+            pointedClassifier = generatedCountNouns[countNounArray.indexOf("thorn")]
+            classifiersWithEtymology++;
+            pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "thorn"`;
+            classifierEtymologyArray.push(pointedExample);
+        } else if(randomNumForPointed === 2) {
+            pointedClassifier = generatedCountNouns[countNounArray.indexOf("fork")]
+            classifiersWithEtymology++;
+            pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "fork"`;
+            classifierEtymologyArray.push(pointedExample);
+        } else if (randomNumForPointed> 2) {
+            pointedClassifier = generateWords(); 
+        }
+        for(let i = 0; i < pointed.length; i++) {
+            pointed[i].innerHTML = spell(soundChange(pointedClassifier));
+        }
 
-    let flat = document.getElementsByClassName("flat");
-    randomNumForFlat = Math.floor(Math.random() * 5);
-    if(randomNumForFlat === 0) {
-        flatClassifier = generatedCountNouns[countNounArray.indexOf("slab")]
-        classifiersWithEtymology++;
-        flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "slab"`;
-        classifierEtymologyArray.push(flatExample);
-    } else if(randomNumForFlat === 1) {
-        flatClassifier = generatedCountNouns[countNounArray.indexOf("face")]
-        classifiersWithEtymology++;
-        flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "face"`;
-        classifierEtymologyArray.push(flatExample);
-    } else if (randomNumForFlat > 1) {
-        flatClassifier = generateWords(); 
-    }
-    for(let i = 0; i < flat.length; i++) {
-        flat[i].innerHTML = spell(soundChange(flatClassifier));
-    }
+        let flat = document.getElementsByClassName("flat");
+        randomNumForFlat = Math.floor(Math.random() * 5);
+        if(randomNumForFlat === 0) {
+            flatClassifier = generatedCountNouns[countNounArray.indexOf("slab")]
+            classifiersWithEtymology++;
+            flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "slab"`;
+            classifierEtymologyArray.push(flatExample);
+        } else if(randomNumForFlat === 1) {
+            flatClassifier = generatedCountNouns[countNounArray.indexOf("face")]
+            classifiersWithEtymology++;
+            flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "face"`;
+            classifierEtymologyArray.push(flatExample);
+        } else if (randomNumForFlat > 1) {
+            flatClassifier = generateWords(); 
+        }
+        for(let i = 0; i < flat.length; i++) {
+            flat[i].innerHTML = spell(soundChange(flatClassifier));
+        }
 
-    let shapeless = document.getElementsByClassName("shapeless");
-    randomNumForShapeless = Math.floor(Math.random() * 4);
-    if(randomNumForShapeless === 0) {
-        shapelessClassifier = generatedMassNouns[massNounArray.indexOf("air")]
-        classifiersWithEtymology++;
-        shapelessExample = `<i>${spell(soundChange(shapelessClassifier))}</i> "air"`;
-        classifierEtymologyArray.push(shapelessExample);
-    } else if (randomNumForShapeless > 0) {
-        shapelessClassifier = generateWords(); 
-    }
-    for(let i = 0; i < shapeless.length; i++) {
-        shapeless[i].innerHTML = spell(soundChange(shapelessClassifier));
-    }
+        let shapeless = document.getElementsByClassName("shapeless");
+        randomNumForShapeless = Math.floor(Math.random() * 4);
+        if(randomNumForShapeless === 0) {
+            shapelessClassifier = generatedMassNouns[massNounArray.indexOf("air")]
+            classifiersWithEtymology++;
+            shapelessExample = `<i>${spell(soundChange(shapelessClassifier))}</i> "air"`;
+            classifierEtymologyArray.push(shapelessExample);
+        } else if (randomNumForShapeless > 0) {
+            shapelessClassifier = generateWords(); 
+        }
+        for(let i = 0; i < shapeless.length; i++) {
+            shapeless[i].innerHTML = spell(soundChange(shapelessClassifier));
+        }
 
-    if(classifiersWithEtymology > 0) {
-        document.getElementById("shape-classifiers-etymology").style.display = "block";
-    } else {
-        document.getElementById("shape-classifiers-etymology").style.display = "none";
-    }
+        if(classifiersWithEtymology > 0) {
+            document.getElementById("shape-classifiers-etymology").style.display = "block";
+        } else {
+            document.getElementById("shape-classifiers-etymology").style.display = "none";
+        }
 
-    const listOfSpans = [];
-    if(classifierEtymologyArray.length === 1) {
-        let joinedString = classifierEtymologyArray.join();
-        document.getElementById("shape-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
-    } else {
-     classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
-        listOfSpans.pop()
-        listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
-        let listOfSpansString =  listOfSpans.join(", ")
-        document.getElementById("shape-classifiers-etymology-examples").innerHTML = listOfSpansString;
+        const listOfSpans = [];
+        if(classifierEtymologyArray.length === 1) {
+            let joinedString = classifierEtymologyArray.join();
+            document.getElementById("shape-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
+        } else {
+        classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
+            listOfSpans.pop()
+            listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
+            let listOfSpansString =  listOfSpans.join(", ")
+            document.getElementById("shape-classifiers-etymology-examples").innerHTML = listOfSpansString;
+        }
     }
 }
 
@@ -1957,224 +1961,226 @@ let randomNumForMilk = 0;
 let randomNumForEdible = 0;
 let randomNumForInEdible = 0;
 function createAnimacyClassifiers() {
-    //to count how many classifiers are derived from pre-existing words vs which are generated 
-    let classifiersWithEtymology = 0;
-    let manExample = "";
-    let womanExample = "";
-    let childExample = "";
-    let wildAnimalExample = "";
-    let meatExample = "";
-    let furExample = "";
-    let labourExample = "";
-    let milkExample = "";
-    let edibleExample = "";
-    let inedibleExample = "";
-    let classifierEtymologyArray = [];
-    
-    let man = document.getElementsByClassName("man");
-    randomNumForMan = Math.floor(Math.random() * 2);
-    if(randomNumForMan === 0) {
-        manClassifier = generatedCountNouns[countNounArray.indexOf("man")]
-        classifiersWithEtymology++;
-        manExample = `<i>${spell(soundChange(manClassifier))}</i> "man"`;
-        classifierEtymologyArray.push(manExample);
-    } else if (randomNumForMan === 1) {
-        manClassifier = generateWords();
+    if(typologyNum === 0) {
+        //to count how many classifiers are derived from pre-existing words vs which are generated 
+        let classifiersWithEtymology = 0;
+        let manExample = "";
+        let womanExample = "";
+        let childExample = "";
+        let wildAnimalExample = "";
+        let meatExample = "";
+        let furExample = "";
+        let labourExample = "";
+        let milkExample = "";
+        let edibleExample = "";
+        let inedibleExample = "";
+        let classifierEtymologyArray = [];
         
-    }
-    for(let i = 0; i < man.length; i++) {
-        man[i].innerHTML = spell(soundChange(manClassifier));
-    }
+        let man = document.getElementsByClassName("man");
+        randomNumForMan = Math.floor(Math.random() * 2);
+        if(randomNumForMan === 0) {
+            manClassifier = generatedCountNouns[countNounArray.indexOf("man")]
+            classifiersWithEtymology++;
+            manExample = `<i>${spell(soundChange(manClassifier))}</i> "man"`;
+            classifierEtymologyArray.push(manExample);
+        } else if (randomNumForMan === 1) {
+            manClassifier = generateWords();
+            
+        }
+        for(let i = 0; i < man.length; i++) {
+            man[i].innerHTML = spell(soundChange(manClassifier));
+        }
 
-    let woman = document.getElementsByClassName("woman");
-    randomNumForWoman = Math.floor(Math.random() * 2);
-    if(randomNumForWoman === 0) {
-        womanClassifier = generatedCountNouns[countNounArray.indexOf("woman")]
-        classifiersWithEtymology++;
-        womanExample = `<i>${spell(soundChange(womanClassifier))}</i> "woman"`;
-        classifierEtymologyArray.push(womanExample);
-    } else if (randomNumForWoman === 1) {
-        womanClassifier = generateWords();
-        
-    }
-    for(let i = 0; i < woman.length; i++) {
-        woman[i].innerHTML = spell(soundChange(womanClassifier));
-    }
+        let woman = document.getElementsByClassName("woman");
+        randomNumForWoman = Math.floor(Math.random() * 2);
+        if(randomNumForWoman === 0) {
+            womanClassifier = generatedCountNouns[countNounArray.indexOf("woman")]
+            classifiersWithEtymology++;
+            womanExample = `<i>${spell(soundChange(womanClassifier))}</i> "woman"`;
+            classifierEtymologyArray.push(womanExample);
+        } else if (randomNumForWoman === 1) {
+            womanClassifier = generateWords();
+            
+        }
+        for(let i = 0; i < woman.length; i++) {
+            woman[i].innerHTML = spell(soundChange(womanClassifier));
+        }
 
-    let child = document.getElementsByClassName("child");
-    randomNumForChild = Math.floor(Math.random() * 2);
-    if(randomNumForChild === 0) {
-        childClassifier = generatedCountNouns[countNounArray.indexOf("child")]
-        classifiersWithEtymology++;
-        childExample = `<i>${spell(soundChange(childClassifier))}</i> "child"`;
-        classifierEtymologyArray.push(childExample);
-    } else if (randomNumForChild === 1) {
-        childClassifier = generateWords();
-    }
-    for(let i = 0; i < child.length; i++) {
-        child[i].innerHTML = spell(soundChange(childClassifier));
-    }
+        let child = document.getElementsByClassName("child");
+        randomNumForChild = Math.floor(Math.random() * 2);
+        if(randomNumForChild === 0) {
+            childClassifier = generatedCountNouns[countNounArray.indexOf("child")]
+            classifiersWithEtymology++;
+            childExample = `<i>${spell(soundChange(childClassifier))}</i> "child"`;
+            classifierEtymologyArray.push(childExample);
+        } else if (randomNumForChild === 1) {
+            childClassifier = generateWords();
+        }
+        for(let i = 0; i < child.length; i++) {
+            child[i].innerHTML = spell(soundChange(childClassifier));
+        }
 
-    let wildAnimal = document.getElementsByClassName("wild-animal");
-    randomNumForWildAnimal = Math.floor(Math.random() * 5);
-    if(randomNumForWildAnimal === 0) {
-        wildAnimalClassifier = generatedCountNouns[countNounArray.indexOf("wolf")]
-        classifiersWithEtymology++;
-        wildAnimalExample = `<i>${spell(soundChange(wildAnimalClassifier))}</i> "wolf"`;
-        classifierEtymologyArray.push(wildAnimalExample);
-    } else if(randomNumForWildAnimal === 1) {
-        wildAnimalClassifier = generatedCountNouns[countNounArray.indexOf("bear")]
-        classifiersWithEtymology++;
-        wildAnimalExample = `<i>${spell(soundChange(wildAnimalClassifier))}</i> "bear"`;
-        classifierEtymologyArray.push(wildAnimalExample);
-    } else if (randomNumForWildAnimal > 1) {
-        wildAnimalClassifier = generateWords();
-    }
-    for(let i = 0; i < wildAnimal.length; i++) {
-        wildAnimal[i].innerHTML = spell(soundChange(wildAnimalClassifier));
-    }
+        let wildAnimal = document.getElementsByClassName("wild-animal");
+        randomNumForWildAnimal = Math.floor(Math.random() * 5);
+        if(randomNumForWildAnimal === 0) {
+            wildAnimalClassifier = generatedCountNouns[countNounArray.indexOf("wolf")]
+            classifiersWithEtymology++;
+            wildAnimalExample = `<i>${spell(soundChange(wildAnimalClassifier))}</i> "wolf"`;
+            classifierEtymologyArray.push(wildAnimalExample);
+        } else if(randomNumForWildAnimal === 1) {
+            wildAnimalClassifier = generatedCountNouns[countNounArray.indexOf("bear")]
+            classifiersWithEtymology++;
+            wildAnimalExample = `<i>${spell(soundChange(wildAnimalClassifier))}</i> "bear"`;
+            classifierEtymologyArray.push(wildAnimalExample);
+        } else if (randomNumForWildAnimal > 1) {
+            wildAnimalClassifier = generateWords();
+        }
+        for(let i = 0; i < wildAnimal.length; i++) {
+            wildAnimal[i].innerHTML = spell(soundChange(wildAnimalClassifier));
+        }
 
-    let meat = document.getElementsByClassName("meat");
-    randomNumForMeat = Math.floor(Math.random() * 2);
-    if(randomNumForMeat === 0) {
-        meatClassifier = generatedCountNouns[countNounArray.indexOf("goat")]
-        classifiersWithEtymology++;
-        meatExample = `<i>${spell(soundChange(meatClassifier))}</i> "goat"`;
-        classifierEtymologyArray.push(meatExample);
-    } else if (randomNumForMeat === 1) {
-        meatClassifier = generateWords();
-    }
-    for(let i = 0; i < meat.length; i++) {
-        meat[i].innerHTML = spell(soundChange(meatClassifier));
-    }
+        let meat = document.getElementsByClassName("meat");
+        randomNumForMeat = Math.floor(Math.random() * 2);
+        if(randomNumForMeat === 0) {
+            meatClassifier = generatedCountNouns[countNounArray.indexOf("goat")]
+            classifiersWithEtymology++;
+            meatExample = `<i>${spell(soundChange(meatClassifier))}</i> "goat"`;
+            classifierEtymologyArray.push(meatExample);
+        } else if (randomNumForMeat === 1) {
+            meatClassifier = generateWords();
+        }
+        for(let i = 0; i < meat.length; i++) {
+            meat[i].innerHTML = spell(soundChange(meatClassifier));
+        }
 
-    let fur = document.getElementsByClassName("fur");
-    randomNumForFur = Math.floor(Math.random() * 5);
-    if(randomNumForFur === 0) {
-        furClassifier = generatedMassNouns[massNounArray.indexOf("skin")]
-        classifiersWithEtymology++;
-        furExample = `<i>${spell(soundChange(furClassifier))}</i> "skin"`;
-        classifierEtymologyArray.push(furExample);
-    } else if(randomNumForFur === 1) {
-        furClassifier = generatedCountNouns[countNounArray.indexOf("sheep")]
-        classifiersWithEtymology++;
-        furExample = `<i>${spell(soundChange(furClassifier))}</i> "sheep"`;
-        classifierEtymologyArray.push(furExample);
-    } else if (randomNumForFur > 1) {
-        furClassifier = generateWords();
-    }
-    for(let i = 0; i < fur.length; i++) {
-        fur[i].innerHTML = spell(soundChange(furClassifier));
-    }
+        let fur = document.getElementsByClassName("fur");
+        randomNumForFur = Math.floor(Math.random() * 5);
+        if(randomNumForFur === 0) {
+            furClassifier = generatedMassNouns[massNounArray.indexOf("skin")]
+            classifiersWithEtymology++;
+            furExample = `<i>${spell(soundChange(furClassifier))}</i> "skin"`;
+            classifierEtymologyArray.push(furExample);
+        } else if(randomNumForFur === 1) {
+            furClassifier = generatedCountNouns[countNounArray.indexOf("sheep")]
+            classifiersWithEtymology++;
+            furExample = `<i>${spell(soundChange(furClassifier))}</i> "sheep"`;
+            classifierEtymologyArray.push(furExample);
+        } else if (randomNumForFur > 1) {
+            furClassifier = generateWords();
+        }
+        for(let i = 0; i < fur.length; i++) {
+            fur[i].innerHTML = spell(soundChange(furClassifier));
+        }
 
-    let labour = document.getElementsByClassName("labour");
-    randomNumForLabour = Math.floor(Math.random() * 7);
-    if(randomNumForLabour === 0) {
-        labourClassifier = generatedMassNouns[massNounArray.indexOf("labour")]
-        classifiersWithEtymology++;
-        labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "labour"`;
-        classifierEtymologyArray.push(labourExample);
-    } else if(randomNumForLabour === 1) {
-        labourClassifier = generatedTransitiveVerbs[transitiveVerbArray.indexOf("push")]
-        classifiersWithEtymology++;
-        labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "push"`;
-        classifierEtymologyArray.push(labourExample);
-    } else if(randomNumForLabour === 2) {
-        labourClassifier = generatedCountNouns[countNounArray.indexOf("horse")]
-        classifiersWithEtymology++;
-        labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "horse"`;
-        classifierEtymologyArray.push(labourExample);
-    } else if(randomNumForLabour === 3) {
-        labourClassifier = generatedCountNouns[countNounArray.indexOf("hoof")]
-        classifiersWithEtymology++;
-        labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "hoof"`;
-        classifierEtymologyArray.push(labourExample);
-    } else if(randomNumForLabour === 4) {
-        labourClassifier = generatedCountNouns[countNounArray.indexOf("donkey")]
-        classifiersWithEtymology++;
-        labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "donkey"`;
-        classifierEtymologyArray.push(labourExample);
-    } else if (randomNumForLabour > 4) {
-        labourClassifier = generateWords();
-    }
-    for(let i = 0; i < labour.length; i++) {
-        labour[i].innerHTML = spell(soundChange(labourClassifier));
-    }
+        let labour = document.getElementsByClassName("labour");
+        randomNumForLabour = Math.floor(Math.random() * 7);
+        if(randomNumForLabour === 0) {
+            labourClassifier = generatedMassNouns[massNounArray.indexOf("labour")]
+            classifiersWithEtymology++;
+            labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "labour"`;
+            classifierEtymologyArray.push(labourExample);
+        } else if(randomNumForLabour === 1) {
+            labourClassifier = generatedTransitiveVerbs[transitiveVerbArray.indexOf("push")]
+            classifiersWithEtymology++;
+            labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "push"`;
+            classifierEtymologyArray.push(labourExample);
+        } else if(randomNumForLabour === 2) {
+            labourClassifier = generatedCountNouns[countNounArray.indexOf("horse")]
+            classifiersWithEtymology++;
+            labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "horse"`;
+            classifierEtymologyArray.push(labourExample);
+        } else if(randomNumForLabour === 3) {
+            labourClassifier = generatedCountNouns[countNounArray.indexOf("hoof")]
+            classifiersWithEtymology++;
+            labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "hoof"`;
+            classifierEtymologyArray.push(labourExample);
+        } else if(randomNumForLabour === 4) {
+            labourClassifier = generatedCountNouns[countNounArray.indexOf("donkey")]
+            classifiersWithEtymology++;
+            labourExample = `<i>${spell(soundChange(labourClassifier))}</i> "donkey"`;
+            classifierEtymologyArray.push(labourExample);
+        } else if (randomNumForLabour > 4) {
+            labourClassifier = generateWords();
+        }
+        for(let i = 0; i < labour.length; i++) {
+            labour[i].innerHTML = spell(soundChange(labourClassifier));
+        }
 
-    let milk = document.getElementsByClassName("milk");
-    randomNumForMilk = Math.floor(Math.random() * 4);
-    if(randomNumForMilk === 0) {
-        milkClassifier = generatedMassNouns[massNounArray.indexOf("milk")]
-        classifiersWithEtymology++;
-        milkExample = `<i>${spell(soundChange(milkClassifier))}</i> "milk"`;
-        classifierEtymologyArray.push(milkExample);
-    } if(randomNumForMilk === 1) {
-        milkClassifier = generatedCountNouns[countNounArray.indexOf("udder")]
-        classifiersWithEtymology++;
-        milkExample = `<i>${spell(soundChange(milkClassifier))}</i> "udder"`;
-        classifierEtymologyArray.push(milkExample);
-    } if(randomNumForMilk === 2) {
-        milkClassifier = generatedCountNouns[countNounArray.indexOf("cow")]
-        classifiersWithEtymology++;
-        milkExample = `<i>${spell(soundChange(milkClassifier))}</i> "cow"`;
-        classifierEtymologyArray.push(milkExample);
-    } else if (randomNumForMilk > 2) {
-        milkClassifier = generateWords();
-        
-    }
-    for(let i = 0; i < milk.length; i++) {
-        milk[i].innerHTML = spell(soundChange(milkClassifier));
-    }
+        let milk = document.getElementsByClassName("milk");
+        randomNumForMilk = Math.floor(Math.random() * 4);
+        if(randomNumForMilk === 0) {
+            milkClassifier = generatedMassNouns[massNounArray.indexOf("milk")]
+            classifiersWithEtymology++;
+            milkExample = `<i>${spell(soundChange(milkClassifier))}</i> "milk"`;
+            classifierEtymologyArray.push(milkExample);
+        } if(randomNumForMilk === 1) {
+            milkClassifier = generatedCountNouns[countNounArray.indexOf("udder")]
+            classifiersWithEtymology++;
+            milkExample = `<i>${spell(soundChange(milkClassifier))}</i> "udder"`;
+            classifierEtymologyArray.push(milkExample);
+        } if(randomNumForMilk === 2) {
+            milkClassifier = generatedCountNouns[countNounArray.indexOf("cow")]
+            classifiersWithEtymology++;
+            milkExample = `<i>${spell(soundChange(milkClassifier))}</i> "cow"`;
+            classifierEtymologyArray.push(milkExample);
+        } else if (randomNumForMilk > 2) {
+            milkClassifier = generateWords();
+            
+        }
+        for(let i = 0; i < milk.length; i++) {
+            milk[i].innerHTML = spell(soundChange(milkClassifier));
+        }
 
-    let inedible = document.getElementsByClassName("inedible");
-    randomNumForInEdible = Math.floor(Math.random() * 4);
-    if(randomNumForInEdible === 0) {
-        inedibleClassifier = generatedCountNouns[countNounArray.indexOf("thing")]
-        classifiersWithEtymology++;
-        inedibleExample = `<i>${spell(soundChange(inedibleClassifier))}</i> "thing"`;
-        classifierEtymologyArray.push(inedibleExample);
-    } else if(randomNumForInEdible === 1) {
-        inedibleClassifier = generatedCountNouns[countNounArray.indexOf("rock")]
-        classifiersWithEtymology++;
-        inedibleExample = `<i>${spell(soundChange(inedibleClassifier))}</i> "rock"`;
-        classifierEtymologyArray.push(inedibleExample);
-    } else if (randomNumForInEdible > 1) {
-        inedibleClassifier = generateWords();
-        
-    }
-    for(let i = 0; i < inedible.length; i++) {
-        inedible[i].innerHTML = spell(soundChange(inedibleClassifier));
-    }
+        let inedible = document.getElementsByClassName("inedible");
+        randomNumForInEdible = Math.floor(Math.random() * 4);
+        if(randomNumForInEdible === 0) {
+            inedibleClassifier = generatedCountNouns[countNounArray.indexOf("thing")]
+            classifiersWithEtymology++;
+            inedibleExample = `<i>${spell(soundChange(inedibleClassifier))}</i> "thing"`;
+            classifierEtymologyArray.push(inedibleExample);
+        } else if(randomNumForInEdible === 1) {
+            inedibleClassifier = generatedCountNouns[countNounArray.indexOf("rock")]
+            classifiersWithEtymology++;
+            inedibleExample = `<i>${spell(soundChange(inedibleClassifier))}</i> "rock"`;
+            classifierEtymologyArray.push(inedibleExample);
+        } else if (randomNumForInEdible > 1) {
+            inedibleClassifier = generateWords();
+            
+        }
+        for(let i = 0; i < inedible.length; i++) {
+            inedible[i].innerHTML = spell(soundChange(inedibleClassifier));
+        }
 
-    let edible = document.getElementsByClassName("edible");
-    randomNumForEdible = Math.floor(Math.random() * 4);
-    if(randomNumForEdible === 0) {
-        edibleClassifier = generatedCountNouns[countNounArray.indexOf("basket")]
-        classifiersWithEtymology++;
-        edibleExample = `<i>${spell(soundChange(inedibleClassifier))}</i> "basket"`;
-        classifierEtymologyArray.push(edibleExample);
-    } else if(randomNumForEdible === 1) {
-        edibleClassifier = generatedCountNouns[countNounArray.indexOf("berry")]
-        classifiersWithEtymology++;
-        edibleExample = `<i>${spell(soundChange(inedibleClassifier))}</i> "berry"`;
-        classifierEtymologyArray.push(edibleExample);
-    }else if (randomNumForEdible > 1) {
-        edibleClassifier = generateWords();
-    }
-    for(let i = 0; i < edible.length; i++) {
-        edible[i].innerHTML = spell(soundChange(edibleClassifier));
-    }
+        let edible = document.getElementsByClassName("edible");
+        randomNumForEdible = Math.floor(Math.random() * 4);
+        if(randomNumForEdible === 0) {
+            edibleClassifier = generatedCountNouns[countNounArray.indexOf("basket")]
+            classifiersWithEtymology++;
+            edibleExample = `<i>${spell(soundChange(inedibleClassifier))}</i> "basket"`;
+            classifierEtymologyArray.push(edibleExample);
+        } else if(randomNumForEdible === 1) {
+            edibleClassifier = generatedCountNouns[countNounArray.indexOf("berry")]
+            classifiersWithEtymology++;
+            edibleExample = `<i>${spell(soundChange(inedibleClassifier))}</i> "berry"`;
+            classifierEtymologyArray.push(edibleExample);
+        }else if (randomNumForEdible > 1) {
+            edibleClassifier = generateWords();
+        }
+        for(let i = 0; i < edible.length; i++) {
+            edible[i].innerHTML = spell(soundChange(edibleClassifier));
+        }
 
-    const listOfSpans = [];
-    if(classifierEtymologyArray.length === 1) {
-        let joinedString = classifierEtymologyArray.join();
-        document.getElementById("animacy-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
-    } else {
-     classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
-        listOfSpans.pop()
-        listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
-        let listOfSpansString =  listOfSpans.join(", ")
-        document.getElementById("animacy-classifiers-etymology-examples").innerHTML = listOfSpansString;
+        const listOfSpans = [];
+        if(classifierEtymologyArray.length === 1) {
+            let joinedString = classifierEtymologyArray.join();
+            document.getElementById("animacy-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
+        } else {
+        classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
+            listOfSpans.pop()
+            listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
+            let listOfSpansString =  listOfSpans.join(", ")
+            document.getElementById("animacy-classifiers-etymology-examples").innerHTML = listOfSpansString;
+        }
     }
 }
 
@@ -2190,269 +2196,271 @@ let randomNumForTool = 0;
 let randomNumForNatural = 0;
 let randomNumForLiquid = 0;
 function createShortGenericClassifiers() {
-    let classifiersWithEtymology = 0;
-    let classifierEtymologyArray = [];
-    let humanExample = "";
-    let treeExample = "";
-    let grassExample = "";
-    let flowerExample = "";
-    let landAnimalExample = "";
-    let waterAnimalExample = "";
-    let flyingAnimalExample = "";
-    let wordExample = "";
-    let toolExample = "";
-    let naturalExample = "";
-    let liquidExample = "";
+    if(typologyNum === 0) {
+        let classifiersWithEtymology = 0;
+        let classifierEtymologyArray = [];
+        let humanExample = "";
+        let treeExample = "";
+        let grassExample = "";
+        let flowerExample = "";
+        let landAnimalExample = "";
+        let waterAnimalExample = "";
+        let flyingAnimalExample = "";
+        let wordExample = "";
+        let toolExample = "";
+        let naturalExample = "";
+        let liquidExample = "";
 
-    let human = document.getElementsByClassName("human2");
-   randomNumForHuman = Math.floor(Math.random() * 5);
-   if(randomNumForHuman === 0) {
-       humanClassifier = generatedCountNouns[countNounArray.indexOf("man")]
-       classifiersWithEtymology++;
-       humanExample = `<i>${spell(soundChange(humanClassifier))}</i> "man"`;
-       classifierEtymologyArray.push(humanExample);
-   } else if(randomNumForHuman === 1) {
-       humanClassifier = generatedCountNouns[countNounArray.indexOf("human")]
-       classifiersWithEtymology++;
-       humanExample = `<i>${spell(soundChange(humanClassifier))}</i> "human"`;
-       classifierEtymologyArray.push(humanExample);
-   } else if(randomNumForHuman === 2) {
-       humanClassifier = generatedCountNouns[countNounArray.indexOf("person")]
-       classifiersWithEtymology++;
-       humanExample = `<i>${spell(soundChange(humanClassifier))}</i> "person"`;
-       classifierEtymologyArray.push(humanExample);
-   }else if (randomNumForHuman > 2) {
-       humanClassifier = generateWords();
-   }
-   for(let i = 0; i < human.length; i++) {
-       human[i].innerHTML = spell(soundChange(humanClassifier));
-   }
+        let human = document.getElementsByClassName("human2");
+    randomNumForHuman = Math.floor(Math.random() * 5);
+    if(randomNumForHuman === 0) {
+        humanClassifier = generatedCountNouns[countNounArray.indexOf("man")]
+        classifiersWithEtymology++;
+        humanExample = `<i>${spell(soundChange(humanClassifier))}</i> "man"`;
+        classifierEtymologyArray.push(humanExample);
+    } else if(randomNumForHuman === 1) {
+        humanClassifier = generatedCountNouns[countNounArray.indexOf("human")]
+        classifiersWithEtymology++;
+        humanExample = `<i>${spell(soundChange(humanClassifier))}</i> "human"`;
+        classifierEtymologyArray.push(humanExample);
+    } else if(randomNumForHuman === 2) {
+        humanClassifier = generatedCountNouns[countNounArray.indexOf("person")]
+        classifiersWithEtymology++;
+        humanExample = `<i>${spell(soundChange(humanClassifier))}</i> "person"`;
+        classifierEtymologyArray.push(humanExample);
+    }else if (randomNumForHuman > 2) {
+        humanClassifier = generateWords();
+    }
+    for(let i = 0; i < human.length; i++) {
+        human[i].innerHTML = spell(soundChange(humanClassifier));
+    }
 
-   let tree = document.getElementsByClassName("tree");
-   randomNumForTree = Math.floor(Math.random() * 5);
-   if(randomNumForTree === 0) {
-       treeClassifier = generatedCountNouns[countNounArray.indexOf("oak")]
-       classifiersWithEtymology++;
-       treeExample = `<i>${spell(soundChange(treeClassifier))}</i> "oak"`;
-       classifierEtymologyArray.push(treeExample);
-   } else if(randomNumForTree === 1) {
-       treeClassifier = generatedCountNouns[countNounArray.indexOf("alder")]
-       classifiersWithEtymology++;
-       treeExample = `<i>${spell(soundChange(treeClassifier))}</i> "alder"`;
-       classifierEtymologyArray.push(treeExample);
-   } else if(randomNumForTree === 2) {
-       treeClassifier = generatedCountNouns[countNounArray.indexOf("elm")]
-       classifiersWithEtymology++;
-       treeExample = `<i>${spell(soundChange(treeClassifier))}</i> "elm"`;
-       classifierEtymologyArray.push(treeExample);
-   } else if(randomNumForTree === 3) {
-       treeClassifier = generatedCountNouns[countNounArray.indexOf("beech")]
-       classifiersWithEtymology++;
-       treeExample = `<i>${spell(soundChange(treeClassifier))}</i> "beech"`;
-       classifierEtymologyArray.push(treeExample);
-   } else if (randomNumForTree > 3) {
-       treeClassifier = generateWords();
-   }
-   for(let i = 0; i < tree.length; i++) {
-       tree[i].innerHTML = spell(soundChange(treeClassifier));
-   }
+    let tree = document.getElementsByClassName("tree");
+    randomNumForTree = Math.floor(Math.random() * 5);
+    if(randomNumForTree === 0) {
+        treeClassifier = generatedCountNouns[countNounArray.indexOf("oak")]
+        classifiersWithEtymology++;
+        treeExample = `<i>${spell(soundChange(treeClassifier))}</i> "oak"`;
+        classifierEtymologyArray.push(treeExample);
+    } else if(randomNumForTree === 1) {
+        treeClassifier = generatedCountNouns[countNounArray.indexOf("alder")]
+        classifiersWithEtymology++;
+        treeExample = `<i>${spell(soundChange(treeClassifier))}</i> "alder"`;
+        classifierEtymologyArray.push(treeExample);
+    } else if(randomNumForTree === 2) {
+        treeClassifier = generatedCountNouns[countNounArray.indexOf("elm")]
+        classifiersWithEtymology++;
+        treeExample = `<i>${spell(soundChange(treeClassifier))}</i> "elm"`;
+        classifierEtymologyArray.push(treeExample);
+    } else if(randomNumForTree === 3) {
+        treeClassifier = generatedCountNouns[countNounArray.indexOf("beech")]
+        classifiersWithEtymology++;
+        treeExample = `<i>${spell(soundChange(treeClassifier))}</i> "beech"`;
+        classifierEtymologyArray.push(treeExample);
+    } else if (randomNumForTree > 3) {
+        treeClassifier = generateWords();
+    }
+    for(let i = 0; i < tree.length; i++) {
+        tree[i].innerHTML = spell(soundChange(treeClassifier));
+    }
 
-   let grass = document.getElementsByClassName("grass");
-   randomNumForGrass = Math.floor(Math.random() * 2);
-   if(randomNumForGrass === 0) {
-       grassClassifier = generatedMassNouns[massNounArray.indexOf("grass")]
-       classifiersWithEtymology++;
-       grassExample = `<i>${spell(soundChange(grassClassifier))}</i> "grass"`;
-       classifierEtymologyArray.push(grassExample);
-   } else if (randomNumForGrass === 1) {
-       grassClassifier = generateWords();
-   }
-   for(let i = 0; i < grass.length; i++) {
-       grass[i].innerHTML = spell(soundChange(grassClassifier));
-   }
+    let grass = document.getElementsByClassName("grass");
+    randomNumForGrass = Math.floor(Math.random() * 2);
+    if(randomNumForGrass === 0) {
+        grassClassifier = generatedMassNouns[massNounArray.indexOf("grass")]
+        classifiersWithEtymology++;
+        grassExample = `<i>${spell(soundChange(grassClassifier))}</i> "grass"`;
+        classifierEtymologyArray.push(grassExample);
+    } else if (randomNumForGrass === 1) {
+        grassClassifier = generateWords();
+    }
+    for(let i = 0; i < grass.length; i++) {
+        grass[i].innerHTML = spell(soundChange(grassClassifier));
+    }
 
-   let flower = document.getElementsByClassName("flower");
-   randomNumForFlower = Math.floor(Math.random() * 2);
-   if(randomNumForFlower === 0) {
-       flowerClassifier = generatedCountNouns[countNounArray.indexOf("flower")]
-       classifiersWithEtymology++;
-       flowerExample = `<i>${spell(soundChange(flowerClassifier))}</i> "flower"`;
-       classifierEtymologyArray.push(flowerExample);
-   } else if (randomNumForFlower === 1) {
-       flowerClassifier = generateWords();
-   }
-   for(let i = 0; i < flower.length; i++) {
-       flower[i].innerHTML = spell(soundChange(flowerClassifier));
-   }
+    let flower = document.getElementsByClassName("flower");
+    randomNumForFlower = Math.floor(Math.random() * 2);
+    if(randomNumForFlower === 0) {
+        flowerClassifier = generatedCountNouns[countNounArray.indexOf("flower")]
+        classifiersWithEtymology++;
+        flowerExample = `<i>${spell(soundChange(flowerClassifier))}</i> "flower"`;
+        classifierEtymologyArray.push(flowerExample);
+    } else if (randomNumForFlower === 1) {
+        flowerClassifier = generateWords();
+    }
+    for(let i = 0; i < flower.length; i++) {
+        flower[i].innerHTML = spell(soundChange(flowerClassifier));
+    }
 
-   let landAnimal = document.getElementsByClassName("land-animal");
-   randomNumForLandAnimal = Math.floor(Math.random() * 2);
-   if(randomNumForLandAnimal === 0) {
-       landAnimalClassifier = generatedCountNouns[countNounArray.indexOf("land")]
-       classifiersWithEtymology++;
-       landAnimalExample = `<i>${spell(soundChange(landAnimalClassifier))}</i> "land"`;
-       classifierEtymologyArray.push(landAnimalExample);
-   } else if (randomNumForLandAnimal === 1) {
-       landAnimalClassifier = generateWords();
-   }
-   for(let i = 0; i < landAnimal.length; i++) {
-       landAnimal[i].innerHTML = spell(soundChange(landAnimalClassifier));
-   }
+    let landAnimal = document.getElementsByClassName("land-animal");
+    randomNumForLandAnimal = Math.floor(Math.random() * 2);
+    if(randomNumForLandAnimal === 0) {
+        landAnimalClassifier = generatedCountNouns[countNounArray.indexOf("land")]
+        classifiersWithEtymology++;
+        landAnimalExample = `<i>${spell(soundChange(landAnimalClassifier))}</i> "land"`;
+        classifierEtymologyArray.push(landAnimalExample);
+    } else if (randomNumForLandAnimal === 1) {
+        landAnimalClassifier = generateWords();
+    }
+    for(let i = 0; i < landAnimal.length; i++) {
+        landAnimal[i].innerHTML = spell(soundChange(landAnimalClassifier));
+    }
 
-   let waterAnimal = document.getElementsByClassName("water-animal");
-   randomNumForWaterAnimal = Math.floor(Math.random() * 5);
-   if(randomNumForWaterAnimal === 0) {
-       waterAnimalClassifier = generatedMassNouns[massNounArray.indexOf("water")]
-       classifiersWithEtymology++;
-       waterAnimalExample = `<i>${spell(soundChange(waterAnimalClassifier))}</i> "water"`;
-       classifierEtymologyArray.push(waterAnimalExample);
-   } if(randomNumForWaterAnimal === 1) {
-       waterAnimalClassifier = generatedCountNouns[countNounArray.indexOf("sea")]
-       classifiersWithEtymology++;
-       waterAnimalExample = `<i>${spell(soundChange(waterAnimalClassifier))}</i> "sea"`;
-       classifierEtymologyArray.push(waterAnimalExample);
-   }  if(randomNumForWaterAnimal === 2) {
-       waterAnimalClassifier = generatedCountNouns[countNounArray.indexOf("fish")]
-       classifiersWithEtymology++;
-       waterAnimalExample = `<i>${spell(soundChange(waterAnimalClassifier))}</i> "fish"`;
-       classifierEtymologyArray.push(waterAnimalExample);
-   }else if (randomNumForWaterAnimal > 2) {
-       waterAnimalClassifier = generateWords();
-   }
-   for(let i = 0; i < waterAnimal.length; i++) {
-       waterAnimal[i].innerHTML = spell(soundChange(waterAnimalClassifier));
-   }
+    let waterAnimal = document.getElementsByClassName("water-animal");
+    randomNumForWaterAnimal = Math.floor(Math.random() * 5);
+    if(randomNumForWaterAnimal === 0) {
+        waterAnimalClassifier = generatedMassNouns[massNounArray.indexOf("water")]
+        classifiersWithEtymology++;
+        waterAnimalExample = `<i>${spell(soundChange(waterAnimalClassifier))}</i> "water"`;
+        classifierEtymologyArray.push(waterAnimalExample);
+    } if(randomNumForWaterAnimal === 1) {
+        waterAnimalClassifier = generatedCountNouns[countNounArray.indexOf("sea")]
+        classifiersWithEtymology++;
+        waterAnimalExample = `<i>${spell(soundChange(waterAnimalClassifier))}</i> "sea"`;
+        classifierEtymologyArray.push(waterAnimalExample);
+    }  if(randomNumForWaterAnimal === 2) {
+        waterAnimalClassifier = generatedCountNouns[countNounArray.indexOf("fish")]
+        classifiersWithEtymology++;
+        waterAnimalExample = `<i>${spell(soundChange(waterAnimalClassifier))}</i> "fish"`;
+        classifierEtymologyArray.push(waterAnimalExample);
+    }else if (randomNumForWaterAnimal > 2) {
+        waterAnimalClassifier = generateWords();
+    }
+    for(let i = 0; i < waterAnimal.length; i++) {
+        waterAnimal[i].innerHTML = spell(soundChange(waterAnimalClassifier));
+    }
 
-   let flyingAnimal = document.getElementsByClassName("flying-animal");
-   randomNumForFlyingAnimal = 3//Math.floor(Math.random() * 5);
-   if(randomNumForFlyingAnimal === 0) {
-       flyingAnimalClassifier = generatedCountNouns[countNounArray.indexOf("sky")]
-       classifiersWithEtymology++;
-       flyingAnimalExample = `<i>${spell(soundChange(flyingAnimalClassifier))}</i> "sky"`;
-       classifierEtymologyArray.push(flyingAnimalExample);
-   } else if(randomNumForFlyingAnimal === 1) {
-       flyingAnimalClassifier = generatedCountNouns[countNounArray.indexOf("cloud")]
-       classifiersWithEtymology++;
-       flyingAnimalExample = `<i>${spell(soundChange(flyingAnimalClassifier))}</i> "cloud"`;
-       classifierEtymologyArray.push(flyingAnimalExample);
-   }  else if(randomNumForFlyingAnimal === 2) {
-       flyingAnimalClassifier = generatedCountNouns[countNounArray.indexOf("wing")]
-       classifiersWithEtymology++;
-       flyingAnimalExample = `<i>${spell(soundChange(flyingAnimalClassifier))}</i> "wing"`;
-       classifierEtymologyArray.push(flyingAnimalExample);
-   } else if (randomNumForFlyingAnimal > 2) {
-       flyingAnimalClassifier = generateWords();
-   }
-   for(let i = 0; i < flyingAnimal.length; i++) {
-       flyingAnimal[i].innerHTML = spell(soundChange(flyingAnimalClassifier));
-   }
+    let flyingAnimal = document.getElementsByClassName("flying-animal");
+    randomNumForFlyingAnimal = 3//Math.floor(Math.random() * 5);
+    if(randomNumForFlyingAnimal === 0) {
+        flyingAnimalClassifier = generatedCountNouns[countNounArray.indexOf("sky")]
+        classifiersWithEtymology++;
+        flyingAnimalExample = `<i>${spell(soundChange(flyingAnimalClassifier))}</i> "sky"`;
+        classifierEtymologyArray.push(flyingAnimalExample);
+    } else if(randomNumForFlyingAnimal === 1) {
+        flyingAnimalClassifier = generatedCountNouns[countNounArray.indexOf("cloud")]
+        classifiersWithEtymology++;
+        flyingAnimalExample = `<i>${spell(soundChange(flyingAnimalClassifier))}</i> "cloud"`;
+        classifierEtymologyArray.push(flyingAnimalExample);
+    }  else if(randomNumForFlyingAnimal === 2) {
+        flyingAnimalClassifier = generatedCountNouns[countNounArray.indexOf("wing")]
+        classifiersWithEtymology++;
+        flyingAnimalExample = `<i>${spell(soundChange(flyingAnimalClassifier))}</i> "wing"`;
+        classifierEtymologyArray.push(flyingAnimalExample);
+    } else if (randomNumForFlyingAnimal > 2) {
+        flyingAnimalClassifier = generateWords();
+    }
+    for(let i = 0; i < flyingAnimal.length; i++) {
+        flyingAnimal[i].innerHTML = spell(soundChange(flyingAnimalClassifier));
+    }
 
-   let word = document.getElementsByClassName("word");
-   randomNumForWord = Math.floor(Math.random() * 5);
-   if(randomNumForWord === 0) {
-       wordClassifier = generatedCountNouns[countNounArray.indexOf("word")]
-       classifiersWithEtymology++;
-       wordExample = `<i>${spell(soundChange(wordClassifier))}</i> "word"`;
-       classifierEtymologyArray.push(wordExample);
-   } else if(randomNumForWord === 1) {
-       wordClassifier = generatedCountNouns[countNounArray.indexOf("mouth")]
-       classifiersWithEtymology++;
-       wordExample = `<i>${spell(soundChange(wordClassifier))}</i> "mouth"`;
-       classifierEtymologyArray.push(wordExample);
-   } else if (randomNumForWord > 1) {
-       wordClassifier = generateWords();
-   }
-   for(let i = 0; i < word.length; i++) {
-       word[i].innerHTML = spell(soundChange(wordClassifier));
-   }
+    let word = document.getElementsByClassName("word");
+    randomNumForWord = Math.floor(Math.random() * 5);
+    if(randomNumForWord === 0) {
+        wordClassifier = generatedCountNouns[countNounArray.indexOf("word")]
+        classifiersWithEtymology++;
+        wordExample = `<i>${spell(soundChange(wordClassifier))}</i> "word"`;
+        classifierEtymologyArray.push(wordExample);
+    } else if(randomNumForWord === 1) {
+        wordClassifier = generatedCountNouns[countNounArray.indexOf("mouth")]
+        classifiersWithEtymology++;
+        wordExample = `<i>${spell(soundChange(wordClassifier))}</i> "mouth"`;
+        classifierEtymologyArray.push(wordExample);
+    } else if (randomNumForWord > 1) {
+        wordClassifier = generateWords();
+    }
+    for(let i = 0; i < word.length; i++) {
+        word[i].innerHTML = spell(soundChange(wordClassifier));
+    }
 
-   let tool = document.getElementsByClassName("tool");
-   randomNumForTool = Math.floor(Math.random() * 5);
-   if(randomNumForTool === 0) {
-       toolClassifier = generatedCountNouns[countNounArray.indexOf("axe")]
-       classifiersWithEtymology++;
-       toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "axe"`;
-       classifierEtymologyArray.push(toolExample);
-   } else if(randomNumForTool === 1) {
-       toolClassifier = generatedCountNouns[countNounArray.indexOf("handle")]
-       classifiersWithEtymology++;
-       toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "handle"`;
-       classifierEtymologyArray.push(toolExample);
-   } else if(randomNumForTool === 2) {
-       toolClassifier = generatedCountNouns[countNounArray.indexOf("hammer")]
-       classifiersWithEtymology++;
-       toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "hammer"`;
-       classifierEtymologyArray.push(toolExample);
-   }  else if(randomNumForTool === 3) {
-       toolClassifier = generatedCountNouns[countNounArray.indexOf("plough")]
-       classifiersWithEtymology++;
-       toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "plough"`;
-       classifierEtymologyArray.push(toolExample);
-   }else if (randomNumForTool > 3) {
-       toolClassifier = generateWords();
-   }
-   for(let i = 0; i < tool.length; i++) {
-       tool[i].innerHTML = spell(soundChange(toolClassifier));
-   }
+    let tool = document.getElementsByClassName("tool");
+    randomNumForTool = Math.floor(Math.random() * 5);
+    if(randomNumForTool === 0) {
+        toolClassifier = generatedCountNouns[countNounArray.indexOf("axe")]
+        classifiersWithEtymology++;
+        toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "axe"`;
+        classifierEtymologyArray.push(toolExample);
+    } else if(randomNumForTool === 1) {
+        toolClassifier = generatedCountNouns[countNounArray.indexOf("handle")]
+        classifiersWithEtymology++;
+        toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "handle"`;
+        classifierEtymologyArray.push(toolExample);
+    } else if(randomNumForTool === 2) {
+        toolClassifier = generatedCountNouns[countNounArray.indexOf("hammer")]
+        classifiersWithEtymology++;
+        toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "hammer"`;
+        classifierEtymologyArray.push(toolExample);
+    }  else if(randomNumForTool === 3) {
+        toolClassifier = generatedCountNouns[countNounArray.indexOf("plough")]
+        classifiersWithEtymology++;
+        toolExample = `<i>${spell(soundChange(toolClassifier))}</i> "plough"`;
+        classifierEtymologyArray.push(toolExample);
+    }else if (randomNumForTool > 3) {
+        toolClassifier = generateWords();
+    }
+    for(let i = 0; i < tool.length; i++) {
+        tool[i].innerHTML = spell(soundChange(toolClassifier));
+    }
 
-   let naturalInan = document.getElementsByClassName("natural-inanimate");
-   randomNumForNatural = Math.floor(Math.random() * 5);
-   if(randomNumForNatural === 0) {
-       naturalInanimateClassifier = generatedCountNouns[countNounArray.indexOf("rock")]
-       classifiersWithEtymology++;
-       naturalExample = `<i>${spell(soundChange(naturalInanimateClassifier))}</i> "rock"`;
-       classifierEtymologyArray.push(naturalExample);
-   } if(randomNumForNatural === 1) {
-       naturalInanimateClassifier = generatedMassNouns[massNounArray.indexOf("dirt")]
-       classifiersWithEtymology++;
-       naturalExample = `<i>${spell(soundChange(naturalInanimateClassifier))}</i> "dirt"`;
-       classifierEtymologyArray.push(naturalExample);
-   }  if(randomNumForNatural === 2) {
-       naturalInanimateClassifier = generatedMassNouns[massNounArray.indexOf("mud")]
-       classifiersWithEtymology++;
-       naturalExample = `<i>${spell(soundChange(naturalInanimateClassifier))}</i> "mud"`;
-       classifierEtymologyArray.push(naturalExample);
-   } else if (randomNumForNatural > 2) {
-       naturalInanimateClassifier = generateWords();
-   }
-   for(let i = 0; i < naturalInan.length; i++) {
-       naturalInan[i].innerHTML = spell(soundChange(naturalInanimateClassifier));
-   }
+    let naturalInan = document.getElementsByClassName("natural-inanimate");
+    randomNumForNatural = Math.floor(Math.random() * 5);
+    if(randomNumForNatural === 0) {
+        naturalInanimateClassifier = generatedCountNouns[countNounArray.indexOf("rock")]
+        classifiersWithEtymology++;
+        naturalExample = `<i>${spell(soundChange(naturalInanimateClassifier))}</i> "rock"`;
+        classifierEtymologyArray.push(naturalExample);
+    } if(randomNumForNatural === 1) {
+        naturalInanimateClassifier = generatedMassNouns[massNounArray.indexOf("dirt")]
+        classifiersWithEtymology++;
+        naturalExample = `<i>${spell(soundChange(naturalInanimateClassifier))}</i> "dirt"`;
+        classifierEtymologyArray.push(naturalExample);
+    }  if(randomNumForNatural === 2) {
+        naturalInanimateClassifier = generatedMassNouns[massNounArray.indexOf("mud")]
+        classifiersWithEtymology++;
+        naturalExample = `<i>${spell(soundChange(naturalInanimateClassifier))}</i> "mud"`;
+        classifierEtymologyArray.push(naturalExample);
+    } else if (randomNumForNatural > 2) {
+        naturalInanimateClassifier = generateWords();
+    }
+    for(let i = 0; i < naturalInan.length; i++) {
+        naturalInan[i].innerHTML = spell(soundChange(naturalInanimateClassifier));
+    }
 
-   let liquid = document.getElementsByClassName("liquid");
-   randomNumForLiquid = Math.floor(Math.random() * 5);
-   if(randomNumForLiquid === 0) {
-       liquidClassifier = generatedCountNouns[countNounArray.indexOf("drop")]
-       classifiersWithEtymology++;
-       liquidExample = `<i>${spell(soundChange(liquidClassifier))}</i> "drop"`;
-       classifierEtymologyArray.push(liquidExample);
-   } if(randomNumForLiquid === 1) {
-       liquidClassifier = generatedCountNouns[countNounArray.indexOf("pool")]
-       classifiersWithEtymology++;
-       liquidExample = `<i>${spell(soundChange(liquidClassifier))}</i> "pool"`;
-       classifierEtymologyArray.push(liquidExample);
-   }  if(randomNumForLiquid === 2) {
-       liquidClassifier = generatedCountNouns[countNounArray.indexOf("cup")]
-       classifiersWithEtymology++;
-       liquidExample = `<i>${spell(soundChange(liquidClassifier))}</i> "cup"`;
-       classifierEtymologyArray.push(liquidExample);
-   } else if (randomNumForLiquid > 2) {
-       liquidClassifier = generateWords();
-   }
-   for(let i = 0; i < liquid.length; i++) {
-       liquid[i].innerHTML = spell(soundChange(liquidClassifier));
-   }
+    let liquid = document.getElementsByClassName("liquid");
+    randomNumForLiquid = Math.floor(Math.random() * 5);
+    if(randomNumForLiquid === 0) {
+        liquidClassifier = generatedCountNouns[countNounArray.indexOf("drop")]
+        classifiersWithEtymology++;
+        liquidExample = `<i>${spell(soundChange(liquidClassifier))}</i> "drop"`;
+        classifierEtymologyArray.push(liquidExample);
+    } if(randomNumForLiquid === 1) {
+        liquidClassifier = generatedCountNouns[countNounArray.indexOf("pool")]
+        classifiersWithEtymology++;
+        liquidExample = `<i>${spell(soundChange(liquidClassifier))}</i> "pool"`;
+        classifierEtymologyArray.push(liquidExample);
+    }  if(randomNumForLiquid === 2) {
+        liquidClassifier = generatedCountNouns[countNounArray.indexOf("cup")]
+        classifiersWithEtymology++;
+        liquidExample = `<i>${spell(soundChange(liquidClassifier))}</i> "cup"`;
+        classifierEtymologyArray.push(liquidExample);
+    } else if (randomNumForLiquid > 2) {
+        liquidClassifier = generateWords();
+    }
+    for(let i = 0; i < liquid.length; i++) {
+        liquid[i].innerHTML = spell(soundChange(liquidClassifier));
+    }
 
-    const listOfSpans = [];
-   if(classifierEtymologyArray.length === 1) {
-       let joinedString = classifierEtymologyArray.join();
-       document.getElementById("short-generic-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
-   } else {
-    classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
-       listOfSpans.pop()
-       listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
-       let listOfSpansString =  listOfSpans.join(", ")
-       document.getElementById("short-generic-classifiers-etymology-examples").innerHTML = listOfSpansString;
+        const listOfSpans = [];
+    if(classifierEtymologyArray.length === 1) {
+        let joinedString = classifierEtymologyArray.join();
+        document.getElementById("short-generic-classifiers-etymology-examples").innerHTML = `${joinedString}.`;
+    } else {
+        classifierEtymologyArray.forEach((element) => listOfSpans.push(element));
+        listOfSpans.pop()
+        listOfSpans.push(` and ${classifierEtymologyArray[classifierEtymologyArray.length -1]}.`)
+        let listOfSpansString =  listOfSpans.join(", ")
+        document.getElementById("short-generic-classifiers-etymology-examples").innerHTML = listOfSpansString;
+        }
     }
 }
 
@@ -2476,183 +2484,184 @@ function makeExamples(word, classifier, countOrMass) {
 }
 
 function createLongClassifiers() {
-    if(randomClassifierNum === 3) {
+    if(typologyNum === 0) {
+        if(randomClassifierNum === 3) {
+            let allClassifiers = ["protruding-top", "orginised-gathering", "small-round", "small-flat", "building", "song", "slice", "entrance", "domestic-animal", "long-non-rigid", "long-rigid", "handful", "bagful", "stock", "droplet", "pair", "cup", "serving-food", "row", "bundle", "barrel", "strand", "set", "revolution", "gust", "pouring", "chunk", "shovelful", "netful", "cluster", "fieldful", "spoonful", "rounded-top", "smattering", "broad-flat", "degradable", "wisp", "roll", "mental-sensory", "violent-action", "loving-action", "reciprocal-action", "movement", "selection", "protrusions", "intrusions", "enclosed-space", "piercing-cutting", "percussive", "strip", "cutting", "instance", "completed-action", "eon", "day"];
 
-        let allClassifiers = ["protruding-top", "orginised-gathering", "small-round", "small-flat", "building", "song", "slice", "entrance", "domestic-animal", "long-non-rigid", "long-rigid", "handful", "bagful", "stock", "droplet", "pair", "cup", "serving-food", "row", "bundle", "barrel", "strand", "set", "revolution", "gust", "pouring", "chunk", "shovelful", "netful", "cluster", "fieldful", "spoonful", "rounded-top", "smattering", "broad-flat", "degradable", "wisp", "roll", "mental-sensory", "violent-action", "loving-action", "reciprocal-action", "movement", "selection", "protrusions", "intrusions", "enclosed-space", "piercing-cutting", "percussive", "strip", "cutting", "instance", "completed-action", "eon", "day"];
+            let chosenClassifiers = [];
+            let randomNum = Math.floor(Math.random() * (allClassifiers.length - 12)) + 12;     
 
-        let chosenClassifiers = [];
-        let randomNum = Math.floor(Math.random() * (allClassifiers.length - 12)) + 12;     
-
-        for(let i = 0; i < randomNum; i++) {
-            let randomIndex = Math.floor(Math.random() * allClassifiers.length);
-            chosenClassifiers.push(allClassifiers[randomIndex])
-            allClassifiers.splice(randomIndex, 1)
-        }
-
-        /*Protruding top********************/
-        if(chosenClassifiers.includes("protruding-top")) {
-            let protrudingClassifier = generateWords();
-
-            let allExamples = [];
-            let spearHeadExample = makeExamples("spear", protrudingClassifier, "count");
-            allExamples.push(spearHeadExample);
-            let hatExample = makeExamples("hat", protrudingClassifier, "count");
-            allExamples.push(hatExample);
-            let mountainExample = makeExamples("mountain", protrudingClassifier, "count");
-            allExamples.push(mountainExample);
-            let hillExample = makeExamples("hill", protrudingClassifier, "count");
-            allExamples.push(hillExample);
-            let dorsalFinExample = makeExamples("dorsal&nbspfin", protrudingClassifier, "count");
-            allExamples.push(dorsalFinExample);
-            let towerExample = makeExamples("tower", protrudingClassifier, "count");
-            allExamples.push(towerExample);
-            let roofExample = makeExamples("roof", protrudingClassifier, "count");
-            allExamples.push(roofExample);
-            let barrowExample = makeExamples("barrow", protrudingClassifier, "count");   
-            allExamples.push(barrowExample);
-             let teatExample = makeExamples("teat", protrudingClassifier, "count");   
-            allExamples.push(teatExample);
-
-            let chosenExamples = []; 
-            let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
-            for(let i= 0; i < randomExampleNum; i++) {
-                let randomIndex = Math.floor(Math.random() * allExamples.length);
-                chosenExamples.push(allExamples[randomIndex]);
-                allExamples.splice(randomIndex, 1);
+            for(let i = 0; i < randomNum; i++) {
+                let randomIndex = Math.floor(Math.random() * allClassifiers.length);
+                chosenClassifiers.push(allClassifiers[randomIndex])
+                allClassifiers.splice(randomIndex, 1)
             }
-            
-            const listOfExamples = [];
-            chosenExamples.forEach((element) => listOfExamples.push(element));
-            listOfExamples.pop()
-            listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-            let protrudingExamples =  listOfExamples.join(", ")
 
-            let protrudingDiv = document.createElement("div");
-            protrudingDiv.classList.add("long-classifier-div");
-            protrudingDiv.setAttribute("id", "protruding-classifiers");
-            let protrudingH3 = document.createElement("h3");
-            protrudingH3.innerHTML = `Protruding Objects - <i>${spell(soundChange(protrudingClassifier))}</i>`;
-            let protrudingP = document.createElement("p");
-            protrudingP.innerHTML = `<i>${spell(soundChange(protrudingClassifier))}</i> is used for objects with a protruding top, or those that are protruding tops: ${protrudingExamples}`;
+            /*Protruding top********************/
+            if(chosenClassifiers.includes("protruding-top")) {
+                let protrudingClassifier = generateWords();
 
-            document.getElementById("long-classifier-system").appendChild(protrudingDiv);
-            document.getElementById("protruding-classifiers").appendChild(protrudingH3);
-            document.getElementById("protruding-classifiers").appendChild(protrudingP);
-        }
+                let allExamples = [];
+                let spearHeadExample = makeExamples("spear", protrudingClassifier, "count");
+                allExamples.push(spearHeadExample);
+                let hatExample = makeExamples("hat", protrudingClassifier, "count");
+                allExamples.push(hatExample);
+                let mountainExample = makeExamples("mountain", protrudingClassifier, "count");
+                allExamples.push(mountainExample);
+                let hillExample = makeExamples("hill", protrudingClassifier, "count");
+                allExamples.push(hillExample);
+                let dorsalFinExample = makeExamples("dorsal&nbspfin", protrudingClassifier, "count");
+                allExamples.push(dorsalFinExample);
+                let towerExample = makeExamples("tower", protrudingClassifier, "count");
+                allExamples.push(towerExample);
+                let roofExample = makeExamples("roof", protrudingClassifier, "count");
+                allExamples.push(roofExample);
+                let barrowExample = makeExamples("barrow", protrudingClassifier, "count");   
+                allExamples.push(barrowExample);
+                let teatExample = makeExamples("teat", protrudingClassifier, "count");   
+                allExamples.push(teatExample);
 
-        /*orginised gatnering********************/
-        if(chosenClassifiers.includes("orginised-gathering")) {
-            let gatheringClassifier = generateWords();
-            
-            let allExamples = [];
-            allExamples.push(
-                makeExamples("army", gatheringClassifier, "count"),
-                makeExamples("band", gatheringClassifier, "count"),
-                makeExamples("troop", gatheringClassifier, "count"),
-                makeExamples("family", gatheringClassifier, "count"),
-                makeExamples("lineage", gatheringClassifier, "count"),
-                makeExamples("clan", gatheringClassifier, "count"),
-                makeExamples("tribe", gatheringClassifier, "count"),
-                makeExamples("council", gatheringClassifier, "count"),
-                makeExamples("meeting", gatheringClassifier, "count"),
-                makeExamples("buffet", gatheringClassifier, "count"),
-                makeExamples("feast", gatheringClassifier, "count"),
-                makeExamples("festival", gatheringClassifier, "count"),
-                makeExamples("audience", gatheringClassifier, "count"),
-            );
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let protrudingExamples =  listOfExamples.join(", ")
 
-            let chosenExamples = []; 
-            let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
-            for(let i= 0; i < randomExampleNum; i++) {
-                let randomIndex = Math.floor(Math.random() * allExamples.length);
-                chosenExamples.push(allExamples[randomIndex]);
-                allExamples.splice(randomIndex, 1);
+                let protrudingDiv = document.createElement("div");
+                protrudingDiv.classList.add("long-classifier-div");
+                protrudingDiv.setAttribute("id", "protruding-classifiers");
+                let protrudingH3 = document.createElement("h3");
+                protrudingH3.innerHTML = `Protruding Objects - <i>${spell(soundChange(protrudingClassifier))}</i>`;
+                let protrudingP = document.createElement("p");
+                protrudingP.innerHTML = `<i>${spell(soundChange(protrudingClassifier))}</i> is used for objects with a protruding top, or those that are protruding tops: ${protrudingExamples}`;
+
+                document.getElementById("long-classifier-system").appendChild(protrudingDiv);
+                document.getElementById("protruding-classifiers").appendChild(protrudingH3);
+                document.getElementById("protruding-classifiers").appendChild(protrudingP);
             }
-            
-            const listOfExamples = [];
-            chosenExamples.forEach((element) => listOfExamples.push(element));
-            listOfExamples.pop()
-            listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-            let examples =  listOfExamples.join(", ")
 
-            let gatheringDiv = document.createElement("div");
-            gatheringDiv.classList.add("long-classifier-div");
-            gatheringDiv.setAttribute("id", "gathering-classifiers");
-            let gatheringH3 = document.createElement("h3");
-            gatheringH3.innerHTML = `Gatherings of people - <i>${spell(soundChange(gatheringClassifier))}</i>`;
-            let gatheringP = document.createElement("p");
-            gatheringP.innerHTML = `<i>${spell(soundChange(gatheringClassifier))}</i> is used for orginised gatherings of people, social organizations and kinship groups. Incidental gatherings, such as public crowds are not included: ${examples}`;
+            /*orginised gatnering********************/
+            if(chosenClassifiers.includes("orginised-gathering")) {
+                let gatheringClassifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("army", gatheringClassifier, "count"),
+                    makeExamples("band", gatheringClassifier, "count"),
+                    makeExamples("troop", gatheringClassifier, "count"),
+                    makeExamples("family", gatheringClassifier, "count"),
+                    makeExamples("lineage", gatheringClassifier, "count"),
+                    makeExamples("clan", gatheringClassifier, "count"),
+                    makeExamples("tribe", gatheringClassifier, "count"),
+                    makeExamples("council", gatheringClassifier, "count"),
+                    makeExamples("meeting", gatheringClassifier, "count"),
+                    makeExamples("buffet", gatheringClassifier, "count"),
+                    makeExamples("feast", gatheringClassifier, "count"),
+                    makeExamples("festival", gatheringClassifier, "count"),
+                    makeExamples("audience", gatheringClassifier, "count"),
+                );
 
-            document.getElementById("long-classifier-system").appendChild(gatheringDiv);
-            document.getElementById("gathering-classifiers").appendChild(gatheringH3);
-            document.getElementById("gathering-classifiers").appendChild(gatheringP);
-        }
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
 
-        /*small round objects********************/
-        //if(chosenClassifiers.includes("small-round")) {
-            let smallRoundClassifier = generateWords();
-            
-            let allExamples = [];
-            allExamples.push(
-                makeExamples("grain", smallRoundClassifier, "count"),
-                makeExamples("bead", smallRoundClassifier, "count"),
-                makeExamples("seed", smallRoundClassifier, "count"),
-                makeExamples("turnip", smallRoundClassifier, "count"),
-                makeExamples("onion", smallRoundClassifier, "count"),
-                makeExamples("kidney", smallRoundClassifier, "count"),
-                makeExamples("kernel", smallRoundClassifier, "count"),
-                makeExamples("egg", smallRoundClassifier, "count"),
-                makeExamples("cherry", smallRoundClassifier, "count"),
-                makeExamples("berry", smallRoundClassifier, "count"),
-                makeExamples("bee", smallRoundClassifier, "count"),
-                makeExamples("bean", smallRoundClassifier, "count"),
-                makeExamples("apple", smallRoundClassifier, "count"),
-                makeExamples("acorn", smallRoundClassifier, "count"),
-            );
+                let gatheringDiv = document.createElement("div");
+                gatheringDiv.classList.add("long-classifier-div");
+                gatheringDiv.setAttribute("id", "gathering-classifiers");
+                let gatheringH3 = document.createElement("h3");
+                gatheringH3.innerHTML = `Gatherings of people - <i>${spell(soundChange(gatheringClassifier))}</i>`;
+                let gatheringP = document.createElement("p");
+                gatheringP.innerHTML = `<i>${spell(soundChange(gatheringClassifier))}</i> is used for orginised gatherings of people, social organizations and kinship groups. Incidental gatherings, such as public crowds are not included: ${examples}`;
 
-            let chosenExamples = []; 
-            let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
-            for(let i= 0; i < randomExampleNum; i++) {
-                let randomIndex = Math.floor(Math.random() * allExamples.length);
-                chosenExamples.push(allExamples[randomIndex]);
-                allExamples.splice(randomIndex, 1);
+                document.getElementById("long-classifier-system").appendChild(gatheringDiv);
+                document.getElementById("gathering-classifiers").appendChild(gatheringH3);
+                document.getElementById("gathering-classifiers").appendChild(gatheringP);
             }
+
+            /*small round objects********************/
+            //if(chosenClassifiers.includes("small-round")) {
+                let smallRoundClassifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("grain", smallRoundClassifier, "count"),
+                    makeExamples("bead", smallRoundClassifier, "count"),
+                    makeExamples("seed", smallRoundClassifier, "count"),
+                    makeExamples("turnip", smallRoundClassifier, "count"),
+                    makeExamples("onion", smallRoundClassifier, "count"),
+                    makeExamples("kidney", smallRoundClassifier, "count"),
+                    makeExamples("kernel", smallRoundClassifier, "count"),
+                    makeExamples("egg", smallRoundClassifier, "count"),
+                    makeExamples("cherry", smallRoundClassifier, "count"),
+                    makeExamples("berry", smallRoundClassifier, "count"),
+                    makeExamples("bee", smallRoundClassifier, "count"),
+                    makeExamples("bean", smallRoundClassifier, "count"),
+                    makeExamples("apple", smallRoundClassifier, "count"),
+                    makeExamples("acorn", smallRoundClassifier, "count"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let classifierDiv = document.createElement("div");
+                classifierDiv.classList.add("small-round-div");
+                classifierDiv.setAttribute("id", "small-round");
+                let classifierH3 = document.createElement("h3");
+                classifierH3.innerHTML = `Small round objects - <i>${spell(soundChange(smallRoundClassifier))}</i>`;
+                let classifierP = document.createElement("p");
+                classifierP.innerHTML = `<i>${spell(soundChange(smallRoundClassifier))}</i> is used for small round objects: ${examples}`;
+
+                document.getElementById("long-classifier-system").appendChild(classifierDiv);
+                document.getElementById("small-round").appendChild(classifierH3);
+                document.getElementById("small-round").appendChild(classifierP);
+            //}
+
+            /*General Classifier***************/
+            let generalClassifier = generateWords();
             
-            const listOfExamples = [];
-            chosenExamples.forEach((element) => listOfExamples.push(element));
-            listOfExamples.pop()
-            listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-            let examples =  listOfExamples.join(", ")
+            let generalDiv = document.createElement("div");
+            generalDiv.classList.add("long-classifier-div");
+            generalDiv.setAttribute("id", "general-classifiers");
+            let generalH3 = document.createElement("h3");
+            generalH3.innerHTML = `General Classifier - <i>${spell(soundChange(generalClassifier))}</i>`
 
-            let classifierDiv = document.createElement("div");
-            classifierDiv.classList.add("small-round-div");
-            classifierDiv.setAttribute("id", "small-round");
-            let classifierH3 = document.createElement("h3");
-            classifierH3.innerHTML = `Small round objects - <i>${spell(soundChange(smallRoundClassifier))}</i>`;
-            let classifierP = document.createElement("p");
-            classifierP.innerHTML = `<i>${spell(soundChange(smallRoundClassifier))}</i> is used for small round objects: ${examples}`;
+            let generalP = document.createElement("p");
+            generalP.innerHTML = `The classifier <i>${spell(soundChange(generalClassifier))}</i> is used for any noun which does not fit any other category mentioned above. It may also be used with any noun, where the speaker is unsure of which specific classifier to use, either due to the noun being fairly obscure or perhaps a loanword. It is also fairly common for children to use this classifier extensively while they are still in the process of acquiring the language.`
 
-            document.getElementById("long-classifier-system").appendChild(classifierDiv);
-            document.getElementById("small-round").appendChild(classifierH3);
-            document.getElementById("small-round").appendChild(classifierP);
-        //}
-
-        /*General Classifier***************/
-        let generalClassifier = generateWords();
-        
-        let generalDiv = document.createElement("div");
-        generalDiv.classList.add("long-classifier-div");
-        generalDiv.setAttribute("id", "general-classifiers");
-        let generalH3 = document.createElement("h3");
-        generalH3.innerHTML = `General Classifier - <i>${spell(soundChange(generalClassifier))}</i>`
-
-        let generalP = document.createElement("p");
-        generalP.innerHTML = `The classifier <i>${spell(soundChange(generalClassifier))}</i> is used for any noun which does not fit any other category mentioned above. It may also be used with any noun, where the speaker is unsure of which specific classifier to use, either due to the noun being fairly obscure or perhaps a loanword. It is also fairly common for children to use this classifier extensively while they are still in the process of acquiring the language.`
-
-        document.getElementById("long-classifier-system").appendChild(generalDiv);
-        document.getElementById("general-classifiers").appendChild(generalH3);
-        document.getElementById("general-classifiers").appendChild(generalP);
-        
+            document.getElementById("long-classifier-system").appendChild(generalDiv);
+            document.getElementById("general-classifiers").appendChild(generalH3);
+            document.getElementById("general-classifiers").appendChild(generalP);
+            
+        }
     }
 }
 
@@ -2846,256 +2855,261 @@ function verbClassifierExamplesInDictionaryEntries(word, array, transitiveOrIntr
 // }
 
 function callClassifierExamples() {
-    classifierExamplesInDictionaryEntries("branch", longAndSlenderArray, "count", "count");
-    branchExample = exampleArray[0];
+    if(typologyNum === 0) {
+        classifierExamplesInDictionaryEntries("branch", longAndSlenderArray, "count", "count");
+        branchExample = exampleArray[0];
 
-    classifierExamplesInDictionaryEntries("pole", longAndSlenderArray, "count", "count");
-    poleExample = exampleArray[1];
+        classifierExamplesInDictionaryEntries("pole", longAndSlenderArray, "count", "count");
+        poleExample = exampleArray[1];
 
-    classifierExamplesInDictionaryEntries("shoulder", shortAndWideArray, "count", "count");
-    shoulderExample = exampleArray[2];
+        classifierExamplesInDictionaryEntries("shoulder", shortAndWideArray, "count", "count");
+        shoulderExample = exampleArray[2];
 
-    classifierExamplesInDictionaryEntries("wedge", shortAndWideArray, "count", "count");
-    wedgeExample = exampleArray[3];
+        classifierExamplesInDictionaryEntries("wedge", shortAndWideArray, "count", "count");
+        wedgeExample = exampleArray[3];
 
-    classifierExamplesInDictionaryEntries("apple", roundArray, "count", "count");
-    appleExample = exampleArray[4];
+        classifierExamplesInDictionaryEntries("apple", roundArray, "count", "count");
+        appleExample = exampleArray[4];
 
-    classifierExamplesInDictionaryEntries("pebble", roundArray, "count", "count");
-    pebbleExample = exampleArray[5];
+        classifierExamplesInDictionaryEntries("pebble", roundArray, "count", "count");
+        pebbleExample = exampleArray[5];
 
-    classifierExamplesInDictionaryEntries("ball", roundArray, "count", "count");
-    ballExample = exampleArray[6];
+        classifierExamplesInDictionaryEntries("ball", roundArray, "count", "count");
+        ballExample = exampleArray[6];
 
-    classifierExamplesInDictionaryEntries("arrow", pointedArray, "count", "count");
-    arrowExample = exampleArray[7];
+        classifierExamplesInDictionaryEntries("arrow", pointedArray, "count", "count");
+        arrowExample = exampleArray[7];
 
-    classifierExamplesInDictionaryEntries("thorn", pointedArray, "count", "count");
-    thornExample = exampleArray[8];
+        classifierExamplesInDictionaryEntries("thorn", pointedArray, "count", "count");
+        thornExample = exampleArray[8];
 
-    classifierExamplesInDictionaryEntries("fork", pointedArray, "count", "count");
-    forkExample = exampleArray[9];
+        classifierExamplesInDictionaryEntries("fork", pointedArray, "count", "count");
+        forkExample = exampleArray[9];
 
-    classifierExamplesInDictionaryEntries("slab", flatArray, "count", "count");
-    slabExample = exampleArray[10];
+        classifierExamplesInDictionaryEntries("slab", flatArray, "count", "count");
+        slabExample = exampleArray[10];
 
-    classifierExamplesInDictionaryEntries("face", flatArray, "count", "count");
-    faceExample = exampleArray[11];
+        classifierExamplesInDictionaryEntries("face", flatArray, "count", "count");
+        faceExample = exampleArray[11];
 
-    classifierExamplesInDictionaryEntries("air", shapelessMassArray, "mass", "mass");
-    airExample = exampleArray[12];
+        classifierExamplesInDictionaryEntries("air", shapelessMassArray, "mass", "mass");
+        airExample = exampleArray[12];
 
-    classifierExamplesInDictionaryEntries("man", manArray, "count", "count");
-    manExample = exampleArray[13];
+        classifierExamplesInDictionaryEntries("man", manArray, "count", "count");
+        manExample = exampleArray[13];
 
-    classifierExamplesInDictionaryEntries("woman", womanArray, "count", "count");
-    womanExample = exampleArray[14];
+        classifierExamplesInDictionaryEntries("woman", womanArray, "count", "count");
+        womanExample = exampleArray[14];
 
-    classifierExamplesInDictionaryEntries("child", childArray, "count", "count");
-    childExample = exampleArray[15];
+        classifierExamplesInDictionaryEntries("child", childArray, "count", "count");
+        childExample = exampleArray[15];
 
-    classifierExamplesInDictionaryEntries("wolf", wildAnimalArray, "count", "count");
-    wolfExample = exampleArray[16];
+        classifierExamplesInDictionaryEntries("wolf", wildAnimalArray, "count", "count");
+        wolfExample = exampleArray[16];
 
-    classifierExamplesInDictionaryEntries("bear", wildAnimalArray, "count", "count");
-    bearExample = exampleArray[17];
+        classifierExamplesInDictionaryEntries("bear", wildAnimalArray, "count", "count");
+        bearExample = exampleArray[17];
 
-    classifierExamplesInDictionaryEntries("goat", meatArray, "count", "count");
-    goatExample = exampleArray[18];
+        classifierExamplesInDictionaryEntries("goat", meatArray, "count", "count");
+        goatExample = exampleArray[18];
 
-    classifierExamplesInDictionaryEntries("skin", furArray, "mass", "count");
-    skinExample = exampleArray[19];
+        classifierExamplesInDictionaryEntries("skin", furArray, "mass", "count");
+        skinExample = exampleArray[19];
 
-    classifierExamplesInDictionaryEntries("sheep", furArray, "count", "count");
-    sheepExample = exampleArray[20];
+        classifierExamplesInDictionaryEntries("sheep", furArray, "count", "count");
+        sheepExample = exampleArray[20];
 
-    classifierExamplesInDictionaryEntries("labour", labourArray, "mass", "count");
-    labourExample = exampleArray[21];
+        classifierExamplesInDictionaryEntries("labour", labourArray, "mass", "count");
+        labourExample = exampleArray[21];
 
-    verbClassifierExamplesInDictionaryEntries("push", labourArray, "transitive", "count");
-    pushExample = exampleArray[22];
+        verbClassifierExamplesInDictionaryEntries("push", labourArray, "transitive", "count");
+        pushExample = exampleArray[22];
 
-    classifierExamplesInDictionaryEntries("horse", labourArray, "count", "count");
-    horseExample = exampleArray[23];
+        classifierExamplesInDictionaryEntries("horse", labourArray, "count", "count");
+        horseExample = exampleArray[23];
 
-    classifierExamplesInDictionaryEntries("hoof", labourArray, "count", "count");
-    hoofExample = exampleArray[24];
+        classifierExamplesInDictionaryEntries("hoof", labourArray, "count", "count");
+        hoofExample = exampleArray[24];
 
-    classifierExamplesInDictionaryEntries("donkey", labourArray, "count", "count");
-    donkeyExample = exampleArray[25];
+        classifierExamplesInDictionaryEntries("donkey", labourArray, "count", "count");
+        donkeyExample = exampleArray[25];
 
-    classifierExamplesInDictionaryEntries("milk", milkArray, "mass", "count");
-    milkExample = exampleArray[26];
+        classifierExamplesInDictionaryEntries("milk", milkArray, "mass", "count");
+        milkExample = exampleArray[26];
 
-    classifierExamplesInDictionaryEntries("udder", milkArray, "count", "count");
-    udderExample = exampleArray[27];
+        classifierExamplesInDictionaryEntries("udder", milkArray, "count", "count");
+        udderExample = exampleArray[27];
 
-    classifierExamplesInDictionaryEntries("cow", milkArray, "count", "count");
-    cowExample = exampleArray[28];
+        classifierExamplesInDictionaryEntries("cow", milkArray, "count", "count");
+        cowExample = exampleArray[28];
 
-    classifierExamplesInDictionaryEntries("thing", inedibleArray, "count", "count");
-    thingExample = exampleArray[29];
+        classifierExamplesInDictionaryEntries("thing", inedibleArray, "count", "count");
+        thingExample = exampleArray[29];
 
-    classifierExamplesInDictionaryEntries("rock", inedibleArray, "count", "count");
-    rockExample = exampleArray[30];
+        classifierExamplesInDictionaryEntries("rock", inedibleArray, "count", "count");
+        rockExample = exampleArray[30];
 
-    classifierExamplesInDictionaryEntries("basket", edibleArray, "count", "count");
-    basketExample = exampleArray[31];
+        classifierExamplesInDictionaryEntries("basket", edibleArray, "count", "count");
+        basketExample = exampleArray[31];
 
-    classifierExamplesInDictionaryEntries("berry", edibleArray, "count", "count");
-    berryExample = exampleArray[32];
+        classifierExamplesInDictionaryEntries("berry", edibleArray, "count", "count");
+        berryExample = exampleArray[32];
 
-    classifierExamplesInDictionaryEntries("man", humanClassifierArray, "count", "count");
-    manExample2 = exampleArray[33];
+        classifierExamplesInDictionaryEntries("man", humanClassifierArray, "count", "count");
+        manExample2 = exampleArray[33];
 
-    classifierExamplesInDictionaryEntries("human", humanClassifierArray, "count", "count");
-    humanExample = exampleArray[34];
+        classifierExamplesInDictionaryEntries("human", humanClassifierArray, "count", "count");
+        humanExample = exampleArray[34];
 
-    classifierExamplesInDictionaryEntries("person", humanClassifierArray, "count", "count");
-    personExample = exampleArray[35];
+        classifierExamplesInDictionaryEntries("person", humanClassifierArray, "count", "count");
+        personExample = exampleArray[35];
 
-    classifierExamplesInDictionaryEntries("oak", treeClassifierArray, "count", "count");
-    oakExample = exampleArray[36];
+        classifierExamplesInDictionaryEntries("oak", treeClassifierArray, "count", "count");
+        oakExample = exampleArray[36];
 
-    classifierExamplesInDictionaryEntries("alder", treeClassifierArray, "count", "count");
-    alderExample = exampleArray[37];
+        classifierExamplesInDictionaryEntries("alder", treeClassifierArray, "count", "count");
+        alderExample = exampleArray[37];
 
-    classifierExamplesInDictionaryEntries("elm", treeClassifierArray, "count", "count");
-    elmExample = exampleArray[38];
+        classifierExamplesInDictionaryEntries("elm", treeClassifierArray, "count", "count");
+        elmExample = exampleArray[38];
 
-    classifierExamplesInDictionaryEntries("beech", treeClassifierArray, "count", "count");
-    beechExample = exampleArray[39];
+        classifierExamplesInDictionaryEntries("beech", treeClassifierArray, "count", "count");
+        beechExample = exampleArray[39];
 
-    classifierExamplesInDictionaryEntries("grass", grassClassifierArray, "mass", "count");
-    grassExample = exampleArray[40];
+        classifierExamplesInDictionaryEntries("grass", grassClassifierArray, "mass", "count");
+        grassExample = exampleArray[40];
 
-    classifierExamplesInDictionaryEntries("flower", flowerClassifierArray, "count", "count");
-    flowerExample = exampleArray[41];
+        classifierExamplesInDictionaryEntries("flower", flowerClassifierArray, "count", "count");
+        flowerExample = exampleArray[41];
 
-    classifierExamplesInDictionaryEntries("land", landAnimalClassifierArray, "count", "count");
-    landExample = exampleArray[42];
+        classifierExamplesInDictionaryEntries("land", landAnimalClassifierArray, "count", "count");
+        landExample = exampleArray[42];
 
-    classifierExamplesInDictionaryEntries("water", waterAnimalClassifierArray, "mass", "count");
-    waterExample = exampleArray[43];
+        classifierExamplesInDictionaryEntries("water", waterAnimalClassifierArray, "mass", "count");
+        waterExample = exampleArray[43];
 
-    classifierExamplesInDictionaryEntries("sea", waterAnimalClassifierArray, "count", "count");
-    seaExample = exampleArray[44];
+        classifierExamplesInDictionaryEntries("sea", waterAnimalClassifierArray, "count", "count");
+        seaExample = exampleArray[44];
 
-    classifierExamplesInDictionaryEntries("fish", waterAnimalClassifierArray, "count", "count");
-    fishExample = exampleArray[45];
+        classifierExamplesInDictionaryEntries("fish", waterAnimalClassifierArray, "count", "count");
+        fishExample = exampleArray[45];
 
-    classifierExamplesInDictionaryEntries("sky", flyingAnimalClassifierArray, "count", "count");
-    skyExample = exampleArray[46];
+        classifierExamplesInDictionaryEntries("sky", flyingAnimalClassifierArray, "count", "count");
+        skyExample = exampleArray[46];
 
-    classifierExamplesInDictionaryEntries("cloud", flyingAnimalClassifierArray, "count", "count");
-    cloudExample = exampleArray[47];
+        classifierExamplesInDictionaryEntries("cloud", flyingAnimalClassifierArray, "count", "count");
+        cloudExample = exampleArray[47];
 
-    classifierExamplesInDictionaryEntries("wing", flyingAnimalClassifierArray, "count", "count");
-    wingExample = exampleArray[48];
+        classifierExamplesInDictionaryEntries("wing", flyingAnimalClassifierArray, "count", "count");
+        wingExample = exampleArray[48];
 
-    classifierExamplesInDictionaryEntries("word", wordClassifierArray, "count", "count");
-    wordExample = exampleArray[49];
+        classifierExamplesInDictionaryEntries("word", wordClassifierArray, "count", "count");
+        wordExample = exampleArray[49];
 
-    classifierExamplesInDictionaryEntries("mouth", wordClassifierArray, "count", "count");
-    mouthExample = exampleArray[50];
+        classifierExamplesInDictionaryEntries("mouth", wordClassifierArray, "count", "count");
+        mouthExample = exampleArray[50];
 
-    classifierExamplesInDictionaryEntries("axe", toolClassifierArray, "count", "count");
-    axeExample = exampleArray[51];
+        classifierExamplesInDictionaryEntries("axe", toolClassifierArray, "count", "count");
+        axeExample = exampleArray[51];
 
-    classifierExamplesInDictionaryEntries("handle", toolClassifierArray, "count", "count");
-    handleExample = exampleArray[52];
+        classifierExamplesInDictionaryEntries("handle", toolClassifierArray, "count", "count");
+        handleExample = exampleArray[52];
 
-    classifierExamplesInDictionaryEntries("hammer", toolClassifierArray, "count", "count");
-    hammerExample = exampleArray[53];
+        classifierExamplesInDictionaryEntries("hammer", toolClassifierArray, "count", "count");
+        hammerExample = exampleArray[53];
 
-    classifierExamplesInDictionaryEntries("plough", toolClassifierArray, "count", "count");
-    ploughExample = exampleArray[54];
+        classifierExamplesInDictionaryEntries("plough", toolClassifierArray, "count", "count");
+        ploughExample = exampleArray[54];
 
-    classifierExamplesInDictionaryEntries("rock", naturalInanimateClassifierArray, "count", "count");
-    rockExample2 = exampleArray[55];
+        classifierExamplesInDictionaryEntries("rock", naturalInanimateClassifierArray, "count", "count");
+        rockExample2 = exampleArray[55];
 
-    classifierExamplesInDictionaryEntries("dirt", naturalInanimateClassifierArray, "mass", "count");
-    dirtExample = exampleArray[56];
+        classifierExamplesInDictionaryEntries("dirt", naturalInanimateClassifierArray, "mass", "count");
+        dirtExample = exampleArray[56];
 
-    classifierExamplesInDictionaryEntries("mud", naturalInanimateClassifierArray, "mass", "count");
-    mudExample = exampleArray[57];
+        classifierExamplesInDictionaryEntries("mud", naturalInanimateClassifierArray, "mass", "count");
+        mudExample = exampleArray[57];
 
-    classifierExamplesInDictionaryEntries("drop", liquidClassifierArray, "count", "count");
-    dropExample = exampleArray[58];
+        classifierExamplesInDictionaryEntries("drop", liquidClassifierArray, "count", "count");
+        dropExample = exampleArray[58];
 
-    classifierExamplesInDictionaryEntries("pool", liquidClassifierArray, "count", "count");
-    poolExample = exampleArray[59];
+        classifierExamplesInDictionaryEntries("pool", liquidClassifierArray, "count", "count");
+        poolExample = exampleArray[59];
 
-    classifierExamplesInDictionaryEntries("cup", liquidClassifierArray, "count", "count");
-    cupExample = exampleArray[60];
+        classifierExamplesInDictionaryEntries("cup", liquidClassifierArray, "count", "count");
+        cupExample = exampleArray[60];
+    }
 }
 
 function IsolatingNouns() {
-    selectNounsClassifier(shapeClassifierArray, longAndSlenderArray, "long-and-slender");
-    selectNounsClassifier(shapeClassifierArray, shortAndWideArray, "short-and-wide");
-    selectNounsClassifier(shapeClassifierArray, roundArray, "round");
-    selectNounsClassifier(shapeClassifierArray, pointedArray, "pointed");
-    selectNounsClassifier(shapeClassifierArray, flatArray, "flat");
-    selectNounsClassifier(shapeClassifierArray, shapelessArray , "shapeless");
+    if(typologyNum === 0) {
+        selectNounsClassifier(shapeClassifierArray, longAndSlenderArray, "long-and-slender");
+        selectNounsClassifier(shapeClassifierArray, shortAndWideArray, "short-and-wide");
+        selectNounsClassifier(shapeClassifierArray, roundArray, "round");
+        selectNounsClassifier(shapeClassifierArray, pointedArray, "pointed");
+        selectNounsClassifier(shapeClassifierArray, flatArray, "flat");
+        selectNounsClassifier(shapeClassifierArray, shapelessArray , "shapeless");
 
-    selectNounsClassifier(animacyClassifierArray, manArray, "man");
-    selectNounsClassifier(animacyClassifierArray, womanArray, "woman");
-    selectNounsClassifier(animacyClassifierArray, childArray, "child");
-    selectNounsClassifier(animacyClassifierArray, wildAnimalArray, "wild-animal");
-    selectNounsClassifier(animacyClassifierArray, meatArray, "meat");
-    selectNounsClassifier(animacyClassifierArray, furArray, "fur");
-    selectNounsClassifier(animacyClassifierArray, labourArray, "labour");
-    selectNounsClassifier(animacyClassifierArray, milkArray, "milk");
-    selectNounsClassifier(animacyClassifierArray, inedibleArray, "inedible");
-    selectNounsClassifier(animacyClassifierArray, edibleArray, "edible");
+        selectNounsClassifier(animacyClassifierArray, manArray, "man");
+        selectNounsClassifier(animacyClassifierArray, womanArray, "woman");
+        selectNounsClassifier(animacyClassifierArray, childArray, "child");
+        selectNounsClassifier(animacyClassifierArray, wildAnimalArray, "wild-animal");
+        selectNounsClassifier(animacyClassifierArray, meatArray, "meat");
+        selectNounsClassifier(animacyClassifierArray, furArray, "fur");
+        selectNounsClassifier(animacyClassifierArray, labourArray, "labour");
+        selectNounsClassifier(animacyClassifierArray, milkArray, "milk");
+        selectNounsClassifier(animacyClassifierArray, inedibleArray, "inedible");
+        selectNounsClassifier(animacyClassifierArray, edibleArray, "edible");
 
-    selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "human2");
-    selectNounsClassifier(shortGenericClassifierArray, treeClassifierArray, "tree");
-    selectNounsClassifier(shortGenericClassifierArray, grassClassifierArray, "grass");
-    selectNounsClassifier(shortGenericClassifierArray, flowerClassifierArray, "flower");
-    selectNounsClassifier(shortGenericClassifierArray, landAnimalClassifierArray, "land-animal");
-    selectNounsClassifier(shortGenericClassifierArray, waterAnimalClassifierArray, "water-animal");
-    selectNounsClassifier(shortGenericClassifierArray, flyingAnimalClassifierArray, "flying-animal");
-    selectNounsClassifier(shortGenericClassifierArray, wordClassifierArray, "word");
-    selectNounsClassifier(shortGenericClassifierArray, toolClassifierArray, "tool");
-    selectNounsClassifier(shortGenericClassifierArray, naturalInanimateClassifierArray, "natural-inanimate");
-    selectNounsClassifier(shortGenericClassifierArray, liquidClassifierArray, "liquid");
+        selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "human2");
+        selectNounsClassifier(shortGenericClassifierArray, treeClassifierArray, "tree");
+        selectNounsClassifier(shortGenericClassifierArray, grassClassifierArray, "grass");
+        selectNounsClassifier(shortGenericClassifierArray, flowerClassifierArray, "flower");
+        selectNounsClassifier(shortGenericClassifierArray, landAnimalClassifierArray, "land-animal");
+        selectNounsClassifier(shortGenericClassifierArray, waterAnimalClassifierArray, "water-animal");
+        selectNounsClassifier(shortGenericClassifierArray, flyingAnimalClassifierArray, "flying-animal");
+        selectNounsClassifier(shortGenericClassifierArray, wordClassifierArray, "word");
+        selectNounsClassifier(shortGenericClassifierArray, toolClassifierArray, "tool");
+        selectNounsClassifier(shortGenericClassifierArray, naturalInanimateClassifierArray, "natural-inanimate");
+        selectNounsClassifier(shortGenericClassifierArray, liquidClassifierArray, "liquid");
 
 
-    selectMassNounsClassifier(shapeClassifierMassArray, longAndSlenderMassArray, "long-and-slender");
-    selectMassNounsClassifier(shapeClassifierMassArray, shortAndWideMassArray, "short-and-wide");
-    selectMassNounsClassifier(shapeClassifierMassArray, roundMassArray, "round");
-    selectMassNounsClassifier(shapeClassifierMassArray, pointedMassArray, "pointed");
-    selectMassNounsClassifier(shapeClassifierMassArray, flatMassArray, "flat");
-    selectMassNounsClassifier(shapeClassifierMassArray, shapelessMassArray , "shapeless");
+        selectMassNounsClassifier(shapeClassifierMassArray, longAndSlenderMassArray, "long-and-slender");
+        selectMassNounsClassifier(shapeClassifierMassArray, shortAndWideMassArray, "short-and-wide");
+        selectMassNounsClassifier(shapeClassifierMassArray, roundMassArray, "round");
+        selectMassNounsClassifier(shapeClassifierMassArray, pointedMassArray, "pointed");
+        selectMassNounsClassifier(shapeClassifierMassArray, flatMassArray, "flat");
+        selectMassNounsClassifier(shapeClassifierMassArray, shapelessMassArray , "shapeless");
 
-    selectMassNounsClassifier(animacyClassifierMassArray, manMassArray, "man");
-    selectMassNounsClassifier(animacyClassifierMassArray, womanMassArray, "woman");
-    selectMassNounsClassifier(animacyClassifierMassArray, childMassArray, "child");
-    selectMassNounsClassifier(animacyClassifierMassArray, wildAnimalMassArray, "wild-animal");
-    selectMassNounsClassifier(animacyClassifierMassArray, meatMassArray, "meat");
-    selectMassNounsClassifier(animacyClassifierMassArray, furMassArray, "fur");
-    selectMassNounsClassifier(animacyClassifierMassArray, labourMassArray, "labour");
-    selectMassNounsClassifier(animacyClassifierMassArray, milkMassArray, "milk");
-    selectMassNounsClassifier(animacyClassifierMassArray, inedibleMassArray, "inedible");
-    selectMassNounsClassifier(animacyClassifierMassArray, edibleMassArray, "edible");
+        selectMassNounsClassifier(animacyClassifierMassArray, manMassArray, "man");
+        selectMassNounsClassifier(animacyClassifierMassArray, womanMassArray, "woman");
+        selectMassNounsClassifier(animacyClassifierMassArray, childMassArray, "child");
+        selectMassNounsClassifier(animacyClassifierMassArray, wildAnimalMassArray, "wild-animal");
+        selectMassNounsClassifier(animacyClassifierMassArray, meatMassArray, "meat");
+        selectMassNounsClassifier(animacyClassifierMassArray, furMassArray, "fur");
+        selectMassNounsClassifier(animacyClassifierMassArray, labourMassArray, "labour");
+        selectMassNounsClassifier(animacyClassifierMassArray, milkMassArray, "milk");
+        selectMassNounsClassifier(animacyClassifierMassArray, inedibleMassArray, "inedible");
+        selectMassNounsClassifier(animacyClassifierMassArray, edibleMassArray, "edible");
 
-    selectMassNounsClassifier(shortGenericClassifierMassArray, humanClassifierMassArray, "human2");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, treeClassifierMassArray, "tree");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, grassClassifierMassArray, "grass");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, flowerClassifierMassArray, "flower");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, landAnimalClassifierMassArray, "land-animal");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, waterAnimalClassifierMassArray, "water-animal");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, flyingAnimalClassifierMassArray, "flying-animal");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, wordClassifierMassArray, "word");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, toolClassifierMassArray, "tool");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, naturalInanimateClassifierMassArray, "natural-inanimate");
-    selectMassNounsClassifier(shortGenericClassifierMassArray, liquidClassifierMassArray, "liquid");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, humanClassifierMassArray, "human2");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, treeClassifierMassArray, "tree");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, grassClassifierMassArray, "grass");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, flowerClassifierMassArray, "flower");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, landAnimalClassifierMassArray, "land-animal");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, waterAnimalClassifierMassArray, "water-animal");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, flyingAnimalClassifierMassArray, "flying-animal");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, wordClassifierMassArray, "word");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, toolClassifierMassArray, "tool");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, naturalInanimateClassifierMassArray, "natural-inanimate");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, liquidClassifierMassArray, "liquid");
+    }
 }
 
 /***AGGLUTINATIVE NOUNS****/
 let grammaticalNumAgglutinative = 0;
 function randomNumForAgglutinativeGrammaticalNumbers() {
+    if(typologyNum === 1) {
     grammaticalNumAgglutinative = Math.floor(Math.random() * 31)
     if(grammaticalNumAgglutinative < 4) {
         grammaticalNumberArray.push("singular", "plural");
@@ -3564,7 +3578,7 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
     } else {
        document.getElementById("general-singulative-plural").style.display = "none";
     }
-    
+}
 }
 
 function inflectGenderlessNouns() {
@@ -3593,6 +3607,7 @@ function inflectGenderlessNouns() {
 }
 
 function inflectGenderlessMassNouns() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("mass-noun");
     let num = 1;
     for(let i = 0; i < spanNoun.length; i++) {
@@ -3615,9 +3630,11 @@ function inflectGenderlessMassNouns() {
             }
         copyNum2++;
         }
+    }
 }
 
 function selectNounsGender(genderArray, array, gender) {
+    if(typologyNum === 1) {
     for(let i = 0; i < countNounArray.length; i++) {
         let index = countNounArray.indexOf(countNounArray[i])
         if(genderArray[index] === gender) {
@@ -3636,8 +3653,10 @@ function selectNounsGender(genderArray, array, gender) {
         num++;
     }
 }
+}
 
 function selectMassNounsGender(genderArray, array, gender) {
+    if(typologyNum === 1) {
     for(let i = 0; i < massNounArray.length; i++) {
         let index = massNounArray.indexOf(massNounArray[i])
         if(genderArray[index] === gender) {
@@ -3656,8 +3675,10 @@ function selectMassNounsGender(genderArray, array, gender) {
         num++;
     }
 }
+}
 
 function inflectNounsGender(affix, gender) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName(gender + "-noun");
     //adds gender affix
     let genderAffix = document.getElementsByClassName(gender +"-noun-suffix-or-prefix")
@@ -3706,9 +3727,11 @@ function inflectNounsGender(affix, gender) {
         }
         copyNum2++;
         }
+    }
 }
 
 function inflectMassNounsGender(affix, gender) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName(gender + "-mass-noun");
     //adds gender affix
     let genderAffix = document.getElementsByClassName(gender +"-noun-suffix-or-prefix")
@@ -3757,10 +3780,12 @@ function inflectMassNounsGender(affix, gender) {
         }
         copyNum2++;
         }
+    }
 }
 
 //for agglutinative languages with a marked singular
 function inflectNounsSingular() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("singular-noun");
     
     let spanSingularAffix = document.getElementsByClassName("singular-affix")
@@ -3789,8 +3814,10 @@ function inflectNounsSingular() {
         document.getElementById("singular-plural-marked-singular").style.display = "none";
     }
 }
+}
 
 function inflectNounsPlural() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("plural-noun");
     let spanPluralAffix = document.getElementsByClassName("plural-affix")
 
@@ -3822,8 +3849,10 @@ function inflectNounsPlural() {
         copyNum++;
     }
 }
+}
 
 function inflectMassNounsPlural() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("plural-mass-noun");
     let spanPluralAffix = document.getElementsByClassName("plural-affix")
 
@@ -3855,8 +3884,10 @@ function inflectMassNounsPlural() {
         copyNum++;
     }
 }
+}
 
 function inflectNounsDual() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("dual-noun");
     let spanDualAffix = document.getElementsByClassName("dual-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -3888,8 +3919,10 @@ function inflectNounsDual() {
         copyNum++;
     }
 }
+}
 
 function inflectNounsCollective() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("collective-noun");
     let spanCollectiveAffix = document.getElementsByClassName("collective-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -3920,8 +3953,10 @@ function inflectNounsCollective() {
         copyNum++;
     }
 }
+}
 
 function inflectNounsTrial() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("trial-noun");
     let spanTrialAffix = document.getElementsByClassName("trial-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -3955,8 +3990,10 @@ function inflectNounsTrial() {
         copyNum++;
     }
 }
+}
 
 function inflectNounsQuadral() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("quadral-noun");
     let spanQuadralAffix = document.getElementsByClassName("quadral-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -3990,8 +4027,10 @@ function inflectNounsQuadral() {
         copyNum++;
     }
 }
+}
 
 function inflectNounsGreaterPlural() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("greater-plural-noun");
     let spanGreaterPluralAffix = document.getElementsByClassName("greater-plural-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -4025,8 +4064,10 @@ function inflectNounsGreaterPlural() {
         copyNum++;
     }
 }
+}
 
 function inflectNounsGeneral() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("general-noun");
     let spanGeneralAffix = document.getElementsByClassName("general-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -4057,28 +4098,31 @@ function inflectNounsGeneral() {
        nounSgMeaning[i].innerHTML = `${pluralMeaning}`;
         copyNum++;
     }
-
+}
 }
 
 //used specifically for the general number in the general-plural system
 function inflectNounsGeneral1() {
-    let spanNoun = document.getElementsByClassName("general1-noun");
-    for(let i = 0; i < spanNoun.length; i++) {
-        let root = spanNoun[i].innerHTML;
-        spanNoun[i].innerHTML = root;
-    }
-    
-    //makes the noun's translation general - as singular nouns for the general-plural number
-    let copyNum1 = 4;
-    let nounSgMeaning1 = document.getElementsByClassName("general1-meaning");
-    
-     for(let i = 0; i < nounSgMeaning1.length; i++) { 
-       nounSgMeaning1[i].innerHTML = `${nounSgMeaning1[i].innerHTML}`;
-        copyNum1++;
+    if(typologyNum === 1) {
+        let spanNoun = document.getElementsByClassName("general1-noun");
+        for(let i = 0; i < spanNoun.length; i++) {
+            let root = spanNoun[i].innerHTML;
+            spanNoun[i].innerHTML = root;
+        }
+        
+        //makes the noun's translation general - as singular nouns for the general-plural number
+        let copyNum1 = 4;
+        let nounSgMeaning1 = document.getElementsByClassName("general1-meaning");
+        
+        for(let i = 0; i < nounSgMeaning1.length; i++) { 
+        nounSgMeaning1[i].innerHTML = `${nounSgMeaning1[i].innerHTML}`;
+            copyNum1++;
+        }
     }
 }
 
 function inflectNounsSingulative() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("singulative-noun");
     let spanSingulativeAffix = document.getElementsByClassName("singulative-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -4108,10 +4152,11 @@ function inflectNounsSingulative() {
        nounSgMeaning[i].innerHTML = `${nounSgMeaning[i].innerHTML}`;
         copyNum++;
     }
-
+}
 }
 
 function inflectMassNounsSingulative() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("singulative-mass-noun");
     let spanSingulativeAffix = document.getElementsByClassName("singulative-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -4140,10 +4185,11 @@ function inflectMassNounsSingulative() {
        nounSgMeaning[i].innerHTML = `${singulativeMassNounArray[massNounArray.indexOf(nounSgMeaning[i].innerHTML)]}`;
         copyNum++;
     }
-
+    }
 }
 
 function switchNounGenderMascFem(englishWord) {
+    if(typologyNum === 1) {
     const newLi = document.createElement("li");
     let nounIndex = countNounArray.indexOf(englishWord);
     let bareRoot = generatedCountNouns[nounIndex];
@@ -4223,9 +4269,11 @@ function switchNounGenderMascFem(englishWord) {
         newLi.appendChild(spanFemMeaning)
         document.getElementById("masc-fem-gender-switch1").appendChild(newLi);
     }
+    }
 }
 
 function switchNounGenderMascFemNeut(englishWord) {
+    if(typologyNum === 1) {
     const newLi = document.createElement("li");
     let nounIndex = nounArray.indexOf(englishWord);
     let bareRoot = generatedCountNouns[nounIndex];
@@ -4306,8 +4354,10 @@ function switchNounGenderMascFemNeut(englishWord) {
         document.getElementById("masc-fem-gender-switch2").appendChild(newLi);
     }
 }
+}
 
 function switchNounGenderHumanAnimal(englishWord) {
+    if(typologyNum === 1) {
     const newLi = document.createElement("li");
     let nounIndex = nounArray.indexOf(englishWord);
     let bareRoot = generatedCountNouns[nounIndex];
@@ -4372,8 +4422,10 @@ function switchNounGenderHumanAnimal(englishWord) {
         document.getElementById("human-animal-gender-switch").appendChild(newLi);
     }
 }
+}
 
 function AgglutinativeNouns() {
+    if(typologyNum === 1) {
     selectNounsGender(animInan, animateArray, "anim");
     inflectNounsGender(animateAffix, "anim");
     selectNounsGender(animInan, inanimateArray, "inan");
@@ -4455,6 +4507,7 @@ function AgglutinativeNouns() {
 
 
 
+}
 }
 
 /**********CASE RELATED SECTION***********/

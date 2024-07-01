@@ -2644,7 +2644,7 @@ function createLongClassifiers() {
                 let classifierH3 = document.createElement("h3");
                 classifierH3.innerHTML = `Small round objects - <i>${spell(soundChange(smallRoundClassifier))}</i>`;
                 let classifierP = document.createElement("p");
-                classifierP.innerHTML = `<i>${spell(soundChange(smallRoundClassifier))}</i> is used for small round objects: ${examples} <span id="small-round-bug"></span>`;
+                classifierP.innerHTML = `<i>${spell(soundChange(smallRoundClassifier))}</i> is used for small round objects: ${examples} <br /><span id="small-round-bug"></span>`;
 
                 document.getElementById("long-classifier-system").appendChild(classifierDiv);
                 document.getElementById("small-round").appendChild(classifierH3);
@@ -2718,11 +2718,11 @@ function createLongClassifiers() {
                 let smallFlatH3 = document.createElement("h3");
                 smallFlatH3.innerHTML = `Small flat objects- <i>${spell(soundChange(smallFlatClassifier))}</i>`;
                 let smallFlatP = document.createElement("p");
-                smallFlatP.innerHTML = `<i>${spell(soundChange(smallFlatClassifier))}</i> is used for small flat objects: ${examples} <span id="small-flat-jewelry"></span>`;
+                smallFlatP.innerHTML = `<i>${spell(soundChange(smallFlatClassifier))}</i> is used for small flat objects: ${examples} <br /><span id="small-flat-jewelry"></span>`;
 
                 document.getElementById("long-classifier-system").appendChild(smallFlatDiv);
-                document.getElementById("gathering-classifiers").appendChild(smallFlatH3);
-                document.getElementById("gathering-classifiers").appendChild(smallFlatP);
+                document.getElementById("small-flat").appendChild(smallFlatH3);
+                document.getElementById("small-flat").appendChild(smallFlatP);
 
                 /*extensions to classifier usage*/
                 /*Decides if the classifier is extended in use to refer to jewelry*/

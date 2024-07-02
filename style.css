@@ -21,6 +21,11 @@ a {
     color: #f5f8f8;
 }
 
+hr {
+   height: 3px; 
+   background-color: black;
+}
+
 #title-for-pdf {
     display: none;
 }
@@ -474,9 +479,59 @@ h1, h2, h3, h4 {
     #pdf5 {
         font-size: 7mm;
     }
+
+    #pdf4-1 {
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        font-size: 20mm;
+        font-weight: bold;
+    }
+
+    #pdf2-2 {
+        font-size: 10mm;
+        font-style: italic;
+    }
+
+    #pdf2-3 {
+        font-size: 10mm;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    #pdf2-3 {
+        font-size: 20mm;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    #pdf1-6 {
+        font-size: 10mm;
+    }
+
+    #pdf1-8 {
+        font-size: 8mm;
+    }
+
+    #pdf2-6 {
+        font-size: 16mm;
+        letter-spacing: 8px;
+        font-weight: bold;
+    }
+
+    #author-name {
+        font-size: 10mm;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    #cover-page-language-name {
+        text-transform: uppercase;
+    }
+
     #language-to-english, #english-to-language {
         column-count: 2;
     }
+
 
     .example-table {
         background-color: white;

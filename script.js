@@ -424,6 +424,7 @@ function clearGeneratedArrays() {
     naturalInanimateClassifier = "";
     liquidClassifier = "";
 
+    document.getElementById("title-for-pdf").replaceChildren();
     document.getElementById("orthography").replaceChildren();
     document.getElementById("language-to-english").replaceChildren();
     document.getElementById("english-to-language").replaceChildren();
@@ -434,6 +435,113 @@ function clearGeneratedArrays() {
     document.getElementById("quantifier-table-1").replaceChildren();
     document.getElementById("quantifier-table-2").replaceChildren();
     document.getElementById("long-classifier-system").replaceChildren();
+}
+
+function makePDFCoverPage() {
+    let randomNum = Math.floor(Math.random() * 11)
+    let coverPageDiv = document.createElement("div");
+
+    if(randomNum === 0) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf1">The</p>
+        <p id="pdf2">Grammar and Dictionary</p>
+        <p id="pdf3">of the</p>
+        <p id="pdf4" class="language-name">kerbekulo</p>
+        <p id="pdf5">Language</p>
+        <hr>
+        `
+    }
+    if(randomNum === 1) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf4-1" class="language-name">kerbekulo</p>
+        <p id="pdf2">A Reference Grammar</p>
+        <hr>
+        `
+    }
+    if(randomNum === 2) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf4-1" class="language-name">kerbekulo</p>
+        <p id="pdf2-2">An Essential Grammar</p>
+        <hr>
+        `
+    }
+    if(randomNum === 3) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="author-name">Ódónoñ's</p>
+        <p id="pdf2-3"><span id="cover-page-language-name" class="language-name">kerbekulo</span> Grammar</p>
+        <hr>
+        `
+    }
+    if(randomNum === 4) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf2-3">A <span id="cover-page-language-name" class="language-name">kerbekulo</span> GRAMMAR</p>
+        <hr>
+        <p id="pdf2-2">FOR STUDENTS</p>
+        `
+    }
+    if(randomNum === 5) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf2-3"><span id="cover-page-language-name" class="language-name">kerbekulo</span></p>
+        <hr>
+        <p id="pdf2-2">An Essential Grammar</p>
+        `
+    }
+    if(randomNum === 6) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf2-6"><span id="cover-page-language-name" class="language-name">kerbekulo</span></p>
+        <hr>
+        <p id="pdf1-6">An Introduction to the Language of the <span class="language-speaker-name">Kerbekulian</span> People</p>
+        `
+    }
+    if(randomNum === 7) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf2-6">The <span id="cover-page-language-name" class="language-name">kerbekulo</span> Language</p>
+        <hr>
+        <p id="pdf1-6">A Dictionary and Grammatical Sketch</p>
+        `
+    }
+    if(randomNum === 8) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf1-8">The Essential Guide to the</p>
+        <p id="pdf2-6"><span id="cover-page-language-name" class="language-name">kerbekulo</span></p>
+        <p id="pdf5">Language</p>
+        <hr>
+        <p id="pdf1-6">The Language of <span class="language-country">Kerbekulia</span></p>
+        `
+    }
+    if(randomNum === 9) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf2-6"><span id="cover-page-language-name" class="language-name">kerbekulo</span></p>
+        <hr>
+        <p id="pdf1-6">Grammar</p>
+        <p id="pdf1-6">Texts</p>
+        <p id="pdf1-6">Dictionary</p>
+        `
+    }
+    if(randomNum === 10) {
+        coverPageDiv.innerHTML =  
+        `
+        <p id="pdf1-8">A Description of the</p>
+        <p id="pdf2-6"><span id="cover-page-language-name" class="language-name">kerbekulo</span></p>
+        <p id="pdf5">Language</p>
+        <hr>
+        <p id="pdf1-6">Grammar</p>
+        <p id="pdf1-6">Naming Practices</p>
+        <p id="pdf1-6">Texts</p>
+        <p id="pdf1-6">Dictionary</p>
+        `
+    }
+    document.getElementById("title-for-pdf").appendChild(coverPageDiv)
 }
 
 function showGrammarAndDictionary() {
@@ -2683,7 +2791,7 @@ function createLongClassifiers() {
             }
 
             /*small flat********************/
-            //if(chosenClassifiers.includes("small-flat")) {
+            if(chosenClassifiers.includes("small-flat")) {
                 let smallFlatClassifier = generateWords();
                 
                 let allExamples = [];
@@ -2751,6 +2859,45 @@ function createLongClassifiers() {
                 
                     document.getElementById("small-flat-jewelry").innerHTML = `This classifier extended in usage to also be used with nouns referring to jewelry, thanks to originally referring to the small flat piece of jewelry <i>${jewelWord}</i> "ring": ${jewelExamples}`;
                 }
+            }
+
+            /*building********************/
+            //if(chosenClassifiers.includes("building")) {
+                let buildingClassifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("bedroom", buildingClassifier, "count"),
+                    makeExamples("hall", buildingClassifier, "count"),
+                    makeExamples("stable", buildingClassifier, "count"),
+                    makeExamples("temple", buildingClassifier, "count"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let buildingDiv = document.createElement("div");
+                buildingDiv.classList.add("building-div");
+                buildingDiv.setAttribute("id", "building");
+                let buildingH3 = document.createElement("h3");
+                buildingH3.innerHTML = `Buildings with purposes- <i>${spell(soundChange(buildingClassifier))}</i>`;
+                let buildingP = document.createElement("p");
+                buildingP.innerHTML = `<i>${spell(soundChange(buildingClassifier))}</i> is used for buildings with explicit and singular purposes: ${examples}`;
+
+                document.getElementById("long-classifier-system").appendChild(buildingDiv);
+                document.getElementById("building").appendChild(buildingH3);
+                document.getElementById("building").appendChild(buildingP);
             //}
 
             /*General Classifier***************/
@@ -4807,6 +4954,7 @@ function applySoundChangesAndOrtho(element) {
     }
 }
 
+
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
@@ -4814,6 +4962,8 @@ function generateLanguage() {
     selectSoundChanges()
     showGrammarAndDictionary()
     clearGeneratedArrays();
+    makePDFCoverPage();
+    frameForPDFCoverPage()
     generateWords();
     sendGeneratedWordsToArray();
     reduceAmountOfLongVowels(generatedCountNouns);

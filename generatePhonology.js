@@ -1,5 +1,5 @@
+//@collapse
 import { syllablesArray, approximantSyllables, nasalSyllables,fricativeSyllables, resonantSyllables, aspiratedSyllable } from "./allPossibleSyllables.js";
-
 
 let allNasalsArray = [];
 let allLabialPlosivesArray = [];

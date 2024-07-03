@@ -1,3 +1,4 @@
+//@collapse
 import {consonants, vowels, selectedSyllables, allNasalsArray, selectFricatives} from './generatePhonology.js';
 
 // function soundChange(word) {

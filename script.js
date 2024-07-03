@@ -1,3 +1,4 @@
+//@collapse
 //The arrays containing the English translations are naturally very large, so I placed each one in its own file and just import them to keep this file tidier.
 //import nounArray from './englishWordArrays/Nouns/englishNouns.js';
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
@@ -4963,7 +4964,6 @@ function generateLanguage() {
     showGrammarAndDictionary()
     clearGeneratedArrays();
     makePDFCoverPage();
-    frameForPDFCoverPage()
     generateWords();
     sendGeneratedWordsToArray();
     reduceAmountOfLongVowels(generatedCountNouns);

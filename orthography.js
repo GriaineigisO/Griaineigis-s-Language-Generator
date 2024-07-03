@@ -1,3 +1,5 @@
+//@collapse
+
 import {vowels, consonants, allGlottalFricatives, allVelarFricatives, allAspiratesArray, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, voicingTrueOrFalse} from './generatePhonology.js'
 
 

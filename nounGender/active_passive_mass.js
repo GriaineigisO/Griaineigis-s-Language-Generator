@@ -16,6 +16,7 @@ const activePassiveMass = [
     "passive",
     "passive",
     "passive",
+    "passive",
     "active",
     "passive",
     "passive",

@@ -16,6 +16,7 @@ const massNounArray = [
     "meat",
     "milk",
     "mud",
+    "prose",
     "rain",
     "saliva",
     "sand",
@@ -27,6 +28,7 @@ const massNounArray = [
     "water",
     "wind",
     "wine",
+    "work",
 ]
 
 export default massNounArray;

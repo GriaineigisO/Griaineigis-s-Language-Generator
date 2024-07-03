@@ -16,6 +16,7 @@ const shortGenericClassifierMassArray = [
 "natural-inanimate",
 "liquid",
 "natural-inanimate",
+"tool",
 "liquid",
 "liquid",
 "natural-inanimate",

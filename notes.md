@@ -6,9 +6,7 @@ An object may be used by a classifier not because it meets the original requirem
 
 not all classifiers below will be listed, there will be a minimum number, and extra ones wil be added randomly, with a great number generally preferred. The extensions will also be optionally added, and one classifier can have many extensions which may or may not appear.
 
-3. Small round objects (grain, bead, seed)
-4. Small flat objects (coin, pebble, shell)
-5. Buildings with explicit purpose (gathering hall, storeroom, temple)
+
 6. Songs, poems, prose, prayers, proverbs
 7. Slices/flimsy flat and thin objects (of bread, of meat, page, leaf, membrane)
 8. entrances, doorways, places of transition, liminal spaces

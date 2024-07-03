@@ -1,4 +1,4 @@
-//@collapse
+
 //The arrays containing the English translations are naturally very large, so I placed each one in its own file and just import them to keep this file tidier.
 //import nounArray from './englishWordArrays/Nouns/englishNouns.js';
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
@@ -2577,10 +2577,10 @@ function createShortGenericClassifiers() {
 function makeExamples(word, classifier, countOrMass) {
     let generatedArray = "";
     let nounArray = "";
-    if (countOrMass = "count") {
+    if (countOrMass === "count") {
         generatedArray = generatedCountNouns;
         nounArray = countNounArray;
-    } else {
+    } else if (countOrMass === "mass") {
         generatedArray = generatedMassNouns;
         nounArray = massNounArray;
     }
@@ -2863,7 +2863,7 @@ function createLongClassifiers() {
             }
 
             /*building********************/
-            //if(chosenClassifiers.includes("building")) {
+            if(chosenClassifiers.includes("building")) {
                 let buildingClassifier = generateWords();
                 
                 let allExamples = [];
@@ -2899,7 +2899,47 @@ function createLongClassifiers() {
                 document.getElementById("long-classifier-system").appendChild(buildingDiv);
                 document.getElementById("building").appendChild(buildingH3);
                 document.getElementById("building").appendChild(buildingP);
-            //}
+            }
+
+            /*songs********************/
+            if(chosenClassifiers.includes("song")) {
+                let songClassifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("song", songClassifier, "count"),
+                    makeExamples("prayer", songClassifier, "count"),
+                    makeExamples("proverb", songClassifier, "count"),
+                    makeExamples("prose", songClassifier, "mass"),
+                    makeExamples("spell", songClassifier, "count"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let songDiv = document.createElement("div");
+                songDiv.classList.add("song-div");
+                songDiv.setAttribute("id", "song");
+                let songH3 = document.createElement("h3");
+                songH3.innerHTML = `Verbal Art Forms- <i>${spell(soundChange(songClassifier))}</i>`;
+                let songP = document.createElement("p");
+                songP.innerHTML = `<i>${spell(soundChange(songClassifier))}</i> is used for forms of verbal art: ${examples}`;
+
+                document.getElementById("long-classifier-system").appendChild(songDiv);
+                document.getElementById("song").appendChild(songH3);
+                document.getElementById("song").appendChild(songP);
+            }
 
             /*General Classifier***************/
             let generalClassifier = generateWords();

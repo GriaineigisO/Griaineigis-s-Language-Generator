@@ -2581,8 +2581,9 @@ function makeExamples(word, classifier, countOrMass) {
         generatedArray = generatedCountNouns;
         nounArray = countNounArray;
     } else if (countOrMass === "mass") {
+        console.log(`${word} `)
         generatedArray = generatedMassNouns;
-        nounArray = massNounArray;
+        nounArray = singulativeMassNounArray;
     }
 
     if (checkIfHeadInitialOrHeadFinal() === "headFirst") {
@@ -2910,7 +2911,7 @@ function createLongClassifiers() {
                     makeExamples("song", songClassifier, "count"),
                     makeExamples("prayer", songClassifier, "count"),
                     makeExamples("proverb", songClassifier, "count"),
-                    makeExamples("prose", songClassifier, "mass"),
+                    makeExamples("work&nbspof&nbspprose", songClassifier, "mass"),
                     makeExamples("spell", songClassifier, "count"),
                 );
 
@@ -2939,6 +2940,49 @@ function createLongClassifiers() {
                 document.getElementById("long-classifier-system").appendChild(songDiv);
                 document.getElementById("song").appendChild(songH3);
                 document.getElementById("song").appendChild(songP);
+            }
+
+            /*slice********************/
+            if(chosenClassifiers.includes("slice")) {
+                let sliceClassifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("leaf", sliceClassifier, "count"),
+                    makeExamples("rag", sliceClassifier, "count"),
+                    makeExamples("membrane", sliceClassifier, "count"),
+                    makeExamples("page", sliceClassifier, "count"),
+                    makeExamples("sheet", sliceClassifier, "count"),
+                    makeExamples("slice", sliceClassifier, "count"),
+                    makeExamples("slice&nbspof&nbspbread", sliceClassifier, "mass"),
+                    makeExamples("strip&nbspof&nbspleather", sliceClassifier, "mass"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let sliceDiv = document.createElement("div");
+                sliceDiv.classList.add("slice-div");
+                sliceDiv.setAttribute("id", "slice");
+                let sliceH3 = document.createElement("h3");
+                sliceH3.innerHTML = `Flimsy Flat Objects- <i>${spell(soundChange(sliceClassifier))}</i>`;
+                let sliceP = document.createElement("p");
+                sliceP.innerHTML = `The classifier <i>${spell(soundChange(sliceClassifier))}</i> is used for slices of things, or any flimsy and flat object: ${examples}`;
+
+                document.getElementById("long-classifier-system").appendChild(sliceDiv);
+                document.getElementById("slice").appendChild(sliceH3);
+                document.getElementById("slice").appendChild(sliceP);
             }
 
             /*General Classifier***************/

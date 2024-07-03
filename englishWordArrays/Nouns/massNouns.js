@@ -1,6 +1,7 @@
 const massNounArray = [
     "air",
     "blood",
+    "bread",
     "bronze",
     "dirt",
     "dust",
@@ -13,6 +14,7 @@ const massNounArray = [
     "ice",
     "iron",
     "labour",
+    "leather",
     "meat",
     "milk",
     "mud",

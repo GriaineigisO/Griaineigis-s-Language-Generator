@@ -1,6 +1,7 @@
 const singulativeMassNounArray = [
     "wiff&nbspof&nbspair",
     "drop&nbspof&nbspblood",
+    "slice&nbspof&nbspbread",
     "chunk&nbspof&nbspbronze",
     "handful&nbspof&nbspdirt",
     "bit&nbspof&nbspdust",
@@ -13,6 +14,7 @@ const singulativeMassNounArray = [
     "chunk&nbspof&nbspice",
     "chunk&nbspof&nbspiron",
     "work&nbspof&nbsplabour",
+    "strip&nbspof&nbspleather",
     "cut&nbspof&nbspmeat",
     "drop&nbspof&nbspmilk",
     "clump&nbspof&nbspmud",

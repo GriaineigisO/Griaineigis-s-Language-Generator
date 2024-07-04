@@ -1,4 +1,4 @@
-
+//@collapse
 //The arrays containing the English translations are naturally very large, so I placed each one in its own file and just import them to keep this file tidier.
 //import nounArray from './englishWordArrays/Nouns/englishNouns.js';
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
@@ -2574,7 +2574,7 @@ function createShortGenericClassifiers() {
 }
 
 //to create the most extensive classifier system, a different approach is taken. Each classifier will receive its own paragraph instead of using tables, with more elaborate examples and explanations. There will be greater randomization as to what categories are even included.
-function makeExamples(word, classifier, countOrMass) {
+function makeExamples(word, classifier, countOrMass, quantifier) {
     let generatedArray = "";
     let nounArray = "";
     if (countOrMass === "count") {
@@ -2585,17 +2585,41 @@ function makeExamples(word, classifier, countOrMass) {
         nounArray = singulativeMassNounArray;
     }
 
+    let fixedWord = word;
+    let replacement = quantifier + `&nbspof&nbsp`;
+
+    if(fixedWord.includes("handful&nbspof")) {
+        fixedWord = fixedWord.replace("handful&nbspof&nbsp", replacement)
+    }
+    if(fixedWord.includes("chunk&nbspof")) {
+        fixedWord = fixedWord.replace("chunk&nbspof&nbsp", replacement)
+    }
+    if(fixedWord.includes("pinch&nbspof")) {
+        fixedWord = fixedWord.replace("pinch&nbspof&nbsp", replacement)
+    }
+    if(fixedWord.includes("grain&nbspof")) {
+        fixedWord = fixedWord.replace("grain&nbspof&nbsp", replacement)
+    }
+    if(fixedWord.includes("sheet&nbspof")) {
+        fixedWord = fixedWord.replace("sheet&nbspof&nbsp", replacement)
+    }
+
+    if(countNounArray.includes(word) && quantifier !== "") {
+        fixedWord = quantifier + `&nbspof&nbsp` + countNounArrayPlural[countNounArray.indexOf(word)]
+    }
+    
+
     if (checkIfHeadInitialOrHeadFinal() === "headFirst") {
-        return `<i>${spell(soundChange(generatedArray[nounArray.indexOf(word)]))} ${spell(soundChange(classifier))}</i> "${word}"`;
+        return `<i>${spell(soundChange(generatedArray[nounArray.indexOf(word)]))} ${spell(soundChange(classifier))}</i> "${fixedWord}"`;
     } else {
-        return `<i>${spell(soundChange(classifier))} ${spell(soundChange(generatedArray[nounArray.indexOf(word)]))}</i> "${word}"`;
+        return `<i>${spell(soundChange(classifier))} ${spell(soundChange(generatedArray[nounArray.indexOf(word)]))}</i> "${fixedWord}"`;
     }
 }
 
 function createLongClassifiers() {
     if(typologyNum === 0) {
         if(randomClassifierNum === 3) {
-            let allClassifiers = ["protruding-top", "orginised-gathering", "small-round", "small-flat", "building", "song", "slice", "entrance", "domestic-animal", "long-non-rigid", "long-rigid", "handful", "bagful", "stock", "droplet", "pair", "cup", "serving-food", "row", "bundle", "barrel", "strand", "set", "revolution", "gust", "pouring", "chunk", "shovelful", "netful", "cluster", "fieldful", "spoonful", "rounded-top", "smattering", "broad-flat", "degradable", "wisp", "roll", "mental-sensory", "violent-action", "loving-action", "reciprocal-action", "movement", "selection", "protrusions", "intrusions", "enclosed-space", "piercing-cutting", "percussive", "strip", "cutting", "instance", "completed-action", "eon", "day"];
+            let allClassifiers = ["protruding-top", "orginised-gathering", "small-round", "small-flat", "building", "song", "slice", "entrance", "domestic-animal", "long-non-rigid", "long-rigid", "handful", "bagful", "stack", "droplet", "pair", "cup", "serving-food", "row", "bundle", "barrel", "strand", "set", "revolution", "gust", "pouring", "chunk", "shovelful", "netful", "cluster", "fieldful", "spoonful", "rounded-top", "smattering", "broad-flat", "degradable", "wisp", "roll", "mental-sensory", "violent-action", "loving-action", "reciprocal-action", "movement", "selection", "protrusions", "intrusions", "enclosed-space", "piercing-cutting", "percussive", "strip", "cutting", "instance", "completed-action", "eon", "day"];
 
             let chosenClassifiers = [];
             let randomNum = Math.floor(Math.random() * (allClassifiers.length - 12)) + 12;     
@@ -2625,9 +2649,9 @@ function createLongClassifiers() {
                 allExamples.push(towerExample);
                 let roofExample = makeExamples("roof", protrudingClassifier, "count");
                 allExamples.push(roofExample);
-                let barrowExample = makeExamples("barrow", protrudingClassifier, "count");   
+                let barrowExample = makeExamples("barrow", protrudingClassifier, "count");
                 allExamples.push(barrowExample);
-                let teatExample = makeExamples("teat", protrudingClassifier, "count");   
+                let teatExample = makeExamples("teat", protrudingClassifier, "count");
                 allExamples.push(teatExample);
 
                 let chosenExamples = []; 
@@ -2663,19 +2687,19 @@ function createLongClassifiers() {
                 
                 let allExamples = [];
                 allExamples.push(
-                    makeExamples("army", gatheringClassifier, "count"),
-                    makeExamples("band", gatheringClassifier, "count"),
-                    makeExamples("troop", gatheringClassifier, "count"),
-                    makeExamples("family", gatheringClassifier, "count"),
-                    makeExamples("lineage", gatheringClassifier, "count"),
-                    makeExamples("clan", gatheringClassifier, "count"),
-                    makeExamples("tribe", gatheringClassifier, "count"),
-                    makeExamples("council", gatheringClassifier, "count"),
-                    makeExamples("meeting", gatheringClassifier, "count"),
-                    makeExamples("buffet", gatheringClassifier, "count"),
-                    makeExamples("feast", gatheringClassifier, "count"),
-                    makeExamples("festival", gatheringClassifier, "count"),
-                    makeExamples("audience", gatheringClassifier, "count"),
+                    makeExamples("army", gatheringClassifier, "count", ""),
+                    makeExamples("band", gatheringClassifier, "count", ""),
+                    makeExamples("troop", gatheringClassifier, "count", ""),
+                    makeExamples("family", gatheringClassifier, "count", ""),
+                    makeExamples("lineage", gatheringClassifier, "count", ""),
+                    makeExamples("clan", gatheringClassifier, "count", ""),
+                    makeExamples("tribe", gatheringClassifier, "count", ""),
+                    makeExamples("council", gatheringClassifier, "count", ""),
+                    makeExamples("meeting", gatheringClassifier, "count", ""),
+                    makeExamples("buffet", gatheringClassifier, "count", ""),
+                    makeExamples("feast", gatheringClassifier, "count", ""),
+                    makeExamples("festival", gatheringClassifier, "count", ""),
+                    makeExamples("audience", gatheringClassifier, "count", ""),
                 );
 
                 let chosenExamples = []; 
@@ -2711,26 +2735,26 @@ function createLongClassifiers() {
                 
                 let allExamples = [];
                 allExamples.push(
-                    makeExamples("grain", smallRoundClassifier, "count"),
-                    makeExamples("bead", smallRoundClassifier, "count"),
-                    makeExamples("seed", smallRoundClassifier, "count"),
-                    makeExamples("turnip", smallRoundClassifier, "count"),
-                    makeExamples("onion", smallRoundClassifier, "count"),
-                    makeExamples("kidney", smallRoundClassifier, "count"),
-                    makeExamples("kernel", smallRoundClassifier, "count"),
-                    makeExamples("egg", smallRoundClassifier, "count"),
-                    makeExamples("cherry", smallRoundClassifier, "count"),
-                    makeExamples("berry", smallRoundClassifier, "count"),
-                    makeExamples("bee", smallRoundClassifier, "count"),
-                    makeExamples("bean", smallRoundClassifier, "count"),
-                    makeExamples("apple", smallRoundClassifier, "count"),
-                    makeExamples("acorn", smallRoundClassifier, "count"),
-                    makeExamples("eye", smallRoundClassifier, "count"),
-                    makeExamples("garlic", smallRoundClassifier, "count"),
-                    makeExamples("ball", smallRoundClassifier, "count"),
-                    makeExamples("pea", smallRoundClassifier, "count"),
-                    makeExamples("fist", smallRoundClassifier, "count"),
-                    makeExamples("knee", smallRoundClassifier, "count"),
+                    makeExamples("grain", smallRoundClassifier, "count", ""),
+                    makeExamples("bead", smallRoundClassifier, "count", ""),
+                    makeExamples("seed", smallRoundClassifier, "count", ""),
+                    makeExamples("turnip", smallRoundClassifier, "count", ""),
+                    makeExamples("onion", smallRoundClassifier, "count", ""),
+                    makeExamples("kidney", smallRoundClassifier, "count", ""),
+                    makeExamples("kernel", smallRoundClassifier, "count", ""),
+                    makeExamples("egg", smallRoundClassifier, "count", ""),
+                    makeExamples("cherry", smallRoundClassifier, "count", ""),
+                    makeExamples("berry", smallRoundClassifier, "count", ""),
+                    makeExamples("bee", smallRoundClassifier, "count", ""),
+                    makeExamples("bean", smallRoundClassifier, "count", ""),
+                    makeExamples("apple", smallRoundClassifier, "count", ""),
+                    makeExamples("acorn", smallRoundClassifier, "count", ""),
+                    makeExamples("eye", smallRoundClassifier, "count", ""),
+                    makeExamples("garlic", smallRoundClassifier, "count", ""),
+                    makeExamples("ball", smallRoundClassifier, "count", ""),
+                    makeExamples("pea", smallRoundClassifier, "count", ""),
+                    makeExamples("fist", smallRoundClassifier, "count", ""),
+                    makeExamples("knee", smallRoundClassifier, "count", ""),
                 );
 
                 let chosenExamples = []; 
@@ -2766,13 +2790,13 @@ function createLongClassifiers() {
                 if (randomNumForBugExtension === 3) {
                     let allBugExamples = [];
                     allBugExamples.push(
-                        makeExamples("spider", smallRoundClassifier, "count"),
-                        makeExamples("louse", smallRoundClassifier, "count"),
-                        makeExamples("weevil", smallRoundClassifier, "count"),
-                        makeExamples("worm", smallRoundClassifier, "count"),
-                        makeExamples("leech", smallRoundClassifier, "count"),
-                        makeExamples("maggot", smallRoundClassifier, "count"),
-                        makeExamples("tick", smallRoundClassifier, "count"),
+                        makeExamples("spider", smallRoundClassifier, "count", ""),
+                        makeExamples("louse", smallRoundClassifier, "count", ""),
+                        makeExamples("weevil", smallRoundClassifier, "count", ""),
+                        makeExamples("worm", smallRoundClassifier, "count", ""),
+                        makeExamples("leech", smallRoundClassifier, "count", ""),
+                        makeExamples("maggot", smallRoundClassifier, "count", ""),
+                        makeExamples("tick", smallRoundClassifier, "count", ""),
                     );
                     let chosenBugExamples = []; 
                     let randomBugExampleNum = Math.floor(Math.random() * (allBugExamples.length - 4)) + 4;
@@ -2797,14 +2821,14 @@ function createLongClassifiers() {
                 
                 let allExamples = [];
                 allExamples.push(
-                    makeExamples("pebble", smallFlatClassifier, "count"),
-                    makeExamples("ring", smallFlatClassifier, "count"),
-                    makeExamples("coin", smallFlatClassifier, "count"),
-                    makeExamples("shell", smallFlatClassifier, "count"),
-                    makeExamples("ear", smallFlatClassifier, "count"),
-                    makeExamples("leaf", smallFlatClassifier, "count"),
-                    makeExamples("hand", smallFlatClassifier, "count"),
-                    makeExamples("palm", smallFlatClassifier, "count"),
+                    makeExamples("pebble", smallFlatClassifier, "count", ""),
+                    makeExamples("ring", smallFlatClassifier, "count", ""),
+                    makeExamples("coin", smallFlatClassifier, "count", ""),
+                    makeExamples("shell", smallFlatClassifier, "count", ""),
+                    makeExamples("ear", smallFlatClassifier, "count", ""),
+                    makeExamples("leaf", smallFlatClassifier, "count", ""),
+                    makeExamples("hand", smallFlatClassifier, "count", ""),
+                    makeExamples("palm", smallFlatClassifier, "count", ""),
                 );
 
                 let chosenExamples = []; 
@@ -2840,10 +2864,10 @@ function createLongClassifiers() {
                 if (randomNumForJewelExtension === 3) {
                     let allJewelExamples = [];
                     allJewelExamples.push(
-                        makeExamples("bracelet", smallFlatClassifier, "count"),
-                        makeExamples("jewel", smallFlatClassifier, "count"),
-                        makeExamples("necklace", smallFlatClassifier, "count"),
-                        makeExamples("pendant", smallFlatClassifier, "count"),
+                        makeExamples("bracelet", smallFlatClassifier, "count", ""),
+                        makeExamples("jewel", smallFlatClassifier, "count", ""),
+                        makeExamples("necklace", smallFlatClassifier, "count", ""),
+                        makeExamples("pendant", smallFlatClassifier, "count", ""),
                     )
                     let chosenJewelExamples = []; 
                     let randomJewelExampleNum = Math.floor(Math.random() * (allJewelExamples.length - 4)) + 4;
@@ -2868,10 +2892,10 @@ function createLongClassifiers() {
                 
                 let allExamples = [];
                 allExamples.push(
-                    makeExamples("bedroom", buildingClassifier, "count"),
-                    makeExamples("hall", buildingClassifier, "count"),
-                    makeExamples("stable", buildingClassifier, "count"),
-                    makeExamples("temple", buildingClassifier, "count"),
+                    makeExamples("bedroom", buildingClassifier, "count", ""),
+                    makeExamples("hall", buildingClassifier, "count", ""),
+                    makeExamples("stable", buildingClassifier, "count", ""),
+                    makeExamples("temple", buildingClassifier, "count", ""),
                 );
 
                 let chosenExamples = []; 
@@ -2907,11 +2931,11 @@ function createLongClassifiers() {
                 
                 let allExamples = [];
                 allExamples.push(
-                    makeExamples("song", songClassifier, "count"),
-                    makeExamples("prayer", songClassifier, "count"),
-                    makeExamples("proverb", songClassifier, "count"),
-                    makeExamples("work&nbspof&nbspprose", songClassifier, "mass"),
-                    makeExamples("spell", songClassifier, "count"),
+                    makeExamples("song", songClassifier, "count", ""),
+                    makeExamples("prayer", songClassifier, "count", ""),
+                    makeExamples("proverb", songClassifier, "count", ""),
+                    makeExamples("work&nbspof&nbspprose", songClassifier, "mass", ""),
+                    makeExamples("spell", songClassifier, "count", ""),
                 );
 
                 let chosenExamples = []; 
@@ -2947,14 +2971,15 @@ function createLongClassifiers() {
                 
                 let allExamples = [];
                 allExamples.push(
-                    makeExamples("leaf", sliceClassifier, "count"),
-                    makeExamples("rag", sliceClassifier, "count"),
-                    makeExamples("membrane", sliceClassifier, "count"),
-                    makeExamples("page", sliceClassifier, "count"),
-                    makeExamples("sheet", sliceClassifier, "count"),
-                    makeExamples("slice", sliceClassifier, "count"),
-                    makeExamples("slice&nbspof&nbspbread", sliceClassifier, "mass"),
-                    makeExamples("strip&nbspof&nbspleather", sliceClassifier, "mass"),
+                    makeExamples("leaf", sliceClassifier, "count", ""),
+                    makeExamples("rag", sliceClassifier, "count", ""),
+                    makeExamples("membrane", sliceClassifier, "count", ""),
+                    makeExamples("page", sliceClassifier, "count", ""),
+                    makeExamples("sheet", sliceClassifier, "count", ""),
+                    makeExamples("tongue", sliceClassifier, "count", ""),
+                    makeExamples("slice", sliceClassifier, "count", ""),
+                    makeExamples("slice&nbspof&nbspbread", sliceClassifier, "mass", ""),
+                    makeExamples("strip&nbspof&nbspleather", sliceClassifier, "mass", ""),
                 );
 
                 let chosenExamples = []; 
@@ -2990,11 +3015,11 @@ function createLongClassifiers() {
                 
                 let allExamples = [];
                 allExamples.push(
-                    makeExamples("door", classifier, "count"),
-                    makeExamples("wagon", classifier, "count"),
-                    makeExamples("horse", classifier, "count"),
-                    makeExamples("estuary", classifier, "count"),
-                    makeExamples("boat", classifier, "count"),
+                    makeExamples("door", classifier, "count", ""),
+                    makeExamples("wagon", classifier, "count", ""),
+                    makeExamples("horse", classifier, "count", ""),
+                    makeExamples("estuary", classifier, "count", ""),
+                    makeExamples("boat", classifier, "count", ""),
                 );
 
                 let chosenExamples = []; 
@@ -3025,7 +3050,7 @@ function createLongClassifiers() {
             }
 
              /*domestic animals********************/
-            if(chosenClassifiers.includes("domestic-animals")) {
+            if(chosenClassifiers.includes("domestic-animal")) {
                 let classifier = "";
                 let randomClassifierNum = Math.floor(Math.random() * 2);
                 if(randomClassifierNum === 0) {
@@ -3037,21 +3062,21 @@ function createLongClassifiers() {
                 
                 let allExamples = [];
                 allExamples.push(
-                    makeExamples("horse", classifier, "count"),
-                    makeExamples("bull", classifier, "count"),
-                    makeExamples("cow", classifier, "count"),
-                    makeExamples("donkey", classifier, "count"),
-                    makeExamples("chicken", classifier, "count"),
-                    makeExamples("pig", classifier, "count"),
-                    makeExamples("goat", classifier, "count"),
-                    makeExamples("ram", classifier, "count"),
-                    makeExamples("ewe", classifier, "count"),
-                    makeExamples("sheep", classifier, "count"),
-                    makeExamples("mare", classifier, "count"),
-                    makeExamples("ox", classifier, "count"),
-                    makeExamples("rooster", classifier, "count"),
-                    makeExamples("dog", classifier, "count"),
-                    makeExamples("cat", classifier, "count"),
+                    makeExamples("horse", classifier, "count", ""),
+                    makeExamples("bull", classifier, "count", ""),
+                    makeExamples("cow", classifier, "count", ""),
+                    makeExamples("donkey", classifier, "count", ""),
+                    makeExamples("chicken", classifier, "count", ""),
+                    makeExamples("pig", classifier, "count", ""),
+                    makeExamples("goat", classifier, "count", ""),
+                    makeExamples("ram", classifier, "count", ""),
+                    makeExamples("ewe", classifier, "count", ""),
+                    makeExamples("sheep", classifier, "count", ""),
+                    makeExamples("mare", classifier, "count", ""),
+                    makeExamples("ox", classifier, "count", ""),
+                    makeExamples("rooster", classifier, "count", ""),
+                    makeExamples("dog", classifier, "count", ""),
+                    makeExamples("cat", classifier, "count", ""),
                 );
 
                 let chosenExamples = []; 
@@ -3091,12 +3116,12 @@ function createLongClassifiers() {
                 
                 let allExamples = [];
                 allExamples.push(
-                    makeExamples("sinew", classifier, "count"),
-                    makeExamples("road", classifier, "count"),
-                    makeExamples("bale&nbspof&nbspstraw", classifier, "mass"),
-                    makeExamples("eel", classifier, "count"),
-                    makeExamples("length&nbspof&nbspstring", classifier, "mass"),
-                    makeExamples("length&nbspof&nbsprope", classifier, "mass"),
+                    makeExamples("sinew", classifier, "count", ""),
+                    makeExamples("road", classifier, "count", ""),
+                    makeExamples("bale&nbspof&nbspstraw", classifier, "mass", ""),
+                    makeExamples("eel", classifier, "count", ""),
+                    makeExamples("length&nbspof&nbspstring", classifier, "mass", ""),
+                    makeExamples("length&nbspof&nbsprope", classifier, "mass", ""),
                 );
 
                 let chosenExamples = []; 
@@ -3132,15 +3157,15 @@ function createLongClassifiers() {
                 if (randomNumForaquaticExtension === 3) {
                     let allAquaticExamples = [];
                     allAquaticExamples.push(
-                        makeExamples("fish", classifier, "count"),
-                        makeExamples("salmon", classifier, "count"),
-                        makeExamples("trout", classifier, "count"),
-                        makeExamples("dolphin", classifier, "count"),
-                        makeExamples("shark", classifier, "count"),
-                        makeExamples("carp", classifier, "count"),
-                        makeExamples("frog", classifier, "count"),
-                        makeExamples("mussel", classifier, "count"),
-                        makeExamples("whale", classifier, "count"),
+                        makeExamples("fish", classifier, "count", ""),
+                        makeExamples("salmon", classifier, "count", ""),
+                        makeExamples("trout", classifier, "count", ""),
+                        makeExamples("dolphin", classifier, "count", ""),
+                        makeExamples("shark", classifier, "count", ""),
+                        makeExamples("carp", classifier, "count", ""),
+                        makeExamples("frog", classifier, "count", ""),
+                        makeExamples("mussel", classifier, "count", ""),
+                        makeExamples("whale", classifier, "count", ""),
                     );
                     let chosenAquaticExamples = []; 
                     let randomAquaticExampleNum = Math.floor(Math.random() * (allAquaticExamples.length - 4)) + 4;
@@ -3164,10 +3189,10 @@ function createLongClassifiers() {
                 if (randomNumForRoadExtension === 3) {
                     let allRoadExamples = [];
                     allRoadExamples.push(
-                        makeExamples("direction", classifier, "count"),
-                        makeExamples("route", classifier, "count"),
-                        makeExamples("way", classifier, "count"),
-                        makeExamples("map", classifier, "count"),
+                        makeExamples("direction", classifier, "count", ""),
+                        makeExamples("route", classifier, "count", ""),
+                        makeExamples("way", classifier, "count", ""),
+                        makeExamples("map", classifier, "count", ""),
                     );
                     let chosenRoadExamples = []; 
                     let randomRoadExampleNum = Math.floor(Math.random() * (allRoadExamples.length - 4)) + 4;
@@ -3185,6 +3210,184 @@ function createLongClassifiers() {
                     document.getElementById("long-non-rigid-road").innerHTML = `<br/>Due to being applied to <i>${roadWord}</i> "road", the classifer <i>${spell(soundChange(classifier))}</i> may also be used with any nouns referring to routes and directions: ${roadExamples}`;
                 }
             }
+
+             /*long-rigid********************/
+            if(chosenClassifiers.includes("long-rigid")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("spear", classifier, "count", ""),
+                    makeExamples("shaft", classifier, "count", ""),
+                    makeExamples("branch", classifier, "count", ""),
+                    makeExamples("pole", classifier, "count", ""),
+                    makeExamples("stake", classifier, "count", ""),
+                    makeExamples("post", classifier, "count", ""),
+                    makeExamples("sword", classifier, "count", ""),
+                    makeExamples("stick", classifier, "count", ""),
+                    makeExamples("icicle", classifier, "count", ""),
+                    makeExamples("arrow", classifier, "count", ""),
+                    makeExamples("bar", classifier, "count", ""),
+                    makeExamples("pike", classifier, "count", ""),
+                    makeExamples("splint", classifier, "count", ""),
+                    makeExamples("stalagmite", classifier, "count", ""),
+                    makeExamples("trunk", classifier, "count", ""),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let classifierDiv = document.createElement("div");
+                classifierDiv.classList.add("long-rigid-div");
+                classifierDiv.setAttribute("id", "long-rigid");
+                let classifierH3 = document.createElement("h3");
+                classifierH3.innerHTML = `Long Rigid Objects - <i>${spell(soundChange(classifier))}</i>`;
+                let classifierP = document.createElement("p");
+                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for lengths of long and rigid objects: ${examples}`;
+
+                document.getElementById("long-classifier-system").appendChild(classifierDiv);
+                document.getElementById("long-rigid").appendChild(classifierH3);
+                document.getElementById("long-rigid").appendChild(classifierP);
+            }
+
+             /*handful********************/
+            if(chosenClassifiers.includes("handful")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("pinch&nbspof&nbspash", classifier, "mass", "handful"),
+                    makeExamples("handful&nbspof&nbspflour", classifier, "mass", "handful"),
+                    makeExamples("handful&nbspof&nbspsnow", classifier, "mass", "handful"),
+                    makeExamples("grain&nbspof&nbspsand", classifier, "mass", "handful"),
+                    makeExamples("handful&nbspof&nbspdirt", classifier, "mass", "handful"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let classifierDiv = document.createElement("div");
+                classifierDiv.classList.add("handful-div");
+                classifierDiv.setAttribute("id", "handful");
+                let classifierH3 = document.createElement("h3");
+                classifierH3.innerHTML = `Handful - <i>${spell(soundChange(classifier))}</i>`;
+                let classifierP = document.createElement("p");
+                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for handfuls of things. This classifier is not concerned with the shape of the object, so long as the object is a mass of small things, it cares more about whether the object is something that is often held in the hands: ${examples}`;
+
+                document.getElementById("long-classifier-system").appendChild(classifierDiv);
+                document.getElementById("handful").appendChild(classifierH3);
+                document.getElementById("handful").appendChild(classifierP);
+            }
+
+             /*bagful********************/
+             if(chosenClassifiers.includes("bagful")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("grain", classifier, "count", "bagful"),
+                    makeExamples("handful&nbspof&nbspflour", classifier, "mass", "sackful"),
+                    makeExamples("coin", classifier, "count", "pouchful"),
+                    makeExamples("dice", classifier, "count", "pouchful"),
+                    makeExamples("amount&nbspof&nbspmoney", classifier, "mass", "pouchful"),
+                    makeExamples("chunk&nbspof&nbspsmoked&nbspmeat", classifier, "mass", "pocketful"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let classifierDiv = document.createElement("div");
+                classifierDiv.classList.add("bagful-div");
+                classifierDiv.setAttribute("id", "bagful");
+                let classifierH3 = document.createElement("h3");
+                classifierH3.innerHTML = `Bagful - <i>${spell(soundChange(classifier))}</i>`;
+                let classifierP = document.createElement("p");
+                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for bagfuls, pocketfuls, packetfuls and sackfuls of things: ${examples}`;
+
+                document.getElementById("long-classifier-system").appendChild(classifierDiv);
+                document.getElementById("bagful").appendChild(classifierH3);
+                document.getElementById("bagful").appendChild(classifierP);
+            }
+
+             /*stack********************/
+             //if(chosenClassifiers.includes("stack")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("tile", classifier, "count", "stack"),
+                    makeExamples("sheet&nbspof&nbsppaper", classifier, "mass", "stack"),
+                    makeExamples("sheet", classifier, "count", "layer"),
+                    makeExamples("plank", classifier, "count", "stack"),
+                    makeExamples("log", classifier, "count", "pile"),
+                    makeExamples("book", classifier, "count", "pile"),
+                    makeExamples("coin", classifier, "count", "stack"),
+                    makeExamples("bowl", classifier, "count", "stack"),
+                    makeExamples("grain&nbspof&nbspsand", classifier, "mass", "pile"),
+                    makeExamples("handful&nbspof&nbspflour", classifier, "mass", "pile"),
+                    makeExamples("pinch&nbspof&nbspash", classifier, "mass", "pile"),
+                    makeExamples("handful&nbspof&nbspdirt", classifier, "mass", "pile"),
+                    makeExamples("piece&nbspof&nbspskin", classifier, "mass", "layer"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let classifierDiv = document.createElement("div");
+                classifierDiv.classList.add("stack-div");
+                classifierDiv.setAttribute("id", "stack");
+                let classifierH3 = document.createElement("h3");
+                classifierH3.innerHTML = `Vertical Collections - <i>${spell(soundChange(classifier))}</i>`;
+                let classifierP = document.createElement("p");
+                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for vertical collections of objects: ${examples}`;
+                document.getElementById("long-classifier-system").appendChild(classifierDiv);
+                document.getElementById("stack").appendChild(classifierH3);
+                document.getElementById("stack").appendChild(classifierP);
+            //}
 
             /*General Classifier***************/
             let generalClassifier = generateWords();

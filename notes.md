@@ -6,10 +6,7 @@ An object may be used by a classifier not because it meets the original requirem
 
 not all classifiers below will be listed, there will be a minimum number, and extra ones wil be added randomly, with a great number generally preferred. The extensions will also be optionally added, and one classifier can have many extensions which may or may not appear.
 
-11. long rigid objects (spear, shaft, branch, pole, pike, stake, post, sword, bar)
-12. handful (sand, beans, flour, dirt, snow)
-13. bagful of, sackful of, packet of, pocketful of (dice, money, smoked meat, grain)
-14. stack of, column of, layer of (paper, tiles, sheets)
+14. stack of, column of, layer of, pile of (paper, tiles, sheets)
 15. droplet, drop of (blood, water, oil)
 16. pair of (shoes, legs, arms, hands, eyes, romantic couple)
 17. cup of

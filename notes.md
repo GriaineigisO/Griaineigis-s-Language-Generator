@@ -6,11 +6,6 @@ An object may be used by a classifier not because it meets the original requirem
 
 not all classifiers below will be listed, there will be a minimum number, and extra ones wil be added randomly, with a great number generally preferred. The extensions will also be optionally added, and one classifier can have many extensions which may or may not appear.
 
-
-7. Slices/flimsy flat and thin objects (of bread, of meat, page, leaf, membrane)
-8. entrances, doorways, places of transition, liminal spaces
-9. "head" - domestic animal
-10. length of long non-rigid objects: straw, rope, string, sinew, road, path (and thus route, direction, way), fish, eel (and thus other aquatic life)
 11. long rigid objects (spear, shaft, branch, pole, pike, stake, post, sword, bar)
 12. handful (sand, beans, flour, dirt, snow)
 13. bagful of, sackful of, packet of, pocketful of (dice, money, smoked meat, grain)
@@ -57,6 +52,8 @@ not all classifiers below will be listed, there will be a minimum number, and ex
 54. eon of, unspecified long time of
 55. day of
 56. general classifier for anything else
+
+nouns that may take several classifiers, sometimes with a change in meaning?
 
 - Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
   - Etymologies for the plural: all, children, people, third person plural, three.

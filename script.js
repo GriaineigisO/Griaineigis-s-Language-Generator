@@ -2581,7 +2581,6 @@ function makeExamples(word, classifier, countOrMass) {
         generatedArray = generatedCountNouns;
         nounArray = countNounArray;
     } else if (countOrMass === "mass") {
-        console.log(`${word} `)
         generatedArray = generatedMassNouns;
         nounArray = singulativeMassNounArray;
     }
@@ -2978,11 +2977,213 @@ function createLongClassifiers() {
                 let sliceH3 = document.createElement("h3");
                 sliceH3.innerHTML = `Flimsy Flat Objects- <i>${spell(soundChange(sliceClassifier))}</i>`;
                 let sliceP = document.createElement("p");
-                sliceP.innerHTML = `The classifier <i>${spell(soundChange(sliceClassifier))}</i> is used for slices of things, or any flimsy and flat object: ${examples}`;
+                sliceP.innerHTML = `The classifier <i>${spell(soundChange(sliceClassifier))}</i> is used for slices of things, or any flimsy and flat objects: ${examples}`;
 
                 document.getElementById("long-classifier-system").appendChild(sliceDiv);
                 document.getElementById("slice").appendChild(sliceH3);
                 document.getElementById("slice").appendChild(sliceP);
+            }
+
+            /*entrances********************/
+            if(chosenClassifiers.includes("entrance")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("door", classifier, "count"),
+                    makeExamples("wagon", classifier, "count"),
+                    makeExamples("horse", classifier, "count"),
+                    makeExamples("estuary", classifier, "count"),
+                    makeExamples("boat", classifier, "count"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let classifierDiv = document.createElement("div");
+                classifierDiv.classList.add("entrance-div");
+                classifierDiv.setAttribute("id", "entrance");
+                let classifierH3 = document.createElement("h3");
+                classifierH3.innerHTML = `Entrances - <i>${spell(soundChange(classifier))}</i>`;
+                let classifierP = document.createElement("p");
+                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for entrances, and more generally, places of transition such as an entrances or a mode of transport. The classifier also applies to nouns denoting phases of transition both locative and temporal: ${examples}`;
+
+                document.getElementById("long-classifier-system").appendChild(classifierDiv);
+                document.getElementById("entrance").appendChild(classifierH3);
+                document.getElementById("entrance").appendChild(classifierP);
+            }
+
+             /*domestic animals********************/
+            if(chosenClassifiers.includes("domestic-animals")) {
+                let classifier = "";
+                let randomClassifierNum = Math.floor(Math.random() * 2);
+                if(randomClassifierNum === 0) {
+                    classifier = generateWords();
+                } else {
+                    classifier = generatedCountNouns[countNounArray.indexOf("head")];
+                }
+                
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("horse", classifier, "count"),
+                    makeExamples("bull", classifier, "count"),
+                    makeExamples("cow", classifier, "count"),
+                    makeExamples("donkey", classifier, "count"),
+                    makeExamples("chicken", classifier, "count"),
+                    makeExamples("pig", classifier, "count"),
+                    makeExamples("goat", classifier, "count"),
+                    makeExamples("ram", classifier, "count"),
+                    makeExamples("ewe", classifier, "count"),
+                    makeExamples("sheep", classifier, "count"),
+                    makeExamples("mare", classifier, "count"),
+                    makeExamples("ox", classifier, "count"),
+                    makeExamples("rooster", classifier, "count"),
+                    makeExamples("dog", classifier, "count"),
+                    makeExamples("cat", classifier, "count"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let classifierDiv = document.createElement("div");
+                classifierDiv.classList.add("domestic-animals-div");
+                classifierDiv.setAttribute("id", "domestic-animals");
+                let classifierH3 = document.createElement("h3");
+                classifierH3.innerHTML = `Domestic Animals - <i>${spell(soundChange(classifier))}</i>`;
+                let classifierP = document.createElement("p");
+                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for domestic animals<span id="domestic-animal-head">, the classifier is taken from the noun <i>${spell(soundChange(classifier))}</i> "head"</span>: ${examples}`;
+
+                document.getElementById("long-classifier-system").appendChild(classifierDiv);
+                document.getElementById("domestic-animals").appendChild(classifierH3);
+                document.getElementById("domestic-animals").appendChild(classifierP);
+
+                if(randomClassifierNum === 0) {
+                    document.getElementById("domestic-animal-head").style.display = "none";
+                }
+            }
+
+             /*long-non-rigid********************/
+            if(chosenClassifiers.includes("long-non-rigid")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("sinew", classifier, "count"),
+                    makeExamples("road", classifier, "count"),
+                    makeExamples("bale&nbspof&nbspstraw", classifier, "mass"),
+                    makeExamples("eel", classifier, "count"),
+                    makeExamples("length&nbspof&nbspstring", classifier, "mass"),
+                    makeExamples("length&nbspof&nbsprope", classifier, "mass"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ")
+
+                let classifierDiv = document.createElement("div");
+                classifierDiv.classList.add("long-non-rigid-div");
+                classifierDiv.setAttribute("id", "long-non-rigid");
+                let classifierH3 = document.createElement("h3");
+                classifierH3.innerHTML = `Long Non-rigid Objects - <i>${spell(soundChange(classifier))}</i>`;
+                let classifierP = document.createElement("p");
+                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for lengths of long and non-rigid objects: ${examples}<span id="long-non-rigid-aqautic"></span> <span id="long-non-rigid-road"></span>`;
+
+                document.getElementById("long-classifier-system").appendChild(classifierDiv);
+                document.getElementById("long-non-rigid").appendChild(classifierH3);
+                document.getElementById("long-non-rigid").appendChild(classifierP);
+
+                /*extensions to classifier usage*/
+                /*Decides if the classifier is extended in use to refer to aquatic life*/
+                let aquaticWord = spell(soundChange(generatedCountNouns[countNounArray.indexOf("eel")]));
+                let randomNumForaquaticExtension = Math.floor(Math.random() * 5);
+                if (randomNumForaquaticExtension === 3) {
+                    let allAquaticExamples = [];
+                    allAquaticExamples.push(
+                        makeExamples("fish", classifier, "count"),
+                        makeExamples("salmon", classifier, "count"),
+                        makeExamples("trout", classifier, "count"),
+                        makeExamples("dolphin", classifier, "count"),
+                        makeExamples("shark", classifier, "count"),
+                        makeExamples("carp", classifier, "count"),
+                        makeExamples("frog", classifier, "count"),
+                        makeExamples("mussel", classifier, "count"),
+                        makeExamples("whale", classifier, "count"),
+                    );
+                    let chosenAquaticExamples = []; 
+                    let randomAquaticExampleNum = Math.floor(Math.random() * (allAquaticExamples.length - 4)) + 4;
+                    for(let i= 0; i < randomAquaticExampleNum; i++) {
+                        let randomIndex = Math.floor(Math.random() * allAquaticExamples.length);
+                        chosenAquaticExamples.push(allAquaticExamples[randomIndex]);
+                        allAquaticExamples.splice(randomIndex, 1);
+                    }
+                    const listOfAquaticExamples = [];
+                    chosenAquaticExamples.forEach((element) => listOfAquaticExamples.push(element));
+                    listOfAquaticExamples.pop()
+                    listOfAquaticExamples.push(` and ${chosenAquaticExamples[chosenAquaticExamples.length -1]}.`)
+                    let aquaticExamples =  listOfAquaticExamples.join(", ")
+                
+                    document.getElementById("long-non-rigid-aqautic").innerHTML = `<br/>Due to being applied to <i>${aquaticWord}</i> "eel", the classifer <i>${spell(soundChange(classifier))}</i> may also be used with any nouns referring to aquatic wildlife regardless of the shape of the animal: ${aquaticExamples}`;
+                }
+
+                /*Decides if the classifier is extended in use to refer to directions*/
+                let roadWord = spell(soundChange(generatedCountNouns[countNounArray.indexOf("road")]));
+                let randomNumForRoadExtension = Math.floor(Math.random() * 5);
+                if (randomNumForRoadExtension === 3) {
+                    let allRoadExamples = [];
+                    allRoadExamples.push(
+                        makeExamples("direction", classifier, "count"),
+                        makeExamples("route", classifier, "count"),
+                        makeExamples("way", classifier, "count"),
+                        makeExamples("map", classifier, "count"),
+                    );
+                    let chosenRoadExamples = []; 
+                    let randomRoadExampleNum = Math.floor(Math.random() * (allRoadExamples.length - 4)) + 4;
+                    for(let i= 0; i < randomRoadExampleNum; i++) {
+                        let randomIndex = Math.floor(Math.random() * allRoadExamples.length);
+                        chosenRoadExamples.push(allRoadExamples[randomIndex]);
+                        allRoadExamples.splice(randomIndex, 1);
+                    }
+                    const listOfRoadExamples = [];
+                    chosenRoadExamples.forEach((element) => listOfRoadExamples.push(element));
+                    listOfRoadExamples.pop()
+                    listOfRoadExamples.push(` and ${chosenRoadExamples[chosenRoadExamples.length -1]}.`)
+                    let roadExamples =  listOfRoadExamples.join(", ")
+                
+                    document.getElementById("long-non-rigid-road").innerHTML = `<br/>Due to being applied to <i>${roadWord}</i> "road", the classifer <i>${spell(soundChange(classifier))}</i> may also be used with any nouns referring to routes and directions: ${roadExamples}`;
+                }
             }
 
             /*General Classifier***************/

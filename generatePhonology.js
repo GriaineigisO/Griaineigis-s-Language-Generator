@@ -159,6 +159,7 @@ function restoreDefault() {
     document.getElementById("nasal-list").style.display = "none"
     document.getElementById("plosive-list").style.display = "none"
     document.getElementById("fricative-list").style.display = "none"
+     document.getElementById("affricate-list").style.display = "none"
     document.getElementById("rhotic-list").style.display = "none"
     document.getElementById("lateral-list").style.display = "none"
     document.getElementById("approximant-list").style.display = "none"
@@ -171,6 +172,13 @@ function restoreDefault() {
     document.getElementById("vowel-quantities").style.display = "none";
 
     document.getElementById("syllable-example-list").replaceChildren();
+}
+
+let randomGeminationNum = 0;
+let randomLengthNum = 0;
+function makeRandomNumbers() {
+    randomGeminationNum = Math.floor(Math.random() * 3);
+    randomLengthNum = Math.floor(Math.random() * 8);
 }
 
 
@@ -198,41 +206,12 @@ function chooseVoicing() {//there is a 33% chance that this language will lack v
     return voicingTrueOrFalse;
 }
 
-let randomGeminationNum = Math.floor(Math.random() * 21);
 function chooseGemination() {
-    let trueOrFalse = "";
-    if(randomGeminationNum === 4 ) {
-        trueOrFalse = true;
+    if(randomGeminationNum === 2 ) {
+        return true;
     } else {
-        trueOrFalse = false;
+        return false;
     }
-    if(trueOrFalse) {
-        allNasalsArray.push("mː");
-        allLongConsonants.push("mː");
-        allNasalsArray.push("nː");
-        allLongConsonants.push("nː");
-        allLabialPlosivesArray.push("pː");
-        allLongConsonants.push("pː");
-        allAlveolarPlosivesArray.push("tː");
-        allLongConsonants.push("tː");
-        allVelarPlosivesArray.push("kː");
-        allLongConsonants.push("kː");
-        allAlveolarFricativesArray.push("sː");
-        allLongConsonants.push("sː");
-        
-        let randomNum = Math.floor(Math.random() * 10);
-        if(randomNum === 1 && chooseVoicing()) {//there is a 50% chance that there will be /z/
-            allLabialPlosivesArray.push("bː");
-            allLongConsonants.push("bː");
-            allAlveolarPlosivesArray.push("dː");
-            allLongConsonants.push("dː");
-            allVelarPlosivesArray.push("gː");
-            allLongConsonants.push("gː");
-            allAlveolarFricativesArray.push("zː");
-            allLongConsonants.push("zː");
-        }
-    }
-    return trueOrFalse;
 }
 
 function chooseAspiration() {
@@ -338,6 +317,22 @@ function chooseLabial() {
             }
         }
     }
+    if(chooseGemination()) {
+        if(Math.floor(Math.random() * 2) === 1) {
+            allNasalsArray.push("mː");
+            allLongConsonants.push("mː");
+        }
+    }
+    if(chooseGemination()) {
+        if(Math.floor(Math.random() * 2) === 1) {
+            allLabialPlosivesArray.push("pː");
+            allLongConsonants.push("pː");
+        }
+        if(Math.floor(Math.random() * 2) === 1) {
+            allLabialPlosivesArray.push("bː");
+            allLongConsonants.push("bː");
+        }
+    }
 }
 
 function chooseLabioDental() {
@@ -425,6 +420,29 @@ function chooseAlveolar() {
         randomNum = Math.floor(Math.random() * 4);
         if(randomNum === 2 && chooseVoicing()) { 
             allAlveolarAffricates.push("dz");
+        }
+    }
+
+    if(chooseGemination()) {
+        if(Math.floor(Math.random() * 2) === 1) {
+            allNasalsArray.push("nː");
+            allLongConsonants.push("nː");
+        }
+        if(Math.floor(Math.random() * 2) === 1) {
+            allAlveolarPlosivesArray.push("tː");
+            allLongConsonants.push("tː");
+        }
+        if(Math.floor(Math.random() * 2) === 1) {
+            allAlveolarPlosivesArray.push("dː");
+            allLongConsonants.push("dː");
+        }
+        if(Math.floor(Math.random() * 2) === 1) {
+            allAlveolarFricativesArray.push("sː");
+            allLongConsonants.push("sː");
+        }
+        if(Math.floor(Math.random() * 2) === 1) {
+            allAlveolarFricativesArray.push("zː");
+            allLongConsonants.push("zː");
         }
     }
 }
@@ -601,6 +619,16 @@ function chooseVelar() {
                 }
         }
     } 
+    if(chooseGemination()) {
+        if(Math.floor(Math.random() * 2) === 1) {
+            allVelarPlosivesArray.push("kː");
+            allLongConsonants.push("kː");
+        }
+        if(Math.floor(Math.random() * 2) === 1) {
+            allVelarPlosivesArray.push("gː");
+            allLongConsonants.push("gː");
+        }
+    }
 }
 
 function chooseUvular() {
@@ -898,13 +926,10 @@ function chooseLabialisation() {
         }
     }
 }
-
 /*---^^^CHOOSE SECTION^^^----*/
-
 
 /*-----SELECT SECTION---------*/
 //Here, each final list of phonemes, nasals, plosives, etc are sent to the DOM as strings
-
 function selectNasals() {
     let spanNasalList = document.getElementsByClassName("nasal-list");
     for(let i = 0; i < spanNasalList.length; i++) {
@@ -1007,27 +1032,21 @@ function countNumberOfConsonants() {
   document.getElementById("consonant-number").innerHTML = numberOfConsonants;
 }
 
-
 function collectAllConsonants() {
     consonants = allNasalsArray.concat(allLabialPlosivesArray, allAlveolarPlosivesArray, allVelarPlosivesArray, allLabialFricativesArray, allAlveolarFricativesArray, allVelarFricatives, allAlveolarRhoticsArray, allLateralsArray, allLabialApproximants, allpalatalApproximants, allPalatalPlosivesArray, allPostAlveolarFricatives, allpalatalAffricates, allPalatalFricatives, allDentalFricatives, allLabioDentalArray, allLabialDentalApproximants, allUvularPlosivesArray, allUvularFricativesArray, allPharyngealFricatives, allGlottalPlosives, allGlottalFricatives, allLateralFricatives, allLabialDentalAffricates, allLabialAffricates, allAlveolarAffricates, allPostAlveolaraffricates, allVelaraffricatesArray, allUvularlAffricates, allGlottalAffricates, allPalatalisedConsonants, allLabialisedPlosives);
     
 }
 
-
 /*********************VOWELS*******************/
-
 function chooseLength() {
-    let randomNum = Math.floor(Math.random() * 11);
     let trueOrFalse = "";
-    if(randomNum === 1) {
+    if(randomLengthNum === 1) {
         trueOrFalse = true;
     } else {
         trueOrFalse = false;
     }
     return trueOrFalse;
 }
-
-
 
 function chooseNumberOfMainVowels() {
     let randomNum = Math.floor(Math.random() * 3)
@@ -1392,7 +1411,6 @@ function collectAllVowels() {
 
 }
 
-
 function populateVowelLists() {
     //HIGH 
     let shortAndLongHighVowels = allHighVowels.concat(allLongHighVowels )
@@ -1449,12 +1467,9 @@ function populateVowelLists() {
         document.getElementById("low-vowel-list").style.display = "block";
         }
 }
-
 /*-----^^^SELECTION^^^--------------*/
 
 /****SYLLABLE STRUCTURE**************/
-
-
 selectedSyllables = ["CV"]
 function chooseSyllablesToBeUsed() {    
     
@@ -1516,16 +1531,13 @@ function chooseSyllablesToBeUsed() {
     document.getElementById("syllable-structure-list").innerHTML = selectedSyllables.join(", ");
 }
 
-
-
-
 /*************^^^GENERATES EXAMPLES FOR SYLLABLE STRUCTURE^^^************ */
-
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generatePhonology);
 
 function generatePhonology() {
     restoreDefault();
+    makeRandomNumbers();
 
     chooseVoicing();
     chooseGemination();

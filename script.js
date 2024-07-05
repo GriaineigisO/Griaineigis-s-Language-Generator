@@ -2650,6 +2650,9 @@ function createLongClassifiers() {
                 allClassifiers.splice(randomIndex, 1)
             }
 
+            /*chooses if each classifier is formatted as it's own paragraph with an h4 title, or as a new line in one large paragraph. Each if-statement below contains an if-statement to determine which is chosen based on the below random number.*/
+            let randomClassifierFormattingNum = 0//Math.floor(Math.random() * 3);
+
             /*Protruding top********************/
             if(chosenClassifiers.includes("protruding-top")) {
                 let protrudingClassifier = generateWords();
@@ -2680,18 +2683,26 @@ function createLongClassifiers() {
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let protrudingExamples =  listOfExamples.join(", ")
+                let description = `<strong><i>${spell(soundChange(protrudingClassifier))}</i></strong> is used for objects with a protruding top, or those that are protruding tops: ${protrudingExamples}</br>`
 
-                let protrudingDiv = document.createElement("div");
-                protrudingDiv.classList.add("long-classifier-div");
-                protrudingDiv.setAttribute("id", "protruding-classifiers");
-                let protrudingH4 = document.createElement("h4");
-                protrudingH4.innerHTML = `Protruding Objects - <i>${spell(soundChange(protrudingClassifier))}</i>`;
-                let protrudingP = document.createElement("p");
-                protrudingP.innerHTML = `<i>${spell(soundChange(protrudingClassifier))}</i> is used for objects with a protruding top, or those that are protruding tops: ${protrudingExamples}`;
+                if(randomClassifierFormattingNum === 1) {
+                    let protrudingDiv = document.createElement("div");
+                    protrudingDiv.classList.add("long-classifier-div");
+                    protrudingDiv.setAttribute("id", "protruding-classifiers");
+                    let protrudingH4 = document.createElement("h4");
+                    protrudingH4.innerHTML = `Protruding Objects - <i>${spell(soundChange(protrudingClassifier))}</i>`;
+                    let protrudingP = document.createElement("p");
+                    protrudingP.innerHTML = description;
 
-                document.getElementById("long-classifiers").appendChild(protrudingDiv);
-                document.getElementById("protruding-classifiers").appendChild(protrudingH4);
-                document.getElementById("protruding-classifiers").appendChild(protrudingP);
+                    document.getElementById("long-classifiers").appendChild(protrudingDiv);
+                    document.getElementById("protruding-classifiers").appendChild(protrudingH4);
+                    document.getElementById("protruding-classifiers").appendChild(protrudingP);
+                } else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
             }
 
             /*organized gathering********************/
@@ -2728,18 +2739,26 @@ function createLongClassifiers() {
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ")
+                let description = `<strong><i>${spell(soundChange(gatheringClassifier))}</i></strong> is used for orginised gatherings of people, social organizations and kinship groups. Incidental gatherings such as public crowds are not included: ${examples}</br>`;
 
+                if(randomClassifierFormattingNum === 1) {
                 let gatheringDiv = document.createElement("div");
                 gatheringDiv.classList.add("long-classifier-div");
                 gatheringDiv.setAttribute("id", "gathering-classifiers");
                 let gatheringH4 = document.createElement("h4");
                 gatheringH4.innerHTML = `Gatherings of people - <i>${spell(soundChange(gatheringClassifier))}</i>`;
                 let gatheringP = document.createElement("p");
-                gatheringP.innerHTML = `<i>${spell(soundChange(gatheringClassifier))}</i> is used for orginised gatherings of people, social organizations and kinship groups. Incidental gatherings such as public crowds are not included: ${examples}`;
-
-                document.getElementById("long-classifiers").appendChild(gatheringDiv);
-                document.getElementById("gathering-classifiers").appendChild(gatheringH4);
-                document.getElementById("gathering-classifiers").appendChild(gatheringP);
+                gatheringP.innerHTML = descriptionSpan;
+                
+                    document.getElementById("long-classifiers").appendChild(gatheringDiv);
+                    document.getElementById("gathering-classifiers").appendChild(gatheringH4);
+                    document.getElementById("gathering-classifiers").appendChild(gatheringP);
+                } else {
+                    let descriptionSpan = document.createElement("span");
+descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
             }
 
             /*small round objects********************/
@@ -2783,18 +2802,26 @@ function createLongClassifiers() {
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ")
+                let description = `<strong><i>${spell(soundChange(smallRoundClassifier))}</i></strong> is used for small round objects: ${examples} <span id="small-round-bug"></span><br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("small-round-div");
-                classifierDiv.setAttribute("id", "small-round");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Small round objects - <i>${spell(soundChange(smallRoundClassifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `<i>${spell(soundChange(smallRoundClassifier))}</i> is used for small round objects: ${examples} <br /><span id="small-round-bug"></span>`;
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("small-round-div");
+                    classifierDiv.setAttribute("id", "small-round");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Small round objects - <i>${spell(soundChange(smallRoundClassifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
 
-                document.getElementById("long-classifiers").appendChild(classifierDiv);
-                document.getElementById("small-round").appendChild(classifierH4);
-                document.getElementById("small-round").appendChild(classifierP);
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("small-round").appendChild(classifierH4);
+                    document.getElementById("small-round").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
 
                 /*extensions to classifier usage*/
                 /*Decides if the classifier is extended in use to refer to bugs*/
@@ -2857,18 +2884,26 @@ function createLongClassifiers() {
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ")
+                let description = `<strong><i>${spell(soundChange(smallFlatClassifier))}</i></strong> is used for small flat objects: ${examples} <span id="small-flat-jewelry"></span>`;
 
-                let smallFlatDiv = document.createElement("div");
-                smallFlatDiv.classList.add("small-flat-div");
-                smallFlatDiv.setAttribute("id", "small-flat");
-                let smallFlatH3 = document.createElement("h3");
-                smallFlatH3.innerHTML = `Small flat objects- <i>${spell(soundChange(smallFlatClassifier))}</i>`;
-                let smallFlatP = document.createElement("p");
-                smallFlatP.innerHTML = `<i>${spell(soundChange(smallFlatClassifier))}</i> is used for small flat objects: ${examples} <br /><span id="small-flat-jewelry"></span>`;
+                if (randomClassifierFormattingNum === 1) {
+                        let smallFlatDiv = document.createElement("div");
+                        smallFlatDiv.classList.add("small-flat-div");
+                        smallFlatDiv.setAttribute("id", "small-flat");
+                        let smallFlatH3 = document.createElement("h3");
+                        smallFlatH3.innerHTML = `Small flat objects- <i>${spell(soundChange(smallFlatClassifier))}</i>`;
+                        let smallFlatP = document.createElement("p");
+                        smallFlatP.innerHTML = descriptionSpan;
 
-                document.getElementById("long-classifiers").appendChild(smallFlatDiv);
-                document.getElementById("small-flat").appendChild(smallFlatH3);
-                document.getElementById("small-flat").appendChild(smallFlatP);
+                        document.getElementById("long-classifiers").appendChild(smallFlatDiv);
+                        document.getElementById("small-flat").appendChild(smallFlatH3);
+                        document.getElementById("small-flat").appendChild(smallFlatP);
+                } else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
 
                 /*extensions to classifier usage*/
                 /*Decides if the classifier is extended in use to refer to jewelry*/
@@ -2924,18 +2959,25 @@ function createLongClassifiers() {
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ")
+                let description = `<strong><i>${spell(soundChange(buildingClassifier))}</i></strong> is used for buildings with explicit and singular purposes: ${examples}<br>`;
 
-                let buildingDiv = document.createElement("div");
-                buildingDiv.classList.add("building-div");
-                buildingDiv.setAttribute("id", "building");
-                let buildingH3 = document.createElement("h3");
-                buildingH3.innerHTML = `Buildings with purposes- <i>${spell(soundChange(buildingClassifier))}</i>`;
-                let buildingP = document.createElement("p");
-                buildingP.innerHTML = `<i>${spell(soundChange(buildingClassifier))}</i> is used for buildings with explicit and singular purposes: ${examples}`;
-
-                document.getElementById("long-classifiers").appendChild(buildingDiv);
-                document.getElementById("building").appendChild(buildingH3);
-                document.getElementById("building").appendChild(buildingP);
+                if(randomClassifierFormattingNum === 1) {
+                    let buildingDiv = document.createElement("div");
+                    buildingDiv.classList.add("building-div");
+                    buildingDiv.setAttribute("id", "building");
+                    let buildingH3 = document.createElement("h3");
+                    buildingH3.innerHTML = `Buildings with purposes- <i>${spell(soundChange(buildingClassifier))}</i>`;
+                    let buildingP = document.createElement("p");
+                    buildingP.innerHTML = descriptionSpan;
+                    document.getElementById("long-classifiers").appendChild(buildingDiv);
+                    document.getElementById("building").appendChild(buildingH3);
+                    document.getElementById("building").appendChild(buildingP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
             }
 
             /*songs********************/
@@ -2964,18 +3006,26 @@ function createLongClassifiers() {
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ")
+                let description = `<strong><i>${spell(soundChange(songClassifier))}</i></strong> is used for forms of verbal art: ${examples}<br>`;
 
-                let songDiv = document.createElement("div");
-                songDiv.classList.add("song-div");
-                songDiv.setAttribute("id", "song");
-                let songH3 = document.createElement("h3");
-                songH3.innerHTML = `Verbal Art Forms- <i>${spell(soundChange(songClassifier))}</i>`;
-                let songP = document.createElement("p");
-                songP.innerHTML = `<i>${spell(soundChange(songClassifier))}</i> is used for forms of verbal art: ${examples}`;
+                if(randomClassifierFormattingNum === 1) {
+                    let songDiv = document.createElement("div");
+                    songDiv.classList.add("song-div");
+                    songDiv.setAttribute("id", "song");
+                    let songH3 = document.createElement("h3");
+                    songH3.innerHTML = `Verbal Art Forms- <i>${spell(soundChange(songClassifier))}</i>`;
+                    let songP = document.createElement("p");
+                    songP.innerHTML = descriptionSpan;
 
-                document.getElementById("long-classifiers").appendChild(songDiv);
-                document.getElementById("song").appendChild(songH3);
-                document.getElementById("song").appendChild(songP);
+                    document.getElementById("long-classifiers").appendChild(songDiv);
+                    document.getElementById("song").appendChild(songH3);
+                    document.getElementById("song").appendChild(songP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
             }
 
             /*slice********************/
@@ -3007,19 +3057,27 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(sliceClassifier))}</i></strong> is used for slices of things, or any flimsy and flat objects: ${examples}</br>`;
 
-                let sliceDiv = document.createElement("div");
-                sliceDiv.classList.add("slice-div");
-                sliceDiv.setAttribute("id", "slice");
-                let sliceH3 = document.createElement("h3");
-                sliceH3.innerHTML = `Flimsy Flat Objects- <i>${spell(soundChange(sliceClassifier))}</i>`;
-                let sliceP = document.createElement("p");
-                sliceP.innerHTML = `The classifier <i>${spell(soundChange(sliceClassifier))}</i> is used for slices of things, or any flimsy and flat objects: ${examples}`;
+                if(randomClassifierFormattingNum === 1) {
+                    let sliceDiv = document.createElement("div");
+                    sliceDiv.classList.add("slice-div");
+                    sliceDiv.setAttribute("id", "slice");
+                    let sliceH3 = document.createElement("h3");
+                    sliceH3.innerHTML = `Flimsy Flat Objects- <i>${spell(soundChange(sliceClassifier))}</i>`;
+                    let sliceP = document.createElement("p");
+                    sliceP.innerHTML = descriptionSpan;
 
-                document.getElementById("long-classifiers").appendChild(sliceDiv);
-                document.getElementById("slice").appendChild(sliceH3);
-                document.getElementById("slice").appendChild(sliceP);
+                    document.getElementById("long-classifiers").appendChild(sliceDiv);
+                    document.getElementById("slice").appendChild(sliceH3);
+                    document.getElementById("slice").appendChild(sliceP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
             }
 
             /*entrances********************/
@@ -3047,19 +3105,27 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = ` <strong><i>${spell(soundChange(classifier))}</i></strong> is used for entrances, and more generally, places of transition such as an entrances or a mode of transport. The classifier also applies to nouns denoting phases of transition both locative and temporal: ${examples}<br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("entrance-div");
-                classifierDiv.setAttribute("id", "entrance");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Entrances - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for entrances, and more generally, places of transition such as an entrances or a mode of transport. The classifier also applies to nouns denoting phases of transition both locative and temporal: ${examples}`;
+                if (randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("entrance-div");
+                    classifierDiv.setAttribute("id", "entrance");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Entrances - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description;
 
-                document.getElementById("long-classifiers").appendChild(classifierDiv);
-                document.getElementById("entrance").appendChild(classifierH4);
-                document.getElementById("entrance").appendChild(classifierP);
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("entrance").appendChild(classifierH4);
+                    document.getElementById("entrance").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
             }
 
              /*domestic animals********************/
@@ -3104,19 +3170,27 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for domestic animals<span id="domestic-animal-head">, the classifier is taken from the noun <i>${spell(soundChange(classifier))}</i> "head"</span>: ${examples}<br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("domestic-animals-div");
-                classifierDiv.setAttribute("id", "domestic-animals");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Domestic Animals - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for domestic animals<span id="domestic-animal-head">, the classifier is taken from the noun <i>${spell(soundChange(classifier))}</i> "head"</span>: ${examples}`;
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("domestic-animals-div");
+                    classifierDiv.setAttribute("id", "domestic-animals");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Domestic Animals - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
 
-                document.getElementById("long-classifiers").appendChild(classifierDiv);
-                document.getElementById("domestic-animals").appendChild(classifierH4);
-                document.getElementById("domestic-animals").appendChild(classifierP);
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("domestic-animals").appendChild(classifierH4);
+                    document.getElementById("domestic-animals").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
 
                 if(randomClassifierNum === 0) {
                     document.getElementById("domestic-animal-head").style.display = "none";
@@ -3149,19 +3223,27 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for lengths of long and non-rigid objects: ${examples}<span id="long-non-rigid-aqautic"></span> <span id="long-non-rigid-road"></span><br>`;
 
+                if(randomClassifierFormattingNum === 1) {
                 let classifierDiv = document.createElement("div");
                 classifierDiv.classList.add("long-non-rigid-div");
                 classifierDiv.setAttribute("id", "long-non-rigid");
                 let classifierH4 = document.createElement("h4");
                 classifierH4.innerHTML = `Long Non-rigid Objects - <i>${spell(soundChange(classifier))}</i>`;
                 let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for lengths of long and non-rigid objects: ${examples}<span id="long-non-rigid-aqautic"></span> <span id="long-non-rigid-road"></span>`;
+                classifierP.innerHTML = description
 
                 document.getElementById("long-classifiers").appendChild(classifierDiv);
                 document.getElementById("long-non-rigid").appendChild(classifierH4);
                 document.getElementById("long-non-rigid").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
 
                 /*extensions to classifier usage*/
                 /*Decides if the classifier is extended in use to refer to aquatic life*/
@@ -3193,7 +3275,7 @@ function createLongClassifiers() {
                     listOfAquaticExamples.push(` and ${chosenAquaticExamples[chosenAquaticExamples.length -1]}.`)
                     let aquaticExamples =  listOfAquaticExamples.join(", ")
                 
-                    document.getElementById("long-non-rigid-aqautic").innerHTML = `<br/>Due to being applied to <i>${aquaticWord}</i> "eel", the classifer <i>${spell(soundChange(classifier))}</i> may also be used with any nouns referring to aquatic wildlife regardless of the shape of the animal: ${aquaticExamples}`;
+                    document.getElementById("long-non-rigid-aqautic").innerHTML = `Due to being applied to <i>${aquaticWord}</i> "eel", the classifer <i>${spell(soundChange(classifier))}</i> may also be used with any nouns referring to aquatic wildlife regardless of the shape of the animal: ${aquaticExamples}`;
                 }
 
                 /*Decides if the classifier is extended in use to refer to directions*/
@@ -3220,7 +3302,7 @@ function createLongClassifiers() {
                     listOfRoadExamples.push(` and ${chosenRoadExamples[chosenRoadExamples.length -1]}.`)
                     let roadExamples =  listOfRoadExamples.join(", ")
                 
-                    document.getElementById("long-non-rigid-road").innerHTML = `<br/>Due to being applied to <i>${roadWord}</i> "road", the classifer <i>${spell(soundChange(classifier))}</i> may also be used with any nouns referring to routes and directions: ${roadExamples}`;
+                    document.getElementById("long-non-rigid-road").innerHTML = `Due to being applied to <i>${roadWord}</i> "road", the classifer <i>${spell(soundChange(classifier))}</i> may also be used with any nouns referring to routes and directions: ${roadExamples}`;
                 }
             }
 
@@ -3259,19 +3341,27 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for lengths of long and rigid objects: ${examples}<br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("long-rigid-div");
-                classifierDiv.setAttribute("id", "long-rigid");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Long Rigid Objects - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for lengths of long and rigid objects: ${examples}`;
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("long-rigid-div");
+                    classifierDiv.setAttribute("id", "long-rigid");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Long Rigid Objects - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = descriptionSpan
 
-                document.getElementById("long-classifiers").appendChild(classifierDiv);
-                document.getElementById("long-rigid").appendChild(classifierH4);
-                document.getElementById("long-rigid").appendChild(classifierP);
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("long-rigid").appendChild(classifierH4);
+                    document.getElementById("long-rigid").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
             }
 
              /*handful********************/
@@ -3299,19 +3389,27 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for handfuls of things. This classifier is not concerned with the shape of the object, so long as the object is a mass of small things, it cares more about whether the object is something that is often held in the hands: ${examples}<br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("handful-div");
-                classifierDiv.setAttribute("id", "handful");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Handful - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for handfuls of things. This classifier is not concerned with the shape of the object, so long as the object is a mass of small things, it cares more about whether the object is something that is often held in the hands: ${examples}`;
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("handful-div");
+                    classifierDiv.setAttribute("id", "handful");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Handful - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
 
-                document.getElementById("measure-words").appendChild(classifierDiv);
-                document.getElementById("handful").appendChild(classifierH4);
-                document.getElementById("handful").appendChild(classifierP);
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("handful").appendChild(classifierH4);
+                    document.getElementById("handful").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
             }
 
              /*bagful********************/
@@ -3340,19 +3438,27 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for bagfuls, pocketfuls, packetfuls and sackfuls of things: ${examples}<br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("bagful-div");
-                classifierDiv.setAttribute("id", "bagful");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Bagful - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for bagfuls, pocketfuls, packetfuls and sackfuls of things: ${examples}`;
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("bagful-div");
+                    classifierDiv.setAttribute("id", "bagful");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Bagful - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description;
 
-                document.getElementById("measure-words").appendChild(classifierDiv);
-                document.getElementById("bagful").appendChild(classifierH4);
-                document.getElementById("bagful").appendChild(classifierP);
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("bagful").appendChild(classifierH4);
+                    document.getElementById("bagful").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
             }
 
              /*stack********************/
@@ -3388,18 +3494,26 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for vertical collections of objects: ${examples}</br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("stack-div");
-                classifierDiv.setAttribute("id", "stack");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Vertical Collections - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for vertical collections of objects: ${examples}`;
-                document.getElementById("measure-words").appendChild(classifierDiv);
-                document.getElementById("stack").appendChild(classifierH4);
-                document.getElementById("stack").appendChild(classifierP);
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("stack-div");
+                    classifierDiv.setAttribute("id", "stack");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Vertical Collections - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("stack").appendChild(classifierH4);
+                    document.getElementById("stack").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
             }
 
              /*drop********************/
@@ -3431,18 +3545,26 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for liquids, to mean "drop of", "droplet": ${examples}</br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("droplet-div");
-                classifierDiv.setAttribute("id", "droplet");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Droplets - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for liquids, to mean "drop of", "droplet": ${examples}`;
-                document.getElementById("measure-words").appendChild(classifierDiv);
-                document.getElementById("droplet").appendChild(classifierH4);
-                document.getElementById("droplet").appendChild(classifierP);
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("droplet-div");
+                    classifierDiv.setAttribute("id", "droplet");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Droplets - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("droplet").appendChild(classifierH4);
+                    document.getElementById("droplet").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
             }
 
              /*pair********************/
@@ -3477,17 +3599,25 @@ function createLongClassifiers() {
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ")
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is objects that often occur in pairs: ${examples}</br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("pair-div");
-                classifierDiv.setAttribute("id", "pair");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Pair of - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is objects that often occur in pairs: ${examples}`;
-                document.getElementById("measure-words").appendChild(classifierDiv);
-                document.getElementById("pair").appendChild(classifierH4);
-                document.getElementById("pair").appendChild(classifierP);
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("pair-div");
+                    classifierDiv.setAttribute("id", "pair");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Pair of - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("pair").appendChild(classifierH4);
+                    document.getElementById("pair").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
             }
 
              /*cup********************/
@@ -3519,17 +3649,25 @@ function createLongClassifiers() {
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ")
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for cups, or glasses of, drinks or other edible non-solid substances: ${examples}</br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("cup-div");
-                classifierDiv.setAttribute("id", "cup");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Cup of - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for cups, or glasses of, drinks or other edible non-solid substances: ${examples}`;
-                document.getElementById("measure-words").appendChild(classifierDiv);
-                document.getElementById("cup").appendChild(classifierH4);
-                document.getElementById("cup").appendChild(classifierP);
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("cup-div");
+                    classifierDiv.setAttribute("id", "cup");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Cup of - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("cup").appendChild(classifierH4);
+                    document.getElementById("cup").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
             }
 
              /*serving********************/
@@ -3556,18 +3694,26 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for servings of food: ${examples}</br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("serving-food-div");
-                classifierDiv.setAttribute("id", "serving-food");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Serving of Food - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for servings of food: ${examples}`;
-                document.getElementById("measure-words").appendChild(classifierDiv);
-                document.getElementById("serving-food").appendChild(classifierH4);
-                document.getElementById("serving-food").appendChild(classifierP);
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("serving-food-div");
+                    classifierDiv.setAttribute("id", "serving-food");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Serving of Food - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("serving-food").appendChild(classifierH4);
+                    document.getElementById("serving-food").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
             }
 
             /*row********************/
@@ -3594,35 +3740,52 @@ function createLongClassifiers() {
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
-                let examples =  listOfExamples.join(", ")
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for rows of things: ${examples}</br>`;
 
-                let classifierDiv = document.createElement("div");
-                classifierDiv.classList.add("row-div");
-                classifierDiv.setAttribute("id", "row");
-                let classifierH4 = document.createElement("h4");
-                classifierH4.innerHTML = `Row of - <i>${spell(soundChange(classifier))}</i>`;
-                let classifierP = document.createElement("p");
-                classifierP.innerHTML = `The classifier <i>${spell(soundChange(classifier))}</i> is used for rows of things: ${examples}`;
-                document.getElementById("measure-words").appendChild(classifierDiv);
-                document.getElementById("row").appendChild(classifierH4);
-                document.getElementById("row").appendChild(classifierP);
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("row-div");
+                    classifierDiv.setAttribute("id", "row");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Row of - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("row").appendChild(classifierH4);
+                    document.getElementById("row").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
             }
 
             /*General Classifier***************/
             let generalClassifier = generateWords();
+
+            let description = `<strong><i>${spell(soundChange(generalClassifier))}</i></strong> is used for any noun which does not fit any other category mentioned above. It may also be used with any noun, where the speaker is unsure of which specific classifier to use, either due to the noun being fairly obscure or perhaps a loanword. It is also fairly common for children to use this classifier extensively while they are still in the process of acquiring the language.`
             
-            let generalDiv = document.createElement("div");
-            generalDiv.classList.add("long-classifier-div");
-            generalDiv.setAttribute("id", "general-classifiers");
-            let generalH3 = document.createElement("h3");
-            generalH3.innerHTML = `General Classifier - <i>${spell(soundChange(generalClassifier))}</i>`
+            if(randomClassifierFormattingNum === 1) {
+                let generalDiv = document.createElement("div");
+                generalDiv.classList.add("long-classifier-div");
+                generalDiv.setAttribute("id", "general-classifiers");
+                let generalH3 = document.createElement("h3");
+                generalH3.innerHTML = `General Classifier - <i>${spell(soundChange(generalClassifier))}</i>`
 
-            let generalP = document.createElement("p");
-            generalP.innerHTML = `The classifier <i>${spell(soundChange(generalClassifier))}</i> is used for any noun which does not fit any other category mentioned above. It may also be used with any noun, where the speaker is unsure of which specific classifier to use, either due to the noun being fairly obscure or perhaps a loanword. It is also fairly common for children to use this classifier extensively while they are still in the process of acquiring the language.`
+                let generalP = document.createElement("p");
+                generalP.innerHTML = description
 
-            document.getElementById("long-classifiers").appendChild(generalDiv);
-            document.getElementById("general-classifiers").appendChild(generalH3);
-            document.getElementById("general-classifiers").appendChild(generalP);
+                document.getElementById("long-classifiers").appendChild(generalDiv);
+                document.getElementById("general-classifiers").appendChild(generalH3);
+                document.getElementById("general-classifiers").appendChild(generalP);
+            }  else {
+                let descriptionSpan = document.createElement("span");
+                descriptionSpan.classList.add("indent-except-first-line");
+                descriptionSpan.innerHTML = description;
+                document.getElementById("long-classifiers").appendChild(descriptionSpan);
+            }
             
         }
     }

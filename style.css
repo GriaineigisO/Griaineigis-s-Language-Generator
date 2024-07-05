@@ -242,7 +242,11 @@ h1, h2, h3, h4 {
     font-style: italic;
 }
 
-
+.indent-except-first-line {
+   text-indent: 2em;
+   padding-left: 2em;
+   
+}
 
 .noun-input-container {
     margin-left: -20px;;

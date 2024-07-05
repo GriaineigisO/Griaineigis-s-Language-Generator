@@ -245,7 +245,8 @@ h1, h2, h3, h4 {
 .indent-except-first-line {
    text-indent: 2em;
    padding-left: 2em;
-   
+   display: block;
+   margin-bottom: 1em;
 }
 
 .noun-input-container {
@@ -583,6 +584,12 @@ h1, h2, h3, h4 {
         background-color: white;
         border-style: none;
     }
+
+    .indent-except-first-line {
+        text-indent: 2em;
+        padding-left: 2em;
+        display: inline;
+     }
     
 
     

@@ -9,8 +9,7 @@ not all classifiers below will be listed, there will be a minimum number, and ex
 The quantifier table must have classifiers added when the language has classifiers, though a quantifier may occur withut a classifier when referring to general quantities of thing e.g "enough wisdom is good"
 
 CLASSIFIERS
-33. object with rounded top, lump of (hill, wart, breast, bump, brow, knuckle)
-35. broad, flat and solid surface (board, floor, slab, table, door)
+
 39. mental/sensory process (thought, memory, sight of, sniff, sound)
 40. instance of a violent action (strike, blow, attack, hostility, hatred)
 41. instance of a loving action (kiss, hug, embrace, wedding, relationship, love)

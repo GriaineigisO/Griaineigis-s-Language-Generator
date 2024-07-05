@@ -464,6 +464,13 @@ function soundChange(word) {
         if(wordArray[0] === "h" && consonants.includes(wordArray[1])) {
             wordArray.splice(0, 1);
         }
+
+        //prevents a single sound clustering with a long sound of the same quality
+        for(let i = 0; i < wordArray.length; i++) {
+            if(wordArray[i] === "ː" && wordArray[i-1] === wordArray[i+1]) {
+                wordArray.splice(i+1, 1);
+            }
+        }
         
 
     let final = wordArray.join("");

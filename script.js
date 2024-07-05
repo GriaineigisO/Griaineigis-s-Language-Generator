@@ -235,7 +235,6 @@ let toolClassifier = "";
 let naturalInanimateClassifier = "";
 let liquidClassifier = "";
 
-
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
 let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "tʃ", "dʒ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ"]
@@ -440,6 +439,7 @@ function clearGeneratedArrays() {
 }
 
 function makePDFCoverPage() {
+    //this function randomly selects which cover page template will be used in the resulting pdf
     let randomNum = Math.floor(Math.random() * 11)
     let coverPageDiv = document.createElement("div");
 
@@ -2651,7 +2651,7 @@ function createLongClassifiers() {
             }
 
             /*chooses if each classifier is formatted as it's own paragraph with an h4 title, or as a new line in one large paragraph. Each if-statement below contains an if-statement to determine which is chosen based on the below random number.*/
-            let randomClassifierFormattingNum = 0//Math.floor(Math.random() * 3);
+            let randomClassifierFormattingNum = Math.floor(Math.random() * 3);
 
             /*Protruding top********************/
             if(chosenClassifiers.includes("protruding-top")) {
@@ -2667,7 +2667,12 @@ function createLongClassifiers() {
                     makeExamples("tower", protrudingClassifier, "count", ""),
                     makeExamples("roof", protrudingClassifier, "count", ""),
                     makeExamples("barrow", protrudingClassifier, "count", ""),
-                    makeExamples("teat", protrudingClassifier, "count", "")
+                    makeExamples("teat", protrudingClassifier, "count", ""),
+                    makeExamples("breast", protrudingClassifier, "count", ""),
+                    makeExamples("brow", protrudingClassifier, "count", ""),
+                    makeExamples("bump", protrudingClassifier, "count", ""),
+                    makeExamples("knuckle", protrudingClassifier, "count", ""),
+                    makeExamples("wart", protrudingClassifier, "count", "")
                 )
 
                 let chosenExamples = []; 
@@ -2748,7 +2753,7 @@ function createLongClassifiers() {
                 let gatheringH4 = document.createElement("h4");
                 gatheringH4.innerHTML = `Gatherings of people - <i>${spell(soundChange(gatheringClassifier))}</i>`;
                 let gatheringP = document.createElement("p");
-                gatheringP.innerHTML = descriptionSpan;
+                gatheringP.innerHTML = description;
                 
                     document.getElementById("long-classifiers").appendChild(gatheringDiv);
                     document.getElementById("gathering-classifiers").appendChild(gatheringH4);
@@ -2884,7 +2889,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ")
-                let description = `<strong><i>${spell(soundChange(smallFlatClassifier))}</i></strong> is used for small flat objects: ${examples} <span id="small-flat-jewelry"></span>`;
+                let description = `<strong><i>${spell(soundChange(smallFlatClassifier))}</i></strong> is used for small flat objects: ${examples} <span id="small-flat-jewelry"></span><br>`;
 
                 if (randomClassifierFormattingNum === 1) {
                         let smallFlatDiv = document.createElement("div");
@@ -2893,7 +2898,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                         let smallFlatH3 = document.createElement("h3");
                         smallFlatH3.innerHTML = `Small flat objects- <i>${spell(soundChange(smallFlatClassifier))}</i>`;
                         let smallFlatP = document.createElement("p");
-                        smallFlatP.innerHTML = descriptionSpan;
+                        smallFlatP.innerHTML = description;
 
                         document.getElementById("long-classifiers").appendChild(smallFlatDiv);
                         document.getElementById("small-flat").appendChild(smallFlatH3);
@@ -2968,7 +2973,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                     let buildingH3 = document.createElement("h3");
                     buildingH3.innerHTML = `Buildings with purposes- <i>${spell(soundChange(buildingClassifier))}</i>`;
                     let buildingP = document.createElement("p");
-                    buildingP.innerHTML = descriptionSpan;
+                    buildingP.innerHTML = description;
                     document.getElementById("long-classifiers").appendChild(buildingDiv);
                     document.getElementById("building").appendChild(buildingH3);
                     document.getElementById("building").appendChild(buildingP);
@@ -3015,7 +3020,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                     let songH3 = document.createElement("h3");
                     songH3.innerHTML = `Verbal Art Forms- <i>${spell(soundChange(songClassifier))}</i>`;
                     let songP = document.createElement("p");
-                    songP.innerHTML = descriptionSpan;
+                    songP.innerHTML = description;
 
                     document.getElementById("long-classifiers").appendChild(songDiv);
                     document.getElementById("song").appendChild(songH3);
@@ -3067,7 +3072,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                     let sliceH3 = document.createElement("h3");
                     sliceH3.innerHTML = `Flimsy Flat Objects- <i>${spell(soundChange(sliceClassifier))}</i>`;
                     let sliceP = document.createElement("p");
-                    sliceP.innerHTML = descriptionSpan;
+                    sliceP.innerHTML = description;
 
                     document.getElementById("long-classifiers").appendChild(sliceDiv);
                     document.getElementById("slice").appendChild(sliceH3);
@@ -3351,7 +3356,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                     let classifierH4 = document.createElement("h4");
                     classifierH4.innerHTML = `Long Rigid Objects - <i>${spell(soundChange(classifier))}</i>`;
                     let classifierP = document.createElement("p");
-                    classifierP.innerHTML = descriptionSpan
+                    classifierP.innerHTML = description;
 
                     document.getElementById("long-classifiers").appendChild(classifierDiv);
                     document.getElementById("long-rigid").appendChild(classifierH4);
@@ -3762,10 +3767,107 @@ descriptionSpan.classList.add("indent-except-first-line");
                 }
             }
 
+            /*broad-flat********************/
+            if(chosenClassifiers.includes("row")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("board", classifier, "count", ""),
+                    makeExamples("floor", classifier, "count", ""),
+                    makeExamples("slab", classifier, "count", ""),
+                    makeExamples("table", classifier, "count", ""),
+                    makeExamples("door", classifier, "count", ""),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for broad, flat and solid surfaces: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("broad-flat-div");
+                    classifierDiv.setAttribute("id", "broad-flat");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Broad Flat Surface - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("broad-flat").appendChild(classifierH4);
+                    document.getElementById("broad-flat").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+            }
+
+            /*mental********************/
+            //if(chosenClassifiers.includes("mental-sensory")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("ounce&nbspof&nbspconfusion", classifier, "mass"),
+                    makeExamples("glimpse&nbspof&nbspsight", classifier, "mass"),
+                    makeExamples("memory", classifier, "count", ""),
+                    makeExamples("scent", classifier, "count", ""),
+                    makeExamples("sniff", classifier, "count", ""),
+                    makeExamples("sound", classifier, "count", ""),
+                    makeExamples("texture", classifier, "count", ""),
+                    makeExamples("thought", classifier, "count", ""),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is sesnations, senses and mental processes: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("mental-sensory-div");
+                    classifierDiv.setAttribute("id", "mental-sensory");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Mental or Sensory Process - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("mental-sensory").appendChild(classifierH4);
+                    document.getElementById("mental-sensory").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+            //}
+
             /*General Classifier***************/
             let generalClassifier = generateWords();
 
-            let description = `<strong><i>${spell(soundChange(generalClassifier))}</i></strong> is used for any noun which does not fit any other category mentioned above. It may also be used with any noun, where the speaker is unsure of which specific classifier to use, either due to the noun being fairly obscure or perhaps a loanword. It is also fairly common for children to use this classifier extensively while they are still in the process of acquiring the language.`
+            let generalDescription = `<strong><i>${spell(soundChange(generalClassifier))}</i></strong> is used for any noun which does not fit any other category mentioned above. It may also be used with any noun, where the speaker is unsure of which specific classifier to use, either due to the noun being fairly obscure or perhaps a loanword. It is also fairly common for children to use this classifier extensively while they are still in the process of acquiring the language.`
             
             if(randomClassifierFormattingNum === 1) {
                 let generalDiv = document.createElement("div");
@@ -3775,7 +3877,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 generalH3.innerHTML = `General Classifier - <i>${spell(soundChange(generalClassifier))}</i>`
 
                 let generalP = document.createElement("p");
-                generalP.innerHTML = description
+                generalP.innerHTML = generalDescription
 
                 document.getElementById("long-classifiers").appendChild(generalDiv);
                 document.getElementById("general-classifiers").appendChild(generalH3);
@@ -3783,7 +3885,7 @@ descriptionSpan.classList.add("indent-except-first-line");
             }  else {
                 let descriptionSpan = document.createElement("span");
                 descriptionSpan.classList.add("indent-except-first-line");
-                descriptionSpan.innerHTML = description;
+                descriptionSpan.innerHTML = generalDescription;
                 document.getElementById("long-classifiers").appendChild(descriptionSpan);
             }
             

@@ -544,6 +544,19 @@ function makePDFCoverPage() {
         `
     }
     document.getElementById("title-for-pdf").appendChild(coverPageDiv)
+
+    let logoDiv = document.createElement("div");
+    logoDiv.setAttribute("id", "logo-div");
+    let logo = document.createElement("img");
+    logo.src = "Ogma logo compressed.png";
+    logo.style.maxWidth = "10cm";
+    if(randomNum !== 10) {
+        logo.style.paddingTop = "5cm"
+    }
+    logo.setAttribute("id", "pdf-logo");
+    document.getElementById("title-for-pdf").appendChild(logoDiv)
+    document.getElementById("logo-div").appendChild(logo)
+
 }
 
 function showGrammarAndDictionary() {

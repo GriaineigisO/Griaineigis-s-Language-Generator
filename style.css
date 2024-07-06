@@ -526,7 +526,7 @@ h1, h2, h3, h4 {
     #title-for-pdf {
         display: flex;
         flex-direction: column;
-        align-content: start;
+        justify-content: space-between;
         text-align: center;
         page-break-after: always; 
     }
@@ -583,6 +583,8 @@ h1, h2, h3, h4 {
         letter-spacing: 8px;
         font-weight: bold;
     }
+
+
 
     #author-name {
         font-size: 10mm;

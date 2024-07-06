@@ -10,7 +10,6 @@ The quantifier table must have classifiers added when the language has classifie
 
 CLASSIFIERS
 
-39. mental/sensory process (thought, memory, sight of, sniff, sound)
 40. instance of a violent action (strike, blow, attack, hostility, hatred)
 41. instance of a loving action (kiss, hug, embrace, wedding, relationship, love)
 42. instance of a reciprocal action (exchange, swap, trade, purchase, favour, revenge)

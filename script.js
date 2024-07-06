@@ -35,7 +35,7 @@ import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMas
 import shortGenericClassifierMassArray from './ClassifierArrays/shortGenericClassifersMass.js'
 import shortGenericClassifierArray from './ClassifierArrays/shortGenericClassifers.js'
 
-import {soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters} from './soundchange.js'
+import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
 import {allWordOrders, subjectFinalWordOrders, objectFinalWordOrders, verbFinalWordOrders} from './allPossibleWordOrders.js'
@@ -237,7 +237,7 @@ let liquidClassifier = "";
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
-let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "tʃ", "dʒ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ"]
+let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "tʃ", "dʒ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ", "tʲ", "dʲ", "kʲ", "gʲ", "pʲ", "bʲ", "qʲ", "ɢʲ", "sʲ", "zʲ", "vʲ", "fʲ", "lʲ", "rʲ", "mʲ", "nʲ", "hʲ", "xʲ", "ʒʲ", "θʲ", "ðʲ", "ʃʲ", "ŋʲ", "tʰʲ", "qʰʲ"]
 
 //Without this, every single generated noun from every single generation would remain in the arrays, causing words from
 //previous generations to show up in current ones! This clears the arrays upon each click of the button, before they are
@@ -919,7 +919,11 @@ function syllableStructureExamples() {
 function makeOrthoGuide(letter) {
 let orthoUl = document.getElementById("orthography");
     for(let i = 0; i < letter.length; i++) {
+        
     if(vowels.includes(letter[i]) || consonants.includes(letter[i])) {
+        if(letter[i+1] === "ʲ") {
+            letter[i] = letter[i] + letter[i+1];
+        }
         let newLi = document.createElement("li");
         let ipa = letter[i];
         let ortho = spell(ipa);
@@ -3828,7 +3832,7 @@ descriptionSpan.classList.add("indent-except-first-line");
             }
 
             /*mental********************/
-            //if(chosenClassifiers.includes("mental-sensory")) {
+            if(chosenClassifiers.includes("mental-sensory")) {
                 let classifier = generateWords();
                 
                 let allExamples = [];
@@ -3856,7 +3860,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ");
-                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is sesnations, senses and mental processes: ${examples}</br>`;
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for sensations, senses and mental processes: ${examples}</br>`;
 
                 if(randomClassifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
@@ -3875,7 +3879,312 @@ descriptionSpan.classList.add("indent-except-first-line");
                     descriptionSpan.innerHTML = description;
                     document.getElementById("long-classifiers").appendChild(descriptionSpan);
                 }
-            //}
+            }
+
+            /*act of voilence********************/
+            if(chosenClassifiers.includes("violent-action")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("attack", classifier, "count", ""),
+                    makeExamples("blow", classifier, "count", ""),
+                    makeExamples("genocide", classifier, "count", ""),
+                    makeExamples("massacre", classifier, "count", ""),
+                    makeExamples("strike", classifier, "count", ""),
+                    makeExamples("act&nbspof&nbsphatred", classifier, "mass"),
+                    makeExamples("act&nbspof&nbsphostility", classifier, "mass"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for acts of violence: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("violent-action-div");
+                    classifierDiv.setAttribute("id", "violent-action");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Act of Violence - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("violent-action").appendChild(classifierH4);
+                    document.getElementById("violent-action").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+            }
+
+            /*act of love********************/
+            if(chosenClassifiers.includes("loving-action")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("kiss", classifier, "count", ""),
+                    makeExamples("embrace", classifier, "count", ""),
+                    makeExamples("hug", classifier, "count", ""),
+                    makeExamples("relationship", classifier, "count", ""),
+                    makeExamples("wedding", classifier, "count", ""),
+                    makeExamples("act&nbspof&nbspadmiration", classifier, "mass"),
+                    makeExamples("act&nbspof&nbspadoration", classifier, "mass"),
+                    makeExamples("act&nbspof&nbsplove", classifier, "mass"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for acts of love: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("loving-action-div");
+                    classifierDiv.setAttribute("id", "loving-action");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Act of Love - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("loving-action").appendChild(classifierH4);
+                    document.getElementById("loving-action").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+            }
+
+            /*reciprocal acts*******************/
+            if(chosenClassifiers.includes("reciprocal-action")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("exchange", classifier, "count", ""),
+                    makeExamples("favour", classifier, "count", ""),
+                    makeExamples("purchase", classifier, "count", ""),
+                    makeExamples("swap", classifier, "count", ""),
+                    makeExamples("trade", classifier, "count", ""),
+                    makeExamples("act&nbspof&nbsprevenge", classifier, "mass"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for reciprocal acts: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("reciprocal-action-div");
+                    classifierDiv.setAttribute("id", "reciprocal-action");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Reciprocal Acts - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("reciprocal-action").appendChild(classifierH4);
+                    document.getElementById("reciprocal-action").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+            }
+
+            /*movement*******************/
+            if(chosenClassifiers.includes("movement")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("change", classifier, "count", ""),
+                    makeExamples("journey", classifier, "count", ""),
+                    makeExamples("transformation", classifier, "count", ""),
+                    makeExamples("transition", classifier, "count", ""),
+                    makeExamples("walk", classifier, "count", ""),
+                    makeExamples("boat", classifier, "count", ""),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for nouns of movement, including forms of transport, and transition: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("movement-div");
+                    classifierDiv.setAttribute("id", "movement");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Movement - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("movement").appendChild(classifierH4);
+                    document.getElementById("movement").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+            }
+
+             /*protrusions*******************/
+             if(chosenClassifiers.includes("protrusions")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("boulder", classifier, "count", ""),
+                    makeExamples("shelf", classifier, "count", ""),
+                    makeExamples("branch", classifier, "count", ""),
+                    makeExamples("cliff", classifier, "count", ""),
+                    makeExamples("fort", classifier, "count", ""),
+                    makeExamples("fortification", classifier, "count", ""),
+                    makeExamples("limb", classifier, "count", ""),
+                    makeExamples("wall", classifier, "count", ""),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for protrusions from surfaces: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("protrusions-div");
+                    classifierDiv.setAttribute("id", "protrusions");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Protrusions - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("protrusions").appendChild(classifierH4);
+                    document.getElementById("protrusions").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+            }
+
+             /*intrusions*******************/
+            if(chosenClassifiers.includes("intrusions")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("furrow", classifier, "count", ""),
+                    makeExamples("ravine", classifier, "count", ""),
+                    makeExamples("valley", classifier, "count", ""),
+                    makeExamples("cavity", classifier, "count", ""),
+                    makeExamples("crease", classifier, "count", ""),
+                    makeExamples("dent", classifier, "count", ""),
+                    makeExamples("ditch", classifier, "count", ""),
+                    makeExamples("grave", classifier, "count", ""),
+                    makeExamples("groove", classifier, "count", ""),
+                    makeExamples("gulley", classifier, "count", ""),
+                    makeExamples("hole", classifier, "count", ""),
+                    makeExamples("notch", classifier, "count", ""),
+                    makeExamples("pit", classifier, "count", ""),
+                    makeExamples("slit", classifier, "count", ""),
+                    makeExamples("slot", classifier, "count", ""),
+                    makeExamples("well", classifier, "count", ""),
+                    makeExamples("window", classifier, "count", ""),
+                    makeExamples("wound", classifier, "count", ""),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for intrusions into surfaces: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("intrusions-div");
+                    classifierDiv.setAttribute("id", "intrusions");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Intrusions - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("intrusions").appendChild(classifierH4);
+                    document.getElementById("intrusions").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+            }
 
             /*General Classifier***************/
             let generalClassifier = generateWords();

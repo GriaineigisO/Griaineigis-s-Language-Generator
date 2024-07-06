@@ -19,18 +19,17 @@ generateLanguageButton.addEventListener("click", randomNumbers);
 let randomNumAlveolarFricative = 0;
 let randomNumPalatalFricative = 0;
 let randomDentalFricative = 0;
-//let voicingTrueOrFalse = "";
 let frontö = ";"
+let randomNum = 0;
 function randomNumbers() {
     randomNumAlveolarFricative = Math.floor(Math.random() * 7);
     randomNumPalatalFricative = Math.floor(Math.random() * 7);
     randomDentalFricative = Math.floor(Math.random() * 2);
-    //voicingTrueOrFalse = chooseVoicing();
     frontö = Math.floor(Math.random() * 7);
+    randomNum = Math.floor(Math.random() * 5)
 
 }
-
-    
+ 
 function spell(word) {
    checkIfCanUseMacron()
 
@@ -500,7 +499,7 @@ function spell(word) {
     }
 
     //LABIALISED CONSONANTS
-    for(let i = 0; i < wordArray[i]; i++) {
+    for(let i = 0; i < wordArray.length; i++) {
         let randomNum = Math.floor(Math.random() * 3)
         if(wordArray[i] === "ʷ" && randomNum === 3) {
             wordArray[i] = "w"
@@ -510,10 +509,7 @@ function spell(word) {
     }
 
     //Palatalised CONSONANTS
-    for(let i = 0; i < wordArray[i]; i++) {
-        let randomNum = 5//Math.floor(Math.random() * 5)
-
-        console.log("hello")
+    for(let i = 0; i < wordArray.length; i++) {
       
         if(wordArray[i] === "ʲ" && randomNum === 0) {
             wordArray[i] = "j"
@@ -525,7 +521,6 @@ function spell(word) {
             wordArray[i] = "ʲ"
         } 
         if(wordArray[i] === "ʲ" && randomNum > 2) {
-            console.log("hello")
             if(wordArray[i - 1] === "t") {
                 wordArray[i - 1] = "ț"
                  wordArray.splice(i, 1)

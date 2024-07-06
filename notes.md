@@ -10,12 +10,6 @@ The quantifier table must have classifiers added when the language has classifie
 
 CLASSIFIERS
 
-40. instance of a violent action (strike, blow, attack, hostility, hatred)
-41. instance of a loving action (kiss, hug, embrace, wedding, relationship, love)
-42. instance of a reciprocal action (exchange, swap, trade, purchase, favour, revenge)
-43. instance of move from A to B (journey, walk, boat journey) and by extension change, transformation, transition,
-45. protrusions from a surface (wall, boulder, cliff, shelf, limb, branch)
-46. intrusions into a surface/hole (ditch, hole, pit, well, tunnel, cavity, ravine, valley, furrow, gulley), crease, dent, wound, slit, window
 47. enclosed space where a person may go: room, house, cabin, shelter, cavity, cave, tent, realm, world, cell, cage (and by extension entrapment, captivity, traps, snares, deception, trickery)
 48. sharp piercing or cutting objects (needle, sword, arrow, pin, thorn, stinger, splinter, pick, knife, scythe, axe, blade, javeline, tooth, edge, plough)
 49. dull percussive object (club, rod, hammer, mallet, mace, bow > and by extension bow for string instruments and any musical utensils, and by more extension music), bent elongated objects: bow (of archery), hook, rib, curved beam, arch

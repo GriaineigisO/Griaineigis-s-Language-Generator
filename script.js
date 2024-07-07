@@ -2636,6 +2636,9 @@ function makeExamples(word, classifier, countOrMass, quantifier) {
     if(fixedWord.includes("cut&nbspof")) {
         fixedWord = fixedWord.replace("cut&nbspof&nbsp", replacement)
     }
+    if(fixedWord.includes("amount&nbspof")) {
+        fixedWord = fixedWord.replace("amount&nbspof&nbsp", replacement)
+    }
 
     if(countNounArray.includes(word) && quantifier !== "") {
         fixedWord = quantifier + `&nbspof&nbsp` + countNounArrayPlural[countNounArray.indexOf(word)]

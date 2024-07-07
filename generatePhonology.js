@@ -339,7 +339,7 @@ function chooseLabioDental() {
     let randomNum = Math.floor(Math.random() * 11);
     if(randomNum === 5) {
         allLabioDentalArray.push("f");
-        randomNum = Math.floor(Math.random() * 23)
+        randomNum = Math.floor(Math.random() * 10)
             if(randomNum === 4 && chooseGemination()) {
                 allLabialDentalApproximants.push("fː")
                 allLongConsonants.push("fː")

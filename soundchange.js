@@ -233,6 +233,15 @@ function selectSoundChanges() {
 function soundChange(word) {
     wordArray = Array.from(word)
 
+    /************************************************************************* */
+    /*not a true sound change, just removes the "V" from verbs, which serves to distinguish verbs which are homophones with nouns, to prevent both being listed as nouns in the dictionary*/
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "V") {
+            console.log("hello")
+            wordArray.splice(i, 1);
+        }
+    }
+
     /*********************************************************************************/
     if(chosenSoundChanges.includes("wordFinalDevoicing") && checkIfWordFinalConsonantsArePossible() && checkIfVoicingIsPresent()) {
         

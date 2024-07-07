@@ -4043,6 +4043,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                     makeExamples("transition", classifier, "count", ""),
                     makeExamples("walk", classifier, "count", ""),
                     makeExamples("boat", classifier, "count", ""),
+                    makeExamples("chariot", classifier, "count", ""),
                 );
 
                 let chosenExamples = []; 
@@ -4186,6 +4187,84 @@ descriptionSpan.classList.add("indent-except-first-line");
                     descriptionSpan.classList.add("indent-except-first-line");
                     descriptionSpan.innerHTML = description;
                     document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+            }
+
+             /*enclosed-space*******************/
+            if(chosenClassifiers.includes("enclosed-space")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("cabin", classifier, "count", ""),
+                    makeExamples("cage", classifier, "count", ""),
+                    makeExamples("cave", classifier, "count", ""),
+                    makeExamples("cell", classifier, "count", ""),
+                    makeExamples("realm", classifier, "count", ""),
+                    makeExamples("snare", classifier, "count", ""),
+                    makeExamples("tent", classifier, "count", ""),
+                    makeExamples("trap", classifier, "count", ""),
+                    makeExamples("world", classifier, "count", ""),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for enclosed spaces that a person may enter: ${examples}</br><span id="enclosed-space-trap"></span>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("enclosed-space");
+                    classifierDiv.setAttribute("id", "enclosed-space");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Enclosed Spaces - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("long-classifiers").appendChild(classifierDiv);
+                    document.getElementById("enclosed-space").appendChild(classifierH4);
+                    document.getElementById("enclosed-space").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("long-classifiers").appendChild(descriptionSpan);
+                }
+
+                /*extensions to classifier usage*/
+                /*Decides if the classifier is extended in use to refer to captivity*/
+                let cageWord = spell(soundChange(generatedCountNouns[countNounArray.indexOf("trap")]));
+                let randomNumForCageExtension = Math.floor(Math.random() * 5);
+                if (randomNumForCageExtension === 3) {
+                    let allCageExamples = [];
+                    allCageExamples.push(
+                        makeExamples("period&nbspof&nbspcaptivity", classifier, "mass"),
+                        makeExamples("act&nbspof&nbspdeception", classifier, "mass"),
+                        makeExamples("act&nbspof&nbsptrickery", classifier, "mass")
+                    );
+                    let chosenCageExamples = []; 
+                    let randomCageExampleNum = Math.floor(Math.random() * (allCageExamples.length - 4)) + 4;
+                    for(let i= 0; i < randomCageExampleNum; i++) {
+                        let randomIndex = Math.floor(Math.random() * allCageExamples.length);
+                        chosenCageExamples.push(allCageExamples[randomIndex]);
+                        allCageExamples.splice(randomIndex, 1);
+                    }
+                    const listOfCageExamples = [];
+                    chosenCageExamples.forEach((element) => listOfCageExamples.push(element));
+                    listOfCageExamples.pop()
+                    listOfCageExamples.push(` and ${chosenCageExamples[chosenCageExamples.length -1]}.`)
+                    let cageExamples =  listOfCageExamples.join(", ")
+                
+                    document.getElementById("enclosed-space-trap").innerHTML = `Due to being applied to <i>${cageWord}</i> "trap", the classifer <i>${spell(soundChange(classifier))}</i> may also be used with any nouns referring to captivity and deception: ${cageExamples}`;
                 }
             }
 

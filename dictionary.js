@@ -65,8 +65,18 @@ function makeDictionary() {
 
     let languageWords = generatedCountNouns.concat(generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers);
 
-    //to add more to an entry after the english translation
-    
+    //when an English verb is homophonous with a noun, e.g "to love" and "love", the dictionary assigns both as being nouns. To avoid this, such verbs end with a capital "V", so that the strings are different. This function serves to remove that "V" after the dictionary has designated the word as a verb
+    function removeVFromVerb(verb) {
+        let newArray = Array.from(verb);
+        for(let i = 0; i < newArray.length; i++) {
+            if(newArray[i] === "V") {
+                newArray.splice(i, 1);
+                let newVerb = newArray.join("");
+                return newVerb;
+            }
+        }
+        return verb;
+    }
 
        //Kerbekulo to English
     for(let i = 0; i < englishWords.length; i++) {
@@ -91,12 +101,8 @@ function makeDictionary() {
         } else if (transitiveVerbArray.includes(englishWords[i]) || intransitiveVerbArray.includes(englishWords[i])) {
             pOfSpeech = "v" + bareRoots;
             wordWithAffix = languageWords[i];
-            classifierInfo = "";;
-        } else if (transitiveVerbArray.includes(englishWords[i]) || intransitiveVerbArray.includes(englishWords[i])) {
-                pOfSpeech = "v" + bareRoots;
-                wordWithAffix = languageWords[i];
-                classifierInfo = "";;
-        } else if (adverbArray.includes(englishWords[i])) {
+            classifierInfo = "";
+        }else if (adverbArray.includes(englishWords[i])) {
                 pOfSpeech = "adv";
                 wordWithAffix = languageWords[i];
                 classifierInfo = "";;
@@ -856,7 +862,7 @@ function makeDictionary() {
         }
     
         
-        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, englishWords[i], classifierInfo);
+        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo);
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");
@@ -1353,7 +1359,7 @@ function makeDictionary() {
             }
         }
 
-        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, englishWords[i]);
+        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]));
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");

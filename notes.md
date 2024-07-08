@@ -8,12 +8,6 @@ not all classifiers below will be listed, there will be a minimum number, and ex
 
 The quantifier table must have classifiers added when the language has classifiers, though a quantifier may occur withut a classifier when referring to general quantities of thing e.g "enough wisdom is good"
 
-CLASSIFIERS
-
-47. enclosed space where a person may go: room, house, cabin, shelter, cavity, cave, tent, realm, world, cell, cage (and by extension entrapment, captivity, traps, snares, deception, trickery)
-48. sharp piercing or cutting objects (needle, sword, arrow, pin, thorn, stinger, splinter, pick, knife, scythe, axe, blade, javeline, tooth, edge, plough)
-49. dull percussive object (club, rod, hammer, mallet, mace, bow > and by extension bow for string instruments and any musical utensils, and by more extension music), bent elongated objects: bow (of archery), hook, rib, curved beam, arch
-
 MEASURE WORDS
 20. bundle of stick/pole shaped things
 21. barrel of, wagonful of, boatful of, shipment of, items packed into a mode of transport
@@ -40,7 +34,6 @@ MEASURE WORDS
 54. eon of, unspecified long time of
 55. day of
 
-nouns that may take several classifiers, sometimes with a change in meaning?
 
 - Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
   - Etymologies for the plural: all, children, people, third person plural, three.

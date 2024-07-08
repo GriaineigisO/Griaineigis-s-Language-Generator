@@ -31,6 +31,7 @@ const singulativeMassNounArray = [
     "amount&nbspof&nbspmoney",
     "drop&nbspof&nbspmilk",
     "clump&nbspof&nbspmud",
+    "piece&nbspof&nbspmusic",
     "drop&nbspof&nbspoil",
     "sheet&nbspof&nbsppaper",
     "bowl&nbspof&nbspporridge",

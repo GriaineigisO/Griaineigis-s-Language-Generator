@@ -220,3 +220,7 @@ In this example, the "child" classifier will be added to the Animate classifier 
 6. Now the same must be done but for the classifier systems. Open the folder `ClassifierArrays` and follow the same process as listed in step 5.
 
 7. The new noun has now been added.
+
+## Adding a New Verb
+
+If verb is homophonous with a noun, add a capital V at the end

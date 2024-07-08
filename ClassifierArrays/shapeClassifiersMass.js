@@ -35,6 +35,7 @@ const shapeClassifierMassArray = [
 "shapeless",
 "shapeless",
 "shapeless",
+"shapeless",
 "long-and-slender",
 "shapeless",
 "shapeless",

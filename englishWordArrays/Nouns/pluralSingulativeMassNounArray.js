@@ -31,6 +31,7 @@ const pluralSingulativeMassNounArray = [
     "amounts&nbspof&nbspmoney",
     "drops&nbspof&nbspmilk",
     "clumps&nbspof&nbspmud",
+    "pieces&nbspof&nbspmusic",
     "drops&nbspof&nbspoil",
     "sheets&nbspof&nbsppaper",
     "bowls&nbspof&nbspporridge",

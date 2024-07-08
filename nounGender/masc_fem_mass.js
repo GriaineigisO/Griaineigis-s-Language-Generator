@@ -31,6 +31,7 @@ const mascFemMass = [
     "masculine1",
     "masculine1",
     "masculine1",
+    "masculine1",
     "feminine1",
     "feminine1",
     "feminine1",

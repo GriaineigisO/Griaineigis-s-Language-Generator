@@ -285,7 +285,7 @@ function spell(word) {
 
     //DENTAL FRICATIVES
     for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "θ" && randomDentalFricative === 0) {
+        if(wordArray[i] === "θ" && randomDentalFricative === 0  && allAspiratesArray.length > 0) {
             wordArray[i] = "þ"
         }
         if(wordArray[i] === "ð" && randomDentalFricative === 0) {

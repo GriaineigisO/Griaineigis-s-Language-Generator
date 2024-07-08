@@ -54,6 +54,7 @@ const singulativeMassNounArray = [
     "length&nbspof&nbspstring",
     "bead&nbspof&nbspsweat",
     "act&nbspof&nbsptrickery",
+    "ounce&nbspof&nbsptruth",
     "drop&nbspof&nbspvinegar",
     "drop&nbspof&nbspwater",
     "gust&nbspof&nbspwind",

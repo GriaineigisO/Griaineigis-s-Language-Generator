@@ -55,6 +55,7 @@ const animInanMass = [
     "anim",
     "inan",
     "inan",
+    "inan",
     "anim",
     "inan",
 ]

@@ -54,6 +54,7 @@ const massNounArray = [
     "string",
     "sweat",
     "trickery",
+    "truth",
     "vinegar",
     "water",
     "wind",

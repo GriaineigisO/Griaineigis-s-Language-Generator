@@ -54,6 +54,7 @@ const pluralSingulativeMassNounArray = [
     "lengths&nbspof&nbspstring",
     "drops&nbspof&nbspvinegar",
     "acts&nbspof&nbsptrickery",
+    "ounces&nbspof&nbsptruth",
     "beads&nbspof&nbspsweat",
     "drops&nbspof&nbspwater",
     "gusts&nbspof&nbspwind",

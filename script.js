@@ -2408,6 +2408,9 @@ function makeExamples(word, classifier, countOrMass, quantifier) {
     if(fixedWord.includes("wisp&nbspof")) {
         fixedWord = fixedWord.replace("wisp&nbspof&nbsp", replacement)
     }
+    if(fixedWord.includes("length&nbspof")) {
+        fixedWord = fixedWord.replace("length&nbspof&nbsp", replacement)
+    }
 
     if(countNounArray.includes(word) && quantifier !== "") {
         fixedWord = quantifier + `&nbspof&nbsp` + countNounArrayPlural[countNounArray.indexOf(word)]
@@ -2415,6 +2418,10 @@ function makeExamples(word, classifier, countOrMass, quantifier) {
 
     if(fixedWord === "pair&nbspof&nbspspouses") {
         fixedWord = "pair&nbspof&nbspspouses (i.e a romantic couple)"
+    }
+
+    if(fixedWord === "pair&nbspof&nbspspouses") {
+        fixedWord = "pair&nbspof&nbspspouses (i.e heartbeat)"
     }
     
 
@@ -3812,7 +3819,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 document.getElementById("long-classifiers").appendChild(descriptionSpan);
             }
 
-            let allMeasureWords = ["handful", "bagful", "stack", "droplet", "pair", "cup", "serving-food", "row", "bundle", "barrel", "strand", "set","gust", "pouring", "chunk", "shovelful", "netful", "cluster", "fieldful", "spoonful","eon", "day", "strip", "cutting", "selection", "wisp", "roll", "degradable"]
+            let allMeasureWords = ["handful", "bagful", "stack", "droplet", "pair", "cup", "serving-food", "row", "bundle", "barrel", "strand", "set","gust", "pouring", "chunk", "shovelful", "netful", "cluster", "fieldful", "spoonful","eon", "day", "strip", "cutting", "selection", "wisp", "roll", "degradable", "revolution"]
 
             let chosenMeasureWords = [];
             let randomNum2 = Math.floor(Math.random() * (allMeasureWords.length - 12)) + 12;   
@@ -4451,7 +4458,189 @@ descriptionSpan.classList.add("indent-except-first-line");
                 generatedCountNouns.push(classifier);
             }
 
-            
+            /*set********************/
+            if(allMeasureWords.includes("set")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("bowl", classifier, "count", "set"),
+                    makeExamples("song", classifier, "count", "set"),
+                    makeExamples("hammer", classifier, "count", "set"),
+                    makeExamples("jewel", classifier, "count", "set"),
+                    makeExamples("wheel", classifier, "count", "set")
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for sets of or complete collections of a set number of items of things: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("set-div");
+                    classifierDiv.setAttribute("id", "set");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Sets of - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("set").appendChild(classifierH4);
+                    document.getElementById("set").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
+
+                countNounArray.push("set");
+                countNounArrayPlural.push("sets");
+                activePassive.push("passive");
+                animInan.push("inan");
+                divineNonDivine.push("profane");
+                humanAnimalInan.push("secondinanimate");
+                mascFemNeut.push("neuter");
+                mascFem.push("feminine1");
+                naturalArtificial.push("natural");
+                animacyClassifierArray.push("inedible");
+                shapeClassifierArray.push("long-and-slender");
+                shortGenericClassifierArray.push("natural-inanimate");
+                generatedCountNouns.push(classifier);
+            }
+
+            /*revolution********************/
+            if(allMeasureWords.includes("revolution")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("wheel", classifier, "count", "turning"),
+                    makeExamples("lever", classifier, "count", "cranking"),
+                    makeExamples("season", classifier, "count", "turning"),
+                    makeExamples("heart", classifier, "count", "beating"),
+                    makeExamples("year", classifier, "count", "passing"),
+                    makeExamples("length&nbspof&nbsprope", classifier, "mass", "winding")
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for revolutions, or turnings, of things: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("revolution-div");
+                    classifierDiv.setAttribute("id", "revolution");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Revolution of - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("revolution").appendChild(classifierH4);
+                    document.getElementById("revolution").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
+
+                countNounArray.push("revolution");
+                countNounArrayPlural.push("revolution");
+                activePassive.push("active");
+                animInan.push("inan");
+                divineNonDivine.push("divine");
+                humanAnimalInan.push("secondinanimate");
+                mascFemNeut.push("neuter");
+                mascFem.push("feminine1");
+                naturalArtificial.push("natural");
+                animacyClassifierArray.push("inedible");
+                shapeClassifierArray.push("shapeless");
+                shortGenericClassifierArray.push("natural-inanimate");
+                generatedCountNouns.push(classifier);
+            }
+
+            /*gust********************/
+           // if(allMeasureWords.includes("gust")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("gust&nbspof&nbspwind", classifier, "mass", "gust"),
+                    makeExamples("confession", classifier, "count", "outburst"),
+                    makeExamples("emotion", classifier, "count", "outburst"),
+                    makeExamples("drop&nbspof&nbspwater", classifier, "mass", "flood"),
+                    makeExamples("ounce&nbspof&nbsptruth", classifier, "mass", "revelation"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for gusts and outbursts of things: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("gust-div");
+                    classifierDiv.setAttribute("id", "gust");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Outbursts of - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("gust").appendChild(classifierH4);
+                    document.getElementById("gust").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
+
+                countNounArray.push("gust");
+                countNounArrayPlural.push("gusts");
+                activePassive.push("active");
+                animInan.push("anim");
+                divineNonDivine.push("profane");
+                humanAnimalInan.push("secondinanimate");
+                mascFemNeut.push("neuter");
+                mascFem.push("feminine1");
+                naturalArtificial.push("natural");
+                animacyClassifierArray.push("inedible");
+                shapeClassifierArray.push("shapeless");
+                shortGenericClassifierArray.push("natural-inanimate");
+                generatedCountNouns.push(classifier);
+            //}
         }
     }
 }

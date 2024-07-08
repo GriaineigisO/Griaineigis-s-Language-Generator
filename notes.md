@@ -6,7 +6,7 @@ An object may be used by a classifier not because it meets the original requirem
 
 not all classifiers below will be listed, there will be a minimum number, and extra ones wil be added randomly, with a great number generally preferred. The extensions will also be optionally added, and one classifier can have many extensions which may or may not appear.
 
-The quantifier table must have classifiers added when the language has classifiers, though a quantifier may occur withut a classifier when referring to general quantities of thing e.g "enough wisdom is good"
+quanitifer examples for other classifier systems
 
 MEASURE WORDS
 20. bundle of stick/pole shaped things

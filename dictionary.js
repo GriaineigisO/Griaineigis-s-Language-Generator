@@ -1490,7 +1490,8 @@ function makeDictionary() {
 
     //counts the amount of words in the dictionary
     for(let i = 0; i < entryDiv.length; i++) {
-        document.getElementById("num-of-words").innerHTML = entryDiv.length;
+        let numberWithComma = entryDiv.length.toLocaleString();
+        document.getElementById("num-of-words").innerHTML = numberWithComma;
     }
 }
 

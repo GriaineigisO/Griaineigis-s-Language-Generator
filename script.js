@@ -1,4 +1,4 @@
-
+//@collapse
 //The arrays containing the English translations are naturally very large, so I placed each one in its own file and just import them to keep this file tidier.
 //import nounArray from './englishWordArrays/Nouns/englishNouns.js';
 import countNounArray from './englishWordArrays/Nouns/countNouns.js';
@@ -457,7 +457,6 @@ function clearGeneratedArrays() {
     document.getElementById("masc-fem-gender-switch2").replaceChildren();
     document.getElementById("human-animal-gender-switch").replaceChildren();
     document.getElementById("quantifier-table-1").replaceChildren();
-    document.getElementById("quantifier-table-2").replaceChildren();
     document.getElementById("long-classifiers").replaceChildren();
     document.getElementById("measure-words").replaceChildren();
 }
@@ -1639,18 +1638,31 @@ function randomNumForIsolatingGrammaticalNumbers() {
 let randomClassifierNum = 0;
 function chooseClassifierSystem() {
     if(typologyNum === 0) {
-        randomClassifierNum = 3//Math.floor(Math.random() * 4)
+        randomClassifierNum = Math.floor(Math.random() * 4);
+        console.log(randomClassifierNum)
         if(randomClassifierNum === 0) {
             document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
             document.getElementById("shape-based-classifier-tables").style.display = "block";
+            document.getElementById("animacy-based-classifier-tables").style.display = "none";
+            document.getElementById("short-generic-based-classifier-tables").style.display = "none";
+            document.getElementById("long-classifier-system").style.display = "none";
         } else if(randomClassifierNum === 1) {
             document.getElementById("classifier-text").innerHTML = `The categorization of nouns is focused on animacy, with nouns for living things having various categories while all non-living things are lumped into just two categories, edible and inedible.`
+            document.getElementById("shape-based-classifier-tables").style.display = "none";
             document.getElementById("animacy-based-classifier-tables").style.display = "block";
+            document.getElementById("short-generic-based-classifier-tables").style.display = "none";
+            document.getElementById("long-classifier-system").style.display = "none";
         } else if(randomClassifierNum === 2) {
             document.getElementById("classifier-text").innerHTML = `Nouns are assigned classifiers based on which semantic category they fall into, based more on folk taxonomy than anything else.`
+            document.getElementById("shape-based-classifier-tables").style.display = "none";
+            document.getElementById("animacy-based-classifier-tables").style.display = "none";
             document.getElementById("short-generic-based-classifier-tables").style.display = "block";
+            document.getElementById("long-classifier-system").style.display = "none";
         }  else if(randomClassifierNum === 3) {
             document.getElementById("classifier-text").innerHTML = `Often the most important form of categorisation is the shape of the object, though other, often secondary forms of categorization have developed.`
+            document.getElementById("shape-based-classifier-tables").style.display = "none";
+            document.getElementById("animacy-based-classifier-tables").style.display = "none";
+            document.getElementById("short-generic-based-classifier-tables").style.display = "none";
             document.getElementById("long-classifier-system").style.display = "block";
         }
 
@@ -3670,7 +3682,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ");
-                let description = `<strong><i>${spell(soundChange(percussiveClassifier))}</i></strong> is used for percussive percussiveClassifier: ${examples}</br><span id="percussive-bow"></span><span id="percussive-bow2"></span><span id="percussive-music"></span>`;
+                let description = `<strong><i>${spell(soundChange(percussiveClassifier))}</i></strong> is used for percussive objects: ${examples}</br><span id="percussive-bow"></span><span id="percussive-bow2"></span><span id="percussive-music"></span>`;
 
                 if(randomClassifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
@@ -4585,6 +4597,72 @@ function callClassifierExamples() {
     }
 }
 
+function IsolatingNouns() {
+    if(typologyNum === 0) {
+        selectNounsClassifier(shapeClassifierArray, longAndSlenderArray, "long-and-slender");
+        selectNounsClassifier(shapeClassifierArray, shortAndWideArray, "short-and-wide");
+        selectNounsClassifier(shapeClassifierArray, roundArray, "round");
+        selectNounsClassifier(shapeClassifierArray, pointedArray, "pointed");
+        selectNounsClassifier(shapeClassifierArray, flatArray, "flat");
+        selectNounsClassifier(shapeClassifierArray, shapelessArray , "shapeless");
+
+        selectNounsClassifier(animacyClassifierArray, manArray, "man");
+        selectNounsClassifier(animacyClassifierArray, womanArray, "woman");
+        selectNounsClassifier(animacyClassifierArray, childArray, "child");
+        selectNounsClassifier(animacyClassifierArray, wildAnimalArray, "wild-animal");
+        selectNounsClassifier(animacyClassifierArray, meatArray, "meat");
+        selectNounsClassifier(animacyClassifierArray, furArray, "fur");
+        selectNounsClassifier(animacyClassifierArray, labourArray, "labour");
+        selectNounsClassifier(animacyClassifierArray, milkArray, "milk");
+        selectNounsClassifier(animacyClassifierArray, inedibleArray, "inedible");
+        selectNounsClassifier(animacyClassifierArray, edibleArray, "edible");
+
+        selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "human2");
+        selectNounsClassifier(shortGenericClassifierArray, treeClassifierArray, "tree");
+        selectNounsClassifier(shortGenericClassifierArray, grassClassifierArray, "grass");
+        selectNounsClassifier(shortGenericClassifierArray, flowerClassifierArray, "flower");
+        selectNounsClassifier(shortGenericClassifierArray, landAnimalClassifierArray, "land-animal");
+        selectNounsClassifier(shortGenericClassifierArray, waterAnimalClassifierArray, "water-animal");
+        selectNounsClassifier(shortGenericClassifierArray, flyingAnimalClassifierArray, "flying-animal");
+        selectNounsClassifier(shortGenericClassifierArray, wordClassifierArray, "word");
+        selectNounsClassifier(shortGenericClassifierArray, toolClassifierArray, "tool");
+        selectNounsClassifier(shortGenericClassifierArray, naturalInanimateClassifierArray, "natural-inanimate");
+        selectNounsClassifier(shortGenericClassifierArray, liquidClassifierArray, "liquid");
+
+
+        selectMassNounsClassifier(shapeClassifierMassArray, longAndSlenderMassArray, "long-and-slender");
+        selectMassNounsClassifier(shapeClassifierMassArray, shortAndWideMassArray, "short-and-wide");
+        selectMassNounsClassifier(shapeClassifierMassArray, roundMassArray, "round");
+        selectMassNounsClassifier(shapeClassifierMassArray, pointedMassArray, "pointed");
+        selectMassNounsClassifier(shapeClassifierMassArray, flatMassArray, "flat");
+        selectMassNounsClassifier(shapeClassifierMassArray, shapelessMassArray , "shapeless");
+
+        selectMassNounsClassifier(animacyClassifierMassArray, manMassArray, "man");
+        selectMassNounsClassifier(animacyClassifierMassArray, womanMassArray, "woman");
+        selectMassNounsClassifier(animacyClassifierMassArray, childMassArray, "child");
+        selectMassNounsClassifier(animacyClassifierMassArray, wildAnimalMassArray, "wild-animal");
+        selectMassNounsClassifier(animacyClassifierMassArray, meatMassArray, "meat");
+        selectMassNounsClassifier(animacyClassifierMassArray, furMassArray, "fur");
+        selectMassNounsClassifier(animacyClassifierMassArray, labourMassArray, "labour");
+        selectMassNounsClassifier(animacyClassifierMassArray, milkMassArray, "milk");
+        selectMassNounsClassifier(animacyClassifierMassArray, inedibleMassArray, "inedible");
+        selectMassNounsClassifier(animacyClassifierMassArray, edibleMassArray, "edible");
+
+        selectMassNounsClassifier(shortGenericClassifierMassArray, humanClassifierMassArray, "human2");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, treeClassifierMassArray, "tree");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, grassClassifierMassArray, "grass");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, flowerClassifierMassArray, "flower");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, landAnimalClassifierMassArray, "land-animal");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, waterAnimalClassifierMassArray, "water-animal");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, flyingAnimalClassifierMassArray, "flying-animal");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, wordClassifierMassArray, "word");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, toolClassifierMassArray, "tool");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, naturalInanimateClassifierMassArray, "natural-inanimate");
+        selectMassNounsClassifier(shortGenericClassifierMassArray, liquidClassifierMassArray, "liquid");
+    }
+}
+
+
 function chooseQuanitifers() {
     //the quantifiers "few, several" and "a lot of" are always shown by default, the rest are randomly shown or not shown.
     if(typologyNum === 0) {
@@ -4826,31 +4904,29 @@ function chooseQuanitifers() {
 
     if(grammaticalNumIsolating < 5) {
         document.getElementById("quantifier-table-1").appendChild(table);
-    } else if (grammaticalNumIsolating >= 5) {
-        document.getElementById("quantifier-table-2").appendChild(table);
-    }
+    } 
 }
 }
 
 function createQuantifiers() {
     let few = document.getElementsByClassName("few")
     for(let i = 0; i < few.length; i++) {
-        few[i].innerHTML = spell(soundChange(generatedSmallQuanitifiers[0]));
+        few[i].innerHTML = generatedSmallQuanitifiers[0];
     }
 
     let several = document.getElementsByClassName("several")
     for(let i = 0; i < several.length; i++) {
-        several[i].innerHTML = spell(soundChange(generatedMiddlingQuanitifers[0]));
+        several[i].innerHTML = generatedMiddlingQuanitifers[0];
     }
 
     let aLotOf = document.getElementsByClassName("a-lot-of")
     for(let i = 0; i < aLotOf.length; i++) {
-        aLotOf[i].innerHTML = spell(soundChange(generatedBigQuantifiers[0]));
+        aLotOf[i].innerHTML = generatedBigQuantifiers[0];
     }
 
     let barelyAny = document.getElementsByClassName("barely-any")
     for(let i = 0; i < barelyAny.length; i++) {
-        barelyAny[i].innerHTML = spell(soundChange(generatedSmallQuanitifiers[1]));
+        barelyAny[i].innerHTML = generatedSmallQuanitifiers[1];
     }
     if(Math.floor(Math.random() * 4) !== 2) {
         document.getElementById("barely-any").style.display = "none";
@@ -4858,7 +4934,7 @@ function createQuantifiers() {
 
     let some = document.getElementsByClassName("some")
     for(let i = 0; i < some.length; i++) {
-        some[i].innerHTML = spell(soundChange(generatedMiddlingQuanitifers[1]));
+        some[i].innerHTML = generatedMiddlingQuanitifers[1];
     }
     if(Math.floor(Math.random() * 4) !== 2) {
         document.getElementById("some").style.display = "none";
@@ -4866,7 +4942,7 @@ function createQuantifiers() {
 
     let greatAmount = document.getElementsByClassName("great-amount")
     for(let i = 0; i < greatAmount.length; i++) {
-        greatAmount[i].innerHTML = spell(soundChange(generatedBigQuantifiers[1]));
+        greatAmount[i].innerHTML = generatedBigQuantifiers[1];
     }
     if(Math.floor(Math.random() * 4) !== 2) {
         document.getElementById("great-amount").style.display = "none";
@@ -4874,7 +4950,7 @@ function createQuantifiers() {
 
     let enough = document.getElementsByClassName("enough")
     for(let i = 0; i < enough.length; i++) {
-        enough[i].innerHTML = spell(soundChange(generatedOpinionQuantifiers[0]));
+        enough[i].innerHTML = generatedOpinionQuantifiers[0];
     }
     if(Math.floor(Math.random() * 4) !== 2) {
         document.getElementById("enough").style.display = "none";
@@ -4882,7 +4958,7 @@ function createQuantifiers() {
 
     let notEnough = document.getElementsByClassName("not-enough")
     for(let i = 0; i < notEnough.length; i++) {
-        notEnough[i].innerHTML = spell(soundChange(generatedOpinionQuantifiers[2]));
+        notEnough[i].innerHTML = generatedOpinionQuantifiers[2];
     }
     if(Math.floor(Math.random() * 4) !== 2) {
         document.getElementById("not-enough").style.display = "none";
@@ -4890,7 +4966,7 @@ function createQuantifiers() {
 
     let tooMuch = document.getElementsByClassName("too-much")
     for(let i = 0; i < tooMuch.length; i++) {
-        tooMuch[i].innerHTML = spell(soundChange(generatedOpinionQuantifiers[1]));
+        tooMuch[i].innerHTML = generatedOpinionQuantifiers[1];
     }
     if(Math.floor(Math.random() * 4) !== 2) {
         document.getElementById("too-much").style.display = "none";
@@ -4906,19 +4982,10 @@ function createQuantifiers() {
     let enoughExample = document.getElementById("enough-example")
     let notEnoughExample = document.getElementById("not-enough-example")
     let tooMuchExample = document.getElementById("too-much-example")
-    let fewNoun = "";
-    let barelyAnyNoun = "";
-    let severalNoun = "";
-    let aLotOfNoun = "";
-    let someNoun = "";
-    let greatAmountNoun = "";
-    let enoughNoun = "";
-    let notEnoughNoun = "";
-    let tooMuchNoun = "";
     let classifier = "";
     let translation = "";
 
-    function createExample(exampleWord, classifierType, quantifierEnglish, quantifierLanguage, pluralWord, quantifierExample) {
+    function createExampleLongClassifier(exampleWord, classifierType, quantifierEnglish, quantifierLanguage, pluralWord, quantifierExample) {
         let exampleNoun = spell(soundChange(generatedCountNouns[countNounArray.indexOf(exampleWord)]));
         classifier = spell(soundChange(classifierType));
         translation = `"${quantifierEnglish} ${pluralWord}"`;
@@ -4930,314 +4997,291 @@ function createQuantifiers() {
         }
     }
 
+    function createExample(classifier, classifierArray, example, quantifierEnglish, quantifierLanguage) {
+        let randomNoun = classifierArray[Math.floor(Math.random() * classifierArray.length)];
+        if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+            example.innerHTML = `<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(randomNoun)]))} ${spell(soundChange(classifier))} ${quantifierLanguage}</i> "${quantifierEnglish} ${countNounArrayPlural[countNounArray.indexOf(randomNoun)]}"`;
+        } else if(checkIfHeadInitialOrHeadFinal() === "headFinal") {
+            example.innerHTML = `<i>${spell(soundChange(quantifierLanguage))} ${spell(soundChange(classifier))} ${spell(soundChange(generatedCountNouns[countNounArray.indexOf(randomNoun)]))}</i> "${quantifierEnglish} ${countNounArrayPlural[countNounArray.indexOf(randomNoun)]}"`;
+        }
+    }
+
+    if(randomClassifierNum === 0) {
+        createExample(longAndSlenderClassifier, longAndSlenderArray, fewExample, "a few", spell(soundChange(generatedSmallQuanitifiers[0])));
+        createExample(shortAndWideClassifier, shortAndWideArray, barelyAnyExample, "barely any", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createExample(roundClassifier, roundArray, severalExample, "several", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createExample(pointedClassifier, pointedArray, aLotOfExample, "a lot of", spell(soundChange(generatedBigQuantifiers[0])))
+        createExample(flatClassifier, flatArray, someExample, "some", spell(soundChange(generatedMiddlingQuanitifers[1])));
+        createExample(longAndSlenderClassifier, longAndSlenderArray, greatAmountExample, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])));
+        createExample(flatClassifier, flatArray, enoughExample, "enough", spell(soundChange(generatedOpinionQuantifiers[0])));
+        createExample(roundClassifier, roundArray, notEnoughExample, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])));
+        createExample(flatClassifier, flatArray, tooMuchExample, "too much", spell(soundChange(generatedOpinionQuantifiers[1])));
+    }
+    if(randomClassifierNum === 1) {
+        createExample(manClassifier, manArray, fewExample, "a few", spell(soundChange(generatedSmallQuanitifiers[0])));
+        createExample(womanClassifier, womanArray, barelyAnyExample, "barely any", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createExample(childClassifier, childArray, severalExample, "several", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createExample(wildAnimalClassifier, wildAnimalArray, aLotOfExample, "a lot of", spell(soundChange(generatedBigQuantifiers[0])))
+        createExample(meatClassifier, meatArray, someExample, "some", spell(soundChange(generatedMiddlingQuanitifers[1])));
+        createExample(furClassifier, furArray, greatAmountExample, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])));
+        createExample(labourClassifier, labourArray, enoughExample, "enough", spell(soundChange(generatedOpinionQuantifiers[0])));
+        createExample(edibleClassifier, edibleArray, notEnoughExample, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])));
+        createExample(inedibleClassifier, inedibleArray, tooMuchExample, "too much", spell(soundChange(generatedOpinionQuantifiers[1])));
+    }
+    if(randomClassifierNum === 2) {
+        createExample(humanClassifier, humanClassifierArray, fewExample, "a few", spell(soundChange(generatedSmallQuanitifiers[0])));
+        createExample(treeClassifier, treeClassifierArray, barelyAnyExample, "barely any", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createExample(toolClassifier, toolClassifierArray, severalExample, "several", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createExample(landAnimalClassifier, landAnimalClassifierArray, aLotOfExample, "a lot of", spell(soundChange(generatedBigQuantifiers[0])))
+        createExample(waterAnimalClassifier, waterAnimalClassifierArray, someExample, "some", spell(soundChange(generatedMiddlingQuanitifers[1])));
+        createExample(wordClassifier, wordClassifierArray, greatAmountExample, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])));
+        createExample(naturalInanimateClassifier, naturalInanimateClassifierArray, enoughExample, "enough", spell(soundChange(generatedOpinionQuantifiers[0])));
+        createExample(toolClassifier, toolClassifierArray, notEnoughExample, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])));
+        createExample(liquidClassifier, liquidClassifierArray, tooMuchExample, "too much", spell(soundChange(generatedOpinionQuantifiers[1])));
+    }
     if(randomClassifierNum === 3) {
         if(chosenClassifiers.includes("protruding-top")) {
-            createExample("spear", protrudingClassifier, "a few", spell(soundChange(generatedSmallQuanitifiers[0])), "spears", fewExample);
-            createExample("hill", protrudingClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "hills", barelyAnyExample);
-            createExample("hat", protrudingClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "hats", severalExample);
-            createExample("tower", protrudingClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "towers", aLotOfExample);
-            createExample("bump", protrudingClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "bumps", someExample);
-            createExample("brow", protrudingClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "brows", greatAmountExample);
-            createExample("knuckle", protrudingClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "knuckles", enoughExample);
-            createExample("breast", protrudingClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "breasts", notEnoughExample);
-            createExample("wart", protrudingClassifier, "too much", spell(soundChange(generatedOpinionQuantifiers[1])), "warts", tooMuchExample);
+            createExampleLongClassifier("spear", protrudingClassifier, "a few", spell(soundChange(generatedSmallQuanitifiers[0])), "spears", fewExample);
+            createExampleLongClassifier("hill", protrudingClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "hills", barelyAnyExample);
+            createExampleLongClassifier("hat", protrudingClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "hats", severalExample);
+            createExampleLongClassifier("tower", protrudingClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "towers", aLotOfExample);
+            createExampleLongClassifier("bump", protrudingClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "bumps", someExample);
+            createExampleLongClassifier("brow", protrudingClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "brows", greatAmountExample);
+            createExampleLongClassifier("knuckle", protrudingClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "knuckles", enoughExample);
+            createExampleLongClassifier("breast", protrudingClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "breasts", notEnoughExample);
+            createExampleLongClassifier("wart", protrudingClassifier, "too much", spell(soundChange(generatedOpinionQuantifiers[1])), "warts", tooMuchExample);
         
         } else if(chosenClassifiers.includes("orginised-gathering")) {
-            createExample("clan", gatheringClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "clans", fewExample);
-            createExample("family", gatheringClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "families", barelyAnyExample);
-            createExample("meeting", gatheringClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "meetings", severalExample);
-            createExample("tribe", gatheringClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "tribes", aLotOfExample);
-            createExample("feast", gatheringClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "feast", someExample);
-            createExample("army", gatheringClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "armies", greatAmountExample);
-            createExample("band", gatheringClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "bands", enoughExample);
-            createExample("lineage", gatheringClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "lineages", notEnoughExample);
-            createExample("troop", gatheringClassifier, "too much", spell(soundChange(generatedOpinionQuantifiers[1])), "troops", tooMuchExample);
+            createExampleLongClassifier("clan", gatheringClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "clans", fewExample);
+            createExampleLongClassifier("family", gatheringClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "families", barelyAnyExample);
+            createExampleLongClassifier("meeting", gatheringClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "meetings", severalExample);
+            createExampleLongClassifier("tribe", gatheringClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "tribes", aLotOfExample);
+            createExampleLongClassifier("feast", gatheringClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "feast", someExample);
+            createExampleLongClassifier("army", gatheringClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "armies", greatAmountExample);
+            createExampleLongClassifier("band", gatheringClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "bands", enoughExample);
+            createExampleLongClassifier("lineage", gatheringClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "lineages", notEnoughExample);
+            createExampleLongClassifier("troop", gatheringClassifier, "too much", spell(soundChange(generatedOpinionQuantifiers[1])), "troops", tooMuchExample);
         
         } else if(chosenClassifiers.includes("small-round")) {
-            createExample("bead", smallRoundClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "beads", fewExample);
-            createExample("bee", protrudingClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "bees", barelyAnyExample);
-            createExample("berry", smallRoundClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "berries", severalExample);
-            createExample("seed", smallRoundClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "seeds", aLotOfExample);
-            createExample("onion", smallRoundClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "onions", someExample);
-            createExample("egg", smallRoundClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "eggs", greatAmountExample);
-            createExample("bean", smallRoundClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "beans", enoughExample);
-            createExample("grain", smallRoundClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "grains", notEnoughExample);
-            createExample("turnip", smallRoundClassifier, "too much", spell(soundChange(generatedOpinionQuantifiers[1])), "turnips", tooMuchExample);
+            createExampleLongClassifier("bead", smallRoundClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "beads", fewExample);
+            createExampleLongClassifier("bee", protrudingClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "bees", barelyAnyExample);
+            createExampleLongClassifier("berry", smallRoundClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "berries", severalExample);
+            createExampleLongClassifier("seed", smallRoundClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "seeds", aLotOfExample);
+            createExampleLongClassifier("onion", smallRoundClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "onions", someExample);
+            createExampleLongClassifier("egg", smallRoundClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "eggs", greatAmountExample);
+            createExampleLongClassifier("bean", smallRoundClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "beans", enoughExample);
+            createExampleLongClassifier("grain", smallRoundClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "grains", notEnoughExample);
+            createExampleLongClassifier("turnip", smallRoundClassifier, "too much", spell(soundChange(generatedOpinionQuantifiers[1])), "turnips", tooMuchExample);
         
         } else if(chosenClassifiers.includes("small-flat")) {
-            createExample("coin", smallFlatClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "coins", fewExample);
-            createExample("ring", smallFlatClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "ring", barelyAnyExample);
-            createExample("shell", smallFlatClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "shells", severalExample);
-            createExample("pebble", smallFlatClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "pebbles", aLotOfExample);
-            createExample("ear", smallFlatClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "ears", someExample);
-            createExample("hand", smallFlatClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "hands", greatAmountExample);
-            createExample("leaf", smallFlatClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "leaves", enoughExample);
-            createExample("palm", smallFlatClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "palms", notEnoughExample);
-            createExample("jewel", smallFlatClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "jewels", tooMuchExample);
+            createExampleLongClassifier("coin", smallFlatClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "coins", fewExample);
+            createExampleLongClassifier("ring", smallFlatClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "ring", barelyAnyExample);
+            createExampleLongClassifier("shell", smallFlatClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "shells", severalExample);
+            createExampleLongClassifier("pebble", smallFlatClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "pebbles", aLotOfExample);
+            createExampleLongClassifier("ear", smallFlatClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "ears", someExample);
+            createExampleLongClassifier("hand", smallFlatClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "hands", greatAmountExample);
+            createExampleLongClassifier("leaf", smallFlatClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "leaves", enoughExample);
+            createExampleLongClassifier("palm", smallFlatClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "palms", notEnoughExample);
+            createExampleLongClassifier("jewel", smallFlatClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "jewels", tooMuchExample);
         }  else if(chosenClassifiers.includes("building")) {
-            createExample("temple", buildingClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "temples", fewExample);
-            createExample("hall", buildingClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "halls", barelyAnyExample);
-            createExample("bedroom", buildingClassifier, spell(soundChange(generatedMiddlingQuanitifers[0])), "several", "bedrooms", severalExample);
-            createExample("temple", buildingClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "temples", aLotOfExample);
-            createExample("hall", buildingClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "halls", someExample);
-            createExample("bedroom", buildingClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "bedrooms", greatAmountExample);
-            createExample("temple", buildingClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "temples", enoughExample);
-            createExample("hall", buildingClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "halls", notEnoughExample);
-            createExample("bedroom", buildingClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "bedrooms", tooMuchExample);
+            createExampleLongClassifier("temple", buildingClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "temples", fewExample);
+            createExampleLongClassifier("hall", buildingClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "halls", barelyAnyExample);
+            createExampleLongClassifier("bedroom", buildingClassifier, spell(soundChange(generatedMiddlingQuanitifers[0])), "several", "bedrooms", severalExample);
+            createExampleLongClassifier("temple", buildingClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "temples", aLotOfExample);
+            createExampleLongClassifier("hall", buildingClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "halls", someExample);
+            createExampleLongClassifier("bedroom", buildingClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "bedrooms", greatAmountExample);
+            createExampleLongClassifier("temple", buildingClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "temples", enoughExample);
+            createExampleLongClassifier("hall", buildingClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "halls", notEnoughExample);
+            createExampleLongClassifier("bedroom", buildingClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "bedrooms", tooMuchExample);
        
         }  else if(chosenClassifiers.includes("song")) {
-            createExample("spell", songClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "spells", fewExample);
-            createExample("song", songClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "songs", barelyAnyExample);
-            createExample("proverb", songClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "proverbs", severalExample);
-            createExample("prayer", songClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "prayers", aLotOfExample);
-            createExample("prayer", songClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "prayers", someExample);
-            createExample("spell", songClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "spells", greatAmountExample);
-            createExample("song", songClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "songs", enoughExample);
-            createExample("prayer", songClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "prayers", notEnoughExample);
-            createExample("song", songClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "songs", tooMuchExample);
+            createExampleLongClassifier("spell", songClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "spells", fewExample);
+            createExampleLongClassifier("song", songClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "songs", barelyAnyExample);
+            createExampleLongClassifier("proverb", songClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "proverbs", severalExample);
+            createExampleLongClassifier("prayer", songClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "prayers", aLotOfExample);
+            createExampleLongClassifier("prayer", songClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "prayers", someExample);
+            createExampleLongClassifier("spell", songClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "spells", greatAmountExample);
+            createExampleLongClassifier("song", songClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "songs", enoughExample);
+            createExampleLongClassifier("prayer", songClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "prayers", notEnoughExample);
+            createExampleLongClassifier("song", songClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "songs", tooMuchExample);
         
         }  else if(chosenClassifiers.includes("slice")) {
-            createExample("leaf", sliceClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "leaves", fewExample);
-            createExample("page", sliceClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "pages", barelyAnyExample);
-            createExample("tongue", sliceClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "tongues", severalExample);
-            createExample("rag", sliceClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "rags", aLotOfExample);
-            createExample("sheet", sliceClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "sheets", someExample);
-            createExample("slice", sliceClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "slices", greatAmountExample);
-            createExample("membrane", sliceClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "membranes", enoughExample);
-            createExample("rag", sliceClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "rags", notEnoughExample);
-            createExample("page", sliceClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "pages", tooMuchExample);
+            createExampleLongClassifier("leaf", sliceClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "leaves", fewExample);
+            createExampleLongClassifier("page", sliceClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "pages", barelyAnyExample);
+            createExampleLongClassifier("tongue", sliceClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "tongues", severalExample);
+            createExampleLongClassifier("rag", sliceClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "rags", aLotOfExample);
+            createExampleLongClassifier("sheet", sliceClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "sheets", someExample);
+            createExampleLongClassifier("slice", sliceClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "slices", greatAmountExample);
+            createExampleLongClassifier("membrane", sliceClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "membranes", enoughExample);
+            createExampleLongClassifier("rag", sliceClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "rags", notEnoughExample);
+            createExampleLongClassifier("page", sliceClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "pages", tooMuchExample);
        
         }  else if(chosenClassifiers.includes("entrance")) {
-            createExample("door", entranceClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "doors", fewExample);
-            createExample("wagon", entranceClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "wagons", barelyAnyExample);
-            createExample("estuary", entranceClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "estuaries", severalExample);
-            createExample("horse", entranceClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "horse", aLotOfExample);
-            createExample("boat", entranceClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "boats", someExample);
-            createExample("door", entranceClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "doors", greatAmountExample);
-            createExample("wagon", entranceClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "wagons", enoughExample);
-            createExample("estuary", entranceClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "estuaries", notEnoughExample);
-            createExample("wagon", entranceClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "wagons", tooMuchExample);
+            createExampleLongClassifier("door", entranceClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "doors", fewExample);
+            createExampleLongClassifier("wagon", entranceClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "wagons", barelyAnyExample);
+            createExampleLongClassifier("estuary", entranceClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "estuaries", severalExample);
+            createExampleLongClassifier("horse", entranceClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "horse", aLotOfExample);
+            createExampleLongClassifier("boat", entranceClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "boats", someExample);
+            createExampleLongClassifier("door", entranceClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "doors", greatAmountExample);
+            createExampleLongClassifier("wagon", entranceClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "wagons", enoughExample);
+            createExampleLongClassifier("estuary", entranceClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "estuaries", notEnoughExample);
+            createExampleLongClassifier("wagon", entranceClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "wagons", tooMuchExample);
        
         }  else if(chosenClassifiers.includes("domestic-animal")) {
-            createExample("horse", domesticAnimalClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "horses", fewExample);
-            createExample("bull", domesticAnimalClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "bulls", barelyAnyExample);
-            createExample("cow", domesticAnimalClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "cows", severalExample);
-            createExample("donkey", domesticAnimalClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "donkeys", aLotOfExample);
-            createExample("mare", domesticAnimalClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "mares", someExample);
-            createExample("ox", domesticAnimalClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "oxen", greatAmountExample);
-            createExample("ewe", domesticAnimalClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "ewes", enoughExample);
-            createExample("chicken", domesticAnimalClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "chickens", notEnoughExample);
-            createExample("dog", domesticAnimalClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "dog", tooMuchExample);
+            createExampleLongClassifier("horse", domesticAnimalClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "horses", fewExample);
+            createExampleLongClassifier("bull", domesticAnimalClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "bulls", barelyAnyExample);
+            createExampleLongClassifier("cow", domesticAnimalClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "cows", severalExample);
+            createExampleLongClassifier("donkey", domesticAnimalClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "donkeys", aLotOfExample);
+            createExampleLongClassifier("mare", domesticAnimalClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "mares", someExample);
+            createExampleLongClassifier("ox", domesticAnimalClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "oxen", greatAmountExample);
+            createExampleLongClassifier("ewe", domesticAnimalClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "ewes", enoughExample);
+            createExampleLongClassifier("chicken", domesticAnimalClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "chickens", notEnoughExample);
+            createExampleLongClassifier("dog", domesticAnimalClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "dog", tooMuchExample);
        
         }  else if(chosenClassifiers.includes("long-non-rigid")) {
-            createExample("road", longNonRigidClassifier, "a few", spell(soundChange(generatedSmallQuanitifiers[0])),  "roads", fewExample);
-            createExample("eel", longNonRigidClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "eels", barelyAnyExample);
-            createExample("sinew", longNonRigidClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "sinews", severalExample);
-            createExample("fish", longNonRigidClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "fish", aLotOfExample);
-            createExample("shark", longNonRigidClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "sharks", someExample);
-            createExample("whale", longNonRigidClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "whales", greatAmountExample);
-            createExample("frog", longNonRigidClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "frogs", enoughExample);
-            createExample("dolphin", longNonRigidClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "dolphins", notEnoughExample);
-            createExample("map", longNonRigidClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "maps", tooMuchExample);
+            createExampleLongClassifier("road", longNonRigidClassifier, "a few", spell(soundChange(generatedSmallQuanitifiers[0])),  "roads", fewExample);
+            createExampleLongClassifier("eel", longNonRigidClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "eels", barelyAnyExample);
+            createExampleLongClassifier("sinew", longNonRigidClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "sinews", severalExample);
+            createExampleLongClassifier("fish", longNonRigidClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "fish", aLotOfExample);
+            createExampleLongClassifier("shark", longNonRigidClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "sharks", someExample);
+            createExampleLongClassifier("whale", longNonRigidClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "whales", greatAmountExample);
+            createExampleLongClassifier("frog", longNonRigidClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "frogs", enoughExample);
+            createExampleLongClassifier("dolphin", longNonRigidClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "dolphins", notEnoughExample);
+            createExampleLongClassifier("map", longNonRigidClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "maps", tooMuchExample);
         
         }  else if(chosenClassifiers.includes("long-rigid")) {
-            createExample("branch", longRigidClassifier, "a few", spell(soundChange(generatedSmallQuanitifiers[0])),  "branches", fewExample);
-            createExample("stick", longRigidClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "sticks", barelyAnyExample);
-            createExample("icicle", longRigidClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "iciles", severalExample);
-            createExample("pike", longRigidClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "pikes", aLotOfExample);
-            createExample("trunk", longRigidClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "trunks", someExample);
-            createExample("bar", longRigidClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "bars", greatAmountExample);
-            createExample("pole", longRigidClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "poles", enoughExample);
-            createExample("splint", longRigidClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "splints", notEnoughExample);
-            createExample("stake", longRigidClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "stakes", tooMuchExample);
+            createExampleLongClassifier("branch", longRigidClassifier, "a few", spell(soundChange(generatedSmallQuanitifiers[0])),  "branches", fewExample);
+            createExampleLongClassifier("stick", longRigidClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "sticks", barelyAnyExample);
+            createExampleLongClassifier("icicle", longRigidClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "iciles", severalExample);
+            createExampleLongClassifier("pike", longRigidClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "pikes", aLotOfExample);
+            createExampleLongClassifier("trunk", longRigidClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "trunks", someExample);
+            createExampleLongClassifier("bar", longRigidClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "bars", greatAmountExample);
+            createExampleLongClassifier("pole", longRigidClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "poles", enoughExample);
+            createExampleLongClassifier("splint", longRigidClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "splints", notEnoughExample);
+            createExampleLongClassifier("stake", longRigidClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "stakes", tooMuchExample);
        
         }  else if(chosenClassifiers.includes("broad-flat")) {
-            createExample("slab", broadClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "slabs", fewExample);
-            createExample("board", broadClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "boards", barelyAnyExample);
-            createExample("table", broadClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "tables", severalExample);
-            createExample("floor", broadClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "floors", aLotOfExample);
-            createExample("slab", broadClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "slabs", someExample);
-            createExample("board", broadClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "boards", greatAmountExample);
-            createExample("table", broadClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "tables", enoughExample);
-            createExample("floor", broadClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "floors", notEnoughExample);
-            createExample("slab", broadClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "slabs", tooMuchExample);
+            createExampleLongClassifier("slab", broadClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "slabs", fewExample);
+            createExampleLongClassifier("board", broadClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "boards", barelyAnyExample);
+            createExampleLongClassifier("table", broadClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "tables", severalExample);
+            createExampleLongClassifier("floor", broadClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "floors", aLotOfExample);
+            createExampleLongClassifier("slab", broadClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "slabs", someExample);
+            createExampleLongClassifier("board", broadClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "boards", greatAmountExample);
+            createExampleLongClassifier("table", broadClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "tables", enoughExample);
+            createExampleLongClassifier("floor", broadClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "floors", notEnoughExample);
+            createExampleLongClassifier("slab", broadClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "slabs", tooMuchExample);
        
         }  else if(chosenClassifiers.includes("mental-sensory")) {
-            createExample("memory", mentalClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "memories", fewExample);
-            createExample("sound", mentalClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "sounds", barelyAnyExample);
-            createExample("thought", mentalClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "thoughts", severalExample);
-            createExample("texture", mentalClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "textures", aLotOfExample);
-            createExample("sniff", mentalClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "sniffs", someExample);
-            createExample("scent", mentalClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "scents", greatAmountExample);
-            createExample("sound", mentalClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "sounds", enoughExample);
-            createExample("memory", mentalClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "memories", notEnoughExample);
-            createExample("texture", mentalClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "textures", tooMuchExample);
+            createExampleLongClassifier("memory", mentalClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "memories", fewExample);
+            createExampleLongClassifier("sound", mentalClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "sounds", barelyAnyExample);
+            createExampleLongClassifier("thought", mentalClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "thoughts", severalExample);
+            createExampleLongClassifier("texture", mentalClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "textures", aLotOfExample);
+            createExampleLongClassifier("sniff", mentalClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "sniffs", someExample);
+            createExampleLongClassifier("scent", mentalClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "scents", greatAmountExample);
+            createExampleLongClassifier("sound", mentalClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "sounds", enoughExample);
+            createExampleLongClassifier("memory", mentalClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "memories", notEnoughExample);
+            createExampleLongClassifier("texture", mentalClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "textures", tooMuchExample);
         
 
         }  else if(chosenClassifiers.includes("violent-action")) {
-            createExample("attack", violenceClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "attacks", fewExample);
-            createExample("strike", violenceClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "strikes", barelyAnyExample);
-            createExample("genocide", violenceClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "genocides", severalExample);
-            createExample("blow", violenceClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "blows", aLotOfExample);
-            createExample("massacre", violenceClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "massacres", someExample);
-            createExample("attack", violenceClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "attacks", greatAmountExample);
-            createExample("genocide", violenceClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "genocides", enoughExample);
-            createExample("massacre", violenceClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "massacres", notEnoughExample);
-            createExample("strike", violenceClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "strikes", tooMuchExample);
+            createExampleLongClassifier("attack", violenceClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "attacks", fewExample);
+            createExampleLongClassifier("strike", violenceClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "strikes", barelyAnyExample);
+            createExampleLongClassifier("genocide", violenceClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "genocides", severalExample);
+            createExampleLongClassifier("blow", violenceClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "blows", aLotOfExample);
+            createExampleLongClassifier("massacre", violenceClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "massacres", someExample);
+            createExampleLongClassifier("attack", violenceClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "attacks", greatAmountExample);
+            createExampleLongClassifier("genocide", violenceClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "genocides", enoughExample);
+            createExampleLongClassifier("massacre", violenceClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "massacres", notEnoughExample);
+            createExampleLongClassifier("strike", violenceClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "strikes", tooMuchExample);
       
         }  else if(chosenClassifiers.includes("loving-action")) {
-            createExample("kiss", loveClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "kisses", fewExample);
-            createExample("hug", loveClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "hugs", barelyAnyExample);
-            createExample("embrace", loveClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "embraces", severalExample);
-            createExample("wedding", loveClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "weddings", aLotOfExample);
-            createExample("relationship", loveClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "relationships", someExample);
-            createExample("kiss", loveClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "kisses", greatAmountExample);
-            createExample("hug", loveClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "hugs", enoughExample);
-            createExample("embrace", loveClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "embraces", notEnoughExample);
-            createExample("kiss", loveClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "kisses", tooMuchExample);
+            createExampleLongClassifier("kiss", loveClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "kisses", fewExample);
+            createExampleLongClassifier("hug", loveClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "hugs", barelyAnyExample);
+            createExampleLongClassifier("embrace", loveClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "embraces", severalExample);
+            createExampleLongClassifier("wedding", loveClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "weddings", aLotOfExample);
+            createExampleLongClassifier("relationship", loveClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "relationships", someExample);
+            createExampleLongClassifier("kiss", loveClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "kisses", greatAmountExample);
+            createExampleLongClassifier("hug", loveClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "hugs", enoughExample);
+            createExampleLongClassifier("embrace", loveClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "embraces", notEnoughExample);
+            createExampleLongClassifier("kiss", loveClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "kisses", tooMuchExample);
        
         } else if(chosenClassifiers.includes("reciprocal-action")) {
-            createExample("favour", reciprocalClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "favours", fewExample);
-            createExample("exchange", reciprocalClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "exchanges", barelyAnyExample);
-            createExample("purchase", reciprocalClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "purchases", severalExample);
-            createExample("trade", reciprocalClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "trades", aLotOfExample);
-            createExample("swap", reciprocalClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "swaps", someExample);
-            createExample("favour", reciprocalClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "favours", greatAmountExample);
-            createExample("purchase", reciprocalClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "purchases", enoughExample);
-            createExample("trade", reciprocalClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "trade", notEnoughExample);
-            createExample("exchange", reciprocalClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "exchanges", tooMuchExample);
+            createExampleLongClassifier("favour", reciprocalClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "favours", fewExample);
+            createExampleLongClassifier("exchange", reciprocalClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "exchanges", barelyAnyExample);
+            createExampleLongClassifier("purchase", reciprocalClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "purchases", severalExample);
+            createExampleLongClassifier("trade", reciprocalClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "trades", aLotOfExample);
+            createExampleLongClassifier("swap", reciprocalClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "swaps", someExample);
+            createExampleLongClassifier("favour", reciprocalClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "favours", greatAmountExample);
+            createExampleLongClassifier("purchase", reciprocalClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "purchases", enoughExample);
+            createExampleLongClassifier("trade", reciprocalClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "trade", notEnoughExample);
+            createExampleLongClassifier("exchange", reciprocalClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "exchanges", tooMuchExample);
       
         } else if(chosenClassifiers.includes("movement")) {
-            createExample("chariot", movementClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "chariots", fewExample);
-            createExample("journey", movementClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "journeys", barelyAnyExample);
-            createExample("walk", movementClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "walks", severalExample);
-            createExample("change", movementClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "changes", aLotOfExample);
-            createExample("transformation", movementClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "transformations", someExample);
-            createExample("transition", movementClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "transitions", greatAmountExample);
-            createExample("chariot", movementClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "chariots", enoughExample);
-            createExample("journey", movementClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "journeys", notEnoughExample);
-            createExample("walk", movementClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "walks", tooMuchExample);
+            createExampleLongClassifier("chariot", movementClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "chariots", fewExample);
+            createExampleLongClassifier("journey", movementClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "journeys", barelyAnyExample);
+            createExampleLongClassifier("walk", movementClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "walks", severalExample);
+            createExampleLongClassifier("change", movementClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "changes", aLotOfExample);
+            createExampleLongClassifier("transformation", movementClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "transformations", someExample);
+            createExampleLongClassifier("transition", movementClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "transitions", greatAmountExample);
+            createExampleLongClassifier("chariot", movementClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "chariots", enoughExample);
+            createExampleLongClassifier("journey", movementClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "journeys", notEnoughExample);
+            createExampleLongClassifier("walk", movementClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "walks", tooMuchExample);
       
         } else if(chosenClassifiers.includes("protrusions")) {
-            createExample("fort", protrusionClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "forts", fewExample);
-            createExample("shelf", protrusionClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "shelves", barelyAnyExample);
-            createExample("fort", protrusionClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "forts", severalExample);
-            createExample("boulder", protrusionClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "boulders", aLotOfExample);
-            createExample("cliff", protrusionClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "cliffs", someExample);
-            createExample("limb", protrusionClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "limbs", greatAmountExample);
-            createExample("wall", protrusionClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "walls", enoughExample);
-            createExample("fort", protrusionClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "forts", notEnoughExample);
-            createExample("shelf", protrusionClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "shelves", tooMuchExample);
+            createExampleLongClassifier("fort", protrusionClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "forts", fewExample);
+            createExampleLongClassifier("shelf", protrusionClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "shelves", barelyAnyExample);
+            createExampleLongClassifier("fort", protrusionClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "forts", severalExample);
+            createExampleLongClassifier("boulder", protrusionClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "boulders", aLotOfExample);
+            createExampleLongClassifier("cliff", protrusionClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "cliffs", someExample);
+            createExampleLongClassifier("limb", protrusionClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "limbs", greatAmountExample);
+            createExampleLongClassifier("wall", protrusionClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "walls", enoughExample);
+            createExampleLongClassifier("fort", protrusionClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "forts", notEnoughExample);
+            createExampleLongClassifier("shelf", protrusionClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "shelves", tooMuchExample);
       
         } else if(chosenClassifiers.includes("intrusions")) {
-            createExample("ravine", intrusionClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "ravines", fewExample);
-            createExample("valley", intrusionClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "valleys", barelyAnyExample);
-            createExample("grave", intrusionClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "graves", severalExample);
-            createExample("furrow", intrusionClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "furrows", aLotOfExample);
-            createExample("crease", intrusionClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "creases", someExample);
-            createExample("dent", intrusionClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "dents", greatAmountExample);
-            createExample("groove", intrusionClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "grooves", enoughExample);
-            createExample("hole", intrusionClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "holes", notEnoughExample);
-            createExample("pit", intrusionClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "pits", tooMuchExample);
+            createExampleLongClassifier("ravine", intrusionClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "ravines", fewExample);
+            createExampleLongClassifier("valley", intrusionClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "valleys", barelyAnyExample);
+            createExampleLongClassifier("grave", intrusionClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "graves", severalExample);
+            createExampleLongClassifier("furrow", intrusionClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "furrows", aLotOfExample);
+            createExampleLongClassifier("crease", intrusionClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "creases", someExample);
+            createExampleLongClassifier("dent", intrusionClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "dents", greatAmountExample);
+            createExampleLongClassifier("groove", intrusionClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "grooves", enoughExample);
+            createExampleLongClassifier("hole", intrusionClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "holes", notEnoughExample);
+            createExampleLongClassifier("pit", intrusionClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "pits", tooMuchExample);
      
         } else if(chosenClassifiers.includes("enclosed-space")) {
-            createExample("cabin", enclosedClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "cabins", fewExample);
-            createExample("cave", enclosedClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "caves", barelyAnyExample);
-            createExample("world", enclosedClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "world", severalExample);
-            createExample("cage", enclosedClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "cages", aLotOfExample);
-            createExample("cell", enclosedClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "cells", someExample);
-            createExample("realm", enclosedClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "realms", greatAmountExample);
-            createExample("snare", enclosedClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "snares", enoughExample);
-            createExample("tent", enclosedClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "tents", notEnoughExample);
-            createExample("world", enclosedClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "worlds", tooMuchExample);
+            createExampleLongClassifier("cabin", enclosedClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "cabins", fewExample);
+            createExampleLongClassifier("cave", enclosedClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "caves", barelyAnyExample);
+            createExampleLongClassifier("world", enclosedClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "world", severalExample);
+            createExampleLongClassifier("cage", enclosedClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "cages", aLotOfExample);
+            createExampleLongClassifier("cell", enclosedClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "cells", someExample);
+            createExampleLongClassifier("realm", enclosedClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "realms", greatAmountExample);
+            createExampleLongClassifier("snare", enclosedClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "snares", enoughExample);
+            createExampleLongClassifier("tent", enclosedClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "tents", notEnoughExample);
+            createExampleLongClassifier("world", enclosedClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "worlds", tooMuchExample);
       
         } else if(chosenClassifiers.includes("piercing-cutting")) {
-            createExample("axe", piercingClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "axes", fewExample);
-            createExample("needle", piercingClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "needles", barelyAnyExample);
-            createExample("knife", piercingClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "knives", severalExample);
-            createExample("javelin", piercingClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "javelins", aLotOfExample);
-            createExample("plough", piercingClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "ploughs", someExample);
-            createExample("scythe", piercingClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "scythes", greatAmountExample);
-            createExample("splinter", piercingClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "splinters", enoughExample);
-            createExample("stinger", piercingClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "stingers", notEnoughExample);
-            createExample("tooth", piercingClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "teeth", tooMuchExample);
+            createExampleLongClassifier("axe", piercingClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "axes", fewExample);
+            createExampleLongClassifier("needle", piercingClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "needles", barelyAnyExample);
+            createExampleLongClassifier("knife", piercingClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "knives", severalExample);
+            createExampleLongClassifier("javelin", piercingClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "javelins", aLotOfExample);
+            createExampleLongClassifier("plough", piercingClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "ploughs", someExample);
+            createExampleLongClassifier("scythe", piercingClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "scythes", greatAmountExample);
+            createExampleLongClassifier("splinter", piercingClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "splinters", enoughExample);
+            createExampleLongClassifier("stinger", piercingClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "stingers", notEnoughExample);
+            createExampleLongClassifier("tooth", piercingClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "teeth", tooMuchExample);
      
         } else if(chosenClassifiers.includes("percussive")) {
-            createExample("hammer", percussiveClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "hammers", fewExample);
-            createExample("club", percussiveClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "clubs", barelyAnyExample);
-            createExample("rod", percussiveClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "rods", severalExample);
-            createExample("mace", percussiveClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "maces", aLotOfExample);
-            createExample("mallet", percussiveClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "mallets", someExample);
-            createExample("arch", percussiveClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "arches", greatAmountExample);
-            createExample("rib", percussiveClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "ribs", enoughExample);
-            createExample("harp", percussiveClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "harps", notEnoughExample);
-            createExample("hook", percussiveClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "hooks", tooMuchExample);
+            createExampleLongClassifier("hammer", percussiveClassifier, "a few",  spell(soundChange(generatedSmallQuanitifiers[0])), "hammers", fewExample);
+            createExampleLongClassifier("club", percussiveClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "clubs", barelyAnyExample);
+            createExampleLongClassifier("rod", percussiveClassifier, "several", spell(soundChange(generatedMiddlingQuanitifers[0])), "rods", severalExample);
+            createExampleLongClassifier("mace", percussiveClassifier, "a lot of", spell(soundChange(generatedBigQuantifiers[0])), "maces", aLotOfExample);
+            createExampleLongClassifier("mallet", percussiveClassifier, "some", spell(soundChange(generatedMiddlingQuanitifers[1])), "mallets", someExample);
+            createExampleLongClassifier("arch", percussiveClassifier, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])), "arches", greatAmountExample);
+            createExampleLongClassifier("rib", percussiveClassifier, "enough", spell(soundChange(generatedOpinionQuantifiers[0])), "ribs", enoughExample);
+            createExampleLongClassifier("harp", percussiveClassifier, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])), "harps", notEnoughExample);
+            createExampleLongClassifier("hook", percussiveClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "hooks", tooMuchExample);
         }
-    }
-}
-
-function IsolatingNouns() {
-    if(typologyNum === 0) {
-        selectNounsClassifier(shapeClassifierArray, longAndSlenderArray, "long-and-slender");
-        selectNounsClassifier(shapeClassifierArray, shortAndWideArray, "short-and-wide");
-        selectNounsClassifier(shapeClassifierArray, roundArray, "round");
-        selectNounsClassifier(shapeClassifierArray, pointedArray, "pointed");
-        selectNounsClassifier(shapeClassifierArray, flatArray, "flat");
-        selectNounsClassifier(shapeClassifierArray, shapelessArray , "shapeless");
-
-        selectNounsClassifier(animacyClassifierArray, manArray, "man");
-        selectNounsClassifier(animacyClassifierArray, womanArray, "woman");
-        selectNounsClassifier(animacyClassifierArray, childArray, "child");
-        selectNounsClassifier(animacyClassifierArray, wildAnimalArray, "wild-animal");
-        selectNounsClassifier(animacyClassifierArray, meatArray, "meat");
-        selectNounsClassifier(animacyClassifierArray, furArray, "fur");
-        selectNounsClassifier(animacyClassifierArray, labourArray, "labour");
-        selectNounsClassifier(animacyClassifierArray, milkArray, "milk");
-        selectNounsClassifier(animacyClassifierArray, inedibleArray, "inedible");
-        selectNounsClassifier(animacyClassifierArray, edibleArray, "edible");
-
-        selectNounsClassifier(shortGenericClassifierArray, humanClassifierArray, "human2");
-        selectNounsClassifier(shortGenericClassifierArray, treeClassifierArray, "tree");
-        selectNounsClassifier(shortGenericClassifierArray, grassClassifierArray, "grass");
-        selectNounsClassifier(shortGenericClassifierArray, flowerClassifierArray, "flower");
-        selectNounsClassifier(shortGenericClassifierArray, landAnimalClassifierArray, "land-animal");
-        selectNounsClassifier(shortGenericClassifierArray, waterAnimalClassifierArray, "water-animal");
-        selectNounsClassifier(shortGenericClassifierArray, flyingAnimalClassifierArray, "flying-animal");
-        selectNounsClassifier(shortGenericClassifierArray, wordClassifierArray, "word");
-        selectNounsClassifier(shortGenericClassifierArray, toolClassifierArray, "tool");
-        selectNounsClassifier(shortGenericClassifierArray, naturalInanimateClassifierArray, "natural-inanimate");
-        selectNounsClassifier(shortGenericClassifierArray, liquidClassifierArray, "liquid");
-
-
-        selectMassNounsClassifier(shapeClassifierMassArray, longAndSlenderMassArray, "long-and-slender");
-        selectMassNounsClassifier(shapeClassifierMassArray, shortAndWideMassArray, "short-and-wide");
-        selectMassNounsClassifier(shapeClassifierMassArray, roundMassArray, "round");
-        selectMassNounsClassifier(shapeClassifierMassArray, pointedMassArray, "pointed");
-        selectMassNounsClassifier(shapeClassifierMassArray, flatMassArray, "flat");
-        selectMassNounsClassifier(shapeClassifierMassArray, shapelessMassArray , "shapeless");
-
-        selectMassNounsClassifier(animacyClassifierMassArray, manMassArray, "man");
-        selectMassNounsClassifier(animacyClassifierMassArray, womanMassArray, "woman");
-        selectMassNounsClassifier(animacyClassifierMassArray, childMassArray, "child");
-        selectMassNounsClassifier(animacyClassifierMassArray, wildAnimalMassArray, "wild-animal");
-        selectMassNounsClassifier(animacyClassifierMassArray, meatMassArray, "meat");
-        selectMassNounsClassifier(animacyClassifierMassArray, furMassArray, "fur");
-        selectMassNounsClassifier(animacyClassifierMassArray, labourMassArray, "labour");
-        selectMassNounsClassifier(animacyClassifierMassArray, milkMassArray, "milk");
-        selectMassNounsClassifier(animacyClassifierMassArray, inedibleMassArray, "inedible");
-        selectMassNounsClassifier(animacyClassifierMassArray, edibleMassArray, "edible");
-
-        selectMassNounsClassifier(shortGenericClassifierMassArray, humanClassifierMassArray, "human2");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, treeClassifierMassArray, "tree");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, grassClassifierMassArray, "grass");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, flowerClassifierMassArray, "flower");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, landAnimalClassifierMassArray, "land-animal");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, waterAnimalClassifierMassArray, "water-animal");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, flyingAnimalClassifierMassArray, "flying-animal");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, wordClassifierMassArray, "word");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, toolClassifierMassArray, "tool");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, naturalInanimateClassifierMassArray, "natural-inanimate");
-        selectMassNounsClassifier(shortGenericClassifierMassArray, liquidClassifierMassArray, "liquid");
     }
 }
 
@@ -6884,9 +6928,9 @@ function generateLanguage() {
     createAnimacyClassifiers();
     createShortGenericClassifiers();
     createLongClassifiers();
+    IsolatingNouns();
     chooseQuanitifers();
     createQuantifiers();
-    IsolatingNouns();
     randomNumForAgglutinativeGrammaticalNumbers();
     inflectGenderlessNouns();
     inflectGenderlessMassNouns();

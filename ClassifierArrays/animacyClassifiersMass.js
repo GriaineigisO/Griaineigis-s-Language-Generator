@@ -24,6 +24,7 @@ const animacyClassifierMassArray = [
     "inedible",
     "inedible",
     "inedible",
+    "inedible",
     "edible",
     "inedible",
     "edible",

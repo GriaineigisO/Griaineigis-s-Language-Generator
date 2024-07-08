@@ -118,7 +118,7 @@ let transitiveVerbArray = [
 "revel",
 "reward",
 "roast",
-"row",
+"rowV",
 "rub",
 "run",
 "sacrifice",

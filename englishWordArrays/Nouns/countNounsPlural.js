@@ -412,6 +412,7 @@ let countNounArrayPlural = [
     "slugs",
     "snails",
     "snakes",
+    "snares",
     "sniffs",
     "socks",
     "sons",

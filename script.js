@@ -1638,8 +1638,7 @@ function randomNumForIsolatingGrammaticalNumbers() {
 let randomClassifierNum = 0;
 function chooseClassifierSystem() {
     if(typologyNum === 0) {
-        randomClassifierNum = Math.floor(Math.random() * 4);
-        console.log(randomClassifierNum)
+        randomClassifierNum = 3//Math.floor(Math.random() * 4);
         if(randomClassifierNum === 0) {
             document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
             document.getElementById("shape-based-classifier-tables").style.display = "block";
@@ -2402,6 +2401,12 @@ function makeExamples(word, classifier, countOrMass, quantifier) {
     }
     if(fixedWord.includes("amount&nbspof")) {
         fixedWord = fixedWord.replace("amount&nbspof&nbsp", replacement)
+    }
+    if(fixedWord.includes("bale&nbspof")) {
+        fixedWord = fixedWord.replace("bale&nbspof&nbsp", replacement)
+    }
+    if(fixedWord.includes("wisp&nbspof")) {
+        fixedWord = fixedWord.replace("wisp&nbspof&nbsp", replacement)
     }
 
     if(countNounArray.includes(word) && quantifier !== "") {
@@ -3782,7 +3787,6 @@ descriptionSpan.classList.add("indent-except-first-line");
                 }
             }
 
-
             /*General Classifier***************/
             let generalClassifier = generateWords();
 
@@ -3820,7 +3824,7 @@ descriptionSpan.classList.add("indent-except-first-line");
 
               /*handful********************/
             if(allMeasureWords.includes("handful")) {
-                let classifier = generateWords();
+                let classifier = generatedCountNouns[countNounArray.indexOf("hand")];
                 
                 let allExamples = [];
                 allExamples.push(
@@ -3868,7 +3872,7 @@ descriptionSpan.classList.add("indent-except-first-line");
 
              /*bagful********************/
              if(allMeasureWords.includes("bagful")) {
-                let classifier = generateWords();
+                let classifier = generatedCountNouns[countNounArray.indexOf("bag")]
                 
                 let allExamples = [];
                 allExamples.push(
@@ -3913,6 +3917,8 @@ descriptionSpan.classList.add("indent-except-first-line");
                     descriptionSpan.innerHTML = description;
                     document.getElementById("measure-words").appendChild(descriptionSpan);
                 }
+
+
             }
 
              /*stack********************/
@@ -3968,11 +3974,26 @@ descriptionSpan.classList.add("indent-except-first-line");
                     descriptionSpan.innerHTML = description;
                     document.getElementById("measure-words").appendChild(descriptionSpan);
                 }
+
+                countNounArray.push("stack");
+                countNounArrayPlural.push("stacks");
+                activePassive.push("passive");
+                animInan.push("inan");
+                divineNonDivine.push("profane");
+                humanAnimalInan.push("secondinanimate");
+                mascFemNeut.push("neuter");
+                mascFem.push("feminine1");
+                naturalArtificial.push("natural");
+                animacyClassifierArray.push("inedible");
+                shapeClassifierArray.push("long-and-slender");
+                shortGenericClassifierArray.push("natural-inanimate");
+                generatedCountNouns.push(classifier);
+
             }
 
              /*drop********************/
             if(allMeasureWords.includes("droplet")) {
-                let classifier = generateWords();
+                let classifier = generatedCountNouns[countNounArray.indexOf("drop")];
                 
                 let allExamples = [];
                 allExamples.push(
@@ -4072,11 +4093,26 @@ descriptionSpan.classList.add("indent-except-first-line");
                     descriptionSpan.innerHTML = description;
                     document.getElementById("measure-words").appendChild(descriptionSpan);
                 }
+
+                countNounArray.push("pair");
+                countNounArrayPlural.push("pairs");
+                activePassive.push("passive");
+                animInan.push("inan");
+                divineNonDivine.push("profane");
+                humanAnimalInan.push("secondinanimate");
+                mascFemNeut.push("neuter");
+                mascFem.push("feminine1");
+                naturalArtificial.push("natural");
+                animacyClassifierArray.push("inedible");
+                shapeClassifierArray.push("long-and-slender");
+                shortGenericClassifierArray.push("natural-inanimate");
+                generatedCountNouns.push(classifier);
+
             }
 
              /*cup********************/
             if(allMeasureWords.includes("cup")) {
-                let classifier = generateWords();
+                let classifier = generatedCountNouns[countNounArray.indexOf("cup")];
                 
                 let allExamples = [];
                 allExamples.push(
@@ -4127,7 +4163,6 @@ descriptionSpan.classList.add("indent-except-first-line");
              /*serving********************/
             if(allMeasureWords.includes("serving-food")) {
                 let classifier = generateWords();
-                
                 let allExamples = [];
                 allExamples.push(
                     makeExamples("cut&nbspof&nbspmeat", classifier, "mass", "plate"),
@@ -4135,7 +4170,6 @@ descriptionSpan.classList.add("indent-except-first-line");
                     makeExamples("bowl&nbspof&nbspsoup", classifier, "mass"),
                     makeExamples("bowl&nbspof&nbspporridge", classifier, "mass"),
                 );
-
                 let chosenExamples = []; 
                 let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
                 for(let i= 0; i < randomExampleNum; i++) {
@@ -4143,14 +4177,12 @@ descriptionSpan.classList.add("indent-except-first-line");
                     chosenExamples.push(allExamples[randomIndex]);
                     allExamples.splice(randomIndex, 1);
                 }
-                
                 const listOfExamples = [];
                 chosenExamples.forEach((element) => listOfExamples.push(element));
                 listOfExamples.pop()
                 listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for servings of food: ${examples}</br>`;
-
                 if(randomClassifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("serving-food-div");
@@ -4168,11 +4200,24 @@ descriptionSpan.classList.add("indent-except-first-line");
                     descriptionSpan.innerHTML = description;
                     document.getElementById("measure-words").appendChild(descriptionSpan);
                 }
+                countNounArray.push("serving&nbspof&nbspfood");
+                countNounArrayPlural.push("servings&nbspof&nbspfood");
+                activePassive.push("passive");
+                animInan.push("inan");
+                divineNonDivine.push("profane");
+                humanAnimalInan.push("secondinanimate");
+                mascFemNeut.push("neuter");
+                mascFem.push("feminine1");
+                naturalArtificial.push("natural");
+                animacyClassifierArray.push("inedible");
+                shapeClassifierArray.push("round");
+                shortGenericClassifierArray.push("natural-inanimate");
+                generatedCountNouns.push(classifier);
             }
 
             /*row********************/
             if(allMeasureWords.includes("row")) {
-                let classifier = generateWords();
+                let classifier = generatedCountNouns[countNounArray.indexOf("row")]
                 
                 let allExamples = [];
                 allExamples.push(
@@ -4214,6 +4259,196 @@ descriptionSpan.classList.add("indent-except-first-line");
                     descriptionSpan.innerHTML = description;
                     document.getElementById("measure-words").appendChild(descriptionSpan);
                 }
+            }
+
+            /*bundle********************/
+            if(allMeasureWords.includes("bundle")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("stick", classifier, "count", "bundle"),
+                    makeExamples("pole", classifier, "count", "bundle"),
+                    makeExamples("branch", classifier, "count", "bundle"),
+                    makeExamples("javelin", classifier, "count", "bundle"),
+                    makeExamples("spear", classifier, "count", "bundle"),
+                    makeExamples("arrow", classifier, "count", "bundle"),
+                    makeExamples("row", classifier, "count", "bundle"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for bundles of things: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("bundle-div");
+                    classifierDiv.setAttribute("id", "bundle");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Bundle of - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("bundle").appendChild(classifierH4);
+                    document.getElementById("bundle").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
+
+                countNounArray.push("bundle");
+                countNounArrayPlural.push("bundles");
+                activePassive.push("passive");
+                animInan.push("inan");
+                divineNonDivine.push("profane");
+                humanAnimalInan.push("secondinanimate");
+                mascFemNeut.push("neuter");
+                mascFem.push("feminine1");
+                naturalArtificial.push("natural");
+                animacyClassifierArray.push("inedible");
+                shapeClassifierArray.push("long-and-slender");
+                shortGenericClassifierArray.push("artificial");
+                generatedCountNouns.push(classifier);
+           }
+
+            /*barrel********************/
+            if(allMeasureWords.includes("barrel")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("acorn", classifier, "count", "barrel"),
+                    makeExamples("apple", classifier, "count", "barrel"),
+                    makeExamples("axe", classifier, "count", "wagonful"),
+                    makeExamples("blade", classifier, "count", "shipment"),
+                    makeExamples("drop&nbspof&nbspwater", classifier, "mass", "barrel"),
+                    makeExamples("glass&nbspof&nbspwine", classifier, "mass", "barrel"),
+                    makeExamples("grain", classifier, "count", "wagonful"),
+                    makeExamples("cut&nbspof&nbspmeat", classifier, "mass", "boatful"),
+                    makeExamples("handful&nbspof&nbspflour", classifier, "mass", "wagonful"),
+                    makeExamples("fish", classifier, "count", "boatful"),
+                    makeExamples("pint&nbspof&nbspmead", classifier, "mass", "barrel"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for barrels of, wagonfuls of, boatfuls of, shipments of, etc items packed into a mode of transport of things: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("barrel-div");
+                    classifierDiv.setAttribute("id", "barrel");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Shipments of - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("barrel").appendChild(classifierH4);
+                    document.getElementById("barrel").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
+
+                countNounArray.push("shipment");
+                countNounArrayPlural.push("shipments");
+                activePassive.push("passive");
+                animInan.push("inan");
+                divineNonDivine.push("profane");
+                humanAnimalInan.push("secondinanimate");
+                mascFemNeut.push("neuter");
+                mascFem.push("feminine1");
+                naturalArtificial.push("artificial");
+                animacyClassifierArray.push("inedible");
+                shapeClassifierArray.push("short-and-wide");
+                shortGenericClassifierArray.push("tool");
+                generatedCountNouns.push(classifier);
+            }
+
+             /*strand********************/
+            if(allMeasureWords.includes("strand")) {
+                let classifier = generateWords();
+                
+                let allExamples = [];
+                allExamples.push(
+                    makeExamples("strand&nbspof&nbsphair", classifier, "mass", "strand"),
+                    makeExamples("wisp&nbspof&nbspsmoke", classifier, "mass", "strand"),
+                    makeExamples("blade&nbspof&nbspgrass", classifier, "mass", "strand"),
+                    makeExamples("bale&nbspof&nbspstraw", classifier, "mass", "strand"),
+                );
+
+                let chosenExamples = []; 
+                let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+                for(let i= 0; i < randomExampleNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allExamples.length);
+                    chosenExamples.push(allExamples[randomIndex]);
+                    allExamples.splice(randomIndex, 1);
+                }
+                
+                const listOfExamples = [];
+                chosenExamples.forEach((element) => listOfExamples.push(element));
+                listOfExamples.pop()
+                listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+                let examples =  listOfExamples.join(", ");
+                let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for strands of things: ${examples}</br>`;
+
+                if(randomClassifierFormattingNum === 1) {
+                    let classifierDiv = document.createElement("div");
+                    classifierDiv.classList.add("strand-div");
+                    classifierDiv.setAttribute("id", "strand");
+                    let classifierH4 = document.createElement("h4");
+                    classifierH4.innerHTML = `Strands of - <i>${spell(soundChange(classifier))}</i>`;
+                    let classifierP = document.createElement("p");
+                    classifierP.innerHTML = description
+                    document.getElementById("measure-words").appendChild(classifierDiv);
+                    document.getElementById("strand").appendChild(classifierH4);
+                    document.getElementById("strand").appendChild(classifierP);
+                }  else {
+                    let descriptionSpan = document.createElement("span");
+                    descriptionSpan.classList.add("indent-except-first-line");
+                    descriptionSpan.innerHTML = description;
+                    document.getElementById("measure-words").appendChild(descriptionSpan);
+                }
+
+                countNounArray.push("strand");
+                countNounArrayPlural.push("strands");
+                activePassive.push("passive");
+                animInan.push("inan");
+                divineNonDivine.push("profane");
+                humanAnimalInan.push("secondinanimate");
+                mascFemNeut.push("neuter");
+                mascFem.push("feminine1");
+                naturalArtificial.push("natural");
+                animacyClassifierArray.push("inedible");
+                shapeClassifierArray.push("long-and-slender");
+                shortGenericClassifierArray.push("natural-inanimate");
+                generatedCountNouns.push(classifier);
             }
 
             
@@ -6987,4 +7222,9 @@ function generateLanguage() {
    }
 
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample};
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, 
+adjectiveArray, 
+conjunctionArray,
+adverbArray,
+adpositionArray,
+intensifierArray };

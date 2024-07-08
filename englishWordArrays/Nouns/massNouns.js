@@ -19,6 +19,7 @@ const massNounArray = [
     "flour",
     "gold",
     "grass",
+    "hair",
     "hatred",
     "hostility",
     "ice",

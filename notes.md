@@ -1,17 +1,6 @@
 # Immediate To-Do List
 
-- Add another, very extensive set of classifiers, similar to the amount that Chinese has. This will take some time to finish.
-
-An object may be used by a classifier not because it meets the original requirement, but because it bears some percieved similarity with a noun already modified by the classifier. e.g cutting of (shavings, cut lock of hair - an by extension brush) and "dull percussive object" > drumstick > bow (for stringed instruments) > any musical utensils as well as a bow for archery and thus bent elongated shapes - thus a classifier gained a new subset of shapes
-
-not all classifiers below will be listed, there will be a minimum number, and extra ones wil be added randomly, with a great number generally preferred. The extensions will also be optionally added, and one classifier can have many extensions which may or may not appear.
-
-quanitifer examples for other classifier systems
-
 MEASURE WORDS
-20. bundle of stick/pole shaped things
-21. barrel of, wagonful of, boatful of, shipment of, items packed into a mode of transport
-22. strand of (hair, smoke, grass, straw)
 23. set of, complete collection of a set number of items
 24. number of revolutions (day-night, seasons, spin of a wheel, crank, winding of rope)
 25. gust of, outburst of (wind, confessions, emotion, truth)

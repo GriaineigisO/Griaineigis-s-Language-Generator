@@ -1,7 +1,5 @@
 const activePassive = [
 "passive",
-"active",
-"passive",
 "passive",
 "active",
 "passive",

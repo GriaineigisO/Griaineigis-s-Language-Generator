@@ -162,7 +162,7 @@ let transitiveVerbArray = [
 "throw",
 "tickle",
 "tie",
-"touch",
+"touchV",
 "trust",
 "twist",
 "use",
@@ -170,7 +170,6 @@ let transitiveVerbArray = [
 "wash",
 "weave",
 "wipe",
-"wash",
 "write",
 ];
 

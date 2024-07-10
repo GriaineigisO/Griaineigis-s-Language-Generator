@@ -170,7 +170,6 @@ let transitiveVerb3SArray = [
 "washes",
 "weaves",
 "wipes",
-"washes",
 "writes",
 ];
 

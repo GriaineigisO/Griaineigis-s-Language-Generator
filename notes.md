@@ -1,5 +1,21 @@
 # Immediate To-Do List
 
+- reform the wordlists, instead of manually making arrays, make empty arrays and push each word, and all of its forms and genders and such in one file, this makes entering new words far faster and easier. like this:
+    countNounArray.push("revolution");
+    countNounArrayPlural.push("revolution");
+    activePassive.push("active");
+    animInan.push("inan");
+    divineNonDivine.push("divine");
+    humanAnimalInan.push("secondinanimate");
+    mascFemNeut.push("neuter");
+    mascFem.push("feminine1");
+    naturalArtificial.push("natural");
+    animacyClassifierArray.push("inedible");
+    shapeClassifierArray.push("shapeless");
+    shortGenericClassifierArray.push("natural-inanimate");
+    generatedCountNouns.push(classifier);
+
+
 MEASURE WORDS
 25. gust of, outburst of (wind, confessions, emotion, truth)
 26. pouring of (serving of liquid, libation)
@@ -21,20 +37,7 @@ MEASURE WORDS
 54. eon of, unspecified long time of
 55. day of
 
-- reform the wordlists, instead of manually making arrays, make empty arrays and push each word, and all of its forms and genders and such in one file, this makes entering new words far faster and easier. like this:
-    countNounArray.push("revolution");
-    countNounArrayPlural.push("revolution");
-    activePassive.push("active");
-    animInan.push("inan");
-    divineNonDivine.push("divine");
-    humanAnimalInan.push("secondinanimate");
-    mascFemNeut.push("neuter");
-    mascFem.push("feminine1");
-    naturalArtificial.push("natural");
-    animacyClassifierArray.push("inedible");
-    shapeClassifierArray.push("shapeless");
-    shortGenericClassifierArray.push("natural-inanimate");
-    generatedCountNouns.push(classifier);
+
 
 - Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
   - Etymologies for the plural: all, children, people, third person plural, three.

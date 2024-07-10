@@ -1,5 +1,4 @@
-const masculine2feminine2neuter = [
-"neuter",
+const masculine2feminine2neuter = [,
 "neuter",
 "neuter",
 "neuter",

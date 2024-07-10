@@ -1,7 +1,4 @@
 const shapeClassifierArray = [
-"short-and-wide",
-"shapeless",
-"long-and-slender",
 "round",
 "shapeless",
 "round",

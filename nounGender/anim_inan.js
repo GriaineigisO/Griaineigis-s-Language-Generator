@@ -1,6 +1,5 @@
 const animInan = [
 "inan",
-"inan",
 "anim",
 "inan",
 "inan",

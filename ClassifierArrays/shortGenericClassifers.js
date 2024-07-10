@@ -1,9 +1,6 @@
 const shortGenericClassifierArray = [
 "natural-inanimate",
 "natural-inanimate",
-"tree",
-"natural-inanimate",
-"natural-inanimate",
 "natural-inanimate",
 "natural-inanimate",
 "natural-inanimate",

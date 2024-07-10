@@ -170,7 +170,6 @@ let transitiveVerbPastArray = [
 "washed",
 "wove",
 "wiped",
-"washed",
 "wrote",
 ];
 

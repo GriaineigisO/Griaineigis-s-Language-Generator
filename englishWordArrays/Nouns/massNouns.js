@@ -17,6 +17,8 @@ const massNounArray = [
     "deception",
     "fog",
     "flour",
+    "frogspawn",
+    "garlic",
     "gold",
     "grass",
     "hair",

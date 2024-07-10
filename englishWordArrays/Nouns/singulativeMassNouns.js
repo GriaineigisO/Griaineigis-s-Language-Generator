@@ -17,6 +17,8 @@ const singulativeMassNounArray = [
     "act&nbspof&nbspdeception",
     "bit&nbspof&nbspfog",
     "handful&nbspof&nbspflour",
+    "clump&nbspof&nbspfrogspawn",
+    "close&nbspof&nbspgarlic",
     "chunk&nbspof&nbspgold",
     "blade&nbspof&nbspgrass",
     "strand&nbspof&nbsphair",

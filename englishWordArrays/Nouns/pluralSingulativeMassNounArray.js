@@ -17,6 +17,8 @@ const pluralSingulativeMassNounArray = [
     "acts&nbspof&nbspdeception",
     "bits&nbspof&nbspfog",
     "handfuls&nbspof&nbspflour",
+    "clumps&nbspof&nbspfrogspawn",
+    "cloves&nbspof&nbspgarlic",
     "chunks&nbspof&nbspgold",
     "blades&nbspof&nbspgrass",
     "strands&nbspof&nbsphair",

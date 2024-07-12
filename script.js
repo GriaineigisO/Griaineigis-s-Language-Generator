@@ -1,11 +1,20 @@
 //@collapse
-//The arrays containing the English translations are naturally very large, so I placed each one in its own file and just import them to keep this file tidier.
-//import nounArray from './englishWordArrays/Nouns/englishNouns.js';
-import countNounArray from './englishWordArrays/Nouns/countNouns.js';
-import countNounArrayPlural from './englishWordArrays/Nouns/countNounsPlural.js';
+import { countNounArray, countNounArrayPlural, animInan, mascFem, mascFemNeut, humanAnimalInan, activePassive, naturalArtificial, shapeClassifierArray, animacyClassifierArray, shortGenericClassifierArray, divineNonDivine} from './englishWordArrays/Nouns/countNouns.js';
+
 import massNounArray from './englishWordArrays/Nouns/massNouns.js';
 import singulativeMassNounArray from './englishWordArrays/Nouns/singulativeMassNouns.js';
-import pluralSingulativeMassNounArray from './englishWordArrays/Nouns/pluralSingulativeMassNounArray.js'
+import pluralSingulativeMassNounArray from './englishWordArrays/Nouns/pluralSingulativeMassNounArray.js';
+import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMass.js'
+import shortGenericClassifierMassArray from './ClassifierArrays/shortGenericClassifersMass.js'
+import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js'
+import animInanMass from './nounGender/anim_inan_mass.js';
+import divineNonDivineMass from './nounGender/divineNondivineMass.js';
+import mascFemMass from './nounGender/masc_fem_mass.js';
+import mascFemNeutMass from './nounGender/masc_fem_neut_mass.js';
+import naturalArtificialMass from './nounGender/natural_artificial_mass.js';
+import humanAnimalInanMass from './nounGender/human_animal_inan_mass.js';
+import activePassiveMass from './nounGender/active_passive_mass.js';
+
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import intransitiveVerbArray from './englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import transitiveVerbPastArray from './englishWordArrays/Verbs/englishTransitiveVerbsPast.js'
@@ -19,21 +28,10 @@ import adverbArray from './englishWordArrays/adverbs.js'
 import adpositionArray from './englishWordArrays/adpositions.js';
 import intensifierArray from './englishWordArrays/intensifier.js';
 import nounCases from './allPossibleNounCases.js'
-import animInan from './nounGender/anim_inan.js'
-import animInanMass from './nounGender/anim_inan_mass.js';
-import mascFem from './nounGender/masc_fem.js'
-import mascFemNeut from './nounGender/masc_fem_neut.js'
-import humanAnimalInan from './nounGender/human_animal_inan.js'
-import activePassive from './nounGender/active_passive.js'
-import naturalArtificial from './nounGender/natural_artificial.js'
-import divineNonDivine from './nounGender/divine_nondivine.js';
+
 import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
-import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js';
-import shapeClassifierArray from './ClassifierArrays/shapeClassifiers.js';
-import animacyClassifierArray from './ClassifierArrays/animacyClassifiers.js'
-import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMass.js'
-import shortGenericClassifierMassArray from './ClassifierArrays/shortGenericClassifersMass.js'
-import shortGenericClassifierArray from './ClassifierArrays/shortGenericClassifers.js'
+
+
 
 import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
@@ -341,7 +339,6 @@ function clearGeneratedArrays() {
     roundMassArray = [];
     pointedMassArray = [];
     flatMassArray = [];
-    shapelessMassArray = [];
     exampleMassArray = [];
     allGeneratedWordsMassArray = [];
     manMassArray = [];
@@ -571,7 +568,15 @@ function makePDFCoverPage() {
     let logoDiv = document.createElement("div");
     logoDiv.setAttribute("id", "logo-div");
     let logo = document.createElement("img");
-    logo.src = "Ogma logo compressed.png";
+
+    let randomPhotoNum = Math.floor(Math.random() * 2);
+    if(randomPhotoNum === 0) {
+        logo.src = "images/Ogma logo compressed.png";
+    } else if(randomPhotoNum === 1) {
+        logo.src = "images/reuing.png";
+    }
+    
+    
     logo.style.maxWidth = "10cm";
     if(randomNum !== 10) {
         logo.style.paddingTop = "5cm"
@@ -1037,7 +1042,6 @@ function WordFinalDevoicingExample() {
     }
     if(possibleExamples.length === 0) {
         document.getElementById("wordFinalDevoicing").style.display = "none"; 
-        //console.log("no nouns ending in voiced consonants!")
     } else {
         exampleNoun = possibleExamples[Math.floor(Math.random() * possibleExamples.length)];
         exampleNoun2 =  generatedCountNouns[randomNum];
@@ -2414,21 +2418,16 @@ function makeExamples(word, classifier, countOrMass, quantifier) {
     if(fixedWord.includes("ounce&nbspof")) {
         fixedWord = fixedWord.replace("ounce&nbspof&nbsp", replacement)
     }
-
-
     if(countNounArray.includes(word) && quantifier !== "") {
         fixedWord = quantifier + `&nbspof&nbsp` + countNounArrayPlural[countNounArray.indexOf(word)]
     }
-
     if(fixedWord === "pair&nbspof&nbspspouses") {
         fixedWord = "pair&nbspof&nbspspouses (i.e a romantic couple)"
     }
-
     if(fixedWord === "pair&nbspof&nbspspouses") {
         fixedWord = "pair&nbspof&nbspspouses (i.e heartbeat)"
     }
     
-
     if (checkIfHeadInitialOrHeadFinal() === "headFirst") {
         return `<i>${spell(soundChange(generatedArray[nounArray.indexOf(word)]))} ${spell(soundChange(classifier))}</i> "${fixedWord}"`;
     } else {
@@ -2584,7 +2583,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                     makeExamples("apple", smallRoundClassifier, "count", ""),
                     makeExamples("acorn", smallRoundClassifier, "count", ""),
                     makeExamples("eye", smallRoundClassifier, "count", ""),
-                    makeExamples("garlic", smallRoundClassifier, "count", ""),
+                    makeExamples("clove&nbspof&nbspgarlic", smallRoundClassifier, "mass", ""),
                     makeExamples("ball", smallRoundClassifier, "count", ""),
                     makeExamples("pea", smallRoundClassifier, "count", ""),
                     makeExamples("fist", smallRoundClassifier, "count", ""),
@@ -4684,6 +4683,7 @@ function selectMassNounsClassifier(classifierArray, array, category) {
             array.push(massNounArray[i]);
         }
     }
+
     let spanNoun = document.getElementsByClassName(category + "-mass-noun");
     let num = 1;
     for(let i = 0; i < spanNoun.length; i++) {
@@ -4776,10 +4776,7 @@ function classifierExamplesInDictionaryEntries(word, array, countOrMassWord, cou
     } else if (countOrMassRandomWord === "mass") {
         randomNoun = generatedMassNouns[massNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
         randomNounEnglishTranslation = pluralSingulativeMassNounArray[generatedMassNouns.indexOf(randomNoun)];
-        //console.log(`mass ${word} - ${array} - ${randomNoun} - ${randomNounEnglishTranslation} `)
     }
-
-    //console.log(`${word} - ${classifier} - ${array} - ${randomNoun} - ${randomNounEnglishTranslation} `)
 
     if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
         let example = `<strong><i>${spell(soundChange(randomNoun))} ${spell(soundChange(classifier))}</strong></i> "${randomNounEnglishTranslation}"`
@@ -7365,6 +7362,7 @@ function generateLanguage() {
     createLongClassifiers();
     createMeasureWords();
     IsolatingNouns();
+    callClassifierExamples();
     chooseQuanitifers();
     createQuantifiers();
     randomNumForAgglutinativeGrammaticalNumbers();
@@ -7404,7 +7402,6 @@ function generateLanguage() {
     inflectMassNounsSingulative();
     chooseCases();
     explainCases();
-    callClassifierExamples();
     generateRandomNameForLanguage();
     applySoundChangesAndOrtho(document.getElementsByClassName("sound-change"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singular-noun"));
@@ -7420,6 +7417,7 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("general-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
+   
    }
 
 
@@ -7428,4 +7426,14 @@ adjectiveArray,
 conjunctionArray,
 adverbArray,
 adpositionArray,
-intensifierArray };
+intensifierArray, countNounArrayPlural,
+    activePassive,
+    animInan,
+    divineNonDivine,
+    humanAnimalInan,
+    mascFemNeut,
+    mascFem,
+    naturalArtificial,
+    animacyClassifierArray,
+    shapeClassifierArray,
+    shortGenericClassifierArray };

@@ -57,6 +57,11 @@ const shortGenericClassifierMassArray = [
 "liquid",
 "natural-inanimate",
 "liquid",
+"liquid",
+"liquid",
+"liquid",
+"liquid",
+"liquid",
 ]
 
 export default shortGenericClassifierMassArray;

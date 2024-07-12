@@ -4,37 +4,29 @@ import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedA
     conjunctionArray,
     adverbArray,
     adpositionArray,
-    intensifierArray } from './script.js'
-/*import countNounArray from './englishWordArrays/Nouns/countNouns.js';
-import massNounArray from './englishWordArrays/Nouns/massNouns.js';
-import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
-import intransitiveVerbArray from './englishWordArrays/Verbs/englishIntransitiveVerbs.js';
-import adjectiveArray from './englishWordArrays/Adjectives/englishAdjectives.js';
-import conjunctionArray from './englishWordArrays/conjunctions.js'
-import adverbArray from './englishWordArrays/adverbs.js'
-import adpositionArray from './englishWordArrays/adpositions.js';
-import intensifierArray from './englishWordArrays/intensifier.js';*/
+    intensifierArray, countNounArrayPlural,
+    activePassive,
+    animInan,
+    divineNonDivine,
+    humanAnimalInan,
+    mascFemNeut,
+    mascFem,
+    naturalArtificial,
+    animacyClassifierArray,
+    shapeClassifierArray,
+    shortGenericClassifierArray } from './script.js'
+
 import {spell} from './orthography.js'
-import animInan from './nounGender/anim_inan.js'
 import animInanMass from './nounGender/anim_inan_mass.js';
-import mascFem from './nounGender/masc_fem.js'
 import mascFemMass from './nounGender/masc_fem_mass.js'
-import mascFemNeut from './nounGender/masc_fem_neut.js'
 import mascFemNeutMass from './nounGender/masc_fem_neut_mass.js'
-import divineNonDivine from './nounGender/divine_nondivine.js';
 import divineNonDivineMass from './nounGender/divineNondivineMass.js'
-import humanAnimalInan from './nounGender/human_animal_inan.js'
 import humanAnimalInanMass from './nounGender/human_animal_inan_mass.js'
-import activePassive from './nounGender/active_passive.js'
-import activePassiveMass from './nounGender/active_passive_mass.js'
-import naturalArtificial from './nounGender/natural_artificial.js' 
+import activePassiveMass from './nounGender/active_passive_mass.js' 
 import naturalArtificialMass from './nounGender/natural_artificial_mass.js'
 import {soundChange} from './soundchange.js'
-import shapeClassifierArray from './ClassifierArrays/shapeClassifiers.js';
 import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js';
-import animacyClassifierArray from './ClassifierArrays/animacyClassifiers.js';
 import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMass.js';
-import shortGenericClassifierArray from './ClassifierArrays/shortGenericClassifers.js';
 import shortGenericClassifierMassArray from './ClassifierArrays/shortGenericClassifersMass.js';
 
 const animateArray = [];

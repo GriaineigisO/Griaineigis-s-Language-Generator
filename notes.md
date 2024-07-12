@@ -1,23 +1,5 @@
 # Immediate To-Do List
 
-- reform the wordlists, instead of manually making arrays, make empty arrays and push each word, and all of its forms and genders and such in one file, this makes entering new words far faster and easier. like this:
-    countNounArray.push("revolution");
-    countNounArrayPlural.push("revolution");
-    activePassive.push("active");
-    animInan.push("inan");
-    divineNonDivine.push("divine");
-    humanAnimalInan.push("secondinanimate");
-    mascFemNeut.push("neuter");
-    mascFem.push("feminine1");
-    naturalArtificial.push("natural");
-    animacyClassifierArray.push("inedible");
-    shapeClassifierArray.push("shapeless");
-    shortGenericClassifierArray.push("natural-inanimate");
-    generatedCountNouns.push(classifier);
-
-
-MEASURE WORDS
-25. gust of, outburst of (wind, confessions, emotion, truth)
 26. pouring of (serving of liquid, libation)
 27. chunk of, clump of - irregularly shaped cutting/breaking off from a larger mass (flint blade, rock, ingot)
 28. shovelful of
@@ -25,19 +7,19 @@ MEASURE WORDS
 30. cluster of, spaced out group of solid objects (stars, mountains, boulders)
 31. fieldful of (herds, informal gatherings, crowds in public places)
 32. spoonful of/single bite fo food, sip of a drink
+33. object with rounded top, lump if (hill, wart, breast, bump, brow, knuckle)
 34. smattering of, splattering of (loosely grouped together collection of irregularly shaped objects, mostly liquids)
-36. stick of degradable material (chalk, candle, charcoal, incense)
-37. wisp of, flow of, hint of (scent, influence, clue, steam, cloud, river, stream)
-38. roll of/sheet of wrapable material (cloth, scroll, rug, sail)
-44. selection of, display of, spread of items across a flat surface (items spread out in a market for display, of text: paragraph), coat of paint, of open habitats (swamp, meadow, steppe, grassland, sea)
-50. strip of (of bark, belt, whip, )
-51. cutting of (shavings, cut lock of hair - an by extension brush), shaving of (sandpaper and by extension powder), outpour of droplets (rain, hail, snow)
-52. instances of, times
-53. completed action
-54. eon of, unspecified long time of
-55. day of
+35. stick of degradable material (chalk, candle, charcoal, incense)
+36. roll of/sheet of wrapable material (cloth, scroll, rug, sail)
 
-
+37. selection of, display of, spread of items across a flat surface (items spread out in a market for display, of text: paragraph), coat of paint, of open habitats (swamp, meadow, steppe, grassland, sea)
+38. dull percussive object (club, rod, hammer, mallet, mace, bow > and by extension bow for string instruments and any musical utensils, and by more extension music), bent elongated objects: bow (of archery), hook, rib, curved beam, arch
+39. strip of (of bark, belt, whip, )
+40. cutting of (shavings, cut lock of hair - an by extension brush), shaving of (sandpaper and by extension powder), outpour of droplets (rain, hail, snow)
+41. instances of, times
+42. completed action
+43. eon of, unspecified long time of
+44. day of
 
 - Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
   - Etymologies for the plural: all, children, people, third person plural, three.
@@ -180,3 +162,12 @@ Colour metaohors?
 - Sets of words to be chosen based on a random culture and habitat. So the vocabulary has a sense of cohesion e.g not having a word both for camel and polarbear
 - Add a placename and personalname generator, which randomly selects a style of name derivation and then generates names using that.
 - Generator for the language name. The name can be derived from a fictional place where it is spoken (using a generated placename), or by using a random noun or adjective + the word language, or by creating an ethnonym for the speakers and then using that + the word language
+
+## Etymology ideas
+
+- oath < "to bind"
+
+## Derivational Morphology Ideas
+
+- danger affix
+- unstable affix

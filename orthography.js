@@ -288,10 +288,16 @@ function spell(word) {
         if(wordArray[i] === "θ" && randomDentalFricative === 0  && allAspiratesArray.length > 0) {
             wordArray[i] = "þ"
         }
+        if(wordArray[i] === "θ" && randomDentalFricative === 0  && allAspiratesArray.length === 0) {
+            wordArray[i] = "th"
+        }
         if(wordArray[i] === "ð" && randomDentalFricative === 0) {
             wordArray[i] = "ð"
         }
         if(wordArray[i] === "θ" && randomDentalFricative === 1 && allAspiratesArray.length === 0) {
+            wordArray[i] = "th"
+        }
+        if(wordArray[i] === "θ" && randomDentalFricative === 1  && allAspiratesArray.length > 0) {
             wordArray[i] = "th"
         }
         if(wordArray[i] === "ð" && randomDentalFricative === 1 && allAspiratesArray.length === 0) {

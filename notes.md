@@ -34,8 +34,10 @@ Phonotactic ideas:
 - /f/ can only occur in onset
 - plosives can occur only in onset, either they become fricatives elsewhere or just drop
 - plosives can occur only word initially
+- vowel lost between consonant and resonant if a vowel follows the resonant e/g "bedir" + "-o" > "bedro"
 
 * Use inspiration from real language's sound changes. Use the Proto-Finnic > Proto-Livonian sound changes for inspiration too
+* use conlang sound changes too
 
 # General
 
@@ -179,3 +181,14 @@ Colour metaohors?
 
 - danger affix
 - unstable affix
+
+### Gender Swtiching
+
+### natural > artificial: 
+- things made from natural material
+	- 
+
+- natural animal > artificial - cooked meat from the animal
+  - cow > beef
+  - pug > pork
+  - deer > venison

@@ -857,6 +857,7 @@ function makeDictionary() {
                 wordWithAffix = singularAffix + wordWithAffix;
             }
         }
+        
     
         
         word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo);
@@ -876,8 +877,6 @@ function makeDictionary() {
         document.getElementById("language-to-english").appendChild(entry);
         }   
 
-    
-    
 
     //English to Kerkebulo
     for(let i = 0; i < englishWords.length; i++) {
@@ -1336,6 +1335,46 @@ function makeDictionary() {
                     
                 }
             }
+            if(typologyNum === 0 && grammaticalNumIsolating > 5 && randomClassifierNum === 2) {
+                if(countNounArray.includes(englishWords[i])) {
+                    let index = countNounArray.indexOf(englishWords[i])
+                    if(shortGenericClassifierArray[index] === "human2") {
+                        pOfSpeech = "n.human";
+                    } else if(shortGenericClassifierArray[index] === "tree") {
+                        pOfSpeech = "n.tree";
+                    } else if(shortGenericClassifierArray[index] === "grass") {
+                        pOfSpeech = "n.grass";
+                    } else if(shortGenericClassifierArray[index] === "flower") {
+                        pOfSpeech = "n.flower";
+                    } else if(shortGenericClassifierArray[index] === "natural-inanimate") {
+                        pOfSpeech = "n.nat-inan";
+                    } else if(shortGenericClassifierArray[index] === "land-animal") {
+                        pOfSpeech = "n.land";
+                    }  else if(shortGenericClassifierArray[index] === "water-animal") {
+                        pOfSpeech = "n.water";
+                    }  else if(shortGenericClassifierArray[index] === "liquid") {
+                        pOfSpeech = "n.liquid";
+                    }  else if(shortGenericClassifierArray[index] === "word") {
+                        pOfSpeech = "n.word";
+                    }  else if(shortGenericClassifierArray[index] === "tool") {
+                        pOfSpeech = "n.tool";
+                    }
+                }
+                if (massNounArray.includes(englishWords[i])) {
+                    let index = massNounArray.indexOf(englishWords[i]);
+                    if(shortGenericClassifierMassArray[index] === "human2") {
+                        pOfSpeech = "n.human";
+                    } else if (shortGenericClassifierMassArray[index] === "grass") {
+                        pOfSpeech = "n.grass";
+                    }  else if (shortGenericClassifierMassArray[index] === "tool") {
+                        pOfSpeech = "n.tool";
+                    }  else if (shortGenericClassifierMassArray[index] === "natural-inanimate") {
+                        pOfSpeech = "n.nat-inan";
+                    }   else if (shortGenericClassifierMassArray[index] === "liquid") {
+                        pOfSpeech = "n.water";
+                    }
+                }
+                }
 
 
     //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns

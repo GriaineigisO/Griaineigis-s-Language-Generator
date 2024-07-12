@@ -166,6 +166,13 @@ Colour metaohors?
 ## Etymology ideas
 
 - oath < "to bind"
+- yoke < "to bind"
+- place < "to stand"
+- solar < sun
+- lunar < moon
+- stellar < star
+- paternal kinsman < father
+- maternal kinsman < mother
 
 ## Derivational Morphology Ideas
 

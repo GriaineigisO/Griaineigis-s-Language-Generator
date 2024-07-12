@@ -258,7 +258,7 @@ let percussiveClassifier = "";
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
-let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "tʃ", "dʒ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ", "tʲ", "dʲ", "kʲ", "gʲ", "pʲ", "bʲ", "qʲ", "ɢʲ", "sʲ", "zʲ", "vʲ", "fʲ", "lʲ", "rʲ", "mʲ", "nʲ", "hʲ", "xʲ", "ʒʲ", "θʲ", "ðʲ", "ʃʲ", "ŋʲ", "tʰʲ", "qʰʲ"]
+let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "tʃ", "dʒ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ", "tʲ", "dʲ", "kʲ", "gʲ", "pʲ", "bʲ", "qʲ", "ɢʲ", "sʲ", "zʲ", "vʲ", "fʲ", "lʲ", "rʲ", "mʲ", "nʲ", "hʲ", "xʲ", "ʒʲ", "θʲ", "ðʲ", "ʃʲ", "ŋʲ", "tʰʲ", "qʰʲ", "tʷ", "dʷ", "cʷ", "ɟʷ", "kʷ", "gʷ", "qʷ", "ɢʷ", "sʷ", "zʷ", "ʃʷ", "ʒʷ", "hʷ", "xʷ", "ɣʷ", "χʷ", "ʁʷ", "rʷ", "lʷ", "tʷʰ", "dʷʰ", "cʰʷ", "ɟʷʰ", "kʷʰ", "gʷʰ", "qʷʰ", "ɢʷʰ", "sʷʰ", "zʷʰ", "ʃʷʰ", "ʒʷʰ", "hʷ", "xʷʰ", "ɣʷʰ", "χʷʰ", "ʁʷʰ", "rʷʰ", "lʷʰ"]
 
 //Without this, every single generated noun from every single generation would remain in the arrays, causing words from
 //previous generations to show up in current ones! This clears the arrays upon each click of the button, before they are
@@ -569,11 +569,15 @@ function makePDFCoverPage() {
     logoDiv.setAttribute("id", "logo-div");
     let logo = document.createElement("img");
 
-    let randomPhotoNum = Math.floor(Math.random() * 2);
+    let randomPhotoNum = Math.floor(Math.random() * 4);
     if(randomPhotoNum === 0) {
         logo.src = "images/Ogma logo compressed.png";
     } else if(randomPhotoNum === 1) {
         logo.src = "images/reuing.png";
+    } else if(randomPhotoNum === 2) {
+        logo.src = "images/drop.png";
+    } else if(randomPhotoNum === 3) {
+        logo.src = "images/shipwheels.png";
     }
     
     
@@ -1274,7 +1278,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -2969,7 +2973,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                     classifierDiv.classList.add("domestic-animals-div");
                     classifierDiv.setAttribute("id", "domestic-animals");
                     let classifierH4 = document.createElement("h4");
-                    classifierH4.innerHTML = `Domestic Animals - <i>${spell(soundChange(classifier))}</i>`;
+                    classifierH4.innerHTML = `Domestic Animals - <i>${spell(soundChange(domesticAnimalClassifier))}</i>`;
                     let classifierP = document.createElement("p");
                     classifierP.innerHTML = description
 
@@ -3866,7 +3870,7 @@ function createMeasureWords() {
         listOfExamples.pop()
         listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
         let examples =  listOfExamples.join(", ");
-        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for handfuls of things. This classifier is not concerned with the shape of the object, so long as the object is a mass of small things, it cares more about whether the object is something that is often held in the hands: ${examples}<br>`;
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for handfuls of things: ${examples}<br>`;
 
         if(randomClassifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
@@ -5341,6 +5345,7 @@ function chooseQuanitifers() {
 }
 
 function createQuantifiers() {
+    if(typologyNum === 0) {
     let few = document.getElementsByClassName("few")
     for(let i = 0; i < few.length; i++) {
         few[i].innerHTML = generatedSmallQuanitifiers[0];
@@ -5715,6 +5720,7 @@ function createQuantifiers() {
             createExampleLongClassifier("hook", percussiveClassifier, "too many", spell(soundChange(generatedOpinionQuantifiers[1])), "hooks", tooMuchExample);
         }
     }
+}
 }
 
 /***AGGLUTINATIVE NOUNS****/
@@ -6454,7 +6460,7 @@ function inflectNounsPlural() {
     let copyNum = 5;
     let nounSgMeaning = document.getElementsByClassName("plural-meaning");
     for(let i = 0; i < nounSgMeaning.length; i++) { 
-        let pluralMeaning = countNounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        let pluralMeaning = countNounArrayPlural[countNounArray.indexOf(nounSgMeaning[i].innerHTML)];
        nounSgMeaning[i].innerHTML = pluralMeaning;
         copyNum++;
     }
@@ -6523,7 +6529,7 @@ function inflectNounsDual() {
     let nounSgMeaning = document.getElementsByClassName("dual-meaning");
     
     for(let i = 0; i < nounSgMeaning.length; i++) { 
-        let pluralMeaning =  countNounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        let pluralMeaning =  countNounArrayPlural[countNounArray.indexOf(nounSgMeaning[i].innerHTML)];
        nounSgMeaning[i].innerHTML = ` two ${pluralMeaning}`;
         copyNum++;
     }
@@ -6592,7 +6598,7 @@ function inflectNounsTrial() {
     let nounSgMeaning = document.getElementsByClassName("trial-meaning");
     
     for(let i = 0; i < nounSgMeaning.length; i++) { 
-        let pluralMeaning =  countNounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        let pluralMeaning =  countNounArrayPlural[countNounArray.indexOf(nounSgMeaning[i].innerHTML)];
         // for(let j = 0; j < nounSgMeaning.length; j++) {
        nounSgMeaning[i].innerHTML = `three ${pluralMeaning}`;
         // }
@@ -6629,7 +6635,7 @@ function inflectNounsQuadral() {
     let nounSgMeaning = document.getElementsByClassName("quadral-meaning");
     
     for(let i = 0; i < nounSgMeaning.length; i++) { 
-        let pluralMeaning =  countNounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        let pluralMeaning =  countNounArrayPlural[countNounArray.indexOf(nounSgMeaning[i].innerHTML)];
         // for(let j = 0; j < nounSgMeaning.length; j++) {
        nounSgMeaning[i].innerHTML = `four ${pluralMeaning}`;
         // }
@@ -6666,7 +6672,7 @@ function inflectNounsGreaterPlural() {
     let nounSgMeaning = document.getElementsByClassName("greater-plural-meaning");
     
     for(let i = 0; i < nounSgMeaning.length; i++) { 
-        let pluralMeaning =  countNounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        let pluralMeaning =  countNounArrayPlural[countNounArray.indexOf(nounSgMeaning[i].innerHTML)];
         // for(let j = 0; j < nounSgMeaning.length; j++) {
        nounSgMeaning[i].innerHTML = `a lot of ${pluralMeaning}`;
         // }
@@ -6703,7 +6709,7 @@ function inflectNounsGeneral() {
     let nounSgMeaning = document.getElementsByClassName("general-meaning");
     
     for(let i = 0; i < nounSgMeaning.length; i++) { 
-        let pluralMeaning =  countNounArrayPlural[nounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        let pluralMeaning =  countNounArrayPlural[countNounArray.indexOf(nounSgMeaning[i].innerHTML)];
        nounSgMeaning[i].innerHTML = `${pluralMeaning}`;
         copyNum++;
     }
@@ -7417,7 +7423,6 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("general-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
-   
    }
 
 

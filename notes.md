@@ -147,6 +147,7 @@ To prevent the exact same set of English words being chosen every time, there wi
 2. lifestyle: hunter-gatherer, agricultural, pastoralist (if the speaker have trade, then they may have words for traded goods from other lifestyles)
    3 governance: fuedal, small bands of families, tribal confederation etc
    4 Military class?
+3. time period: paleolithic, neolithic, copper age, bronze age, iron age, classical, medieval, induztrial revolution, modern, future
 
 Colour metaohors?
 

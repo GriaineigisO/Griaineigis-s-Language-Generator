@@ -1,26 +1,14 @@
 //@collapse
 import { countNounArray, countNounArrayPlural, animInan, mascFem, mascFemNeut, humanAnimalInan, activePassive, naturalArtificial, shapeClassifierArray, animacyClassifierArray, shortGenericClassifierArray, divineNonDivine} from './englishWordArrays/Nouns/countNouns.js';
 
-import massNounArray from './englishWordArrays/Nouns/massNouns.js';
-import singulativeMassNounArray from './englishWordArrays/Nouns/singulativeMassNouns.js';
-import pluralSingulativeMassNounArray from './englishWordArrays/Nouns/pluralSingulativeMassNounArray.js';
-import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMass.js'
-import shortGenericClassifierMassArray from './ClassifierArrays/shortGenericClassifersMass.js'
-import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js'
-import animInanMass from './nounGender/anim_inan_mass.js';
-import divineNonDivineMass from './nounGender/divineNondivineMass.js';
-import mascFemMass from './nounGender/masc_fem_mass.js';
-import mascFemNeutMass from './nounGender/masc_fem_neut_mass.js';
-import naturalArtificialMass from './nounGender/natural_artificial_mass.js';
-import humanAnimalInanMass from './nounGender/human_animal_inan_mass.js';
-import activePassiveMass from './nounGender/active_passive_mass.js';
+import {massNounArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray} from './englishWordArrays/Nouns/massNouns.js'
+
+import {adjectiveArray, comparativeAdjectiveArray } from './englishWordArrays/Adjectives/englishAdjectives.js';
 
 import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import intransitiveVerbArray from './englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import transitiveVerbPastArray from './englishWordArrays/Verbs/englishTransitiveVerbsPast.js'
 import intransitiveVerbPastArray from './englishWordArrays/Verbs/englishIntransitiveVerbsPast.js'
-import adjectiveArray from './englishWordArrays/Adjectives/englishAdjectives.js';
-import comparativeAdjectiveArray from './englishWordArrays/Adjectives/EnglishComparative Adjectives.js'
 import intransitiveVerb3SArray from './englishWordArrays/Verbs/englishIntransitiveVerbs3S.js'
 import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVerbs3S.js'
 import conjunctionArray from './englishWordArrays/conjunctions.js'
@@ -30,8 +18,6 @@ import intensifierArray from './englishWordArrays/intensifier.js';
 import nounCases from './allPossibleNounCases.js'
 
 import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
-
-
 
 import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
@@ -1160,7 +1146,7 @@ function noResonantBeforeConsonant() {
             exampleMeaning[i].innerHTML = randomNounMeaning;
 
             let randomNounForCompound = beginsInConsonantArray[Math.floor(Math.random() * beginsInConsonantArray.length)];
-            let randomNounMeaningForCompound = nounArray[generatedCountNouns.indexOf(randomNounForCompound)]
+            let randomNounMeaningForCompound = countNounArray[generatedCountNouns.indexOf(randomNounForCompound)]
             example2[i].innerHTML = spell(soundChange(randomNounForCompound));
             exampleMeaning2[i].innerHTML = randomNounMeaningForCompound;
 
@@ -6890,7 +6876,7 @@ function switchNounGenderMascFem(englishWord) {
 function switchNounGenderMascFemNeut(englishWord) {
     if(typologyNum === 1) {
     const newLi = document.createElement("li");
-    let nounIndex = nounArray.indexOf(englishWord);
+    let nounIndex = countNounArray.indexOf(englishWord);
     let bareRoot = generatedCountNouns[nounIndex];
     let mascNoun = "";
     let femNoun = "";
@@ -6974,7 +6960,7 @@ function switchNounGenderMascFemNeut(englishWord) {
 function switchNounGenderHumanAnimal(englishWord) {
     if(typologyNum === 1) {
     const newLi = document.createElement("li");
-    let nounIndex = nounArray.indexOf(englishWord);
+    let nounIndex = countNounArray.indexOf(englishWord);
     let bareRoot = generatedCountNouns[nounIndex];
     let animalNoun = "";
     let humanNoun = "";
@@ -7441,4 +7427,4 @@ intensifierArray, countNounArrayPlural,
     naturalArtificial,
     animacyClassifierArray,
     shapeClassifierArray,
-    shortGenericClassifierArray };
+    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray };

@@ -14,20 +14,11 @@ import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedA
     naturalArtificial,
     animacyClassifierArray,
     shapeClassifierArray,
-    shortGenericClassifierArray } from './script.js'
+    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray } from './script.js'
 
 import {spell} from './orthography.js'
-import animInanMass from './nounGender/anim_inan_mass.js';
-import mascFemMass from './nounGender/masc_fem_mass.js'
-import mascFemNeutMass from './nounGender/masc_fem_neut_mass.js'
-import divineNonDivineMass from './nounGender/divineNondivineMass.js'
-import humanAnimalInanMass from './nounGender/human_animal_inan_mass.js'
-import activePassiveMass from './nounGender/active_passive_mass.js' 
-import naturalArtificialMass from './nounGender/natural_artificial_mass.js'
 import {soundChange} from './soundchange.js'
-import shapeClassifierMassArray from './ClassifierArrays/shapeClassifiersMass.js';
-import animacyClassifierMassArray from './ClassifierArrays/animacyClassifiersMass.js';
-import shortGenericClassifierMassArray from './ClassifierArrays/shortGenericClassifersMass.js';
+
 
 const animateArray = [];
 const inanimateArray = [];

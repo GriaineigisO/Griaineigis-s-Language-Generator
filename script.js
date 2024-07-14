@@ -1,16 +1,9 @@
 //@collapse
 import { countNounArray, countNounArrayPlural, animInan, mascFem, mascFemNeut, humanAnimalInan, activePassive, naturalArtificial, shapeClassifierArray, animacyClassifierArray, shortGenericClassifierArray, divineNonDivine} from './englishWordArrays/Nouns/countNouns.js';
-
 import {massNounArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray} from './englishWordArrays/Nouns/massNouns.js'
-
 import {adjectiveArray, comparativeAdjectiveArray } from './englishWordArrays/Adjectives/englishAdjectives.js';
-
-import transitiveVerbArray from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
-import intransitiveVerbArray from './englishWordArrays/Verbs/englishIntransitiveVerbs.js';
-import transitiveVerbPastArray from './englishWordArrays/Verbs/englishTransitiveVerbsPast.js'
-import intransitiveVerbPastArray from './englishWordArrays/Verbs/englishIntransitiveVerbsPast.js'
-import intransitiveVerb3SArray from './englishWordArrays/Verbs/englishIntransitiveVerbs3S.js'
-import transitiveVerb3SArray from './englishWordArrays/Verbs/englishTransitiveVerbs3S.js'
+import {intransitiveVerbArray, intransitiveVerb3SArray, intransitiveVerbPastArray} from './englishWordArrays/Verbs/englishIntransitiveVerbs.js';
+import {transitiveVerbArray, transitiveVerb3SArray, transitiveVerbPastArray} from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import conjunctionArray from './englishWordArrays/conjunctions.js'
 import adverbArray from './englishWordArrays/adverbs.js'
 import adpositionArray from './englishWordArrays/adpositions.js';
@@ -1264,7 +1257,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -2408,14 +2401,40 @@ function makeExamples(word, classifier, countOrMass, quantifier) {
     if(fixedWord.includes("ounce&nbspof")) {
         fixedWord = fixedWord.replace("ounce&nbspof&nbsp", replacement)
     }
+    if(fixedWord.includes("glass&nbspof")) {
+        fixedWord = fixedWord.replace("ounce&nbspof&nbsp", replacement)
+    }
+    if(fixedWord.includes("clump&nbspof")) {
+        fixedWord = fixedWord.replace("clump&nbspof&nbsp", replacement)
+    }
+    if(fixedWord.includes("jar&nbspof")) {
+        fixedWord = fixedWord.replace("jar&nbspof&nbsp", replacement)
+    }
     if(countNounArray.includes(word) && quantifier !== "") {
         fixedWord = quantifier + `&nbspof&nbsp` + countNounArrayPlural[countNounArray.indexOf(word)]
     }
+    
+
     if(fixedWord === "pair&nbspof&nbspspouses") {
         fixedWord = "pair&nbspof&nbspspouses (i.e a romantic couple)"
     }
     if(fixedWord === "pair&nbspof&nbspspouses") {
         fixedWord = "pair&nbspof&nbspspouses (i.e heartbeat)"
+    }
+    if(fixedWord === "cluster&nbspof&nbspstars") {
+        fixedWord = "cluster&nbspof&nbspstars (i.e constellation)"
+    }
+    if(fixedWord === "cluster&nbspof&nbspmountains") {
+        fixedWord = "cluster&nbspof&nbspmountains (i.e mountain range)"
+    }
+    if(fixedWord === "cluster&nbspof&nbspfish") {
+        fixedWord = "cluster&nbspof&nbspfish (i.e a school or a shoal)"
+    }
+    if(fixedWord === "cluster&nbspof&nbspboats") {
+        fixedWord = "cluster&nbspof&nbspboats (i.e a fleet)"
+    }
+    if(fixedWord === "fieldful&nbspof&nbspcrowds") {
+        fixedWord = "fieldful&nbspof&nbspcrowds (i.e gatherings of people in fields or open natural spaces)"
     }
     
     if (checkIfHeadInitialOrHeadFinal() === "headFirst") {
@@ -4642,6 +4661,342 @@ descriptionSpan.classList.add("indent-except-first-line");
         shortGenericClassifierArray.push("natural-inanimate");
         generatedCountNouns.push(classifier);
     }
+
+    /*pouring********************/
+    if(allMeasureWords.includes("pouring")) {
+        let classifier = generatedTransitiveVerbs[transitiveVerbArray.indexOf("pour")];
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("libation", classifier, "count", "pouring"),
+            makeExamples("glass&nbspof&nbspwine", classifier, "mass", "pouring"),
+            makeExamples("portion&nbspof&nbspsauce", classifier, "mass", "pouring"),
+            makeExamples("drop&nbspof&nbspwater", classifier, "mass", "pouring"),
+            makeExamples("drop&nbspof&nbspoil", classifier, "mass", "pouring"),
+            makeExamples("drop&nbspof&nbspmilk", classifier, "mass", "pouring"),
+            makeExamples("pint&nbspof&nbspmead", classifier, "mass", "pouring"),
+        );
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for pourings of liquids, usually servings of drinks: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("pouring-div");
+            classifierDiv.setAttribute("id", "pouring");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Pourings of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("pouring").appendChild(classifierH4);
+            document.getElementById("pouring").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*chunk********************/
+    if(allMeasureWords.includes("chunk")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("chunk")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("chunk&nbspof&nbspwood", classifier, "mass", "chunk"),
+            makeExamples("piece&nbspof&nbspflint", classifier, "mass", "chunk"),
+            makeExamples("shard&nbspof&nbspglass", classifier, "mass", "shard"),
+            makeExamples("clump&nbspof&nbspcharcoal", classifier, "mass", "stick"),
+        );
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for chunks or clumps of things, or more generally an irregularly shaped breaking off from a larger mass: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("chunk-div");
+            classifierDiv.setAttribute("id", "chunk");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Chunk of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("chunk").appendChild(classifierH4);
+            document.getElementById("chunk").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*shovelful********************/
+    if(allMeasureWords.includes("shovelful")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("shovel")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("handful&nbspof&nbspsnow", classifier, "mass", "shovelful"),
+            makeExamples("handful&nbspof&nbspdirt", classifier, "mass", "shovelful"),
+            makeExamples("clump&nbspof&nbspcharcoal", classifier, "mass", "shovelful"),
+            makeExamples("grain&nbspof&nbspsand", classifier, "mass", "shovelful"),
+        );
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for shovelfuls of material: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("shovelful-div");
+            classifierDiv.setAttribute("id", "shovelful");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Shovelful of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("shovelful").appendChild(classifierH4);
+            document.getElementById("shovelful").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*netful********************/
+    if(allMeasureWords.includes("netful")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("net")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("fish", classifier, "count", "netful"),
+            makeExamples("crab", classifier, "count", "netful"),
+            makeExamples("trout", classifier, "count", "netful"),
+            makeExamples("eel", classifier, "count", "netful"),
+        );
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for netfuls of aquatic animals: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("netful-div");
+            classifierDiv.setAttribute("id", "netful");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Netful of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("netful").appendChild(classifierH4);
+            document.getElementById("netful").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*cluster********************/
+    if(allMeasureWords.includes("cluster")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("cluster")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("star", classifier, "count", "cluster"),
+            makeExamples("mountain", classifier, "count", "cluster"),
+            makeExamples("boulder", classifier, "count", "cluster"),
+            makeExamples("fish", classifier, "count", "cluster"),
+            makeExamples("boat", classifier, "count", "cluster"),
+        );
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for collections of things in fields: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("cluster-div");
+            classifierDiv.setAttribute("id", "cluster");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Cluster of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("cluster").appendChild(classifierH4);
+            document.getElementById("cluster").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*fieldful********************/
+    if(allMeasureWords.includes("fieldful")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("field")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("herd", classifier, "count", "fieldful"),
+            makeExamples("crowd", classifier, "count", "fieldful"),
+            makeExamples("cow", classifier, "count", "fieldful"),
+            makeExamples("sheep", classifier, "count", "fieldful"),
+            makeExamples("blade&nbspof&nbspgrass", classifier, "mass", "fieldful"),
+            makeExamples("horse", classifier, "count", "fieldful"),
+            makeExamples("wagon", classifier, "count", "fieldful"),
+        );
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for spaced out groups of solid objects: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("fieldful-div");
+            classifierDiv.setAttribute("id", "fieldful");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Fieldful of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("fieldful").appendChild(classifierH4);
+            document.getElementById("fieldful").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*spoonful********************/
+    //if(allMeasureWords.includes("spoonful")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("spoon")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("bowl&nbspof&nbspporridge", classifier, "mass", "spoonful"),
+            makeExamples("portion&nbspof&nbspsauce", classifier, "mass", "spoonful"),
+            makeExamples("spoonful&nbspof&nbsphoney", classifier, "mass", "spoonful"),
+            makeExamples("pinch&nbspof&nbspsalt", classifier, "mass", "spoonful"),
+            makeExamples("dollop&nbspof&nbspcream", classifier, "mass", "spoonful"),
+            makeExamples("drop&nbspof&nbspoil", classifier, "mass", "spoonful"),
+            makeExamples("jar&nbspof&nbspjam", classifier, "mass", "spoonful"),
+            makeExamples("jar&nbspof&nbspmustard", classifier, "mass", "spoonful"),
+        );
+        
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for spoonfuls of substances: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("spoonful-div");
+            classifierDiv.setAttribute("id", "spoonful");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Spoonful of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("spoonful").appendChild(classifierH4);
+            document.getElementById("spoonful").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    //}
+
+
     }
 }
 
@@ -5224,7 +5579,7 @@ function chooseQuanitifers() {
     }
     table.appendChild(aLotOfRow);
 
-    //for the quantifier "some"
+    //for the quantifier "great-amount"
     let greatAmountRow = document.createElement("tr");
     let greatAmountTD = document.createElement("td");
     greatAmountTD.innerHTML = `<span class="great-amount sound-change"></span> <br/> "a great amount of, a multitude of"`

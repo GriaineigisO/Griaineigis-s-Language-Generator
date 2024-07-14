@@ -1,12 +1,5 @@
 # Immediate To-Do List
 
-26. pouring of (serving of liquid, libation)
-27. chunk of, clump of - irregularly shaped cutting/breaking off from a larger mass (flint blade, rock, ingot)
-28. shovelful of
-29. netful of (catch of fish)
-30. cluster of, spaced out group of solid objects (stars, mountains, boulders)
-31. fieldful of (herds, informal gatherings, crowds in public places)
-32. spoonful of/single bite fo food, sip of a drink
 33. object with rounded top, lump if (hill, wart, breast, bump, brow, knuckle)
 34. smattering of, splattering of (loosely grouped together collection of irregularly shaped objects, mostly liquids)
 35. stick of degradable material (chalk, candle, charcoal, incense)
@@ -176,6 +169,7 @@ Colour metaohors?
 - stellar < star
 - paternal kinsman < father
 - maternal kinsman < mother
+- libation < pour+nominaliser; divine-pouring; god's-drink; liquid-sacrifice; -backgive
 
 ## Derivational Morphology Ideas
 
@@ -184,9 +178,11 @@ Colour metaohors?
 
 ### Gender Swtiching
 
-### natural > artificial: 
+### natural > artificial:
+
 - things made from natural material
-	- 
+
+  -
 
 - natural animal > artificial - cooked meat from the animal
   - cow > beef

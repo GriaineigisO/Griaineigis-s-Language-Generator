@@ -170,6 +170,10 @@ Colour metaohors?
 - paternal kinsman < father
 - maternal kinsman < mother
 - libation < pour+nominaliser; divine-pouring; god's-drink; liquid-sacrifice; -backgive
+- adpo/adv > adjective
+  - here > present
+  - away > absent
+  
 
 ## Derivational Morphology Ideas
 

@@ -1475,7 +1475,7 @@ function makeDictionary() {
 
         let chosenMeanings = [];
         for(let i = 0; i < allWordsInThesaurus.length; i++) {
-            if(allWordsInThesaurus[i].includes(translationText) /*&& Math.floor(Math.random() * 2) === 1*/) {
+            if(allWordsInThesaurus[i].includes(translationText) /*&& Math.floor(Math.random() * 3) === 1*/) {
                 //removes the word from the array, to prevent the entry from listing the same word twice. The array is cloned so that the items in the original array are not removed and can be accessed upon each following generation
                 let thesaurusEntryArrayCopy = [].concat(allWordsInThesaurus[i]);
                 thesaurusEntryArrayCopy.splice(thesaurusEntryArrayCopy.indexOf(translationText), 1)
@@ -1488,10 +1488,8 @@ function makeDictionary() {
                     //removes the word from the array, to prevent the entry from listing the same word twice
                     thesaurusEntryArrayCopy.splice(randomItem, 1);
                 }
-                
                 let additionalMeanings = chosenMeanings.join(", ");
                 translation.innerHTML = `"${translationText}, ${additionalMeanings}"`; 
-                console.log(translation.innerHTML)
                 break;
             } else {
                 translation.innerHTML = `"${translationText}"`;

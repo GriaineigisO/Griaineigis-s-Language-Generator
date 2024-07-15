@@ -18,7 +18,7 @@ import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedA
 
 import {spell} from './orthography.js'
 import {soundChange} from './soundchange.js'
-
+import { allWordsInThesaurus} from './thesaurus.js'
 
 const animateArray = [];
 const inanimateArray = [];
@@ -44,11 +44,10 @@ function Dictionary(word, partOfSpeech, translation, classifierExplanation)  {
 
 let word1 = "";
 let wordWithAffix = "";
-let classifierInfo = "";;
+let classifierInfo = "";
+let additionalEnglishMeanings = "";
 
 function makeDictionary() {
-
-
     let englishWords = countNounArray.concat(massNounArray, adjectiveArray, transitiveVerbArray, intransitiveVerbArray, adverbArray, conjunctionArray, adpositionArray, intensifierArray);
 
     let languageWords = generatedCountNouns.concat(generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers);
@@ -849,8 +848,6 @@ function makeDictionary() {
             }
         }
         
-    
-        
         word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo);
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
@@ -859,7 +856,10 @@ function makeDictionary() {
 
         headWord.innerHTML = word1.word;
         pOS.innerHTML = word1.partOfSpeech;
-        meaning.innerHTML = `"${word1.translation}"`;
+        meaning.innerHTML = word1.translation;
+
+        
+        
         classiferEtymology.innerHTML = word1.classifierExplanation;
 
         let entry = document.createElement("div");
@@ -1472,8 +1472,33 @@ function makeDictionary() {
 
         let translation = document.createElement("span");
         translation.style.fontSize = "18px";
-        translation.innerHTML = translationText;
 
+        let chosenMeanings = [];
+        for(let i = 0; i < allWordsInThesaurus.length; i++) {
+            if(allWordsInThesaurus[i].includes(translationText) /*&& Math.floor(Math.random() * 2) === 1*/) {
+                //removes the word from the array, to prevent the entry from listing the same word twice. The array is cloned so that the items in the original array are not removed and can be accessed upon each following generation
+                let thesaurusEntryArrayCopy = [].concat(allWordsInThesaurus[i]);
+                thesaurusEntryArrayCopy.splice(thesaurusEntryArrayCopy.indexOf(translationText), 1)
+
+                //selects a random near-synonmous word
+                let randomAmountOfAdditionalMeanings = Math.floor(Math.random() * thesaurusEntryArrayCopy.length) + 1;
+                for(let j = 0; j < randomAmountOfAdditionalMeanings; j++) {
+                    let randomItem = Math.floor(Math.random() * thesaurusEntryArrayCopy.length);
+                    chosenMeanings.push(thesaurusEntryArrayCopy[randomItem]);
+                    //removes the word from the array, to prevent the entry from listing the same word twice
+                    thesaurusEntryArrayCopy.splice(randomItem, 1);
+                }
+                
+                let additionalMeanings = chosenMeanings.join(", ");
+                translation.innerHTML = `"${translationText}, ${additionalMeanings}"`; 
+                console.log(translation.innerHTML)
+                break;
+            } else {
+                translation.innerHTML = `"${translationText}"`;
+            }
+        } 
+      
+        
         //for additional information in entries such as etmyology and such
         let classifierEtymology = document.createElement("span");
         classifierEtymology.style.fontSize = "16px";
@@ -1507,6 +1532,7 @@ function makeDictionary() {
         let translation = document.createElement("span");
         translation.style.fontSize = "18px";
         translation.innerHTML = translationText;
+        
 
         entryEnglish[i].innerHTML = "";
         entryEnglish[i].appendChild(headWord)

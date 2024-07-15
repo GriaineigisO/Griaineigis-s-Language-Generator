@@ -101,10 +101,6 @@ function addWords() {
     transitiveVerb3SArray.push("buys");
     transitiveVerbPastArray.push("bought");
 
-    transitiveVerbArray.push("");
-    transitiveVerb3SArray.push("s");
-    transitiveVerbPastArray.push("ed");
-
     transitiveVerbArray.push("carry");
     transitiveVerb3SArray.push("carries");
     transitiveVerbPastArray.push("carried");
@@ -186,7 +182,7 @@ function addWords() {
     transitiveVerbPastArray.push("divided");
 
     transitiveVerbArray.push("do");
-    transitiveVerb3SArray.push("es");
+    transitiveVerb3SArray.push("does");
     transitiveVerbPastArray.push("did");
 
     transitiveVerbArray.push("drink");
@@ -680,10 +676,6 @@ function addWords() {
     transitiveVerbArray.push("use");
     transitiveVerb3SArray.push("uses");
     transitiveVerbPastArray.push("used");
-
-    transitiveVerbArray.push("");
-    transitiveVerb3SArray.push("s");
-    transitiveVerbPastArray.push("ed");
 
     transitiveVerbArray.push("want");
     transitiveVerb3SArray.push("wants");

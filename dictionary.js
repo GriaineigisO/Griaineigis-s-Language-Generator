@@ -1,4 +1,4 @@
-//@collapse
+
 import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, flowerExample, randomNumForFlower, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, 
     adjectiveArray, 
     conjunctionArray,
@@ -1475,10 +1475,10 @@ function makeDictionary() {
 
         let chosenMeanings = [];
         for(let i = 0; i < allWordsInThesaurus.length; i++) {
-            if(allWordsInThesaurus[i].includes(translationText) /*&& Math.floor(Math.random() * 3) === 1*/) {
+            if(allWordsInThesaurus[i][0] === translationText && Math.floor(Math.random() * 3) === 1) {
                 //removes the word from the array, to prevent the entry from listing the same word twice. The array is cloned so that the items in the original array are not removed and can be accessed upon each following generation
                 let thesaurusEntryArrayCopy = [].concat(allWordsInThesaurus[i]);
-                thesaurusEntryArrayCopy.splice(thesaurusEntryArrayCopy.indexOf(translationText), 1)
+                thesaurusEntryArrayCopy.splice(0, 1)
 
                 //selects a random near-synonmous word
                 let randomAmountOfAdditionalMeanings = Math.floor(Math.random() * thesaurusEntryArrayCopy.length) + 1;
@@ -1489,10 +1489,19 @@ function makeDictionary() {
                     thesaurusEntryArrayCopy.splice(randomItem, 1);
                 }
                 let additionalMeanings = chosenMeanings.join(", ");
-                translation.innerHTML = `"${translationText}, ${additionalMeanings}"`; 
+                if(pOSText[0] === "v") {
+                    translation.innerHTML = `"to ${translationText}, ${additionalMeanings}"`; 
+                } else {
+                    translation.innerHTML = `"${translationText}, ${additionalMeanings}"`; 
+                }
+                
                 break;
             } else {
-                translation.innerHTML = `"${translationText}"`;
+                if(pOSText[0] === "v") {
+                        translation.innerHTML = `"to ${translationText}"`;
+                } else {
+                    translation.innerHTML = `"${translationText}"`; 
+                }
             }
         } 
       

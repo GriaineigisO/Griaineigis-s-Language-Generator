@@ -109,10 +109,6 @@ function addWords() {
     intransitiveVerb3SArray.push("flees");
     intransitiveVerbPastArray.push("fled");
 
-    intransitiveVerbArray.push("");
-    intransitiveVerb3SArray.push("s");
-    intransitiveVerbPastArray.push("ed");
-
     intransitiveVerbArray.push("float");
     intransitiveVerb3SArray.push("floats");
     intransitiveVerbPastArray.push("floated");

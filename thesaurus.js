@@ -1,31 +1,101 @@
 
 let allWordsInThesaurus = [];
 
-let aliveArray = ["alive", "extant"];
+let aliveArray = ["alive", "extant", "living", "viable", "vital", "active", "alert"];
 allWordsInThesaurus.push(aliveArray);
 
 let dogArray = ["dog", "hound", "canid"];
 allWordsInThesaurus.push(dogArray);
 
-let enemyArray = ["enemy", "opponent", "demon"];
+let enemyArray = ["enemy", "opponent", "demon", "foe", "antagonist"];
 allWordsInThesaurus.push(enemyArray);
 
-let violentArray = ["violent", "aggressive", "dangerous"];
+let genocideArray = ["genocide", "annihilation", "ethnic&nbspcleansing"];
+allWordsInThesaurus.push(genocideArray);
+
+let violentArray = ["violent", "aggressive", "dangerous", "extreme", "vehement", "rampant", "boisterous", "vicious", "abrupt"];
 allWordsInThesaurus.push(violentArray);
 
-let jewelArray = ["jewel", "gem", "beautiful&nbspwoman"];
+let jewelArray = ["jewel", "gem", "ornament", "diamond", "crystal", "pearl", "beautiful&nbspwoman"];
 allWordsInThesaurus.push(jewelArray);
 
-let newArray = ["new", "fresh", "recent"];
+let newArray = ["new", "fresh", "recent", "novel", "unknown", "original", "unique", "unprecedented"];
 allWordsInThesaurus.push(jewelArray);
 
-let mouseArray = ["mouse", "rodent", "pest", "scoundral", "rat", "nuissance"];
+let mouseArray = ["mouse", "rodent", "pest", "scoundrel", "rat", "nuissance"];
 allWordsInThesaurus.push(mouseArray);
 
-let afflictionArray = ["affliction", "disease", "blemish", "vice", "negative&nbsptrait", "curse"];
+let afflictionArray = ["affliction", "disease", "blemish", "vice", "negative&nbsptrait", "curse", "scourge", "virus", "poison", "venom", "arsenic", "plague", "demon"];
 allWordsInThesaurus.push(afflictionArray);
 
-let belchArray = ["belch", "burp", "rudely&nbspinterject"];
-allWordsInThesaurus.push(afflictionArray);
+let belchArray = ["belch", "to&nbspburp", "to&nbsprudely&nbspinterject"];
+allWordsInThesaurus.push(belchArray);
+
+let moveArray = ["move", "to&nbspwriggle", "to&nbspstir, to&nbspdrift", "to&nbspwander"];
+allWordsInThesaurus.push(moveArray);
+
+let jumpArray = ["jump", "to&nbspleap", "to&nbsphop, to&nbspdrift", "to&nbspskip", "to&nbspsuddenly&nbspchange", "to&nbspbound", "to&nbsplunge", "to&nbsppounce", "to&nbspdance"];
+allWordsInThesaurus.push(jumpArray);
+
+let standArray = ["stand", "to&nbspremain", "to&nbspexist", "to&nbspwait"];
+allWordsInThesaurus.push(standArray);
+
+let fightArray = ["fight", "to&nbspquarrel", "to&nbspbattle", "to&nbspwage&nbspwar", "to&nbspresist", "to&nbspinjure", "to&nbspharm", "to&nbspcome&nbspinto&nbspconflict"];
+allWordsInThesaurus.push(fightArray);
+
+let employArray = ["employ", "to&nbspuse", "to&nbspmake&nbspuse&nbspof"];
+allWordsInThesaurus.push(employArray);
+
+let richArray = ["rich", "affluent", "wealthy", "abundant", "luxurious", "good", "well&nbspoff", "well&nbspfavoured", "luscious", "exquisite", "(of&nbspcolour)&nbspvivd,&nbspintense", ];
+allWordsInThesaurus.push(richArray);
+
+let emptyArray = ["empty", "absent", "not&nbsppresent", "clear", "transparent", "omitted", "void", "blank", "invalid", "hollow", "deserted", "vacant", "drained", "useless"];
+allWordsInThesaurus.push(emptyArray);
+
+let membraneArray = ["membrane", "film", "thin&nbsplayer", "scum", "coating"];
+allWordsInThesaurus.push(membraneArray);
+
+let oathArray = ["oath", "promise", "law", "declaration", "word", "affirmation", "pledge"];
+allWordsInThesaurus.push(oathArray);
+
+let landArray = ["land", "ground", "earth", "estate", "territory", "area", "region"];
+allWordsInThesaurus.push(landArray);
+
+let fingerArray = ["finger", "probe", "probing stick"];
+allWordsInThesaurus.push(fingerArray);
+
+let happyArray = ["happy", "cheerful", "upbeat", "positive", "delightful", "fun", "glad", "fortunate", "lucky", "smiling", "pleased", "satisfied", "at ease", "comfortable"];
+allWordsInThesaurus.push(happyArray);
+
+let brownArray = ["brown", "muddy", "smeared", "dull", "dim"];
+allWordsInThesaurus.push(brownArray);
+
+let baldArray = ["bald", "bare", "exposed", "uncovered", "roofless", "unclad", "naked"];
+allWordsInThesaurus.push(baldArray);
+
+let pitchArray = ["pitch", "to set up", "to establish", "to bring forth","to found (a group, a society)"];
+allWordsInThesaurus.push(pitchArray);
+
+let streamArray = ["stream", "brook", "small river", "tributary", "tap", "shower", "outflow"];
+allWordsInThesaurus.push(streamArray);
+
+let normalArray = ["normal", "typical", "usual", "ordinary", "expected", "regular", "consistent"];
+allWordsInThesaurus.push(normalArray);
+
+let darkArray = ["dark", "black", "evil", "unknown", "bad", "wicked", "obscure", "hard&nbspto&nbspsee", "shaded", "blind", "joyless", "insidious", "hateful", "monstrous", "dim", "dull", "lack-luster", "dingy", "bleak", "miserable", "dirty", "(of the sky)&nbspovercast", "looming"];
+allWordsInThesaurus.push(darkArray);
+
+let divineArray = ["holy", "divine", "sacred", "godly", "fateful", "hallowed", "celestial", "heavenly", "supreme"];
+allWordsInThesaurus.push(divineArray);
+
+let ravenArray = ["raven", "corvid", "clever person", "coniving person"];
+allWordsInThesaurus.push(ravenArray);
+
+let huntArray = ["hunt", "to seek out", "to prowl", "to stalk", "to track down", "to chase down", "to kill", "to slaughter", "to pursue"];
+allWordsInThesaurus.push(huntArray);
+
+let weakArray = ["weak", "feeble", "brittle", "pathetic", "pitiful", "unconvincing", "lame", "(of water) still, stagnant, slow-flowing", "languid", "lethargic", "impotent", "sterile", "infertile", "barren", "flaccid", "heaf-hearted", "asthenic", "powerless", "soft", "infirm", "faint", "(of colour) bleached, faded", "effeminate", "flimsy"];
+allWordsInThesaurus.push(weakArray);
+
 
 export { allWordsInThesaurus };

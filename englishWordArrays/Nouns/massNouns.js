@@ -85,6 +85,20 @@ function addWords() {
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
+    massNounArray.push("bark");
+    singulativeMassNounArray.push("strip&nbspof&nbspbark");
+    pluralSingulativeMassNounArray.push("strips&nbspof&nbspbark");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("masculine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("inedible");
+    shapeClassifierMassArray.push("long-and-slender");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+    
     massNounArray.push("beer");
     singulativeMassNounArray.push("pint&nbspof&nbspbeer");
     pluralSingulativeMassNounArray.push("pints&nbspof&nbspbeer");
@@ -141,6 +155,20 @@ function addWords() {
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
+    massNounArray.push("candle&nbspwax");
+    singulativeMassNounArray.push("stick&nbspof&nbspcandle&nbspwax");
+    pluralSingulativeMassNounArray.push("sticks&nbspof&nbspcandle&nbspwax");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("inedible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+
     massNounArray.push("dirt");
     singulativeMassNounArray.push("handful&nbspof&nbspdirt");
     pluralSingulativeMassNounArray.push("handfuls&nbspof&nbspdirt");
@@ -183,6 +211,20 @@ function addWords() {
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
+    massNounArray.push("chalk");
+    singulativeMassNounArray.push("stick&nbspof&nbspchalk");
+    pluralSingulativeMassNounArray.push("sticks&nbspof&nbschalk");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("inedible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+
     massNounArray.push("charcoal");
     singulativeMassNounArray.push("clump&nbspof&nbspcharcoal");
     pluralSingulativeMassNounArray.push("clumps&nbspof&nbspcharcoal");
@@ -210,6 +252,20 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+
+    massNounArray.push("cloth");
+    singulativeMassNounArray.push("patch&nbspof&nbspcloth");
+    pluralSingulativeMassNounArray.push("patches&nbspof&nbspcloth");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("artificial");
+    animacyClassifierMassArray.push("inedible");
+    shapeClassifierMassArray.push("flat");
+    shortGenericClassifierMassArray.push("tool");
 
     massNounArray.push("cream");
     singulativeMassNounArray.push("dollop&nbspof&nbspcream");
@@ -379,6 +435,20 @@ function addWords() {
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
+    massNounArray.push("hail");
+    singulativeMassNounArray.push("downpour&nbspof&nbsphail");
+    pluralSingulativeMassNounArray.push("downpours&nbspof&nbsphail");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("masculine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("inedible");
+    shapeClassifierMassArray.push("rown");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+
     massNounArray.push("hair");
     singulativeMassNounArray.push("strand&nbspof&nbsphair");
     pluralSingulativeMassNounArray.push("strands&nbspof&nbsphairs");
@@ -438,6 +508,20 @@ function addWords() {
     massNounArray.push("ice");
     singulativeMassNounArray.push("chunk&nbspof&nbspice");
     pluralSingulativeMassNounArray.push("chunks&nbspof&nbspice");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("inedible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+
+    massNounArray.push("incense");
+    singulativeMassNounArray.push("stick&nbspof&nbspincense");
+    pluralSingulativeMassNounArray.push("sticks&nbspof&nbspincense");
     activePassiveMass.push("passive")
     animInanMass.push("inan");
     divineNonDivineMass.push("profane");

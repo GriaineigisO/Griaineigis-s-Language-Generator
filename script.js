@@ -1,4 +1,4 @@
-//@collapse
+
 import { countNounArray, countNounArrayPlural, animInan, mascFem, mascFemNeut, humanAnimalInan, activePassive, naturalArtificial, shapeClassifierArray, animacyClassifierArray, shortGenericClassifierArray, divineNonDivine} from './englishWordArrays/Nouns/countNouns.js';
 import {massNounArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray} from './englishWordArrays/Nouns/massNouns.js'
 import {adjectiveArray, comparativeAdjectiveArray } from './englishWordArrays/Adjectives/englishAdjectives.js';
@@ -234,6 +234,8 @@ let intrusionClassifier = "";
 let enclosedClassifier = "";
 let piercingClassifier = "";
 let percussiveClassifier = "";
+let instanceClassifier = "";
+let completedClassifier = "";
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
@@ -1125,7 +1127,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -1479,20 +1481,28 @@ function checkIfHeadInitialOrHeadFinal() {
 /**ISOLATING NOUNS****/
 let grammaticalNumIsolating = 0;
 function randomNumForIsolatingGrammaticalNumbers() {
-    grammaticalNumIsolating = 8//Math.floor(Math.random() * 11)
+    grammaticalNumIsolating = 12//Math.floor(Math.random() * 16)
     if(grammaticalNumIsolating < 5) {
         document.getElementById("isolating-quanitifers-only").style.display = "block";
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "none";
+        document.getElementById("isolating-sg-pl").style.display = "none";
     } 
     if(grammaticalNumIsolating >= 5 && grammaticalNumIsolating < 10) {
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "block";
         document.getElementById("isolating-quanitifers-only").style.display = "none";
+        document.getElementById("isolating-sg-pl").style.display = "none";
+    }
+    if(grammaticalNumIsolating >= 10 && grammaticalNumIsolating < 15) {
+        document.getElementById("isolating-sg-pl").style.display = "block";
+        document.getElementById("isolating-quanitifers-only").style.display = "none";
+        document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "none";
+        
     }
 }
 
 let randomClassifierNum = 0;
 function chooseClassifierSystem() {
-    if(typologyNum === 0) {
+    if(typologyNum === 0 && grammaticalNumIsolating >=5 && grammaticalNumIsolating < 10 ) {
         randomClassifierNum = Math.floor(Math.random() * 4);
         if(randomClassifierNum === 0) {
             document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
@@ -2303,6 +2313,9 @@ function makeExamples(word, classifier, countOrMass, quantifier) {
     }
     if(fixedWord === "fieldful&nbspof&nbspcrowds") {
         fixedWord = "fieldful&nbspof&nbspcrowds (i.e gatherings of people in fields or open natural spaces)"
+    }
+    if(fixedWord === "stick&nbspof&nbspcandle&nbspwax") {
+        fixedWord = "stick&nbspof&nbspcandle&nbspwax (i.e a candle)"
     }
     
     if (checkIfHeadInitialOrHeadFinal() === "headFirst") {
@@ -3704,7 +3717,7 @@ descriptionSpan.classList.add("indent-except-first-line");
 
 function createMeasureWords() {
     if(typologyNum === 0) {    
-    let allMeasureWords = ["handful", "bagful", "stack", "droplet", "pair", "cup", "serving-food", "row", "bundle", "barrel", "strand", "set","gust", "pouring", "chunk", "shovelful", "netful", "cluster", "fieldful", "spoonful","eon", "day", "strip", "cutting", "selection", "wisp", "roll", "degradable", "revolution"]
+    let allMeasureWords = ["handful", "bagful", "stack", "droplet", "pair", "cup", "serving-food", "row", "bundle", "barrel", "strand", "set","gust", "pouring", "chunk", "shovelful", "netful", "cluster", "fieldful", "spoonful","eon", "day", "strip", "cutting", "selection", "wisp", "roll", "degradable", "revolution", "splatter"]
 
     let chosenMeasureWords = [];
     let randomNum2 = Math.floor(Math.random() * (allMeasureWords.length - 12)) + 12;   
@@ -4814,7 +4827,7 @@ descriptionSpan.classList.add("indent-except-first-line");
     }
 
     /*spoonful********************/
-    //if(allMeasureWords.includes("spoonful")) {
+    if(allMeasureWords.includes("spoonful")) {
         let classifier = generatedCountNouns[countNounArray.indexOf("spoon")]
         
         let allExamples = [];
@@ -4862,9 +4875,244 @@ descriptionSpan.classList.add("indent-except-first-line");
             descriptionSpan.innerHTML = description;
             document.getElementById("measure-words").appendChild(descriptionSpan);
         }
-    //}
+    }
 
+    /*strip********************/
+    if(allMeasureWords.includes("strip")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("strip")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("strip&nbspof&nbspbark", classifier, "mass", "strip"),
+            makeExamples("strip&nbspof&nbspleather", classifier, "mass", "strip"),
+            makeExamples("sheet&nbspof&nbsppaper", classifier, "mass", "strip"),
 
+        );
+        
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for strips of materials: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("strip-div");
+            classifierDiv.setAttribute("id", "strip");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Strip of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("strip").appendChild(classifierH4);
+            document.getElementById("strip").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*splatter********************/
+    if(allMeasureWords.includes("splatter")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("splatter")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("drop&nbspof&nbspblood", classifier, "mass", "splattering"),
+            makeExamples("rock", classifier, "count", "smattering"),
+            makeExamples("seed", classifier, "count", "smattering"),
+
+        );
+        
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for smatterings or splatterings of loosely grouped together collection of irregularly shaped objects, mostly liquids: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("splatter-div");
+            classifierDiv.setAttribute("id", "splatter");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Splattering of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("splatter").appendChild(classifierH4);
+            document.getElementById("splatter").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*degradable********************/
+    if(allMeasureWords.includes("degradable")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("stick")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("stick&nbspof&nbspcandle&nbspwax", classifier, "mass", "stick"),
+            makeExamples("stick&nbspof&nbspchalk", classifier, "mass", "stick"),
+            makeExamples("clump&nbspof&nbspcharcoal", classifier, "mass", "stick"),
+            makeExamples("stick&nbspof&nbspincense", classifier, "mass", "stick"),
+
+        );
+        
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for sticks of degradable materials: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("degradable-div");
+            classifierDiv.setAttribute("id", "degradable");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Splattering of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("degradable").appendChild(classifierH4);
+            document.getElementById("degradable").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*roll********************/
+    if(allMeasureWords.includes("roll")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("roll")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("scroll", classifier, "count", "roll"),
+            makeExamples("sheet&nbspof&nbsppaper", classifier, "mass", "roll"),
+            makeExamples("rug", classifier, "count", "roll"),
+            makeExamples("sail", classifier, "count", "roll"),
+        );
+        
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for rools or sheets of wrappable materials: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("roll-div");
+            classifierDiv.setAttribute("id", "roll");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Roll of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("roll").appendChild(classifierH4);
+            document.getElementById("roll").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
+
+    /*cutting********************/
+    if(allMeasureWords.includes("cutting")) {
+        let classifier = generatedCountNouns[countNounArray.indexOf("roll")]
+        
+        let allExamples = [];
+        allExamples.push(
+            makeExamples("chunk&nbspof&nbspwood", classifier, "mass", "shaving"),
+            makeExamples("strand&nbspof&nbsphair", classifier, "mass", "lock"),
+            makeExamples("downpour&nbspof&nbsphail", classifier, "mass", "downpour"),
+            makeExamples("handful&nbspof&nbspsnow", classifier, "mass", "downpour"),
+            makeExamples("chunk&nbspof&nbspiron", classifier, "mass", "shaving"),
+        );
+        
+
+        let chosenExamples = []; 
+        let randomExampleNum = Math.floor(Math.random() * (allExamples.length - 4)) + 4;
+        for(let i= 0; i < randomExampleNum; i++) {
+            let randomIndex = Math.floor(Math.random() * allExamples.length);
+            chosenExamples.push(allExamples[randomIndex]);
+            allExamples.splice(randomIndex, 1);
+        }
+        
+        const listOfExamples = [];
+        chosenExamples.forEach((element) => listOfExamples.push(element));
+        listOfExamples.pop()
+        listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
+        let examples =  listOfExamples.join(", ");
+        let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for cuttings or shavings of materials. It may also be used for outpours or outbursts of droplets or particles: ${examples}</br>`;
+
+        if(randomClassifierFormattingNum === 1) {
+            let classifierDiv = document.createElement("div");
+            classifierDiv.classList.add("cutting-div");
+            classifierDiv.setAttribute("id", "cutting");
+            let classifierH4 = document.createElement("h4");
+            classifierH4.innerHTML = `Cutting of - <i>${spell(soundChange(classifier))}</i>`;
+            let classifierP = document.createElement("p");
+            classifierP.innerHTML = description
+            document.getElementById("measure-words").appendChild(classifierDiv);
+            document.getElementById("cutting").appendChild(classifierH4);
+            document.getElementById("cutting").appendChild(classifierP);
+        }  else {
+            let descriptionSpan = document.createElement("span");
+            descriptionSpan.classList.add("indent-except-first-line");
+            descriptionSpan.innerHTML = description;
+            document.getElementById("measure-words").appendChild(descriptionSpan);
+        }
+    }
     }
 }
 
@@ -5307,6 +5555,73 @@ function IsolatingNouns() {
     }
 }
 
+function isolatingPlural() {
+    if(typologyNum === 0 && grammaticalNumIsolating >= 10 && grammaticalNumIsolating < 15) {
+        let randomPlural = 1//Math.floor(Math.random() * 2);
+        if(randomPlural === 0) {
+            //plural is marked by placing a plural particle before of after the noun
+            document.getElementById("plural-with-particle").style.display = "block";
+            document.getElementById("plural-with-reduplication").style.display = "none";
+
+            let plural = document.getElementsByClassName("isolating-plural");
+            let isolatingPlural = "";
+            let wordsToMarkPluralArray = ["man", "child", "group", "person"];
+            let randomNumForPlural = Math.floor(Math.random() * wordsToMarkPluralArray.length)
+            for(let i = 0; i < plural.length; i++) {
+                plural[i].innerHTML = `<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(wordsToMarkPluralArray[randomNumForPlural])]))}</i>`;
+                isolatingPlural = spell(soundChange(generatedCountNouns[countNounArray.indexOf(wordsToMarkPluralArray[randomNumForPlural])]));
+
+            }
+            if(randomNumForPlural === 0) {
+                document.getElementById("isolating-plural-particle-etymology").innerHTML = `<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf("man")]))}</i> meaning "man"`;
+            } else if(randomNumForPlural === 1) {
+                document.getElementById("isolating-plural-particle-etymology").innerHTML = `<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf("child")]))}</i> meaning "child"`;
+            } else if(randomNumForPlural === 2) {
+                document.getElementById("isolating-plural-particle-etymology").innerHTML = `<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf("group")]))}</i> meaning "group"`;
+            } else if(randomNumForPlural === 3) {
+                document.getElementById("isolating-plural-particle-etymology").innerHTML = `<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf("person")]))}</i> meaning "person"`;
+            }
+
+            let examples = document.getElementById("isolating-plural-particle-examples");
+            if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+                let exampleArray = [];
+                for(let i = 0; i < 10; i++) {
+                    let randomNumForExamples = Math.floor(Math.random() * countNounArray.length);
+                    let randomExample = `<i>${spell(soundChange(generatedCountNouns[randomNumForExamples]))} ${isolatingPlural}</i> "${countNounArrayPlural[randomNumForExamples]}"`;
+                    exampleArray.push(randomExample);
+                }
+                let joinedArray = exampleArray.join(", ")
+                examples.innerHTML = joinedArray;
+            } else {
+                let exampleArray = [];
+                for(let i = 0; i < 10; i++) {
+                    let randomNumForExamples = Math.floor(Math.random() * countNounArray.length);
+                    let randomExample = `<i>${isolatingPlural} ${spell(soundChange(generatedCountNouns[randomNumForExamples]))} </i> "${countNounArrayPlural[randomNumForExamples]}"`;
+                    exampleArray.push(randomExample);
+                }
+                let joinedArray = exampleArray.join(", ")
+                examples.innerHTML = joinedArray;
+            }
+
+        } else {
+            //the plural is marked by repeating the noun twice
+            document.getElementById("plural-with-particle").style.display = "none";
+            document.getElementById("plural-with-reduplication").style.display = "block";
+
+            let examples = document.getElementById("isolating-plural-reduplication-examples");
+   
+            let exampleArray = [];
+            for(let i = 0; i < 10; i++) {
+                let randomNumForExamples = Math.floor(Math.random() * countNounArray.length);
+                let randomExample = `<i>${spell(soundChange(generatedCountNouns[randomNumForExamples]))} ${spell(soundChange(generatedCountNouns[randomNumForExamples]))} "${countNounArrayPlural[randomNumForExamples]}"`;
+                exampleArray.push(randomExample);
+            }
+            let joinedArray = exampleArray.join(", ")
+            examples.innerHTML = joinedArray;
+        
+        }
+    }
+}
 
 function chooseQuanitifers() {
     //the quantifiers "few, several" and "a lot of" are always shown by default, the rest are randomly shown or not shown.
@@ -7576,6 +7891,7 @@ function generateLanguage() {
     createLongClassifiers();
     createMeasureWords();
     IsolatingNouns();
+    isolatingPlural();
     callClassifierExamples();
     chooseQuanitifers();
     createQuantifiers();

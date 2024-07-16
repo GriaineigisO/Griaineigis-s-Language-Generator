@@ -1,18 +1,3 @@
-# Immediate To-Do List
-
-33. object with rounded top, lump if (hill, wart, breast, bump, brow, knuckle)
-34. smattering of, splattering of (loosely grouped together collection of irregularly shaped objects, mostly liquids)
-35. stick of degradable material (chalk, candle, charcoal, incense)
-36. roll of/sheet of wrapable material (cloth, scroll, rug, sail)
-
-37. selection of, display of, spread of items across a flat surface (items spread out in a market for display, of text: paragraph), coat of paint, of open habitats (swamp, meadow, steppe, grassland, sea)
-38. dull percussive object (club, rod, hammer, mallet, mace, bow > and by extension bow for string instruments and any musical utensils, and by more extension music), bent elongated objects: bow (of archery), hook, rib, curved beam, arch
-39. strip of (of bark, belt, whip, )
-40. cutting of (shavings, cut lock of hair - an by extension brush), shaving of (sandpaper and by extension powder), outpour of droplets (rain, hail, snow)
-41. instances of, times
-42. completed action
-43. eon of, unspecified long time of
-44. day of
 
 - Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
   - Etymologies for the plural: all, children, people, third person plural, three.

@@ -1481,21 +1481,24 @@ function checkIfHeadInitialOrHeadFinal() {
 /**ISOLATING NOUNS****/
 let grammaticalNumIsolating = 0;
 function randomNumForIsolatingGrammaticalNumbers() {
-    grammaticalNumIsolating = 12//Math.floor(Math.random() * 16)
+    grammaticalNumIsolating = Math.floor(Math.random() * 16)
     if(grammaticalNumIsolating < 5) {
         document.getElementById("isolating-quanitifers-only").style.display = "block";
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "none";
         document.getElementById("isolating-sg-pl").style.display = "none";
+        document.getElementById("quantifiers2").style.display = "none";
     } 
     if(grammaticalNumIsolating >= 5 && grammaticalNumIsolating < 10) {
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "block";
         document.getElementById("isolating-quanitifers-only").style.display = "none";
         document.getElementById("isolating-sg-pl").style.display = "none";
+        document.getElementById("quantifiers2").style.display = "block";
     }
     if(grammaticalNumIsolating >= 10 && grammaticalNumIsolating < 15) {
         document.getElementById("isolating-sg-pl").style.display = "block";
         document.getElementById("isolating-quanitifers-only").style.display = "none";
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "none";
+        document.getElementById("quantifiers2").style.display = "block";
         
     }
 }
@@ -5555,21 +5558,23 @@ function IsolatingNouns() {
     }
 }
 
+let isolatingPluralNum = 0;
+let isolatingPluralParticle = "";
 function isolatingPlural() {
     if(typologyNum === 0 && grammaticalNumIsolating >= 10 && grammaticalNumIsolating < 15) {
-        let randomPlural = Math.floor(Math.random() * 2);
-        if(randomPlural === 0) {
+        isolatingPluralNum = Math.floor(Math.random() * 2);
+        if(isolatingPluralNum === 0) {
             //plural is marked by placing a plural particle before of after the noun
             document.getElementById("plural-with-particle").style.display = "block";
             document.getElementById("plural-with-reduplication").style.display = "none";
 
             let plural = document.getElementsByClassName("isolating-plural");
-            let isolatingPlural = "";
+            
             let wordsToMarkPluralArray = ["man", "child", "group", "person"];
             let randomNumForPlural = Math.floor(Math.random() * wordsToMarkPluralArray.length)
             for(let i = 0; i < plural.length; i++) {
                 plural[i].innerHTML = `<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(wordsToMarkPluralArray[randomNumForPlural])]))}</i>`;
-                isolatingPlural = spell(soundChange(generatedCountNouns[countNounArray.indexOf(wordsToMarkPluralArray[randomNumForPlural])]));
+                isolatingPluralParticle = spell(soundChange(generatedCountNouns[countNounArray.indexOf(wordsToMarkPluralArray[randomNumForPlural])]));
 
             }
             if(randomNumForPlural === 0) {
@@ -5587,7 +5592,7 @@ function isolatingPlural() {
                 let exampleArray = [];
                 for(let i = 0; i < 10; i++) {
                     let randomNumForExamples = Math.floor(Math.random() * countNounArray.length);
-                    let randomExample = `<i>${spell(soundChange(generatedCountNouns[randomNumForExamples]))} ${isolatingPlural}</i> "${countNounArrayPlural[randomNumForExamples]}"`;
+                    let randomExample = `<i>${spell(soundChange(generatedCountNouns[randomNumForExamples]))} ${isolatingPluralParticle}</i> "${countNounArrayPlural[randomNumForExamples]}"`;
                     exampleArray.push(randomExample);
                 }
                 let joinedArray = exampleArray.join(", ")
@@ -5596,7 +5601,7 @@ function isolatingPlural() {
                 let exampleArray = [];
                 for(let i = 0; i < 10; i++) {
                     let randomNumForExamples = Math.floor(Math.random() * countNounArray.length);
-                    let randomExample = `<i>${isolatingPlural} ${spell(soundChange(generatedCountNouns[randomNumForExamples]))} </i> "${countNounArrayPlural[randomNumForExamples]}"`;
+                    let randomExample = `<i>${isolatingPluralParticle} ${spell(soundChange(generatedCountNouns[randomNumForExamples]))} </i> "${countNounArrayPlural[randomNumForExamples]}"`;
                     exampleArray.push(randomExample);
                 }
                 let joinedArray = exampleArray.join(", ")
@@ -5613,7 +5618,7 @@ function isolatingPlural() {
             let exampleArray = [];
             for(let i = 0; i < 10; i++) {
                 let randomNumForExamples = Math.floor(Math.random() * countNounArray.length);
-                let randomExample = `<i>${spell(soundChange(generatedCountNouns[randomNumForExamples]))} ${spell(soundChange(generatedCountNouns[randomNumForExamples]))} "${countNounArrayPlural[randomNumForExamples]}"`;
+                let randomExample = `<i>${spell(soundChange(generatedCountNouns[randomNumForExamples]))} ${spell(soundChange(generatedCountNouns[randomNumForExamples]))}</i> "${countNounArrayPlural[randomNumForExamples]}"`;
                 exampleArray.push(randomExample);
             }
             let joinedArray = exampleArray.join(", ")
@@ -5958,6 +5963,25 @@ function createQuantifiers() {
         }
     }
 
+    function createNoClassifierReduplicatingPluralExample(example, quantifierEnglish, quantifierLanguage) {
+        let randomNoun = countNounArray[Math.floor(Math.random() * countNounArray.length)];
+        if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+            example.innerHTML = `<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(randomNoun)]))} ${spell(soundChange(generatedCountNouns[countNounArray.indexOf(randomNoun)]))} ${quantifierLanguage}</i> "${quantifierEnglish} ${countNounArrayPlural[countNounArray.indexOf(randomNoun)]}"`;
+        } else if(checkIfHeadInitialOrHeadFinal() === "headFinal") {
+            example.innerHTML = `<i>${spell(soundChange(quantifierLanguage))} ${spell(soundChange(generatedCountNouns[countNounArray.indexOf(randomNoun)]))} ${spell(soundChange(generatedCountNouns[countNounArray.indexOf(randomNoun)]))}</i> "${quantifierEnglish} ${countNounArrayPlural[countNounArray.indexOf(randomNoun)]}"`;
+        }
+    };
+
+    function createNoClassifierPluralExample(example, quantifierEnglish, quantifierLanguage) {
+        let randomNoun = countNounArray[Math.floor(Math.random() * countNounArray.length)];
+        if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+            example.innerHTML = `<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(randomNoun)]))} ${isolatingPluralParticle} ${quantifierLanguage}</i> "${quantifierEnglish} ${countNounArrayPlural[countNounArray.indexOf(randomNoun)]}"`;
+        } else if(checkIfHeadInitialOrHeadFinal() === "headFinal") {
+            example.innerHTML = `<i>${quantifierLanguage} ${isolatingPluralParticle} ${spell(soundChange(generatedCountNouns[countNounArray.indexOf(randomNoun)]))} </i> "${quantifierEnglish} ${countNounArrayPlural[countNounArray.indexOf(randomNoun)]}"`;
+        }
+    }
+
+
     function createExample(classifier, classifierArray, example, quantifierEnglish, quantifierLanguage) {
         let randomNoun = classifierArray[Math.floor(Math.random() * classifierArray.length)];
         if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
@@ -5967,7 +5991,31 @@ function createQuantifiers() {
         }
     }
 
-    if(randomClassifierNum === 0) {
+    if(isolatingPluralNum === 1 && grammaticalNumIsolating >= 10 &&  grammaticalNumIsolating < 15) {
+        document.getElementById("quantifier-with-classifiers").style.display = "none";
+        createNoClassifierReduplicatingPluralExample(fewExample, "a few", spell(soundChange(generatedSmallQuanitifiers[0])));
+        createNoClassifierReduplicatingPluralExample(barelyAnyExample, "barely any", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createNoClassifierReduplicatingPluralExample(severalExample, "several", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createNoClassifierReduplicatingPluralExample(aLotOfExample, "a lot of", spell(soundChange(generatedBigQuantifiers[0])))
+        createNoClassifierReduplicatingPluralExample(someExample, "some", spell(soundChange(generatedMiddlingQuanitifers[1])));
+        createNoClassifierReduplicatingPluralExample(greatAmountExample, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])));
+        createNoClassifierReduplicatingPluralExample(enoughExample, "enough", spell(soundChange(generatedOpinionQuantifiers[0])));
+        createNoClassifierReduplicatingPluralExample(notEnoughExample, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])));
+        createNoClassifierReduplicatingPluralExample(tooMuchExample, "too much", spell(soundChange(generatedOpinionQuantifiers[1])));
+    }
+    if(isolatingPluralNum === 0 && grammaticalNumIsolating >= 10 &&  grammaticalNumIsolating < 15) {
+        document.getElementById("quantifier-with-classifiers").style.display = "none";
+        createNoClassifierPluralExample(fewExample, "a few", spell(soundChange(generatedSmallQuanitifiers[0])));
+        createNoClassifierPluralExample(barelyAnyExample, "barely any", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createNoClassifierPluralExample(severalExample, "several", spell(soundChange(generatedMiddlingQuanitifers[0])));
+        createNoClassifierPluralExample(aLotOfExample, "a lot of", spell(soundChange(generatedBigQuantifiers[0])))
+        createNoClassifierPluralExample(someExample, "some", spell(soundChange(generatedMiddlingQuanitifers[1])));
+        createNoClassifierPluralExample(greatAmountExample, "a great amount of", spell(soundChange(generatedBigQuantifiers[1])));
+        createNoClassifierPluralExample(enoughExample, "enough", spell(soundChange(generatedOpinionQuantifiers[0])));
+        createNoClassifierPluralExample(notEnoughExample, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])));
+        createNoClassifierPluralExample(tooMuchExample, "too much", spell(soundChange(generatedOpinionQuantifiers[1])));
+    }
+    if(randomClassifierNum === 0 && grammaticalNumIsolating >= 5 &&  grammaticalNumIsolating < 10) {
         createExample(longAndSlenderClassifier, longAndSlenderArray, fewExample, "a few", spell(soundChange(generatedSmallQuanitifiers[0])));
         createExample(shortAndWideClassifier, shortAndWideArray, barelyAnyExample, "barely any", spell(soundChange(generatedMiddlingQuanitifers[0])));
         createExample(roundClassifier, roundArray, severalExample, "several", spell(soundChange(generatedMiddlingQuanitifers[0])));
@@ -5978,7 +6026,7 @@ function createQuantifiers() {
         createExample(roundClassifier, roundArray, notEnoughExample, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])));
         createExample(flatClassifier, flatArray, tooMuchExample, "too much", spell(soundChange(generatedOpinionQuantifiers[1])));
     }
-    if(randomClassifierNum === 1) {
+    if(randomClassifierNum === 1 && grammaticalNumIsolating >= 5 &&  grammaticalNumIsolating < 10) {
         createExample(manClassifier, manArray, fewExample, "a few", spell(soundChange(generatedSmallQuanitifiers[0])));
         createExample(womanClassifier, womanArray, barelyAnyExample, "barely any", spell(soundChange(generatedMiddlingQuanitifers[0])));
         createExample(childClassifier, childArray, severalExample, "several", spell(soundChange(generatedMiddlingQuanitifers[0])));
@@ -5989,7 +6037,7 @@ function createQuantifiers() {
         createExample(edibleClassifier, edibleArray, notEnoughExample, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])));
         createExample(inedibleClassifier, inedibleArray, tooMuchExample, "too much", spell(soundChange(generatedOpinionQuantifiers[1])));
     }
-    if(randomClassifierNum === 2) {
+    if(randomClassifierNum === 2 && grammaticalNumIsolating >= 5 &&  grammaticalNumIsolating < 10) {
         createExample(humanClassifier, humanClassifierArray, fewExample, "a few", spell(soundChange(generatedSmallQuanitifiers[0])));
         createExample(treeClassifier, treeClassifierArray, barelyAnyExample, "barely any", spell(soundChange(generatedMiddlingQuanitifers[0])));
         createExample(toolClassifier, toolClassifierArray, severalExample, "several", spell(soundChange(generatedMiddlingQuanitifers[0])));
@@ -6000,7 +6048,7 @@ function createQuantifiers() {
         createExample(toolClassifier, toolClassifierArray, notEnoughExample, "not enough", spell(soundChange(generatedOpinionQuantifiers[2])));
         createExample(liquidClassifier, liquidClassifierArray, tooMuchExample, "too much", spell(soundChange(generatedOpinionQuantifiers[1])));
     }
-    if(randomClassifierNum === 3) {
+    if(randomClassifierNum === 3 && grammaticalNumIsolating >= 5 &&  grammaticalNumIsolating < 10) {
         if(chosenClassifiers.includes("protruding-top")) {
             createExampleLongClassifier("spear", protrudingClassifier, "a few", spell(soundChange(generatedSmallQuanitifiers[0])), "spears", fewExample);
             createExampleLongClassifier("hill", protrudingClassifier, "barely any", spell(soundChange(generatedSmallQuanitifiers[1])), "hills", barelyAnyExample);

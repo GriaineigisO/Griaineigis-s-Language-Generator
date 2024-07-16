@@ -114,7 +114,7 @@ function makePDFCoverPage() {
     logoDiv.setAttribute("id", "logo-div");
     let logo = document.createElement("img");
 
-    let randomPhotoNum = Math.floor(Math.random() * 5);
+    let randomPhotoNum = Math.floor(Math.random() * 7);
     if(randomPhotoNum === 0) {
         logo.src = "images/Ogma logo compressed.png";
     } else if(randomPhotoNum === 1) {
@@ -125,6 +125,10 @@ function makePDFCoverPage() {
         logo.src = "images/shipwheels.png";
     }  else if(randomPhotoNum === 4) {
         logo.src = "images/stag.PNG";
+    }  else if(randomPhotoNum === 5) {
+        logo.src = "images/harecirlce.png";
+    }  else if(randomPhotoNum === 6) {
+        logo.src = "images/hare.png";
     }
     
     

@@ -6244,7 +6244,7 @@ shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
 
 countNounArray.push("swan");
-countNounArrayPlural.push("swan");
+countNounArrayPlural.push("swans");
 activePassive.push("active")
 animInan.push("anim");
 divineNonDivine.push("profane");

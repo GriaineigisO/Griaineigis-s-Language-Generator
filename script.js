@@ -1127,7 +1127,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = 0//Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -5557,7 +5557,7 @@ function IsolatingNouns() {
 
 function isolatingPlural() {
     if(typologyNum === 0 && grammaticalNumIsolating >= 10 && grammaticalNumIsolating < 15) {
-        let randomPlural = 1//Math.floor(Math.random() * 2);
+        let randomPlural = Math.floor(Math.random() * 2);
         if(randomPlural === 0) {
             //plural is marked by placing a plural particle before of after the noun
             document.getElementById("plural-with-particle").style.display = "block";

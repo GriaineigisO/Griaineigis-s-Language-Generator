@@ -1,7 +1,8 @@
+# Immediate To-Do List
 
-- Once classifiers are finished. Add the third isolating grammatical number system: sg-plural. The plural may have a variety of etymologies. Do not add any more numbers systems, the classifier system allows for general numbers as well as simply using numbers with nouns.
-  - Etymologies for the plural: all, children, people, third person plural, three.
-  - The plural may also be formed simply by repeating the noun twice.
+- start making fusional nouns
+  - funional nouns may be built the same as agglutinative nouns, but with all the suffix then merged together, perhaps by removing letters at a random index, to give the illusion of an agglutinitve past. E.g singular suffix -id + masculine suffix -ko = -idko then the third letter is lost resulting in -ido.
+  Otherwise, each individual suffix may be purely random
 
 # Phonology
 

@@ -1127,7 +1127,7 @@ function noNasalsAfterConsonants() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = Math.floor(Math.random() * 2) //change to 3 once fusional is added
+    typologyNum = 2//Math.floor(Math.random() * 3) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -1387,14 +1387,15 @@ function randomNumForNounGender() {
     if(typologyNum === 0) {
         genderNum = 0;
     } else {
-        genderNum = Math.floor(Math.random() * 16)
+        genderNum = 1//Math.floor(Math.random() * 16);
     }
-    
     if(genderNum < 9) {
         document.getElementById("agglutinative-gender").style.display = "none";
         document.getElementById("no-gender-singulative-example").style.display = "block";
+        document.getElementById("fusional-noun-header").innerHTML = "Grammatical Number";
     } else {
         document.getElementById("no-gender-singulative-example").style.display = "none";
+         document.getElementById("fusional-noun-header").innerHTML = "Gender and Number";
     }
     if(genderNum === 9) {
         nounGenderArray.push("animate", "inanimate");
@@ -6974,7 +6975,7 @@ function inflectMassNounsGender(affix, gender) {
 
 //for agglutinative languages with a marked singular
 function inflectNounsSingular() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
     let spanNoun = document.getElementsByClassName("singular-noun");
     
     let spanSingularAffix = document.getElementsByClassName("singular-affix")
@@ -6982,7 +6983,7 @@ function inflectNounsSingular() {
         document.getElementById("singular-plural-marked-singular").style.display = "inline";
         if(numberSuffixOrPrefix === "suffix") {
             for(let i = 0; i < spanSingularAffix.length; i++) {
-                spanSingularAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + singularAffix))}</i>`
+                spanSingularAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + singularAffix + "X"))}</i>`
             }
             for(let i = 0; i < spanNoun.length; i++) {
                 let root = spanNoun[i].innerHTML;
@@ -6991,7 +6992,7 @@ function inflectNounsSingular() {
             }
         } else if (numberSuffixOrPrefix === "prefix") {
             for(let i = 0; i < spanSingularAffix.length; i++) {
-                spanSingularAffix[i].innerHTML = `prefix <i>${spell(soundChange(singularAffix + "A"))}-</i>`
+                spanSingularAffix[i].innerHTML = `prefix <i>${spell(soundChange("X" + singularAffix + "A"))}-</i>`
             }
             for(let i = 0; i < spanNoun.length; i++) {
                 let root = spanNoun[i].innerHTML;
@@ -7074,7 +7075,7 @@ function inflectMassNounsPlural() {
 }
 
 function inflectNounsDual() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
     let spanNoun = document.getElementsByClassName("dual-noun");
     let spanDualAffix = document.getElementsByClassName("dual-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7109,7 +7110,7 @@ function inflectNounsDual() {
 }
 
 function inflectNounsCollective() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
     let spanNoun = document.getElementsByClassName("collective-noun");
     let spanCollectiveAffix = document.getElementsByClassName("collective-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -8013,4 +8014,4 @@ intensifierArray, countNounArrayPlural,
     naturalArtificial,
     animacyClassifierArray,
     shapeClassifierArray,
-    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray };
+    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, pluralAffix, dualAffix, collectiveAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix};

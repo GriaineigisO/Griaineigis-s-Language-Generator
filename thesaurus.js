@@ -97,5 +97,23 @@ allWordsInThesaurus.push(huntArray);
 let weakArray = ["weak", "feeble", "brittle", "pathetic", "pitiful", "unconvincing", "lame", "(of water) still, stagnant, slow-flowing", "languid", "lethargic", "impotent", "sterile", "infertile", "barren", "flaccid", "heaf-hearted", "asthenic", "powerless", "soft", "infirm", "faint", "(of colour) bleached, faded", "effeminate", "flimsy"];
 allWordsInThesaurus.push(weakArray);
 
+let preferArray = ["prefer", "to like", "to choose", "to adopt", "to embrace", "to accept"];
+allWordsInThesaurus.push(preferArray);
+
+let hollowArray = ["hollow", "unpromising", "unsubstantial", "ungrounded", "immiterial", "vague", "tenuous", "meagre", "lame", "crude", "depressed", "concave", "cavernous", "spacious", "silent"];
+allWordsInThesaurus.push(hollowArray);
+
+let smallArray = ["small", "tiny", "puny", "slight", "weeny", "scant", "simple", "mere", "paltry"];
+allWordsInThesaurus.push(smallArray);
+
+let yellowArray = ["yellow", "sallow", "golden"];
+allWordsInThesaurus.push(yellowArray);
+
+let glassArray = ["glass", "lense"];
+allWordsInThesaurus.push(glassArray);
+
+let seperateArray = ["tear", "to rip", "to seperate", "to segregate", "to isolate", "to rescind", "to bluster", "to claw at", "to riot", "to ravage"];
+allWordsInThesaurus.push(seperateArray);
+
 
 export { allWordsInThesaurus };

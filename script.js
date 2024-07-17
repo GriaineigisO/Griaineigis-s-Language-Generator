@@ -1366,7 +1366,7 @@ function fixAffixes() {
 
 /*****CHOOSE IF THE LANGUAGE HAS A MARKED SINGULAR****/
 function randomNumMarkedSingular() {
-    randomNumForMarkedSingular = Math.floor(Math.random() * 4)
+    randomNumForMarkedSingular = 2//Math.floor(Math.random() * 4)
 }
 
 function markedSingularOrNot() {

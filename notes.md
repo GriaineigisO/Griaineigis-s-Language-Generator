@@ -1,5 +1,7 @@
 # Immediate To-Do List
 
+- Make fusional nouns with no gender but case
+
 - start making fusional nouns
   - funional nouns may be built the same as agglutinative nouns, but with all the suffix then merged together, perhaps by removing letters at a random index, to give the illusion of an agglutinitve past. E.g singular suffix -id + masculine suffix -ko = -idko then the third letter is lost resulting in -ido.
   Otherwise, each individual suffix may be purely random

@@ -1,5 +1,5 @@
 
-import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, flowerExample, randomNumForFlower, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, 
+import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample,udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, flowerExample, randomNumForFlower, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, grammaticalNumAgglutinative, 
     adjectiveArray, 
     conjunctionArray,
     adverbArray,
@@ -15,6 +15,7 @@ import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedA
     animacyClassifierArray,
     shapeClassifierArray,
     shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray } from './script.js'
+import {grammaticalNumber, nomSgAffix, caseNumber} from './fusionalNouns.js'
 
 import {spell} from './orthography.js'
 import {soundChange} from './soundchange.js'
@@ -831,22 +832,63 @@ function makeDictionary() {
         
 
         //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
-        if(countNounArray.includes(englishWords[i])) {
-            if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
-                wordWithAffix = wordWithAffix + singularAffix;
-            }
-            if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
-                wordWithAffix = singularAffix + wordWithAffix;
+        if(typologyNum === 1 && grammaticalNumAgglutinative < 24  && markedSingularOrNot() === true) {    
+            if(countNounArray.includes(englishWords[i])) {
+                    if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+                        wordWithAffix = wordWithAffix + singularAffix;
+                    }
+                    if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+                        wordWithAffix = singularAffix + wordWithAffix;
+                    }
+                }
+            if(massNounArray.includes(englishWords[i])) {
+                if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+                    wordWithAffix = wordWithAffix + singularAffix;
+                }
+                if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+                    wordWithAffix = singularAffix + wordWithAffix;
+                }
             }
         }
-        if(massNounArray.includes(englishWords[i])) {
-            if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
-                wordWithAffix = wordWithAffix + singularAffix;
+        //if language is fusional but has no case or gender
+        if(typologyNum === 2 && grammaticalNumber < 24 && caseNumber === 0 && markedSingularOrNot() === true) {   
+            if(countNounArray.includes(englishWords[i])) {
+                    if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+                        wordWithAffix = wordWithAffix + singularAffix;
+                    }
+                    if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+                        wordWithAffix = singularAffix + wordWithAffix;
+                    }
+                }
+            if(massNounArray.includes(englishWords[i])) {
+                if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+                    wordWithAffix = wordWithAffix + singularAffix;
+                }
+                if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+                    wordWithAffix = singularAffix + wordWithAffix;
+                }
             }
-            if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
-                wordWithAffix = singularAffix + wordWithAffix;
+        } 
+
+        //if language is fusional and has cases but no gender
+        if(typologyNum === 2 && grammaticalNumber < 24 && caseNumber > 0 && genderNum < 9) {   
+            if(countNounArray.includes(englishWords[i])) {
+                    if(numberSuffixOrPrefix === "suffix") {
+                        wordWithAffix = wordWithAffix + nomSgAffix;
+                    }
+                    if(numberSuffixOrPrefix === "prefix") {
+                        wordWithAffix = nomSgAffix + wordWithAffix;
+                    }
+                }
+            if(massNounArray.includes(englishWords[i])) {
+                if(numberSuffixOrPrefix === "suffix") {
+                    wordWithAffix = wordWithAffix + nomSgAffix;
+                }
+                if(numberSuffixOrPrefix === "prefix") {
+                    wordWithAffix = nomSgAffix + wordWithAffix;
+                }
             }
-        }
+        } 
         
         word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo);
         let headWord = document.createElement("span");
@@ -1368,23 +1410,64 @@ function makeDictionary() {
                 }
 
 
-    //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
-        if(countNounArray.includes(englishWords[i])) {
-            if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
-                wordWithAffix = wordWithAffix + singularAffix;
-            }
-            if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
-                wordWithAffix = singularAffix + wordWithAffix;
-            }
-        }
-        if(massNounArray.includes(englishWords[i])) {
-            if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
-                wordWithAffix = wordWithAffix + singularAffix;
-            }
-            if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
-                wordWithAffix = singularAffix + wordWithAffix;
-            }
-        }
+                //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
+                if(typologyNum === 1 && grammaticalNumAgglutinative < 24  && markedSingularOrNot() === true) {    
+                    if(countNounArray.includes(englishWords[i])) {
+                            if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+                                wordWithAffix = wordWithAffix + singularAffix;
+                            }
+                            if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+                                wordWithAffix = singularAffix + wordWithAffix;
+                            }
+                        }
+                    if(massNounArray.includes(englishWords[i])) {
+                        if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+                            wordWithAffix = wordWithAffix + singularAffix;
+                        }
+                        if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+                            wordWithAffix = singularAffix + wordWithAffix;
+                        }
+                    }
+                }
+                //if language is fusional but has no case or gender
+                if(typologyNum === 2 && grammaticalNumber < 24 && caseNumber === 0 && markedSingularOrNot() === true) {   
+                    if(countNounArray.includes(englishWords[i])) {
+                            if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+                                wordWithAffix = wordWithAffix + singularAffix;
+                            }
+                            if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+                                wordWithAffix = singularAffix + wordWithAffix;
+                            }
+                        }
+                    if(massNounArray.includes(englishWords[i])) {
+                        if(markedSingularOrNot() && numberSuffixOrPrefix === "suffix") {
+                            wordWithAffix = wordWithAffix + singularAffix;
+                        }
+                        if(markedSingularOrNot() && numberSuffixOrPrefix === "prefix") {
+                            wordWithAffix = singularAffix + wordWithAffix;
+                        }
+                    }
+                } 
+        
+                //if language is fusional and has cases but no gender
+                if(typologyNum === 2 && grammaticalNumber < 24 && caseNumber > 0 && genderNum < 9) {   
+                    if(countNounArray.includes(englishWords[i])) {
+                            if(numberSuffixOrPrefix === "suffix") {
+                                wordWithAffix = wordWithAffix + nomSgAffix;
+                            }
+                            if(numberSuffixOrPrefix === "prefix") {
+                                wordWithAffix = nomSgAffix + wordWithAffix;
+                            }
+                        }
+                    if(massNounArray.includes(englishWords[i])) {
+                        if(numberSuffixOrPrefix === "suffix") {
+                            wordWithAffix = wordWithAffix + nomSgAffix;
+                        }
+                        if(numberSuffixOrPrefix === "prefix") {
+                            wordWithAffix = nomSgAffix + wordWithAffix;
+                        }
+                    }
+                } 
 
         word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]));
         let headWord = document.createElement("span");

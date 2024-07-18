@@ -156,6 +156,7 @@ let quadralAffix = "";
 let greaterPluralAffix = "";
 let generalAffix = "";
 let singulativeAffix = "";
+let nominativeAffix = "";
 let accusativeAffix  = "";
 let genitiveAffix = "";
 let dativeAffix = "";
@@ -700,6 +701,7 @@ function sendGeneratedAffixesToArray() {
     generalAffix = generateAffixes();
     collectiveAffix = generateAffixes();
     singulativeAffix = generateAffixes();
+    nominativeAffix = generateAffixes();
     accusativeAffix = generateAffixes();
     genitiveAffix = generateAffixes();
     dativeAffix = generateAffixes();
@@ -1366,7 +1368,7 @@ function fixAffixes() {
 
 /*****CHOOSE IF THE LANGUAGE HAS A MARKED SINGULAR****/
 function randomNumMarkedSingular() {
-    randomNumForMarkedSingular = 2//Math.floor(Math.random() * 4)
+    randomNumForMarkedSingular = Math.floor(Math.random() * 4)
 }
 
 function markedSingularOrNot() {
@@ -1387,15 +1389,13 @@ function randomNumForNounGender() {
     if(typologyNum === 0) {
         genderNum = 0;
     } else {
-        genderNum = 1//Math.floor(Math.random() * 16);
+        genderNum = 0//Math.floor(Math.random() * 16);
     }
     if(genderNum < 9) {
         document.getElementById("agglutinative-gender").style.display = "none";
         document.getElementById("no-gender-singulative-example").style.display = "block";
-        document.getElementById("fusional-noun-header").innerHTML = "Grammatical Number";
     } else {
         document.getElementById("no-gender-singulative-example").style.display = "none";
-         document.getElementById("fusional-noun-header").innerHTML = "Gender and Number";
     }
     if(genderNum === 9) {
         nounGenderArray.push("animate", "inanimate");
@@ -6354,7 +6354,6 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
     } else {
         document.getElementById("singular-plural").style.display = "none";
     }
-
     if(grammaticalNumAgglutinative >= 4 && grammaticalNumAgglutinative < 7) {
         grammaticalNumberArray.push("singular", "dual", "plural");
         document.getElementById("singular-dual-plural").style.display = "block";
@@ -6407,7 +6406,6 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
     } else {
         document.getElementById("singular-dual-plural").style.display = "none";
     }
-
     if(grammaticalNumAgglutinative >= 7 && grammaticalNumAgglutinative < 12) {
         grammaticalNumberArray.push("singular", "plural", "collective");
         document.getElementById("singular-dual-plural-collective").style.display = "block";
@@ -6460,8 +6458,6 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
     } else {
         document.getElementById("singular-dual-plural-collective").style.display = "none";
     }
-    
-
     if(grammaticalNumAgglutinative >= 12 && grammaticalNumAgglutinative < 15) {
         grammaticalNumberArray.push("singular", "dual", "trial", "plural");
         document.getElementById("singular-dual-trial-plural").style.display = "block";
@@ -6514,7 +6510,6 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
     } else {
         document.getElementById("singular-dual-trial-plural").style.display = "none";
     }
-    
     if(grammaticalNumAgglutinative >= 15 && grammaticalNumAgglutinative < 18) {
         grammaticalNumberArray.push("singular", "dual", "trial", "quadral", "plural");
         document.getElementById("singular-dual-trial-quadral-plural").style.display = "block";
@@ -6567,7 +6562,6 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
     } else {
        document.getElementById("singular-dual-trial-quadral-plural").style.display = "none";
     }
-    
     if(grammaticalNumAgglutinative >= 18 && grammaticalNumAgglutinative < 21) {
         grammaticalNumberArray.push("singular", "plural", "greater plural");
         document.getElementById("singular-plural-greater-plural").style.display = "block";
@@ -6620,7 +6614,6 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
     } else {
        document.getElementById("singular-plural-greater-plural").style.display = "none";
     }
-    
     if(grammaticalNumAgglutinative >= 21 && grammaticalNumAgglutinative < 24) {
         grammaticalNumberArray.push("singular", "plural", "general");
         document.getElementById("singular-plural-general").style.display = "block";
@@ -6673,7 +6666,6 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
     } else {
        document.getElementById("singular-plural-general").style.display = "none";
     }
-    
     if(grammaticalNumAgglutinative >= 24 && grammaticalNumAgglutinative < 27) {
         grammaticalNumberArray.push("general", "plural");
         document.getElementById("general-plural").style.display = "block";
@@ -6721,7 +6713,6 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
     } else {
        document.getElementById("general-plural").style.display = "none";
     }
-    
     if(grammaticalNumAgglutinative >= 27 && grammaticalNumAgglutinative < 30) {
         grammaticalNumberArray.push("general", "singulative", "plural");
         document.getElementById("general-singulative-plural").style.display = "block";
@@ -7144,7 +7135,7 @@ function inflectNounsCollective() {
 }
 
 function inflectNounsTrial() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
     let spanNoun = document.getElementsByClassName("trial-noun");
     let spanTrialAffix = document.getElementsByClassName("trial-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7181,7 +7172,7 @@ function inflectNounsTrial() {
 }
 
 function inflectNounsQuadral() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
     let spanNoun = document.getElementsByClassName("quadral-noun");
     let spanQuadralAffix = document.getElementsByClassName("quadral-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7218,7 +7209,7 @@ function inflectNounsQuadral() {
 }
 
 function inflectNounsGreaterPlural() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
     let spanNoun = document.getElementsByClassName("greater-plural-noun");
     let spanGreaterPluralAffix = document.getElementsByClassName("greater-plural-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7255,7 +7246,7 @@ function inflectNounsGreaterPlural() {
 }
 
 function inflectNounsGeneral() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
     let spanNoun = document.getElementsByClassName("general-noun");
     let spanGeneralAffix = document.getElementsByClassName("general-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7291,7 +7282,7 @@ function inflectNounsGeneral() {
 
 //used specifically for the general number in the general-plural system
 function inflectNounsGeneral1() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
         let spanNoun = document.getElementsByClassName("general1-noun");
         for(let i = 0; i < spanNoun.length; i++) {
             let root = spanNoun[i].innerHTML;
@@ -7310,7 +7301,7 @@ function inflectNounsGeneral1() {
 }
 
 function inflectNounsSingulative() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
     let spanNoun = document.getElementsByClassName("singulative-noun");
     let spanSingulativeAffix = document.getElementsByClassName("singulative-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7344,7 +7335,7 @@ function inflectNounsSingulative() {
 }
 
 function inflectMassNounsSingulative() {
-    if(typologyNum === 1) {
+    if(typologyNum > 0) {
     let spanNoun = document.getElementsByClassName("singulative-mass-noun");
     let spanSingulativeAffix = document.getElementsByClassName("singulative-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7709,7 +7700,7 @@ function chooseIfMarkedNominative() {
 }
 
 function chooseIfMarkedSingular() {
-    if(/*Math.floor(Math.random() * 5)*/4 !== 4) {
+    if(Math.floor(Math.random() * 5) !== 4) {
         return false;
     } else {
         return true;
@@ -7879,7 +7870,6 @@ function explainCases() {
         } else {
             document.getElementById("instrumental-case-agglutinative").style.display = "none";
         }
-
     }
 }
 
@@ -7999,19 +7989,6 @@ function generateLanguage() {
    }
 
 
-export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, 
-adjectiveArray, 
-conjunctionArray,
-adverbArray,
-adpositionArray,
-intensifierArray, countNounArrayPlural,
-    activePassive,
-    animInan,
-    divineNonDivine,
-    humanAnimalInan,
-    mascFemNeut,
-    mascFem,
-    naturalArtificial,
-    animacyClassifierArray,
+export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray,
     shapeClassifierArray,
-    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, pluralAffix, dualAffix, collectiveAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix};
+    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, pluralAffix, dualAffix, generalAffix, collectiveAffix, trialAffix, quadralAffix, singulativeAffix, greaterPluralAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, grammaticalNumAgglutinative, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, locativeAffix, ablativeAffix, delativeAffix, inessiveAffix, instrumentalAffix, allativeAffix};

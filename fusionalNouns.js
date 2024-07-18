@@ -552,7 +552,7 @@ function explainCases() {
             let genPlExamples = makeExamples(makeGenPlural, countNounArrayPlural);
 
             let singularPluralGenitive = document.createElement("p");
-            singularPluralGenitive.innerHTML = `The genitive case is used to mark possession. The genitive singular is formed with the ${genSgAffixIsolated}: ${genSgExamples}.<br>The accusative plural is formed with the ${genPlAffixIsolated}: ${genPlExamples}.`;
+            singularPluralGenitive.innerHTML = `The genitive case is used to mark possession. The genitive singular is formed with the ${genSgAffixIsolated}: ${genSgExamples}.<br>The genitive plural is formed with the ${genPlAffixIsolated}: ${genPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralGenitive);
         }
     }

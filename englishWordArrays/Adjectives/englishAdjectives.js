@@ -153,6 +153,9 @@ function addWords() {
     adjectiveArray.push("hard");
     comparativeAdjectiveArray.push("harder");
 
+    adjectiveArray.push("healthy");
+    comparativeAdjectiveArray.push("healthier");
+
     adjectiveArray.push("high");
     comparativeAdjectiveArray.push("higher");
 
@@ -263,6 +266,9 @@ function addWords() {
 
     adjectiveArray.push("rough");
     comparativeAdjectiveArray.push("rougher");
+    
+    adjectiveArray.push("rude");
+    comparativeAdjectiveArray.push("ruder");
 
     adjectiveArray.push("sharp");
     comparativeAdjectiveArray.push("sharper");
@@ -314,6 +320,9 @@ function addWords() {
 
     adjectiveArray.push("tired");
     comparativeAdjectiveArray.push("more&nbsptired");
+
+    adjectiveArray.push("tough");
+    comparativeAdjectiveArray.push("tougher");
 
     adjectiveArray.push("true");
     comparativeAdjectiveArray.push("truer");

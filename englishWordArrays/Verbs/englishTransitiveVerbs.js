@@ -165,6 +165,10 @@ function addWords() {
     transitiveVerb3SArray.push("deceives");
     transitiveVerbPastArray.push("deceived");
 
+    transitiveVerbArray.push("defeat");
+    transitiveVerb3SArray.push("defeats");
+    transitiveVerbPastArray.push("defeated");
+
     transitiveVerbArray.push("defile");
     transitiveVerb3SArray.push("defiles");
     transitiveVerbPastArray.push("defiled");
@@ -401,6 +405,10 @@ function addWords() {
     transitiveVerb3SArray.push("needs");
     transitiveVerbPastArray.push("needed");
 
+    transitiveVerbArray.push("notice");
+    transitiveVerb3SArray.push("notices");
+    transitiveVerbPastArray.push("noticed");
+
     transitiveVerbArray.push("paint");
     transitiveVerb3SArray.push("paints");
     transitiveVerbPastArray.push("painted");
@@ -485,6 +493,10 @@ function addWords() {
     transitiveVerb3SArray.push("remembers");
     transitiveVerbPastArray.push("remembered");
 
+    transitiveVerbArray.push("respect");
+    transitiveVerb3SArray.push("respects");
+    transitiveVerbPastArray.push("respected");
+
     transitiveVerbArray.push("revel");
     transitiveVerb3SArray.push("revels");
     transitiveVerbPastArray.push("revelled");
@@ -492,6 +504,10 @@ function addWords() {
     transitiveVerbArray.push("reward");
     transitiveVerb3SArray.push("rewards");
     transitiveVerbPastArray.push("rewarded");
+
+    transitiveVerbArray.push("ride");
+    transitiveVerb3SArray.push("rides");
+    transitiveVerbPastArray.push("rode");
 
     transitiveVerbArray.push("roast");
     transitiveVerb3SArray.push("roasts");

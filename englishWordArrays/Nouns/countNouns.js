@@ -6126,6 +6126,19 @@ animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
 
+countNounArray.push("street");
+countNounArrayPlural.push("streets");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("artificial");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("natural-inanimate");
+
 countNounArray.push("strike");
 countNounArrayPlural.push("strikes");
 activePassive.push("active")
@@ -6385,6 +6398,19 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+
+countNounArray.push("threat");
+countNounArrayPlural.push("threats");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("natural-inanimate");
 
 countNounArray.push("throat");
 countNounArrayPlural.push("throats");

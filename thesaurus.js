@@ -115,5 +115,13 @@ allWordsInThesaurus.push(glassArray);
 let seperateArray = ["tear", "to rip", "to seperate", "to segregate", "to isolate", "to rescind", "to bluster", "to claw at", "to riot", "to ravage"];
 allWordsInThesaurus.push(seperateArray);
 
+let flatArray = ["flat", "simple", "mundane", "level", "equal", "horizontal", "supine"];
+allWordsInThesaurus.push(flatArray);
+
+let rewardArray = ["reward", "to enrich", "to pay", "to compensate", "to embuse", "to give tribute"];
+allWordsInThesaurus.push(rewardArray);
+
+let airArray = ["air", "gas", "vapour", "fume", "ether"];
+allWordsInThesaurus.push(airArray);
 
 export { allWordsInThesaurus };

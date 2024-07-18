@@ -42,6 +42,9 @@ function addWords() {
     adjectiveArray.push("bare");
     comparativeAdjectiveArray.push("barer");
 
+    adjectiveArray.push("beautiful");
+    comparativeAdjectiveArray.push("more&nbspbeautiful");
+
     adjectiveArray.push("big");
     comparativeAdjectiveArray.push("bigger");
 
@@ -112,13 +115,22 @@ function addWords() {
     comparativeAdjectiveArray.push("flatter");
 
     adjectiveArray.push("foul");
-    comparativeAdjectiveArray.push("fouler")
+    comparativeAdjectiveArray.push("fouler");
+
+    adjectiveArray.push("free");
+    comparativeAdjectiveArray.push("freer");
     
     adjectiveArray.push("fresh");
     comparativeAdjectiveArray.push("fresher");
 
     adjectiveArray.push("full");
     comparativeAdjectiveArray.push("fuller");
+
+    adjectiveArray.push("fun");
+    comparativeAdjectiveArray.push("funner");
+
+    adjectiveArray.push("funny");
+    comparativeAdjectiveArray.push("funnier");
 
     adjectiveArray.push("good");
     comparativeAdjectiveArray.push("better");
@@ -290,6 +302,9 @@ function addWords() {
 
     adjectiveArray.push("tall");
     comparativeAdjectiveArray.push("taller");
+
+    adjectiveArray.push("tasty");
+    comparativeAdjectiveArray.push("tastier");
 
     adjectiveArray.push("thick");
     comparativeAdjectiveArray.push("thicker");

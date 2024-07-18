@@ -121,6 +121,10 @@ function addWords() {
     transitiveVerb3SArray.push("chooses");
     transitiveVerbPastArray.push("chose");
 
+    transitiveVerbArray.push("collect");
+    transitiveVerb3SArray.push("collects");
+    transitiveVerbPastArray.push("collected");
+
     transitiveVerbArray.push("compel");
     transitiveVerb3SArray.push("compels");
     transitiveVerbPastArray.push("compelled");
@@ -128,6 +132,10 @@ function addWords() {
     transitiveVerbArray.push("compensate");
     transitiveVerb3SArray.push("compensates");
     transitiveVerbPastArray.push("compensated");
+
+    transitiveVerbArray.push("cook");
+    transitiveVerb3SArray.push("cooks");
+    transitiveVerbPastArray.push("cooked");
 
     transitiveVerbArray.push("cost");
     transitiveVerb3SArray.push("costs");
@@ -228,6 +236,10 @@ function addWords() {
     transitiveVerbArray.push("flay");
     transitiveVerb3SArray.push("flays");
     transitiveVerbPastArray.push("flayed");
+
+    transitiveVerbArray.push("follow");
+    transitiveVerb3SArray.push("follows");
+    transitiveVerbPastArray.push("followed");
 
     transitiveVerbArray.push("forget");
     transitiveVerb3SArray.push("forgets");

@@ -1105,6 +1105,20 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("tool");
+
+    massNounArray.push("yeast");
+    singulativeMassNounArray.push("bit&nbspof&nbspyeast");
+    pluralSingulativeMassNounArray.push("bits&nbspof&nbspyeast");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("edible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("natural-inanimate");
 };
 
 let generateLanguageButton = document.getElementById("generate-language");

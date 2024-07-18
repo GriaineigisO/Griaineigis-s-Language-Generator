@@ -181,6 +181,10 @@ function addWords() {
     intransitiveVerb3SArray.push("lives");
     intransitiveVerbPastArray.push("lived");
 
+    intransitiveVerbArray.push("mean");
+    intransitiveVerb3SArray.push("means");
+    intransitiveVerbPastArray.push("meant");
+
     intransitiveVerbArray.push("move");
     intransitiveVerb3SArray.push("moves");
     intransitiveVerbPastArray.push("moved");

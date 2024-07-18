@@ -1,4 +1,4 @@
-import { genderNum, markedSingularOrNot, generatedCountNouns, countNounArrayPlural, countNounArray, generatedMassNouns, massNounArray, pluralSingulativeMassNounArray, singulativeMassNounArray, numberSuffixOrPrefix, pluralAffix, singularAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, generalAffix, greaterPluralAffix, singulativeAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, locativeAffix, ablativeAffix, delativeAffix, inessiveAffix, instrumentalAffix, allativeAffix} from './script.js';
+import { genderNum, markedSingularOrNot, generatedCountNouns, countNounArrayPlural, countNounArray, generatedMassNouns, massNounArray, pluralSingulativeMassNounArray, singulativeMassNounArray, numberSuffixOrPrefix, pluralAffix, singularAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, generalAffix, greaterPluralAffix, singulativeAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, locativeAffix, ablativeAffix, delativeAffix, inessiveAffix, instrumentalAffix, allativeAffix, generateAffixes} from './script.js';
 import {spell} from './orthography.js'
 import {soundChange} from './soundchange.js'
 import nounCases from './allPossibleNounCases.js';
@@ -80,8 +80,11 @@ function determineWhichAffixGoesFirst() {
         return "affix2First";
     }
 }
+
+//this function may fuse two affixes together, or simply replace a mix of the two with a completely new generated affix
 function makeFusionalAffixes(affix1, affix2) {
     let fusedAffix = "";
+    
     if(determineWhichAffixGoesFirst() === "affix1First") {
         fusedAffix = affix1 + affix2;
     } else {
@@ -149,6 +152,12 @@ function makeFusionalAffixes(affix1, affix2) {
     if(/*Math.floor(Math.random() * 3)*/1 === 1) {
         fusedAffix = mergeTwoVowels(fusedAffix);
     }
+
+    //doesn't fuse two pre-existing affixes, just replaces both with a new affix
+    if(Math.floor(Math.random() * 11) === 3) {
+        console.log("replaced affix")
+        fusedAffix = generateAffixes();
+    } 
     
     return fusedAffix;
 }
@@ -492,7 +501,7 @@ function explainCases() {
             let nomPlExamples = makeExamples(makeNomPlural, countNounArrayPlural);
 
             let singularPluralNominative = document.createElement("p");
-            singularPluralNominative.innerHTML = `The nominative case is used to mark the subject of a verb, the noun which is the performer of an action. The nominative singular is formed with the ${nomSgAffixIsolated}: : ${nomSgExamples}.<br>The nominative plural is formed with the ${nomPlAffixIsolated}: ${nomPlExamples}.`;
+            singularPluralNominative.innerHTML = `The nominative case is used to mark the subject of a verb, the noun which is the performer of an action. The nominative singular is formed with the ${nomSgAffixIsolated}: ${nomSgExamples}.<br>The nominative plural is formed with the ${nomPlAffixIsolated}: ${nomPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralNominative);
         }
     }
@@ -518,7 +527,7 @@ function explainCases() {
             let accPlExamples = makeExamples(makeAccPlural, countNounArrayPlural);
 
             let singularPluralAccusative = document.createElement("p");
-            singularPluralAccusative.innerHTML = `The accusative case is used to mark the object of a verb, the noun which is the recipient of an action. The accusative singular is formed with the ${accSgAffixIsolated}: : ${accSgExamples}.<br>The accusative plural is formed with the ${accPlAffixIsolated}: ${accPlExamples}.`;
+            singularPluralAccusative.innerHTML = `The accusative case is used to mark the object of a verb, the noun which is the recipient of an action. The accusative singular is formed with the ${accSgAffixIsolated}: ${accSgExamples}.<br>The accusative plural is formed with the ${accPlAffixIsolated}: ${accPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralAccusative);
         }
     }
@@ -544,7 +553,7 @@ function explainCases() {
             let genPlExamples = makeExamples(makeGenPlural, countNounArrayPlural);
 
             let singularPluralGenitive = document.createElement("p");
-            singularPluralGenitive.innerHTML = `The genitive case is used to mark possession. The genitive singular is formed with the ${genSgAffixIsolated}: : ${genSgExamples}.<br>The accusative plural is formed with the ${genPlAffixIsolated}: ${genPlExamples}.`;
+            singularPluralGenitive.innerHTML = `The genitive case is used to mark possession. The genitive singular is formed with the ${genSgAffixIsolated}: ${genSgExamples}.<br>The accusative plural is formed with the ${genPlAffixIsolated}: ${genPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralGenitive);
         }
     }
@@ -570,7 +579,7 @@ function explainCases() {
             let datPlExamples = makeExamples(makeDatPlural, countNounArrayPlural);
 
             let singularPluralDative = document.createElement("p");
-            singularPluralDative.innerHTML = `The dative case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy. The dative singular is formed with the ${datSgAffixIsolated}: : ${datSgExamples}.<br>The accusative plural is formed with the ${datPlAffixIsolated}: ${datPlExamples}.`;
+            singularPluralDative.innerHTML = `The dative case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy. The dative singular is formed with the ${datSgAffixIsolated}: ${datSgExamples}.<br>The accusative plural is formed with the ${datPlAffixIsolated}: ${datPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralDative);
         }
     }

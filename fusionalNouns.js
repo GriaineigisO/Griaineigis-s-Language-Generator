@@ -155,7 +155,6 @@ function makeFusionalAffixes(affix1, affix2) {
 
     //doesn't fuse two pre-existing affixes, just replaces both with a new affix
     if(Math.floor(Math.random() * 11) === 3) {
-        console.log("replaced affix")
         fusedAffix = generateAffixes();
     } 
     
@@ -579,7 +578,7 @@ function explainCases() {
             let datPlExamples = makeExamples(makeDatPlural, countNounArrayPlural);
 
             let singularPluralDative = document.createElement("p");
-            singularPluralDative.innerHTML = `The dative case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy. The dative singular is formed with the ${datSgAffixIsolated}: ${datSgExamples}.<br>The accusative plural is formed with the ${datPlAffixIsolated}: ${datPlExamples}.`;
+            singularPluralDative.innerHTML = `The dative case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy. The dative singular is formed with the ${datSgAffixIsolated}: ${datSgExamples}.<br>The dative plural is formed with the ${datPlAffixIsolated}: ${datPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralDative);
         }
     }

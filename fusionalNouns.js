@@ -1,4 +1,4 @@
-import { genderNum, markedSingularOrNot, generatedCountNouns, countNounArrayPlural, countNounArray, generatedMassNouns, massNounArray, pluralSingulativeMassNounArray, singulativeMassNounArray, numberSuffixOrPrefix, pluralAffix, singularAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, generalAffix, greaterPluralAffix, singulativeAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, locativeAffix, ablativeAffix, delativeAffix, inessiveAffix, instrumentalAffix, allativeAffix, generateAffixes} from './script.js';
+import { genderNum, markedSingularOrNot, generatedCountNouns, countNounArrayPlural, countNounArray, generatedMassNouns, massNounArray, pluralSingulativeMassNounArray, singulativeMassNounArray, numberSuffixOrPrefix, pluralAffix, singularAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, generalAffix, greaterPluralAffix, singulativeAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, generateAffixes} from './script.js';
 import {spell} from './orthography.js'
 import {soundChange} from './soundchange.js'
 import nounCases from './allPossibleNounCases.js';
@@ -26,7 +26,7 @@ function markedSingular() {
     }
 }
 
-function makeAffixes(noun, affix) {
+function inflectNouns(noun, affix) {
     let inflectedNoun = "";
     if(numberSuffixOrPrefix === "suffix") {
         inflectedNoun = noun + affix;
@@ -37,39 +37,39 @@ function makeAffixes(noun, affix) {
 }
 
 function makeSingular(noun) {
-    return makeAffixes(noun, singularAffix);
+    return inflectNouns(noun, singularAffix);
 }
 
 function makePlural(noun) {
-    return makeAffixes(noun, pluralAffix);
+    return inflectNouns(noun, pluralAffix);
 }
 
 function makeDual(noun) {
-    return makeAffixes(noun, dualAffix);
+    return inflectNouns(noun, dualAffix);
 }
 
 function makeTrial(noun) {
-    return makeAffixes(noun, trialAffix);
+    return inflectNouns(noun, trialAffix);
 }
 
 function makeQuadral(noun) {
-    return makeAffixes(noun, quadralAffix);
+    return inflectNouns(noun, quadralAffix);
 }
 
 function makeCollective(noun) {
-    return makeAffixes(noun, collectiveAffix);
+    return inflectNouns(noun, collectiveAffix);
 }
 
 function makeGreaterPlural(noun) {
-    return makeAffixes(noun, greaterPluralAffixAffix);
+    return inflectNouns(noun, greaterPluralAffixAffix);
 }
 
 function makeGeneral(noun) {
-    return makeAffixes(noun, generalAffix);
+    return inflectNouns(noun, generalAffix);
 }
 
 function makeSingulative(noun) {
-    return makeAffixes(noun, singulativeAffix);
+    return inflectNouns(noun, singulativeAffix);
 }
 
 let randomAffixOrderNum = Math.floor(Math.random() * 2)
@@ -138,7 +138,6 @@ function makeFusionalAffixes(affix1, affix2) {
         return joinedStr;
     }
 
-
     //the following options will change the combination of the two affixes, to make them appear fused
     if(Math.floor(Math.random() * 3) === 1) {
         fusedAffix = removeChar(2, fusedAffix);
@@ -157,8 +156,28 @@ function makeFusionalAffixes(affix1, affix2) {
     if(Math.floor(Math.random() * 11) === 3) {
         fusedAffix = generateAffixes();
     } 
-    
     return fusedAffix;
+}
+
+//bases locative cases on the genitive case
+function buildLocativeCaseOnGenitive() {
+    let builtOnGenitive = makeFusionalAffixes(genitiveAffix, generateAffixes());
+    return builtOnGenitive;
+}
+
+let locativeAffix = "";
+let ablativeAffix = "";
+let delativeAffix = "";
+let inessiveAffix = "";
+let instrumentalAffix = "";
+let allativeAffix = ""; 
+function makeLocativeCaseAffixes() {
+    ablativeAffix = buildLocativeCaseOnGenitive();
+    inessiveAffix = buildLocativeCaseOnGenitive();
+    locativeAffix = buildLocativeCaseOnGenitive();
+    delativeAffix = buildLocativeCaseOnGenitive();
+    allativeAffix = buildLocativeCaseOnGenitive();
+    instrumentalAffix = buildLocativeCaseOnGenitive();
 }
 
 let nomSgAffix = "";
@@ -169,6 +188,18 @@ let genSgAffix = "";
 let genPlAffix = "";
 let datSgAffix = "";
 let datPlAffix = "";
+let ablSgAffix = "";
+let ablPlAffix = "";
+let locSgAffix = "";
+let locPlAffix = "";
+let ineSgAffix = "";
+let inePlAffix = "";
+let delSgAffix = "";
+let delPlAffix = "";
+let allSgAffix = "";
+let allPlAffix = "";
+let instrSgAffix = "";
+let instrPlAffix = "";
 function declareFusionalAffixes() {
     nomSgAffix = makeFusionalAffixes(singularAffix, nominativeAffix);
     nomPlAffix = makeFusionalAffixes(pluralAffix, nominativeAffix);
@@ -178,48 +209,120 @@ function declareFusionalAffixes() {
     genPlAffix = makeFusionalAffixes(pluralAffix, genitiveAffix);
     datSgAffix = makeFusionalAffixes(singularAffix, dativeAffix);
     datPlAffix = makeFusionalAffixes(pluralAffix, dativeAffix);
+    ablSgAffix = makeFusionalAffixes(singularAffix, ablativeAffix);
+    ablPlAffix = makeFusionalAffixes(pluralAffix, ablativeAffix);
+    locSgAffix = makeFusionalAffixes(singularAffix, locativeAffix);
+    locPlAffix = makeFusionalAffixes(pluralAffix, locativeAffix);
+    ineSgAffix = makeFusionalAffixes(singularAffix, inessiveAffix);
+    inePlAffix = makeFusionalAffixes(pluralAffix, inessiveAffix);
+    delSgAffix = makeFusionalAffixes(singularAffix, delativeAffix);
+    delPlAffix = makeFusionalAffixes(pluralAffix, delativeAffix);
+    allSgAffix = makeFusionalAffixes(singularAffix, allativeAffix);
+    allPlAffix = makeFusionalAffixes(pluralAffix, allativeAffix);
+    instrSgAffix = makeFusionalAffixes(singularAffix, instrumentalAffix);
+    instrPlAffix = makeFusionalAffixes(pluralAffix, instrumentalAffix);
 }
 
 function makeNomSingular(noun) {
-    return makeAffixes(noun, nomSgAffix);
+    return inflectNouns(noun, nomSgAffix);
 }
 
 function makeNomPlural(noun) {
-    return makeAffixes(noun, nomPlAffix);
+    return inflectNouns(noun, nomPlAffix);
 }
 
 function makeAccSingular(noun) {
-    return makeAffixes(noun, accSgAffix);
+    return inflectNouns(noun, accSgAffix);
 }
 
 function makeAccPlural(noun) {
-    return makeAffixes(noun, accPlAffix);
+    return inflectNouns(noun, accPlAffix);
 }
 
 function makeGenSingular(noun) {
-    return makeAffixes(noun, genSgAffix);
+    return inflectNouns(noun, genSgAffix);
 }
 
 function makeGenPlural(noun) {
-    return makeAffixes(noun, genPlAffix);
+    return inflectNouns(noun, genPlAffix);
 }
 
 function makeDatSingular(noun) {
-    return makeAffixes(noun, datSgAffix);
+    return inflectNouns(noun, datSgAffix);
 }
 
 function makeDatPlural(noun) {
-    return makeAffixes(noun, datPlAffix);
+    return inflectNouns(noun, datPlAffix);
 }
 
-let nomSgAffixIsolated
-let nomPlAffixIsolated
-let accSgAffixIsolated
-let accPlAffixIsolated
-let genSgAffixIsolated
-let genPlAffixIsolated
-let datSgAffixIsolated
-let datPlAffixIsolated
+function makeAblSingular(noun) {
+    return inflectNouns(noun, ablSgAffix);
+}
+
+function makeAblPlural(noun) {
+    return inflectNouns(noun, ablPlAffix);
+}
+
+function makeLocSingular(noun) {
+    return inflectNouns(noun, locSgAffix);
+}
+
+function makeLocPlural(noun) {
+    return inflectNouns(noun, locPlAffix);
+}
+
+function makeIneSingular(noun) {
+    return inflectNouns(noun, ineSgAffix);
+}
+
+function makeInePlural(noun) {
+    return inflectNouns(noun, inePlAffix);
+}
+
+function makeDelSingular(noun) {
+    return inflectNouns(noun, delSgAffix);
+}
+
+function makeDelPlural(noun) {
+    return inflectNouns(noun, delPlAffix);
+}
+
+function makeAllSingular(noun) {
+    return inflectNouns(noun, allSgAffix);
+}
+
+function makeAllPlural(noun) {
+    return inflectNouns(noun, allPlAffix);
+}
+
+function makeInstrSingular(noun) {
+    return inflectNouns(noun, instrSgAffix);
+}
+
+function makeInstrPlural(noun) {
+    return inflectNouns(noun, instrPlAffix);
+}
+
+let nomSgAffixIsolated = "";
+let nomPlAffixIsolated = "";
+let accSgAffixIsolated = "";
+let accPlAffixIsolated = "";
+let genSgAffixIsolated = "";
+let genPlAffixIsolated = "";
+let datSgAffixIsolated = "";
+let datPlAffixIsolated = "";
+let ablSgAffixIsolated = "";
+let ablPlAffixIsolated = "";
+let locSgAffixIsolated = "";
+let locPlAffixIsolated = "";
+let ineSgAffixIsolated = "";
+let inePlAffixIsolated = "";
+let delSgAffixIsolated = "";
+let delPlAffixIsolated = "";
+let allSgAffixIsolated = "";
+let allPlAffixIsolated = "";
+let instrSgAffixIsolated = "";
+let instrPlAffixIsolated = "";
 function listAffixesInIsolation() {
     if(numberSuffixOrPrefix === "suffix") {
         nomSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + nomSgAffix ))}</i></strong>`;
@@ -230,6 +333,18 @@ function listAffixesInIsolation() {
         genPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + genPlAffix ))}</i></strong>`;
         datSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + datSgAffix ))}</i></strong>`;
         datPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + datPlAffix ))}</i></strong>`;
+        ablSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + ablSgAffix ))}</i></strong>`;
+        ablPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + ablPlAffix ))}</i></strong>`;
+        locSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + locSgAffix ))}</i></strong>`;
+        locPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + locPlAffix ))}</i></strong>`;
+        ineSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + ineSgAffix ))}</i></strong>`;
+        inePlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + inePlAffix ))}</i></strong>`;
+        delSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + delSgAffix ))}</i></strong>`;
+        delPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + delPlAffix ))}</i></strong>`;
+        allSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + allSgAffix ))}</i></strong>`;
+        allPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + allPlAffix ))}</i></strong>`;
+        instrSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + instrSgAffix ))}</i></strong>`;
+        instrPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + instrPlAffix ))}</i></strong>`;
     } else {
         nomSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + nomSgAffix + "A"))}-</i></strong>`;
         nomPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + nomPlAffix + "A"))}-</i></strong>`;
@@ -239,6 +354,18 @@ function listAffixesInIsolation() {
         genPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + genPlAffix + "A"))}-</i></strong>`;
         datSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + datSgAffix + "A"))}-</i></strong>`;
         datPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + datPlAffix + "A"))}-</i></strong>`;
+        ablSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + ablSgAffix + "A"))}-</i></strong>`;
+        ablPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + ablPlAffix + "A"))}-</i></strong>`;
+        locSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + locSgAffix + "A"))}-</i></strong>`;
+        locPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + locPlAffix + "A"))}-</i></strong>`;
+        ineSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + ineSgAffix + "A"))}-</i></strong>`;
+        inePlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + inePlAffix + "A"))}-</i></strong>`;
+        delSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + delSgAffix + "A"))}-</i></strong>`;
+        delPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + delPlAffix + "A"))}-</i></strong>`;
+        allSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + allSgAffix + "A"))}-</i></strong>`;
+        allPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + allPlAffix + "A"))}-</i></strong>`;
+        instrSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + instrSgAffix + "A"))}-</i></strong>`;
+        instrPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + instrPlAffix + "A"))}-</i></strong>`;
     }
 }
 
@@ -432,20 +559,18 @@ function makeNoGenderNumberExamples() {
         }
         let joinedSingulativeArray = singulativeExampleArray.join(", ")
         document.getElementById("fusional-no-gender-singulative-examples").innerHTML = joinedSingulativeArray;
-
-
     }
 }
 }
 
 let caseNumber = 0;
 function chooseCases() {
-    caseNumber = 2//Math.floor(Math.random() * 11)
+    caseNumber = 6//Math.floor(Math.random() * 11)
     //there will be no cases if language is isolating
     if(chooseTypology() !== "isolating") {
         //decides if the language has cases or not
         if(caseNumber !== 0) {
-            const randomNum = Math.floor(Math.random() * 8);
+            const randomNum = 8//Math.floor(Math.random() * 8);
             if(randomNum <= 4) {
                 chosenNounCases.push("Nominative");
                 chosenNounCases.push("Accusative");
@@ -582,6 +707,162 @@ function explainCases() {
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralDative);
         }
     }
+
+    if(chosenNounCases.includes("Ablative")) {
+        let caseH4 = document.createElement("h4");
+        caseH4.innerHTML = `<strong>Ablative Case</strong>`;
+        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+        if(determineGrammaticalNumber() === "singular-plural") {
+            let exampleArray = []
+            function makeExamples(make, nounArray) {
+                for(let i = 0; i < 11; i++) {
+                let randomIndex = Math.floor(Math.random() * nounArray.length);
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from ${nounArray[randomIndex]}"`
+                exampleArray.push(example);
+                }   
+                let joinedList = exampleArray.join(", ")
+                exampleArray = [];
+                return joinedList;
+            }
+            let ablSgExamples = makeExamples(makeAblSingular, countNounArray);
+            let ablPlExamples = makeExamples(makeAblPlural, countNounArrayPlural);
+
+            let singularPluralAblative = document.createElement("p");
+            singularPluralAblative.innerHTML = `The ablative case is used to mark motion away from a noun. The ablative singular is formed with the ${ablSgAffixIsolated}: ${ablSgExamples}.<br>The ablative plural is formed with the ${ablPlAffixIsolated}: ${ablPlExamples}.`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralAblative);
+        }
+    }
+
+    if(chosenNounCases.includes("Locative")) {
+        let caseH4 = document.createElement("h4");
+        caseH4.innerHTML = `<strong>Locative Case</strong>`;
+        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+        if(determineGrammaticalNumber() === "singular-plural") {
+            let exampleArray = []
+            function makeExamples(make, nounArray) {
+                for(let i = 0; i < 11; i++) {
+                let randomIndex = Math.floor(Math.random() * nounArray.length);
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on the ${nounArray[randomIndex]}"`
+                exampleArray.push(example);
+                }   
+                let joinedList = exampleArray.join(", ")
+                exampleArray = [];
+                return joinedList;
+            }
+            let locSgExamples = makeExamples(makeLocSingular, countNounArray);
+            let locPlExamples = makeExamples(makeLocPlural, countNounArrayPlural);
+
+            let singularPluralLocative = document.createElement("p");
+            singularPluralLocative.innerHTML = `The locative case is used to mark a noun used with an adposition e.g "in the forest" or "on a mountain". The locative singular is formed with the ${locSgAffixIsolated}: ${locSgExamples}.<br>The locative plural is formed with the ${locPlAffixIsolated}: ${locPlExamples}.`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralLocative);
+        }
+    }
+
+    if(chosenNounCases.includes("Inessive")) {
+        let caseH4 = document.createElement("h4");
+        caseH4.innerHTML = `<strong>Inessive Case</strong>`;
+        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+        if(determineGrammaticalNumber() === "singular-plural") {
+            let exampleArray = []
+            function makeExamples(make, nounArray) {
+                for(let i = 0; i < 11; i++) {
+                let randomIndex = Math.floor(Math.random() * nounArray.length);
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in the ${nounArray[randomIndex]}"`
+                exampleArray.push(example);
+                }   
+                let joinedList = exampleArray.join(", ")
+                exampleArray = [];
+                return joinedList;
+            }
+            let ineSgExamples = makeExamples(makeIneSingular, countNounArray);
+            let inePlExamples = makeExamples(makeInePlural, countNounArrayPlural);
+
+            let singularPluralInessive = document.createElement("p");
+            singularPluralInessive.innerHTML = `The inessive case is used to mark "in" e.g "in the forest" or "on a mountain". The inessive singular is formed with the ${ineSgAffixIsolated}: ${ineSgExamples}.<br>The inessive plural is formed with the ${inePlAffixIsolated}: ${inePlExamples}.`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralInessive);
+        }
+    }
+
+    if(chosenNounCases.includes("Delative")) {
+        let caseH4 = document.createElement("h4");
+        caseH4.innerHTML = `<strong>Delative Case</strong>`;
+        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+        if(determineGrammaticalNumber() === "singular-plural") {
+            let exampleArray = []
+            function makeExamples(make, nounArray) {
+                for(let i = 0; i < 11; i++) {
+                let randomIndex = Math.floor(Math.random() * nounArray.length);
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from the ${nounArray[randomIndex]}"`
+                exampleArray.push(example);
+                }   
+                let joinedList = exampleArray.join(", ")
+                exampleArray = [];
+                return joinedList;
+            }
+            let delSgExamples = makeExamples(makeDelSingular, countNounArray);
+            let delPlExamples = makeExamples(makeDelPlural, countNounArrayPlural);
+
+            let singularPluralDelative = document.createElement("p");
+            singularPluralDelative.innerHTML = `The delative case is used to mark "in" e.g "in the forest" or "on a mountain". The delative singular is formed with the ${delSgAffixIsolated}: ${delSgExamples}.<br>The delative plural is formed with the ${delPlAffixIsolated}: ${delPlExamples}.`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralDelative);
+        }
+    }
+
+    if(chosenNounCases.includes("Allative")) {
+        let caseH4 = document.createElement("h4");
+        caseH4.innerHTML = `<strong>Allative Case</strong>`;
+        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+        if(determineGrammaticalNumber() === "singular-plural") {
+            let exampleArray = []
+            function makeExamples(make, nounArray) {
+                for(let i = 0; i < 11; i++) {
+                let randomIndex = Math.floor(Math.random() * nounArray.length);
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to the ${nounArray[randomIndex]}"`
+                exampleArray.push(example);
+                }   
+                let joinedList = exampleArray.join(", ")
+                exampleArray = [];
+                return joinedList;
+            }
+            let allSgExamples = makeExamples(makeAllSingular, countNounArray);
+            let allPlExamples = makeExamples(makeAllPlural, countNounArrayPlural);
+
+            let singularPluralAllative = document.createElement("p");
+            singularPluralAllative.innerHTML = `The allative case is used to mark motion towards a noun e.g "to the forest" or "to a mountain". The allative singular is formed with the ${allSgAffixIsolated}: ${allSgExamples}.<br>The allative plural is formed with the ${allPlAffixIsolated}: ${allPlExamples}.`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralAllative);
+        }
+    }
+
+    if(chosenNounCases.includes("Instrumental")) {
+        let caseH4 = document.createElement("h4");
+        caseH4.innerHTML = `<strong>Instrumental Case</strong>`;
+        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+        if(determineGrammaticalNumber() === "singular-plural") {
+            let exampleArray = []
+            function makeExamples(make, nounArray) {
+                for(let i = 0; i < 11; i++) {
+                let randomIndex = Math.floor(Math.random() * nounArray.length);
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with the ${nounArray[randomIndex]}"`
+                exampleArray.push(example);
+                }   
+                let joinedList = exampleArray.join(", ")
+                exampleArray = [];
+                return joinedList;
+            }
+            let instrSgExamples = makeExamples(makeInstrSingular, countNounArray);
+            let instrPlExamples = makeExamples(makeInstrPlural, countNounArrayPlural);
+
+            let singularPluralInstrumental = document.createElement("p");
+            singularPluralInstrumental.innerHTML = `The instrumental case is used to mark a noun by which an action is achieved i.e "I walked <u>by land</u>" or "I stabbed him <u>with a knife</u>". The instrumental singular is formed with the ${instrSgAffixIsolated}: ${instrSgExamples}.<br>The instrumental plural is formed with the ${instrPlAffixIsolated}: ${instrPlExamples}.`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralInstrumental);
+        }
+    }
 }
 
 function makeFusionalNounHeader() {
@@ -601,6 +882,7 @@ function generateLanguage() {
     clearArrays();
     chooseCases();
     markedSingular();
+    makeLocativeCaseAffixes();
     declareFusionalAffixes();
     listAffixesInIsolation();
     determineGrammaticalNumber();

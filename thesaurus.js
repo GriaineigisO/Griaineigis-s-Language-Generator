@@ -124,4 +124,22 @@ allWordsInThesaurus.push(rewardArray);
 let airArray = ["air", "gas", "vapour", "fume", "ether"];
 allWordsInThesaurus.push(airArray);
 
+let stiffArray = ["stiff", "stubborn", "rigid", "firm", "inflexible"];
+allWordsInThesaurus.push(stiffArray);
+
+let paddedArray = ["padded", "fluffy", "soft"];
+allWordsInThesaurus.push(paddedArray);
+
+let longArray = ["long", "tall"];
+allWordsInThesaurus.push(longArray);
+
+let suckArray = ["suck", "to draw in"];
+allWordsInThesaurus.push(suckArray);
+
+let lineageArray = ["lineage", "ancestry", "descent"];
+allWordsInThesaurus.push(lineageArray);
+
+let raceArray = ["race", "kin", "family", "species", "type", "gender"];
+allWordsInThesaurus.push(raceArray);
+
 export { allWordsInThesaurus };

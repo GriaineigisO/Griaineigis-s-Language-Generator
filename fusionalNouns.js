@@ -138,19 +138,30 @@ function makeFusionalAffixes(affix1, affix2) {
         return joinedStr;
     }
 
+    function shortenAffix(str) {
+        let newArray = Array.from(str);
+        newArray.splice(1, 2);
+        let joinedStr = newArray.join("");
+        return joinedStr;
+    }
+
     //the following options will change the combination of the two affixes, to make them appear fused
-    if(Math.floor(Math.random() * 3) === 1) {
+    if(Math.floor(Math.random() * 3) !== 1) {
         fusedAffix = removeChar(2, fusedAffix);
     }
-    if(Math.floor(Math.random() * 3) === 1) {
+    if(Math.floor(Math.random() * 3) !== 1) {
         fusedAffix = removeCluster(fusedAffix);
     }
-    if(Math.floor(Math.random() * 3) === 1) {
+    if(Math.floor(Math.random() * 3) !== 1) {
         fusedAffix = removeFirstVowel(fusedAffix);
     }
-    if(/*Math.floor(Math.random() * 3)*/1 === 1) {
+    if(Math.floor(Math.random() * 3) !== 1) {
         fusedAffix = mergeTwoVowels(fusedAffix);
     }
+    if(fusedAffix.length >= 4) {
+        fusedAffix = shortenAffix(fusedAffix);
+    }
+
 
     //doesn't fuse two pre-existing affixes, just replaces both with a new affix
     if(Math.floor(Math.random() * 11) === 3) {

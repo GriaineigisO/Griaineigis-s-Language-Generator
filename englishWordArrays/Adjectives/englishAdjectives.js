@@ -270,6 +270,9 @@ function addWords() {
     adjectiveArray.push("rude");
     comparativeAdjectiveArray.push("ruder");
 
+    adjectiveArray.push("scared");
+    comparativeAdjectiveArray.push("more&nbspscared");
+
     adjectiveArray.push("sharp");
     comparativeAdjectiveArray.push("sharper");
 

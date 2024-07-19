@@ -9,13 +9,24 @@
 # Phonology
 
 Phonotactic ideas:
-
+- perhaps introduce a sound changes from Old X section? To describe some sound changes that do not nexessarily result in productive phonotactics.figure out how to make resulting hponology appear in tables in such
 - Two vowels together must share a quality, like height
 - fricatives can't occur after plosives
 - /f/ can only occur in onset
 - plosives can occur only in onset, either they become fricatives elsewhere or just drop
 - plosives can occur only word initially
 - vowel lost between consonant and resonant if a vowel follows the resonant e/g "bedir" + "-o" > "bedro"
+- /h/ lost after consonants
+- V1hV1 = V:
+- /h/ lost word initially
+- /h/ lost between vowels
+- consonants palatalised before front vowels
+- voiced consonants lost intervocalically
+- CV1CV2CV3 > CV1:CCV3
+- CV1CV2CV3 > CV1:CCV3:
+- #RVC > #VRC
+- sl > x
+
 
 * Use inspiration from real language's sound changes. Use the Proto-Finnic > Proto-Livonian sound changes for inspiration too
 * use conlang sound changes too

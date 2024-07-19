@@ -155,7 +155,7 @@ let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", 
 
 let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
 
-let plosives = ["b", "d", "g", "bʰ", "dʰ", "gʰ", "ɖ", "ɟ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "p", "t", "k", "pʰ", "tʰ", "kʰ", "ʈ", "c", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "ʔ", "q", "ɢ"]
+let plosives = ["b", "d", "g", "bʰ", "dʰ", "gʰ", "ɖ", "ɟ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "p", "t", "k", "pʰ", "tʰ", "kʰ", "ʈ", "c", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "ʔ", "q", "ɢ"];
 
 let lenitionFromPlosives1 = ["β", "ð", "ɣ", "β", "ð", "ɣ", "ʐ", "ʝ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "ɸ", "θ", "x", "ɸ", "θ", "x", "θ", "ç", "ɸʲ", "θʲ", "xʲ", "ɸʷ", "θʷ", "xʷ", "ɸʲ", "θʲ", "xʲ", "θʷ", "θʷ", "xʷ", "h", "χ", "ʁ"];
 let lenitionFromPlosives2 = ["v", "z", "h", "v", "z", "h", "ʐ", "j", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "f", "s", "h", "f", "s", "h", "ʂ", "j", "fʲ", "sʲ", "hʲ", "fʷ", "sʷ", "hʷ", "fʲ", "sʲ", "hʲ", "fʷ", "stʷ", "hʷ", "h", "h", "h"];
@@ -212,7 +212,8 @@ function selectSoundChanges() {
     potentialSoundChanges.push("wordFinalHighVowelsLower");
     potentialSoundChanges.push("NoResonantsBeforeConsonants");
     potentialSoundChanges.push("nonInitialNonHighVowelsBecomeA");
-     potentialSoundChanges.push("nasalsCantAppearAfterConsonants");
+    potentialSoundChanges.push("nasalsCantAppearAfterConsonants");
+    potentialSoundChanges.push("fricativesDebuccaliseBeforeVowels");
    
     while(chosenSoundChanges.length < 6) {
         let randomNumber = Math.floor(Math.random()* potentialSoundChanges.length);
@@ -377,7 +378,6 @@ function soundChange(word) {
         document.getElementById("LenitePlosivesBeforeOtherPlosives").style.display = "none";
     }
 
-
     /*********************************************************************************/
 
     if(chosenSoundChanges.includes("nonInitialNonHighVowelsBecomeA") && checkIfThereAreNonHighVowels()) {
@@ -411,8 +411,18 @@ function soundChange(word) {
         document.getElementById("nasalsCantOccurAfterConsonants").style.display = "none";
      }
 
-    
-    
+      /*********************************************************************************/
+      if(chosenSoundChanges.includes("fricativesDebuccaliseBeforeVowels")) {
+        document.getElementById("fricativesDebuccaliseBeforeVowels").style.display = "block";
+        for(let i = 0; i < wordArray.length; i++) {
+            if(selectFricatives().includes(wordArray[i]) && vowels.includes(wordArray[i+1])) {
+                wordArray[i] = "h";
+            }
+        }
+     } else {
+        document.getElementById("fricativesDebuccaliseBeforeVowels").style.display = "none";
+     }
+
     /*********************************************************************************/
 
         //The below changes are merely corrective to clean up some awkward unrealistic clusters that often get produced, thus they always apply and are not considered a part of the true sound changes.

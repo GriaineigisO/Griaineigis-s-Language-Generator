@@ -477,9 +477,13 @@ function soundChange(word) {
         document.getElementById("vowelLostBetweenConsonantAndResonant").style.display = "block";
         for(let i = 0; i < wordArray.length; i++) {
             if(consonants.includes(wordArray[i]) && vowels.includes(wordArray[i+1]) && resonants.includes(wordArray[i+2]) && vowels.includes(wordArray[i+3])) {
-                if( wordArray[i+3] !== wordArray[wordArray.length - 1]) {
-                    wordArray.splice(i+1,1) 
-                }
+                wordArray.splice(i+1,1) 
+                
+                
+            }
+            if(wordArray[i] === "X" && consonants.includes(wordArray[i+1]) && vowels.includes(wordArray[i+2]) && resonants.includes(wordArray[i+3]) && vowels.includes(wordArray[i+4])) {
+                wordArray.splice(i+2,1) 
+            
                 
             }
         }

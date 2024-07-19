@@ -186,7 +186,7 @@ function makeRandomNumbers() {
 //The functions here will decide if the language has a set of consonants based on Place of Articulation, such a retroflex, palatal etc. The very core PoA like velar, labial and alveolar will be chosen by default, as it is very rare for a language to lack those
 
 let voicingTrueOrFalse = ""
-let randomVoiceNum = Math.floor(Math.random() * 4);
+let randomVoiceNum = 1//Math.floor(Math.random() * 4);
 function chooseVoicing() {//there is a 33% chance that this language will lack voicing
     if (randomVoiceNum === 2) { 
         voicingTrueOrFalse = false;

@@ -1,7 +1,7 @@
 //@collapse
-import {consonants, vowels, selectedSyllables, allNasalsArray, selectFricatives} from './generatePhonology.js';
+import {consonants, selectedSyllables, allNasalsArray, selectFricatives} from './generatePhonology.js';
 
-let addedVowels = vowels;
+
 let addedConsonants = consonants;
 
 // function soundChange(word) {
@@ -151,7 +151,9 @@ let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "�
 let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "tʃ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"]
 let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
 let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ", "ə", "ɛ", "œ", "ɜ", "ɞ", "ʌ", "ɔ", "ɑ", "ɒ", "ɐ", "æ"];
-let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ"]
+let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a"]
+let vowels = highVowels.concat(midVowels, nonHighVowels);
+let addedVowels = vowels;
 
 let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
 
@@ -214,6 +216,10 @@ function selectSoundChanges() {
     potentialSoundChanges.push("nonInitialNonHighVowelsBecomeA");
     potentialSoundChanges.push("nasalsCantAppearAfterConsonants");
     potentialSoundChanges.push("fricativesDebuccaliseBeforeVowels");
+    potentialSoundChanges.push("vowelLostBetweenTwoOfSameConsonant");
+    potentialSoundChanges.push("voicedConsonantsLostIntervocalically");
+    potentialSoundChanges.push("RVCToVRCMetathesis");
+    potentialSoundChanges.push("vowelLostBetweenConsonantAndResonant")
    
     while(chosenSoundChanges.length < 6) {
         let randomNumber = Math.floor(Math.random()* potentialSoundChanges.length);
@@ -422,6 +428,64 @@ function soundChange(word) {
      } else {
         document.getElementById("fricativesDebuccaliseBeforeVowels").style.display = "none";
      }
+
+      /*********************************************************************************/
+      if(chosenSoundChanges.includes("vowelLostBetweenTwoOfSameConsonant")) {
+        document.getElementById("vowelLostBetweenTwoOfSameConsonant").style.display = "block";
+        for(let i = 0; i < wordArray.length; i++) {
+            if(consonants.includes(wordArray[i-1]) && wordArray[i-1] === wordArray[i+1] && vowels.includes(wordArray[i])) {
+                wordArray.splice(i, 1);
+            }
+        }
+     } else {
+        document.getElementById("vowelLostBetweenTwoOfSameConsonant").style.display = "none";
+     }
+
+      /*********************************************************************************/
+      if(chosenSoundChanges.includes("voicedConsonantsLostIntervocalically")) {
+        document.getElementById("voicedConsonantsLostIntervocalically").style.display = "block";
+        for(let i = 0; i < wordArray.length; i++) {
+            if(vowels.includes(wordArray[i-1]) && vowels.includes(wordArray[i+1]) && voiced.includes(wordArray[i])) {
+                wordArray.splice(i, 1);
+            }
+        }
+     } else {
+        document.getElementById("voicedConsonantsLostIntervocalically").style.display = "none";
+     }
+
+    /*********************************************************************************/
+    if(chosenSoundChanges.includes("RVCToVRCMetathesis")) {
+        document.getElementById("RVCToVRCMetathesis").style.display = "block";
+        if(resonants.includes(wordArray[0]) && vowels.includes(wordArray[1]) && consonants.includes(wordArray[2])) {
+            let resonant = wordArray[0];
+            let vowel = wordArray[1];
+            wordArray[0] = vowel;
+            wordArray[1] = resonant;
+        }
+        if(wordArray[0] === "X" && resonants.includes(wordArray[1]) && vowels.includes(wordArray[2]) && consonants.includes(wordArray[3])) {
+            let resonant = wordArray[1];
+            let vowel = wordArray[2];
+            wordArray[1] = vowel;
+            wordArray[2] = resonant;
+        }
+        
+    } else {
+        document.getElementById("RVCToVRCMetathesis").style.display = "none";
+    }
+
+    if(chosenSoundChanges.includes("vowelLostBetweenConsonantAndResonant")) {
+        document.getElementById("vowelLostBetweenConsonantAndResonant").style.display = "block";
+        for(let i = 0; i < wordArray.length; i++) {
+            if(consonants.includes(wordArray[i]) && vowels.includes(wordArray[i+1]) && resonants.includes(wordArray[i+2]) && vowels.includes(wordArray[i+3])) {
+                if( wordArray[i+3] !== wordArray[wordArray.length - 1]) {
+                    wordArray.splice(i+1,1) 
+                }
+                
+            }
+        }
+    } else {
+        document.getElementById("vowelLostBetweenConsonantAndResonant").style.display = "none";
+    }
 
     /*********************************************************************************/
 

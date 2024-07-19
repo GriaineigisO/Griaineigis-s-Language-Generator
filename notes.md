@@ -29,6 +29,8 @@ Phonotactic ideas:
 - CVCV > CV1:V
 - h > j/_E
 - h > w/_B
+- C1VC1 > CC
+- C>∅/C1_C1
 
 
 * Use inspiration from real language's sound changes. Use the Proto-Finnic > Proto-Livonian sound changes for inspiration too

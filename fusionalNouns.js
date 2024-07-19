@@ -358,7 +358,7 @@ function makeInstrPlural(noun) {
 
 function listAffixesInIsolation(affix) {
     if(affix === "ːː" || affix === "ː") {
-        return `without any affixes, just the bare noun itself`
+        return `bare noun itself with no affixes`
     } else {
         if(numberSuffixOrPrefix === "suffix") {
            return `suffix <i><strong>-${spell(soundChange("A" + affix ))}</i></strong>`;

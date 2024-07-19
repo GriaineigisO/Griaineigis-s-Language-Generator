@@ -609,7 +609,7 @@ function addWords() {
     transitiveVerb3SArray.push("steals");
     transitiveVerbPastArray.push("stole");
 
-    transitiveVerbArray.push("stick");
+    transitiveVerbArray.push("stickV");
     transitiveVerb3SArray.push("sticks");
     transitiveVerbPastArray.push("stuck");
 

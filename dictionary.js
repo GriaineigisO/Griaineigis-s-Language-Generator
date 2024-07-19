@@ -14,8 +14,8 @@ import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedA
     naturalArtificial,
     animacyClassifierArray,
     shapeClassifierArray,
-    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray } from './script.js'
-import {grammaticalNumber, nomSgAffix, caseNumber} from './fusionalNouns.js'
+    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, languageName } from './script.js'
+import {grammaticalNumber, nomSgAffix, caseNumber,} from './fusionalNouns.js'
 
 import {spell} from './orthography.js'
 import {soundChange} from './soundchange.js'
@@ -36,17 +36,21 @@ const inanimate2Array = [];
 const activeArray = [];
 const passiveArray = [];
 
-function Dictionary(word, partOfSpeech, translation, classifierExplanation)  {
+function capitaliseLanguageName(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+function Dictionary(word, partOfSpeech, translation, classifierExplanation, etymology)  {
     this.word = word;
     this.partOfSpeech = partOfSpeech;
     this.translation = translation;
     this.classifierExplanation = classifierExplanation;
+    this.etymology = etymology;
 };
 
 let word1 = "";
 let wordWithAffix = "";
 let classifierInfo = "";
-let additionalEnglishMeanings = "";
 
 function makeDictionary() {
     let englishWords = countNounArray.concat(massNounArray, adjectiveArray, transitiveVerbArray, intransitiveVerbArray, adverbArray, conjunctionArray, adpositionArray, intensifierArray);
@@ -829,8 +833,6 @@ function makeDictionary() {
             }
             }
             
-        
-
         //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
         if(typologyNum === 1 && grammaticalNumAgglutinative < 24  && markedSingularOrNot() === true) {    
             if(countNounArray.includes(englishWords[i])) {
@@ -890,23 +892,22 @@ function makeDictionary() {
             }
         } 
         
-        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo);
+        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(wordWithAffix));
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");
         let classiferEtymology = document.createElement("span");
+        let etymology = document.createElement("span");
 
         headWord.innerHTML = word1.word;
         pOS.innerHTML = word1.partOfSpeech;
         meaning.innerHTML = word1.translation;
-
-        
-        
         classiferEtymology.innerHTML = word1.classifierExplanation;
+        etymology.innerHTML = `&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>`;
 
         let entry = document.createElement("div");
         entry.classList.add("entry");
-        entry.innerHTML = `${headWord.innerHTML} ${pOS.innerHTML} ${meaning.innerHTML} ${classiferEtymology.innerHTML}`;
+        entry.innerHTML = `${headWord.innerHTML} ${pOS.innerHTML} ${meaning.innerHTML} ${classiferEtymology.innerHTML} ${etymology.innerHTML}`;
         document.getElementById("language-to-english").appendChild(entry);
         }   
 
@@ -1510,6 +1511,7 @@ function makeDictionary() {
             let pOSText = "";
             let translationText = "";
             let classifierInfotext = ""; 
+            let etymologyText = "";
 
             //how the entries are displayed depends on the typology, for example, isolating languages don't need to list the bare root
             //if typology is isolating
@@ -1525,6 +1527,7 @@ function makeDictionary() {
                     pOSText = newArray[1];
                     translationText = newArray[2];
                     classifierInfotext = newArray[3];
+                    etymologyText = newArray[4]
                 }
             } else if(typologyNum > 0) { //if typology is agglutinative, the bare root is newArray[2] listed after the part of speech
                 //adverbs, conjunctions and adpositions don't need to have bare roots shown, thus the length of their newArray is different
@@ -1533,11 +1536,13 @@ function makeDictionary() {
                     pOSText = newArray[1]
                     translationText = newArray[2];
                     classifierInfotext = newArray[3];
+                    etymologyText = newArray[4];
                 } else {
                     headWordText = newArray[0];
                     pOSText = newArray[1] + " " + newArray[2];
                     translationText = newArray[3];
                     classifierInfotext = newArray[4];
+                    etymologyText = newArray[5];
                 }
                 
             }
@@ -1586,19 +1591,25 @@ function makeDictionary() {
                     translation.innerHTML = `"${translationText}"`; 
                 }
             }
-        } 
+        };
       
         
-        //for additional information in entries such as etmyology and such
+        //for additional information in entries such as classifier etmyology and such
         let classifierEtymology = document.createElement("span");
         classifierEtymology.style.fontSize = "16px";
         classifierEtymology.innerHTML = classifierInfotext;
+
+        //for additional information in entries such as etmyology and such
+        let etymology = document.createElement("span");
+        etymology.style.fontSize = "16px";
+        etymology.innerHTML = etymologyText;
 
         entryDiv[i].innerHTML = "";
         entryDiv[i].appendChild(headWord)
         entryDiv[i].appendChild(pOS)
         entryDiv[i].appendChild(translation)
-        entryDiv[i].appendChild(classifierEtymology)
+        entryDiv[i].appendChild(classifierEtymology);
+        entryDiv[i].appendChild(etymology)
     }
 
      for(let i = 0; i < entryEnglish.length; i++) {

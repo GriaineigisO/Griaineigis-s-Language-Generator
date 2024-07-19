@@ -439,8 +439,6 @@ function clearGeneratedArrays() {
     document.getElementById("measure-words").replaceChildren();
 }
 
-
-
 function showGrammarAndDictionary() {
     document.getElementById("grammar").style.display = "block";
     document.getElementById("dictionary").style.display = "block";
@@ -621,12 +619,14 @@ function sendGeneratedWordsToArray() {
 }
 
 //This is simply a placeholder until I have created derivational methodfs suitable to create a name with an actual etymology. Until then, a purely generated and meaningless name will suffice
+let languageName = "";
 function generateRandomNameForLanguage () {
-    let languageName = document.getElementsByClassName("language-name");
+    let languageNameSpan = document.getElementsByClassName("language-name");
     let newName = spell(soundChange(generateWords()));
-    for(let i = 0; i < languageName.length; i++) {
-        languageName[i].innerHTML = newName;
+    for(let i = 0; i < languageNameSpan.length; i++) {
+        languageNameSpan[i].innerHTML = newName;
     }
+    languageName = newName;
 }
 
 //Since almost every word had had at least one long vowel, the below function serves to randomly shorten vowels in words to bring the number of long vowels down to a more agreeable number.
@@ -7991,4 +7991,4 @@ function generateLanguage() {
 
 export {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, grammaticalNumAgglutinative as grammaticalNum, typologyNum, singularAffix, animateAffix, inanimateAffix, genderSuffixOrPrefix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, divineArray, profaneArray, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, randomClassifierNum, grammaticalNumIsolating, longAndSlenderClassifier, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, randomNumForChild, childExample, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour,labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, randomNumForFlower, flowerExample, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray,
     shapeClassifierArray,
-    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, pluralAffix, dualAffix, generalAffix, collectiveAffix, trialAffix, quadralAffix, singulativeAffix, greaterPluralAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, grammaticalNumAgglutinative, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, locativeAffix, ablativeAffix, delativeAffix, inessiveAffix, instrumentalAffix, allativeAffix, generateAffixes};
+    shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, pluralAffix, dualAffix, generalAffix, collectiveAffix, trialAffix, quadralAffix, singulativeAffix, greaterPluralAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, grammaticalNumAgglutinative, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, locativeAffix, ablativeAffix, delativeAffix, inessiveAffix, instrumentalAffix, allativeAffix, generateAffixes, languageName};

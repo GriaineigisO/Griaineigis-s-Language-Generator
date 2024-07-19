@@ -91,38 +91,39 @@ function makeFusionalAffixes(affix1, affix2) {
         fusedAffix = affix2 + affix1;
     }
 
-    function removeChar(timesToLoop, str) {
-        let randomIndex = Math.floor(Math.random() * str.length) + 1;
-        let newArray = Array.from(str);
-        for(let i = 0; i < timesToLoop; i++) {
-            newArray.splice(randomIndex, 1);
+    //the following options will change the combination of the two affixes, to make them appear fused
+    if(Math.floor(Math.random() * 3) !== 1) {
+        if(fusedAffix.length > 3) {
+            let randomIndex = Math.floor(Math.random() * fusedAffix.length) + 1;
+            let newArray = Array.from(fusedAffix);
+            for(let i = 0; i < 2; i++) {
+                newArray.splice(randomIndex, 1);
+            }
+            let joinedStr = newArray.join("");
+            fusedAffix = joinedStr;
         }
-        let joinedStr = newArray.join("");
-        return joinedStr;
-    }
 
-    function removeCluster(str) {
-        let newArray = Array.from(str);
+    }
+    if(Math.floor(Math.random() * 3) !== 1) {
+        let newArray = Array.from(fusedAffix);
         for(let i = 0; i < newArray.length; i++) {
             if(consonants.includes(newArray[i]) && consonants.includes(newArray[i + 1])) {
                 newArray.splice(i, 1);
             }
         }
         let joinedStr = newArray.join("");
-        return joinedStr;
+        fusedAffix = joinedStr;
     }
-
-    function removeFirstVowel(str) {
-        let newArray = Array.from(str);
+    if(Math.floor(Math.random() * 3) !== 1) {
+        let newArray = Array.from(fusedAffix);
         if(consonants.includes(newArray[0]) && consonants.includes(newArray[2]) && vowels.includes(newArray[1])) {
             newArray.splice(1, 1);
         }
         let joinedStr = newArray.join("");
-        return joinedStr;
+        fusedAffix = joinedStr;
     }
-
-    function mergeTwoVowels(str) {
-        let newArray = Array.from(str);
+    if(Math.floor(Math.random() * 3) !== 1) {
+        let newArray = Array.from(fusedAffix);
         for(let i = 0; i < newArray.length; i++) {
             if(vowels.includes(newArray[i]) && vowels.includes(newArray[i + 1])) {
                 if(Math.floor(Math.random() * 2) === 0) {
@@ -135,33 +136,14 @@ function makeFusionalAffixes(affix1, affix2) {
             }
         }
         let joinedStr = newArray.join("");
-        return joinedStr;
-    }
-
-    function shortenAffix(str) {
-        let newArray = Array.from(str);
-        newArray.splice(1, 2);
-        let joinedStr = newArray.join("");
-        return joinedStr;
-    }
-
-    //the following options will change the combination of the two affixes, to make them appear fused
-    if(Math.floor(Math.random() * 3) !== 1) {
-        fusedAffix = removeChar(2, fusedAffix);
-    }
-    if(Math.floor(Math.random() * 3) !== 1) {
-        fusedAffix = removeCluster(fusedAffix);
-    }
-    if(Math.floor(Math.random() * 3) !== 1) {
-        fusedAffix = removeFirstVowel(fusedAffix);
-    }
-    if(Math.floor(Math.random() * 3) !== 1) {
-        fusedAffix = mergeTwoVowels(fusedAffix);
+        fusedAffix = joinedStr;
     }
     if(fusedAffix.length >= 4) {
-        fusedAffix = shortenAffix(fusedAffix);
+        let newArray = Array.from(fusedAffix);
+        newArray.splice(1, 2);
+        let joinedStr = newArray.join("");
+        fusedAffix = joinedStr;
     }
-
 
     //doesn't fuse two pre-existing affixes, just replaces both with a new affix
     if(Math.floor(Math.random() * 11) === 3) {
@@ -193,44 +175,64 @@ function makeLocativeCaseAffixes() {
 
 let nomSgAffix = "";
 let nomPlAffix = "";
+let nomDualAffix = "";
 let accSgAffix = "";
+let accDualAffix = "";
 let accPlAffix = "";
 let genSgAffix = "";
+let genDualAffix = "";
 let genPlAffix = "";
 let datSgAffix = "";
+let datDualAffix = "";
 let datPlAffix = "";
 let ablSgAffix = "";
+let ablDualAffix = "";
 let ablPlAffix = "";
 let locSgAffix = "";
+let locDualAffix = "";
 let locPlAffix = "";
 let ineSgAffix = "";
+let ineDualAffix = "";
 let inePlAffix = "";
 let delSgAffix = "";
+let delDualAffix = "";
 let delPlAffix = "";
 let allSgAffix = "";
+let allDualAffix = "";
 let allPlAffix = "";
 let instrSgAffix = "";
+let instrDualAffix = "";
 let instrPlAffix = "";
 function declareFusionalAffixes() {
     nomSgAffix = makeFusionalAffixes(singularAffix, nominativeAffix);
     nomPlAffix = makeFusionalAffixes(pluralAffix, nominativeAffix);
+    nomDualAffix = makeFusionalAffixes(dualAffix, nominativeAffix);
     accSgAffix = makeFusionalAffixes(singularAffix, accusativeAffix);
+    accDualAffix = makeFusionalAffixes(dualAffix, accusativeAffix);
     accPlAffix = makeFusionalAffixes(pluralAffix, accusativeAffix);
     genSgAffix = makeFusionalAffixes(singularAffix, genitiveAffix);
+    genDualAffix = makeFusionalAffixes(dualAffix, genitiveAffix);
     genPlAffix = makeFusionalAffixes(pluralAffix, genitiveAffix);
     datSgAffix = makeFusionalAffixes(singularAffix, dativeAffix);
+    datDualAffix = makeFusionalAffixes(dualAffix, dativeAffix);
     datPlAffix = makeFusionalAffixes(pluralAffix, dativeAffix);
     ablSgAffix = makeFusionalAffixes(singularAffix, ablativeAffix);
+    ablDualAffix = makeFusionalAffixes(dualAffix, ablativeAffix);
     ablPlAffix = makeFusionalAffixes(pluralAffix, ablativeAffix);
     locSgAffix = makeFusionalAffixes(singularAffix, locativeAffix);
+    locDualAffix = makeFusionalAffixes(dualAffix, locativeAffix);
     locPlAffix = makeFusionalAffixes(pluralAffix, locativeAffix);
     ineSgAffix = makeFusionalAffixes(singularAffix, inessiveAffix);
+    ineDualAffix = makeFusionalAffixes(dualAffix, inessiveAffix);
     inePlAffix = makeFusionalAffixes(pluralAffix, inessiveAffix);
     delSgAffix = makeFusionalAffixes(singularAffix, delativeAffix);
+    delDualAffix = makeFusionalAffixes(dualAffix, delativeAffix);
     delPlAffix = makeFusionalAffixes(pluralAffix, delativeAffix);
     allSgAffix = makeFusionalAffixes(singularAffix, allativeAffix);
+    allDualAffix = makeFusionalAffixes(dualAffix, allativeAffix);
     allPlAffix = makeFusionalAffixes(pluralAffix, allativeAffix);
     instrSgAffix = makeFusionalAffixes(singularAffix, instrumentalAffix);
+    instrDualAffix = makeFusionalAffixes(dualAffix, instrumentalAffix);
     instrPlAffix = makeFusionalAffixes(pluralAffix, instrumentalAffix);
 }
 
@@ -242,8 +244,16 @@ function makeNomPlural(noun) {
     return inflectNouns(noun, nomPlAffix);
 }
 
+function makeNomDual(noun) {
+    return inflectNouns(noun, nomDualAffix);
+}
+
 function makeAccSingular(noun) {
     return inflectNouns(noun, accSgAffix);
+}
+
+function makeAccDual(noun) {
+    return inflectNouns(noun, accDualAffix);
 }
 
 function makeAccPlural(noun) {
@@ -254,12 +264,20 @@ function makeGenSingular(noun) {
     return inflectNouns(noun, genSgAffix);
 }
 
+function makeGenDual(noun) {
+    return inflectNouns(noun, genDualAffix);
+}
+
 function makeGenPlural(noun) {
     return inflectNouns(noun, genPlAffix);
 }
 
 function makeDatSingular(noun) {
     return inflectNouns(noun, datSgAffix);
+}
+
+function makeDatDual(noun) {
+    return inflectNouns(noun, datDualAffix);
 }
 
 function makeDatPlural(noun) {
@@ -270,12 +288,20 @@ function makeAblSingular(noun) {
     return inflectNouns(noun, ablSgAffix);
 }
 
+function makeAblDual(noun) {
+    return inflectNouns(noun, ablDualAffix);
+}
+
 function makeAblPlural(noun) {
     return inflectNouns(noun, ablPlAffix);
 }
 
 function makeLocSingular(noun) {
     return inflectNouns(noun, locSgAffix);
+}
+
+function makeLocDual(noun) {
+    return inflectNouns(noun, locDualAffix);
 }
 
 function makeLocPlural(noun) {
@@ -286,12 +312,20 @@ function makeIneSingular(noun) {
     return inflectNouns(noun, ineSgAffix);
 }
 
+function makeIneDual(noun) {
+    return inflectNouns(noun, ineDualAffix);
+}
+
 function makeInePlural(noun) {
     return inflectNouns(noun, inePlAffix);
 }
 
 function makeDelSingular(noun) {
     return inflectNouns(noun, delSgAffix);
+}
+
+function makeDelDual(noun) {
+    return inflectNouns(noun, delDualAffix);
 }
 
 function makeDelPlural(noun) {
@@ -302,6 +336,10 @@ function makeAllSingular(noun) {
     return inflectNouns(noun, allSgAffix);
 }
 
+function makeAllDual(noun) {
+    return inflectNouns(noun, allDualAffix);
+}
+
 function makeAllPlural(noun) {
     return inflectNouns(noun, allPlAffix);
 }
@@ -310,79 +348,29 @@ function makeInstrSingular(noun) {
     return inflectNouns(noun, instrSgAffix);
 }
 
+function makeInstrDual(noun) {
+    return inflectNouns(noun, instrDualAffix);
+}
+
 function makeInstrPlural(noun) {
     return inflectNouns(noun, instrPlAffix);
 }
 
-let nomSgAffixIsolated = "";
-let nomPlAffixIsolated = "";
-let accSgAffixIsolated = "";
-let accPlAffixIsolated = "";
-let genSgAffixIsolated = "";
-let genPlAffixIsolated = "";
-let datSgAffixIsolated = "";
-let datPlAffixIsolated = "";
-let ablSgAffixIsolated = "";
-let ablPlAffixIsolated = "";
-let locSgAffixIsolated = "";
-let locPlAffixIsolated = "";
-let ineSgAffixIsolated = "";
-let inePlAffixIsolated = "";
-let delSgAffixIsolated = "";
-let delPlAffixIsolated = "";
-let allSgAffixIsolated = "";
-let allPlAffixIsolated = "";
-let instrSgAffixIsolated = "";
-let instrPlAffixIsolated = "";
-function listAffixesInIsolation() {
-    if(numberSuffixOrPrefix === "suffix") {
-        nomSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + nomSgAffix ))}</i></strong>`;
-        nomPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + nomPlAffix ))}</i></strong>`;
-        accSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + accSgAffix ))}</i></strong>`;
-        accPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + accPlAffix ))}</i></strong>`;
-        genSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + genSgAffix ))}</i></strong>`;
-        genPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + genPlAffix ))}</i></strong>`;
-        datSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + datSgAffix ))}</i></strong>`;
-        datPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + datPlAffix ))}</i></strong>`;
-        ablSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + ablSgAffix ))}</i></strong>`;
-        ablPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + ablPlAffix ))}</i></strong>`;
-        locSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + locSgAffix ))}</i></strong>`;
-        locPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + locPlAffix ))}</i></strong>`;
-        ineSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + ineSgAffix ))}</i></strong>`;
-        inePlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + inePlAffix ))}</i></strong>`;
-        delSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + delSgAffix ))}</i></strong>`;
-        delPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + delPlAffix ))}</i></strong>`;
-        allSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + allSgAffix ))}</i></strong>`;
-        allPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + allPlAffix ))}</i></strong>`;
-        instrSgAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + instrSgAffix ))}</i></strong>`;
-        instrPlAffixIsolated = `suffix <i><strong>-${spell(soundChange("A" + instrPlAffix ))}</i></strong>`;
+function listAffixesInIsolation(affix) {
+    if(affix === "ːː" || affix === "ː") {
+        return `without any affixes, just the bare noun itself`
     } else {
-        nomSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + nomSgAffix + "A"))}-</i></strong>`;
-        nomPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + nomPlAffix + "A"))}-</i></strong>`;
-        accSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + accSgAffix + "A"))}-</i></strong>`;
-        accPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + accPlAffix + "A"))}-</i></strong>`;
-        genSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + genSgAffix + "A"))}-</i></strong>`;
-        genPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + genPlAffix + "A"))}-</i></strong>`;
-        datSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + datSgAffix + "A"))}-</i></strong>`;
-        datPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + datPlAffix + "A"))}-</i></strong>`;
-        ablSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + ablSgAffix + "A"))}-</i></strong>`;
-        ablPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + ablPlAffix + "A"))}-</i></strong>`;
-        locSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + locSgAffix + "A"))}-</i></strong>`;
-        locPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + locPlAffix + "A"))}-</i></strong>`;
-        ineSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + ineSgAffix + "A"))}-</i></strong>`;
-        inePlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + inePlAffix + "A"))}-</i></strong>`;
-        delSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + delSgAffix + "A"))}-</i></strong>`;
-        delPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + delPlAffix + "A"))}-</i></strong>`;
-        allSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + allSgAffix + "A"))}-</i></strong>`;
-        allPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + allPlAffix + "A"))}-</i></strong>`;
-        instrSgAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + instrSgAffix + "A"))}-</i></strong>`;
-        instrPlAffixIsolated = `prefix <i><strong>${spell(soundChange("X" + instrPlAffix + "A"))}-</i></strong>`;
+        if(numberSuffixOrPrefix === "suffix") {
+           return `suffix <i><strong>-${spell(soundChange("A" + affix ))}</i></strong>`;
+        } else {
+            return `prefix <i><strong>${spell(soundChange("X" + affix + "A"))}-</i></strong>`;
+        }
     }
 }
 
 let grammaticalNumber
 function determineGrammaticalNumber() {
-    grammaticalNumber = 2//Math.floor(Math.random() * 31);
+    grammaticalNumber = 6//Math.floor(Math.random() * 31);
     if(grammaticalNumber < 4) {
         if(caseNumber === 0) {
             document.getElementById("fusional-no-gender-singular-plural").style.display = "block";
@@ -392,49 +380,65 @@ function determineGrammaticalNumber() {
         return "singular-plural";
     };
     if(grammaticalNumber >= 5 && grammaticalNumber < 7) {
-        document.getElementById("fusional-no-gender-singular-dual-plural").style.display = "block";
+        if(caseNumber === 0) {
+            document.getElementById("fusional-no-gender-singular-dual-plural").style.display = "block";
+        }
         document.getElementById("grammatical-number-amount").innerHTML = "three";
         document.getElementById("grammatical-number-list").innerHTML = "singular, dual and plural";
         return "singular-dual-plural";
     };
     if(grammaticalNumber >= 7 && grammaticalNumber < 12) {
-        document.getElementById("fusional-no-gender-singular-dual-plural-collective").style.display = "block";
+        if(caseNumber === 0) {
+            document.getElementById("fusional-no-gender-singular-dual-plural-collective").style.display = "block";
+        }
         document.getElementById("grammatical-number-amount").innerHTML = "four";
         document.getElementById("grammatical-number-list").innerHTML = "singular, dual, plural and collective";
         return "singular-dual-plural-collective";
     };
     if(grammaticalNumber >= 12 && grammaticalNumber < 15) {
-        document.getElementById("fusional-no-gender-singular-dual-trial-plural").style.display = "block";
+        if(caseNumber === 0) {
+            document.getElementById("fusional-no-gender-singular-dual-trial-plural").style.display = "block";
+        }
         document.getElementById("grammatical-number-amount").innerHTML = "four";
         document.getElementById("grammatical-number-list").innerHTML = "singular, dual, trial and plural";
         return "singular-dual-trial-plural";
     };
     if(grammaticalNumber >= 15 && grammaticalNumber < 18) {
-        document.getElementById("fusional-no-gender-singular-dual-trial-quadral-plural").style.display = "block";
+        if(caseNumber === 0) {
+            document.getElementById("fusional-no-gender-singular-dual-trial-quadral-plural").style.display = "block";
+        }
         document.getElementById("grammatical-number-amount").innerHTML = "five";
         document.getElementById("grammatical-number-list").innerHTML = "singular, dual, trial, quadral and plural";
         return "singular-dual-trial-quadral-plural";
     };
     if(grammaticalNumber >= 18 && grammaticalNumber < 21) {
-        document.getElementById("fusional-no-gender-singular-plural-greater-plural").style.display = "block";
+        if(caseNumber === 0) {
+            document.getElementById("fusional-no-gender-singular-plural-greater-plural").style.display = "block";
+        }
         document.getElementById("grammatical-number-amount").innerHTML = "three";
         document.getElementById("grammatical-number-list").innerHTML = "singular, plural and greater plural";
         return "singular-plural-greater-plural";
     };
     if(grammaticalNumber >= 21 && grammaticalNumber < 24) {
-        document.getElementById("fusional-no-gender-singular-plural-general").style.display = "block";
+        if(caseNumber === 0) {
+            document.getElementById("fusional-no-gender-singular-plural-general").style.display = "block";
+        }
         document.getElementById("grammatical-number-amount").innerHTML = "three";
         document.getElementById("grammatical-number-list").innerHTML = "singular, plural and general";
         return "singular-plural-general";
     };
     if(grammaticalNumber >= 24 && grammaticalNumber < 27) {
-        document.getElementById("fusional-no-gender-general-plural").style.display = "block";
+        if(caseNumber === 0) {
+            document.getElementById("fusional-no-gender-general-plural").style.display = "block";
+        }
         document.getElementById("grammatical-number-amount").innerHTML = "two";
         document.getElementById("grammatical-number-list").innerHTML = "general and plural";
         return "general-plural";
     };
     if(grammaticalNumber >= 27 && grammaticalNumber < 30) {
-        document.getElementById("fusional-no-gender-general-singulative-plural").style.display = "block";
+        if(caseNumber === 0) {
+            document.getElementById("fusional-no-gender-general-singulative-plural").style.display = "block";
+        } 
         document.getElementById("grammatical-number-amount").innerHTML = "three";
         document.getElementById("grammatical-number-list").innerHTML = "general, singulative and plural";
         return "general-singulative-plural";
@@ -615,12 +619,29 @@ function explainCases() {
         document.getElementById("list-of-cases-fusional").innerHTML = listOfCasesString;
     }
 
-    if(chosenNounCases.includes("Nominative")) {
-        let nominativeH4 = document.createElement("h4");
-        nominativeH4.innerHTML = `<strong>Nominative Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(nominativeH4);
+    if(determineGrammaticalNumber() === "singular-plural") {
+        let tableDiv = document.createElement("div");
+        tableDiv.classList.add("inflection-table-div");
 
-        if(determineGrammaticalNumber() === "singular-plural") {
+        let inflectionTable = document.createElement("table");
+        inflectionTable.classList.add("inflection-table");
+        let headingRow = document.createElement("tr")
+        let emptyCell = document.createElement("th");
+        let sgHeading = document.createElement("th");
+        sgHeading.innerHTML = `Singular`
+        let plHeading = document.createElement("th");
+        plHeading.innerHTML = `Plural`
+
+        inflectionTable.appendChild(headingRow);
+        headingRow.appendChild(emptyCell);
+        headingRow.appendChild(sgHeading);
+        headingRow.appendChild(plHeading);
+
+
+        if(chosenNounCases.includes("Nominative")) {
+            let nominativeH4 = document.createElement("h4");
+            nominativeH4.innerHTML = `<strong>Nominative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(nominativeH4);
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
@@ -636,22 +657,486 @@ function explainCases() {
             let nomPlExamples = makeExamples(makeNomPlural, countNounArrayPlural);
 
             let singularPluralNominative = document.createElement("p");
-            singularPluralNominative.innerHTML = `The nominative case is used to mark the subject of a verb, the noun which is the performer of an action. The nominative singular is formed with the ${nomSgAffixIsolated}: ${nomSgExamples}.<br>The nominative plural is formed with the ${nomPlAffixIsolated}: ${nomPlExamples}.`;
+            singularPluralNominative.innerHTML = `The nominative case is used to mark the subject of a verb, the noun which is the performer of an action. The nominative singular is formed with the ${listAffixesInIsolation(nomSgAffix)}: ${nomSgExamples}.<br>The nominative plural is formed with the ${listAffixesInIsolation(nomPlAffix)}: ${nomPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralNominative);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Nominative</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + nomSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + nomPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(nomSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(nomPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
         }
-    }
+        if(chosenNounCases.includes("Accusative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Accusative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-    if(chosenNounCases.includes("Accusative")) {
-        let caseH4 = document.createElement("h4");
-        caseH4.innerHTML = `<strong>Accusative Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+            if(determineGrammaticalNumber() === "singular-plural") {
+                let exampleArray = []
+                function makeExamples(make, nounArray) {
+                    for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * nounArray.length);
+                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                    exampleArray.push(example);
+                    }   
+                    let joinedList = exampleArray.join(", ")
+                    exampleArray = [];
+                    return joinedList;
+                }
+                let accSgExamples = makeExamples(makeAccSingular, countNounArray);
+                let accPlExamples = makeExamples(makeAccPlural, countNounArrayPlural);
 
-        if(determineGrammaticalNumber() === "singular-plural") {
+                let singularPluralAccusative = document.createElement("p");
+                singularPluralAccusative.innerHTML = `The accusative case is used to mark the object of a verb, the noun which is the recipient of an action. The accusative singular is formed with the ${listAffixesInIsolation(accSgAffix)}: ${accSgExamples}.<br>The accusative plural is formed with the ${listAffixesInIsolation(accPlAffix)}: ${accPlExamples}.`;
+                document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralAccusative);
+            }
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Accusative</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + accSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + accPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(accSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(accPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
+        }
+        if(chosenNounCases.includes("Genitive")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Genitive Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+            if(determineGrammaticalNumber() === "singular-plural") {
+                let exampleArray = []
+                function makeExamples(make, nounArray) {
+                    for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * nounArray.length);
+                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "of ${nounArray[randomIndex]}"`
+                    exampleArray.push(example);
+                    }   
+                    let joinedList = exampleArray.join(", ")
+                    exampleArray = [];
+                    return joinedList;
+                }
+                let genSgExamples = makeExamples(makeGenSingular, countNounArray);
+                let genPlExamples = makeExamples(makeGenPlural, countNounArrayPlural);
+
+                let singularPluralGenitive = document.createElement("p");
+                singularPluralGenitive.innerHTML = `The genitive case is used to mark possession. The genitive singular is formed with the ${listAffixesInIsolation(genSgAffix)}: ${genSgExamples}.<br>The genitive plural is formed with the ${listAffixesInIsolation(genPlAffix)}: ${genPlExamples}.`;
+                document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralGenitive);
+            }
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Genitive</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + genSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + genPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(genSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(genPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
+        }
+        if(chosenNounCases.includes("Dative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Dative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+            if(determineGrammaticalNumber() === "singular-plural") {
+                let exampleArray = []
+                function makeExamples(make, nounArray) {
+                    for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * nounArray.length);
+                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                    exampleArray.push(example);
+                    }   
+                    let joinedList = exampleArray.join(", ")
+                    exampleArray = [];
+                    return joinedList;
+                }
+                let datSgExamples = makeExamples(makeDatSingular, countNounArray);
+                let datPlExamples = makeExamples(makeDatPlural, countNounArrayPlural);
+
+                let singularPluralDative = document.createElement("p");
+                singularPluralDative.innerHTML = `The dative case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy. The dative singular is formed with the ${listAffixesInIsolation(datSgAffix)}: ${datSgExamples}.<br>The dative plural is formed with the ${listAffixesInIsolation(datPlAffix)}: ${datPlExamples}.`;
+                document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralDative);
+            }
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Dative</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + datSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + datPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(datSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(datPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
+        }
+        if(chosenNounCases.includes("Ablative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Ablative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+            if(determineGrammaticalNumber() === "singular-plural") {
+                let exampleArray = []
+                function makeExamples(make, nounArray) {
+                    for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * nounArray.length);
+                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from ${nounArray[randomIndex]}"`
+                    exampleArray.push(example);
+                    }   
+                    let joinedList = exampleArray.join(", ")
+                    exampleArray = [];
+                    return joinedList;
+                }
+                let ablSgExamples = makeExamples(makeAblSingular, countNounArray);
+                let ablPlExamples = makeExamples(makeAblPlural, countNounArrayPlural);
+
+                let singularPluralAblative = document.createElement("p");
+                singularPluralAblative.innerHTML = `The ablative case is used to mark motion away from a noun. The ablative singular is formed with the ${listAffixesInIsolation(ablSgAffix)}: ${ablSgExamples}.<br>The ablative plural is formed with the ${listAffixesInIsolation(ablPlAffix)}: ${ablPlExamples}.`;
+                document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralAblative);
+            }
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Ablative</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + ablSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + ablPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(ablSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(ablPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
+        }
+        if(chosenNounCases.includes("Locative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Locative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+            if(determineGrammaticalNumber() === "singular-plural") {
+                let exampleArray = []
+                function makeExamples(make, nounArray) {
+                    for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * nounArray.length);
+                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on the ${nounArray[randomIndex]}"`
+                    exampleArray.push(example);
+                    }   
+                    let joinedList = exampleArray.join(", ")
+                    exampleArray = [];
+                    return joinedList;
+                }
+                let locSgExamples = makeExamples(makeLocSingular, countNounArray);
+                let locPlExamples = makeExamples(makeLocPlural, countNounArrayPlural);
+
+                let singularPluralLocative = document.createElement("p");
+                singularPluralLocative.innerHTML = `The locative case is used to mark a noun used with an adposition e.g "in the forest" or "on a mountain". The locative singular is formed with the ${listAffixesInIsolation(locSgAffix)}: ${locSgExamples}.<br>The locative plural is formed with the ${listAffixesInIsolation(locPlAffix)}: ${locPlExamples}.`;
+                document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralLocative);
+            }
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Locative</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + locSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + locPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(locSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(locPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
+        }
+        if(chosenNounCases.includes("Inessive")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Inessive Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+            if(determineGrammaticalNumber() === "singular-plural") {
+                let exampleArray = []
+                function makeExamples(make, nounArray) {
+                    for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * nounArray.length);
+                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in the ${nounArray[randomIndex]}"`
+                    exampleArray.push(example);
+                    }   
+                    let joinedList = exampleArray.join(", ")
+                    exampleArray = [];
+                    return joinedList;
+                }
+                let ineSgExamples = makeExamples(makeIneSingular, countNounArray);
+                let inePlExamples = makeExamples(makeInePlural, countNounArrayPlural);
+
+                let singularPluralInessive = document.createElement("p");
+                singularPluralInessive.innerHTML = `The inessive case is used to mark "in" e.g "in the forest" or "on a mountain". The inessive singular is formed with the ${listAffixesInIsolation(ineSgAffix)}: ${ineSgExamples}.<br>The inessive plural is formed with the ${listAffixesInIsolation(inePlAffix)}: ${inePlExamples}.`;
+                document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralInessive);
+            }
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Inessive</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + ineSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + inePlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(ineSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(inePlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
+        }
+        if(chosenNounCases.includes("Delative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Delative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+            if(determineGrammaticalNumber() === "singular-plural") {
+                let exampleArray = []
+                function makeExamples(make, nounArray) {
+                    for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * nounArray.length);
+                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from the ${nounArray[randomIndex]}"`
+                    exampleArray.push(example);
+                    }   
+                    let joinedList = exampleArray.join(", ")
+                    exampleArray = [];
+                    return joinedList;
+                }
+                let delSgExamples = makeExamples(makeDelSingular, countNounArray);
+                let delPlExamples = makeExamples(makeDelPlural, countNounArrayPlural);
+
+                let singularPluralDelative = document.createElement("p");
+                singularPluralDelative.innerHTML = `The delative case is used to mark "in" e.g "in the forest" or "on a mountain". The delative singular is formed with the ${listAffixesInIsolation(delSgAffix)}: ${delSgExamples}.<br>The delative plural is formed with the ${listAffixesInIsolation(delPlAffix)}: ${delPlExamples}.`;
+                document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralDelative);
+            }
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Delative</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + delSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + delPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(delSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(delPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
+        }
+        if(chosenNounCases.includes("Allative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Allative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+            if(determineGrammaticalNumber() === "singular-plural") {
+                let exampleArray = []
+                function makeExamples(make, nounArray) {
+                    for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * nounArray.length);
+                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to the ${nounArray[randomIndex]}"`
+                    exampleArray.push(example);
+                    }   
+                    let joinedList = exampleArray.join(", ")
+                    exampleArray = [];
+                    return joinedList;
+                }
+                let allSgExamples = makeExamples(makeAllSingular, countNounArray);
+                let allPlExamples = makeExamples(makeAllPlural, countNounArrayPlural);
+
+                let singularPluralAllative = document.createElement("p");
+                singularPluralAllative.innerHTML = `The allative case is used to mark motion towards a noun e.g "to the forest" or "to a mountain". The allative singular is formed with the ${listAffixesInIsolation(allSgAffix)}: ${allSgExamples}.<br>The allative plural is formed with the ${listAffixesInIsolation(allPlAffix)}: ${allPlExamples}.`;
+                document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralAllative);
+            }
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Allative</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + allSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + allPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(allSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(allPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
+        }
+        if(chosenNounCases.includes("Instrumental")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Instrumental Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+            if(determineGrammaticalNumber() === "singular-plural") {
+                let exampleArray = []
+                function makeExamples(make, nounArray) {
+                    for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * nounArray.length);
+                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with the ${nounArray[randomIndex]}"`
+                    exampleArray.push(example);
+                    }   
+                    let joinedList = exampleArray.join(", ")
+                    exampleArray = [];
+                    return joinedList;
+                }
+                let instrSgExamples = makeExamples(makeInstrSingular, countNounArray);
+                let instrPlExamples = makeExamples(makeInstrPlural, countNounArrayPlural);
+
+                let singularPluralInstrumental = document.createElement("p");
+                singularPluralInstrumental.innerHTML = `The instrumental case is used to mark a noun by which an action is achieved i.e "I walked <u>by land</u>" or "I stabbed him <u>with a knife</u>". The instrumental singular is formed with the ${listAffixesInIsolation(instrSgAffix)}: ${instrSgExamples}.<br>The instrumental plural is formed with the ${listAffixesInIsolation(instrPlAffix)}: ${instrPlExamples}.`;
+                document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralInstrumental);
+            }
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Instrumental</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + instrSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + instrPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(instrSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(instrPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(plTD);
+        }
+
+        tableDiv.appendChild(inflectionTable)
+        document.getElementById("fusional-no-gender-case-explanation").appendChild(tableDiv);
+
+    };
+
+    if(determineGrammaticalNumber() === "singular-dual-plural") {
+        let tableDiv = document.createElement("div");
+        tableDiv.classList.add("inflection-table-div");
+        
+        let inflectionTable = document.createElement("table");
+        inflectionTable.classList.add("inflection-table");
+        let headingRow = document.createElement("tr")
+        let emptyCell = document.createElement("th");
+        let sgHeading = document.createElement("th");
+        sgHeading.innerHTML = `Singular`
+        let dualHeading = document.createElement("th");
+        dualHeading.innerHTML = `Dual`
+        let plHeading = document.createElement("th");
+        plHeading.innerHTML = `Plural`
+
+        inflectionTable.appendChild(headingRow);
+        headingRow.appendChild(emptyCell);
+        headingRow.appendChild(sgHeading);
+        headingRow.appendChild(dualHeading);
+        headingRow.appendChild(plHeading);
+
+
+        if(chosenNounCases.includes("Nominative")) {
+            let nominativeH4 = document.createElement("h4");
+            nominativeH4.innerHTML = `<strong>Nominative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(nominativeH4);
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
                 let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                
+                if(make === makeNomDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
+                }
+                exampleArray.push(example);
+                }   
+                let joinedList = exampleArray.join(", ")
+                exampleArray = [];
+                return joinedList;
+            }
+            let nomSgExamples = makeExamples(makeNomSingular, countNounArray);
+            let nomDualExamples = makeExamples(makeNomDual, countNounArrayPlural);
+            let nomPlExamples = makeExamples(makeNomPlural, countNounArrayPlural);
+
+            let singularPluralNominative = document.createElement("p");
+            singularPluralNominative.innerHTML = `The nominative case is used to mark the subject of a verb, the noun which is the performer of an action. The nominative singular is formed with the ${listAffixesInIsolation(nomSgAffix)}: ${nomSgExamples}.
+            <br>The nominative dual is formed with the ${listAffixesInIsolation(nomDualAffix)}: ${nomDualExamples}.
+            <br>The nominative plural is formed with the ${listAffixesInIsolation(nomPlAffix)}: ${nomPlExamples}.`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralNominative);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Nominative</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + nomSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + nomDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + nomPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(nomSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(nomDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(nomPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
+        }
+        if(chosenNounCases.includes("Accusative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Accusative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
+
+            let exampleArray = []
+            function makeExamples(make, nounArray) {
+                for(let i = 0; i < 11; i++) {
+                let randomIndex = Math.floor(Math.random() * nounArray.length);
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                if(make === makeAccDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -659,25 +1144,49 @@ function explainCases() {
                 return joinedList;
             }
             let accSgExamples = makeExamples(makeAccSingular, countNounArray);
+            let accDualExamples = makeExamples(makeAccDual, countNounArrayPlural);
             let accPlExamples = makeExamples(makeAccPlural, countNounArrayPlural);
 
-            let singularPluralAccusative = document.createElement("p");
-            singularPluralAccusative.innerHTML = `The accusative case is used to mark the object of a verb, the noun which is the recipient of an action. The accusative singular is formed with the ${accSgAffixIsolated}: ${accSgExamples}.<br>The accusative plural is formed with the ${accPlAffixIsolated}: ${accPlExamples}.`;
-            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralAccusative);
+            let singularDualPluralAccusative = document.createElement("p");
+            singularDualPluralAccusative.innerHTML = `The accusative case is used to mark the object of a verb, the noun which is the recipient of an action. The accusative singular is formed with the ${listAffixesInIsolation(accSgAffix)}: ${accSgExamples}.
+            <br>The accusative dual is formed with the ${listAffixesInIsolation(accDualAffix)}: ${accDualExamples}.;
+            <br>The accusative plural is formed with the ${listAffixesInIsolation(accPlAffix)}: ${accPlExamples}.`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularDualPluralAccusative);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Accusative</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + accSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + accDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + accPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(accSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(accDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(accPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
         }
-    }
+        if(chosenNounCases.includes("Genitive")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Genitive Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-    if(chosenNounCases.includes("Genitive")) {
-        let caseH4 = document.createElement("h4");
-        caseH4.innerHTML = `<strong>Genitive Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
-
-        if(determineGrammaticalNumber() === "singular-plural") {
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
                 let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "of ${nounArray[randomIndex]}"`
+                if(make === makeGenDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "of two ${nounArray[randomIndex]}"`
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -685,25 +1194,50 @@ function explainCases() {
                 return joinedList;
             }
             let genSgExamples = makeExamples(makeGenSingular, countNounArray);
+            let genDualExamples = makeExamples(makeGenDual, countNounArrayPlural);
             let genPlExamples = makeExamples(makeGenPlural, countNounArrayPlural);
 
-            let singularPluralGenitive = document.createElement("p");
-            singularPluralGenitive.innerHTML = `The genitive case is used to mark possession. The genitive singular is formed with the ${genSgAffixIsolated}: ${genSgExamples}.<br>The genitive plural is formed with the ${genPlAffixIsolated}: ${genPlExamples}.`;
-            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralGenitive);
+            let singularDualPluralGenitive = document.createElement("p");
+            singularDualPluralGenitive.innerHTML = `The genitive case is used to mark possession. The genitive singular is formed with the ${listAffixesInIsolation(genSgAffix)}: ${genSgExamples}.
+            <br>The genitive dual is formed with the ${listAffixesInIsolation(genDualAffix)}: ${genDualExamples}.
+            <br>The genitive plural is formed with the ${listAffixesInIsolation(genPlAffix)}: ${genPlExamples}.`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(singularDualPluralGenitive);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Genitive</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + genSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + genDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + genPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(genSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(genDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(genPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
         }
-    }
+        if(chosenNounCases.includes("Dative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Dative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-    if(chosenNounCases.includes("Dative")) {
-        let caseH4 = document.createElement("h4");
-        caseH4.innerHTML = `<strong>Dative Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-        if(determineGrammaticalNumber() === "singular-plural") {
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
                 let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                if(make === makeDatDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -711,25 +1245,49 @@ function explainCases() {
                 return joinedList;
             }
             let datSgExamples = makeExamples(makeDatSingular, countNounArray);
+            let datDualExamples = makeExamples(makeDatDual, countNounArrayPlural);
             let datPlExamples = makeExamples(makeDatPlural, countNounArrayPlural);
 
             let singularPluralDative = document.createElement("p");
-            singularPluralDative.innerHTML = `The dative case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy. The dative singular is formed with the ${datSgAffixIsolated}: ${datSgExamples}.<br>The dative plural is formed with the ${datPlAffixIsolated}: ${datPlExamples}.`;
+            singularPluralDative.innerHTML = `The dative case is used to mark indirect objects, nouns that are not the direct recipients of an action. Such nouns in English occur after prepositions e.g the noun "boy" in "I gave a book to the boy. The dative singular is formed with the ${listAffixesInIsolation(datSgAffix)}: ${datSgExamples}.
+            <br>The dative dual is formed with the ${listAffixesInIsolation(datDualAffix)}: ${datDualExamples}.
+            <br>The dative plural is formed with the ${listAffixesInIsolation(datPlAffix)}: ${datPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralDative);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Dative</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + datSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + datDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + datPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(datSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(datDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(datPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
         }
-    }
+        if(chosenNounCases.includes("Ablative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Ablative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-    if(chosenNounCases.includes("Ablative")) {
-        let caseH4 = document.createElement("h4");
-        caseH4.innerHTML = `<strong>Ablative Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
-
-        if(determineGrammaticalNumber() === "singular-plural") {
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from ${nounArray[randomIndex]}"`
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from ${nounArray[randomIndex]}"`;
+                if(make === makeAblDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from two ${nounArray[randomIndex]}"`;
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -737,25 +1295,50 @@ function explainCases() {
                 return joinedList;
             }
             let ablSgExamples = makeExamples(makeAblSingular, countNounArray);
+            let ablDualExamples = makeExamples(makeAblDual, countNounArrayPlural);
             let ablPlExamples = makeExamples(makeAblPlural, countNounArrayPlural);
 
             let singularPluralAblative = document.createElement("p");
-            singularPluralAblative.innerHTML = `The ablative case is used to mark motion away from a noun. The ablative singular is formed with the ${ablSgAffixIsolated}: ${ablSgExamples}.<br>The ablative plural is formed with the ${ablPlAffixIsolated}: ${ablPlExamples}.`;
+            singularPluralAblative.innerHTML = `The ablative case is used to mark motion away from a noun. The ablative singular is formed with the ${listAffixesInIsolation(ablSgAffix)}: ${ablSgExamples}.
+            <br>The ablative dual is formed with the ${listAffixesInIsolation(ablDualAffix)}: ${ablDualExamples}.
+            <br>The ablative plural is formed with the ${listAffixesInIsolation(ablPlAffix)}: ${ablPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralAblative);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Ablative</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + ablSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + ablDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + ablPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(ablSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(ablDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(ablPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
         }
-    }
+        if(chosenNounCases.includes("Locative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Locative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-    if(chosenNounCases.includes("Locative")) {
-        let caseH4 = document.createElement("h4");
-        caseH4.innerHTML = `<strong>Locative Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-        if(determineGrammaticalNumber() === "singular-plural") {
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on the ${nounArray[randomIndex]}"`
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on the ${nounArray[randomIndex]}"`;
+                if(make === makeLocDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on two ${nounArray[randomIndex]}"`;
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -763,25 +1346,49 @@ function explainCases() {
                 return joinedList;
             }
             let locSgExamples = makeExamples(makeLocSingular, countNounArray);
+            let locDualExamples = makeExamples(makeLocDual, countNounArrayPlural);
             let locPlExamples = makeExamples(makeLocPlural, countNounArrayPlural);
 
             let singularPluralLocative = document.createElement("p");
-            singularPluralLocative.innerHTML = `The locative case is used to mark a noun used with an adposition e.g "in the forest" or "on a mountain". The locative singular is formed with the ${locSgAffixIsolated}: ${locSgExamples}.<br>The locative plural is formed with the ${locPlAffixIsolated}: ${locPlExamples}.`;
+            singularPluralLocative.innerHTML = `The locative case is used to mark a noun used with an adposition e.g "in the forest" or "on a mountain". The locative singular is formed with the ${listAffixesInIsolation(locSgAffix)}: ${locSgExamples}.
+            <br>The locative dual is formed with the ${listAffixesInIsolation(locDualAffix)}: ${locDualExamples}.
+            <br>The locative plural is formed with the ${listAffixesInIsolation(locPlAffix)}: ${locPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralLocative);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Locative</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + locSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + locDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + locPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(locSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(locDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(locPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
         }
-    }
+        if(chosenNounCases.includes("Inessive")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Inessive Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-    if(chosenNounCases.includes("Inessive")) {
-        let caseH4 = document.createElement("h4");
-        caseH4.innerHTML = `<strong>Inessive Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
-
-        if(determineGrammaticalNumber() === "singular-plural") {
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in the ${nounArray[randomIndex]}"`
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in the ${nounArray[randomIndex]}"`;
+                if(make === makeIneDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in two ${nounArray[randomIndex]}"`;
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -789,25 +1396,50 @@ function explainCases() {
                 return joinedList;
             }
             let ineSgExamples = makeExamples(makeIneSingular, countNounArray);
+            let ineDualExamples = makeExamples(makeIneDual, countNounArrayPlural);
             let inePlExamples = makeExamples(makeInePlural, countNounArrayPlural);
 
             let singularPluralInessive = document.createElement("p");
-            singularPluralInessive.innerHTML = `The inessive case is used to mark "in" e.g "in the forest" or "on a mountain". The inessive singular is formed with the ${ineSgAffixIsolated}: ${ineSgExamples}.<br>The inessive plural is formed with the ${inePlAffixIsolated}: ${inePlExamples}.`;
+            singularPluralInessive.innerHTML = `The inessive case is used to mark "in" e.g "in the forest" or "on a mountain". The inessive singular is formed with the ${listAffixesInIsolation(ineSgAffix)}: ${ineSgExamples}.
+            <br>The inessive dual is formed with the ${listAffixesInIsolation(ineDualAffix)}: ${ineDualExamples}
+            <br>The inessive plural is formed with the ${listAffixesInIsolation(inePlAffix)}: ${inePlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralInessive);
+        
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Inessive</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + ineSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + ineDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + inePlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(ineSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(ineDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(inePlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
         }
-    }
+        if(chosenNounCases.includes("Delative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Delative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-    if(chosenNounCases.includes("Delative")) {
-        let caseH4 = document.createElement("h4");
-        caseH4.innerHTML = `<strong>Delative Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-        if(determineGrammaticalNumber() === "singular-plural") {
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from the ${nounArray[randomIndex]}"`
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from the ${nounArray[randomIndex]}"`;
+                if(make === makeDelDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from two ${nounArray[randomIndex]}"`;
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -815,25 +1447,50 @@ function explainCases() {
                 return joinedList;
             }
             let delSgExamples = makeExamples(makeDelSingular, countNounArray);
+            let delDualExamples = makeExamples(makeDelDual, countNounArrayPlural);
             let delPlExamples = makeExamples(makeDelPlural, countNounArrayPlural);
 
             let singularPluralDelative = document.createElement("p");
-            singularPluralDelative.innerHTML = `The delative case is used to mark "in" e.g "in the forest" or "on a mountain". The delative singular is formed with the ${delSgAffixIsolated}: ${delSgExamples}.<br>The delative plural is formed with the ${delPlAffixIsolated}: ${delPlExamples}.`;
+            singularPluralDelative.innerHTML = `The delative case is used to mark "in" e.g "in the forest" or "on a mountain". The delative singular is formed with the ${listAffixesInIsolation(delSgAffix)}: ${delSgExamples}.
+            <br>The delative dual is formed with the ${listAffixesInIsolation(delDualAffix)}: ${delDualExamples}.
+            <br>The delative plural is formed with the ${listAffixesInIsolation(delPlAffix)}: ${delPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralDelative);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Delative</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + delSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + delDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + delPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(delSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(delDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(delPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
         }
-    }
+        if(chosenNounCases.includes("Allative")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Allative Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-    if(chosenNounCases.includes("Allative")) {
-        let caseH4 = document.createElement("h4");
-        caseH4.innerHTML = `<strong>Allative Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-        if(determineGrammaticalNumber() === "singular-plural") {
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to the ${nounArray[randomIndex]}"`
+                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to the ${nounArray[randomIndex]}"`;
+                if(make === makeAllDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to two ${nounArray[randomIndex]}"`;
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -841,25 +1498,50 @@ function explainCases() {
                 return joinedList;
             }
             let allSgExamples = makeExamples(makeAllSingular, countNounArray);
+            let allDualExamples = makeExamples(makeAllDual, countNounArrayPlural);
             let allPlExamples = makeExamples(makeAllPlural, countNounArrayPlural);
 
             let singularPluralAllative = document.createElement("p");
-            singularPluralAllative.innerHTML = `The allative case is used to mark motion towards a noun e.g "to the forest" or "to a mountain". The allative singular is formed with the ${allSgAffixIsolated}: ${allSgExamples}.<br>The allative plural is formed with the ${allPlAffixIsolated}: ${allPlExamples}.`;
+            singularPluralAllative.innerHTML = `The allative case is used to mark motion towards a noun e.g "to the forest" or "to a mountain". The allative singular is formed with the ${listAffixesInIsolation(allSgAffix)}: ${allSgExamples}.
+            <br>The allative dual is formed with the ${listAffixesInIsolation(allDualAffix)}: ${allDualExamples}.
+            <br>The allative plural is formed with the ${listAffixesInIsolation(allPlAffix)}: ${allPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralAllative);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Allative</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + allSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + allDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + allPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(allSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(allDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(allPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
         }
-    }
+        if(chosenNounCases.includes("Instrumental")) {
+            let caseH4 = document.createElement("h4");
+            caseH4.innerHTML = `<strong>Instrumental Case</strong>`;
+            document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-    if(chosenNounCases.includes("Instrumental")) {
-        let caseH4 = document.createElement("h4");
-        caseH4.innerHTML = `<strong>Instrumental Case</strong>`;
-        document.getElementById("fusional-no-gender-case-explanation").appendChild(caseH4);
 
-        if(determineGrammaticalNumber() === "singular-plural") {
             let exampleArray = []
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
                 let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with the ${nounArray[randomIndex]}"`
+                if(make === makeInstrDual) {
+                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with two ${nounArray[randomIndex]}"`
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -867,12 +1549,41 @@ function explainCases() {
                 return joinedList;
             }
             let instrSgExamples = makeExamples(makeInstrSingular, countNounArray);
+            let instrDualExamples = makeExamples(makeInstrDual, countNounArrayPlural);
             let instrPlExamples = makeExamples(makeInstrPlural, countNounArrayPlural);
 
             let singularPluralInstrumental = document.createElement("p");
-            singularPluralInstrumental.innerHTML = `The instrumental case is used to mark a noun by which an action is achieved i.e "I walked <u>by land</u>" or "I stabbed him <u>with a knife</u>". The instrumental singular is formed with the ${instrSgAffixIsolated}: ${instrSgExamples}.<br>The instrumental plural is formed with the ${instrPlAffixIsolated}: ${instrPlExamples}.`;
+            singularPluralInstrumental.innerHTML = `The instrumental case is used to mark a noun by which an action is achieved i.e "I walked <u>by land</u>" or "I stabbed him <u>with a knife</u>". The instrumental singular is formed with the ${listAffixesInIsolation(instrSgAffix)}: ${instrSgExamples}.
+            <br>The instrumental dual is formed with the ${listAffixesInIsolation(instrDualAffix)}: ${instrDualExamples}
+            <br>The instrumental plural is formed with the ${listAffixesInIsolation(instrPlAffix)}: ${instrPlExamples}.`;
             document.getElementById("fusional-no-gender-case-explanation").appendChild(singularPluralInstrumental);
+            
+            let newRow = document.createElement("tr");
+            let caseLabelTD = document.createElement("td");
+            caseLabelTD.innerHTML = `<strong>Instrumental</strong>`;
+            let sgTD = document.createElement("td");
+            let dualTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(numberSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + instrSgAffix))}</i>`
+                dualTD.innerHTML = `-<i>${spell(soundChange("A" + instrDualAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + instrPlAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(instrSgAffix + "X"))}</i>-`;
+                dualTD.innerHTML = `<i>${spell(soundChange(instrDualAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(instrPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(newRow);
+            newRow.appendChild(caseLabelTD);
+            newRow.appendChild(sgTD);
+            newRow.appendChild(dualTD);
+            newRow.appendChild(plTD);
         }
+
+        tableDiv.appendChild(inflectionTable)
+        document.getElementById("fusional-no-gender-case-explanation").appendChild(tableDiv);
+        
+
     }
 }
 
@@ -895,7 +1606,6 @@ function generateLanguage() {
     markedSingular();
     makeLocativeCaseAffixes();
     declareFusionalAffixes();
-    listAffixesInIsolation();
     determineGrammaticalNumber();
     makeNoGenderNumberExamples();
     explainCases();

@@ -221,7 +221,7 @@ function addWords() {
     transitiveVerb3SArray.push("enjoys");
     transitiveVerbPastArray.push("enjoyed");
 
-    transitiveVerbArray.push("exchange");
+    transitiveVerbArray.push("exchangeV");
     transitiveVerb3SArray.push("exchanges");
     transitiveVerbPastArray.push("exchanged");
 

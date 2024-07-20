@@ -1,48 +1,62 @@
-import {beforeWordFinalDevoicing, afterWordFinalDevoicing, beforeWordFinalDevoicing} from './soundchange.js';
-import { generatedCountNouns, generatedAdverbs, generatedMassNouns, generatedAdpositions, generatedIntransitiveVerbs, generatedTransitiveVerbs, generatedAdjectives, generatedConjunctions, countNounArray, adverbArray, massNounArray, adpositionArray, intransitiveVerbArray, transitiveVerbArray, adjectiveArray, conjunctionArray} from './script.js';
+import { soundChange, voiced, unvoiced } from "./soundchange.js";
 
-// let examples = [];
 
-// function clearArrays() {
-//     examples = [];
-// }
+let possibleExampleArray = [];
 
-// function wordFinalDevoicingExample() {
-    
-//     if(afterWordFinalDevoicing.length < 5) {
-//         for(let i = 0; i < afterWordFinalDevoicing.length; i++) {
-//             let joinedBefore = beforeWordFinalDevoicing[i].join("");
-//             let joinedAfter = afterWordFinalDevoicing[i].join("");
-//             examples.push(`<i>${joinedBefore}</i> > <i>${joinedAfter}</i>`)
-//         }
-//     } else {
-//         for(let i = 0; i < 5; i++) {
-//             let joinedBefore = beforeWordFinalDevoicing[i].join("");
-//             let joinedAfter = afterWordFinalDevoicing[i].join("");
-//             examples.push(`<i>${joinedBefore} > ${joinedAfter}</i>`)
-//         }
-//     }
+let num = 0;
 
-//     let joined = examples.join(", ")
-
-//     document.getElementById("wordFinalDevoicing").innerHTML = joined;
-// }
-
-function wordFinalDevoicingExample() {
-    let example = "";
-    for(let i = 0; i < generatedCountNouns.length; i++) {
-        if(beforeWordFinalDevoicing.includes(generatedCountNouns[i])) {
-
-            example = `${}`
-        }
-    }
-    document.getElementById("wordFinalDevoicingExample")
+function clearArrays() {
+    possibleExampleArray = [];
+    num = 0;
 }
+
+
+function soundChangeExample(word) {
+    if(num > 0) {
+        possibleExampleArray.push(word)
+    }
+    num++
+
+
+    wordFinalDevoicing(possibleExampleArray)
+
+
+    return word;
+}
+
+
+let before = "";
+let after = "";
+let afterAll = "";
+function wordFinalDevoicing(word) {
+    // for(let i = 0; i < word.length; i++) {
+    //     if(voiced.includes(word[i][word[i].length -1])) {
+    //         before = word[i];
+    //         afterAll = word[i];
+
+    //         let voicedIndex = voiced.indexOf(word[i][word[i].length -1]);
+    //         word[i][word[i].length -1] = word[i][voicedIndex];
+    //         if(voiced.includes(word[i][word[i].length -2])) {
+    //             let voicedIndex = voiced.indexOf(word[i][word[i].length -2]);
+    //             word[i][word[i].length -2] = unvoiced[voicedIndex];
+    //         } 
+    //         after = word[i];
+
+    //     }
+    // }
+
+    // document.getElementById("wordFinalDevoicing").innerHTML = `${before} > ${after} (${soundChange(afterAll)})`;
+}
+
+
+
+
 
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
 function generateLanguage() {
     clearArrays();
-    wordFinalDevoicingExample()
 }
+
+export {soundChangeExample}

@@ -19,6 +19,7 @@ import {grammaticalNumber, nomSgAffix, caseNumber,} from './fusionalNouns.js'
 
 import {spell} from './orthography.js'
 import {soundChange} from './soundchange.js';
+import {soundChangeExample} from './soundChangeExamples.js'
 import { allWordsInThesaurus} from './thesaurus.js'
 
 const animateArray = [];
@@ -892,7 +893,7 @@ function makeDictionary() {
             }
         } 
         
-        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(wordWithAffix));
+        word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(wordWithAffix));
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");

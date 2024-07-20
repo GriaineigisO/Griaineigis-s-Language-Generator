@@ -21,15 +21,12 @@ Phonotactic ideas:
 - /h/ lost word initially
 - /h/ lost between vowels
 - consonants palatalised before front vowels
-- voiced consonants lost intervocalically
 - CV1CV2CV3 > CV1:CCV3
 - CV1CV2CV3 > CV1:CCV3:
-- #RVC > #VRC
 - sl > x
 - CVCV > CV1:V
 - h > j/_E
 - h > w/_B
-- C1VC1 > CC
 - C>∅/C1_C1
 
 

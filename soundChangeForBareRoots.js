@@ -1,5 +1,7 @@
 
 //@collapse
+
+//This file is identical to soundChange.js expect that it does not give any sound change examples, this is to prevent any bare roots being shown as examples in the sound change section
 import {consonants, selectedSyllables, allNasalsArray, selectFricatives} from './generatePhonology.js';
 import {spell} from './orthography.js'
 let addedConsonants = consonants;
@@ -177,11 +179,6 @@ let timesvoicedConsonantsLostIntervocalicallyApplied = 0;
 let timesRVCToVRCMetathesisApplies = 0;
 let timesvowelLostBetweenConsonantAndResonantApplied = 0;
 
-let beforeAllChanges = "";
-let beforeAllChangesWordFInalDevoicing = [];
-let possibleExample = [];
-
-let exampleNum = 0;
 
 function clearPreviousOutput() {
     document.getElementById("sound-change-explanation").replaceChildren();
@@ -201,21 +198,6 @@ function clearPreviousOutput() {
     timesvoicedConsonantsLostIntervocalicallyApplied = 0;
     timesRVCToVRCMetathesisApplies = 0;
     timesvowelLostBetweenConsonantAndResonantApplied = 0;
-
-    exampleNum = 0;
-
-    beforeWordFinalDevoicing = [];
-    afterWordFinalDevoicing = [];
-    beforeAllChangesWordFInalDevoicing = [];
-    possibleExample = [];
-}
-
-function cloneArray(array) {
-    let newArray = [];
-    for(let i = 0; i < array.length; i++) {
-        newArray.push(array[i]);
-    }
-    return newArray;
 }
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -292,12 +274,7 @@ function selectSoundChanges() {
     }
 
 
-function soundChangeExample(word) {
-    possibleExample.push(word);
-    return word;
-}
-
-function soundChange(word) {
+function soundChangeForBareRoots(word) {
     wordArray = Array.from(word);
 
     /*CORRECTIVE CHANGES - not genuine sound changes, just meant to tidy up the roots in the mother language. These will not be described at all in the grammar*/
@@ -350,8 +327,6 @@ function soundChange(word) {
         }
     /*^^CORRECTIVE CHANGES^^^****/
 
-    beforeAllChanges = cloneArray(wordArray);
-
     //applies the chosen sound changes to the word
     for(let i = 0; i < chosenSoundChanges.length; i++) {
         chosenSoundChanges[i](wordArray)
@@ -371,50 +346,17 @@ function soundChange(word) {
     return final;
 }
 
-let beforeWordFinalDevoicing = [];
-let afterWordFinalDevoicing = [];
 
 function wordFinalDevoicing(wordArray) {
+
+
     if(voiced.includes(wordArray[wordArray.length -1])) {
-        beforeAllChangesWordFInalDevoicing.push(cloneArray(wordArray));
-        //beforeWordFinalDevoicing.push(cloneArray(beforeAllChanges));
         let voicedIndex = voiced.indexOf(wordArray[wordArray.length -1]);
         wordArray[wordArray.length -1] = unvoiced[voicedIndex];
         if(voiced.includes(wordArray[wordArray.length -2])) {
             let voicedIndex = voiced.indexOf(wordArray[wordArray.length -2]);
             wordArray[wordArray.length -2] = unvoiced[voicedIndex];
         } 
-        timeswordFinalDevoicingApplied++;
-       // afterWordFinalDevoicing.push(cloneArray(wordArray));
-       
-        let before = beforeAllChanges.join("");
-        let after = wordArray.join("");
-        
-        let li= document.createElement("li");
-        li.style.textDecoration = "underline";
-        li.style.fontWeight = "bold";
-        li.innerHTML = `Word Final Devoicing`;
-        let nestUl = document.createElement("ul");
-        let nestLi = document.createElement("li");
-        nestLi.style.listStyleType = "none";
-
-
-        if(possibleExample.includes(before)) {
-            console.log("ij")
-            if(exampleNum === 0) {
-                console.log("huló")
-                nestLi.innerHTML = `Voiced consonants devoiced word finally: ${spell(before)} > ${spell(after)}`
-                
-                exampleNum++;
-             };
-        }
-        console.log(nestLi.innerHTML)
-        if(timeswordFinalDevoicingApplied === 1) {       
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        }
-
     }
     return wordArray;
 }
@@ -823,9 +765,8 @@ nestUl.appendChild(nestLi);
 
 /*------------------------------------------------------*/
 
+ 
 
 
 
-
-
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, beforeWordFinalDevoicing, afterWordFinalDevoicing, beforeWordFinalDevoicing, soundChangeExample};
+export {soundChangeForBareRoots} 

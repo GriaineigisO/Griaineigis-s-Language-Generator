@@ -12,7 +12,7 @@ import nounCases from './allPossibleNounCases.js'
 
 import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
 
-import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters} from './soundchange.js'
+import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, clearPreviousOutput} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
 import {allWordOrders, subjectFinalWordOrders, objectFinalWordOrders, verbFinalWordOrders} from './allPossibleWordOrders.js'
@@ -867,7 +867,7 @@ function lengthExplanation() {
 
 /*Lists each phonotactic rule with examples*/
 function showPhonotacticRules() {
-    WordFinalDevoicingExample();
+    //WordFinalDevoicingExample();
     nonHighNonInitialVowelsBecomeAExample();
     lowerWordFinalHighVowelsExample();
     noResonantBeforeConsonant();
@@ -876,40 +876,40 @@ function showPhonotacticRules() {
 
 }
 
-function WordFinalDevoicingExample() {
-    let exampleNoun = "";
-    let exampleNoun2 = ""
-    let compoundNoun = ""
-    let randomNounMeaning = "";
-    let randomNounMeaning2 = ""
-    let possibleExamples = [];
-    let randomNum = Math.floor(Math.random() * generatedCountNouns.length)
-    if(voiced.length === 0) {
-        //console.log("no voicing!")
-        document.getElementById("wordFinalDevoicing").style.display = "none"; 
-    }
-    for(let i = 0; i < generatedCountNouns.length; i++) {
-        let newArray = Array.from(generatedCountNouns[i]);
-        if(voiced.includes(newArray[newArray.length - 1])) {
-            let joinedString = newArray.join("")
-            possibleExamples.push(joinedString)
-        }  
-    }
-    if(possibleExamples.length === 0) {
-        document.getElementById("wordFinalDevoicing").style.display = "none"; 
-    } else {
-        exampleNoun = possibleExamples[Math.floor(Math.random() * possibleExamples.length)];
-        exampleNoun2 =  generatedCountNouns[randomNum];
-        compoundNoun = exampleNoun + exampleNoun2;
-        randomNounMeaning = countNounArray[generatedCountNouns.indexOf(exampleNoun)];
-        randomNounMeaning2 = countNounArray[randomNum] 
-    }
+// function WordFinalDevoicingExample() {
+//     let exampleNoun = "";
+//     let exampleNoun2 = ""
+//     let compoundNoun = ""
+//     let randomNounMeaning = "";
+//     let randomNounMeaning2 = ""
+//     let possibleExamples = [];
+//     let randomNum = Math.floor(Math.random() * generatedCountNouns.length)
+//     if(voiced.length === 0) {
+//         //console.log("no voicing!")
+//         document.getElementById("wordFinalDevoicing").style.display = "none"; 
+//     }
+//     for(let i = 0; i < generatedCountNouns.length; i++) {
+//         let newArray = Array.from(generatedCountNouns[i]);
+//         if(voiced.includes(newArray[newArray.length - 1])) {
+//             let joinedString = newArray.join("")
+//             possibleExamples.push(joinedString)
+//         }  
+//     }
+//     if(possibleExamples.length === 0) {
+//         document.getElementById("wordFinalDevoicing").style.display = "none"; 
+//     } else {
+//         exampleNoun = possibleExamples[Math.floor(Math.random() * possibleExamples.length)];
+//         exampleNoun2 =  generatedCountNouns[randomNum];
+//         compoundNoun = exampleNoun + exampleNoun2;
+//         randomNounMeaning = countNounArray[generatedCountNouns.indexOf(exampleNoun)];
+//         randomNounMeaning2 = countNounArray[randomNum] 
+//     }
             
-    document.getElementById("word-final-devoicing-examplenoun").innerHTML = spell(soundChange(exampleNoun))
-    document.getElementById("word-final-devoicing-examplenounmeaning").innerHTML = randomNounMeaning;
-    document.getElementById("word-final-devoicing-example-compound").innerHTML = spell(soundChange(compoundNoun));
-    document.getElementById("word-final-devoicing-example-compound-meaning").innerHTML = `${randomNounMeaning}-${randomNounMeaning2}` 
-}
+//     document.getElementById("word-final-devoicing-examplenoun").innerHTML = spell(soundChange(exampleNoun))
+//     document.getElementById("word-final-devoicing-examplenounmeaning").innerHTML = randomNounMeaning;
+//     document.getElementById("word-final-devoicing-example-compound").innerHTML = spell(soundChange(compoundNoun));
+//     document.getElementById("word-final-devoicing-example-compound-meaning").innerHTML = `${randomNounMeaning}-${randomNounMeaning2}` 
+// }
 
 function nonHighNonInitialVowelsBecomeAExample() {
     let containsNonHighVowel = [];
@@ -7884,7 +7884,8 @@ let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
 function generateLanguage() {
-    selectSoundChanges()
+    clearPreviousOutput();
+    selectSoundChanges();
     showGrammarAndDictionary()
     clearGeneratedArrays();
     generateWords();

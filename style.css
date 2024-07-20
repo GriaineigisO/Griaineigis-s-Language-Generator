@@ -370,8 +370,12 @@ h1, h2, h3, h4 {
 #quantifier-few-example-head-first,
 #few-translation-head-first,
 #quantifier-few-example-head-final,
-#few-translation-head-final, #classifier-table-1-headFirst, #classifier-table-1-headFinal, #shape-based-classifier-tables, #animacy-based-classifier-tables, #short-generic-based-classifier-tables, #long-classifier-system, #short-classifier-system, #fusional-singular-plural, #fusional-no-gender-singular-dual-plural, #fusional-no-gender-singular-plural, #fusional-no-gender-singular-dual-plural-collective, #fusional-no-gender-singular-dual-trial-plural, #fusional-no-gender-singular-dual-trial-quadral-plural, #fusional-no-gender-singular-plural-greater-plural, #fusional-no-gender-singular-plural-general, #fusional-no-gender-general-plural, #fusional-no-gender-general-singulative-plural,#fusional-no-gender-singular-plura{
+#few-translation-head-final, #classifier-table-1-headFirst, #classifier-table-1-headFinal, #shape-based-classifier-tables, #animacy-based-classifier-tables, #short-generic-based-classifier-tables, #long-classifier-system, #short-classifier-system, #fusional-singular-plural, #fusional-no-gender-singular-dual-plural, #fusional-no-gender-singular-plural, #fusional-no-gender-singular-dual-plural-collective, #fusional-no-gender-singular-dual-trial-plural, #fusional-no-gender-singular-dual-trial-quadral-plural, #fusional-no-gender-singular-plural-greater-plural, #fusional-no-gender-singular-plural-general, #fusional-no-gender-general-plural, #fusional-no-gender-general-singulative-plural,#fusional-no-gender-singular-plural, #wordFinalDevoicing{
     display: none;
+}
+
+#wordFinalDevoicing {
+    display: inline;
 }
 
 #syllable-list {

@@ -646,7 +646,12 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -687,7 +692,12 @@ function explainCases() {
                 function makeExamples(make, nounArray) {
                     for(let i = 0; i < 11; i++) {
                     let randomIndex = Math.floor(Math.random() * nounArray.length);
-                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                    let example = "";
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                    }
                     exampleArray.push(example);
                     }   
                     let joinedList = exampleArray.join(", ")
@@ -769,7 +779,12 @@ function explainCases() {
                 function makeExamples(make, nounArray) {
                     for(let i = 0; i < 11; i++) {
                     let randomIndex = Math.floor(Math.random() * nounArray.length);
-                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                    let example = "";
+if(numberSuffixOrPrefix === "suffix") {
+	example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+} else {
+	example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+}
                     exampleArray.push(example);
                     }   
                     let joinedList = exampleArray.join(", ")
@@ -1082,11 +1097,20 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                }
                 
                 if(make === makeNomDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
-                }
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
+                    }
+                    }
                 exampleArray.push(example);
                 }   
                 let joinedList = exampleArray.join(", ")
@@ -1133,9 +1157,18 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                } else {
+                 example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                }
                 if(make === makeAccDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
+                    }
                 }
                 exampleArray.push(example);
                 }   
@@ -1183,9 +1216,18 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "of ${nounArray[randomIndex]}"`
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "of the ${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "of the ${nounArray[randomIndex]}"`
+                }
                 if(make === makeGenDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "of two ${nounArray[randomIndex]}"`
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "of two ${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "of two ${nounArray[randomIndex]}"`
+                    }
                 }
                 exampleArray.push(example);
                 }   
@@ -1234,9 +1276,18 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+}
                 if(make === makeDatDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "two ${nounArray[randomIndex]}"`
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "${nounArray[randomIndex]}"`
+                    }
                 }
                 exampleArray.push(example);
                 }   
@@ -1284,9 +1335,18 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from ${nounArray[randomIndex]}"`;
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from  ${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from ${nounArray[randomIndex]}"`
+                }
                 if(make === makeAblDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from two ${nounArray[randomIndex]}"`;
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from two ${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from two ${nounArray[randomIndex]}"`
+                    }
                 }
                 exampleArray.push(example);
                 }   
@@ -1335,9 +1395,18 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on the ${nounArray[randomIndex]}"`;
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on the   ${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on the  ${nounArray[randomIndex]}"`
+                }
                 if(make === makeLocDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on two ${nounArray[randomIndex]}"`;
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on two ${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on two ${nounArray[randomIndex]}"`
+                    }
                 }
                 exampleArray.push(example);
                 }   
@@ -1385,9 +1454,18 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in the ${nounArray[randomIndex]}"`;
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in the   ${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in the  ${nounArray[randomIndex]}"`
+                }
                 if(make === makeIneDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in two ${nounArray[randomIndex]}"`;
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in two ${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "in two ${nounArray[randomIndex]}"`
+                    }
                 }
                 exampleArray.push(example);
                 }   
@@ -1436,9 +1514,19 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from the ${nounArray[randomIndex]}"`;
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from the   ${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from the  ${nounArray[randomIndex]}"`
+                }
                 if(make === makeDelDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from two ${nounArray[randomIndex]}"`;
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from two ${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "from two ${nounArray[randomIndex]}"`
+                    }
+                    
                 }
                 exampleArray.push(example);
                 }   
@@ -1487,9 +1575,18 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to the ${nounArray[randomIndex]}"`;
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to the   ${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to the  ${nounArray[randomIndex]}"`
+                }
                 if(make === makeAllDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to two ${nounArray[randomIndex]}"`;
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to two ${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "to two ${nounArray[randomIndex]}"`
+                    }
                 }
                 exampleArray.push(example);
                 }   
@@ -1538,9 +1635,18 @@ function explainCases() {
             function makeExamples(make, nounArray) {
                 for(let i = 0; i < 11; i++) {
                 let randomIndex = Math.floor(Math.random() * nounArray.length);
-                let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with the ${nounArray[randomIndex]}"`
+                let example = "";
+                if(numberSuffixOrPrefix === "suffix") {
+                    example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with the   ${nounArray[randomIndex]}"`
+                } else {
+                    example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with the  ${nounArray[randomIndex]}"`
+                }
                 if(make === makeInstrDual) {
-                    example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with two ${nounArray[randomIndex]}"`
+                    if(numberSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[randomIndex] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with two ${nounArray[randomIndex]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[randomIndex]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "with two ${nounArray[randomIndex]}"`
+                    }
                 }
                 exampleArray.push(example);
                 }   

@@ -177,11 +177,10 @@ let timesvoicedConsonantsLostIntervocalicallyApplied = 0;
 let timesRVCToVRCMetathesisApplies = 0;
 let timesvowelLostBetweenConsonantAndResonantApplied = 0;
 
-let beforeAllChanges = "";
+let beforeAllChanges = [];
 let beforeAllChangesWordFInalDevoicing = [];
+let afterAllChanges = "";
 let possibleExample = [];
-
-let exampleNum = 0;
 
 function clearPreviousOutput() {
     document.getElementById("sound-change-explanation").replaceChildren();
@@ -202,12 +201,6 @@ function clearPreviousOutput() {
     timesRVCToVRCMetathesisApplies = 0;
     timesvowelLostBetweenConsonantAndResonantApplied = 0;
 
-    exampleNum = 0;
-
-    beforeWordFinalDevoicing = [];
-    afterWordFinalDevoicing = [];
-    beforeAllChangesWordFInalDevoicing = [];
-    possibleExample = [];
 }
 
 function cloneArray(array) {
@@ -292,11 +285,6 @@ function selectSoundChanges() {
     }
 
 
-function soundChangeExample(word) {
-    possibleExample.push(word);
-    return word;
-}
-
 function soundChange(word) {
     wordArray = Array.from(word);
 
@@ -350,11 +338,15 @@ function soundChange(word) {
         }
     /*^^CORRECTIVE CHANGES^^^****/
 
-    beforeAllChanges = cloneArray(wordArray);
+
+    if(possibleExample.includes(word)) {
+        beforeAllChanges.push(word);
+    } 
+    
 
     //applies the chosen sound changes to the word
     for(let i = 0; i < chosenSoundChanges.length; i++) {
-        chosenSoundChanges[i](wordArray)
+        chosenSoundChanges[i](wordArray, word)
     }
 
     //to prevent word final sound changes applying to prefixes, when listed in isolation, an "A" is inserted at the end, this for loop serves to remove that "A" after those sound changes have been applied
@@ -371,25 +363,17 @@ function soundChange(word) {
     return final;
 }
 
-let beforeWordFinalDevoicing = [];
-let afterWordFinalDevoicing = [];
-
-function wordFinalDevoicing(wordArray) {
+function wordFinalDevoicing(wordArray, word) {
     if(voiced.includes(wordArray[wordArray.length -1])) {
-        beforeAllChangesWordFInalDevoicing.push(cloneArray(wordArray));
-        //beforeWordFinalDevoicing.push(cloneArray(beforeAllChanges));
+
         let voicedIndex = voiced.indexOf(wordArray[wordArray.length -1]);
         wordArray[wordArray.length -1] = unvoiced[voicedIndex];
         if(voiced.includes(wordArray[wordArray.length -2])) {
             let voicedIndex = voiced.indexOf(wordArray[wordArray.length -2]);
             wordArray[wordArray.length -2] = unvoiced[voicedIndex];
         } 
-        timeswordFinalDevoicingApplied++;
-       // afterWordFinalDevoicing.push(cloneArray(wordArray));
-       
-        let before = beforeAllChanges.join("");
-        let after = wordArray.join("");
-        
+        timeswordFinalDevoicingApplied++
+
         let li= document.createElement("li");
         li.style.textDecoration = "underline";
         li.style.fontWeight = "bold";
@@ -398,17 +382,8 @@ function wordFinalDevoicing(wordArray) {
         let nestLi = document.createElement("li");
         nestLi.style.listStyleType = "none";
 
+        nestLi.innerHTML = `Voiced consonants devoiced word finally: ???`;
 
-        if(possibleExample.includes(before)) {
-            console.log("ij")
-            if(exampleNum === 0) {
-                console.log("huló")
-                nestLi.innerHTML = `Voiced consonants devoiced word finally: ${spell(before)} > ${spell(after)}`
-                
-                exampleNum++;
-             };
-        }
-        console.log(nestLi.innerHTML)
         if(timeswordFinalDevoicingApplied === 1) {       
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
@@ -690,13 +665,12 @@ function fricativesDebuccaliseBeforeVowels(wordArray) {
             timefricativesDebuccaliseBeforeVowelsApplied++;
             if(timefricativesDebuccaliseBeforeVowelsApplied === 1) {
                 let li= document.createElement("li");
-li.style.textDecoration = "underline";
-li.style.fontWeight = "bold";
+                li.style.textDecoration = "underline";
+                li.style.fontWeight = "bold";
                 li.innerHTML = `Debuccalisation of Pre-Vocalic Fricatives`;
                 let nestUl = document.createElement("ul");
-let nestLi = document.createElement("li");
-nestLi.style.listStyleType = "none";
-                let hIndex = selectFricatives().indexOf("h");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
                 let fricativeList = selectFricatives().join(", ");
                 let fricativeOrFricatives = "";
                 let becomeOrBecomes = ";"
@@ -827,5 +801,4 @@ nestUl.appendChild(nestLi);
 
 
 
-
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, beforeWordFinalDevoicing, afterWordFinalDevoicing, beforeWordFinalDevoicing, soundChangeExample};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants};

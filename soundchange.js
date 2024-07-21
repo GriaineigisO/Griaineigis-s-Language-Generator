@@ -276,8 +276,6 @@ function selectSoundChanges() {
             }
         }
 
-        console.log(cloneChosen)
-        
         randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
         randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
         randomNumForNoFricativesAsLatterElementOfInitialClusters = Math.floor(Math.random() * 50);
@@ -285,11 +283,42 @@ function selectSoundChanges() {
         randomNumForlenitionofPlosivebeforeOtherPlosive = Math.floor(Math.random() * 2);
     }
 
-
 function soundChange(word) {
     wordArray = Array.from(word);
 
     /*CORRECTIVE CHANGES - not genuine sound changes, just meant to tidy up the roots in the mother language. These will not be described at all in the grammar*/
+
+       //the generated words often form doublets across syllable boundries e.g 'ga-ag' > 'gaag'. These can be confused for long vowels or long consonants which is especially unwanted if the language lacks length altogether. So these accidental doublets are removed first.
+       for(let i = 0; i < wordArray.length; i++) {
+        while(wordArray[i] === wordArray[i + 1]) {
+            wordArray.splice(i, 1)
+        } 
+    }
+
+      //since long vowels in the IPA are marked like 'iː', with ː being an extra character, this loop deletes the following long vowel if it is the same
+        for(let i = 0; i < wordArray.length; i++) {
+            if(wordArray[i + 1] === "ː" && wordArray[i + 2] === wordArray[i] && wordArray[i + 3] === "ː") {
+                wordArray.splice(i+2, 1)
+                wordArray.splice(i+2, 1)
+            } 
+        }
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ː") {
+            wordArray[i] = wordArray[i - 1]
+        }
+    }
+
+     //there were far too many long vowels and consonants generated, so this serves to random shorten many of them to stop the vast majority of vowels in most words being long
+     for(let i = 0; i < wordArray.length; i++) {
+        // if(wordArray[i] === wordArray[i + 1] && Math.floor(Math.random() * 5) !== 3) {
+        //     wordArray.splice(i, 1)
+        // } 
+        //removes word inital geminates
+        if(wordArray[i] === wordArray[0] && wordArray[i] === wordArray[i + 1] && consonants.includes(wordArray[i])) {
+            wordArray.splice(i, 1)
+        }
+    }
+
     //prevent preaspirated consonants occuring word initially
     if(wordArray[0] === "ʰ") {
         wordArray.splice(0, 1);
@@ -577,7 +606,7 @@ if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
             let nestUl = document.createElement("ul");
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Plosives lenite when they occur before other plosives`
+            nestLi.innerHTML = `Plosives lenite when they occur before other plosives: <span id="lenitionofPlosivebeforeOtherPlosive"></span>`;
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -596,7 +625,7 @@ li.style.fontWeight = "bold";
             let nestUl = document.createElement("ul");
 let nestLi = document.createElement("li");
 nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Plosives lenite when they occur before other plosives`
+            nestLi.innerHTML = `Plosives lenite when they occur before other plosives: <span id="lenitionofPlosivebeforeOtherPlosive"></span>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -622,7 +651,7 @@ li.style.fontWeight = "bold";
                     let nestUl = document.createElement("ul");
 let nestLi = document.createElement("li");
 nestLi.style.listStyleType = "none";
-                    nestLi.innerHTML = `All non-high vowels merge with /a/ when not in the first syllable of a word`
+                    nestLi.innerHTML = `All non-high vowels merge with /a/ when not in the first syllable of a word: <span id="nonInitialNonHighVowelsBecomeA"></span/>`
                     document.getElementById("sound-change-explanation").appendChild(li);
                     document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -647,7 +676,7 @@ li.style.fontWeight = "bold";
                 let nestUl = document.createElement("ul");
 let nestLi = document.createElement("li");
 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `An epenthetic /i/ is placed before any nasal which occurs after a consonant`
+                nestLi.innerHTML = `An epenthetic /i/ is placed before any nasal which occurs after a consonant: <span id="nasalsCantAppearAfterConsonants"></span>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -704,7 +733,7 @@ li.style.fontWeight = "bold";
             let nestUl = document.createElement("ul");
 let nestLi = document.createElement("li");
 nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When a vowel is sandwiched by two of the same consonant, it is lost`
+            nestLi.innerHTML = `When a vowel is sandwiched by two of the same consonant, it is lost: <span id="vowelLostBetweenTwoOfSameConsonant"></span>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -731,7 +760,7 @@ function voicedConsonantsLostIntervocalically(wordArray) {
                 let nestUl = document.createElement("ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Short voiced plosives and fricatives are lost entirely when between two vowels.`
+                nestLi.innerHTML = `Short voiced plosives and fricatives are lost entirely when between two vowels: <span id="voicedConsonantsLostIntervocalically"></span>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
@@ -757,7 +786,7 @@ li.style.fontWeight = "bold";
             let nestUl = document.createElement("ul");
 let nestLi = document.createElement("li");
 nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When a word initial resonant comes before a vowel, and if a consonant follows this vowel, then the resonant and vowel will switch places.`
+            nestLi.innerHTML = `When a word initial resonant comes before a vowel, and if a consonant follows this vowel, then the resonant and vowel will switch places: <span id="RVCToVRCMetathesis"></span>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -785,7 +814,7 @@ li.style.fontWeight = "bold";
                 let nestUl = document.createElement("ul");
 let nestLi = document.createElement("li");
 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Vowels are lost when after a consonant and before a resonant if said resonant precedes another vowel.`
+                nestLi.innerHTML = `Vowels are lost when after a consonant and before a resonant if said resonant precedes another vowel: <span id="vowelLostBetweenConsonantAndResonant"></span>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -805,4 +834,4 @@ nestUl.appendChild(nestLi);
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray};

@@ -1,6 +1,7 @@
 import { genderNum, markedSingularOrNot, generatedCountNouns, countNounArrayPlural, countNounArray, generatedMassNouns, massNounArray, pluralSingulativeMassNounArray, singulativeMassNounArray, numberSuffixOrPrefix, pluralAffix, singularAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, generalAffix, greaterPluralAffix, singulativeAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, generateAffixes} from './script.js';
 import {spell} from './orthography.js'
 import {soundChange} from './soundchange.js'
+import { soundChangeExample } from './soundChangeExamples.js';
 import nounCases from './allPossibleNounCases.js';
 import { consonants, vowels } from './generatePhonology.js';
 let grammaticalNumberArray = [];
@@ -825,7 +826,7 @@ if(numberSuffixOrPrefix === "suffix") {
                 function makeExamples(make, nounArray) {
                     for(let i = 0; i < 11; i++) {
                     let randomIndex = Math.floor(Math.random() * nounArray.length);
-                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "away from ${nounArray[randomIndex]}"`
+                    let example = `<i>${spell(soundChange(soundChangeExample(make(generatedCountNouns[randomIndex]))))}</i> "away from ${nounArray[randomIndex]}"`
                     exampleArray.push(example);
                     }   
                     let joinedList = exampleArray.join(", ")
@@ -866,7 +867,7 @@ if(numberSuffixOrPrefix === "suffix") {
                 function makeExamples(make, nounArray) {
                     for(let i = 0; i < 11; i++) {
                     let randomIndex = Math.floor(Math.random() * nounArray.length);
-                    let example = `<i>${spell(soundChange(make(generatedCountNouns[randomIndex])))}</i> "on the ${nounArray[randomIndex]}"`
+                    let example = `<i>${spell(soundChange(make(soundChangeExample(generatedCountNouns[randomIndex]))))}</i> "on the ${nounArray[randomIndex]}"`
                     exampleArray.push(example);
                     }   
                     let joinedList = exampleArray.join(", ")

@@ -177,10 +177,13 @@ let timesvoicedConsonantsLostIntervocalicallyApplied = 0;
 let timesRVCToVRCMetathesisApplies = 0;
 let timesvowelLostBetweenConsonantAndResonantApplied = 0;
 
-let beforeAllChanges = [];
-let beforeAllChangesWordFInalDevoicing = [];
-let afterAllChanges = "";
-let possibleExample = [];
+function cloneArray(array) {
+    let newArray = [];
+    for(let i = 0; i < array.length; i++) {
+        newArray.push(array[i]);
+    }
+    return newArray;
+}
 
 function clearPreviousOutput() {
     document.getElementById("sound-change-explanation").replaceChildren();
@@ -201,14 +204,6 @@ function clearPreviousOutput() {
     timesRVCToVRCMetathesisApplies = 0;
     timesvowelLostBetweenConsonantAndResonantApplied = 0;
 
-}
-
-function cloneArray(array) {
-    let newArray = [];
-    for(let i = 0; i < array.length; i++) {
-        newArray.push(array[i]);
-    }
-    return newArray;
 }
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -251,9 +246,11 @@ let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
 
 //Some sound changes won't be considered as part of an explicitly listed phonotactic, but still apply to stop the output consisting of rare features. For example, the output kept giving words with complex clusters of plosives word initially, which is plausible, but it did it far too much to be natural. In these cases, I intentionally stunt these results by making sound changes to undo them and give these sound changes a very high chance of occuring. So the unusual results can still happen but will be much rarer and thus more natural. These changes will be governed by their own random numbers instead of being chosen based on whether they made it to the chosenSoundChanges array.
 
+let cloneChosen = [];
+let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
         potentialSoundChanges = [];
-        chosenSoundChanges = [wordFinalDevoicing];
+        chosenSoundChanges = [];
         wordArray = [];
         wordFinalDevoicingTrueOrFalse = "";
         potentialSoundChanges.push(plosivesCantClusterTogetherWordInitially);
@@ -272,11 +269,15 @@ function selectSoundChanges() {
        
         //selects which sound changes will be chosen
         while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
-            let randomNumber = Math.floor(Math.random() * potentialSoundChanges.length);
-            if(chosenSoundChanges.includes(potentialSoundChanges[randomNumber]) === false) {
-                chosenSoundChanges.push(potentialSoundChanges[randomNumber]) 
+            randomNumberForSoundChangeSelection = Math.floor(Math.random() * potentialSoundChanges.length);
+            if(chosenSoundChanges.includes(potentialSoundChanges[randomNumberForSoundChangeSelection]) === false) {
+                chosenSoundChanges.push(potentialSoundChanges[randomNumberForSoundChangeSelection]) 
+                cloneChosen.push(potentialSoundChanges[randomNumberForSoundChangeSelection]);
             }
         }
+
+        console.log(cloneChosen)
+        
         randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
         randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
         randomNumForNoFricativesAsLatterElementOfInitialClusters = Math.floor(Math.random() * 50);
@@ -337,16 +338,11 @@ function soundChange(word) {
         }
         }
     /*^^CORRECTIVE CHANGES^^^****/
-
-
-    if(possibleExample.includes(word)) {
-        beforeAllChanges.push(word);
-    } 
     
 
     //applies the chosen sound changes to the word
     for(let i = 0; i < chosenSoundChanges.length; i++) {
-        chosenSoundChanges[i](wordArray, word)
+        chosenSoundChanges[i](wordArray)
     }
 
     //to prevent word final sound changes applying to prefixes, when listed in isolation, an "A" is inserted at the end, this for loop serves to remove that "A" after those sound changes have been applied
@@ -363,26 +359,22 @@ function soundChange(word) {
     return final;
 }
 
-function wordFinalDevoicing(wordArray, word) {
+function wordFinalDevoicing(wordArray) {
     if(voiced.includes(wordArray[wordArray.length -1])) {
-
         let voicedIndex = voiced.indexOf(wordArray[wordArray.length -1]);
         wordArray[wordArray.length -1] = unvoiced[voicedIndex];
         if(voiced.includes(wordArray[wordArray.length -2])) {
             let voicedIndex = voiced.indexOf(wordArray[wordArray.length -2]);
             wordArray[wordArray.length -2] = unvoiced[voicedIndex];
         } 
-        
         timeswordFinalDevoicingApplied++
 
         let li= document.createElement("li");
-        
         li.style.fontWeight = "bold";
         li.innerHTML = `Word Final Devoicing`;
         let nestUl = document.createElement("ul");
         let nestLi = document.createElement("li");
         nestLi.style.listStyleType = "none";
-
         nestLi.innerHTML = `Voiced consonants devoiced word finally: <span id="wordFinalDevoicing"></span>`;
 
         if(timeswordFinalDevoicingApplied === 1) {       
@@ -396,21 +388,25 @@ function wordFinalDevoicing(wordArray, word) {
 }
 
 function plosivesCantClusterTogetherWordInitially(wordArray) {
-if(randomNumForWordInitialPlosiveClusters !== 5) {
-    while(plosives.includes(wordArray[0]) && plosives.includes(wordArray[1])) {
-        timesplosivesCantClusterTogetherWordInitiallyApplied++
-        if(timesplosivesCantClusterTogetherWordInitiallyApplied === 1) {
-            let li= document.createElement("li");
 
-li.style.fontWeight = "bold";
-            li.innerHTML = `Word Initial Clusters Simplified`;
-            let nestUl = document.createElement("ul");
-let nestLi = document.createElement("li");
-nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `A word initial plosive is lost if another plosive follows it`
+    let li= document.createElement("li");
+    li.style.fontWeight = "bold";
+    li.innerHTML = `Word Initial Clusters Simplified`;
+    let nestUl = document.createElement("ul");
+    let nestLi = document.createElement("li");
+    nestLi.style.listStyleType = "none";
+    nestLi.innerHTML = `A word initial plosive is lost if another plosive follows it: <span id="plosivesCantClusterTogetherWordInitially"></span>`
+
+if(randomNumForWordInitialPlosiveClusters !== 5) {
+    if(plosives.includes(wordArray[0]) && plosives.includes(wordArray[1])) {
+        timesplosivesCantClusterTogetherWordInitiallyApplied++
+
+        if(timesplosivesCantClusterTogetherWordInitiallyApplied === 1) {
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
-nestUl.appendChild(nestLi);
+            nestUl.appendChild(nestLi);
+        } else {
+            document.getElementById("hidden-section").appendChild(nestLi);
         }
         wordArray.splice(0, 1);
     }
@@ -423,18 +419,20 @@ return wordArray
 function fricativesLostAfterWordInitialConsonants(wordArray) {
     if(consonants.includes(wordArray[0]) && selectFricatives().includes(wordArray[1])) {
         timesfricativesLostAfterWordInitialConsonantsApplied++;
-        if(timesfricativesLostAfterWordInitialConsonantsApplied === 1) {
-            let li= document.createElement("li");
-
-li.style.fontWeight = "bold";
+         let li= document.createElement("li");
+        li.style.fontWeight = "bold";
             li.innerHTML = `Fricatives Dropped in Word Initial Clusters`;
             let nestUl = document.createElement("ul");
             let nestLi = document.createElement("li");
-nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `A fricative is lost when it is the first consonant in a word initial cluster`
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `A fricative is lost when it is the first consonant in a word initial cluster: <span id="fricativesLostAfterWordInitialConsonants"></span>`
+
+        if(timesfricativesLostAfterWordInitialConsonantsApplied === 1) {
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
+        } else {
+            document.getElementById("hidden-section").appendChild(nestLi);
         }
         wordArray.splice(1, 1);
     }
@@ -448,18 +446,19 @@ function wordFinalHighVowelsLower(wordArray) {
 if(highVowels.includes(wordArray[wordArray.length -1])) {
     let vowelIndex = highVowels.indexOf(wordArray[wordArray.length -1]);
     timeswordFinalHighVowelsLowerApplied++;
-    if(timeswordFinalHighVowelsLowerApplied === 1) {
-        let li= document.createElement("li");
+    let li= document.createElement("li");
+    li.style.fontWeight = "bold";
+    li.innerHTML = `Word Final High Vowels Lower`;
+    let nestUl = document.createElement("ul");
+    let nestLi = document.createElement("li");
+    nestLi.style.listStyleType = "none";
+    nestLi.innerHTML = `High vowels lower to become mid vowels when word final: <span id="wordFinalHighVowelsLower"></span>`
 
-li.style.fontWeight = "bold";
-        li.innerHTML = `Word Final High Vowels Lower`;
-        let nestUl = document.createElement("ul");
-let nestLi = document.createElement("li");
-nestLi.style.listStyleType = "none";
-        nestLi.innerHTML = `High vowels lower to become mid vowels when word final`
+    if(timeswordFinalHighVowelsLowerApplied === 1) {
+        
         document.getElementById("sound-change-explanation").appendChild(li);
         document.getElementById("sound-change-explanation").appendChild(nestUl);
-nestUl.appendChild(nestLi);
+        nestUl.appendChild(nestLi);
     }
     wordArray[wordArray.length -1] = midVowels[vowelIndex]   
 } else {
@@ -481,7 +480,7 @@ li.style.fontWeight = "bold";
                 let nestUl = document.createElement("ul");
 let nestLi = document.createElement("li");
 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Resonants are lost before consonants`
+                nestLi.innerHTML = `Resonants are lost before consonants: <span id="NoResonantsBeforeConsonants"></span>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -503,7 +502,7 @@ li.style.fontWeight = "bold";
                     let nestUl = document.createElement("ul");
 let nestLi = document.createElement("li");
 nestLi.style.listStyleType = "none";
-                    nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /i/ is inserted after the resonants`
+                    nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /i/ is inserted after the resonants: <span id="NoResonantsBeforeConsonants"></span>`
                     document.getElementById("sound-change-explanation").appendChild(li);
                     document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -525,7 +524,7 @@ li.style.fontWeight = "bold";
                 let nestUl = document.createElement("ul");
 let nestLi = document.createElement("li");
 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /u/ is inserted after the resonant`
+                nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /u/ is inserted after the resonant: <span id="NoResonantsBeforeConsonants"></span>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -551,7 +550,7 @@ nestUl.appendChild(nestLi);
                 let nestUl = document.createElement("ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `A resonant which once preceded a consonant now follows it`
+                nestLi.innerHTML = `A resonant which once preceded a consonant now follows it: <span id="NoResonantsBeforeConsonants"></span>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
@@ -682,7 +681,7 @@ function fricativesDebuccaliseBeforeVowels(wordArray) {
                     fricativeOrFricatives = "fricative";
                     becomeOrBecomes = "becomes";
                 }
-                nestLi.innerHTML = `The short ${fricativeOrFricatives} /${fricativeList}/ ${becomeOrBecomes} /h/ when before a vowel.`
+                nestLi.innerHTML = `The short ${fricativeOrFricatives} /${fricativeList}/ ${becomeOrBecomes} /h/ when before a vowel: <span id="fricativesDebuccaliseBeforeVowels"></span>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
 nestUl.appendChild(nestLi);
@@ -806,4 +805,4 @@ nestUl.appendChild(nestLi);
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants};

@@ -47,12 +47,9 @@ function populateArray() {
     }
 }
 
-let before = "";
-let beforeAllChanges = "";
 function soundChangeExample(word) {
     if(num > 0) {
-        before = word;
-        beforeAllChanges = word;
+        let before = word;
         for(let i = 0; i < soundChangeArray.length; i++) {
             soundChangeArray[i](before)
         }
@@ -118,7 +115,7 @@ function plosivesCantClusterTogetherWordInitially(word) {
 
 let afterfricativesDebuccaliseBeforeVowels = "";
 let beforeChangefricativesDebuccaliseBeforeVowels = "";
-function fricativesDebuccaliseBeforeVowels(word, beforeAllChanges) {
+function fricativesDebuccaliseBeforeVowels(word) {
     let array = Array.from(word);
     for(let i = 0; i < array.length; i++) {
         if(selectFricatives().includes(array[i]) && vowels.includes(array[i+1])) {
@@ -208,7 +205,10 @@ function NoResonantsBeforeConsonants(word) {
             } else {
                 afterExample = `<i>${spell(afterNoResonantsBeforeConsonants)}</i>`
             }
-            document.getElementById("NoResonantsBeforeConsonants").innerHTML = `<i>${spell(beforeNoResonantsBeforeConsonants)}</i> > ${afterExample}`;
+            if(document.getElementById("NoResonantsBeforeConsonants") !== null) {
+                document.getElementById("NoResonantsBeforeConsonants").innerHTML = `<i>${spell(beforeNoResonantsBeforeConsonants)}</i> > ${afterExample}`;
+            }
+            
         } 
     } 
     } 
@@ -226,7 +226,10 @@ function NoResonantsBeforeConsonants(word) {
                 } else {
                     afterExample = `<i>${spell(afterNoResonantsBeforeConsonants)}</i>`
                 }
-                document.getElementById("NoResonantsBeforeConsonants").innerHTML = `<i>${spell(beforeNoResonantsBeforeConsonants)}</i> > ${afterExample}`;
+                if(document.getElementById("NoResonantsBeforeConsonants") !== null) {
+                    document.getElementById("NoResonantsBeforeConsonants").innerHTML = `<i>${spell(beforeNoResonantsBeforeConsonants)}</i> > ${afterExample}`;
+                }
+                
             } 
         }
     }
@@ -243,7 +246,10 @@ function NoResonantsBeforeConsonants(word) {
                 } else {
                     afterExample = `<i>${spell(afterNoResonantsBeforeConsonants)}</i>`
                 }
-                document.getElementById("NoResonantsBeforeConsonants").innerHTML = `<i>${spell(beforeNoResonantsBeforeConsonants)}</i> > ${afterExample}`;
+                if(document.getElementById("NoResonantsBeforeConsonants") !== null) {
+                    document.getElementById("NoResonantsBeforeConsonants").innerHTML = `<i>${spell(beforeNoResonantsBeforeConsonants)}</i> > ${afterExample}`;
+                }
+                
                 
                 
             }

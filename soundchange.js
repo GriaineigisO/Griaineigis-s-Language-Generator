@@ -359,7 +359,8 @@ function corrections(wordArray) {
     return wordArray;
 };
 
-function correctionsForStrings(wordArray) {
+function correctionsForStrings(word) {
+    let wordArray = Array.from(word)
     /*CORRECTIVE CHANGES - not genuine sound changes, just meant to tidy up the roots in the mother language. These will not be described at all in the grammar*/
 
       //the generated words often form doublets across syllable boundries e.g 'ga-ag' > 'gaag'. These can be confused for long vowels or long consonants which is especially unwanted if the language lacks length altogether. So these accidental doublets are removed first.
@@ -432,7 +433,8 @@ function correctionsForStrings(wordArray) {
        }
    /*^^CORRECTIVE CHANGES^^^****/
 
-   return wordArray;
+   let joined = wordArray.join("");
+   return joined;
 };
 
 

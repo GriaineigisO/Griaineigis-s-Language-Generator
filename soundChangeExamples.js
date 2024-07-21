@@ -203,7 +203,7 @@ function wordFinalDevoicing(word, originalWord) {
             }
             document.getElementById("wordFinalDevoicing").innerHTML = `${beforeExample} > ${afterExample}`;
                 }
-    }
+    } 
     
     return {word, originalWord};
 }
@@ -238,6 +238,7 @@ function plosivesCantClusterTogetherWordInitially(word, originalWord) {
         }
     }
     }
+    
     return {word, originalWord};
 };
 
@@ -265,6 +266,7 @@ function fricativesDebuccaliseBeforeVowels(word, originalWord) {
             document.getElementById("fricativesDebuccaliseBeforeVowels").innerHTML = `${beforeExample} > ${afterExample}`;
                 }
     }
+    
     return {word, originalWord};
 }
 
@@ -297,6 +299,7 @@ function fricativesLostAfterWordInitialConsonants(word, originalWord) {
         word.splice(2, 1);
     }
     
+    
     return {word, originalWord};
 }
 
@@ -326,6 +329,7 @@ function wordFinalHighVowelsLower(word, originalWord) {
         }
         
     }
+    
     return {word, originalWord};
 }
 
@@ -446,6 +450,7 @@ function NoResonantsBeforeConsonants(word, originalWord) {
         }
     }
     }
+    
     return {word, originalWord};;
 }
 
@@ -480,6 +485,7 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
         if(plosives.includes(word[i]) && plosives.includes(word[i - 1])) {
             let firstPlosiveIndex = plosives.indexOf(word[i-1])
             beforelenitionofPlosivebeforeOtherPlosive = word.join("");
+            let original = originalWord.join("");
             word[i-1] = lenitionFromPlosives2[firstPlosiveIndex]
             afterlenitionofPlosivebeforeOtherPlosive = word.join("");
             let afterExample = "";
@@ -488,12 +494,22 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
             } else {
                 afterExample = `${newName} <i>${spell(afterlenitionofPlosivebeforeOtherPlosive)}</i>`
             }
+            let beforeExample = "";
+            if(original === beforelenitionofPlosivebeforeOtherPlosive) {
+                beforeExample = `${oldName} <i>${spell(original)}</i>`;
+            } else {
+                beforeExample = `${oldName} <i>${spell(original)}</i> > *<i>${spell(beforelenitionofPlosivebeforeOtherPlosive)}</i>`
+            }
+            if(document.getElementById("lenitionofPlosivebeforeOtherPlosive") !== null) {
+                document.getElementById("lenitionofPlosivebeforeOtherPlosive").innerHTML = `${beforeExample} > ${afterExample}`;
+            }
             if(document.getElementById("lenitionofPlosivebeforeOtherPlosive") !== null) {
                 document.getElementById("lenitionofPlosivebeforeOtherPlosive").innerHTML = `<i>${spell(beforelenitionofPlosivebeforeOtherPlosive)}</i> > ${afterExample}`;
             }
         }
     } 
     }
+    
     return {word, originalWord};;
 }
 
@@ -529,6 +545,7 @@ function nonInitialNonHighVowelsBecomeA(word, originalWord) {
             };
         }
     
+    
     return {word, originalWord};;
 }
 
@@ -558,7 +575,8 @@ function nasalsCantAppearAfterConsonants(word, originalWord) {
             }
         }
 }
-return {word, originalWord};
+
+    return {word, originalWord};
 };
 
 let aftervowelLostBetweenTwoOfSameConsonant = "";
@@ -620,7 +638,7 @@ function voicedConsonantsLostIntervocalically(word, originalWord) {
         }
         }
     }
-    return word
+    return {word, originalWord}
 };
 
 let afterRVCToVRCMetathesis = "";

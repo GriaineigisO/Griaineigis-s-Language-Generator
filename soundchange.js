@@ -283,10 +283,8 @@ function selectSoundChanges() {
         randomNumForlenitionofPlosivebeforeOtherPlosive = Math.floor(Math.random() * 2);
     }
 
-function soundChange(word) {
-    wordArray = Array.from(word);
-
-    /*CORRECTIVE CHANGES - not genuine sound changes, just meant to tidy up the roots in the mother language. These will not be described at all in the grammar*/
+function corrections(wordArray) {
+     /*CORRECTIVE CHANGES - not genuine sound changes, just meant to tidy up the roots in the mother language. These will not be described at all in the grammar*/
 
        //the generated words often form doublets across syllable boundries e.g 'ga-ag' > 'gaag'. These can be confused for long vowels or long consonants which is especially unwanted if the language lacks length altogether. So these accidental doublets are removed first.
        for(let i = 0; i < wordArray.length; i++) {
@@ -308,17 +306,7 @@ function soundChange(word) {
         }
     }
 
-     //there were far too many long vowels and consonants generated, so this serves to random shorten many of them to stop the vast majority of vowels in most words being long
-     for(let i = 0; i < wordArray.length; i++) {
-        // if(wordArray[i] === wordArray[i + 1] && Math.floor(Math.random() * 5) !== 3) {
-        //     wordArray.splice(i, 1)
-        // } 
-        //removes word inital geminates
-        if(wordArray[i] === wordArray[0] && wordArray[i] === wordArray[i + 1] && consonants.includes(wordArray[i])) {
-            wordArray.splice(i, 1)
-        }
-    }
-
+    
     //prevent preaspirated consonants occuring word initially
     if(wordArray[0] === "ʰ") {
         wordArray.splice(0, 1);
@@ -367,7 +355,91 @@ function soundChange(word) {
         }
         }
     /*^^CORRECTIVE CHANGES^^^****/
-    
+
+    return wordArray;
+};
+
+function correctionsForStrings(wordArray) {
+    /*CORRECTIVE CHANGES - not genuine sound changes, just meant to tidy up the roots in the mother language. These will not be described at all in the grammar*/
+
+      //the generated words often form doublets across syllable boundries e.g 'ga-ag' > 'gaag'. These can be confused for long vowels or long consonants which is especially unwanted if the language lacks length altogether. So these accidental doublets are removed first.
+      for(let i = 0; i < wordArray.length; i++) {
+       while(wordArray[i] === wordArray[i + 1]) {
+           wordArray.splice(i, 1)
+       } 
+   }
+
+     //since long vowels in the IPA are marked like 'iː', with ː being an extra character, this loop deletes the following long vowel if it is the same
+       for(let i = 0; i < wordArray.length; i++) {
+           if(wordArray[i + 1] === "ː" && wordArray[i + 2] === wordArray[i] && wordArray[i + 3] === "ː") {
+               wordArray.splice(i+2, 1)
+               wordArray.splice(i+2, 1)
+           } 
+       }
+   for(let i = 0; i < wordArray.length; i++) {
+       if(wordArray[i] === "ː") {
+           wordArray[i] = wordArray[i - 1]
+       }
+   }
+
+   
+   //prevent preaspirated consonants occuring word initially
+   if(wordArray[0] === "ʰ") {
+       wordArray.splice(0, 1);
+   }
+   //also remove normal /h/ word initially before plosives
+   if(wordArray[0] === "h" && plosives.includes(wordArray[1])) {
+       wordArray.splice(0, 1);
+   }
+   //prevents a single sound clustering with a long sound of the same quality
+   for(let i = 0; i < wordArray.length; i++) {
+       if(wordArray[i] === "ː" && wordArray[i-1] === wordArray[i+1]) {
+           wordArray.splice(i+1, 1);
+       }
+   }
+   //prevents homoorganic clusters with different voicing from clustering
+   for(let i = 0; i < wordArray.length; i++) {
+       if(unvoiced.includes(wordArray[i]) && voiced.includes(wordArray[i + 1])) {
+           let unvoicedIndex = unvoiced.indexOf(wordArray[i])
+           if(wordArray[i + 1] === voiced[unvoicedIndex]) {
+               wordArray.splice(i, 1);
+                   }          
+       } else {
+           for(let i = 0; i < wordArray.length; i++) {
+               if(unvoiced.includes(wordArray[i]) && voiced.includes(wordArray[i + 1])) {
+                   let unvoicedIndex = unvoiced.indexOf(wordArray[i])
+                   if(wordArray[i + 1] === voiced[unvoicedIndex]) {
+                   wordArray.splice(i+1, 1);
+                   }
+               }
+           }
+       }
+       if(voiced.includes(wordArray[i]) && unvoiced.includes(wordArray[i + 1])) {
+           let voicedIndex = voiced.indexOf(wordArray[i])
+           if(wordArray[i + 1] === voiced[voicedIndex]) {
+               wordArray.splice(i, 1);
+                   }          
+       } else {
+           for(let i = 0; i < wordArray.length; i++) {
+               if(voiced.includes(wordArray[i]) && unvoiced.includes(wordArray[i + 1])) {
+                   let voicedIndex = voiced.indexOf(wordArray[i])
+                   if(wordArray[i + 1] === unvoiced[voicedIndex]) {
+                   wordArray.splice(i+1, 1);
+                   }
+               }
+           }
+       }
+       }
+   /*^^CORRECTIVE CHANGES^^^****/
+
+   return wordArray;
+};
+
+
+function soundChange(word) {
+    wordArray = Array.from(word);
+
+    corrections(wordArray)
 
     //applies the chosen sound changes to the word
     for(let i = 0; i < chosenSoundChanges.length; i++) {
@@ -834,4 +906,4 @@ nestUl.appendChild(nestLi);
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings};

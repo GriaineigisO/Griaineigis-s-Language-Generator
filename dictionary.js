@@ -18,7 +18,7 @@ import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedA
 import {grammaticalNumber, nomSgAffix, caseNumber,} from './fusionalNouns.js'
 
 import {spell} from './orthography.js'
-import {soundChange} from './soundchange.js';
+import {soundChange, correctionsForStrings} from './soundchange.js';
 import {soundChangeExample} from './soundChangeExamples.js'
 import { allWordsInThesaurus} from './thesaurus.js'
 
@@ -904,7 +904,7 @@ function makeDictionary() {
         pOS.innerHTML = word1.partOfSpeech;
         meaning.innerHTML = word1.translation;
         classiferEtymology.innerHTML = word1.classifierExplanation;
-        etymology.innerHTML = `&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>`;
+        etymology.innerHTML = `&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${correctionsForStrings(word1.etymology)}</i>`;
 
         let entry = document.createElement("div");
         entry.classList.add("entry");

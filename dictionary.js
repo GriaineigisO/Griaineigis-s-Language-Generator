@@ -893,7 +893,7 @@ function makeDictionary() {
             }
         } 
         
-        word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(wordWithAffix));
+        word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");
@@ -904,7 +904,7 @@ function makeDictionary() {
         pOS.innerHTML = word1.partOfSpeech;
         meaning.innerHTML = word1.translation;
         classiferEtymology.innerHTML = word1.classifierExplanation;
-        etymology.innerHTML = `&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${correctionsForStrings(word1.etymology)}</i>`;
+        etymology.innerHTML = `&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>`;
 
         let entry = document.createElement("div");
         entry.classList.add("entry");

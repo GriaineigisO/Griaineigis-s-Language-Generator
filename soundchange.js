@@ -276,10 +276,16 @@ function selectSoundChanges() {
         }
     }
 
+    randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
+    randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
+    randomNumForNoFricativesAsLatterElementOfInitialClusters = Math.floor(Math.random() * 50);
+    randomNumForNoResonantsBeforeConsonants = Math.floor(Math.random() * 4);
+    randomNumForlenitionofPlosivebeforeOtherPlosive = Math.floor(Math.random() * 2);
+
     for(let i = 0; i < chosenSoundChanges.length; i++) {
         if(chosenSoundChanges[i] === wordFinalDevoicing) {
             let li= document.createElement("li");
-            li.setAttribute("li", "wordFinalDevoicing-li")
+            li.setAttribute("id", "wordFinalDevoicing-li")
             li.style.fontWeight = "bold";
             li.innerHTML = `Word Final Devoicing`;
             let nestUl = document.createElement("ul");
@@ -341,8 +347,6 @@ function selectSoundChanges() {
                 nestUl.appendChild(nestLi);
                 nestUl.appendChild(lenitionUl);
                 nestUl.appendChild(examples);
-
-                
             };
 
         };
@@ -514,15 +518,10 @@ function selectSoundChanges() {
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
         };
-        
-    }
-    console.log(chosenSoundChanges)
+    };
+    console.log(chosenSoundChanges);
 
-    randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
-    randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
-    randomNumForNoFricativesAsLatterElementOfInitialClusters = Math.floor(Math.random() * 50);
-    randomNumForNoResonantsBeforeConsonants = Math.floor(Math.random() * 4);
-    randomNumForlenitionofPlosivebeforeOtherPlosive = Math.floor(Math.random() * 2);
+
 }
 
 function corrections(wordArray) {
@@ -710,26 +709,26 @@ function wordFinalDevoicing(wordArray) {
             let voicedIndex = voiced.indexOf(wordArray[wordArray.length -2]);
             wordArray[wordArray.length -2] = unvoiced[voicedIndex];
             }
-        } 
-        timeswordFinalDevoicingApplied++;
+            timeswordFinalDevoicingApplied++;
             while(timeswordFinalDevoicingApplied === 0) {
-            document.getElementById("wordFinalDevoicing-li").style.display = "none";
-    }
+                document.getElementById("wordFinalDevoicing-li").style.display = "none";
+            } 
+    } 
     return wordArray;
 }
 
 function plosivesCantClusterTogetherWordInitially(wordArray) {
     if(randomNumForWordInitialPlosiveClusters !== 5) {
         if(plosives.includes(wordArray[0]) && plosives.includes(wordArray[1])) {
+            wordArray.splice(0, 1);
             timesplosivesCantClusterTogetherWordInitiallyApplied++
             while(timesplosivesCantClusterTogetherWordInitiallyApplied === 0) {
                 document.getElementById("plosivesCantClusterTogetherWordInitially-li").style.display = "none";
             }
-            wordArray.splice(0, 1);
         }
-    } 
+    }
     return wordArray;
-}
+};
 
 function fricativesLostAfterWordInitialConsonants(wordArray) {
     if(consonants.includes(wordArray[0]) && selectFricatives().includes(wordArray[1])) {
@@ -801,7 +800,7 @@ function NoResonantsBeforeConsonants(wordArray) {
             wordArray.splice(i+1, 0, "u");
             timesInstertUBetweenConsonantAndResonantApplied++;
             while(timesInstertUBetweenConsonantAndResonantApplied === 0) {
-                document.getElementById("id", "NoResonantsBeforeConsonants-li")
+                document.getElementById("NoResonantsBeforeConsonants-li").style.display = "none";
             };
         };
     };
@@ -816,7 +815,7 @@ function NoResonantsBeforeConsonants(wordArray) {
             wordArray[i+1] = resonant;
             timesConsonantResonantMetathesisApplied++;
             while(timesConsonantResonantMetathesisApplied === 0) {
-                document.getElementById("NoResonantsBeforeConsonants-li");
+                document.getElementById("NoResonantsBeforeConsonants-li").style.display = "none";
             }
             if(resonants.includes(wordArray[i]) && resonants.includes(wordArray[i + 1])) {
                 wordArray.splice(i+1, 0, "u");
@@ -836,8 +835,8 @@ function lenitionofPlosivebeforeOtherPlosive(wordArray) {
                 wordArray[i-1] = lenitionFromPlosives1[firstPlosiveIndex];
                 timeslenitionofPlosivebeforeOtherPlosiveApplied++;
                 while(timeslenitionofPlosivebeforeOtherPlosiveApplied === 0) {
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li");
-                }
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li").style.display = "none";
+                };
             }
         } else if(randomNumForlenitionofPlosivebeforeOtherPlosive === 1) {
             if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1])) {
@@ -845,8 +844,8 @@ function lenitionofPlosivebeforeOtherPlosive(wordArray) {
                 wordArray[i-1] = lenitionFromPlosives2[firstPlosiveIndex];
                 timeslenitionofPlosivebeforeOtherPlosiveApplied++;
                 while(timeslenitionofPlosivebeforeOtherPlosiveApplied === 0) {
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li");
-                }
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li").style.display = "none";
+                };
             }
         } 
     }
@@ -861,12 +860,15 @@ function nonInitialNonHighVowelsBecomeA(wordArray) {
             timesnonInitialNonHighVowelsBecomeAApplied++;
             while(timesnonInitialNonHighVowelsBecomeAApplied === 0) {
                 document.getElementById("nonInitialNonHighVowelsBecomeA-li").style.display = "none";
-            } 
-        }
+            }; 
+        };
         if(vowels.includes(wordArray[i])) {
             num++;
+        };
+        if(nonHighVowels.length === 0) {
+            document.getElementById("nonInitialNonHighVowelsBecomeA-li").style.display = "none";
         }
-    }
+    };
     return wordArray;
 }
 
@@ -876,7 +878,7 @@ function nasalsCantAppearAfterConsonants(wordArray) {
             wordArray.splice(i+1, 0, "i");
             timesnasalsCantAppearAfterConsonantsApplied++
             while(timesnasalsCantAppearAfterConsonantsApplied === 0) {
-                document.getElementById("nasalsCantAppearAfterConsonants-li")
+                document.getElementById("nasalsCantAppearAfterConsonants-li").style.display = "none";
             } 
         }
     };
@@ -899,10 +901,10 @@ function fricativesDebuccaliseBeforeVowels(wordArray) {
 function vowelLostBetweenTwoOfSameConsonant(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(consonants.includes(wordArray[i-1]) && wordArray[i-1] === wordArray[i+1] && vowels.includes(wordArray[i])) {
-            wordArray.splice(i, 1);
+            wordArray.splice(i, 2);
             timesvowelLostBetweenTwoOfSameConsonantApplied++;
             while(timesvowelLostBetweenTwoOfSameConsonantApplied === 0) {
-            document.getElementById("vowelLostBetweenTwoOfSameConsonant-li")
+            document.getElementById("vowelLostBetweenTwoOfSameConsonant-li").style.display = "none";
             };
         };
     };
@@ -934,7 +936,7 @@ function RVCToVRCMetathesis(wordArray) {
         wordArray[1] = resonant;
         timesRVCToVRCMetathesisApplies++;
         while(timesRVCToVRCMetathesisApplies === 0) {
-          document.getElementById("RVCToVRCMetathesis-li")
+          document.getElementById("RVCToVRCMetathesis-li").style.display = "none";
         } 
     };
     if(wordArray[0] === "X" && resonants.includes(wordArray[1]) && vowels.includes(wordArray[2]) && consonants.includes(wordArray[3])) {
@@ -952,7 +954,7 @@ function vowelLostBetweenConsonantAndResonant(wordArray) {
         if(consonants.includes(wordArray[i]) && vowels.includes(wordArray[i+1]) && resonants.includes(wordArray[i+2]) && vowels.includes(wordArray[i+3])) {
             timesvowelLostBetweenConsonantAndResonantApplied++;
             while(timesvowelLostBetweenConsonantAndResonantApplied === 0) {
-              document.getElementById("vowelLostBetweenConsonantAndResonant-li");  
+              document.getElementById("vowelLostBetweenConsonantAndResonant-li").style.display = "none";  
             } 
             wordArray.splice(i+1,1)
         }
@@ -969,4 +971,4 @@ function vowelLostBetweenConsonantAndResonant(wordArray) {
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections};

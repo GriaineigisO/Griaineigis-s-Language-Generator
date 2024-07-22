@@ -904,7 +904,7 @@ function makeDictionary() {
         pOS.innerHTML = word1.partOfSpeech;
         meaning.innerHTML = word1.translation;
         classiferEtymology.innerHTML = word1.classifierExplanation;
-        etymology.innerHTML = `&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>`;
+        etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>`;
 
         let entry = document.createElement("div");
         entry.classList.add("entry");

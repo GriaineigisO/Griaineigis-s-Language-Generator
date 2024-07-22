@@ -191,7 +191,7 @@ function wordFinalDevoicing(word, originalWord) {
         if(voiced.includes(word[word.length -1])) {
             beforewordFinalDevoicing = word.join("");
             let original = originalWord.join("");
-            console.log(original)
+      
             let voicedIndex = voiced.indexOf(word[word.length -1]);
             word[word.length -1] = unvoiced[voicedIndex];
             if(voiced.includes(word[word.length -2])) {

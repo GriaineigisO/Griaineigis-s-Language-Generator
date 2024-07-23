@@ -1,6 +1,6 @@
 //@collapse
 import { spell } from "./orthography.js";
-import { soundChange, voiced, unvoiced, cloneChosen, vowels, consonants, selectFricatives, plosives, randomNumForWordInitialPlosiveClusters, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive,lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections} from "./soundchange.js";
+import { soundChange, voiced, unvoiced, chosenSoundChanges, vowels, consonants, selectFricatives, plosives, randomNumForWordInitialPlosiveClusters, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive,lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections} from "./soundchange.js";
 import { languageName } from "./script.js";
 
 let soundChangeArray = [];
@@ -29,73 +29,83 @@ function createAbbreviationsForLanguageName() {
 };
 
 function populateArray() {
-    for(let i = 0; i < cloneChosen.length; i++) {
-        if(cloneChosen[i].name === "wordFinalDevoicing") {
+    for(let i = 0; i < chosenSoundChanges.length; i++) {
+        if(chosenSoundChanges[i].name === "wordFinalDevoicing") {
             if(soundChangeArray.includes(wordFinalDevoicing) === false) {
                 soundChangeArray.push(wordFinalDevoicing);
             }
         };
-        if(cloneChosen[i].name === "fricativesDebuccaliseBeforeVowels") {
+        if(chosenSoundChanges[i].name === "fricativesDebuccaliseBeforeVowels") {
             if(soundChangeArray.includes(fricativesDebuccaliseBeforeVowels) === false) {
                 soundChangeArray.push(fricativesDebuccaliseBeforeVowels);
             }
         };
-        if(cloneChosen[i].name === "plosivesCantClusterTogetherWordInitially") {
+        if(chosenSoundChanges[i].name === "plosivesCantClusterTogetherWordInitially") {
             if(soundChangeArray.includes(plosivesCantClusterTogetherWordInitially) === false) {
                 soundChangeArray.push(plosivesCantClusterTogetherWordInitially);
             }
         };
-        if(cloneChosen[i].name === "fricativesLostAfterWordInitialConsonants") {
+        if(chosenSoundChanges[i].name === "fricativesLostAfterWordInitialConsonants") {
             if(soundChangeArray.includes(fricativesLostAfterWordInitialConsonants) === false) {
                 soundChangeArray.push(fricativesLostAfterWordInitialConsonants);
             }
         };
-        if(cloneChosen[i].name === "wordFinalHighVowelsLower") {
+        if(chosenSoundChanges[i].name === "wordFinalHighVowelsLower") {
             if(soundChangeArray.includes(wordFinalHighVowelsLower) === false) {
                 soundChangeArray.push(wordFinalHighVowelsLower);
             }
         };
-        if(cloneChosen[i].name === "NoResonantsBeforeConsonants") {
+        if(chosenSoundChanges[i].name === "NoResonantsBeforeConsonants") {
             if(soundChangeArray.includes(NoResonantsBeforeConsonants) === false) {
                 soundChangeArray.push(NoResonantsBeforeConsonants);
             }
         };
-        if(cloneChosen[i].name === "lenitionofPlosivebeforeOtherPlosive") {
+        if(chosenSoundChanges[i].name === "lenitionofPlosivebeforeOtherPlosive") {
             if(soundChangeArray.includes(lenitionofPlosivebeforeOtherPlosive) === false) {
                 soundChangeArray.push(lenitionofPlosivebeforeOtherPlosive);
             }
         };
-        if(cloneChosen[i].name === "nonInitialNonHighVowelsBecomeA") {
+        if(chosenSoundChanges[i].name === "nonInitialNonHighVowelsBecomeA") {
             if(soundChangeArray.includes(nonInitialNonHighVowelsBecomeA) === false) {
                 soundChangeArray.push(nonInitialNonHighVowelsBecomeA);
             }
         };
-        if(cloneChosen[i].name === "nasalsCantAppearAfterConsonants") {
+        if(chosenSoundChanges[i].name === "nasalsCantAppearAfterConsonants") {
             if(soundChangeArray.includes(nasalsCantAppearAfterConsonants) === false) {
                 soundChangeArray.push(nasalsCantAppearAfterConsonants);
             }
         };
-        if(cloneChosen[i].name === "vowelLostBetweenTwoOfSameConsonant") {
+        if(chosenSoundChanges[i].name === "vowelLostBetweenTwoOfSameConsonant") {
             if(soundChangeArray.includes(vowelLostBetweenTwoOfSameConsonant) === false) {
                 soundChangeArray.push(vowelLostBetweenTwoOfSameConsonant);
             }
         };
-        if(cloneChosen[i].name === "voicedConsonantsLostIntervocalically") {
+        if(chosenSoundChanges[i].name === "voicedConsonantsLostIntervocalically") {
             if(soundChangeArray.includes(voicedConsonantsLostIntervocalically) === false) {
                 soundChangeArray.push(voicedConsonantsLostIntervocalically);
             }
         };
-        if(cloneChosen[i].name === "RVCToVRCMetathesis") {
+        if(chosenSoundChanges[i].name === "RVCToVRCMetathesis") {
             if(soundChangeArray.includes(RVCToVRCMetathesis) === false) {
                 soundChangeArray.push(RVCToVRCMetathesis);
             }
         };
-        if(cloneChosen[i].name === "vowelLostBetweenConsonantAndResonant") {
+        if(chosenSoundChanges[i].name === "vowelLostBetweenConsonantAndResonant") {
             if(soundChangeArray.includes(vowelLostBetweenConsonantAndResonant) === false) {
                 soundChangeArray.push(vowelLostBetweenConsonantAndResonant);
             }
         };
-    }
+        if(chosenSoundChanges[i].name === "intervocalicVoicing") {
+            if(soundChangeArray.includes(intervocalicVoicing) === false) {
+                soundChangeArray.push(intervocalicVoicing);
+            }
+        };
+        if(chosenSoundChanges[i].name === "hLostAfterConsonants") {
+            if(soundChangeArray.includes(hLostAfterConsonants) === false) {
+                soundChangeArray.push(hLostAfterConsonants);
+            }
+        };
+    };
 };
 
 let num = 0;
@@ -125,7 +135,7 @@ function wordFinalDevoicing(word, originalWord) {
             } 
             afterwordFinalDevoicing = word.join("");
             let afterExample = "";
-let originalJoined = originalWord.join("");
+            let originalJoined = originalWord.join("");
             if(soundChange(beforewordFinalDevoicing) !== afterwordFinalDevoicing) {
                 afterExample = `<i>*${spell(correctionsForStrings(afterwordFinalDevoicing))}</i> (> ${newName} <i>${spell(soundChange(originalJoined))}</i>)`
             } else {
@@ -430,7 +440,7 @@ let originalJoined = originalWord.join("");
             word[i-1] = lenitionFromPlosives2[firstPlosiveIndex]
             afterlenitionofPlosivebeforeOtherPlosive = word.join("");
             let afterExample = "";
-let originalJoined = originalWord.join("");
+            let originalJoined = originalWord.join("");
             if(soundChange(beforelenitionofPlosivebeforeOtherPlosive) !== afterlenitionofPlosivebeforeOtherPlosive) {
                 afterExample = `<i>*${spell(correctionsForStrings(afterlenitionofPlosivebeforeOtherPlosive))}</i> (> ${newName} <i>${spell(soundChange(originalJoined))}</i>)`
             } else {
@@ -624,15 +634,13 @@ let originalJoined = originalWord.join("");
 let aftervowelLostBetweenConsonantAndResonant = "";
 let beforevowelLostBetweenConsonantAndResonant = "";
 function vowelLostBetweenConsonantAndResonant(word, originalWord) {
-    //let originalClone = cloneArray(originalWord);
     for(let i = 0; i < word.length; i++) {
         if(consonants.includes(word[i]) && vowels.includes(word[i+1]) && resonants.includes(word[i+2]) && vowels.includes(word[i+3])) {
             beforevowelLostBetweenConsonantAndResonant = word.join("");
-            //let original = originalClone.join("");
             word.splice(i+1,1);
             aftervowelLostBetweenConsonantAndResonant = word.join("");
             let afterExample = "";
-let originalJoined = originalWord.join("");
+            let originalJoined = originalWord.join("");
             if(soundChange(beforevowelLostBetweenConsonantAndResonant) !== aftervowelLostBetweenConsonantAndResonant) {
                 afterExample = `<i>*${spell(correctionsForStrings(aftervowelLostBetweenConsonantAndResonant))}</i> (> ${newName} <i>${spell(soundChange(originalJoined))}</i>)`
             } else {
@@ -654,6 +662,67 @@ let originalJoined = originalWord.join("");
     }
     return {word, originalWord}
 };
+
+let afterintervocalicVoicing = "";
+let beforeintervocalicVoicing = "";
+function intervocalicVoicing(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(unvoiced.includes(word[i]) && vowels.includes(word[i-1]) && vowels.includes(word[i+1])) {
+            beforeintervocalicVoicing = word.join("");
+            let unvoicedIndex = unvoiced.indexOf(word[i]);
+            word[i] = voiced[unvoicedIndex];
+            afterintervocalicVoicing = word.join("");
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(beforeintervocalicVoicing) !== afterintervocalicVoicing) {
+                afterExample = `<i>*${spell(correctionsForStrings(afterintervocalicVoicing))}</i> (> ${newName} <i>${spell(soundChange(originalJoined))}</i>)`
+            } else {
+                afterExample = `${newName} <i>${spell(correctionsForStrings(afterintervocalicVoicing))}</i>`
+            };
+            let beforeExample = "";
+            if(originalJoined === beforeintervocalicVoicing) {
+                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+            } else {
+                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(correctionsForStrings(beforeintervocalicVoicing))}</i>`
+            }
+            if(document.getElementById("intervocalicVoicing") !== null) {
+                document.getElementById("intervocalicVoicing").innerHTML = `${beforeExample} > ${afterExample}`;
+            }
+        };
+    };
+    return word;
+};
+
+let afterhLostAfterConsonants = "";
+let beforehLostAfterConsonants = "";
+function hLostAfterConsonants(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "h" && consonants.includes(word[i-1])) {
+            console.log(word)
+            beforehLostAfterConsonants = word.join("");
+            word.splice(i, 1);
+            afterhLostAfterConsonants = word.join("");
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(beforehLostAfterConsonants) !== afterhLostAfterConsonants) {
+                afterExample = `<i>*${spell(correctionsForStrings(afterhLostAfterConsonants))}</i> (> ${newName} <i>${spell(soundChange(originalJoined))}</i>)`
+            } else {
+                afterExample = `${newName} <i>${spell(correctionsForStrings(afterhLostAfterConsonants))}</i>`
+            };
+            let beforeExample = "";
+            if(originalJoined === beforehLostAfterConsonants) {
+                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+            } else {
+                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(correctionsForStrings(beforehLostAfterConsonants))}</i>`
+            }
+            document.getElementById("hLostAfterConsonants").innerHTML = `${beforeExample} > ${afterExample}`;
+            
+        };
+    };
+    return word;
+};
+
+/*--------------------------------------------------------------------*/
 
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);

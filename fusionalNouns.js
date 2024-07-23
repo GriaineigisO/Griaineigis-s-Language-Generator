@@ -468,10 +468,10 @@ function makeNoGenderNumberExamples() {
         for(let i = 0; i < 10; i++) {
             let randomNumForExamples = Math.floor(Math.random() * countNounArray.length);
             if(markedSingularOrNot() === false) {
-                let randomExample = `<br><i>${spell(soundChange(generatedCountNouns[randomNumForExamples]))}</i> "${countNounArray[randomNumForExamples]}" > <i>${spell(soundChange(makeDual(generatedCountNouns[randomNumForExamples])))}</i> "two ${countNounArrayPlural[randomNumForExamples]}", <i>${spell(soundChange(makePlural(generatedCountNouns[randomNumForExamples])))}</i> "${countNounArrayPlural[randomNumForExamples]}"`;
+                let randomExample = `<br><i>${spell(soundChange(soundChangeExample(generatedCountNouns[randomNumForExamples])))}</i> "${countNounArray[randomNumForExamples]}" > <i>${spell(soundChange(soundChangeExample(makeDual(generatedCountNouns[randomNumForExamples]))))}</i> "two ${countNounArrayPlural[randomNumForExamples]}", <i>${spell(soundChange(makePluralsoundChangeExample(generatedCountNouns[randomNumForExamples])))}</i> "${countNounArrayPlural[randomNumForExamples]}"`;
                 exampleArray.push(randomExample);
             } else {
-                let randomExample = `<br><i>${spell(soundChange(makeSingular(generatedCountNouns[randomNumForExamples])))}</i> "${countNounArray[randomNumForExamples]}" > <i>${spell(soundChange(makeDual(generatedCountNouns[randomNumForExamples])))}</i> "two ${countNounArrayPlural[randomNumForExamples]}", <i>${spell(soundChange(makePlural(generatedCountNouns[randomNumForExamples])))}</i> "${countNounArrayPlural[randomNumForExamples]}"`;
+                let randomExample = `<br><i>${spell(soundChange(soundChangeExample(makeSingular(generatedCountNouns[randomNumForExamples]))))}</i> "${countNounArray[randomNumForExamples]}" > <i>${spell(soundChange(soundChangeExample(makeDual(generatedCountNouns[randomNumForExamples]))))}</i> "two ${countNounArrayPlural[randomNumForExamples]}", <i>${spell(soundChange(soundChangeExample(makePlural(generatedCountNouns[randomNumForExamples]))))}</i> "${countNounArrayPlural[randomNumForExamples]}"`;
                 exampleArray.push(randomExample);
             }
         }

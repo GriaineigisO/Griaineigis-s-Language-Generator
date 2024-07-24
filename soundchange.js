@@ -179,6 +179,7 @@ let timesRVCToVRCMetathesisApplies = 0;
 let timesvowelLostBetweenConsonantAndResonantApplied = 0;
 let timesintervocalicVoicing = 0;
 let timeshLostAfterConsonants = 0;
+let timesnasalsLostBetweenVowelAndConsonant = 0;
 
 
 function cloneArray(array) {
@@ -209,6 +210,7 @@ function clearPreviousOutput() {
     timesvowelLostBetweenConsonantAndResonantApplied = 0;
     timesintervocalicVoicing = 0;
     timeshLostAfterConsonants = 0;
+    timesnasalsLostBetweenVowelAndConsonant = 0;
 
 }
 
@@ -274,6 +276,7 @@ function selectSoundChanges() {
     potentialSoundChanges.push(vowelLostBetweenConsonantAndResonant)
     potentialSoundChanges.push(intervocalicVoicing);
     potentialSoundChanges.push(hLostAfterConsonants);
+    potentialSoundChanges.push(nasalsLostBetweenVowelAndConsonant);
     
     //selects which sound changes will be chosen
     while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
@@ -561,6 +564,19 @@ function selectSoundChanges() {
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `The glottal fricative /h/ is lost after consonants: <span id="hLostAfterConsonants"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === nasalsLostBetweenVowelAndConsonant) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "nasalsLostBetweenVowelAndConsonant-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Nasals Are Lost Between a Vowel and Consonant`;
+            let nestUl = document.createElement("ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `TWhen a nasal consonant occurs after a vowel and before a consonant, the nasal is lost and the vowel lengthens: <span id="nasalsLostBetweenVowelAndConsonant"></span>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -1021,6 +1037,22 @@ function hLostAfterConsonants(wordArray) {
             timeshLostAfterConsonants++;
             while(timeshLostAfterConsonants === 0) {
                 document.getElementById("hLostAfterConsonants-li").style.display = "none";
+            };
+        };
+    };
+    return wordArray;
+};
+
+function nasalsLostBetweenVowelAndConsonant(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(allNasalsArray.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && vowels.includes(wordArray[i-1])) {
+            console.log(wordArray)
+            wordArray[i] = wordArray[i-1];
+            let join = wordArray.join("");
+            console.log(spell(join))
+            timesnasalsLostBetweenVowelAndConsonant++;
+            while(timesnasalsLostBetweenVowelAndConsonant === 0) {
+                document.getElementById("nasalsLostBetweenVowelAndConsonant-li").style.display = "none";
             };
         };
     };

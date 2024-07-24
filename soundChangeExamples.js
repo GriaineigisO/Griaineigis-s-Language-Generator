@@ -105,6 +105,11 @@ function populateArray() {
                 soundChangeArray.push(hLostAfterConsonants);
             }
         };
+        if(chosenSoundChanges[i].name === "nasalsLostBetweenVowelAndConsonant") {
+            if(soundChangeArray.includes(nasalsLostBetweenVowelAndConsonant) === false) {
+                soundChangeArray.push(nasalsLostBetweenVowelAndConsonant);
+            }
+        };
     };
 };
 
@@ -698,7 +703,6 @@ let beforehLostAfterConsonants = "";
 function hLostAfterConsonants(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
         if(word[i] === "h" && consonants.includes(word[i-1])) {
-            console.log(word)
             beforehLostAfterConsonants = word.join("");
             word.splice(i, 1);
             afterhLostAfterConsonants = word.join("");
@@ -717,6 +721,35 @@ function hLostAfterConsonants(word, originalWord) {
             }
             document.getElementById("hLostAfterConsonants").innerHTML = `${beforeExample} > ${afterExample}`;
             
+        };
+    };
+    return word;
+};
+
+let afternasalsLostBetweenVowelAndConsonant = "";
+let beforenasalsLostBetweenVowelAndConsonant = "";
+function nasalsLostBetweenVowelAndConsonant(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(allNasalsArray.includes(word[i]) && consonants.includes(word[i+1]) && vowels.includes(word[i-1])) {
+            beforenasalsLostBetweenVowelAndConsonant = word.join("");
+            let lengthMarkedWithTriangles = cloneArray(word);
+            word[i] = word[i-1];
+            lengthMarkedWithTriangles[i] = "ː";
+            afternasalsLostBetweenVowelAndConsonant = lengthMarkedWithTriangles.join("");
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(beforenasalsLostBetweenVowelAndConsonant) !== afternasalsLostBetweenVowelAndConsonant) {
+                afterExample = `<i>*${spell(correctionsForStrings(afternasalsLostBetweenVowelAndConsonant))}</i> (> ${newName} <i>${spell(soundChange(originalJoined))}</i>)`
+            } else {
+                afterExample = `${newName} <i>${spell(correctionsForStrings(afternasalsLostBetweenVowelAndConsonant))}</i>`
+            };
+            let beforeExample = "";
+            if(originalJoined === beforenasalsLostBetweenVowelAndConsonant) {
+                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+            } else {
+                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(correctionsForStrings(beforenasalsLostBetweenVowelAndConsonant))}</i>`
+            }
+            document.getElementById("nasalsLostBetweenVowelAndConsonant").innerHTML = `${beforeExample} > ${afterExample}`;
         };
     };
     return word;

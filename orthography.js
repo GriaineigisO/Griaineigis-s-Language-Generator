@@ -41,9 +41,6 @@ function spell(word) {
     wordArray = Array.from(str)
    }
    
-
-
-
     for(let i = 0; i <  wordArray.length; i++) {
         if(checkIfCanUseMacron() && wordArray[i] === wordArray[i + 1] && vowels.includes(wordArray[i])) {
             if(wordArray[i] === "i") {

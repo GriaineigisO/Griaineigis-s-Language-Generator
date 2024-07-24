@@ -1,3 +1,4 @@
+//@collapse
 
 import { countNounArray, countNounArrayPlural, animInan, mascFem, mascFemNeut, humanAnimalInan, activePassive, naturalArtificial, shapeClassifierArray, animacyClassifierArray, shortGenericClassifierArray, divineNonDivine} from './englishWordArrays/Nouns/countNouns.js';
 import {massNounArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray} from './englishWordArrays/Nouns/massNouns.js'
@@ -5121,44 +5122,48 @@ descriptionSpan.classList.add("indent-except-first-line");
 }
 
 function selectNounsClassifier(classifierArray, array, category) {
-    for(let i = 0; i < countNounArray.length; i++) {
-        let index = countNounArray.indexOf(countNounArray[i])
-        if(classifierArray[index] === category) {
-            array.push(countNounArray[i]);
+    if(typologyNum === 0) {
+        for(let i = 0; i < countNounArray.length; i++) {
+            let index = countNounArray.indexOf(countNounArray[i])
+            if(classifierArray[index] === category) {
+                array.push(countNounArray[i]);
+            }
         }
-    }
-    let spanNoun = document.getElementsByClassName(category + "-noun");
-    let num = 1;
-    for(let i = 0; i < spanNoun.length; i++) {
-        let randomNumber = Math.floor(Math.random() * array.length);
-        let randomNoun = generatedCountNouns[countNounArray.indexOf(array[randomNumber])] 
-        document.getElementById("noun" + num.toString() + category).innerHTML = randomNoun;
-        for(let i = 0; i < document.getElementsByClassName("noun-meaning" + num.toString() + category).length; i++) {
-            document.getElementsByClassName("noun-meaning" + num.toString() + category)[i].innerHTML = array[randomNumber]
+        let spanNoun = document.getElementsByClassName(category + "-noun");
+        let num = 1;
+        for(let i = 0; i < spanNoun.length; i++) {
+            let randomNumber = Math.floor(Math.random() * array.length);
+            let randomNoun = generatedCountNouns[countNounArray.indexOf(array[randomNumber])] 
+            document.getElementById("noun" + num.toString() + category).innerHTML = randomNoun;
+            for(let i = 0; i < document.getElementsByClassName("noun-meaning" + num.toString() + category).length; i++) {
+                document.getElementsByClassName("noun-meaning" + num.toString() + category)[i].innerHTML = array[randomNumber]
+            }
+            num++;
         }
-        num++;
     }
 
 }
 
 function selectMassNounsClassifier(classifierArray, array, category) {
-    for(let i = 0; i < massNounArray.length; i++) {
-        let index = massNounArray.indexOf(massNounArray[i])
-        if(classifierArray[index] === category) {
-            array.push(massNounArray[i]);
+    if(typologyNum === 0) {
+        for(let i = 0; i < massNounArray.length; i++) {
+            let index = massNounArray.indexOf(massNounArray[i])
+            if(classifierArray[index] === category) {
+                array.push(massNounArray[i]);
+            }
         }
-    }
 
-    let spanNoun = document.getElementsByClassName(category + "-mass-noun");
-    let num = 1;
-    for(let i = 0; i < spanNoun.length; i++) {
-        let randomNumber = Math.floor(Math.random() * array.length);
-        let randomNoun = generatedMassNouns[massNounArray.indexOf(array[randomNumber])] 
-        document.getElementById("mass-noun" + num.toString() + category).innerHTML = randomNoun;
-        for(let i = 0; i < document.getElementsByClassName("mass-noun-meaning" + num.toString() + category).length; i++) {
-            document.getElementsByClassName("mass-noun-meaning" + num.toString() + category)[i].innerHTML = array[randomNumber]
+        let spanNoun = document.getElementsByClassName(category + "-mass-noun");
+        let num = 1;
+        for(let i = 0; i < spanNoun.length; i++) {
+            let randomNumber = Math.floor(Math.random() * array.length);
+            let randomNoun = generatedMassNouns[massNounArray.indexOf(array[randomNumber])] 
+            document.getElementById("mass-noun" + num.toString() + category).innerHTML = randomNoun;
+            for(let i = 0; i < document.getElementsByClassName("mass-noun-meaning" + num.toString() + category).length; i++) {
+                document.getElementsByClassName("mass-noun-meaning" + num.toString() + category)[i].innerHTML = array[randomNumber]
+            }
+            num++;
         }
-        num++;
     }
 }
 
@@ -5225,62 +5230,66 @@ let poolExample = "";
 let cupExample = "";
 
 function classifierExamplesInDictionaryEntries(word, array, countOrMassWord, countOrMassRandomWord) {
-    let classifier = "";
-    if(countOrMassWord === "count") { 
-        classifier = generatedCountNouns[countNounArray.indexOf(word)]
-    } else if (countOrMassWord === "mass") {
-        classifier = generatedMassNouns[massNounArray.indexOf(word)]
-    }
+    if(typologyNum === 0) {
+        let classifier = "";
+        if(countOrMassWord === "count") { 
+            classifier = generatedCountNouns[countNounArray.indexOf(word)]
+        } else if (countOrMassWord === "mass") {
+            classifier = generatedMassNouns[massNounArray.indexOf(word)]
+        }
 
-    let randomNoun = "";
-    let randomNounEnglishTranslation = "";
-    if(countOrMassRandomWord === "count") {
-        randomNoun = generatedCountNouns[countNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
-        randomNounEnglishTranslation = countNounArrayPlural[generatedCountNouns.indexOf(randomNoun)]; 
-        //console.log(`count ${word} - ${array}  - ${randomNoun} -  ${randomNounEnglishTranslation} `)
-    } else if (countOrMassRandomWord === "mass") {
-        randomNoun = generatedMassNouns[massNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
-        randomNounEnglishTranslation = pluralSingulativeMassNounArray[generatedMassNouns.indexOf(randomNoun)];
-    }
+        let randomNoun = "";
+        let randomNounEnglishTranslation = "";
+        if(countOrMassRandomWord === "count") {
+            randomNoun = generatedCountNouns[countNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
+            randomNounEnglishTranslation = countNounArrayPlural[generatedCountNouns.indexOf(randomNoun)]; 
+            //console.log(`count ${word} - ${array}  - ${randomNoun} -  ${randomNounEnglishTranslation} `)
+        } else if (countOrMassRandomWord === "mass") {
+            randomNoun = generatedMassNouns[massNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
+            randomNounEnglishTranslation = pluralSingulativeMassNounArray[generatedMassNouns.indexOf(randomNoun)];
+        }
 
-    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
-        let example = `<strong><i>${spell(soundChange(randomNoun))} ${spell(soundChange(classifier))}</strong></i> "${randomNounEnglishTranslation}"`
-        exampleArray.push(example);
-        //console.log(example)
-    } else if (checkIfHeadInitialOrHeadFinal() === "headFinal") {
-        let example = `<strong><i>${spell(soundChange(classifier))} ${spell(soundChange(randomNoun))}</strong></i> "${randomNounEnglishTranslation}"`
-        exampleArray.push(example);
-        //console.log(example)
+        if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+            let example = `<strong><i>${spell(soundChange(randomNoun))} ${spell(soundChange(classifier))}</strong></i> "${randomNounEnglishTranslation}"`
+            exampleArray.push(example);
+            //console.log(example)
+        } else if (checkIfHeadInitialOrHeadFinal() === "headFinal") {
+            let example = `<strong><i>${spell(soundChange(classifier))} ${spell(soundChange(randomNoun))}</strong></i> "${randomNounEnglishTranslation}"`
+            exampleArray.push(example);
+            //console.log(example)
+        }
     }
 
     
 }
 
 function verbClassifierExamplesInDictionaryEntries(word, array, transitiveOrIntransitive, countOrMassRandomWord) {
-    let classifier = "";
-    if(transitiveOrIntransitive === "transitive") { 
-        classifier = generatedTransitiveVerbs[transitiveVerbArray.indexOf(word)]
-    } else if (transitiveOrIntransitive === "intransitive") {
-        classifier = generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(word)]
-    }
+    if(typologyNum === 0) {
+        let classifier = "";
+        if(transitiveOrIntransitive === "transitive") { 
+            classifier = generatedTransitiveVerbs[transitiveVerbArray.indexOf(word)]
+        } else if (transitiveOrIntransitive === "intransitive") {
+            classifier = generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(word)]
+        }
 
-    let randomNoun = "";
-    let randomNounEnglishTranslation = "";
-    if(countOrMassRandomWord === "count") {
-        
-        randomNoun = generatedCountNouns[countNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
-        randomNounEnglishTranslation = countNounArrayPlural[generatedCountNouns.indexOf(randomNoun)];
-    } else if (countOrMassRandomWord === "mass") {
-        randomNoun = generatedMassNouns[massNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
-        randomNounEnglishTranslation = pluralSingulativeMassNounArray[generatedMassNouns.indexOf(randomNoun)];
-    }
-   
-    if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
-        let example = `<strong><i>${spell(soundChange(randomNoun))} ${spell(soundChange(classifier))}</strong></i> "${randomNounEnglishTranslation}"`
-        exampleArray.push(example);
-    } else if (checkIfHeadInitialOrHeadFinal() === "headFinal") {
-        let example = `<strong><i>${spell(soundChange(classifier))} ${spell(soundChange(randomNoun))}</strong></i> "${randomNounEnglishTranslation}"`
-        exampleArray.push(example);
+        let randomNoun = "";
+        let randomNounEnglishTranslation = "";
+        if(countOrMassRandomWord === "count") {
+            
+            randomNoun = generatedCountNouns[countNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
+            randomNounEnglishTranslation = countNounArrayPlural[generatedCountNouns.indexOf(randomNoun)];
+        } else if (countOrMassRandomWord === "mass") {
+            randomNoun = generatedMassNouns[massNounArray.indexOf(array[Math.floor(Math.random() * array.length)])];
+            randomNounEnglishTranslation = pluralSingulativeMassNounArray[generatedMassNouns.indexOf(randomNoun)];
+        }
+    
+        if(checkIfHeadInitialOrHeadFinal() === "headFirst") {
+            let example = `<strong><i>${spell(soundChange(randomNoun))} ${spell(soundChange(classifier))}</strong></i> "${randomNounEnglishTranslation}"`
+            exampleArray.push(example);
+        } else if (checkIfHeadInitialOrHeadFinal() === "headFinal") {
+            let example = `<strong><i>${spell(soundChange(classifier))} ${spell(soundChange(randomNoun))}</strong></i> "${randomNounEnglishTranslation}"`
+            exampleArray.push(example);
+        };
     }
 }
 
@@ -6763,6 +6772,7 @@ function randomNumForAgglutinativeGrammaticalNumbers() {
 }
 
 function inflectGenderlessNouns() {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("noun");
     let num = 1;
     for(let i = 0; i < spanNoun.length; i++) {
@@ -6785,6 +6795,7 @@ function inflectGenderlessNouns() {
             }
         copyNum2++;
         }
+    }
 }
 
 function inflectGenderlessMassNouns() {
@@ -6966,7 +6977,7 @@ function inflectMassNounsGender(affix, gender) {
 
 //for agglutinative languages with a marked singular
 function inflectNounsSingular() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("singular-noun");
     
     let spanSingularAffix = document.getElementsByClassName("singular-affix")
@@ -6998,35 +7009,37 @@ function inflectNounsSingular() {
 }
 
 function inflectNounsPlural() {
-    let spanNoun = document.getElementsByClassName("plural-noun");
-    let spanPluralAffix = document.getElementsByClassName("plural-affix")
+    if(typologyNum === 1) {
+        let spanNoun = document.getElementsByClassName("plural-noun");
+        let spanPluralAffix = document.getElementsByClassName("plural-affix")
 
-    if(numberSuffixOrPrefix === "suffix") {
-        for(let i = 0; i < spanPluralAffix.length; i++) {
-            spanPluralAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + pluralAffix))}</i>`
+        if(numberSuffixOrPrefix === "suffix") {
+            for(let i = 0; i < spanPluralAffix.length; i++) {
+                spanPluralAffix[i].innerHTML = `suffix <i>-${spell(soundChange("A" + pluralAffix))}</i>`
+            }
+            for(let i = 0; i < spanNoun.length; i++) {
+                let root = spanNoun[i].innerHTML;
+                let pluralnflected = root + pluralAffix;
+                spanNoun[i].innerHTML = pluralnflected;
+            }
+        } else if (numberSuffixOrPrefix === "prefix") {
+            for(let i = 0; i < spanPluralAffix.length; i++) {
+                spanPluralAffix[i].innerHTML = `prefix <i>${spell(soundChange(pluralAffix + "A"))}-</i>`
+            }
+            for(let i = 0; i < spanNoun.length; i++) {
+                let root = spanNoun[i].innerHTML;
+                let pluralnflected = pluralAffix + root ;
+                spanNoun[i].innerHTML = pluralnflected;
+            }
         }
-        for(let i = 0; i < spanNoun.length; i++) {
-            let root = spanNoun[i].innerHTML;
-            let pluralnflected = root + pluralAffix;
-            spanNoun[i].innerHTML = pluralnflected;
+        //makes the noun's translation plural
+        let copyNum = 5;
+        let nounSgMeaning = document.getElementsByClassName("plural-meaning");
+        for(let i = 0; i < nounSgMeaning.length; i++) { 
+            let pluralMeaning = countNounArrayPlural[countNounArray.indexOf(nounSgMeaning[i].innerHTML)];
+        nounSgMeaning[i].innerHTML = pluralMeaning;
+            copyNum++;
         }
-    } else if (numberSuffixOrPrefix === "prefix") {
-        for(let i = 0; i < spanPluralAffix.length; i++) {
-            spanPluralAffix[i].innerHTML = `prefix <i>${spell(soundChange(pluralAffix + "A"))}-</i>`
-        }
-         for(let i = 0; i < spanNoun.length; i++) {
-            let root = spanNoun[i].innerHTML;
-            let pluralnflected = pluralAffix + root ;
-            spanNoun[i].innerHTML = pluralnflected;
-        }
-    }
-    //makes the noun's translation plural
-    let copyNum = 5;
-    let nounSgMeaning = document.getElementsByClassName("plural-meaning");
-    for(let i = 0; i < nounSgMeaning.length; i++) { 
-        let pluralMeaning = countNounArrayPlural[countNounArray.indexOf(nounSgMeaning[i].innerHTML)];
-       nounSgMeaning[i].innerHTML = pluralMeaning;
-        copyNum++;
     }
 }
 
@@ -7066,7 +7079,7 @@ function inflectMassNounsPlural() {
 }
 
 function inflectNounsDual() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("dual-noun");
     let spanDualAffix = document.getElementsByClassName("dual-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7101,7 +7114,7 @@ function inflectNounsDual() {
 }
 
 function inflectNounsCollective() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("collective-noun");
     let spanCollectiveAffix = document.getElementsByClassName("collective-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7135,7 +7148,7 @@ function inflectNounsCollective() {
 }
 
 function inflectNounsTrial() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("trial-noun");
     let spanTrialAffix = document.getElementsByClassName("trial-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7172,7 +7185,7 @@ function inflectNounsTrial() {
 }
 
 function inflectNounsQuadral() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("quadral-noun");
     let spanQuadralAffix = document.getElementsByClassName("quadral-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7209,7 +7222,7 @@ function inflectNounsQuadral() {
 }
 
 function inflectNounsGreaterPlural() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("greater-plural-noun");
     let spanGreaterPluralAffix = document.getElementsByClassName("greater-plural-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7246,7 +7259,7 @@ function inflectNounsGreaterPlural() {
 }
 
 function inflectNounsGeneral() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("general-noun");
     let spanGeneralAffix = document.getElementsByClassName("general-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7282,7 +7295,7 @@ function inflectNounsGeneral() {
 
 //used specifically for the general number in the general-plural system
 function inflectNounsGeneral1() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
         let spanNoun = document.getElementsByClassName("general1-noun");
         for(let i = 0; i < spanNoun.length; i++) {
             let root = spanNoun[i].innerHTML;
@@ -7301,7 +7314,7 @@ function inflectNounsGeneral1() {
 }
 
 function inflectNounsSingulative() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("singulative-noun");
     let spanSingulativeAffix = document.getElementsByClassName("singulative-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7335,7 +7348,7 @@ function inflectNounsSingulative() {
 }
 
 function inflectMassNounsSingulative() {
-    if(typologyNum > 0) {
+    if(typologyNum === 1) {
     let spanNoun = document.getElementsByClassName("singulative-mass-noun");
     let spanSingulativeAffix = document.getElementsByClassName("singulative-affix")
     if(numberSuffixOrPrefix === "suffix") {
@@ -7987,7 +8000,6 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("general-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
-    console.log(spell(soundChange("mansika")))
    }
 
 

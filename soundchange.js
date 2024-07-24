@@ -180,8 +180,10 @@ let timesvowelLostBetweenConsonantAndResonantApplied = 0;
 let timesintervocalicVoicing = 0;
 let timeshLostAfterConsonants = 0;
 let timesnasalsLostBetweenVowelAndConsonant = 0;
-
-
+let timesauBecomesOu = 0;
+let timesaCaBecomesaCi = 0;
+let timesVʔVBecomesVV = 0;
+;
 function cloneArray(array) {
     let newArray = [];
     for(let i = 0; i < array.length; i++) {
@@ -211,6 +213,9 @@ function clearPreviousOutput() {
     timesintervocalicVoicing = 0;
     timeshLostAfterConsonants = 0;
     timesnasalsLostBetweenVowelAndConsonant = 0;
+    timesauBecomesOu = 0;
+    timesaCaBecomesaCi = 0;
+    timesVʔVBecomesVV = 0;
 
 }
 
@@ -277,13 +282,15 @@ function selectSoundChanges() {
     potentialSoundChanges.push(intervocalicVoicing);
     potentialSoundChanges.push(hLostAfterConsonants);
     potentialSoundChanges.push(nasalsLostBetweenVowelAndConsonant);
+    potentialSoundChanges.push(auBecomesOu);
+    potentialSoundChanges.push(aCaBecomesaCi);
+    potentialSoundChanges.push(VʔVBecomesVV);
     
     //selects which sound changes will be chosen
     while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
         randomNumberForSoundChangeSelection = Math.floor(Math.random() * potentialSoundChanges.length);
         if(chosenSoundChanges.includes(potentialSoundChanges[randomNumberForSoundChangeSelection]) === false) {
             chosenSoundChanges.push(potentialSoundChanges[randomNumberForSoundChangeSelection]) 
-            //cloneChosen.push(potentialSoundChanges[randomNumberForSoundChangeSelection]);
         }
     }
 
@@ -300,6 +307,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Word Final Devoicing`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "wordFinalDevoicing-ul");
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `Voiced consonants devoiced word finally: <span id="wordFinalDevoicing"></span>`;
@@ -313,6 +321,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Word Initial Clusters Simplified`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "plosivesCantClusterTogetherWordInitially-ul");
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `A word initial plosive is lost if another plosive follows it: <span id="plosivesCantClusterTogetherWordInitially"></span>`;
@@ -326,6 +335,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Fricatives Dropped in Word Initial Clusters`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "fricativesLostAfterWordInitialConsonants-ul");
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `A fricative is lost when it is the first consonant in a word initial cluster: <span id="fricativesLostAfterWordInitialConsonants"></span>`;
@@ -334,12 +344,13 @@ function selectSoundChanges() {
             nestUl.appendChild(nestLi);
         }
         if(chosenSoundChanges[i] === lenitionofPlosivebeforeOtherPlosive) {
-            if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
+            if(randomNumForlenitionofPlosivebeforeOtherPlosive > 0) {
                 let li= document.createElement("li");
                 li.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive-li");
                 li.style.fontWeight = "bold";
                 li.innerHTML = `Lenition in Clusters`;
                 let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
                 nestLi.innerHTML = `Plosives lenite when they occur before other plosives. Plosives lenite in the following way.`
@@ -359,6 +370,7 @@ function selectSoundChanges() {
                 li.style.fontWeight = "bold";
                 li.innerHTML = `Lenition in Clusters`;
                 let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
                 nestLi.innerHTML = `Plosives lenite when they occur before other plosives. Plosives lenite in the following way.`
@@ -380,6 +392,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Word Final High Vowels Lower`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "wordFinalHighVowelsLower-ul");
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `High vowels lower to become mid vowels when word final: <span id="wordFinalHighVowelsLower"></span>`;
@@ -388,12 +401,13 @@ function selectSoundChanges() {
             nestUl.appendChild(nestLi);
         };
         if(chosenSoundChanges[i] === NoResonantsBeforeConsonants) {
-            if(randomNumForNoResonantsBeforeConsonants === 0) {
+            if(randomNumForNoResonantsBeforeConsonants > 0) {
                 let li= document.createElement("li");
                 li.setAttribute("id", "NoResonantsBeforeConsonants-li");
                 li.style.fontWeight = "bold";
                 li.innerHTML = `Resonants Lost Before Consonants`;
                 let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "NoResonantsBeforeConsonants-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
                 nestLi.innerHTML = `Resonants are lost before consonants: <span id="NoResonantsBeforeConsonants"></span>`
@@ -407,6 +421,7 @@ function selectSoundChanges() {
                 li.style.fontWeight = "bold";
                 li.innerHTML = `Epenthesis of /i/ Between Consonants And Resonants`;
                 let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "NoResonantsBeforeConsonants-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
                 nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /i/ is inserted after the resonants: <span id="NoResonantsBeforeConsonants"></span>`;
@@ -420,6 +435,7 @@ function selectSoundChanges() {
                 li.style.fontWeight = "bold";
                 li.innerHTML = `Epenthesis of /u/ Between Consonants And Resonants`;
                 let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "NoResonantsBeforeConsonants-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
                 nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /u/ is inserted after the resonant: <span id="NoResonantsBeforeConsonants"></span>`
@@ -433,6 +449,7 @@ function selectSoundChanges() {
                 li.style.fontWeight = "bold";
                 li.innerHTML = `RC to CR Metathesis`;
                 let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "NoResonantsBeforeConsonants-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
                 nestLi.innerHTML = `A resonant which once preceded a consonant now follows it: <span id="NoResonantsBeforeConsonants"></span>`
@@ -447,6 +464,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Non-initial Non-High Vowels Become /a/`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "nonInitialNonHighVowelsBecomeA-ul")
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `All non-high vowels merge with /a/ when not in the first syllable of a word: <span id="nonInitialNonHighVowelsBecomeA"></span/>`
@@ -460,6 +478,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Epenthesis of /i/ before Post-Consonantal Nasals`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "nasalsCantAppearAfterConsonants-ul")
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `An epenthetic /i/ is placed before any nasal which occurs after a consonant: <span id="nasalsCantAppearAfterConsonants"></span>`
@@ -473,6 +492,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Debuccalisation of Pre-Vocalic Fricatives`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "fricativesDebuccaliseBeforeVowels-ul")
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             let fricativeList = selectFricatives().join(", ");
@@ -496,6 +516,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Loss of Vowels Between Two of the Same Consonant`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "vowelLostBetweenTwoOfSameConsonant-ul");
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `When a vowel is sandwiched by two of the same consonant, it is lost: <span id="vowelLostBetweenTwoOfSameConsonant"></span>`
@@ -509,6 +530,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Loss of Intervocalic Voiced Consonants`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "voicedConsonantsLostIntervocalically-ul")
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `Short voiced plosives and fricatives are lost entirely when between two vowels: <span id="voicedConsonantsLostIntervocalically"></span>`
@@ -522,6 +544,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `RVC to VRC Metathesis`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "RVCToVRCMetathesis-ul")
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `When a word initial resonant comes before a vowel, and if a consonant follows this vowel, then the resonant and vowel will switch places: <span id="RVCToVRCMetathesis"></span>`
@@ -535,6 +558,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Syncope Between a Consonant and a Resonant`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "vowelLostBetweenConsonantAndResonant-ul")
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `Vowels are lost when after a consonant and before a resonant if said resonant precedes another vowel: <span id="vowelLostBetweenConsonantAndResonant"></span>`
@@ -548,6 +572,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `Intervocalic Voicing`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "intervocalicVoicing-ul")
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `Voiceless consonants become voiced between two vowels: <span id="intervocalicVoicing"></span>`
@@ -561,6 +586,7 @@ function selectSoundChanges() {
             li.style.fontWeight = "bold";
             li.innerHTML = `h is Lost After Consonants`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "hLostAfterConsonants-ul")
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `The glottal fricative /h/ is lost after consonants: <span id="hLostAfterConsonants"></span>`
@@ -570,19 +596,61 @@ function selectSoundChanges() {
         };
         if(chosenSoundChanges[i] === nasalsLostBetweenVowelAndConsonant) {
             let li= document.createElement("li");
-            li.setAttribute("id", "nasalsLostBetweenVowelAndConsonant-li")
+            li.setAttribute("id", "nasalsLostBetweenVowelAndConsonant-li");
             li.style.fontWeight = "bold";
             li.innerHTML = `Nasals Are Lost Between a Vowel and Consonant`;
             let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "nasalsLostBetweenVowelAndConsonant-ul")
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `TWhen a nasal consonant occurs after a vowel and before a consonant, the nasal is lost and the vowel lengthens: <span id="nasalsLostBetweenVowelAndConsonant"></span>`
+            nestLi.innerHTML = `When a nasal consonant occurs after a vowel and before a consonant, the nasal is lost and the vowel lengthens: <span id="nasalsLostBetweenVowelAndConsonant"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === auBecomesOu) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "auBecomesOu-li");
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/a/ Raises Before /u/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "auBecomesOu-ul")
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `/au/ becomes /ou/: <span id="auBecomesOu"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === aCaBecomesaCi) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "aCaBecomesaCi-li");
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Dissimilation of a...a to a...i`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "aCaBecomesaCi-ul")
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `/a/ becomes /i/ when the previous syllable also contains /a/: <span id="aCaBecomesaCi"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === VʔVBecomesVV) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "VʔVBecomesVV-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Loss of Intervocalic Glottal Stops`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "VʔVBecomesVV-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `When a glottal stop occurs between two vowels, both the glottal stop and the second vowel are lost and the first vowel lengthens: <span id="VʔVBecomesVV"></span>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
         };
     };
-    console.log(chosenSoundChanges);
 
 
 }
@@ -658,6 +726,29 @@ function corrections(wordArray) {
             }
         }
         }
+    //turns j and w to i and u between consonants
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "j" && consonants.includes(wordArray[i-1]) && consonants.includes(wordArray[i+1])) {
+            wordArray[i] = "i";
+        };
+        if(wordArray[wordArray.length - 1] === "j") {
+            wordArray[i] = "i";
+        };
+        if(wordArray[i] === "w" && consonants.includes(wordArray[i-1]) && consonants.includes(wordArray[i+1])) {
+            wordArray[i] = "u";
+        };
+        if(wordArray[wordArray.length - 1] === "w") {
+            wordArray[i] = "u";
+        };
+        if(wordArray[0] === "j" && consonants.includes(wordArray[1])) {
+            wordArray[i] = "i";
+        };
+        if(wordArray[0] === "w" && consonants.includes(wordArray[1])) {
+            wordArray[i] = "u";
+        };
+        
+    }
+
     /*^^CORRECTIVE CHANGES^^^****/
 
     return wordArray;
@@ -735,6 +826,27 @@ function correctionsForStrings(word) {
            }
        }
        }
+    //turns j and w to i and u between consonants
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "j" && consonants.includes(wordArray[i-1]) && consonants.includes(wordArray[i+1])) {
+            wordArray[i] = "i";
+        };
+        if(wordArray[wordArray.length - 1] === "j") {
+            wordArray[i] = "i";
+        };
+        if(wordArray[0] === "j" && consonants.includes(wordArray[1])) {
+            wordArray[i] = "i";
+        };
+        if(wordArray[i] === "w" && consonants.includes(wordArray[i-1]) && consonants.includes(wordArray[i+1])) {
+            wordArray[i] = "u";
+        };
+        if(wordArray[wordArray.length - 1] === "w") {
+            wordArray[i] = "u";
+        };
+        if(wordArray[0] === "w" && consonants.includes(wordArray[1])) {
+            wordArray[i] = "u";
+        };
+    }
    /*^^CORRECTIVE CHANGES^^^****/
 
    let joined = wordArray.join("");
@@ -748,6 +860,7 @@ function soundChange(word) {
     //applies the chosen sound changes to the word
     for(let i = 0; i < chosenSoundChanges.length; i++) {
         chosenSoundChanges[i](wordArray)
+
     }
 
     //to prevent word final sound changes applying to prefixes, when listed in isolation, an "A" is inserted at the end, this for loop serves to remove that "A" after those sound changes have been applied
@@ -773,8 +886,9 @@ function wordFinalDevoicing(wordArray) {
             wordArray[wordArray.length -2] = unvoiced[voicedIndex];
         };
         timeswordFinalDevoicingApplied++;
-        while(timeswordFinalDevoicingApplied === 0) {
-            document.getElementById("wordFinalDevoicing-li").style.display = "none";
+        if(timeswordFinalDevoicingApplied > 0) {
+            document.getElementById("wordFinalDevoicing-li").style.display = "block";
+            document.getElementById("wordFinalDevoicing-ul").style.display = "block";
         };
     };
     return wordArray;
@@ -785,8 +899,9 @@ function plosivesCantClusterTogetherWordInitially(wordArray) {
         if(plosives.includes(wordArray[0]) && plosives.includes(wordArray[1])) {
             wordArray.splice(0, 1);
             timesplosivesCantClusterTogetherWordInitiallyApplied++
-            while(timesplosivesCantClusterTogetherWordInitiallyApplied === 0) {
-                document.getElementById("plosivesCantClusterTogetherWordInitially-li").style.display = "none";
+            if(timesplosivesCantClusterTogetherWordInitiallyApplied > 0) {
+                document.getElementById("plosivesCantClusterTogetherWordInitially-li").style.display = "block";
+                document.getElementById("plosivesCantClusterTogetherWordInitially-ul").style.display = "block";
             }
         }
     }
@@ -796,8 +911,9 @@ function plosivesCantClusterTogetherWordInitially(wordArray) {
 function fricativesLostAfterWordInitialConsonants(wordArray) {
     if(consonants.includes(wordArray[0]) && selectFricatives().includes(wordArray[1])) {
         timesfricativesLostAfterWordInitialConsonantsApplied++;
-        while(timesfricativesLostAfterWordInitialConsonantsApplied === 0) {
-            document.getElementById("fricativesLostAfterWordInitialConsonants-li").style.display = "none";
+        if(timesfricativesLostAfterWordInitialConsonantsApplied > 0) {
+            document.getElementById("fricativesLostAfterWordInitialConsonants-li").style.display = "block";
+            document.getElementById("fricativesLostAfterWordInitialConsonants-ul").style.display = "block";
         }
         wordArray.splice(1, 1);
     }
@@ -812,22 +928,24 @@ function wordFinalHighVowelsLower(wordArray) {
         let vowelIndex = highVowels.indexOf(wordArray[wordArray.length -1]);
         wordArray[wordArray.length -1] = midVowels[vowelIndex];
         timeswordFinalHighVowelsLowerApplied++
-        while(timeswordFinalHighVowelsLowerApplied === 0) {
-            document.getElementById("wordFinalHighVowelsLower-li").style.display = "none";
+        if(timeswordFinalHighVowelsLowerApplied > 0) {
+            document.getElementById("wordFinalHighVowelsLower-li").style.display = "block";
+            document.getElementById("wordFinalHighVowelsLower-ul").style.display = "block";
         }
     } 
     return wordArray;
 }
 
 function NoResonantsBeforeConsonants(wordArray) {
-    if(randomNumForNoResonantsBeforeConsonants === 0) {
+    if(randomNumForNoResonantsBeforeConsonants > 0) {
     //deletes the resonant
     for(let i = 0; i < wordArray.length; i++) {
         if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
             wordArray.splice(i, 1);
             timesResonantsLostAfterConsonantsApplied++;
-            while(timesResonantsLostAfterConsonantsApplied === 0) {
-               document.getElementById("NoResonantsBeforeConsonants-li").style.display = "none";
+            if(timesResonantsLostAfterConsonantsApplied > 0) {
+               document.getElementById("NoResonantsBeforeConsonants-li").style.display = "block";
+               document.getElementById("NoResonantsBeforeConsonants-ul").style.display = "block";
             }
         } 
     } 
@@ -838,8 +956,9 @@ function NoResonantsBeforeConsonants(wordArray) {
             if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
                 wordArray.splice(i+1, 0, "i");
                 timesInsterIBetweenConsonantAndResonantApplied++;
-                while(timesInsterIBetweenConsonantAndResonantApplied === 0) {
-                    document.getElementById("NoResonantsBeforeConsonants-li").style.display = "none";
+                if(timesInsterIBetweenConsonantAndResonantApplied > 0) {
+                    document.getElementById("NoResonantsBeforeConsonants-li").style.display = "block";
+                    document.getElementById("NoResonantsBeforeConsonants-ul").style.display = "block";
                 };
             };
         };
@@ -850,8 +969,9 @@ function NoResonantsBeforeConsonants(wordArray) {
         if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
             wordArray.splice(i+1, 0, "u");
             timesInstertUBetweenConsonantAndResonantApplied++;
-            while(timesInstertUBetweenConsonantAndResonantApplied === 0) {
-                document.getElementById("NoResonantsBeforeConsonants-li").style.display = "none";
+            if(timesInstertUBetweenConsonantAndResonantApplied > 0) {
+                document.getElementById("NoResonantsBeforeConsonants-li").style.display = "block";
+                document.getElementById("NoResonantsBeforeConsonants-ul").style.display = "block";
             };
         };
     };
@@ -865,8 +985,9 @@ function NoResonantsBeforeConsonants(wordArray) {
             wordArray[i] = followingConsonant;
             wordArray[i+1] = resonant;
             timesConsonantResonantMetathesisApplied++;
-            while(timesConsonantResonantMetathesisApplied === 0) {
-                document.getElementById("NoResonantsBeforeConsonants-li").style.display = "none";
+            if(timesConsonantResonantMetathesisApplied > 0) {
+                document.getElementById("NoResonantsBeforeConsonants-li").style.display = "block";
+                document.getElementById("NoResonantsBeforeConsonants-ul").style.display = "block";
             }
             if(resonants.includes(wordArray[i]) && resonants.includes(wordArray[i + 1])) {
                 wordArray.splice(i+1, 0, "u");
@@ -880,13 +1001,14 @@ function NoResonantsBeforeConsonants(wordArray) {
 
 function lenitionofPlosivebeforeOtherPlosive(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
-        if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
+        if(randomNumForlenitionofPlosivebeforeOtherPlosive > 0) {
             if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1])) {
                 let firstPlosiveIndex = plosives.indexOf(wordArray[i-1]);
                 wordArray[i-1] = lenitionFromPlosives1[firstPlosiveIndex];
                 timeslenitionofPlosivebeforeOtherPlosiveApplied++;
-                while(timeslenitionofPlosivebeforeOtherPlosiveApplied === 0) {
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li").style.display = "none";
+                if(timeslenitionofPlosivebeforeOtherPlosiveApplied > 0) {
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li").style.display = "block";
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-ul").style.display = "block";
                 };
             }
         } else if(randomNumForlenitionofPlosivebeforeOtherPlosive === 1) {
@@ -894,8 +1016,8 @@ function lenitionofPlosivebeforeOtherPlosive(wordArray) {
                 let firstPlosiveIndex = plosives.indexOf(wordArray[i-1]);
                 wordArray[i-1] = lenitionFromPlosives2[firstPlosiveIndex];
                 timeslenitionofPlosivebeforeOtherPlosiveApplied++;
-                while(timeslenitionofPlosivebeforeOtherPlosiveApplied === 0) {
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li").style.display = "none";
+                if(timeslenitionofPlosivebeforeOtherPlosiveApplied > 0) {
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li").style.display = "block";
                 };
             }
         } 
@@ -909,16 +1031,14 @@ function nonInitialNonHighVowelsBecomeA(wordArray) {
         if(nonHighVowels.includes(wordArray[i]) && num !== 0) {
             wordArray[i] = "a";
             timesnonInitialNonHighVowelsBecomeAApplied++;
-            while(timesnonInitialNonHighVowelsBecomeAApplied === 0) {
-                document.getElementById("nonInitialNonHighVowelsBecomeA-li").style.display = "none";
+            if(timesnonInitialNonHighVowelsBecomeAApplied > 0) {
+                document.getElementById("nonInitialNonHighVowelsBecomeA-li").style.display = "block";
+                document.getElementById("nonInitialNonHighVowelsBecomeA-ul").style.display = "block";
             }; 
         };
         if(vowels.includes(wordArray[i])) {
             num++;
         };
-        if(nonHighVowels.length === 0) {
-            document.getElementById("nonInitialNonHighVowelsBecomeA-li").style.display = "none";
-        }
     };
     return wordArray;
 }
@@ -928,8 +1048,9 @@ function nasalsCantAppearAfterConsonants(wordArray) {
         if(consonants.includes(wordArray[i]) && allNasalsArray.includes(wordArray[i+1])) {
             wordArray.splice(i+1, 0, "i");
             timesnasalsCantAppearAfterConsonantsApplied++
-            while(timesnasalsCantAppearAfterConsonantsApplied === 0) {
-                document.getElementById("nasalsCantAppearAfterConsonants-li").style.display = "none";
+            if(timesnasalsCantAppearAfterConsonantsApplied > 0) {
+                document.getElementById("nasalsCantAppearAfterConsonants-li").style.display = "block";
+                document.getElementById("nasalsCantAppearAfterConsonants-ul").style.display = "block";
             } 
         }
     };
@@ -940,8 +1061,9 @@ function fricativesDebuccaliseBeforeVowels(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(selectFricatives().includes(wordArray[i]) && vowels.includes(wordArray[i+1])) {
             timefricativesDebuccaliseBeforeVowelsApplied++;
-            while(timefricativesDebuccaliseBeforeVowelsApplied === 0) {
-                document.getElementById("fricativesDebuccaliseBeforeVowels-li").style.display = "none";
+            if(timefricativesDebuccaliseBeforeVowelsApplied > 0) {
+                document.getElementById("fricativesDebuccaliseBeforeVowels-li").style.display = "block";
+                document.getElementById("fricativesDebuccaliseBeforeVowels-ul").style.display = "block";
             } 
             wordArray[i] = "h";
         }
@@ -954,8 +1076,9 @@ function vowelLostBetweenTwoOfSameConsonant(wordArray) {
         if(consonants.includes(wordArray[i-1]) && wordArray[i-1] === wordArray[i+1] && vowels.includes(wordArray[i])) {
             wordArray.splice(i, 2);
             timesvowelLostBetweenTwoOfSameConsonantApplied++;
-            while(timesvowelLostBetweenTwoOfSameConsonantApplied === 0) {
-            document.getElementById("vowelLostBetweenTwoOfSameConsonant-li").style.display = "none";
+            if(timesvowelLostBetweenTwoOfSameConsonantApplied > 0) {
+                document.getElementById("vowelLostBetweenTwoOfSameConsonant-li").style.display = "block";
+                document.getElementById("vowelLostBetweenTwoOfSameConsonant-ul").style.display = "block";
             };
         };
     };
@@ -971,8 +1094,9 @@ function voicedConsonantsLostIntervocalically(wordArray) {
         ) {
             wordArray.splice(i, 1);
             timesvoicedConsonantsLostIntervocalicallyApplied++;
-            while(timesvoicedConsonantsLostIntervocalicallyApplied === 0) {
-                document.getElementById("voicedConsonantsLostIntervocalically-id");
+            if(timesvoicedConsonantsLostIntervocalicallyApplied > 0) {
+                document.getElementById("voicedConsonantsLostIntervocalically-li").style.display = "block";
+                document.getElementById("voicedConsonantsLostIntervocalically-ul").style.display = "block";
             };
         };
     };
@@ -986,8 +1110,9 @@ function RVCToVRCMetathesis(wordArray) {
         wordArray[0] = vowel;
         wordArray[1] = resonant;
         timesRVCToVRCMetathesisApplies++;
-        while(timesRVCToVRCMetathesisApplies === 0) {
-          document.getElementById("RVCToVRCMetathesis-li").style.display = "none";
+        if(timesRVCToVRCMetathesisApplies > 0) {
+          document.getElementById("RVCToVRCMetathesis-li").style.display = "block";
+          document.getElementById("RVCToVRCMetathesis-ul").style.display = "block";
         } 
     };
     if(wordArray[0] === "X" && resonants.includes(wordArray[1]) && vowels.includes(wordArray[2]) && consonants.includes(wordArray[3])) {
@@ -1004,8 +1129,9 @@ function vowelLostBetweenConsonantAndResonant(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(consonants.includes(wordArray[i]) && vowels.includes(wordArray[i+1]) && resonants.includes(wordArray[i+2]) && vowels.includes(wordArray[i+3])) {
             timesvowelLostBetweenConsonantAndResonantApplied++;
-            while(timesvowelLostBetweenConsonantAndResonantApplied === 0) {
-              document.getElementById("vowelLostBetweenConsonantAndResonant-li").style.display = "none";  
+            if(timesvowelLostBetweenConsonantAndResonantApplied > 0) {
+              document.getElementById("vowelLostBetweenConsonantAndResonant-li").style.display = "block";  
+              document.getElementById("vowelLostBetweenConsonantAndResonant-ul").style.display = "block";  
             } 
             wordArray.splice(i+1,1)
         }
@@ -1022,21 +1148,26 @@ function intervocalicVoicing(wordArray) {
             let unvoicedIndex = unvoiced.indexOf(wordArray[i]);
             wordArray[i] = voiced[unvoicedIndex];
             timesintervocalicVoicing++;
-            while(timesintervocalicVoicing === 0) {
-                document.getElementById("intervocalicVoicing-li").style.display = "none";
+            if(timesintervocalicVoicing > 0) {
+                document.getElementById("intervocalicVoicing-li").style.display = "block";
+                document.getElementById("intervocalicVoicing-ul").style.display = "block";
             };
         };
     };
     return wordArray;
 }
 
+let num = 0;
 function hLostAfterConsonants(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "h" && consonants.includes(wordArray[i-1])) {
+        if(consonants.includes(wordArray[i-1]) && wordArray[i] === "h") {
+            console.log(num + wordArray[i] + " " +wordArray)
+            num++
             wordArray.splice(i, 1);
             timeshLostAfterConsonants++;
-            while(timeshLostAfterConsonants === 0) {
-                document.getElementById("hLostAfterConsonants-li").style.display = "none";
+            if(timeshLostAfterConsonants > 0) {
+                document.getElementById("hLostAfterConsonants-li").style.display = "block";
+                document.getElementById("hLostAfterConsonants-ul").style.display = "block";
             };
         };
     };
@@ -1046,19 +1177,59 @@ function hLostAfterConsonants(wordArray) {
 function nasalsLostBetweenVowelAndConsonant(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(allNasalsArray.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && vowels.includes(wordArray[i-1])) {
-            console.log(wordArray)
             wordArray[i] = wordArray[i-1];
-            let join = wordArray.join("");
-            console.log(spell(join))
             timesnasalsLostBetweenVowelAndConsonant++;
-            while(timesnasalsLostBetweenVowelAndConsonant === 0) {
-                document.getElementById("nasalsLostBetweenVowelAndConsonant-li").style.display = "none";
+            if(timesnasalsLostBetweenVowelAndConsonant > 0) {
+                document.getElementById("nasalsLostBetweenVowelAndConsonant-li").style.display = "block";
+                document.getElementById("nasalsLostBetweenVowelAndConsonant-ul").style.display = "block";
             };
         };
     };
     return wordArray;
 };
 
+function auBecomesOu(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "a" && wordArray[i+1] === "u") {
+            wordArray[i] = "o";
+            timesauBecomesOu++;
+            if(timesauBecomesOu > 0) {
+                document.getElementById("auBecomesOu-li").style.display = "block";
+                document.getElementById("auBecomesOu-ul").style.display = "block";
+            };
+        };
+    };
+    return wordArray;
+};
+
+function aCaBecomesaCi(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "a" && wordArray[i-2] === "a" && consonants.includes(wordArray[i-1]) || wordArray[i] === "a" && wordArray[i-3] === "a" && consonants.includes(wordArray[i-1] && consonants[wordArray[i-2]])) {
+            wordArray[i] = "i";
+            timesaCaBecomesaCi++;
+            if(timesaCaBecomesaCi > 0) {
+                document.getElementById("aCaBecomesaCi-li").style.display = "block";
+                document.getElementById("aCaBecomesaCi-ul").style.display = "block";
+            };
+        };
+    };
+    return wordArray;
+};
+
+function VʔVBecomesVV(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ʔ" && vowels.includes(wordArray[i-1]) && vowels.includes(wordArray[i+1])) {
+            wordArray[i] = wordArray[i-1];
+            wordArray.splice(i+1, 1);
+            timesVʔVBecomesVV++;
+            if(timesVʔVBecomesVV > 0) {
+                document.getElementById("VʔVBecomesVV-li").style.display = "block";
+                document.getElementById("VʔVBecomesVV-ul").style.display = "block";
+            };
+        }
+    };
+    return wordArray;
+};
 /*------------------------------------------------------*/
 
 

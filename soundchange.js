@@ -152,7 +152,8 @@ let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "�
 let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "tʃ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"]
 let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
 let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ", "ə", "ɛ", "œ", "ɜ", "ɞ", "ʌ", "ɔ", "ɑ", "ɒ", "ɐ", "æ"];
-let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a"]
+let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a"];
+let frontVowels = ["i", "y", "e", "ø", "ɛ", "œ", "æ"];
 let vowels = highVowels.concat(nonHighVowels);
 let addedVowels = vowels;
 let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
@@ -186,6 +187,11 @@ let timesVʔVBecomesVV = 0;
 let timesplosivesDebuccaliseInCoda = 0;
 let timesCVRBecomesCCVR = 0;
 let timesglottalStopJFortites = 0;
+let timeseciBecomesiCi = 0;
+let timesiCbecomeseC = 0;
+let timesVJbecomesLongI = 0;
+let timesuNBecomesoN = 0;
+let timesgBecomesJ = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -221,9 +227,13 @@ function clearPreviousOutput() {
     timesVʔVBecomesVV = 0;
     timesplosivesDebuccaliseInCoda = 0;
     timesCVRBecomesCCVR = 0;
-    timesglottalStopJFortites = 0
-
-}
+    timesglottalStopJFortites = 0;
+    timeseciBecomesiCi = 0;
+    timesiCbecomeseC = 0;
+    timesVJbecomesLongI = 0;
+    timesuNBecomesoN = 0;
+    timesgBecomesJ = 0;
+};
 
 function checkIfWordFinalConsonantsArePossible() {
     for(let i = 0; i < syllablestructuresThatHaveWordFinalConsonants.length; i++) {
@@ -255,7 +265,7 @@ let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
     potentialSoundChanges = [];
-    chosenSoundChanges = [glottalStopJFortites];
+    chosenSoundChanges = [];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
     potentialSoundChanges.push(plosivesCantClusterTogetherWordInitially);
@@ -280,6 +290,11 @@ function selectSoundChanges() {
     potentialSoundChanges.push(plosivesDebuccaliseInCoda);
     potentialSoundChanges.push(CVRBecomesCCVR);
     potentialSoundChanges.push(glottalStopJFortites);
+    potentialSoundChanges.push(eciBecomesiCi);
+    potentialSoundChanges.push(iCbecomeseC);
+    potentialSoundChanges.push(VJbecomesLongI);
+    potentialSoundChanges.push(uNBecomesoN);
+    potentialSoundChanges.push(gBecomesJ)
     
     //selects which sound changes will be chosen
     while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
@@ -287,7 +302,9 @@ function selectSoundChanges() {
         if(chosenSoundChanges.includes(potentialSoundChanges[randomNumberForSoundChangeSelection]) === false) {
             chosenSoundChanges.push(potentialSoundChanges[randomNumberForSoundChangeSelection]) 
         }
-    }
+    };
+
+    console.log(chosenSoundChanges)
 
     randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
     randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
@@ -695,10 +712,78 @@ function selectSoundChanges() {
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
         };
+        if(chosenSoundChanges[i] === eciBecomesiCi) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "eciBecomesiCi-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `eC{i,j} becomes iC{i,j}`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "eciBecomesiCi-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `When the vowel /e/ occurs before a consonant, which precedes either /i/ or /j/, it raises to become /i/: <span id="eciBecomesiCi"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === iCbecomeseC) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "iCbecomeseC-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/i/ Lowers to /e/ before Post-Consonantal Non-High Vowels`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "iCbecomeseC-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `When the vowel /i/ occurs before a consonant, which precedes a non-high vowel, it lowers to become /e/: <span id="iCbecomeseC"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === VJbecomesLongI) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "VJbecomesLongI-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Vj Becomes Long /i/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "VJbecomesLongI-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The sequence of any vowel plus /j/ merges to become the long vowel /iː/: <span id="VJbecomesLongI"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === uNBecomesoN) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "uNBecomesoN-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/u/ Lowers to /o/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "uNBecomesoN-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The vowel /u/ lowers to /o/ when before a nasal consonant which precedes a non-high vowel: <span id="uNBecomesoN"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === gBecomesJ) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "gBecomesJ-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Palatalisation of /g/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "gBecomesJ-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `/g/ becomes /j/ when after a front vowel: <span id="gBecomesJ"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
     };
-
-
-}
+};
 
 function corrections(wordArray) {
      /*CORRECTIVE CHANGES - not genuine sound changes, just meant to tidy up the roots in the mother language. These will not be described at all in the grammar*/
@@ -905,8 +990,7 @@ function soundChange(word) {
     //applies the chosen sound changes to the word
     for(let i = 0; i < chosenSoundChanges.length; i++) {
         chosenSoundChanges[i](wordArray)
-
-    }
+    };
 
     //to prevent word final sound changes applying to prefixes, when listed in isolation, an "A" is inserted at the end, this for loop serves to remove that "A" after those sound changes have been applied
     for(let i = 0; i < wordArray.length; i++) {
@@ -1202,11 +1286,9 @@ function intervocalicVoicing(wordArray) {
     return wordArray;
 }
 
-let num = 0;
 function hLostAfterConsonants(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(consonants.includes(wordArray[i-1]) && wordArray[i] === "h") {
-            num++
             wordArray.splice(i, 1);
             timeshLostAfterConsonants++;
             if(timeshLostAfterConsonants > 0) {
@@ -1277,6 +1359,7 @@ function VʔVBecomesVV(wordArray) {
 
 function plosivesDebuccaliseInCoda(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
+        if(i !== 0) {
         if(plosives.includes(wordArray[i]) && consonants.includes(wordArray[i+1])) {
             wordArray[i] = "ʔ";
             timesplosivesDebuccaliseInCoda++;
@@ -1296,6 +1379,7 @@ function plosivesDebuccaliseInCoda(wordArray) {
             document.getElementById("plosivesDebuccaliseInCoda-li").style.display = "block";
             document.getElementById("plosivesDebuccaliseInCoda-ul").style.display = "block";
         };
+    };
     };
     return wordArray;
 };
@@ -1338,10 +1422,81 @@ function glottalStopJFortites(wordArray) {
     return wordArray;
 }
 
+function eciBecomesiCi(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        let iOrJ = ["i", "j"];
+        if(wordArray[i] === "e" && consonants.includes(wordArray[i+1]) && iOrJ.includes(wordArray[i+2])) {
+            wordArray[i] = "i";
+            timeseciBecomesiCi++;
+            if(timeseciBecomesiCi > 0) {
+                document.getElementById("eciBecomesiCi-li").style.display = "block";
+                document.getElementById("eciBecomesiCi-ul").style.display = "block";
+            };
+        }
+    }
+}
+
+function iCbecomeseC(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "i" && consonants.includes(wordArray[i+1]) && nonHighVowels.includes(wordArray[i+2])) {
+            wordArray[i] = "e";
+            timesiCbecomeseC++;
+            if(timesiCbecomeseC > 0) {
+                document.getElementById("iCbecomeseC-li").style.display = "block";
+                document.getElementById("iCbecomeseC-ul").style.display = "block";
+            };
+        }
+    }
+    return wordArray;
+};
+
+function VJbecomesLongI(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(vowels.includes(wordArray[i]) && wordArray[i+1] === "j") {
+            wordArray[i] = "i";
+            wordArray[i+1] = "i";
+            timesVJbecomesLongI++;
+            if(timesVJbecomesLongI > 0) {
+                document.getElementById("VJbecomesLongI-li").style.display = "block";
+                document.getElementById("VJbecomesLongI-ul").style.display = "block";
+            };
+        };
+    };
+    return wordArray;
+};
+
+function uNBecomesoN(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "u" && allNasalsArray.includes(wordArray[i+1]) && nonHighVowels.includes(wordArray[i+2])) {
+            wordArray[i] = "o";
+            timesuNBecomesoN++;
+            if(timesuNBecomesoN > 0) {
+                document.getElementById("uNBecomesoN-li").style.display = "block";
+                document.getElementById("uNBecomesoN-ul").style.display = "block";
+            };
+        };
+    };
+    return wordArray;
+};
+
+function gBecomesJ(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "g" && frontVowels.includes(wordArray[i-1])) {
+            wordArray[i] = "j";
+            timesgBecomesJ++;
+            if(timesgBecomesJ > 0) {
+                document.getElementById("gBecomesJ-li").style.display = "block";
+                document.getElementById("gBecomesJ-ul").style.display = "block";
+            };
+        };
+    };
+    return wordArray;
+};
+
 /*------------------------------------------------------*/
 
 
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, chosenSoundChanges};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, chosenSoundChanges, frontVowels};

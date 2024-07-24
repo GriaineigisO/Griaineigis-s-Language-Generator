@@ -8000,6 +8000,8 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("general-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
+    console.log(spell(soundChange("kigarli")))
+    console.log(spell(soundChange("igadgonm")))
    }
 
 

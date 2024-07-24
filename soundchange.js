@@ -183,7 +183,10 @@ let timesnasalsLostBetweenVowelAndConsonant = 0;
 let timesauBecomesOu = 0;
 let timesaCaBecomesaCi = 0;
 let timesVʔVBecomesVV = 0;
-;
+let timesplosivesDebuccaliseInCoda = 0;
+let timesCVRBecomesCCVR = 0;
+let timesglottalStopJFortites = 0;
+
 function cloneArray(array) {
     let newArray = [];
     for(let i = 0; i < array.length; i++) {
@@ -216,6 +219,9 @@ function clearPreviousOutput() {
     timesauBecomesOu = 0;
     timesaCaBecomesaCi = 0;
     timesVʔVBecomesVV = 0;
+    timesplosivesDebuccaliseInCoda = 0;
+    timesCVRBecomesCCVR = 0;
+    timesglottalStopJFortites = 0
 
 }
 
@@ -229,20 +235,6 @@ function checkIfWordFinalConsonantsArePossible() {
 }
 }
 
-function checkIfThereAreNonHighVowels() {
-    for(let i = 0; i < nonHighVowels.length; i++) {
-        if (vowels.includes(nonHighVowels[i])) {
-            return true;
-        }
-    }
-}
-
-function checkIfVoicingIsPresent() {
-    for(let i = 0; i < voiced.length; i++) {
-    if(consonants.includes(voiced[i]))
-        return true
-    }
-}
 
 //A list of titles for every sound change is placed into the array "potentialSoundChanges". Then a random number and selection of these titles are pushed into the "chosenSoundChanges" array. If the "chosenSoundChanges" contains a sound changes title, the sound change may occur.
 
@@ -263,7 +255,7 @@ let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
     potentialSoundChanges = [];
-    chosenSoundChanges = [];
+    chosenSoundChanges = [glottalStopJFortites];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
     potentialSoundChanges.push(plosivesCantClusterTogetherWordInitially);
@@ -285,6 +277,9 @@ function selectSoundChanges() {
     potentialSoundChanges.push(auBecomesOu);
     potentialSoundChanges.push(aCaBecomesaCi);
     potentialSoundChanges.push(VʔVBecomesVV);
+    potentialSoundChanges.push(plosivesDebuccaliseInCoda);
+    potentialSoundChanges.push(CVRBecomesCCVR);
+    potentialSoundChanges.push(glottalStopJFortites);
     
     //selects which sound changes will be chosen
     while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
@@ -646,6 +641,56 @@ function selectSoundChanges() {
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `When a glottal stop occurs between two vowels, both the glottal stop and the second vowel are lost and the first vowel lengthens: <span id="VʔVBecomesVV"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === plosivesDebuccaliseInCoda) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "plosivesDebuccaliseInCoda-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Debuccalisation of Plosives in the Coda`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "plosivesDebuccaliseInCoda-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            let labialisationComment = "";
+            if(consonants.includes("ʷ")) {
+                labialisationComment = `. If the plosive is labialised, the labialisation becomes the full vowel /u/ after the glottal stop`
+            }
+            let palatalisationComment = "";
+            if(consonants.includes("ʲ")) {
+                palatalisationComment = `. If the plosive is palatalised, the palatalisation becomes the full vowel /i/ after the glottal stop`
+            }
+            nestLi.innerHTML = `When a plosives occurs in the coda of a syllable, i.e before another consonant or word finally, then the plosive becomes a glottal stop ${labialisationComment} ${palatalisationComment}: <span id="plosivesDebuccaliseInCoda"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === CVRBecomesCCVR) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "CVRBecomesCCVR-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Metathesis and Gemination of VCRV sequences`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "CVRBecomesCCVR-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `If a resonant, which preces the vowel, follows a post-vocalic consonant, the resonant and vowel switch places and the consonant lengthens: <span id="CVRBecomesCCVR"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === glottalStopJFortites) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "glottalStopJFortites-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Fortition of Approximant Around Glottal Stops`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "glottalStopJFortites-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The clusters /ʔj/ and /ʔw/merge to become /g/: <span id="glottalStopJFortites"></span>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -1161,7 +1206,6 @@ let num = 0;
 function hLostAfterConsonants(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(consonants.includes(wordArray[i-1]) && wordArray[i] === "h") {
-            console.log(num + wordArray[i] + " " +wordArray)
             num++
             wordArray.splice(i, 1);
             timeshLostAfterConsonants++;
@@ -1226,10 +1270,74 @@ function VʔVBecomesVV(wordArray) {
                 document.getElementById("VʔVBecomesVV-li").style.display = "block";
                 document.getElementById("VʔVBecomesVV-ul").style.display = "block";
             };
+        };
+    };
+    return wordArray;
+};
+
+function plosivesDebuccaliseInCoda(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(plosives.includes(wordArray[i]) && consonants.includes(wordArray[i+1])) {
+            wordArray[i] = "ʔ";
+            timesplosivesDebuccaliseInCoda++;
+        } else if (plosives.includes(wordArray[wordArray.length - 1])) {
+            wordArray[wordArray.length - 1] = "ʔ";
+            timesplosivesDebuccaliseInCoda++;
+        } else if (plosives.includes(wordArray[i]) && wordArray[i+1] === "ʷ") {
+            wordArray[i] = "ʔ";
+            wordArray[i+1] = "u"
+            timesplosivesDebuccaliseInCoda++;
+        } else if (plosives.includes(wordArray[i]) && wordArray[i+1] === "ʲ") {
+            wordArray[i] = "ʔ";
+            wordArray[i+1] = "i"
+            timesplosivesDebuccaliseInCoda++;
+        }
+        if(timesplosivesDebuccaliseInCoda > 0) {
+            document.getElementById("plosivesDebuccaliseInCoda-li").style.display = "block";
+            document.getElementById("plosivesDebuccaliseInCoda-ul").style.display = "block";
+        };
+    };
+    return wordArray;
+};
+
+function CVRBecomesCCVR(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(consonants.includes(wordArray[i]) && vowels.includes(wordArray[i-1]) && resonants.includes(wordArray[i+1]) && vowels.includes(wordArray[i+2])) {
+            let doubledConsonant = wordArray[i];
+            let resonantIndex = wordArray[i+1];
+            let vowelIndex = wordArray[i+2];
+            wordArray[i+2] = resonantIndex;
+            wordArray[i+1] = vowelIndex;
+            wordArray.splice(i, 0, doubledConsonant);
+            timesCVRBecomesCCVR++;
+            if(timesCVRBecomesCCVR > 0) {
+            document.getElementById("CVRBecomesCCVR-li").style.display = "block";
+            document.getElementById("CVRBecomesCCVR-ul").style.display = "block";
+        };
         }
     };
     return wordArray;
 };
+
+function glottalStopJFortites(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ʔ" && wordArray[i+1] === "j") {
+            wordArray[i] = "g";
+            wordArray.splice(i+1, 1);
+            timesglottalStopJFortites++
+        } else if(wordArray[i] === "ʔ" && wordArray[i+1] === "w") {
+            wordArray[i] = "g";
+            wordArray.splice(i+1, 1);
+            timesglottalStopJFortites++
+        };
+        if(timesglottalStopJFortites > 0) {
+            document.getElementById("glottalStopJFortites-li").style.display = "block";
+            document.getElementById("glottalStopJFortites-ul").style.display = "block";
+        };
+    }
+    return wordArray;
+}
+
 /*------------------------------------------------------*/
 
 

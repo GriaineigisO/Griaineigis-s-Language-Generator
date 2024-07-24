@@ -4,19 +4,18 @@
 
 - make case forms of sg-dual-pl nouns
   - funional nouns may be built the same as agglutinative nouns, but with all the suffix then merged together, perhaps by removing letters at a random index, to give the illusion of an agglutinitve past. E.g singular suffix -id + masculine suffix -ko = -idko then the third letter is lost resulting in -ido.
-  Otherwise, each individual suffix may be purely random
+    Otherwise, each individual suffix may be purely random
 
 # Phonology
 
 Phonotactic ideas:
+
 - perhaps introduce a sound changes from Old X section? To describe some sound changes that do not nexessarily result in productive phonotactics.figure out how to make resulting hponology appear in tables in such
 - Two vowels together must share a quality, like height
 - fricatives can't occur after plosives
 - /f/ can only occur in onset
 - plosives can occur only in onset, either they become fricatives elsewhere or just drop
 - plosives can occur only word initially
-- vowel lost between consonant and resonant if a vowel follows the resonant e/g "bedir" + "-o" > "bedro"
-- /h/ lost after consonants
 - V1hV1 = V:
 - /h/ lost word initially
 - /h/ lost between vowels
@@ -25,10 +24,9 @@ Phonotactic ideas:
 - CV1CV2CV3 > CV1:CCV3:
 - sl > x
 - CVCV > CV1:V
-- h > j/_E
-- h > w/_B
+- h > j/\_E
+- h > w/\_B
 - C>∅/C1_C1
-
 
 * Use inspiration from real language's sound changes. Use the Proto-Finnic > Proto-Livonian sound changes for inspiration too
 * use conlang sound changes too
@@ -174,7 +172,6 @@ Colour metaohors?
 - adpo/adv > adjective
   - here > present
   - away > absent
-  
 
 ## Derivational Morphology Ideas
 

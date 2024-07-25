@@ -431,7 +431,6 @@ function clearGeneratedArrays() {
     document.getElementById("orthography").replaceChildren();
     document.getElementById("language-to-english").replaceChildren();
     document.getElementById("english-to-language").replaceChildren();
-    document.getElementById("lenition-before-list").replaceChildren();
     document.getElementById("masc-fem-gender-switch1").replaceChildren();
     document.getElementById("masc-fem-gender-switch2").replaceChildren();
     document.getElementById("human-animal-gender-switch").replaceChildren();
@@ -866,265 +865,6 @@ function lengthExplanation() {
     document.getElementById("orthography-text").appendChild(lengthExplanationText)
 }
 
-/*Lists each phonotactic rule with examples*/
-function showPhonotacticRules() {
-    //WordFinalDevoicingExample();
-    nonHighNonInitialVowelsBecomeAExample();
-    lowerWordFinalHighVowelsExample();
-    noResonantBeforeConsonant();
-    lenitePlosivesBeforeOtherPlosives();
-    noNasalsAfterConsonants();
-
-}
-
-// function WordFinalDevoicingExample() {
-//     let exampleNoun = "";
-//     let exampleNoun2 = ""
-//     let compoundNoun = ""
-//     let randomNounMeaning = "";
-//     let randomNounMeaning2 = ""
-//     let possibleExamples = [];
-//     let randomNum = Math.floor(Math.random() * generatedCountNouns.length)
-//     if(voiced.length === 0) {
-//         //console.log("no voicing!")
-//         document.getElementById("wordFinalDevoicing").style.display = "none"; 
-//     }
-//     for(let i = 0; i < generatedCountNouns.length; i++) {
-//         let newArray = Array.from(generatedCountNouns[i]);
-//         if(voiced.includes(newArray[newArray.length - 1])) {
-//             let joinedString = newArray.join("")
-//             possibleExamples.push(joinedString)
-//         }  
-//     }
-//     if(possibleExamples.length === 0) {
-//         document.getElementById("wordFinalDevoicing").style.display = "none"; 
-//     } else {
-//         exampleNoun = possibleExamples[Math.floor(Math.random() * possibleExamples.length)];
-//         exampleNoun2 =  generatedCountNouns[randomNum];
-//         compoundNoun = exampleNoun + exampleNoun2;
-//         randomNounMeaning = countNounArray[generatedCountNouns.indexOf(exampleNoun)];
-//         randomNounMeaning2 = countNounArray[randomNum] 
-//     }
-            
-//     document.getElementById("word-final-devoicing-examplenoun").innerHTML = spell(soundChange(exampleNoun))
-//     document.getElementById("word-final-devoicing-examplenounmeaning").innerHTML = randomNounMeaning;
-//     document.getElementById("word-final-devoicing-example-compound").innerHTML = spell(soundChange(compoundNoun));
-//     document.getElementById("word-final-devoicing-example-compound-meaning").innerHTML = `${randomNounMeaning}-${randomNounMeaning2}` 
-// }
-
-function nonHighNonInitialVowelsBecomeAExample() {
-    let containsNonHighVowel = [];
-    let example = document.getElementsByClassName("non-high-non-initial-example");
-    let exampleMeaning = document.getElementsByClassName("non-high-non-initial-example-meaning");
-    let example2 = document.getElementsByClassName("non-high-non-initial-example2");
-    let exampleMeaning2 = document.getElementsByClassName("non-high-non-initial-example-meaning2");
-    
-    //since /a/ if the target vowel, I don't want words that only have the vowels /i u a/
-    for(let i = 0; i < nonHighVowels.length; i++) {
-        if(nonHighVowels[i] === "a" || nonHighVowels[i] === "aː") {
-            nonHighVowels.splice(i, 1)
-        }
-    }
-
-    for(let i = 0; i < example.length; i++) {
-        for(let j = 0; j < generatedCountNouns.length; j++) {
-            let noun = generatedCountNouns[j];
-            let num = 0;
-            for(let i = 0; i < noun.length; i++) {
-                if(nonHighVowels.includes(noun[i]) && num === 0) {
-                    containsNonHighVowel.push(noun)
-                }
-                if(vowels.includes(noun[i])) {
-                    num++;
-                }
-             }
-        }
-        
-
-        if(containsNonHighVowel.length !== 0) {
-       
-            let randomNoun = generatedCountNouns[Math.floor(Math.random() * generatedCountNouns.length)];
-            let randomNounMeaning = countNounArray[generatedCountNouns.indexOf(randomNoun)]
-            example[i].innerHTML = spell(soundChange(randomNoun));
-            exampleMeaning[i].innerHTML = randomNounMeaning;
-
-            let secondNoun = containsNonHighVowel[Math.floor(Math.random() * containsNonHighVowel.length)];
-            let secondNounMeaning = countNounArray[generatedCountNouns.indexOf(secondNoun)]
-            example2[i].innerHTML = spell(soundChange(secondNoun));
-            exampleMeaning2[i].innerHTML = secondNounMeaning;
-
-            let compound = randomNoun + secondNoun     
-            document.getElementsByClassName("non-high-non-initial-compound")[i].innerHTML = spell(soundChange(compound));
-
-            let compoundMeaning = `${randomNounMeaning}-${secondNounMeaning}`     
-            document.getElementsByClassName("non-high-non-initial-compound-meaning")[i].innerHTML = compoundMeaning;
-            }
-    }
-}
-
-function lowerWordFinalHighVowelsExample() {
-    let highVowelListSpan = document.getElementsByClassName("high-vowels");
-    for(let i = 0 ; i < highVowelListSpan.length; i++) {
-        highVowelListSpan[i].innerHTML = `/${allHighVowels.join(", ")}/`
-    }
-    let possibleExamples = [];
-    let example = document.getElementsByClassName("lower-high-vowel-example");
-    let exampleMeaning = document.getElementsByClassName("lower-high-vowel-example-meaning");
-    for(let i = 0; i < example.length; i++) {
-        for(let j = 0; j < generatedAdjectives.length; j++) {
-            let randomAdj = generatedAdjectives[j]
-            if(allHighVowels.includes(randomAdj[randomAdj.length -1])) {
-                possibleExamples.push(randomAdj)
-            }
-        }
-        let randomAdj = possibleExamples[Math.floor(Math.random() * possibleExamples.length)];
-        let randomAdjMeaning = adjectiveArray[generatedAdjectives.indexOf(randomAdj)];
-        example[i].innerHTML = spell(soundChange(randomAdj));
-        exampleMeaning[i].innerHTML = randomAdjMeaning;
-    }
-}
-
-function noResonantBeforeConsonant() {
-    let endsInAResonantArray = [];
-    let beginsInConsonantArray = [];
-    let example = document.getElementsByClassName("no-resonant-before-consonant-example");
-    let exampleMeaning = document.getElementsByClassName("no-resonant-before-consonant-example-meaning");
-    let example2 = document.getElementsByClassName("no-resonant-before-consonant-example2");
-    let exampleMeaning2 = document.getElementsByClassName("no-resonant-before-consonant-example-meaning2");
-    
-    for(let i = 0; i < example.length; i++) {
-        for(let j = 0; j < generatedCountNouns.length; j++) {
-            let noun = generatedCountNouns[j];
-            if(resonants.includes(noun[noun.length -1])) {
-                endsInAResonantArray.push(noun)
-            }
-            if(consonants.includes(noun[0])) {
-                beginsInConsonantArray.push(noun)
-            }
-        }
-        
-        if(endsInAResonantArray.length !== 0 && beginsInConsonantArray !== 0) {
-           
-       
-            let randomNoun = endsInAResonantArray[Math.floor(Math.random() * endsInAResonantArray.length)];
-            let randomNounMeaning = countNounArray[generatedCountNouns.indexOf(randomNoun)]
-            example[i].innerHTML = spell(soundChange(randomNoun));
-            exampleMeaning[i].innerHTML = randomNounMeaning;
-
-            let randomNounForCompound = beginsInConsonantArray[Math.floor(Math.random() * beginsInConsonantArray.length)];
-            let randomNounMeaningForCompound = countNounArray[generatedCountNouns.indexOf(randomNounForCompound)]
-            example2[i].innerHTML = spell(soundChange(randomNounForCompound));
-            exampleMeaning2[i].innerHTML = randomNounMeaningForCompound;
-
-            let compound = randomNoun + randomNounForCompound     
-            document.getElementsByClassName("no-resonant-before-consonant-compound")[i].innerHTML = spell(soundChange(compound));
-
-            let compoundMeaning = `${randomNounMeaning}-${randomNounMeaningForCompound}`     
-            document.getElementsByClassName("no-resonant-before-consonant-compound-meaning")[i].innerHTML = compoundMeaning;
-        }
-    }
-        
-        
-    
-}
-
-function lenitePlosivesBeforeOtherPlosives() {
-    let beginsInConsonantArray = [];
-    let endsInConsonantArray = [];
-    let example = document.getElementsByClassName("lenite-plosive-before-other-plosive-example");
-    let exampleMeaning = document.getElementsByClassName("lenite-plosive-before-other-plosive-example-meaning");
-    let example2 = document.getElementsByClassName("lenite-plosive-before-other-plosive-example2");
-    let exampleMeaning2 = document.getElementsByClassName("lenite-plosive-before-other-plosive-example-meaning2");
-
-    for(let i = 0; i < example.length; i++) {
-        for(let j = 0; j < generatedCountNouns.length; j++) {
-            let noun = generatedCountNouns[j];
-            if(plosives.includes(noun[noun.length -1])) {
-                endsInConsonantArray.push(noun)
-            }
-            if(plosives.includes(noun[0])) {
-                beginsInConsonantArray.push(noun)
-            }
-        }
-
-        if(endsInConsonantArray.length !== 0 && beginsInConsonantArray !== 0) {
-           
-       
-            let randomNoun = endsInConsonantArray[Math.floor(Math.random() * endsInConsonantArray.length)];
-            let randomNounMeaning = countNounArray[generatedCountNouns.indexOf(randomNoun)]
-            example[i].innerHTML = spell(soundChange(randomNoun));
-            exampleMeaning[i].innerHTML = randomNounMeaning;
-
-            let randomNounForCompound = beginsInConsonantArray[Math.floor(Math.random() * beginsInConsonantArray.length)];
-            let randomNounMeaningForCompound = countNounArray[generatedCountNouns.indexOf(randomNounForCompound)]
-            example2[i].innerHTML = spell(soundChange(randomNounForCompound));
-            exampleMeaning2[i].innerHTML = randomNounMeaningForCompound;
-
-            let compound = randomNoun + randomNounForCompound     
-            document.getElementsByClassName("lenite-plosive-before-other-plosive-example-compound")[i].innerHTML = spell(soundChange(compound));
-
-            let compoundMeaning = `${randomNounMeaning}-${randomNounMeaningForCompound}`     
-            document.getElementsByClassName("lenite-plosive-before-other-plosive-example-compound-meaning")[i].innerHTML = compoundMeaning;
-            }
-        }
-
-
-    for(let i = 0; i < plosives.length; i++) {
-        if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0 && consonants.includes(plosives[i])) {
-            let newLi = document.createElement("li");
-            newLi.innerHTML = `${plosives[i]} > [${lenitionFromPlosives1[i]}] ⟨${spell(lenitionFromPlosives1[i])}⟩`
-            document.getElementById("lenition-before-list").appendChild(newLi)
-        } else if (randomNumForlenitionofPlosivebeforeOtherPlosive === 1 && consonants.includes(plosives[i])) {
-             let newLi = document.createElement("li");
-            newLi.innerHTML = `${plosives[i]} > [${lenitionFromPlosives2[i]}] ⟨${spell(lenitionFromPlosives2[i])}⟩`
-            document.getElementById("lenition-before-list").appendChild(newLi)
-        }
-    }
-}
-
-function noNasalsAfterConsonants() {
-    let beginsInANasalArray = [];
-    let endsInConsonantArray = [];
-    let example = document.getElementsByClassName("insert-i-before-nasal-example");
-    let exampleMeaning = document.getElementsByClassName("insert-i-before-nasal-example-meaning");
-    let example2 = document.getElementsByClassName("insert-i-before-nasal-example2");
-    let exampleMeaning2 = document.getElementsByClassName("insert-i-before-nasal-example-meaning2");
-    
-    for(let i = 0; i < example.length; i++) {
-        for(let j = 0; j < generatedCountNouns.length; j++) {
-            let noun = generatedCountNouns[j];
-            if(consonants.includes(noun[noun.length -1])) {
-                endsInConsonantArray.push(noun)
-            }
-            if(selectNasals().includes(noun[0]) && vowels.includes(noun[1])) {
-                beginsInANasalArray.push(noun)
-            }
-        }
-        
-        if(endsInConsonantArray.length !== 0 && beginsInANasalArray !== 0) {
-           
-       
-            let randomNoun = endsInConsonantArray[Math.floor(Math.random() * endsInConsonantArray.length)];
-            let randomNounMeaning = countNounArray[generatedCountNouns.indexOf(randomNoun)]
-            example[i].innerHTML = spell(soundChange(randomNoun));
-            exampleMeaning[i].innerHTML = randomNounMeaning;
-
-            let randomNounForCompound = beginsInANasalArray[Math.floor(Math.random() * beginsInANasalArray.length)];
-            let randomNounMeaningForCompound = countNounArray[generatedCountNouns.indexOf(randomNounForCompound)]
-            example2[i].innerHTML = spell(soundChange(randomNounForCompound));
-            exampleMeaning2[i].innerHTML = randomNounMeaningForCompound;
-
-            let compound = randomNoun + randomNounForCompound     
-            document.getElementsByClassName("insert-i-before-nasal-example-compound")[i].innerHTML = spell(soundChange(compound));
-
-            let compoundMeaning = `${randomNounMeaning}-${randomNounMeaningForCompound}`     
-            document.getElementsByClassName("insert-i-before-nasal-example-compound-meaning")[i].innerHTML = compoundMeaning;
-        }
-    }
-        
-        
-    
-}
 
 /*********TYPOLOGY RELATED SECTION*********/
 
@@ -1217,13 +957,10 @@ function caseMarkedWithSuffixOrPrefix() {
 function fixAffixes() {
     //if the sound change of non-initial mid vowels lowering to /a/ applies, it causes a bug where the vowels in the suffix correctly change but only when applied to a word. The suffix listed alone does not experience the change since the vowel in the bare suffix is initial. To fix this, the below function replaces the vowel in each suffix to the correct value of /a/
     let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ", "ə", "ɛ", "œ", "ɜ", "ɞ", "ʌ", "ɔ", "ɑ", "ɒ", "ɐ", "æ"];
-    if(genderSuffixOrPrefix === "suffix" && document.getElementById("nonHighNonInitialVowelsLowerToA").style.display === "block") {
+    if(genderSuffixOrPrefix === "suffix") {
         let suffixArray = [];
         let newSuffixArray = [];
         suffixArray.push(animateAffix, inanimateAffix, masculineAffix, feminineAffix, masculine2Affix, feminine2Affix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix);
-        if(document.getElementById("lowersFinalHighVowels").style.display === "block") {
-            midVowels.push("i", "u")
-        }
         for(let i = 0; i < suffixArray.length; i++) {
             let suffix = Array.from(suffixArray[i])
             for(let j = 0; j < suffix.length; j++) {
@@ -1251,13 +988,10 @@ function fixAffixes() {
         naturalAffix = newSuffixArray[14];
         artificialAffix = newSuffixArray[15];
     }
-    if(numberSuffixOrPrefix === "suffix" && document.getElementById("nonHighNonInitialVowelsLowerToA").style.display === "block") {
+    if(numberSuffixOrPrefix === "suffix") {
         let suffixArray = [];
         let newSuffixArray = [];
         suffixArray.push(singularAffix, pluralAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, greaterPluralAffix, generalAffix);
-        if(document.getElementById("lowersFinalHighVowels").style.display === "block") {
-            midVowels.push("i", "u")
-        }
         for(let i = 0; i < suffixArray.length; i++) {
             let suffix = Array.from(suffixArray[i])
             for(let j = 0; j < suffix.length; j++) {
@@ -1279,7 +1013,7 @@ function fixAffixes() {
     }
 
     //if word final high vowels lower to mid vowels word finally, then this sound change applies to prefixes listed in isolation which is not good, so this shall fix that
-    if(numberSuffixOrPrefix === "prefix" && document.getElementById("lowersFinalHighVowels").style.display === "block") {
+    if(numberSuffixOrPrefix === "prefix") {
         let prefixArray = [];
         let newPrefixArray = [];
         prefixArray.push(singularAffix, pluralAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, greaterPluralAffix, generalAffix);
@@ -1318,7 +1052,7 @@ function fixAffixes() {
         greaterPluralAffix = newPrefixArray[6];
         generalAffix = newPrefixArray[7];
     }
-    if(numberSuffixOrPrefix === "prefix" && document.getElementById("lowersFinalHighVowels").style.display === "block") {
+    if(numberSuffixOrPrefix === "prefix") {
         let prefixArray = [];
         let newPrefixArray = [];
         prefixArray.push(animateAffix, inanimateAffix, masculineAffix, feminineAffix, masculine2Affix, feminine2Affix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix);
@@ -7920,7 +7654,6 @@ function generateLanguage() {
     makeOrthoGuide(allPossibleVowels);
     makeOrthoGuide(allPossibleConsonants);
     lengthExplanation();
-    showPhonotacticRules();
     randomNumForTypology();
     chooseTypology();
     randomNumForWordOrder();
@@ -8000,8 +7733,7 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("general-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
-    console.log(spell(soundChange("kigarli")))
-    console.log(spell(soundChange("igadgonm")))
+    //console.log(spell(soundChange("berijondami")))
    }
 
 

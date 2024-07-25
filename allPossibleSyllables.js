@@ -18,10 +18,7 @@ H-aspirated
 let syllablesArray = [
 "V",
 "CVC",
-"CVV",
 "VV",
-"VVC",
-"VVCC",
 "CCV",
 "VCC",
 ]

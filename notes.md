@@ -11,6 +11,27 @@
 Phonotactic ideas:
 
 - perhaps introduce a sound changes from Old X section? To describe some sound changes that do not nexessarily result in productive phonotactics.figure out how to make resulting hponology appear in tables in such
+
+wo > wu
+w > ∅/_u
+i u > e o/\_R
+a > e/\_RCi
+a > æ/\_N
+ai > aː
+ei > eː
+ɔN > aN
+æw > ɔw
+e(C)x i(C)x> eu(C)x iu(C)x
+æ > e/\_N
+{i u}jV[+back] > {i u}ː
+a >e /\_K
+ɑ > æ/\_K
+e > ɪ/\_K
+V > ∅/VC_#
+Vː > V/\_(C)#
+oː > e
+VCrV > VCirV
+
 - Two vowels together must share a quality, like height
 - fricatives can't occur after plosives
 - /f/ can only occur in onset

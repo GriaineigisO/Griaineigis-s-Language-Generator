@@ -1,4 +1,4 @@
-import { genderNum, markedSingularOrNot, generatedCountNouns, countNounArrayPlural, countNounArray, generatedMassNouns, massNounArray, pluralSingulativeMassNounArray, singulativeMassNounArray, numberSuffixOrPrefix, pluralAffix, singularAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, generalAffix, greaterPluralAffix, singulativeAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, generateAffixes} from './script.js';
+import { genderNum, markedSingularOrNot, generatedCountNouns, countNounArrayPlural, countNounArray, generatedMassNouns, massNounArray, pluralSingulativeMassNounArray, singulativeMassNounArray, numberSuffixOrPrefix, pluralAffix, singularAffix, dualAffix, collectiveAffix, trialAffix, quadralAffix, generalAffix, greaterPluralAffix, singulativeAffix, chooseTypology, checkIfHeadInitialOrHeadFinal, suffixOrPrefix, nominativeAffix, accusativeAffix, genitiveAffix, dativeAffix, generateAffixes, typologyNum} from './script.js';
 import {spell} from './orthography.js'
 import {soundChange} from './soundchange.js'
 import { soundChangeExample } from './soundChangeExamples.js';
@@ -103,7 +103,6 @@ function makeFusionalAffixes(affix1, affix2) {
             let joinedStr = newArray.join("");
             fusedAffix = joinedStr;
         }
-
     }
     if(Math.floor(Math.random() * 3) !== 1) {
         let newArray = Array.from(fusedAffix);
@@ -447,7 +446,7 @@ function determineGrammaticalNumber() {
 }
 
 function makeNoGenderNumberExamples() {
-    if(chosenNounCases === 0) {
+    if(chosenNounCases === 0 && typologyNum === 2) {
     let exampleArray = [];
     let joinedArray = "";
     if(determineGrammaticalNumber() === "singular-plural"){
@@ -583,7 +582,7 @@ let caseNumber = 0;
 function chooseCases() {
     caseNumber = 6//Math.floor(Math.random() * 11)
     //there will be no cases if language is isolating
-    if(chooseTypology() !== "isolating") {
+    if(chooseTypology() === "fusional") {
         //decides if the language has cases or not
         if(caseNumber !== 0) {
             const randomNum = 8//Math.floor(Math.random() * 8);

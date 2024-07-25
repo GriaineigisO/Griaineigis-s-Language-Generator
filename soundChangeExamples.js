@@ -185,6 +185,11 @@ function populateArray() {
                 soundChangeArray.push(iUmlaut);
             }
         };
+        if(chosenSoundChanges[i].name === "vowelShiftInHeavySyllables") {
+            if(soundChangeArray.includes(vowelShiftInHeavySyllables) === false) {
+                soundChangeArray.push(vowelShiftInHeavySyllables);
+            }
+        };
     };
 };
 
@@ -483,13 +488,11 @@ function NoResonantsBeforeConsonants(word, originalWord) {
 let afterlenitionofPlosivebeforeOtherPlosive = "";
 let beforelenitionofPlosivebeforeOtherPlosive = "";
 function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
-    //let originalClone = cloneArray(originalWord);
     for(let i = 0; i < word.length; i++) {
     if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
-        if(plosives.includes(word[i]) && plosives.includes(word[i - 1])) {
+        if(plosives.includes(word[i]) && plosives.includes(word[i - 1])  && wordArray[i] !== wordArray[i-1]) {
             let firstPlosiveIndex = plosives.indexOf(word[i-1])
             beforelenitionofPlosivebeforeOtherPlosive = correctionsForStrings(word.join(""));
-            //let original = originalClone.join("");
             word[i-1] = lenitionFromPlosives1[firstPlosiveIndex];
             afterlenitionofPlosivebeforeOtherPlosive = correctionsForStrings(word.join(""));
             let afterExample = "";
@@ -510,7 +513,7 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
            }
         }
     } else if(randomNumForlenitionofPlosivebeforeOtherPlosive === 1) {
-        if(plosives.includes(word[i]) && plosives.includes(word[i - 1])) {
+        if(plosives.includes(word[i]) && plosives.includes(word[i - 1])  && wordArray[i] !== wordArray[i-1]) {
             let firstPlosiveIndex = plosives.indexOf(word[i-1])
             beforelenitionofPlosivebeforeOtherPlosive = correctionsForStrings(word.join(""));
             //let original = originalClone.join("");
@@ -1331,6 +1334,37 @@ function iUmlaut(word, originalWord) {
         };
      };
      return word;
+};
+
+let aftervowelShiftInHeavySyllables = "";
+let beforevowelShiftInHeavySyllables = "";
+function vowelShiftInHeavySyllables(word, originalWord) {
+    let tense = ["i", "u", "a", "e", "o"];
+    let lax = ["e", "o", "ə", "ɛ", "ɔ"];
+    
+    for(let i = 0; i < word.length; i++) {
+        if(tense.includes(word[i]) && consonants.includes(word[i+1]) && consonants.includes(word[i+2]) || tense.includes(word[i]) && consonants.includes(word[i+1]) && word[i+1] === word[word.length - 1]) {
+            beforevowelShiftInHeavySyllables = correctionsForStrings(word.join(""));
+            let tenseIndex = tense.indexOf(word[i]);
+            word[i] = lax[tenseIndex];
+            aftervowelShiftInHeavySyllables = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(beforevowelShiftInHeavySyllables) !== aftervowelShiftInHeavySyllables) {
+                afterExample = `<i>*${spell(aftervowelShiftInHeavySyllables)}</i> (> ${newName} <i>${spell(soundChange(originalJoined))}</i>)`
+            } else {
+                afterExample = `${newName} <i>${spell(aftervowelShiftInHeavySyllables)}</i>`
+            };
+            let beforeExample = "";
+            if(originalJoined === beforevowelShiftInHeavySyllables) {
+                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+            } else {
+                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforevowelShiftInHeavySyllables)}</i>`
+            }
+            document.getElementById("vowelShiftInHeavySyllables").innerHTML = `${beforeExample} > ${afterExample}`;
+        };
+    };
+    return word
 };
 /*--------------------------------------------------------------------*/
 

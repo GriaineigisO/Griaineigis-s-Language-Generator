@@ -195,6 +195,7 @@ let timesVvBecomesVV = 0;
 let timeseNBecomesiN = 0;
 let timesCJBecomesCC = 0;
 let timesiUmlaut = 0;
+let timesvowelShiftInHeavySyllables = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -240,6 +241,7 @@ function clearPreviousOutput() {
     timeseNBecomesiN = 0;
     timesCJBecomesCC = 0;
     timesiUmlaut = 0;
+    timesvowelShiftInHeavySyllables = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -305,6 +307,7 @@ function selectSoundChanges() {
     potentialSoundChanges.push(eNBecomesiN);
     potentialSoundChanges.push(CJBecomesCC);
     potentialSoundChanges.push(iUmlaut);
+    potentialSoundChanges.push(vowelShiftInHeavySyllables)
     
     //selects which sound changes will be chosen
     while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
@@ -855,6 +858,26 @@ function selectSoundChanges() {
             nestUl.appendChild(umlautUl);
             nestUl.appendChild(examples);
         };
+        if(chosenSoundChanges[i] === vowelShiftInHeavySyllables) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "vowelShiftInHeavySyllables-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Vowels Become Lax in Heavy Syllables`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "vowelShiftInHeavySyllables-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The following vowel shifts occur when a vowel occurs before two or more consonants, or before a single word final consonant:`;
+            let vowelShiftInHeavySyllablesUl = document.createElement("ul");
+            vowelShiftInHeavySyllablesUl.setAttribute("id", "vowelShiftInHeavySyllables-list");
+            let examples = document.createElement("span");
+            examples.innerHTML = `<span id="vowelShiftInHeavySyllables"></span>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+            nestUl.appendChild(vowelShiftInHeavySyllablesUl);
+            nestUl.appendChild(examples);
+        };
     };
 };
 
@@ -1204,7 +1227,7 @@ function NoResonantsBeforeConsonants(wordArray) {
 function lenitionofPlosivebeforeOtherPlosive(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
-            if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1])) {
+            if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1]) && wordArray[i] !== wordArray[i-1]) {
                 let firstPlosiveIndex = plosives.indexOf(wordArray[i-1]);
                 wordArray[i-1] = lenitionFromPlosives1[firstPlosiveIndex];
                 timeslenitionofPlosivebeforeOtherPlosiveApplied++;
@@ -1221,7 +1244,7 @@ function lenitionofPlosivebeforeOtherPlosive(wordArray) {
                 };
             }
         } else if(randomNumForlenitionofPlosivebeforeOtherPlosive === 1) {
-            if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1])) {
+            if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1]) && wordArray[i] !== wordArray[i-1]) {
                 let firstPlosiveIndex = plosives.indexOf(wordArray[i-1]);
                 wordArray[i-1] = lenitionFromPlosives2[firstPlosiveIndex];
                 timeslenitionofPlosivebeforeOtherPlosiveApplied++;
@@ -1448,7 +1471,7 @@ function VʔVBecomesVV(wordArray) {
 function plosivesDebuccaliseInCoda(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(i !== 0) {
-        if(plosives.includes(wordArray[i]) && consonants.includes(wordArray[i+1])) {
+        if(plosives.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && wordArray[i+1] !== wordArray[i]) {
             wordArray[i] = "ʔ";
             timesplosivesDebuccaliseInCoda++;
         } else if (plosives.includes(wordArray[wordArray.length - 1])) {
@@ -1569,7 +1592,7 @@ function uNBecomesoN(wordArray) {
 
 function gBecomesJ(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "g" && frontVowels.includes(wordArray[i-1])) {
+        if(wordArray[i] === "g" && frontVowels.includes(wordArray[i-1]) || wordArray[i] === "g" && wordArray[i-1] === "j" ) {
             wordArray[i] = "j";
             timesgBecomesJ++;
             if(timesgBecomesJ > 0) {
@@ -1652,6 +1675,36 @@ function iUmlaut(wordArray) {
      };
      return wordArray;
 };
+
+function vowelShiftInHeavySyllables(wordArray) {
+    let tense = ["i", "u", "a", "e", "o"];
+    let lax = ["e", "o", "ə", "ɛ", "ɔ"];
+    
+    for(let i = 0; i < wordArray.length; i++) {
+        if(tense.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && consonants.includes(wordArray[i+2]) || tense.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && wordArray[i+1] === wordArray[wordArray.length - 1]) {
+            let tenseIndex = tense.indexOf(wordArray[i]);
+            wordArray[i] = lax[tenseIndex];
+            timesvowelShiftInHeavySyllables++;
+            if(timesvowelShiftInHeavySyllables > 0) {
+                document.getElementById("vowelShiftInHeavySyllables-li").style.display = "block";
+                document.getElementById("vowelShiftInHeavySyllables-ul").style.display = "block";
+            };
+            if(timesvowelShiftInHeavySyllables === 1) {
+                for(let j = 0; j < vowels.length; j++) {
+                    if(chosenVowels.includes(vowels[j]) && tense.includes(vowels[j])) {
+                        let index = tense.indexOf(vowels[j]);
+                        let newLi = document.createElement("li");
+                        newLi.innerHTML = `${vowels[j]} > [${lax[index]}] ⟨${spell(lax[index])}⟩`
+                        document.getElementById("vowelShiftInHeavySyllables-list").appendChild(newLi)
+                    }; 
+                };
+            };
+        };
+    };
+    return wordArray
+};
+
+
 
 /*------------------------------------------------------*/
 

@@ -48,7 +48,7 @@ VCrV > VCirV
 - h > j/\_E
 - h > w/\_B
 - C>∅/C1_C1
-- i u a e o> e o ə ɛ ɔ/\_CC, \_C#
+
 
 * Use inspiration from real language's sound changes. Use the Proto-Finnic > Proto-Livonian sound changes for inspiration too
 * use conlang sound changes too

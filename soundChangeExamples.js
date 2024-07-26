@@ -490,7 +490,7 @@ let beforelenitionofPlosivebeforeOtherPlosive = "";
 function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
     if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
-        if(plosives.includes(word[i]) && plosives.includes(word[i - 1])  && wordArray[i] !== wordArray[i-1]) {
+        if(plosives.includes(word[i]) && plosives.includes(word[i - 1])  && word[i] !== word[i-1]) {
             let firstPlosiveIndex = plosives.indexOf(word[i-1])
             beforelenitionofPlosivebeforeOtherPlosive = correctionsForStrings(word.join(""));
             word[i-1] = lenitionFromPlosives1[firstPlosiveIndex];
@@ -513,7 +513,7 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
            }
         }
     } else if(randomNumForlenitionofPlosivebeforeOtherPlosive === 1) {
-        if(plosives.includes(word[i]) && plosives.includes(word[i - 1])  && wordArray[i] !== wordArray[i-1]) {
+        if(plosives.includes(word[i]) && plosives.includes(word[i - 1])  && word[i] !== word[i-1]) {
             let firstPlosiveIndex = plosives.indexOf(word[i-1])
             beforelenitionofPlosivebeforeOtherPlosive = correctionsForStrings(word.join(""));
             //let original = originalClone.join("");

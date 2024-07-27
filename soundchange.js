@@ -196,6 +196,7 @@ let timeseNBecomesiN = 0;
 let timesCJBecomesCC = 0;
 let timesiUmlaut = 0;
 let timesvowelShiftInHeavySyllables = 0;
+let timesVCVBecomesVCWordFinally = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -242,6 +243,7 @@ function clearPreviousOutput() {
     timesCJBecomesCC = 0;
     timesiUmlaut = 0;
     timesvowelShiftInHeavySyllables = 0;
+    timesVCVBecomesVCWordFinally = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -307,7 +309,8 @@ function selectSoundChanges() {
         eNBecomesiN,
         CJBecomesCC,
         iUmlaut,
-        vowelShiftInHeavySyllables
+        vowelShiftInHeavySyllables,
+        VCVBecomesVCWordFinally
     ];
     
     //selects which sound changes will be chosen
@@ -852,7 +855,7 @@ function selectSoundChanges() {
             let umlautUl = document.createElement("ul");
             umlautUl.setAttribute("id", "i-umlaut-list");
             let examples = document.createElement("span");
-            examples.innerHTML = `<span id="iUmlaut"></span>`
+            examples.innerHTML = `<div class="sound-change-example" id="iUmlaut"></div>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -877,6 +880,26 @@ function selectSoundChanges() {
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
             nestUl.appendChild(vowelShiftInHeavySyllablesUl);
+            nestUl.appendChild(examples);
+        };
+        if(chosenSoundChanges[i] === VCVBecomesVCWordFinally) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "VCVBecomesVCWordFinally-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Loss of Word Final Vowels`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "VCVBecomesVCWordFinally-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `Word final vowels are lost when they occur after a single consonant which follows a vowel:`;
+            let VCVBecomesVCWordFinallyUl = document.createElement("ul");
+            VCVBecomesVCWordFinallyUl.setAttribute("id", "VCVBecomesVCWordFinally-list");
+            let examples = document.createElement("span");
+            examples.innerHTML = `<div class="sound-change-example" id="VCVBecomesVCWordFinally"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+            nestUl.appendChild(VCVBecomesVCWordFinallyUl);
             nestUl.appendChild(examples);
         };
     };
@@ -1680,7 +1703,6 @@ function iUmlaut(wordArray) {
 function vowelShiftInHeavySyllables(wordArray) {
     let tense = ["i", "u", "a", "e", "o"];
     let lax = ["e", "o", "ə", "ɛ", "ɔ"];
-    
     for(let i = 0; i < wordArray.length; i++) {
         if(tense.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && consonants.includes(wordArray[i+2]) || tense.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && wordArray[i+1] === wordArray[wordArray.length - 1]) {
             let tenseIndex = tense.indexOf(wordArray[i]);
@@ -1705,6 +1727,16 @@ function vowelShiftInHeavySyllables(wordArray) {
     return wordArray
 };
 
+function VCVBecomesVCWordFinally(wordArray) {
+    if(vowels.includes(wordArray[wordArray.length-1]) && consonants.includes(wordArray[wordArray.length-2]) && vowels.includes(wordArray[wordArray.length-3])) {
+        wordArray.splice(wordArray.length-1, 1);
+        timesVCVBecomesVCWordFinally++;
+            if(timesVCVBecomesVCWordFinally > 0) {
+                document.getElementById("VCVBecomesVCWordFinally-li").style.display = "block";
+                document.getElementById("VCVBecomesVCWordFinally-ul").style.display = "block";
+            };
+    };
+};
 
 
 /*------------------------------------------------------*/

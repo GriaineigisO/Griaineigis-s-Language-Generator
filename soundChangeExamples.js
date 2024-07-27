@@ -35,6 +35,8 @@ let VvBecomesVVNum = 0;
 let eNBecomesiNNum = 0;
 let CJBecomesCCNum = 0;
 let iUmlautNum = 0;
+let vowelShiftInHeavySyllablesNum = 0;
+let VCVBecomesVCWordFinallyNum = 0;
 
 function clearArrays() {
     num = 0;
@@ -70,6 +72,8 @@ function clearArrays() {
     eNBecomesiNNum = 0;
     CJBecomesCCNum = 0;
     iUmlautNum = 0;
+    vowelShiftInHeavySyllablesNum = 0;
+    VCVBecomesVCWordFinallyNum = 0;
 };
 
 function cloneArray(array) {
@@ -249,6 +253,11 @@ function populateArray() {
         if(chosenSoundChanges[i].name === "vowelShiftInHeavySyllables") {
             if(soundChangeArray.includes(vowelShiftInHeavySyllables) === false) {
                 soundChangeArray.push(vowelShiftInHeavySyllables);
+            }
+        };
+        if(chosenSoundChanges[i].name === "VCVBecomesVCWordFinally") {
+            if(soundChangeArray.includes(VCVBecomesVCWordFinally) === false) {
+                soundChangeArray.push(VCVBecomesVCWordFinally);
             }
         };
     };
@@ -1712,35 +1721,78 @@ function iUmlaut(word, originalWord) {
      return word;
 };
 
-let aftervowelShiftInHeavySyllables = "";
-let beforevowelShiftInHeavySyllables = "";
+
 function vowelShiftInHeavySyllables(word, originalWord) {
     let tense = ["i", "u", "a", "e", "o"];
     let lax = ["e", "o", "ə", "ɛ", "ɔ"];
-    
     for(let i = 0; i < word.length; i++) {
         if(tense.includes(word[i]) && consonants.includes(word[i+1]) && consonants.includes(word[i+2]) || tense.includes(word[i]) && consonants.includes(word[i+1]) && word[i+1] === word[word.length - 1]) {
-            beforevowelShiftInHeavySyllables = correctionsForStrings(word.join(""));
+            let beforevowelShiftInHeavySyllables = correctionsForStrings(word.join(""));
             let tenseIndex = tense.indexOf(word[i]);
             word[i] = lax[tenseIndex];
-            aftervowelShiftInHeavySyllables = correctionsForStrings(word.join(""));
+            let aftervowelShiftInHeavySyllables = correctionsForStrings(word.join(""));
             let afterExample = "";
-            let originalJoined = correctionsForStrings(originalWord.join(""));
-            if(soundChange(beforevowelShiftInHeavySyllables) !== aftervowelShiftInHeavySyllables) {
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== aftervowelShiftInHeavySyllables) {
                 afterExample = `<i>*${spell(aftervowelShiftInHeavySyllables)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
             } else {
-                afterExample = `${newName} <i>${spell(aftervowelShiftInHeavySyllables)}</i>`
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
             };
             let beforeExample = "";
-            if(originalJoined === beforevowelShiftInHeavySyllables) {
-                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i>`;
+            if(correctionsForStrings(originalJoined) === beforevowelShiftInHeavySyllables) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
             } else {
-                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i> > *<i>${spell(beforevowelShiftInHeavySyllables)}</i>`
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(beforevowelShiftInHeavySyllables)}</i>`
             }
-            document.getElementById("vowelShiftInHeavySyllables").innerHTML = `${beforeExample} > ${afterExample}`;
+            if(vowelShiftInHeavySyllablesNum < 6) {    
+                if(vowelShiftInHeavySyllablesNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("vowelShiftInHeavySyllables").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("vowelShiftInHeavySyllables").appendChild(example);
+                }
+                vowelShiftInHeavySyllablesNum++;
+            };
         };
     };
     return word
+};
+
+function VCVBecomesVCWordFinally(word, originalWord) {
+    if(vowels.includes(word[word.length-1]) && consonants.includes(word[word.length-2]) && vowels.includes(word[word.length-3])) {
+        let beforeVCVBecomesVCWordFinally = correctionsForStrings(word.join(""));
+        word.splice(word.length-1, 1);
+        let afterVCVBecomesVCWordFinally = correctionsForStrings(word.join(""));
+         let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== afterVCVBecomesVCWordFinally) {
+                afterExample = `<i>*${spell(afterVCVBecomesVCWordFinally)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === beforeVCVBecomesVCWordFinally) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(beforeVCVBecomesVCWordFinally)}</i>`
+            }
+            if(VCVBecomesVCWordFinallyNum < 6) {    
+                if(VCVBecomesVCWordFinallyNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("VCVBecomesVCWordFinally").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("VCVBecomesVCWordFinally").appendChild(example);
+                }
+                VCVBecomesVCWordFinallyNum++;   
+    };
+    return word;
+};
 };
 /*--------------------------------------------------------------------*/
 

@@ -35,7 +35,6 @@ let nasalSyllables = [
     "CVN",
     "CVNC",
     "VNC",
-    
 ]
 
 let fricativeSyllables = [
@@ -44,7 +43,6 @@ let fricativeSyllables = [
     "FCVC",
     "FCCV",
     "CFV",
-    "CCVFC"
  ]
 
 let resonantSyllables = [

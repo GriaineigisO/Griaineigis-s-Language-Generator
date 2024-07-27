@@ -272,42 +272,43 @@ let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
 let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
-    potentialSoundChanges = [];
     chosenSoundChanges = [];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
-    potentialSoundChanges.push(plosivesCantClusterTogetherWordInitially);
-    potentialSoundChanges.push(wordFinalDevoicing);
-    potentialSoundChanges.push(fricativesLostAfterWordInitialConsonants);
-    potentialSoundChanges.push(lenitionofPlosivebeforeOtherPlosive);
-    potentialSoundChanges.push(wordFinalHighVowelsLower);
-    potentialSoundChanges.push(NoResonantsBeforeConsonants);
-    potentialSoundChanges.push(nonInitialNonHighVowelsBecomeA);
-    potentialSoundChanges.push(nasalsCantAppearAfterConsonants);
-    potentialSoundChanges.push(fricativesDebuccaliseBeforeVowels);
-    potentialSoundChanges.push(vowelLostBetweenTwoOfSameConsonant);
-    potentialSoundChanges.push(voicedConsonantsLostIntervocalically);
-    potentialSoundChanges.push(RVCToVRCMetathesis);
-    potentialSoundChanges.push(vowelLostBetweenConsonantAndResonant)
-    potentialSoundChanges.push(intervocalicVoicing);
-    potentialSoundChanges.push(hLostAfterConsonants);
-    potentialSoundChanges.push(nasalsLostBetweenVowelAndConsonant);
-    potentialSoundChanges.push(auBecomesOu);
-    potentialSoundChanges.push(aCaBecomesaCi);
-    potentialSoundChanges.push(VʔVBecomesVV);
-    potentialSoundChanges.push(plosivesDebuccaliseInCoda);
-    potentialSoundChanges.push(CVRBecomesCCVR);
-    potentialSoundChanges.push(glottalStopJFortites);
-    potentialSoundChanges.push(eciBecomesiCi);
-    potentialSoundChanges.push(iCbecomeseC);
-    potentialSoundChanges.push(VJbecomesLongI);
-    potentialSoundChanges.push(uNBecomesoN);
-    potentialSoundChanges.push(gBecomesJ);
-    potentialSoundChanges.push(VvBecomesVV);
-    potentialSoundChanges.push(eNBecomesiN);
-    potentialSoundChanges.push(CJBecomesCC);
-    potentialSoundChanges.push(iUmlaut);
-    potentialSoundChanges.push(vowelShiftInHeavySyllables)
+    potentialSoundChanges = [
+        plosivesCantClusterTogetherWordInitially,
+        wordFinalDevoicing,
+        fricativesLostAfterWordInitialConsonants,
+        lenitionofPlosivebeforeOtherPlosive,
+        wordFinalHighVowelsLower,
+        NoResonantsBeforeConsonants,
+        nonInitialNonHighVowelsBecomeA,
+        nasalsCantAppearAfterConsonants,
+        fricativesDebuccaliseBeforeVowels,
+        vowelLostBetweenTwoOfSameConsonant,
+        voicedConsonantsLostIntervocalically,
+        RVCToVRCMetathesis,
+        vowelLostBetweenConsonantAndResonant,
+        intervocalicVoicing,
+        hLostAfterConsonants,
+        nasalsLostBetweenVowelAndConsonant,
+        auBecomesOu,
+        aCaBecomesaCi,
+        VʔVBecomesVV,
+        plosivesDebuccaliseInCoda,
+        CVRBecomesCCVR,
+        glottalStopJFortites,
+        eciBecomesiCi,
+        iCbecomeseC,
+        VJbecomesLongI,
+        uNBecomesoN,
+        gBecomesJ,
+        VvBecomesVV,
+        eNBecomesiN,
+        CJBecomesCC,
+        iUmlaut,
+        vowelShiftInHeavySyllables
+    ];
     
     //selects which sound changes will be chosen
     while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {

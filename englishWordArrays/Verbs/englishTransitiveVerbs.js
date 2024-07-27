@@ -161,6 +161,10 @@ function addWords() {
     transitiveVerb3SArray.push("cuts");
     transitiveVerbPastArray.push("cut");
 
+    transitiveVerbArray.push("deem");
+    transitiveVerb3SArray.push("deems");
+    transitiveVerbPastArray.push("deemed");
+
     transitiveVerbArray.push("deceive");
     transitiveVerb3SArray.push("deceives");
     transitiveVerbPastArray.push("deceived");

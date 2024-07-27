@@ -142,4 +142,7 @@ allWordsInThesaurus.push(lineageArray);
 let raceArray = ["race", "kin", "family", "species", "type", "gender"];
 allWordsInThesaurus.push(raceArray);
 
+let deemAray = ["deem", "to judge", "to reckon", "to determine", "to count", "to consider"];
+allWordsInThesaurus.push(deemAray);
+
 export { allWordsInThesaurus };

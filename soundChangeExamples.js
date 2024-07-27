@@ -696,15 +696,15 @@ function nonInitialNonHighVowelsBecomeA(word, originalWord) {
             let afterExample = "";
             let originalJoined = correctionsForStrings(originalWord.join(""));
             if(soundChange(originalJoined) !== afternonInitialNonHighVowelsBecomeA) {
-                afterExample = `<i>*${spell(afternonInitialNonHighVowelsBecomeA)}</i> (> ${newName} <i><strong>${soundChange(originalJoined)}</strong></i>)`
+                afterExample = `<i>*${spell(afternonInitialNonHighVowelsBecomeA)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
             } else {
-                afterExample = `${newName} <i>${soundChange(originalJoined)}</i>`
+                afterExample = `${newName} <i>${spell(soundChange(originalJoined))}</i>`
             }
             let beforeExample = "";
             if(originalJoined === beforenonInitialNonHighVowelsBecomeA) {
-                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i>`;
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
             } else {
-                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i> > *<i>${spell(beforenonInitialNonHighVowelsBecomeA)}</i>`
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(beforenonInitialNonHighVowelsBecomeA)}</i>`
             };
             if(nonInitialNonHighVowelsBecomeANum < 6) {
                 if(nonInitialNonHighVowelsBecomeANum === 0) {
@@ -814,7 +814,7 @@ function voicedConsonantsLostIntervocalically(word, originalWord) {
         if(soundChange(correctionsForStrings(originalWord)) !== aftervoicedConsonantsLostIntervocalically) {
             afterExample = `<i>*${spell(aftervoicedConsonantsLostIntervocalically)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
         } else {
-            afterExample = `${newName} <i>${spell(aftervoicedConsonantsLostIntervocalically)}</i>`
+            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
         };
         let beforeExample = "";
         if(originalJoined === beforevoicedConsonantsLostIntervocalically) {
@@ -1720,7 +1720,6 @@ function iUmlaut(word, originalWord) {
      };
      return word;
 };
-
 
 function vowelShiftInHeavySyllables(word, originalWord) {
     let tense = ["i", "u", "a", "e", "o"];

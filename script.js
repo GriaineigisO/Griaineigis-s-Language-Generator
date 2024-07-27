@@ -516,13 +516,13 @@ function generateWords() {
     //if an inventory is small, then it needs more syllables per word to prevent large amounts of homophones
     let numOfAllSounds = vowels.length + consonants.length
     if(numOfAllSounds < 20 ) {
-        numberOfSyllables = Math.floor(Math.random() * (4 - 2) + 2);
+        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
     } else if (numOfAllSounds < 15 ) {
-        numberOfSyllables = Math.floor(Math.random() * (5 - 3) + 3);
+        numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
     } else if (numOfAllSounds <= 10 ) {
-        numberOfSyllables = Math.floor(Math.random() * (6 - 4) + 4);
+        numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
     }else {
-        numberOfSyllables = Math.floor(Math.random() * (4 - 2) + 2);
+        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
     }
 
     for(let i = 0; i < numberOfSyllables; i++) {

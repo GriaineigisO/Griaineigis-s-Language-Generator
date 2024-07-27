@@ -409,6 +409,10 @@ h1, h2, h3, h4 {
     justify-content: center;
 }
 
+.sound-change-example {
+    display: inline;
+}
+
 
 /* PHONE */
 @media only screen and (max-width: 480px) {

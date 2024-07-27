@@ -336,7 +336,7 @@ function selectSoundChanges() {
             nestUl.setAttribute("id", "wordFinalDevoicing-ul");
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Voiced consonants devoiced word finally: <span id="wordFinalDevoicing"></span>`;
+            nestLi.innerHTML = `Voiced consonants devoiced word finally: <div class="sound-change-example" id="wordFinalDevoicing"></div>`;
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -350,7 +350,7 @@ function selectSoundChanges() {
             nestUl.setAttribute("id", "plosivesCantClusterTogetherWordInitially-ul");
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `A word initial plosive is lost if another plosive follows it: <span id="plosivesCantClusterTogetherWordInitially"></span>`;
+            nestLi.innerHTML = `A word initial plosive is lost if another plosive follows it: <div class="sound-change-example" id="plosivesCantClusterTogetherWordInitially"></div>`;
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);

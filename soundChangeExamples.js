@@ -1,14 +1,17 @@
-//@collapse
+
 import { spell } from "./orthography.js";
 import { soundChange, voiced, unvoiced, chosenSoundChanges, vowels, consonants, selectFricatives, plosives, randomNumForWordInitialPlosiveClusters, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive,lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, frontVowels} from "./soundchange.js";
 import { languageName } from "./script.js";
 
 let soundChangeArray = [];
-
+let wordFinalDevoicingNum = 0;
+let plosivesCantClusterTogetherWordInitiallyNum = 0;
 
 function clearArrays() {
     num = 0;
     soundChangeArray = [];
+    wordFinalDevoicingNum = 0;
+    plosivesCantClusterTogetherWordInitiallyNum = 0;
 };
 
 function cloneArray(array) {
@@ -206,65 +209,79 @@ function soundChangeExample(word) {
     return word;
 };
 
-let afterwordFinalDevoicing = "";
-let beforewordFinalDevoicing = "";
 function wordFinalDevoicing(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
         if(voiced.includes(word[word.length -1])) {
-            beforewordFinalDevoicing = correctionsForStrings(word.join(""));
+            let beforewordFinalDevoicing = correctionsForStrings(word.join(""));
             let voicedIndex = voiced.indexOf(word[word.length -1]);
             word[word.length -1] = unvoiced[voicedIndex];
             if(voiced.includes(word[word.length -2])) {
                 let voicedIndex = voiced.indexOf(word[word.length -2]);
                 word[word.length -2] = unvoiced[voicedIndex];
             } 
-            afterwordFinalDevoicing = correctionsForStrings(word.join(""));
+            let afterwordFinalDevoicing = correctionsForStrings(word.join(""));
             let afterExample = "";
-            let originalJoined = originalWord.join("");
-            if(soundChange(beforewordFinalDevoicing) !== afterwordFinalDevoicing) {
-                afterExample = `<i>*${spell(afterwordFinalDevoicing)}</i> (> ${newName} <i>${spell(soundChange(originalJoined))}</i>)`
+            let originalJoined = correctionsForStrings(originalWord.join(""));
+            if(soundChange(originalJoined) !== afterwordFinalDevoicing) {
+                afterExample = `<i>*${spell(afterwordFinalDevoicing)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
             } else {
-                afterExample = `${newName} <i>${spell(afterwordFinalDevoicing)}</i>`
+                afterExample = `${newName} <i><strong>${spell(originalJoined)}</strong></i>`
             }
             let beforeExample = "";
             if(originalJoined === beforewordFinalDevoicing) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforewordFinalDevoicing)}</i>`
+                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i> > *<i>${spell(beforewordFinalDevoicing)}</i>`
             }
-            document.getElementById("wordFinalDevoicing").innerHTML = `${beforeExample} > ${afterExample}`;
+            if(wordFinalDevoicingNum < 6) {
+                if(wordFinalDevoicingNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("wordFinalDevoicing").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("wordFinalDevoicing").appendChild(example);
+                }
+                wordFinalDevoicingNum++;
+            }
         }
     } 
     return {word};
 }
 
-let afterplosivesCantClusterTogetherWordInitially = "";
-let beforeplosivesCantClusterTogetherWordInitially = "";
 function plosivesCantClusterTogetherWordInitially(word, originalWord) {
-    //let originalClone = cloneArray(originalWord);
     if(randomNumForWordInitialPlosiveClusters !== 5) {
         for(let i = 0; i < word.length; i++) {
             if(plosives.includes(word[0]) && plosives.includes(word[1])) {
-                beforeplosivesCantClusterTogetherWordInitially = correctionsForStrings(word.join(""));
-                //let original = originalClone.join("");
+                let beforeplosivesCantClusterTogetherWordInitially = correctionsForStrings(word.join(""));
                 word.splice(0, 1);
-                afterplosivesCantClusterTogetherWordInitially = correctionsForStrings(word.join(""));
+                let afterplosivesCantClusterTogetherWordInitially = correctionsForStrings(word.join(""));
                 let afterExample = "";
-                let originalJoined = originalWord.join("");
-                if(soundChange(beforeplosivesCantClusterTogetherWordInitially) !== afterplosivesCantClusterTogetherWordInitially) {
+                let originalJoined = correctionsForStrings(originalWord.join(""));
+                if(soundChange(originalJoined) !== afterplosivesCantClusterTogetherWordInitially) {
                     afterExample = `<i>*${spell(afterplosivesCantClusterTogetherWordInitially)}</i> (> ${newName} <i>${spell(soundChange(originalJoined))}</i>)`
                 } else {
-                    afterExample = `${newName} <i>${spell(afterplosivesCantClusterTogetherWordInitially)}</i>`
+                    afterExample = `${newName} <i>${spell(originalJoined)}</i>`
                 }
                 let beforeExample = "";
                 if(originalJoined === beforeplosivesCantClusterTogetherWordInitially) {
-                    beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                    beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
                 } else {
-                    beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeplosivesCantClusterTogetherWordInitially)}</i>`
+                    beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeplosivesCantClusterTogetherWordInitially)}</i>`
                 }
-                if(document.getElementById("plosivesCantClusterTogetherWordInitially") !== null) {
-                    document.getElementById("plosivesCantClusterTogetherWordInitially").innerHTML = `${beforeExample} > ${afterExample}`;
-                };
+                if(plosivesCantClusterTogetherWordInitiallyNum < 6) {
+                    if(plosivesCantClusterTogetherWordInitiallyNum === 0) {
+                        let example = document.createElement("span");
+                        example.innerHTML = `${beforeExample} > ${afterExample}`;
+                        document.getElementById("plosivesCantClusterTogetherWordInitially").appendChild(example);
+                    } else {
+                        let example = document.createElement("span");
+                        example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                        document.getElementById("plosivesCantClusterTogetherWordInitially").appendChild(example);
+                    }
+                    plosivesCantClusterTogetherWordInitiallyNum++;
+                }
             };
         };
     };
@@ -291,9 +308,9 @@ function fricativesDebuccaliseBeforeVowels(word, originalWord) {
                 }
                 let beforeExample = "";
                 if(originalJoined === beforeChangefricativesDebuccaliseBeforeVowels) {
-                    beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                    beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
                 } else {
-                    beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeChangefricativesDebuccaliseBeforeVowels)}</i>`
+                    beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeChangefricativesDebuccaliseBeforeVowels)}</i>`
                 }
                 document.getElementById("fricativesDebuccaliseBeforeVowels").innerHTML = `${beforeExample} > ${afterExample}`;
             };
@@ -320,9 +337,9 @@ function fricativesLostAfterWordInitialConsonants(word, originalWord) {
         }
         let beforeExample = "";
         if(originalJoined === beforefricativesLostAfterWordInitialConsonants) {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
         } else {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforefricativesLostAfterWordInitialConsonants)}</i>`
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforefricativesLostAfterWordInitialConsonants)}</i>`
         }
         if(document.getElementById("fricativesLostAfterWordInitialConsonants") !== null) {
             document.getElementById("fricativesLostAfterWordInitialConsonants").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -353,9 +370,9 @@ function wordFinalHighVowelsLower(word, originalWord) {
         };
         let beforeExample = "";
         if(originalJoined === beforewordFinalHighVowelsLower) {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
         } else {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforewordFinalHighVowelsLower)}</i>`
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforewordFinalHighVowelsLower)}</i>`
         };
         if(document.getElementById("wordFinalHighVowelsLower") !== null) {
             document.getElementById("wordFinalHighVowelsLower").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -382,9 +399,9 @@ function NoResonantsBeforeConsonants(word, originalWord) {
             }
             let beforeExample = "";
             if(originalJoined === beforeNoResonantsBeforeConsonants) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeNoResonantsBeforeConsonants)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeNoResonantsBeforeConsonants)}</i>`
             }
             if(document.getElementById("NoResonantsBeforeConsonants") !== null) {
                 document.getElementById("NoResonantsBeforeConsonants").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -410,9 +427,9 @@ function NoResonantsBeforeConsonants(word, originalWord) {
                 }
                 let beforeExample = "";
                 if(originalJoined === beforeNoResonantsBeforeConsonants) {
-                    beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                    beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
                 } else {
-                    beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeNoResonantsBeforeConsonants)}</i>`
+                    beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeNoResonantsBeforeConsonants)}</i>`
                 }
                 if(document.getElementById("NoResonantsBeforeConsonants") !== null) {
                     document.getElementById("NoResonantsBeforeConsonants").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -438,9 +455,9 @@ function NoResonantsBeforeConsonants(word, originalWord) {
             }
             let beforeExample = "";
             if(originalJoined === beforeNoResonantsBeforeConsonants) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeNoResonantsBeforeConsonants)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeNoResonantsBeforeConsonants)}</i>`
             }
             if(document.getElementById("NoResonantsBeforeConsonants") !== null) {
                 document.getElementById("NoResonantsBeforeConsonants").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -472,9 +489,9 @@ function NoResonantsBeforeConsonants(word, originalWord) {
             }
             let beforeExample = "";
             if(originalJoined === beforeNoResonantsBeforeConsonants) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeNoResonantsBeforeConsonants)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeNoResonantsBeforeConsonants)}</i>`
             }
             if(document.getElementById("NoResonantsBeforeConsonants") !== null) {
                 document.getElementById("NoResonantsBeforeConsonants").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -504,9 +521,9 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
             }
             let beforeExample = "";
             if(originalJoined === beforelenitionofPlosivebeforeOtherPlosive) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforelenitionofPlosivebeforeOtherPlosive)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforelenitionofPlosivebeforeOtherPlosive)}</i>`
             }
            if(document.getElementById("lenitionofPlosivebeforeOtherPlosive") !== null) {
                 document.getElementById("lenitionofPlosivebeforeOtherPlosive").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -528,9 +545,9 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
             }
             let beforeExample = "";
             if(originalJoined === beforelenitionofPlosivebeforeOtherPlosive) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforelenitionofPlosivebeforeOtherPlosive)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforelenitionofPlosivebeforeOtherPlosive)}</i>`
             }
             if(document.getElementById("lenitionofPlosivebeforeOtherPlosive") !== null) {
                 document.getElementById("lenitionofPlosivebeforeOtherPlosive").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -559,9 +576,9 @@ function nonInitialNonHighVowelsBecomeA(word, originalWord) {
             }
             let beforeExample = "";
             if(originalJoined === beforenonInitialNonHighVowelsBecomeA) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforenonInitialNonHighVowelsBecomeA)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforenonInitialNonHighVowelsBecomeA)}</i>`
             };
             if(document.getElementById("nonInitialNonHighVowelsBecomeA") !== null) {
                 document.getElementById("nonInitialNonHighVowelsBecomeA").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -593,9 +610,9 @@ function nasalsCantAppearAfterConsonants(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforenasalsCantAppearAfterConsonants) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforenasalsCantAppearAfterConsonants)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforenasalsCantAppearAfterConsonants)}</i>`
             }
             if(document.getElementById("nasalsCantAppearAfterConsonants") !== null) {
                 document.getElementById("nasalsCantAppearAfterConsonants").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -624,9 +641,9 @@ function vowelLostBetweenTwoOfSameConsonant(word, originalWord) {
         };
         let beforeExample = "";
         if(originalJoined === beforevowelLostBetweenTwoOfSameConsonant) {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
         } else {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforevowelLostBetweenTwoOfSameConsonant)}</i>`
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforevowelLostBetweenTwoOfSameConsonant)}</i>`
         }
         if(document.getElementById("vowelLostBetweenTwoOfSameConsonant") !== null) {
             document.getElementById("vowelLostBetweenTwoOfSameConsonant").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -659,9 +676,9 @@ function voicedConsonantsLostIntervocalically(word, originalWord) {
         };
         let beforeExample = "";
         if(originalJoined === beforevoicedConsonantsLostIntervocalically) {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
         } else {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforevoicedConsonantsLostIntervocalically)}</i>`
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforevoicedConsonantsLostIntervocalically)}</i>`
         }
         if(document.getElementById("voicedConsonantsLostIntervocalically") !== null) {
             document.getElementById("voicedConsonantsLostIntervocalically").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -692,9 +709,9 @@ function RVCToVRCMetathesis(word, originalWord) {
         };
         let beforeExample = "";
         if(originalJoined === beforeRVCToVRCMetathesis) {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
         } else {
-            beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeRVCToVRCMetathesis)}</i>`
+            beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeRVCToVRCMetathesis)}</i>`
         }
         if(document.getElementById("RVCToVRCMetathesis") !== null) {
             document.getElementById("RVCToVRCMetathesis").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -726,9 +743,9 @@ function vowelLostBetweenConsonantAndResonant(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforevowelLostBetweenConsonantAndResonant) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforevowelLostBetweenConsonantAndResonant)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforevowelLostBetweenConsonantAndResonant)}</i>`
             }
             if(document.getElementById("vowelLostBetweenConsonantAndResonant") !== null) {
                 document.getElementById("vowelLostBetweenConsonantAndResonant").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -759,9 +776,9 @@ function intervocalicVoicing(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeintervocalicVoicing) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeintervocalicVoicing)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeintervocalicVoicing)}</i>`
             }
             if(document.getElementById("intervocalicVoicing") !== null) {
                 document.getElementById("intervocalicVoicing").innerHTML = `${beforeExample} > ${afterExample}`;
@@ -788,9 +805,9 @@ function hLostAfterConsonants(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforehLostAfterConsonants) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforehLostAfterConsonants)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforehLostAfterConsonants)}</i>`
             }
             document.getElementById("hLostAfterConsonants").innerHTML = `${beforeExample} > ${afterExample}`;
             
@@ -818,9 +835,9 @@ function nasalsLostBetweenVowelAndConsonant(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforenasalsLostBetweenVowelAndConsonant) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforenasalsLostBetweenVowelAndConsonant)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforenasalsLostBetweenVowelAndConsonant)}</i>`
             }
             document.getElementById("nasalsLostBetweenVowelAndConsonant").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -845,9 +862,9 @@ function auBecomesOu(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeauBecomesOu) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeauBecomesOu)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeauBecomesOu)}</i>`
             }
             document.getElementById("auBecomesOu").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -872,9 +889,9 @@ function aCaBecomesaCi(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeaCaBecomesaCi) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeaCaBecomesaCi)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeaCaBecomesaCi)}</i>`
             }
             document.getElementById("aCaBecomesaCi").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -904,9 +921,9 @@ function VʔVBecomesVV(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeVʔVBecomesVV) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeVʔVBecomesVV)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeVʔVBecomesVV)}</i>`
             }
             document.getElementById("VʔVBecomesVV").innerHTML = `${beforeExample} > ${afterExample}`;
         }
@@ -932,9 +949,9 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeplosivesDebuccaliseInCoda) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeplosivesDebuccaliseInCoda)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeplosivesDebuccaliseInCoda)}</i>`
             }
             document.getElementById("plosivesDebuccaliseInCoda").innerHTML = `${beforeExample} > ${afterExample}`;
            
@@ -951,9 +968,9 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeplosivesDebuccaliseInCoda) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeplosivesDebuccaliseInCoda)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeplosivesDebuccaliseInCoda)}</i>`
             }
             document.getElementById("plosivesDebuccaliseInCoda").innerHTML = `${beforeExample} > ${afterExample}`;
         }  else if (plosives.includes(word[i]) && word[i+1] === "ʷ") {
@@ -970,9 +987,9 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeplosivesDebuccaliseInCoda) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeplosivesDebuccaliseInCoda)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeplosivesDebuccaliseInCoda)}</i>`
             }
             document.getElementById("plosivesDebuccaliseInCoda").innerHTML = `${beforeExample} > ${afterExample}`;
         } else if (plosives.includes(word[i]) && word[i+1] === "ʲ") {
@@ -989,9 +1006,9 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeplosivesDebuccaliseInCoda) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeplosivesDebuccaliseInCoda)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeplosivesDebuccaliseInCoda)}</i>`
             }
             document.getElementById("plosivesDebuccaliseInCoda").innerHTML = `${beforeExample} > ${afterExample}`;
          
@@ -1023,9 +1040,9 @@ function CVRBecomesCCVR(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeCVRBecomesCCVR) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeCVRBecomesCCVR)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeCVRBecomesCCVR)}</i>`
             }
             document.getElementById("CVRBecomesCCVR").innerHTML = `${beforeExample} > ${afterExample}`;
         }
@@ -1051,9 +1068,9 @@ function glottalStopJFortites(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeglottalStopJFortites) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeglottalStopJFortites)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeglottalStopJFortites)}</i>`
             }
             document.getElementById("glottalStopJFortites").innerHTML = `${beforeExample} > ${afterExample}`;
             
@@ -1071,9 +1088,9 @@ function glottalStopJFortites(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeglottalStopJFortites) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeglottalStopJFortites)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeglottalStopJFortites)}</i>`
             }
             document.getElementById("glottalStopJFortites").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1099,9 +1116,9 @@ function eciBecomesiCi(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeeciBecomesiCi) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeeciBecomesiCi)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeeciBecomesiCi)}</i>`
             }
             document.getElementById("eciBecomesiCi").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1126,9 +1143,9 @@ function iCbecomeseC(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeiCbecomeseC) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeiCbecomeseC)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeiCbecomeseC)}</i>`
             }
             document.getElementById("iCbecomeseC").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1155,9 +1172,9 @@ function VJbecomesLongI(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeVJbecomesLongI) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeVJbecomesLongI)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeVJbecomesLongI)}</i>`
             }
             document.getElementById("VJbecomesLongI").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1182,9 +1199,9 @@ function uNBecomesoN(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeuNBecomesoN) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeuNBecomesoN)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeuNBecomesoN)}</i>`
             }
             document.getElementById("uNBecomesoN").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1209,9 +1226,9 @@ function gBecomesJ(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforegBecomesJ) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforegBecomesJ)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforegBecomesJ)}</i>`
             }
             document.getElementById("gBecomesJ").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1238,9 +1255,9 @@ function VvBecomesVV(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeVvBecomesVV) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeVvBecomesVV)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeVvBecomesVV)}</i>`
             }
             document.getElementById("VvBecomesVV").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1265,9 +1282,9 @@ function eNBecomesiN(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeeNBecomesiN) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeeNBecomesiN)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeeNBecomesiN)}</i>`
             }
             document.getElementById("eNBecomesiN").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1294,9 +1311,9 @@ function CJBecomesCC(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeCJBecomesCC) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeCJBecomesCC)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeCJBecomesCC)}</i>`
             }
             document.getElementById("CJBecomesCC").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1326,9 +1343,9 @@ function iUmlaut(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforeiUmlaut) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforeiUmlaut)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforeiUmlaut)}</i>`
             }
             document.getElementById("iUmlaut").innerHTML = `${beforeExample} > ${afterExample}`;
         };
@@ -1357,9 +1374,9 @@ function vowelShiftInHeavySyllables(word, originalWord) {
             };
             let beforeExample = "";
             if(originalJoined === beforevowelShiftInHeavySyllables) {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i>`;
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i>`;
             } else {
-                beforeExample = `${oldName} <i>${spell(correctionsForStrings(originalJoined))}</i> > *<i>${spell(beforevowelShiftInHeavySyllables)}</i>`
+                beforeExample = `${oldName} <i>${spell(originalJoined)}</i> > *<i>${spell(beforevowelShiftInHeavySyllables)}</i>`
             }
             document.getElementById("vowelShiftInHeavySyllables").innerHTML = `${beforeExample} > ${afterExample}`;
         };

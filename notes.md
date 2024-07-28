@@ -1,10 +1,7 @@
 # Immediate To-Do List
 
-- Make fusional nouns with no gender but case
-
-- make case forms of sg-dual-pl nouns
-  - funional nouns may be built the same as agglutinative nouns, but with all the suffix then merged together, perhaps by removing letters at a random index, to give the illusion of an agglutinitve past. E.g singular suffix -id + masculine suffix -ko = -idko then the third letter is lost resulting in -ido.
-    Otherwise, each individual suffix may be purely random
+- Make fusional nouns with gender but no case
+- Make fusional nouns with gender and case
 
 # Phonology
 
@@ -48,7 +45,6 @@ VCrV > VCirV
 - h > j/\_E
 - h > w/\_B
 - C>∅/C1_C1
-
 
 * Use inspiration from real language's sound changes. Use the Proto-Finnic > Proto-Livonian sound changes for inspiration too
 * use conlang sound changes too

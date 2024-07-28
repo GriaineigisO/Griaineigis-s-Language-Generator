@@ -14,6 +14,11 @@ function clearArrays() {
     document.getElementById("fusional-no-gender-case-explanation").replaceChildren();
 }
 
+let grammaticalNumber = 0;
+function makeRandomNumbers() {
+    grammaticalNumber = Math.floor(Math.random() * 31);
+}
+
 function markedSingular() {
     let markedSingularExplanation = document.getElementsByClassName("marked-singular");
     if(markedSingularOrNot()) {
@@ -728,9 +733,7 @@ function listAffixesInIsolation(affix) {
     }
 }
 
-let grammaticalNumber
 function determineGrammaticalNumber() {
-    grammaticalNumber = 28//Math.floor(Math.random() * 31);
     if(grammaticalNumber < 4) {
         if(caseNumber === 0) {
             document.getElementById("fusional-no-gender-singular-plural").style.display = "block";
@@ -940,12 +943,12 @@ function makeNoGenderNumberExamples() {
 
 let caseNumber = 0;
 function chooseCases() {
-    caseNumber = 6//Math.floor(Math.random() * 11)
+    caseNumber = Math.floor(Math.random() * 11)
     //there will be no cases if language is isolating
     if(chooseTypology() === "fusional") {
         //decides if the language has cases or not
         if(caseNumber !== 0) {
-            const randomNum = 8//Math.floor(Math.random() * 8);
+            const randomNum = Math.floor(Math.random() * 8);
             if(randomNum <= 4) {
                 chosenNounCases.push("Nominative");
                 chosenNounCases.push("Accusative");
@@ -6355,7 +6358,7 @@ if(numberSuffixOrPrefix === "suffix") {
             }
             let ablPlExamples = makeExamples(makeAblPlural, countNounArrayPlural);
             let ablGeneralExamples = makeExamples(makeAblGeneral, countNounArrayPlural);
-            let ablSingulativeExamples = makeExamples(makeAblGeneral, countNounArray);
+            let ablSingulativeExamples = makeExamples(makeAblSingulative, countNounArray);
 
             let singularPluralAblative = document.createElement("p");
             singularPluralAblative.innerHTML = `The ablative case is used to mark motion away from a noun. <br>The ablative general is formed with the ${listAffixesInIsolation(ablGeneralAffix)}: ${ablGeneralExamples}.
@@ -6460,7 +6463,7 @@ if(numberSuffixOrPrefix === "suffix") {
             }
             let inePlExamples = makeExamples(makeInePlural, countNounArrayPlural);
             let ineGeneralExamples = makeExamples(makeIneGeneral, countNounArrayPlural);
-            let ineSingulativeExamples = makeExamples(makeIneGeneral, countNounArray);
+            let ineSingulativeExamples = makeExamples(makeIneSingulative, countNounArray);
 
             let singularPluralInessive = document.createElement("p");
             singularPluralInessive.innerHTML = `The inessive case is used to mark "in" e.g "in the forest" or "on a mountain". <br>The inessive general is formed with the ${listAffixesInIsolation(ineGeneralAffix)}: ${ineGeneralExamples}.
@@ -6512,7 +6515,7 @@ if(numberSuffixOrPrefix === "suffix") {
             }
             let delPlExamples = makeExamples(makeDelPlural, countNounArrayPlural);
             let delGeneralExamples = makeExamples(makeDelGeneral, countNounArrayPlural);
-            let delSingulativeExamples = makeExamples(makeDelGeneral, countNounArray);
+            let delSingulativeExamples = makeExamples(makeDelSingulative, countNounArray);
 
             let singularPluralDelative = document.createElement("p");
             singularPluralDelative.innerHTML = `The delative case is used to mark "in" e.g "in the forest" or "on a mountain". <br>The delative general is formed with the ${listAffixesInIsolation(delGeneralAffix)}: ${delGeneralExamples}.
@@ -6617,7 +6620,7 @@ if(numberSuffixOrPrefix === "suffix") {
             }
             let instrPlExamples = makeExamples(makeInstrPlural, countNounArrayPlural);
             let instrGeneralExamples = makeExamples(makeInstrGeneral, countNounArrayPlural);
-            let instrSingulativeExamples = makeExamples(makeInstrGeneral, countNounArray);
+            let instrSingulativeExamples = makeExamples(makeInstrSingulative, countNounArray);
 
             let singularPluralInstrumental = document.createElement("p");
             singularPluralInstrumental.innerHTML = `The instrumental case is used to mark a noun by which an action is achieved i.e "I walked <u>by land</u>" or "I stabbed him <u>with a knife</u>". <br>The instrumental general is formed with the ${listAffixesInIsolation(instrGeneralAffix)}: ${instrGeneralExamples}.
@@ -6667,6 +6670,7 @@ generateLanguageButton.addEventListener("click", generateLanguage);
 
 function generateLanguage() {
     clearArrays();
+    makeRandomNumbers();
     chooseCases();
     markedSingular();
     makeLocativeCaseAffixes();

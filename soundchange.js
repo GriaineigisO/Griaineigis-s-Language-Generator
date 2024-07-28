@@ -1114,12 +1114,9 @@ function soundChange(word) {
 
     //to prevent word final sound changes applying to prefixes, when listed in isolation, an "A" is inserted at the end, this for loop serves to remove that "A" after those sound changes have been applied
     for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "A") {
+        while(wordArray[i] === "A" || wordArray[i] === "X") {
             wordArray.splice(i, 1);
-        }
-        if(wordArray[i] === "X") {
-            wordArray.splice(i, 1);
-        }
+        };
     }
 
     let final = wordArray.join("");

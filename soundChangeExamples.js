@@ -817,10 +817,10 @@ function voicedConsonantsLostIntervocalically(word, originalWord) {
             afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
         };
         let beforeExample = "";
-        if(originalJoined === beforevoicedConsonantsLostIntervocalically) {
+        if(correctionsForStrings(originalJoined) === beforevoicedConsonantsLostIntervocalically) {
             beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
         } else {
-            beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i> > *<i>${spell(beforevoicedConsonantsLostIntervocalically)}</i>`
+            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(beforevoicedConsonantsLostIntervocalically)}</i>`
         }
         if(voicedConsonantsLostIntervocalicallyNum < 6) {
                 if(voicedConsonantsLostIntervocalicallyNum === 0) {
@@ -893,7 +893,7 @@ function vowelLostBetweenConsonantAndResonant(word, originalWord) {
             if(soundChange(originalJoined) !== aftervowelLostBetweenConsonantAndResonant) {
                 afterExample = `<i>*${spell(aftervowelLostBetweenConsonantAndResonant)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
             } else {
-                afterExample = `${newName} <i><strong>${spell(correctionsForStrings(aftervowelLostBetweenConsonantAndResonant))}</strong></i>`
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
             };
             let beforeExample = "";
             if(correctionsForStrings(originalJoined) === beforevowelLostBetweenConsonantAndResonant) {

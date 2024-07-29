@@ -747,7 +747,7 @@ function determineGrammaticalNumber() {
             document.getElementById("fusional-no-gender-singular-dual-plural").style.display = "block";
         }
         document.getElementById("grammatical-number-amount").innerHTML = "three";
-        document.getElementById("grammatical-number-list").innerHTML = "singular, dual and plural. The dual signifies two of a noun.";
+        document.getElementById("grammatical-number-list").innerHTML = "singular, dual and plural. The dual signifies two of a noun";
         return "singular-dual-plural";
     };
     if(grammaticalNumber >= 7 && grammaticalNumber < 12) {
@@ -763,7 +763,7 @@ function determineGrammaticalNumber() {
             document.getElementById("fusional-no-gender-singular-dual-trial-plural").style.display = "block";
         }
         document.getElementById("grammatical-number-amount").innerHTML = "four";
-        document.getElementById("grammatical-number-list").innerHTML = "singular, dual, trial and plural. The dual signifies two of a noun and the trial three.";
+        document.getElementById("grammatical-number-list").innerHTML = "singular, dual, trial and plural. The dual signifies two of a noun and the trial three";
         return "singular-dual-trial-plural";
     };
     if(grammaticalNumber >= 15 && grammaticalNumber < 18) {
@@ -771,7 +771,7 @@ function determineGrammaticalNumber() {
             document.getElementById("fusional-no-gender-singular-dual-trial-quadral-plural").style.display = "block";
         }
         document.getElementById("grammatical-number-amount").innerHTML = "five";
-        document.getElementById("grammatical-number-list").innerHTML = "singular, dual, trial, quadral and plural. The dual signifies two of a noun, the trial three and the quadral four.";
+        document.getElementById("grammatical-number-list").innerHTML = "singular, dual, trial, quadral and plural. The dual signifies two of a noun, the trial three and the quadral four";
         return "singular-dual-trial-quadral-plural";
     };
     if(grammaticalNumber >= 18 && grammaticalNumber < 21) {
@@ -779,7 +779,7 @@ function determineGrammaticalNumber() {
             document.getElementById("fusional-no-gender-singular-plural-greater-plural").style.display = "block";
         }
         document.getElementById("grammatical-number-amount").innerHTML = "three";
-        document.getElementById("grammatical-number-list").innerHTML = `singular, plural and greater plural. The greater plural signifies "a lot of X", "many X", "a great amount of", "a multitude of" and so on.`;
+        document.getElementById("grammatical-number-list").innerHTML = `singular, plural and greater plural. The greater plural signifies "a lot of X", "many X", "a great amount of", "a multitude of" and so on`;
         return "singular-plural-greater-plural";
     };
     if(grammaticalNumber >= 21 && grammaticalNumber < 24) {
@@ -972,6 +972,7 @@ function chooseCases() {
 
 function explainCases() {
     if(chosenNounCases.length > 0) {
+        console.log("chosenNounCases.length > 0")
         const listOfCases = [];
         chosenNounCases.forEach((element) => listOfCases.push(element));
         listOfCases.pop()

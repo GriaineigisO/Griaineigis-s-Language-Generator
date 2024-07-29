@@ -2,6 +2,7 @@
 
 - Make fusional nouns with gender but no case
 - Make fusional nouns with gender and case
+- consonantal root system
 
 # Phonology
 

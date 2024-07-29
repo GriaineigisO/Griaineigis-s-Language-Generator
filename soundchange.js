@@ -321,7 +321,7 @@ function selectSoundChanges() {
         }
     };
 
-    console.log(chosenSoundChanges)
+    //console.log(chosenSoundChanges)
 
     randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
     randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
@@ -1028,7 +1028,6 @@ function correctionsForStrings(word) {
        }
    }
 
-   
    //prevent preaspirated consonants occuring word initially
    if(wordArray[0] === "ʰ") {
        wordArray.splice(0, 1);
@@ -1097,6 +1096,13 @@ function correctionsForStrings(word) {
             wordArray[i] = "u";
         };
     }
+
+    for(let i = 0; i < wordArray.length; i++) {
+        while(wordArray[i] === "A" || wordArray[i] === "X") {
+            wordArray.splice(i, 1);
+        };
+    }
+
    /*^^CORRECTIVE CHANGES^^^****/
 
    let joined = wordArray.join("");

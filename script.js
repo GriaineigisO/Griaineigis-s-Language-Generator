@@ -1124,7 +1124,7 @@ function randomNumForNounGender() {
     if(typologyNum === 0) {
         genderNum = 0;
     } else {
-        genderNum = 0//Math.floor(Math.random() * 16);
+        genderNum = 9//Math.floor(Math.random() * 16);
     }
     if(genderNum < 9) {
         document.getElementById("agglutinative-gender").style.display = "none";

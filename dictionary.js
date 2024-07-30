@@ -15,7 +15,7 @@ import {generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedA
     animacyClassifierArray,
     shapeClassifierArray,
     shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, languageName } from './script.js'
-import {grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix} from './fusionalNouns.js'
+import {grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, animGeneralAffix, inanGeneralAffix, nomGeneralAffix} from './fusionalNouns.js'
 
 import {spell} from './orthography.js'
 import {soundChange, correctionsForStrings} from './soundchange.js';
@@ -561,6 +561,84 @@ function makeDictionary() {
                 
             }
             }
+        }
+        if(genderNum > 0 && typologyNum === 2 && grammaticalNumber > 24 && grammaticalNumber < 27) {
+            if(nounGenderArray.includes("animate") && nounGenderArray.includes("inanimate")) {
+                if(countNounArray.includes(englishWords[i])) {
+                    let index = countNounArray.indexOf(englishWords[i])
+                    if(animInan[index] === "anim") {
+                        pOfSpeech = "n.anim" + bareRoots;
+                        animateArray.push(generatedCountNouns[i])
+                        if(genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + animGeneralAffix;
+                        }
+                        if(genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = animGeneralAffix + languageWords[i];
+                        }
+                    classifierInfo = "";;
+                    } else if (animInan[index] === "inan"){
+                        pOfSpeech = "n.inan" + bareRoots;
+                        inanimateArray.push(generatedCountNouns[i])
+                        if(genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + inanGeneralAffix;
+                        }
+                        if(genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = inanGeneralAffix + languageWords[i];
+                        }
+                    }
+                    classifierInfo = "";;
+            }
+            if(massNounArray.includes(englishWords[i])) {
+                let index = massNounArray.indexOf(englishWords[i])
+                if(animInanMass[index] === "anim") {
+                    pOfSpeech = "n.anim," +  bareRoots;
+                    animalArray.push(generatedMassNouns[i])
+                    if(genderSuffixOrPrefix === "suffix") {
+                        wordWithAffix = "X" + languageWords[i] + animGeneralAffix;
+                    }
+                    if(genderSuffixOrPrefix === "prefix") {
+                        wordWithAffix = animGeneralAffix + languageWords[i];
+                    }
+                    classifierInfo = "";
+                } else if (animInanMass[index] === "inan"){
+                    pOfSpeech = "n.inan" + bareRoots;
+                    inanimateArray.push(generatedMassNouns[i])
+                    if(genderSuffixOrPrefix === "suffix") {
+                        wordWithAffix = "X" + languageWords[i] + inanGeneralAffix;
+                    }
+                    if(genderSuffixOrPrefix === "prefix") {
+                        wordWithAffix = inanGeneralAffix + languageWords[i];
+                    }
+                    classifierInfo = "";
+                }
+                
+            }
+            }
+        }
+        if(genderNum === 0 && typologyNum === 2 && grammaticalNumber > 24 && grammaticalNumber < 27) {
+                if(countNounArray.includes(englishWords[i])) {
+                        pOfSpeech = "n" + bareRoots;
+                        if(numberSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + nomGeneralAffix;
+                        }
+                        if(numberSuffixOrPrefix === "prefix") {
+                            wordWithAffix = nomGeneralAffix + languageWords[i];
+                        }
+                    classifierInfo = "";
+
+            }
+            if(massNounArray.includes(englishWords[i])) {
+                let index = massNounArray.indexOf(englishWords[i])
+                    pOfSpeech = "n," +  bareRoots;
+                    if(numberSuffixOrPrefix === "suffix") {
+                        wordWithAffix = "X" + languageWords[i] + nomGeneralAffix;
+                    }
+                    if(numberSuffixOrPrefix === "prefix") {
+                        wordWithAffix = nomGeneralAffix + languageWords[i];
+                    }
+                    classifierInfo = "";
+            }
+            
         }
 
         if(typologyNum === 0 && grammaticalNumIsolating > 5 && randomClassifierNum === 0) {
@@ -1416,6 +1494,84 @@ function makeDictionary() {
                 }
                 }
             };
+            if(genderNum > 0 && typologyNum === 2 && grammaticalNumber > 24 && grammaticalNumber < 27) {
+            if(nounGenderArray.includes("animate") && nounGenderArray.includes("inanimate")) {
+                if(countNounArray.includes(englishWords[i])) {
+                    let index = countNounArray.indexOf(englishWords[i])
+                    if(animInan[index] === "anim") {
+                        pOfSpeech = "n.anim";
+                        animateArray.push(generatedCountNouns[i])
+                        if(genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + animGeneralAffix;
+                        }
+                        if(genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = animGeneralAffix + languageWords[i];
+                        }
+                    classifierInfo = "";;
+                    } else if (animInan[index] === "inan"){
+                        pOfSpeech = "n.inan";
+                        inanimateArray.push(generatedCountNouns[i])
+                        if(genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + inanGeneralAffix;
+                        }
+                        if(genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = inanGeneralAffix + languageWords[i];
+                        }
+                    }
+                    classifierInfo = "";;
+            }
+            if(massNounArray.includes(englishWords[i])) {
+                let index = massNounArray.indexOf(englishWords[i])
+                if(animInanMass[index] === "anim") {
+                    pOfSpeech = "n.anim,";
+                    animalArray.push(generatedMassNouns[i])
+                    if(genderSuffixOrPrefix === "suffix") {
+                        wordWithAffix = "X" + languageWords[i] + animGeneralAffix;
+                    }
+                    if(genderSuffixOrPrefix === "prefix") {
+                        wordWithAffix = animGeneralAffix + languageWords[i];
+                    }
+                    classifierInfo = "";
+                } else if (animInanMass[index] === "inan"){
+                    pOfSpeech = "n.inan";
+                    inanimateArray.push(generatedMassNouns[i])
+                    if(genderSuffixOrPrefix === "suffix") {
+                        wordWithAffix = "X" + languageWords[i] + inanGeneralAffix;
+                    }
+                    if(genderSuffixOrPrefix === "prefix") {
+                        wordWithAffix = inanGeneralAffix + languageWords[i];
+                    }
+                    classifierInfo = "";
+                }
+                
+            }
+            }
+            }
+            if(genderNum === 0 && typologyNum === 2 && grammaticalNumber > 24 && grammaticalNumber < 27) {
+                if(countNounArray.includes(englishWords[i])) {
+                        pOfSpeech = "n";
+                        if(numberSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + nomGeneralAffix;
+                        }
+                        if(numberSuffixOrPrefix === "prefix") {
+                            wordWithAffix = nomGeneralAffix + languageWords[i];
+                        }
+                    classifierInfo = "";
+
+            }
+            if(massNounArray.includes(englishWords[i])) {
+                let index = massNounArray.indexOf(englishWords[i])
+                    pOfSpeech = "n";
+                    if(numberSuffixOrPrefix === "suffix") {
+                        wordWithAffix = "X" + languageWords[i] + nomGeneralAffix;
+                    }
+                    if(numberSuffixOrPrefix === "prefix") {
+                        wordWithAffix = nomGeneralAffix + languageWords[i];
+                    }
+                    classifierInfo = "";
+            }
+            
+        }
 
             if(typologyNum === 0 && grammaticalNumIsolating > 5 && randomClassifierNum === 0) {
                 if(countNounArray.includes(englishWords[i])) {

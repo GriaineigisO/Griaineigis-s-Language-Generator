@@ -18,7 +18,7 @@ function clearArrays() {
 
 let grammaticalNumber = 0;
 function makeRandomNumbers() {
-    grammaticalNumber = 20//Math.floor(Math.random() * 31);
+    grammaticalNumber = 26//Math.floor(Math.random() * 31);
 }
 
 function markedSingular() {
@@ -833,7 +833,7 @@ function makeInanGreater(noun) {
 }
 
 function makeInanGeneral(noun) {
-    return inflectNouns(noun, inanCollAffix);
+    return inflectNouns(noun, inanGeneralAffix);
 }
 
 function makeInanSingulative(noun) {
@@ -5807,8 +5807,8 @@ if(numberSuffixOrPrefix === "suffix") {
             }
             inflectionTable.appendChild(newRow);
             newRow.appendChild(caseLabelTD);
-            newRow.appendChild(plTD);
             newRow.appendChild(generalTD);
+            newRow.appendChild(plTD);
         }
         if(chosenNounCases.includes("Accusative")) {
             let caseH4 = document.createElement("h4");
@@ -7676,6 +7676,251 @@ function explainGenders() {
             document.getElementById("fusional-gender-no-case-explanation").appendChild(tableDiv)
 
         }
+        if(determineGrammaticalNumber() === "singular-plural-general") {
+            document.getElementById("number-length").innerHTML = "three";
+            document.getElementById("grammatical-number-list-gender-no-case").innerHTML = 'singular, plural and general.  The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general)'
+            let tableDiv = document.createElement("div");
+            tableDiv.classList.add("inflection-table-div");
+
+            let inflectionTable = document.createElement("table");
+            inflectionTable.classList.add("inflection-table");
+            let headingRow = document.createElement("tr")
+            let emptyCell = document.createElement("th");
+            let sgHeading = document.createElement("th");
+            sgHeading.innerHTML = `Singular`
+            let plHeading = document.createElement("th");
+            plHeading.innerHTML = `Plural`
+            let generalHeading = document.createElement("th");
+            generalHeading.innerHTML = `General`
+
+            inflectionTable.appendChild(headingRow);
+            headingRow.appendChild(emptyCell);
+            headingRow.appendChild(sgHeading);
+            headingRow.appendChild(plHeading);
+            headingRow.appendChild(generalHeading);
+
+            let animateH4 = document.createElement("h4");
+            animateH4.innerHTML = `<strong>Animate</strong>`;
+
+            let animArray = [];
+            for(let i = 0; i < countNounArray.length; i++) {
+                let index = countNounArray.indexOf(countNounArray[i])
+                if(animInan[index] === "anim") {
+                    animArray.push(countNounArray[i]);
+                }
+            }
+            let exampleArray = []
+            function makeExamples(make, nounArray, genderArray) {
+                for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * genderArray.length);
+                    let example = "";
+                    if(genderSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(genderArray[randomIndex])] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[countNounArray.indexOf(genderArray[randomIndex])])))}</i> "${nounArray[countNounArray.indexOf(genderArray[randomIndex])]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[countNounArray.indexOf(genderArray[randomIndex])]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[countNounArray.indexOf(genderArray[randomIndex])])))}</i> "${nounArray[countNounArray.indexOf(genderArray[randomIndex])]}"`
+                    }
+                    exampleArray.push(example);
+                }
+                let joinedList = exampleArray.join(", ")
+                exampleArray = [];
+                return joinedList;
+            }
+            let animSgExamples = makeExamples(makeAnimSingular, countNounArray, animArray);
+            let animPlExamples = makeExamples(makeAnimPlural, countNounArrayPlural, animArray);
+            let animGeneralExamples = makeExamples(makeAnimGeneral, countNounArrayPlural, animArray);
+
+            let animP = document.createElement("p");
+            animP.innerHTML = `The animate singular is marked with the ${listAffixesInIsolation(animSgAffix)}: ${animSgExamples}.
+            <br>The animate plural is marked with the ${listAffixesInIsolation(animPlAffix)}: ${animPlExamples}
+            <br>The animate general is marked with the ${listAffixesInIsolation(animGeneralAffix)}: ${animGeneralExamples}`;
+
+            let animRow = document.createElement("tr");
+            let animTD = document.createElement("td");
+            animTD.innerHTML = `<strong>Animate</strong>`;
+            let animSgTD = document.createElement("td");
+            let animPlTD = document.createElement("td");
+            let animGeneralTD = document.createElement("td");
+            if(genderSuffixOrPrefix === "suffix") {
+                animSgTD.innerHTML = `-<i>${spell(soundChange("A" + animSgAffix))}</i>`
+                animPlTD.innerHTML = `-<i>${spell(soundChange("A" + animPlAffix))}</i>`
+                animGeneralTD.innerHTML = `-<i>${spell(soundChange("A" + animGeneralAffix))}</i>`
+            } else {
+                animSgTD.innerHTML = `<i>${spell(soundChange(animSgAffix + "X"))}</i>-`;
+                animPlTD.innerHTML = `<i>${spell(soundChange(animPlAffix +  "X"))}</i>-`;
+                animGeneralTD.innerHTML = `<i>${spell(soundChange(animGeneralAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(animRow);
+            animRow.appendChild(animTD);
+            animRow.appendChild(animSgTD);
+            animRow.appendChild(animPlTD);
+            animRow.appendChild(animGeneralTD);
+
+            let inanimateH4 = document.createElement("h4");
+            inanimateH4.innerHTML = `<strong>Inanimate</strong>`;
+
+            let inanArray = [];
+            for(let i = 0; i < countNounArray.length; i++) {
+                let index = countNounArray.indexOf(countNounArray[i])
+                if(animInan[index] === "inan") {
+                    inanArray.push(countNounArray[i]);
+                }
+            }
+            
+            let inanSgExamples = makeExamples(makeInanSingular, countNounArray, inanArray);
+            let inanPlExamples = makeExamples(makeInanPlural, countNounArrayPlural, inanArray);
+            let inanGeneralExamples = makeExamples(makeInanGeneral, countNounArrayPlural, inanArray);
+
+            let inanP = document.createElement("p");
+            inanP.innerHTML = `The inanimate singular is marked with the ${listAffixesInIsolation(inanSgAffix)}: ${inanSgExamples}.
+            <br>The inanimate plural is marked with the ${listAffixesInIsolation(inanPlAffix)}: ${inanPlExamples}
+            <br>The inanimate general is marked with the ${listAffixesInIsolation(inanGeneralAffix)}: ${inanGeneralExamples}`;
+
+            let inanRow = document.createElement("tr");
+            let inanTD = document.createElement("td");
+            inanTD.innerHTML = `<strong>Inanimate</strong>`;
+            let sgTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            let generalTD = document.createElement("td");
+            if(genderSuffixOrPrefix === "suffix") {
+                sgTD.innerHTML = `-<i>${spell(soundChange("A" + inanSgAffix))}</i>`
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + inanPlAffix))}</i>`
+                generalTD.innerHTML = `-<i>${spell(soundChange("A" + inanGeneralAffix))}</i>`
+            } else {
+                sgTD.innerHTML = `<i>${spell(soundChange(inanSgAffix + "X"))}</i>-`;
+                plTD.innerHTML = `<i>${spell(soundChange(inanPlAffix +  "X"))}</i>-`;
+                generalTD.innerHTML = `<i>${spell(soundChange(inanGeneralAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(inanRow);
+            inanRow.appendChild(inanTD);
+            inanRow.appendChild(sgTD);
+            inanRow.appendChild(plTD);
+            inanRow.appendChild(generalTD);
+
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(animateH4);
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(animP);
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(inanimateH4);
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(inanP);
+
+           
+            tableDiv.appendChild(inflectionTable)
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(tableDiv)
+
+        }
+        if(determineGrammaticalNumber() === "general-plural") {
+            document.getElementById("number-length").innerHTML = "two";
+            document.getElementById("grammatical-number-list-gender-no-case").innerHTML = 'general and plural.  The general number is used when the amount of a noun is irrelevant, or to refer to unnumbered instances of the noun in general e.g "I like dogs" (not specific dogs, just dogs in general). Given the context it may also refer to a single noun. It is broadly a "non-plural" number'
+            let tableDiv = document.createElement("div");
+            tableDiv.classList.add("inflection-table-div");
+
+            let inflectionTable = document.createElement("table");
+            inflectionTable.classList.add("inflection-table");
+            let headingRow = document.createElement("tr")
+            let emptyCell = document.createElement("th");
+            let generalHeading = document.createElement("th");
+            generalHeading.innerHTML = `General`
+            let plHeading = document.createElement("th");
+            plHeading.innerHTML = `Plural`
+           
+            inflectionTable.appendChild(headingRow);
+            headingRow.appendChild(emptyCell);
+            headingRow.appendChild(generalHeading);
+            headingRow.appendChild(plHeading);
+
+            let animateH4 = document.createElement("h4");
+            animateH4.innerHTML = `<strong>Animate</strong>`;
+
+            let animArray = [];
+            for(let i = 0; i < countNounArray.length; i++) {
+                let index = countNounArray.indexOf(countNounArray[i])
+                if(animInan[index] === "anim") {
+                    animArray.push(countNounArray[i]);
+                }
+            }
+            let exampleArray = []
+            function makeExamples(make, nounArray, genderArray) {
+                for(let i = 0; i < 11; i++) {
+                    let randomIndex = Math.floor(Math.random() * genderArray.length);
+                    let example = "";
+                    if(genderSuffixOrPrefix === "suffix") {
+                        example = `*<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(genderArray[randomIndex])] + "A"))}</i>- > <i>${spell(soundChange(make(generatedCountNouns[countNounArray.indexOf(genderArray[randomIndex])])))}</i> "${nounArray[countNounArray.indexOf(genderArray[randomIndex])]}"`
+                    } else {
+                        example = `*-<i>${spell(soundChange("X" + generatedCountNouns[countNounArray.indexOf(genderArray[randomIndex])]))}</i> > <i>${spell(soundChange(make(generatedCountNouns[countNounArray.indexOf(genderArray[randomIndex])])))}</i> "${nounArray[countNounArray.indexOf(genderArray[randomIndex])]}"`
+                    }
+                    exampleArray.push(example);
+                }
+                let joinedList = exampleArray.join(", ")
+                exampleArray = [];
+                return joinedList;
+            }
+            let animGeneralExamples = makeExamples(makeAnimGeneral, countNounArray, animArray);
+            let animPlExamples = makeExamples(makeAnimPlural, countNounArrayPlural, animArray);
+
+            let animP = document.createElement("p");
+            animP.innerHTML = ` <br>The animate general is marked with the ${listAffixesInIsolation(animGeneralAffix)}: ${animGeneralExamples}
+            <br>The animate plural is marked with the ${listAffixesInIsolation(animPlAffix)}: ${animPlExamples}`;
+
+            let animRow = document.createElement("tr");
+            let animTD = document.createElement("td");
+            animTD.innerHTML = `<strong>Animate</strong>`;
+            let animGeneralTD = document.createElement("td");
+            let animPlTD = document.createElement("td");
+            if(genderSuffixOrPrefix === "suffix") {
+                animGeneralTD.innerHTML = `-<i>${spell(soundChange("A" + animGeneralAffix))}</i>`
+                animPlTD.innerHTML = `-<i>${spell(soundChange("A" + animPlAffix))}</i>`
+            } else {
+                animGeneralTD.innerHTML = `<i>${spell(soundChange(animGeneralAffix +  "X"))}</i>-`;
+                animPlTD.innerHTML = `<i>${spell(soundChange(animPlAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(animRow);
+            animRow.appendChild(animTD);
+            animRow.appendChild(animGeneralTD);
+            animRow.appendChild(animPlTD);
+            
+            let inanimateH4 = document.createElement("h4");
+            inanimateH4.innerHTML = `<strong>Inanimate</strong>`;
+
+            let inanArray = [];
+            for(let i = 0; i < countNounArray.length; i++) {
+                let index = countNounArray.indexOf(countNounArray[i])
+                if(animInan[index] === "inan") {
+                    inanArray.push(countNounArray[i]);
+                }
+            }
+            
+            let inanGeneralExamples = makeExamples(makeInanGeneral, countNounArray, inanArray);
+            let inanPlExamples = makeExamples(makeInanPlural, countNounArrayPlural, inanArray);
+
+            let inanP = document.createElement("p");
+            inanP.innerHTML = `The inanimate general is marked with the ${listAffixesInIsolation(inanGeneralAffix)}: ${inanGeneralExamples}
+            <br>The inanimate plural is marked with the ${listAffixesInIsolation(inanPlAffix)}: ${inanPlExamples}`;
+
+            let inanRow = document.createElement("tr");
+            let inanTD = document.createElement("td");
+            inanTD.innerHTML = `<strong>Inanimate</strong>`;
+            let generalTD = document.createElement("td");
+            let plTD = document.createElement("td");
+            if(genderSuffixOrPrefix === "suffix") {
+                plTD.innerHTML = `-<i>${spell(soundChange("A" + inanPlAffix))}</i>`
+                generalTD.innerHTML = `-<i>${spell(soundChange("A" + inanGeneralAffix))}</i>`
+            } else {
+                plTD.innerHTML = `<i>${spell(soundChange(inanPlAffix +  "X"))}</i>-`;
+                generalTD.innerHTML = `<i>${spell(soundChange(inanGeneralAffix +  "X"))}</i>-`;
+            }
+            inflectionTable.appendChild(inanRow);
+            inanRow.appendChild(inanTD);
+            inanRow.appendChild(generalTD);
+            inanRow.appendChild(plTD);
+
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(animateH4);
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(animP);
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(inanimateH4);
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(inanP);
+
+           
+            tableDiv.appendChild(inflectionTable)
+            document.getElementById("fusional-gender-no-case-explanation").appendChild(tableDiv)
+
+        }
     }
 }
 
@@ -7706,4 +7951,4 @@ function generateLanguage() {
     makeFusionalNounHeader();
 }
 
-export {grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix};
+export {grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, grammaticalNumber, animGeneralAffix, inanGeneralAffix, nomGeneralAffix};

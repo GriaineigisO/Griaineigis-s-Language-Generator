@@ -54,9 +54,6 @@ let wordWithAffix = "";
 let classifierInfo = "";
 
 function makeDictionary() {
-    console.log(animSgAffix)
-    console.log(inanSgAffix)
-    console.log(genderSuffixOrPrefix)
     let englishWords = countNounArray.concat(massNounArray, adjectiveArray, transitiveVerbArray, intransitiveVerbArray, adverbArray, conjunctionArray, adpositionArray, intensifierArray);
 
     let languageWords = generatedCountNouns.concat(generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers);

@@ -60,6 +60,9 @@ function addWords() {
     adjectiveArray.push("cold");
     comparativeAdjectiveArray.push("colder");
 
+    adjectiveArray.push("confident");
+    comparativeAdjectiveArray.push("more confident");
+
     adjectiveArray.push("correct");
     comparativeAdjectiveArray.push("more&nbspcorrect");
 
@@ -300,6 +303,9 @@ function addWords() {
     adjectiveArray.push("speckled");
     comparativeAdjectiveArray.push("more&nbspspeckled");
 
+    adjectiveArray.push("stark");
+    comparativeAdjectiveArray.push("starker");
+
     adjectiveArray.push("stiff");
     comparativeAdjectiveArray.push("stiffer");
 
@@ -308,6 +314,9 @@ function addWords() {
 
     adjectiveArray.push("strong");
     comparativeAdjectiveArray.push("stronger");
+
+    adjectiveArray.push("sure");
+    comparativeAdjectiveArray.push("surer");
 
     adjectiveArray.push("tall");
     comparativeAdjectiveArray.push("taller");

@@ -6837,9 +6837,6 @@ function generateLanguage() {
     explainCases();
     explainGenders();
     makeFusionalNounHeader();
-    console.log(animSgAffix)
-    console.log(inanSgAffix)
-    console.log(genderSuffixOrPrefix)
 }
 
 export {grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix};

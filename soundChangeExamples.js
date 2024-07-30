@@ -735,9 +735,9 @@ function nasalsCantAppearAfterConsonants(word, originalWord) {
             let afterExample = "";
             let originalJoined = correctionsForStrings(originalWord.join(""));
             if(soundChange(originalJoined) !== afternasalsCantAppearAfterConsonants) {
-                afterExample = `<i>*${spell(afternasalsCantAppearAfterConsonants)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+                afterExample = `<i>*${spell(afternasalsCantAppearAfterConsonants)}</i> (> ${newName} <i><strong>${spell(spell(soundChange(originalJoined)))}</strong></i>)`
             } else {
-                afterExample = `${newName} <i>${soundChange(originalJoined)}</i>`
+                afterExample = `${newName} <i>${spell(soundChange(originalJoined))}</i>`
             };
             let beforeExample = "";
             if(originalJoined === beforenasalsCantAppearAfterConsonants) {
@@ -1280,12 +1280,11 @@ function CVRBecomesCCVR(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
         if(consonants.includes(word[i]) && vowels.includes(word[i-1]) && resonants.includes(word[i+1]) && vowels.includes(word[i+2])) {
             let beforeCVRBecomesCCVR = correctionsForStrings(word.join(""));
-            let doubledConsonant = word[i];
             let resonantIndex = word[i+1];
             let vowelIndex = word[i+2];
-            word.splice(i, 0, doubledConsonant);
-            word[i+2] = resonantIndex;
-            word[i+1] = vowelIndex;
+            word.splice(i+1, 0, "ː");
+            word[i+3] = resonantIndex;
+            word[i+2] = vowelIndex;
             let afterCVRBecomesCCVR = correctionsForStrings(word.join(""));
             let afterExample = "";
             let originalJoined = originalWord.join("");

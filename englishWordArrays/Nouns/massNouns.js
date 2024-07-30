@@ -323,20 +323,6 @@ function addWords() {
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
-    massNounArray.push("fog");
-    singulativeMassNounArray.push("bit&nbspof&nbspfog");
-    pluralSingulativeMassNounArray.push("bits&nbspof&nbspfog");
-    activePassiveMass.push("passive")
-    animInanMass.push("inan");
-    divineNonDivineMass.push("profane");
-    humanAnimalInanMass.push("secondinanimate");
-    mascFemNeutMass.push("neuter");
-    mascFemMass.push("feminine1");
-    naturalArtificialMass.push("natural");
-    animacyClassifierMassArray.push("inedible");
-    shapeClassifierMassArray.push("shapeless");
-    shortGenericClassifierMassArray.push("natural-inanimate");
-
     massNounArray.push("flint");
     singulativeMassNounArray.push("piece&nbspof&nbspflint");
     pluralSingulativeMassNounArray.push("pieces&nbspof&nbspflint");
@@ -377,6 +363,34 @@ function addWords() {
     naturalArtificialMass.push("natural");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("round");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+
+      massNounArray.push("fog");
+    singulativeMassNounArray.push("bit&nbspof&nbspfog");
+    pluralSingulativeMassNounArray.push("bits&nbspof&nbspfog");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("inedible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+
+    massNounArray.push("food");
+    singulativeMassNounArray.push("bit&nbspof&nbspfood");
+    pluralSingulativeMassNounArray.push("bits&nbspof&nbspfood");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("edible");
+    shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
     massNounArray.push("garlic");
@@ -868,6 +882,20 @@ function addWords() {
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
+    massNounArray.push("sap");
+    singulativeMassNounArray.push("drop&nbspof&nbspsap");
+    pluralSingulativeMassNounArray.push("drops&nbspof&nbspsap");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("edible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("liquid");
+
     massNounArray.push("sauce");
     singulativeMassNounArray.push("portion&nbspof&nbspsauce");
     pluralSingulativeMassNounArray.push("portions&nbspof&nbspsauce");
@@ -1040,6 +1068,20 @@ function addWords() {
     singulativeMassNounArray.push("ounce&nbspof&nbsptruth");
     pluralSingulativeMassNounArray.push("ounces&nbspof&nbsptruth");
     activePassiveMass.push("active")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("divine");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("masculine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("inedible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+
+    massNounArray.push("vigour");
+    singulativeMassNounArray.push("display&nbspof&nbspvigour");
+    pluralSingulativeMassNounArray.push("displays&nbspof&nbspvigour");
+    activePassiveMass.push("passive")
     animInanMass.push("inan");
     divineNonDivineMass.push("divine");
     humanAnimalInanMass.push("secondinanimate");

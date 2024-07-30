@@ -274,7 +274,7 @@ let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
 let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
-    chosenSoundChanges = [];
+    chosenSoundChanges = [CVRBecomesCCVR];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
     potentialSoundChanges = [

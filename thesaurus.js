@@ -148,4 +148,16 @@ allWordsInThesaurus.push(deemArray);
 let holeArray = ["hole", "gap", "chasm", "void", "dot", "point", "puncture", "orrifice"];
 allWordsInThesaurus.push(holeArray);
 
+let shortArray = ["short", "brief", "curt", "compact", "small", "stubby", "shorn", "stocky", "concise", "inferior"];
+allWordsInThesaurus.push(shortArray);
+
+let ableArray = ["able", "powerful", "competant", "capable", "potent", "stubby", "shorn", "stocky", "concise", "inferior"];
+allWordsInThesaurus.push(ableArray);
+
+let abundantArray = ["abundant", "great", "lush", "considerable", "extravagant", "massive", "ample", "enough", "suitable", "vast"];
+allWordsInThesaurus.push(abundantArray);
+
+let afraidArray = ["afraid", "scared", "frightened", "fearful", "timid", "nervous", "faint-hearted", "cowardly", "fidgety", "anxious"];
+allWordsInThesaurus.push(afraidArray);
+
 export { allWordsInThesaurus };

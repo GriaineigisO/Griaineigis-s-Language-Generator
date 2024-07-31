@@ -1027,6 +1027,35 @@ function makeDictionary() {
             }
         }
 
+        //assigns meaning to the word in Old X, by choosing a random word from the thesaurus
+        let etymologyTranslation = "";
+        let chosenOldMeanings = [];
+        for (let j = 0; j < allWordsInThesaurus.length; j++) {
+            if (allWordsInThesaurus[j][0] === englishWords[i]) {
+                let thesaurusEntryArrayCopy = [].concat(allWordsInThesaurus[j]);
+                //selects a random  word
+                let randomAmountOfAdditionalMeanings = Math.floor(Math.random() * thesaurusEntryArrayCopy.length) + 1;
+                for (let k = 0; k < randomAmountOfAdditionalMeanings; k++) {
+                    let randomItem = Math.floor(Math.random() * thesaurusEntryArrayCopy.length);
+                    if(thesaurusEntryArrayCopy[randomItem] !== undefined) {
+                        chosenOldMeanings.push(thesaurusEntryArrayCopy[randomItem]);
+                    };
+                    
+                    //removes the word from the array, to prevent the entry from listing the same word twice
+                    thesaurusEntryArrayCopy.splice(randomItem, 1);
+                };
+                if(chosenOldMeanings.length === 1) {
+                    etymologyTranslation = chosenOldMeanings.join("");
+                } else {
+                    etymologyTranslation = chosenOldMeanings.join(",&nbsp");
+                }
+                
+                break;
+            } else {
+                etymologyTranslation = englishWords[i];
+            }
+        };
+
         word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
         let headWord = document.createElement("span");
         let pOS = document.createElement("span");
@@ -1038,7 +1067,7 @@ function makeDictionary() {
         pOS.innerHTML = word1.partOfSpeech;
         meaning.innerHTML = word1.translation;
         classiferEtymology.innerHTML = word1.classifierExplanation;
-        etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>`;
+        etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
 
         let entry = document.createElement("div");
         entry.classList.add("entry");
@@ -1830,7 +1859,7 @@ function makeDictionary() {
 
         let chosenMeanings = [];
         for (let i = 0; i < allWordsInThesaurus.length; i++) {
-            if (allWordsInThesaurus[i][0] === translationText && Math.floor(Math.random() * 3) === 1) {
+            if (allWordsInThesaurus[i][0] === translationText && Math.floor(Math.random() * 2) === 1) {
                 //removes the word from the array, to prevent the entry from listing the same word twice. The array is cloned so that the items in the original array are not removed and can be accessed upon each following generation
                 let thesaurusEntryArrayCopy = [].concat(allWordsInThesaurus[i]);
                 thesaurusEntryArrayCopy.splice(0, 1)
@@ -1840,6 +1869,7 @@ function makeDictionary() {
                 for (let j = 0; j < randomAmountOfAdditionalMeanings; j++) {
                     let randomItem = Math.floor(Math.random() * thesaurusEntryArrayCopy.length);
                     chosenMeanings.push(thesaurusEntryArrayCopy[randomItem]);
+                    
                     //removes the word from the array, to prevent the entry from listing the same word twice
                     thesaurusEntryArrayCopy.splice(randomItem, 1);
                 }
@@ -1849,13 +1879,12 @@ function makeDictionary() {
                 } else {
                     translation.innerHTML = `"${translationText}, ${additionalMeanings}"`;
                 }
-
                 break;
             } else {
                 if (pOSText[0] === "v") {
                     translation.innerHTML = `"to ${translationText}"`;
                 } else {
-                    translation.innerHTML = `"${translationText}"`;
+                    translation.innerHTML = `"${translationText}`;
                 }
             }
         };

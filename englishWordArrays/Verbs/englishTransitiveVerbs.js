@@ -721,6 +721,10 @@ function addWords() {
     transitiveVerb3SArray.push("weaves");
     transitiveVerbPastArray.push("wove");
 
+    transitiveVerbArray.push("weed");
+    transitiveVerb3SArray.push("weeds");
+    transitiveVerbPastArray.push("weeded");
+
     transitiveVerbArray.push("wipe");
     transitiveVerb3SArray.push("wipes");
     transitiveVerbPastArray.push("wiped");

@@ -73,7 +73,7 @@ allWordsInThesaurus.push(brownArray);
 let baldArray = ["bald", "bare", "exposed", "uncovered", "roofless", "unclad", "naked"];
 allWordsInThesaurus.push(baldArray);
 
-let pitchArray = ["pitch", "to set up", "to establish", "to bring forth","to found (a group, a society)"];
+let pitchArray = ["pitch", "set up", "establish", "bring forth","found (a group, a society)"];
 allWordsInThesaurus.push(pitchArray);
 
 let streamArray = ["stream", "brook", "small river", "tributary", "tap", "shower", "outflow"];
@@ -82,7 +82,7 @@ allWordsInThesaurus.push(streamArray);
 let normalArray = ["normal", "typical", "usual", "ordinary", "expected", "regular", "consistent"];
 allWordsInThesaurus.push(normalArray);
 
-let darkArray = ["dark", "black", "evil", "unknown", "bad", "wicked", "obscure", "hard&nbspto&nbspsee", "shaded", "blind", "joyless", "insidious", "hateful", "monstrous", "dim", "dull", "lack-luster", "dingy", "bleak", "miserable", "dirty", "(of the sky)&nbspovercast", "looming"];
+let darkArray = ["dark", "black", "evil", "unknown", "bad", "wicked", "obscure", "hard&nbspto&nbspsee", "shaded", "blind", "joyless", "insidious", "hateful", "monstrous", "dim", "dull", "lack-luster", "dingy", "bleak", "miserable", "dirty", "(of&nbspthe&nbspsky)&nbspovercast", "looming"];
 allWordsInThesaurus.push(darkArray);
 
 let divineArray = ["holy", "divine", "sacred", "godly", "fateful", "hallowed", "celestial", "heavenly", "supreme"];
@@ -91,13 +91,13 @@ allWordsInThesaurus.push(divineArray);
 let ravenArray = ["raven", "corvid", "clever person", "coniving person"];
 allWordsInThesaurus.push(ravenArray);
 
-let huntArray = ["hunt", "to seek out", "to prowl", "to stalk", "to track down", "to chase down", "to kill", "to slaughter", "to pursue"];
+let huntArray = ["hunt", "to&nbspseek&nbspout", "to&nbspprowl", "to&nbspstalk", "to&nbsptrack&nbspdown", "to&nbspchase&nbsp", "to&nbspkill", "to&nbspslaughter", "to&nbsppursue"];
 allWordsInThesaurus.push(huntArray);
 
-let weakArray = ["weak", "feeble", "brittle", "pathetic", "pitiful", "unconvincing", "lame", "(of water) still, stagnant, slow-flowing", "languid", "lethargic", "impotent", "sterile", "infertile", "barren", "flaccid", "heaf-hearted", "asthenic", "powerless", "soft", "infirm", "faint", "(of colour) bleached, faded", "effeminate", "flimsy"];
+let weakArray = ["weak", "feeble", "brittle", "pathetic", "pitiful", "unconvincing", "lame", "(of&nbspwater)&nbspstill,&nbspstagnant,&nbspslow-flowing", "languid", "lethargic", "impotent", "sterile", "infertile", "barren", "flaccid", "heaf-hearted", "asthenic", "powerless", "soft", "infirm", "faint", "(of colour) bleached, faded", "effeminate", "flimsy"];
 allWordsInThesaurus.push(weakArray);
 
-let preferArray = ["prefer", "to like", "to choose", "to adopt", "to embrace", "to accept"];
+let preferArray = ["prefer", "to&nbsplike", "to&nbspchoose", "to&nbspadopt", "to&nbspembrace", "to&nbspaccept"];
 allWordsInThesaurus.push(preferArray);
 
 let hollowArray = ["hollow", "unpromising", "unsubstantial", "ungrounded", "immiterial", "vague", "tenuous", "meagre", "lame", "crude", "depressed", "concave", "cavernous", "spacious", "silent"];
@@ -112,13 +112,13 @@ allWordsInThesaurus.push(yellowArray);
 let glassArray = ["glass", "lense"];
 allWordsInThesaurus.push(glassArray);
 
-let seperateArray = ["tear", "to rip", "to seperate", "to segregate", "to isolate", "to rescind", "to bluster", "to claw at", "to riot", "to ravage"];
+let seperateArray = ["tear", "to&nbsprip", "to&nbspseperate", "to&nbspsegregate", "to&nbspisolate", "to&nbsprescind", "to&nbspbluster", "to&nbspclaw&nbspat", "to&nbspriot", "to&nbspravage"];
 allWordsInThesaurus.push(seperateArray);
 
 let flatArray = ["flat", "simple", "mundane", "level", "equal", "horizontal", "supine"];
 allWordsInThesaurus.push(flatArray);
 
-let rewardArray = ["reward", "to enrich", "to pay", "to compensate", "to embuse", "to give tribute"];
+let rewardArray = ["reward", "to&nbspenrich", "to&nbsppay", "to&nbspcompensate", "to&nbspembuse", "to&nbspgive&nbsptribute"];
 allWordsInThesaurus.push(rewardArray);
 
 let airArray = ["air", "gas", "vapour", "fume", "ether"];
@@ -133,7 +133,7 @@ allWordsInThesaurus.push(paddedArray);
 let longArray = ["long", "tall"];
 allWordsInThesaurus.push(longArray);
 
-let suckArray = ["suck", "to draw in"];
+let suckArray = ["suck", "draw in"];
 allWordsInThesaurus.push(suckArray);
 
 let lineageArray = ["lineage", "ancestry", "descent"];
@@ -142,7 +142,7 @@ allWordsInThesaurus.push(lineageArray);
 let raceArray = ["race", "kin", "family", "species", "type", "gender"];
 allWordsInThesaurus.push(raceArray);
 
-let deemArray = ["deem", "to judge", "to reckon", "to determine", "to count", "to consider"];
+let deemArray = ["deem", "judge", "reckon", "determine", "count", "consider"];
 allWordsInThesaurus.push(deemArray);
 
 let holeArray = ["hole", "gap", "chasm", "void", "dot", "point", "puncture", "orrifice"];
@@ -169,25 +169,31 @@ allWordsInThesaurus.push(proseArray);
 let revengeArray = ["revenge", "reciprocity"];
 allWordsInThesaurus.push(revengeArray);
 
-let cloudArray = ["cloud", "sky", "cosmos", "heavens", "mist", "fog", "vapour", "spray", "haze"];
+let cloudArray = ["cloud", "sky", "cosmos", "heavens", "mist", "fog", "vapour", "spray", "haze", "dream"];
 allWordsInThesaurus.push(cloudArray);
 
 let shroudArray = ["shroud", "blanket", "sheet", "cloak", "cover"];
 allWordsInThesaurus.push(shroudArray);
 
-let grandsonArray = ["grandson", "male descendant"];
+let grandsonArray = ["grandson", "male&nbspdescendant"];
 allWordsInThesaurus.push(grandsonArray);
 
-let granddaughterArray = ["granddaughter", "female descendant"];
+let granddaughterArray = ["granddaughter", "female&nbspdescendant"];
 allWordsInThesaurus.push(granddaughterArray);
 
-let grandfatherArray = ["grandfather", "male ancestor"];
+let grandfatherArray = ["grandfather", "male&nbspancestor"];
 allWordsInThesaurus.push(grandfatherArray);
 
-let grandmotherArray = ["granddaughter", "female ancestor"];
+let grandmotherArray = ["granddaughter", "female&nbspancestor"];
 allWordsInThesaurus.push(grandmotherArray);
 
 let realmArray = ["realm", "domain", "world", "kingdom", "territory", "land"];
 allWordsInThesaurus.push(realmArray);
+
+let memoryArray = ["memory", "thought", "reminder", "souvenir", "relic", "retention", "hint", "clue", "token&nbspof&nbsprememberance", "suggestion", "lore", "fame", "name", "tag", "label", "glory", "honour"];
+allWordsInThesaurus.push(memoryArray);
+
+let boardArray = ["board", "table", "platform", "wooden&nbspdoor", "barn&nbspdoor", "wooden&nbspchest", "plank"];
+allWordsInThesaurus.push(boardArray);
 
 export { allWordsInThesaurus };

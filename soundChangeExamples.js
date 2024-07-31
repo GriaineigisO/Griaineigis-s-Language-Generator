@@ -1970,7 +1970,6 @@ function eOBecomeJW(word, originalWord) {
 function VzbecomesVr(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
         while(word[i] === "z" && vowels.includes(word[i-1])) {
-            console.log("z > r")
             let before = correctionsForStrings(word.join(""));
             word[i] = "r";
             let after = correctionsForStrings(word.join(""));

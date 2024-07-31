@@ -200,6 +200,7 @@ let timesVCVBecomesVCWordFinally = 0;
 let timeslongABecomesO = 0;
 let timespalatalisationofPlosives = 0;
 let timeseOBecomeJW = 0;
+let timesVzbecomesVr = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -250,6 +251,7 @@ function clearPreviousOutput() {
     timeslongABecomesO = 0;
     timespalatalisationofPlosives = 0;
     timeseOBecomeJW = 0;
+    timesVzbecomesVr = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -319,7 +321,8 @@ function selectSoundChanges() {
         VCVBecomesVCWordFinally,
         longABecomesO,
         palatalisationofPlosives,
-        eOBecomeJW
+        eOBecomeJW,
+        VzbecomesVr
     ];
     
     //selects which sound changes will be chosen
@@ -975,6 +978,20 @@ function selectSoundChanges() {
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
         };
+        if(chosenSoundChanges[i] === VzbecomesVr) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "VzbecomesVr-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Rhoticisation of /z/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "VzbecomesVr-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `/z/ becomes /r/ when after a vowel: <div class="sound-change-example" id="VzbecomesVr"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
     };
 };
 
@@ -1248,13 +1265,18 @@ function plosivesCantClusterTogetherWordInitially(wordArray) {
 };
 
 function fricativesLostAfterWordInitialConsonants(wordArray) {
+    let tD = ["t", "d"];
+    let sZ = ["ʃ" , "ʒ"]
     if(consonants.includes(wordArray[0]) && selectFricatives().includes(wordArray[1])) {
+        if(tD.includes(wordArray[0]) === false && sZ.includes(wordArray[1]) === false) {
+            wordArray.splice(1, 1);
+        } 
+        
         timesfricativesLostAfterWordInitialConsonantsApplied++;
         if(timesfricativesLostAfterWordInitialConsonantsApplied > 0) {
             document.getElementById("fricativesLostAfterWordInitialConsonants-li").style.display = "block";
             document.getElementById("fricativesLostAfterWordInitialConsonants-ul").style.display = "block";
         }
-        wordArray.splice(1, 1);
     }
     if(consonants.includes(wordArray[1]) && selectFricatives().includes(wordArray[2]) && wordArray[0] === "X") {
         wordArray.splice(2, 1);
@@ -1910,6 +1932,19 @@ function eOBecomeJW(wordArray) {
         }
     }
 }
+
+function VzbecomesVr(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        while(wordArray[i] === "z" && vowels.includes(wordArray[i-1])) {
+            wordArray[i] = "r";
+            timesVzbecomesVr++;
+            if(timesVzbecomesVr > 0) {
+                document.getElementById("VzbecomesVr-li").style.display = "block";
+                document.getElementById("VzbecomesVr-ul").style.display = "block";
+            };
+        };
+    };
+};
 
 /*------------------------------------------------------*/
 

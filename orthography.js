@@ -28,7 +28,6 @@ function randomNumbers() {
     frontö = Math.floor(Math.random() * 7);
     randomNum = Math.floor(Math.random() * 5)
 
-    console.log(randomNumAlveolarFricative)
 
 }
  

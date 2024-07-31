@@ -4,7 +4,7 @@ import {spell} from './orthography.js'
 import {soundChange} from './soundchange.js'
 import { soundChangeExample } from './soundChangeExamples.js';
 import nounCases from './allPossibleNounCases.js';
-import { consonants, vowels } from './generatePhonology.js';
+import { consonants, vowels} from './generatePhonology.js';
 let grammaticalNumberArray = [];
 let chosenNounCases = [];
 
@@ -837,7 +837,7 @@ function makeInanGeneral(noun) {
 }
 
 function makeInanSingulative(noun) {
-    return inflectNouns(noun, inanCollAffix);
+    return inflectNouns(noun, inanSingulativeAffix);
 }
 
 function listAffixesInIsolation(affix) {
@@ -6902,7 +6902,6 @@ function explainGenders() {
             document.getElementById("fusional-gender-no-case-explanation").appendChild(tableDiv)
 
         }
-
         if(determineGrammaticalNumber() === "singular-dual-plural") {
             document.getElementById("number-length").innerHTML = "three";
             document.getElementById("grammatical-number-list-gender-no-case").innerHTML = "singular, dual and plural. The dual number refers to two of a thing"

@@ -40,6 +40,7 @@ let VCVBecomesVCWordFinallyNum = 0;
 let longABecomesONum = 0;
 let palatalisationofPlosivesNum = 0;
 let eOBecomeJWNum = 0;
+let VzbecomesVrNum = 0;
 
 function clearArrays() {
     num = 0;
@@ -80,6 +81,7 @@ function clearArrays() {
     longABecomesONum = 0;
     palatalisationofPlosivesNum = 0;
     eOBecomeJWNum = 0;
+    VzbecomesVrNum = 0;
 };
 
 function cloneArray(array) {
@@ -279,6 +281,11 @@ function populateArray() {
         if(chosenSoundChanges[i].name === "eOBecomeJW") {
             if(soundChangeArray.includes(eOBecomeJW) === false) {
                 soundChangeArray.push(eOBecomeJW);
+            }
+        };
+        if(chosenSoundChanges[i].name === "VzbecomesVr") {
+            if(soundChangeArray.includes(VzbecomesVr) === false) {
+                soundChangeArray.push(VzbecomesVr);
             }
         };
     };
@@ -753,7 +760,7 @@ function nonInitialNonHighVowelsBecomeA(word, originalWord) {
 
 function nasalsCantAppearAfterConsonants(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        while(consonants.includes(word[i]) && allNasalsArray.includes(word[i+1])) {
+        while(consonants.includes(word[i]) && allNasalsArray.includes(word[i+1])&& word[i] !== word[i+1]) {
             let beforenasalsCantAppearAfterConsonants = correctionsForStrings(word.join(""));
             word.splice(i+1, 0, "i");
             let afternasalsCantAppearAfterConsonants = correctionsForStrings(word.join(""));
@@ -1959,6 +1966,42 @@ function eOBecomeJW(word, originalWord) {
         }
     }
 }
+
+function VzbecomesVr(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        while(word[i] === "z" && vowels.includes(word[i-1])) {
+            console.log("z > r")
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "r";
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(VzbecomesVrNum < 6) {    
+                if(VzbecomesVrNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("VzbecomesVr").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("VzbecomesVr").appendChild(example);
+                }
+                VzbecomesVrNum++;   
+            };
+        };
+    };
+};
 /*--------------------------------------------------------------------*/
 
 let generateLanguageButton = document.getElementById("generate-language");

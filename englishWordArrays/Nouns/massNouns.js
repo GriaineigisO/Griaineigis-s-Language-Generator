@@ -435,6 +435,20 @@ function addWords() {
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
+    massNounArray.push("grace");
+    singulativeMassNounArray.push("display&nbspof&nbspgrace");
+    pluralSingulativeMassNounArray.push("displays&nbspof&nbspgrace");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("divine");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("masculine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("inedible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+
     massNounArray.push("grass");
     singulativeMassNounArray.push("blade&nbspof&nbspgrass");
     pluralSingulativeMassNounArray.push("blades&nbspof&nbspgrass");

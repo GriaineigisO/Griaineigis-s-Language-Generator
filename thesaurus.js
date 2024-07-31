@@ -160,4 +160,34 @@ allWordsInThesaurus.push(abundantArray);
 let afraidArray = ["afraid", "scared", "frightened", "fearful", "timid", "nervous", "faint-hearted", "cowardly", "fidgety", "anxious"];
 allWordsInThesaurus.push(afraidArray);
 
+let graceArray = ["grace", "favour", "elegance", "purity", "distinction", "aristocracy", "nobility", "ease", "beauty", "loveliness", "fairness", "splendour", "radiance"];
+allWordsInThesaurus.push(graceArray);
+
+let proseArray = ["prose", "poetry", "lyric", "spell", "verbosity", "verbal magic", "wordiness"];
+allWordsInThesaurus.push(proseArray);
+
+let revengeArray = ["revenge", "reciprocity"];
+allWordsInThesaurus.push(revengeArray);
+
+let cloudArray = ["cloud", "sky", "cosmos", "heavens", "mist", "fog", "vapour", "spray", "haze"];
+allWordsInThesaurus.push(cloudArray);
+
+let shroudArray = ["shroud", "blanket", "sheet", "cloak", "cover"];
+allWordsInThesaurus.push(shroudArray);
+
+let grandsonArray = ["grandson", "male descendant"];
+allWordsInThesaurus.push(grandsonArray);
+
+let granddaughterArray = ["granddaughter", "female descendant"];
+allWordsInThesaurus.push(granddaughterArray);
+
+let grandfatherArray = ["grandfather", "male ancestor"];
+allWordsInThesaurus.push(grandfatherArray);
+
+let grandmotherArray = ["granddaughter", "female ancestor"];
+allWordsInThesaurus.push(grandmotherArray);
+
+let realmArray = ["realm", "domain", "world", "kingdom", "territory", "land"];
+allWordsInThesaurus.push(realmArray);
+
 export { allWordsInThesaurus };

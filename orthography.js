@@ -22,11 +22,13 @@ let randomDentalFricative = 0;
 let frontö = ";"
 let randomNum = 0;
 function randomNumbers() {
-    randomNumAlveolarFricative = Math.floor(Math.random() * 7);
+    randomNumAlveolarFricative = Math.floor(Math.random() * 15);
     randomNumPalatalFricative = Math.floor(Math.random() * 7);
     randomDentalFricative = Math.floor(Math.random() * 2);
     frontö = Math.floor(Math.random() * 7);
     randomNum = Math.floor(Math.random() * 5)
+
+    console.log(randomNumAlveolarFricative)
 
 }
  
@@ -67,47 +69,52 @@ function spell(word) {
 
 
     //POST ALVEOLAR FRICATIVES AND AFFRICATES AND /J/
-   // let randomNum = Math.floor(Math.random() * 7) 
     for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "tʃ" && randomNumAlveolarFricative < 5) {
-            wordArray[i] = "č"
+        if(wordArray[i] === "ʃ" && wordArray[i-1] === "t" && randomNumAlveolarFricative < 16) {
+            wordArray[i] = "č";
+            wordArray.splice(i-1,1);
         }
-        if(wordArray[i] === "dʒ" && randomNumAlveolarFricative < 5) {
+        if(wordArray[i] === "ʒ" && wordArray[i-1] === "d" && randomNumAlveolarFricative < 16) {
             wordArray[i] = "dž"
+            wordArray.splice(i-1,1);
         }
-        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative < 5) {
+        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative < 16) {
             wordArray[i] = "š"
         }
-        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative < 5) {
+        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative < 16) {
             wordArray[i] = "ž"
         }
 
-        if(wordArray[i] === "tʃ" && randomNumAlveolarFricative === 5) {
+        if(wordArray[i] === "ʃ" && wordArray[i-1] === "t" && randomNumAlveolarFricative === 16) {
             wordArray[i] = "ch"
+            wordArray.splice(i-1,1);
         }
-        if(wordArray[i] === "dʒ" && randomNumAlveolarFricative === 5) {
+        if(wordArray[i] === "ʒ" && wordArray[i-1] === "d" && randomNumAlveolarFricative === 16) {
             wordArray[i] = "j"
+            wordArray.splice(i-1,1);
         }
-        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative === 5) {
+        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative === 16) {
             wordArray[i] = "sh"
         }
-        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative === 5) {
+        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative === 16) {
             wordArray[i] = "zh"
         }
-        if(wordArray[i] === "j" && randomNumAlveolarFricative === 5) {
+        if(wordArray[i] === "j" && randomNumAlveolarFricative === 16) {
             wordArray[i] = "y"
         }
 
-        if(wordArray[i] === "tʃ" && randomNumAlveolarFricative > 5) {
+        if(wordArray[i] === "ʃ" && wordArray[i-1] === "t" && randomNumAlveolarFricative === 15) {
             wordArray[i] = "tsj"
+            wordArray.splice(i-1,1);
         }
-        if(wordArray[i] === "dʒ" && randomNumAlveolarFricative > 5) {
+        if(wordArray[i] === "ʒ" && wordArray[i-1] === "d" && randomNumAlveolarFricative === 15) {
             wordArray[i] = "dzj"
+            wordArray.splice(i-1,1);
         }
-        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative > 5) {
+        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative === 15) {
             wordArray[i] = "sj"
         }
-        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative > 5) {
+        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative === 15) {
             wordArray[i] = "zj"
         }
     }

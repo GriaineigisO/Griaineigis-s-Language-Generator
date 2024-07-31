@@ -37,6 +37,9 @@ let CJBecomesCCNum = 0;
 let iUmlautNum = 0;
 let vowelShiftInHeavySyllablesNum = 0;
 let VCVBecomesVCWordFinallyNum = 0;
+let longABecomesONum = 0;
+let palatalisationofPlosivesNum = 0;
+let eOBecomeJWNum = 0;
 
 function clearArrays() {
     num = 0;
@@ -74,6 +77,9 @@ function clearArrays() {
     iUmlautNum = 0;
     vowelShiftInHeavySyllablesNum = 0;
     VCVBecomesVCWordFinallyNum = 0;
+    longABecomesONum = 0;
+    palatalisationofPlosivesNum = 0;
+    eOBecomeJWNum = 0;
 };
 
 function cloneArray(array) {
@@ -260,6 +266,21 @@ function populateArray() {
                 soundChangeArray.push(VCVBecomesVCWordFinally);
             }
         };
+        if(chosenSoundChanges[i].name === "longABecomesO") {
+            if(soundChangeArray.includes(longABecomesO) === false) {
+                soundChangeArray.push(longABecomesO);
+            }
+        };
+        if(chosenSoundChanges[i].name === "palatalisationofPlosives") {
+            if(soundChangeArray.includes(palatalisationofPlosives) === false) {
+                soundChangeArray.push(palatalisationofPlosives);
+            }
+        };
+        if(chosenSoundChanges[i].name === "eOBecomeJW") {
+            if(soundChangeArray.includes(eOBecomeJW) === false) {
+                soundChangeArray.push(eOBecomeJW);
+            }
+        };
     };
 };
 
@@ -287,8 +308,9 @@ function wordFinalDevoicing(word, originalWord) {
                 word[word.length -2] = unvoiced[voicedIndex];
             } 
             let afterwordFinalDevoicing = correctionsForStrings(word.join(""));
-            let afterExample = "";
+            
             let originalJoined = correctionsForStrings(originalWord.join(""));
+            let afterExample = "";
             if(soundChange(originalJoined) !== afterwordFinalDevoicing) {
                 afterExample = `<i>*${spell(afterwordFinalDevoicing)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
             } else {
@@ -358,7 +380,7 @@ function plosivesCantClusterTogetherWordInitially(word, originalWord) {
 function fricativesDebuccaliseBeforeVowels(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
         if(word[i] !== word[i-1]) {
-            if(selectFricatives().includes(word[i]) && vowels.includes(word[i+1])) {
+            if(selectFricatives().includes(word[i]) && vowels.includes(word[i+1]) && word[i-1] !== word[i]) {
                 let beforeFricativesDebuccaliseBeforeVowels = correctionsForStrings(word.join(""));
                 word[i] = "h";
                 let afterfricativesDebuccaliseBeforeVowels = correctionsForStrings(word.join(""));
@@ -367,7 +389,7 @@ function fricativesDebuccaliseBeforeVowels(word, originalWord) {
                 if(soundChange(originalJoined) !== afterfricativesDebuccaliseBeforeVowels) {
                     afterExample = `<i>*${spell(afterfricativesDebuccaliseBeforeVowels)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
                 } else {
-                    afterExample = `${newName} <i>${spell(afterfricativesDebuccaliseBeforeVowels)}</i>`
+                    afterExample = `${newName} <i><strong>${spell(afterfricativesDebuccaliseBeforeVowels)}</strong></i>`
                 }
                 let beforeExample = "";
                 if(originalJoined === beforeFricativesDebuccaliseBeforeVowels) {
@@ -436,6 +458,9 @@ function wordFinalHighVowelsLower(word, originalWord) {
     if(highVowels.includes(word[word.length -1])) {
         let vowelIndex = highVowels.indexOf(word[word.length -1]);
         let beforewordFinalHighVowelsLower = correctionsForStrings(word.join(""));
+        if(word[word.length -2] === word[word.length -1]) {
+            word[word.length -2] = midVowels[vowelIndex];
+        }
         word[word.length -1] = midVowels[vowelIndex];
         let afterwordFinalHighVowelsLower = correctionsForStrings(word.join(""));
         let afterExample = "";
@@ -504,7 +529,7 @@ function NoResonantsBeforeConsonants(word, originalWord) {
     };
     if(randomNumForNoResonantsBeforeConsonants === 1) {
         for(let i = 0; i < word.length; i++) {
-            if(resonants.includes(word[i]) && consonants.includes(word[i + 1])) {
+            if(resonants.includes(word[i]) && consonants.includes(word[i + 1]) && word[i] !== word[i+1]) {
                 let beforeNoResonantsBeforeConsonants = correctionsForStrings(word.join(""));
                 word.splice(i+1, 0, "i");
                 let afterNoResonantsBeforeConsonants = correctionsForStrings(word.join(""));
@@ -539,7 +564,7 @@ function NoResonantsBeforeConsonants(word, originalWord) {
     }
     if(randomNumForNoResonantsBeforeConsonants === 2) {
     for(let i = 0; i < word.length; i++) {
-        if(resonants.includes(word[i]) && consonants.includes(word[i + 1])) {
+        if(resonants.includes(word[i]) && consonants.includes(word[i + 1]) && word[i] !== word[i+1]) {
             let beforeNoResonantsBeforeConsonants = correctionsForStrings(word.join(""));
             word.splice(i+1, 0, "u");
             let afterNoResonantsBeforeConsonants = correctionsForStrings(word.join(""));
@@ -628,7 +653,7 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
             if(soundChange(originalJoined) !== afterlenitionofPlosivebeforeOtherPlosive) {
                 afterExample = `<i>*${spell(afterlenitionofPlosivebeforeOtherPlosive)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
             } else {
-                afterExample = `${newName} <i>${spell(afterlenitionofPlosivebeforeOtherPlosive)}</i>`
+                afterExample = `${newName} <i><strong>${spell(afterlenitionofPlosivebeforeOtherPlosive)}</strong></i>`
             }
             let beforeExample = "";
             if(originalJoined === beforelenitionofPlosivebeforeOtherPlosive) {
@@ -997,7 +1022,7 @@ function hLostAfterConsonants(word, originalWord) {
 
 function nasalsLostBetweenVowelAndConsonant(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(allNasalsArray.includes(word[i]) && consonants.includes(word[i+1]) && vowels.includes(word[i-1])) {
+        if(allNasalsArray.includes(word[i]) && consonants.includes(word[i+1]) && vowels.includes(word[i-1]) && word[i] !== word[i+1]) {
             let beforenasalsLostBetweenVowelAndConsonant = correctionsForStrings(word.join(""));
             let lengthMarkedWithTriangles = cloneArray(word);
             word[i] = word[i-1];
@@ -1074,6 +1099,9 @@ function aCaBecomesaCi(word, originalWord) {
         if(word[i] === "a" && word[i-2] === "a" && consonants.includes(word[i-1]) || word[i] === "a" && word[i-3] === "a" && consonants.includes(word[i-1] && consonants[word[i-2]])) {
             let beforeaCaBecomesaCi = correctionsForStrings(word.join(""));
             word[i] = "i";
+            if(word[i+1] === "a") {
+                word[i+1] = "i";
+            }
             let afteraCaBecomesaCi = correctionsForStrings(word.join(""));
             let afterExample = "";
             let originalJoined = originalWord.join("");
@@ -1194,7 +1222,7 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
             if(originalJoined === beforeplosivesDebuccaliseInCoda) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
             } else {
-                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i> > *<i>${spell(correctionsForStrings(beforeplosivesDebuccaliseInCoda))}</i>`
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(correctionsForStrings(beforeplosivesDebuccaliseInCoda))}</i>`
             }
             if(plosivesDebuccaliseInCodaNum < 6) {    
                 if(plosivesDebuccaliseInCodaNum === 0) {
@@ -1278,7 +1306,7 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
 
 function CVRBecomesCCVR(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(consonants.includes(word[i]) && vowels.includes(word[i-1]) && resonants.includes(word[i+1]) && vowels.includes(word[i+2])) {
+        if(consonants.includes(word[i]) && vowels.includes(word[i-1]) && resonants.includes(word[i+1]) && word[i] !== word[i+1] && vowels.includes(word[i+2])) {
             let beforeCVRBecomesCCVR = correctionsForStrings(word.join(""));
             let resonantIndex = word[i+1];
             let vowelIndex = word[i+2];
@@ -1390,6 +1418,9 @@ function eciBecomesiCi(word, originalWord) {
         if(word[i] === "e" && consonants.includes(word[i+1]) && iOrJ.includes(word[i+2])) {
             let beforeeciBecomesiCi = correctionsForStrings(word.join(""));
             word[i] = "i";
+            if(word[i-1] === "e") {
+                word[i-1] = "i";
+            };
             let aftereciBecomesiCi = correctionsForStrings(word.join(""));
             let afterExample = "";
             let originalJoined = originalWord.join("");
@@ -1426,6 +1457,9 @@ function iCbecomeseC(word, originalWord) {
         if(word[i] === "i" && consonants.includes(word[i+1]) && nonHighVowels.includes(word[i+2])) {
             let beforeiCbecomeseC = correctionsForStrings(word.join(""));
             word[i] === "e";
+            if(word[i-1] === "i") {
+                word[i-1] = "e";
+            }
             let afteriCbecomeseC = correctionsForStrings(word.join(""));
             let afterExample = "";
             let originalJoined = originalWord.join("");
@@ -1464,6 +1498,9 @@ function VJbecomesLongI(word, originalWord) {
             let lengthMarkedWithTriangles = cloneArray(word);
             word[i] = "i";
             word[i+1] = "i";
+            if(word[i-1] === "i") {
+                word.splice(i-1,1);
+            }
             let afterVJbecomesLongI = correctionsForStrings(lengthMarkedWithTriangles);
             let afterExample = "";
             let originalJoined = originalWord.join("");
@@ -1499,6 +1536,9 @@ function uNBecomesoN(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
         if(word[i] === "u" && allNasalsArray.includes(word[i+1]) && nonHighVowels.includes(word[i+2])) {
             let beforeuNBecomesoN = correctionsForStrings(word.join(""));
+            if(word[i-1] === "u") {
+                word[i-1] = "o";
+            }
             word[i] = "o";
             let afteruNBecomesoN = correctionsForStrings(word.join(""));
             let afterExample = "";
@@ -1536,6 +1576,9 @@ function gBecomesJ(word, originalWord) {
         if(word[i] === "g" && frontVowels.includes(word[i-1])) {
             let beforegBecomesJ = correctionsForStrings(word.join(""));
             word[i] = "j";
+            if(word[i-1] === "g") {
+                word[i-1] = "j"
+            }
             let aftergBecomesJ = correctionsForStrings(word.join(""));
             let afterExample = "";
             let originalJoined = originalWord.join("");
@@ -1586,7 +1629,7 @@ function VvBecomesVV(word, originalWord) {
             if(correctionsForStrings(originalJoined) === beforeVvBecomesVV) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
             } else {
-                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i> > *<i>${spell(correctionsForStrings(beforeVvBecomesVV))}</i>`
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(correctionsForStrings(beforeVvBecomesVV))}</i>`
             }
             if(VvBecomesVVNum < 6) {    
                 if(VvBecomesVVNum === 0) {
@@ -1610,6 +1653,9 @@ function eNBecomesiN(word, originalWord) {
         if(word[i] === "e" && allNasalsArray.includes(word[i+1])) {
             let beforeeNBecomesiN = correctionsForStrings(word.join(""));
             word[i] = "i";
+            if(word[i-1] === "e") {
+                word[i-1] = "i";
+            };
             let aftereNBecomesiN = correctionsForStrings(word.join(""));
             let afterExample = "";
             let originalJoined = originalWord.join("");
@@ -1688,6 +1734,9 @@ function iUmlaut(word, originalWord) {
         vowels.includes(word[i]) && umlautCauser.includes(word[i+3]) && word[i] !== "i") {
             let vowelIndex = vowels.indexOf(word[i]);
             let beforeiUmlaut = correctionsForStrings(word.join(""));
+            if(word[i-1] === word[i]) {
+                word[i-1] = umlautVowels[vowelIndex];
+            }
             word[i] = umlautVowels[vowelIndex];
             let afteriUmlaut = correctionsForStrings(word.join(""));
             let afterExample = "";
@@ -1727,6 +1776,9 @@ function vowelShiftInHeavySyllables(word, originalWord) {
         if(tense.includes(word[i]) && consonants.includes(word[i+1]) && consonants.includes(word[i+2]) || tense.includes(word[i]) && consonants.includes(word[i+1]) && word[i+1] === word[word.length - 1]) {
             let beforevowelShiftInHeavySyllables = correctionsForStrings(word.join(""));
             let tenseIndex = tense.indexOf(word[i]);
+            if(word[i-1] === word[i]) {
+                word[i-1] = lax[tenseIndex];
+            }
             word[i] = lax[tenseIndex];
             let aftervowelShiftInHeavySyllables = correctionsForStrings(word.join(""));
             let afterExample = "";
@@ -1789,9 +1841,124 @@ function VCVBecomesVCWordFinally(word, originalWord) {
                 }
                 VCVBecomesVCWordFinallyNum++;   
     };
+};
     return word;
 };
+
+function longABecomesO(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "a" && word[i+1] === "ː") {
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "o";
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(longABecomesONum < 6) {    
+                if(longABecomesONum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("longABecomesO").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("longABecomesO").appendChild(example);
+                }
+                longABecomesONum++;   
+            };
+        };
+    };
+    return word;
+}
+
+function palatalisationofPlosives(word, originalWord) {
+    let labial = ["b", "bʰ", "bʲ", "bʷ", "bʰʲ", "bʷʰ", "p", "pʰ", "pʲ", "pʷ","pʰʲ", "pʷʰ"];
+    let palatalised = ["b", "dʒ", "dʒ", "bʰ", "dʒ", "dʒ", "dʒ", "dʒ", "bʲ", "dʒ", "dʒ", "bʷ", "dʒʷ", "dʒʷ", "bʰʲ", "dʒ", "dʒ", "bʷʰ", "dʒʷ", "dʒ", "p", "tʃ", "tʃ", "pʰ", "tʃ", "tʃ", "tʃ", "tʃ", "pʲ", "tʃ", "tʃ", "pʷ", "tʃ", "tʃ", "pʰʲ", "tʃ", "tʃ", "pʷʰ", "tʃ", "tʃ", "j", "tʃ", "dʒ"];
+    for(let i = 0; i < word.length; i++) {
+        if(frontVowels.includes(word[i]) && plosives.includes(word[i-1]) && labial.includes(word[i-1]) === false) {
+            let before = correctionsForStrings(word.join(""));
+            let index = plosives.indexOf(word[i-1]);
+            word[i-1] = palatalised[index];
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(palatalisationofPlosivesNum < 6) {    
+                if(palatalisationofPlosivesNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("palatalisationofPlosives").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("palatalisationofPlosives").appendChild(example);
+                }
+                palatalisationofPlosivesNum++;   
+            };
+        };
+    };
 };
+
+function eOBecomeJW(word, originalWord) {
+    let eO = ["e", "o"];
+    let jW = ["j", "w"]
+    for(let i = 0; i < word.length; i++) {
+        if(eO.includes(word[i]) && vowels.includes(word[i+1])) {
+            if(word[i] === word[i+1]) {
+                word.splice(i+1, 1)
+            }
+            let before = correctionsForStrings(word.join(""));
+            let index = eO.indexOf(word[i]);
+            word[i] = jW[index];
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(eOBecomeJWNum < 6) {    
+                if(eOBecomeJWNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("eOBecomeJW").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("eOBecomeJW").appendChild(example);
+                }
+                eOBecomeJWNum++;   
+            };
+        }
+    }
+}
 /*--------------------------------------------------------------------*/
 
 let generateLanguageButton = document.getElementById("generate-language");

@@ -1,6 +1,6 @@
 //@collapse
 import { verbFinalWordOrders } from './allPossibleWordOrders.js';
-import {consonants, vowels as chosenVowels,selectedSyllables, allNasalsArray, selectFricatives, selectNasals} from './generatePhonology.js';
+import {consonants, vowels as chosenVowels,selectedSyllables, allNasalsArray, selectFricatives, selectNasals, chooseVoicing} from './generatePhonology.js';
 import {spell} from './orthography.js'
 let addedConsonants = consonants;
 
@@ -152,7 +152,7 @@ let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "
 let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
 let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ", "ə", "ɛ", "œ", "ɜ", "ɞ", "ʌ", "ɔ", "ɑ", "ɒ", "ɐ", "æ"];
 let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a"];
-let frontVowels = ["i", "y", "e", "ø", "ɛ", "œ", "æ"];
+let frontVowels = ["i", "y", "e", "ø", "ɛ", "œ", "æ", "ɪ"];
 let vowels = highVowels.concat(nonHighVowels);
 let addedVowels = vowels;
 let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
@@ -197,6 +197,9 @@ let timesCJBecomesCC = 0;
 let timesiUmlaut = 0;
 let timesvowelShiftInHeavySyllables = 0;
 let timesVCVBecomesVCWordFinally = 0;
+let timeslongABecomesO = 0;
+let timespalatalisationofPlosives = 0;
+let timeseOBecomeJW = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -244,6 +247,9 @@ function clearPreviousOutput() {
     timesiUmlaut = 0;
     timesvowelShiftInHeavySyllables = 0;
     timesVCVBecomesVCWordFinally = 0;
+    timeslongABecomesO = 0;
+    timespalatalisationofPlosives = 0;
+    timeseOBecomeJW = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -274,7 +280,7 @@ let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
 let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
-    chosenSoundChanges = [CVRBecomesCCVR];
+    chosenSoundChanges = [];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
     potentialSoundChanges = [
@@ -310,7 +316,10 @@ function selectSoundChanges() {
         CJBecomesCC,
         iUmlaut,
         vowelShiftInHeavySyllables,
-        VCVBecomesVCWordFinally
+        VCVBecomesVCWordFinally,
+        longABecomesO,
+        palatalisationofPlosives,
+        eOBecomeJW
     ];
     
     //selects which sound changes will be chosen
@@ -902,6 +911,70 @@ function selectSoundChanges() {
             nestUl.appendChild(VCVBecomesVCWordFinallyUl);
             nestUl.appendChild(examples);
         };
+        if(chosenSoundChanges[i] === longABecomesO) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "longABecomesO-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Long A becomes Long O`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "longABecomesO-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The long vowel /aː/ becomes /oː/: <div class="sound-change-example" id="longABecomesO"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === palatalisationofPlosives) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "palatalisationofPlosives-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Plosives Palatalise Before Front Vowels`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "palatalisationofPlosives-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            let ifUvular = "";
+            if(consonants.includes("ʔ")) {
+                ifUvular = `velar and uvular`
+            } else {
+                ifUvular = `velar`
+            }
+            let ifVoiced = "";
+            if(chooseVoicing() === true) {
+                ifVoiced = ` and voiced alveolar and ${ifUvular} plosives become /dʒ/`
+            };
+            let ifGlottal = "";
+            if(consonants.includes("ʔ")) {
+                ifGlottal = `. The glottal stop becomes /j/`
+            };
+            nestLi.innerHTML = `Voicless alveolar and ${ifUvular} plosives become /tʃ/ before front vowels${ifVoiced}${ifGlottal}: <div class="sound-change-example" id="palatalisationofPlosives"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === eOBecomeJW) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "eOBecomeJW-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Pre-Vocalic Mid Vowels Becomes Approximants`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "eOBecomeJW-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            let mid_vowels = "";
+            if(vowels.includes("e") && vowels.includes("o")) {
+                mid_vowels = `The mid vowels /e/ and /o/ become /j/ and /w/ when before another vowel`
+            } else if(vowels.includes("e") && vowels.includes("o") === false) {
+                mid_vowels = `The mid vowels /e/ becomes /j/ when before another vowel`
+            } else if(vowels.includes("e") === false && vowels.includes("o")) {
+                mid_vowels = `The mid vowel /o/ becomes /w/ when before another vowel`
+            }
+            nestLi.innerHTML = `${mid_vowels}: <div class="sound-change-example" id="eOBecomeJW"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
     };
 };
 
@@ -915,13 +988,21 @@ function corrections(wordArray) {
         } 
     }
 
-      //since long vowels in the IPA are marked like 'iː', with ː being an extra character, this loop deletes the following long vowel if it is the same
-        for(let i = 0; i < wordArray.length; i++) {
-            if(wordArray[i + 1] === "ː" && wordArray[i + 2] === wordArray[i] && wordArray[i + 3] === "ː") {
-                wordArray.splice(i+2, 1)
-                wordArray.splice(i+2, 1)
-            } 
+    //since long vowels in the IPA are marked like 'iː', with ː being an extra character, this loop deletes the following long vowel if it is the same
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i + 1] === "ː" && wordArray[i + 2] === wordArray[i] && wordArray[i + 3] === "ː") {
+            wordArray.splice(i+2, 1)
+            wordArray.splice(i+2, 1)
+        } 
+    }
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === wordArray[i+1] && wordArray[i+2] === "ː") {
+            console.log(wordArray)
+            wordArray.splice(i,1);
+            console.log(wordArray)
+            console.log("triple vowel removed triangl")
         }
+    }
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "ː") {
             wordArray[i] = wordArray[i - 1]
@@ -1125,6 +1206,12 @@ function soundChange(word) {
         };
     }
 
+
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === wordArray[i+1] && wordArray[i] === wordArray[i+2]) {
+            wordArray.splice(i,1);
+        }
+    }
     let final = wordArray.join("");
     return final;
 }
@@ -1178,7 +1265,11 @@ function fricativesLostAfterWordInitialConsonants(wordArray) {
 function wordFinalHighVowelsLower(wordArray) {
     if(highVowels.includes(wordArray[wordArray.length -1])) {
         let vowelIndex = highVowels.indexOf(wordArray[wordArray.length -1]);
+        if(wordArray[wordArray.length -2] === wordArray[wordArray.length -1]) {
+            wordArray[wordArray.length -2] = midVowels[vowelIndex];
+        }
         wordArray[wordArray.length -1] = midVowels[vowelIndex];
+        
         timeswordFinalHighVowelsLowerApplied++
         if(timeswordFinalHighVowelsLowerApplied > 0) {
             document.getElementById("wordFinalHighVowelsLower-li").style.display = "block";
@@ -1205,7 +1296,7 @@ function NoResonantsBeforeConsonants(wordArray) {
     if(randomNumForNoResonantsBeforeConsonants === 1) {
     //inserts /i/ between resonant and consonant
         for(let i = 0; i < wordArray.length; i++) {
-            if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+            if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1]) && wordArray[i] !== wordArray[i+1]) {
                 wordArray.splice(i+1, 0, "i");
                 timesInsterIBetweenConsonantAndResonantApplied++;
                 if(timesInsterIBetweenConsonantAndResonantApplied > 0) {
@@ -1218,7 +1309,7 @@ function NoResonantsBeforeConsonants(wordArray) {
     if(randomNumForNoResonantsBeforeConsonants === 2) {
     //inserts /u/ between resonant and consonant
     for(let i = 0; i < wordArray.length; i++) {
-        if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
+        if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1]) && wordArray[i] !== wordArray[i+1]) {
             wordArray.splice(i+1, 0, "u");
             timesInstertUBetweenConsonantAndResonantApplied++;
             if(timesInstertUBetweenConsonantAndResonantApplied > 0) {
@@ -1312,7 +1403,7 @@ function nonInitialNonHighVowelsBecomeA(wordArray) {
 
 function nasalsCantAppearAfterConsonants(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
-        if(consonants.includes(wordArray[i]) && allNasalsArray.includes(wordArray[i+1])) {
+        if(consonants.includes(wordArray[i]) && allNasalsArray.includes(wordArray[i+1]) && wordArray[i] !== wordArray[i+1]) {
             wordArray.splice(i+1, 0, "i");
             timesnasalsCantAppearAfterConsonantsApplied++
             if(timesnasalsCantAppearAfterConsonantsApplied > 0) {
@@ -1326,7 +1417,7 @@ function nasalsCantAppearAfterConsonants(wordArray) {
 
 function fricativesDebuccaliseBeforeVowels(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
-        if(selectFricatives().includes(wordArray[i]) && vowels.includes(wordArray[i+1])) {
+        if(selectFricatives().includes(wordArray[i]) && vowels.includes(wordArray[i+1]) && wordArray[i] !== wordArray[i-1]) {
             wordArray[i] = "h";
             timefricativesDebuccaliseBeforeVowelsApplied++;
             if(timefricativesDebuccaliseBeforeVowelsApplied > 0) {
@@ -1441,7 +1532,12 @@ function hLostAfterConsonants(wordArray) {
 function nasalsLostBetweenVowelAndConsonant(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(allNasalsArray.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && vowels.includes(wordArray[i-1])) {
-            wordArray[i] = wordArray[i-1];
+
+            if(wordArray[i-1] === wordArray[i-2]) {
+                wordArray.splice(i,1)
+            } else {
+                wordArray[i] = wordArray[i-1];
+            }
             timesnasalsLostBetweenVowelAndConsonant++;
             if(timesnasalsLostBetweenVowelAndConsonant > 0) {
                 document.getElementById("nasalsLostBetweenVowelAndConsonant-li").style.display = "block";
@@ -1470,6 +1566,9 @@ function aCaBecomesaCi(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "a" && wordArray[i-2] === "a" && consonants.includes(wordArray[i-1]) || wordArray[i] === "a" && wordArray[i-3] === "a" && consonants.includes(wordArray[i-1] && consonants[wordArray[i-2]])) {
             wordArray[i] = "i";
+            if(wordArray[i+1] === "a") {
+                wordArray[i+1] = "i";
+            }
             timesaCaBecomesaCi++;
             if(timesaCaBecomesaCi > 0) {
                 document.getElementById("aCaBecomesaCi-li").style.display = "block";
@@ -1524,7 +1623,7 @@ function plosivesDebuccaliseInCoda(wordArray) {
 
 function CVRBecomesCCVR(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
-        if(consonants.includes(wordArray[i]) && vowels.includes(wordArray[i-1]) && resonants.includes(wordArray[i+1]) && vowels.includes(wordArray[i+2])) {
+        if(consonants.includes(wordArray[i]) && vowels.includes(wordArray[i-1]) && resonants.includes(wordArray[i+1]  && wordArray[i] !== wordArray[i+1]) && vowels.includes(wordArray[i+2])) {
             let doubledConsonant = wordArray[i];
             let resonantIndex = wordArray[i+1];
             let vowelIndex = wordArray[i+2];
@@ -1565,6 +1664,9 @@ function eciBecomesiCi(wordArray) {
         let iOrJ = ["i", "j"];
         if(wordArray[i] === "e" && consonants.includes(wordArray[i+1]) && iOrJ.includes(wordArray[i+2])) {
             wordArray[i] = "i";
+            if(wordArray[i-1] === "e") {
+                wordArray[i-1] = "i";
+            };
             timeseciBecomesiCi++;
             if(timeseciBecomesiCi > 0) {
                 document.getElementById("eciBecomesiCi-li").style.display = "block";
@@ -1578,6 +1680,9 @@ function iCbecomeseC(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "i" && consonants.includes(wordArray[i+1]) && nonHighVowels.includes(wordArray[i+2])) {
             wordArray[i] = "e";
+            if(wordArray[i-1] === "i") {
+                wordArray[i-1] = "e";
+            }
             timesiCbecomeseC++;
             if(timesiCbecomeseC > 0) {
                 document.getElementById("iCbecomeseC-li").style.display = "block";
@@ -1593,6 +1698,9 @@ function VJbecomesLongI(wordArray) {
         if(vowels.includes(wordArray[i]) && wordArray[i+1] === "j") {
             wordArray[i] = "i";
             wordArray[i+1] = "i";
+            if(wordArray[i-1] === "i") {
+                wordArray.splice(i-1,1);
+            }
             timesVJbecomesLongI++;
             if(timesVJbecomesLongI > 0) {
                 document.getElementById("VJbecomesLongI-li").style.display = "block";
@@ -1607,6 +1715,9 @@ function uNBecomesoN(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "u" && allNasalsArray.includes(wordArray[i+1]) && nonHighVowels.includes(wordArray[i+2])) {
             wordArray[i] = "o";
+            if(wordArray[i-1] === "u") {
+                wordArray[i-1] = "o";
+            }
             timesuNBecomesoN++;
             if(timesuNBecomesoN > 0) {
                 document.getElementById("uNBecomesoN-li").style.display = "block";
@@ -1621,6 +1732,9 @@ function gBecomesJ(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "g" && frontVowels.includes(wordArray[i-1]) || wordArray[i] === "g" && wordArray[i-1] === "j" ) {
             wordArray[i] = "j";
+            if(wordArray[i-1] === "g") {
+                wordArray[i-1] = "j"
+            }
             timesgBecomesJ++;
             if(timesgBecomesJ > 0) {
                 document.getElementById("gBecomesJ-li").style.display = "block";
@@ -1649,6 +1763,9 @@ function eNBecomesiN(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "e" && allNasalsArray.includes(wordArray[i+1])) {
             wordArray[i] = "i";
+            if(wordArray[i-1] === "e") {
+                wordArray[i-1] = "i";
+            };
             timeseNBecomesiN++;
             if(timeseNBecomesiN > 0) {
                 document.getElementById("eNBecomesiN-li").style.display = "block";
@@ -1681,6 +1798,9 @@ function iUmlaut(wordArray) {
         vowels.includes(wordArray[i]) && umlautCauser.includes(wordArray[i+2]) ||
         vowels.includes(wordArray[i]) && umlautCauser.includes(wordArray[i+3])) {
             let vowelIndex = vowels.indexOf(wordArray[i]);
+            if(wordArray[i-1] === wordArray[i]) {
+                wordArray[i-1] = umlautVowels[vowelIndex];
+            }
             wordArray[i] = umlautVowels[vowelIndex];
             timesiUmlaut++;
             if(timesiUmlaut > 0) {
@@ -1709,6 +1829,9 @@ function vowelShiftInHeavySyllables(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(tense.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && consonants.includes(wordArray[i+2]) || tense.includes(wordArray[i]) && consonants.includes(wordArray[i+1]) && wordArray[i+1] === wordArray[wordArray.length - 1]) {
             let tenseIndex = tense.indexOf(wordArray[i]);
+            if(wordArray[i+1] === wordArray[i]) {
+                wordArray[i+1] = "ː";
+            }
             wordArray[i] = lax[tenseIndex];
             timesvowelShiftInHeavySyllables++;
             if(timesvowelShiftInHeavySyllables > 0) {
@@ -1734,13 +1857,59 @@ function VCVBecomesVCWordFinally(wordArray) {
     if(vowels.includes(wordArray[wordArray.length-1]) && consonants.includes(wordArray[wordArray.length-2]) && vowels.includes(wordArray[wordArray.length-3])) {
         wordArray.splice(wordArray.length-1, 1);
         timesVCVBecomesVCWordFinally++;
-            if(timesVCVBecomesVCWordFinally > 0) {
-                document.getElementById("VCVBecomesVCWordFinally-li").style.display = "block";
-                document.getElementById("VCVBecomesVCWordFinally-ul").style.display = "block";
-            };
+        if(timesVCVBecomesVCWordFinally > 0) {
+            document.getElementById("VCVBecomesVCWordFinally-li").style.display = "block";
+            document.getElementById("VCVBecomesVCWordFinally-ul").style.display = "block";
+        };
     };
 };
 
+function longABecomesO(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "a" && wordArray[i-1] === "a") {
+            wordArray[i] = "o";
+            wordArray[i-1] = "o";
+            timeslongABecomesO++;
+            if(timeslongABecomesO > 0) {
+                document.getElementById("longABecomesO-li").style.display = "block";
+                document.getElementById("longABecomesO-ul").style.display = "block";
+            };
+        }
+    }
+}
+
+function palatalisationofPlosives(wordArray) {
+    let labial = ["b", "bʰ", "bʲ", "bʷ", "bʰʲ", "bʷʰ", "p", "pʰ", "pʲ", "pʷ","pʰʲ", "pʷʰ"];
+    let palatalised = ["b", "dʒ", "dʒ", "bʰ", "dʒ", "dʒ", "dʒ", "dʒ", "bʲ", "dʒ", "dʒ", "bʷ", "dʒʷ", "dʒʷ", "bʰʲ", "dʒ", "dʒ", "bʷʰ", "dʒʷ", "dʒ", "p", "tʃ", "tʃ", "pʰ", "tʃ", "tʃ", "tʃ", "tʃ", "pʲ", "tʃ", "tʃ", "pʷ", "tʃ", "tʃ", "pʰʲ", "tʃ", "tʃ", "pʷʰ", "tʃ", "tʃ", "j", "tʃ", "dʒ"];
+
+    for(let i = 0; i < wordArray.length; i++) {
+        if(frontVowels.includes(wordArray[i]) && plosives.includes(wordArray[i-1]) && labial.includes(wordArray[i-1]) === false) {
+            let index = plosives.indexOf(wordArray[i-1]);
+            wordArray[i-1] = palatalised[index];
+            timespalatalisationofPlosives++;
+            if(timespalatalisationofPlosives > 0) {
+                document.getElementById("palatalisationofPlosives-li").style.display = "block";
+                document.getElementById("palatalisationofPlosives-ul").style.display = "block";
+            };
+        };
+    };
+};
+
+function eOBecomeJW(wordArray) {
+    let eO = ["e", "o"];
+    let jW = ["j", "w"]
+    for(let i = 0; i < wordArray.length; i++) {
+        if(eO.includes(wordArray[i]) && vowels.includes(wordArray[i+1])) {
+            let index = eO.indexOf(wordArray[i]);
+            wordArray[i] = jW[index];
+            timeseOBecomeJW++;
+            if(timeseOBecomeJW > 0) {
+                document.getElementById("eOBecomeJW-li").style.display = "block";
+                document.getElementById("eOBecomeJW-ul").style.display = "block";
+            };
+        }
+    }
+}
 
 /*------------------------------------------------------*/
 

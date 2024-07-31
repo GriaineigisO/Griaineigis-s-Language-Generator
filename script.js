@@ -7733,7 +7733,6 @@ function generateLanguage() {
     applySoundChangesAndOrtho(document.getElementsByClassName("general-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
     applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
-    // console.log(spell(soundChange("bindi")))
     // console.log(spell(soundChange("bidi")))
     //console.log(spell(soundChange("markut")))
    }

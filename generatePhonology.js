@@ -1049,7 +1049,7 @@ function chooseLength() {
 }
 
 function chooseNumberOfMainVowels() {
-    let randomNum = Math.floor(Math.random() * 3)
+    let randomNum = Math.floor(Math.random() * 6)
     let numberOfVowels = 0;
     if(randomNum === 0) {//produces two vowel qualities, i and u
         allFrontVowels.push("i");
@@ -1094,7 +1094,7 @@ function chooseNumberOfMainVowels() {
             }
         }
         numberOfVowels = 3;
-    } else if (randomNum === 2) {//produces five vowel qualities, i, u, e, o and a
+    } else {//produces five vowel qualities, i, u, e, o and a
         allFrontVowels.push("i");
         allHighVowels.push("i");
         allFrontVowels.push("e");

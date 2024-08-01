@@ -4320,6 +4320,19 @@ animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("word");
 
+countNounArray.push("mushroom");
+countNounArrayPlural.push("mushrooms");
+activePassive.push("passive")
+animInan.push("anim");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("edible");
+shapeClassifierArray.push("round");
+shortGenericClassifierArray.push("natural-inanimate");
+
 countNounArray.push("mussel");
 countNounArrayPlural.push("mussels");
 activePassive.push("active")
@@ -5906,6 +5919,19 @@ animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
 
+countNounArray.push("shin");
+countNounArrayPlural.push("shins");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("natural-inanimate");
+
 countNounArray.push("ship");
 countNounArrayPlural.push("ships");
 activePassive.push("passive")
@@ -6165,6 +6191,19 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+
+countNounArray.push("soldier");
+countNounArrayPlural.push("soldiers");
+activePassive.push("active")
+animInan.push("anim");
+divineNonDivine.push("profane");
+humanAnimalInan.push("human");
+mascFemNeut.push("masculine2");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("man");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("human2");
 
 countNounArray.push("son");
 countNounArrayPlural.push("sons");
@@ -7373,6 +7412,19 @@ mascFem.push("feminine1");
 naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("natural-inanimate");
+
+countNounArray.push("vegetable");
+countNounArrayPlural.push("vegetables");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("edible");
+shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
 
 countNounArray.push("village");

@@ -1884,7 +1884,7 @@ function makeDictionary() {
                 if (pOSText[0] === "v") {
                     translation.innerHTML = `"to ${translationText}"`;
                 } else {
-                    translation.innerHTML = `"${translationText}`;
+                    translation.innerHTML = `"${translationText}"`;
                 }
             }
         };

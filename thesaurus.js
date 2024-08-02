@@ -196,4 +196,13 @@ allWordsInThesaurus.push(memoryArray);
 let boardArray = ["board", "table", "platform", "wooden&nbspdoor", "barn&nbspdoor", "wooden&nbspchest", "plank"];
 allWordsInThesaurus.push(boardArray);
 
+let shinArray = ["shin", "lower&nbspleg"];
+allWordsInThesaurus.push(shinArray);
+
+let soldierArray = ["soldier", "warrior"];
+allWordsInThesaurus.push(soldierArray);
+
+let warriorArray = ["warrior", "champion"];
+allWordsInThesaurus.push(warriorArray);
+
 export { allWordsInThesaurus };

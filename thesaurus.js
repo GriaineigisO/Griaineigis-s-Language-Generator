@@ -205,4 +205,13 @@ allWordsInThesaurus.push(soldierArray);
 let warriorArray = ["warrior", "champion"];
 allWordsInThesaurus.push(warriorArray);
 
+let elbowArray = ["elbow", "crag"];
+allWordsInThesaurus.push(elbowArray);
+
+let edgeArray = ["edge", "border", "ridge", "brink", "verge", "brow", "margin", "brim", "confines", "rim", "coast", "shore", "threshhold", "doorway", "fringe", "dock", "cliff"];
+allWordsInThesaurus.push(edgeArray);
+
+let pointArray = ["point", "dot", "spot", "focus", "spec", "atom", "iota", "place", "degree", "extent", "grade", "small&nbspthing", "topic", "opinion", "intention", "reason", "meaning"];
+allWordsInThesaurus.push(pointArray);
+
 export { allWordsInThesaurus };

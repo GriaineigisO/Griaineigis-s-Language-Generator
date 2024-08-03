@@ -321,6 +321,10 @@ function addWords() {
     intransitiveVerb3SArray.push("wades");
     intransitiveVerbPastArray.push("waded");
 
+    intransitiveVerbArray.push("wake");
+    intransitiveVerb3SArray.push("wakes");
+    intransitiveVerbPastArray.push("woke");
+
     intransitiveVerbArray.push("weep");
     intransitiveVerb3SArray.push("weeps");
     intransitiveVerbPastArray.push("wept");

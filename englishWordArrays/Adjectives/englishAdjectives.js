@@ -54,6 +54,12 @@ function addWords() {
     adjectiveArray.push("blind");
     comparativeAdjectiveArray.push("more&nbspblind");
 
+    adjectiveArray.push("bold");
+    comparativeAdjectiveArray.push("bolder");
+
+    adjectiveArray.push("brave");
+    comparativeAdjectiveArray.push("braver");
+    
     adjectiveArray.push("brown");
     comparativeAdjectiveArray.push("browner");
 
@@ -74,6 +80,9 @@ function addWords() {
 
     adjectiveArray.push("dark");
     comparativeAdjectiveArray.push("darker");
+
+    adjectiveArray.push("dead");
+    comparativeAdjectiveArray.push("deader");
 
     adjectiveArray.push("deaf");
     comparativeAdjectiveArray.push("deafer");
@@ -185,6 +194,9 @@ function addWords() {
 
     adjectiveArray.push("intense");
     comparativeAdjectiveArray.push("more&nbspintense");
+
+    adjectiveArray.push("kind");
+    comparativeAdjectiveArray.push("kinder");
 
     adjectiveArray.push("lean");
     comparativeAdjectiveArray.push("leaner");
@@ -314,6 +326,9 @@ function addWords() {
 
     adjectiveArray.push("strong");
     comparativeAdjectiveArray.push("stronger");
+
+    adjectiveArray.push("suitable");
+    comparativeAdjectiveArray.push("more suitable");
 
     adjectiveArray.push("sure");
     comparativeAdjectiveArray.push("surer");

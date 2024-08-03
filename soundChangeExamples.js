@@ -41,6 +41,7 @@ let longABecomesONum = 0;
 let palatalisationofPlosivesNum = 0;
 let eOBecomeJWNum = 0;
 let VzbecomesVrNum = 0;
+let intialVBecomesHVNum = 0;
 
 function clearArrays() {
     num = 0;
@@ -82,6 +83,7 @@ function clearArrays() {
     palatalisationofPlosivesNum = 0;
     eOBecomeJWNum = 0;
     VzbecomesVrNum = 0;
+    intialVBecomesHVNum = 0;
 };
 
 function cloneArray(array) {
@@ -286,6 +288,11 @@ function populateArray() {
         if(chosenSoundChanges[i].name === "VzbecomesVr") {
             if(soundChangeArray.includes(VzbecomesVr) === false) {
                 soundChangeArray.push(VzbecomesVr);
+            }
+        };
+        if(chosenSoundChanges[i].name === "intialVBecomesHV") {
+            if(soundChangeArray.includes(intialVBecomesHV) === false) {
+                soundChangeArray.push(intialVBecomesHV);
             }
         };
     };
@@ -1930,7 +1937,7 @@ function eOBecomeJW(word, originalWord) {
     let eO = ["e", "o"];
     let jW = ["j", "w"]
     for(let i = 0; i < word.length; i++) {
-        if(eO.includes(word[i]) && vowels.includes(word[i+1])) {
+        if(eO.includes(word[i]) && vowels.includes(word[i+1]) && word[i] !== word[i+1]) {
             if(word[i] === word[i+1]) {
                 word.splice(i+1, 1)
             }
@@ -2001,6 +2008,40 @@ function VzbecomesVr(word, originalWord) {
         };
     };
 };
+
+function intialVBecomesHV(word, originalWord) {
+    if(vowels.includes(word[0])) {
+        let before = correctionsForStrings(word.join(""));
+        word.splice(0, 0, "ħ");
+        let after = correctionsForStrings(word.join(""));
+        let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(intialVBecomesHVNum < 6) {    
+                if(intialVBecomesHVNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("intialVBecomesHV").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("intialVBecomesHV").appendChild(example);
+                }
+                intialVBecomesHVNum++;   
+            };
+    }
+};
+
 /*--------------------------------------------------------------------*/
 
 let generateLanguageButton = document.getElementById("generate-language");

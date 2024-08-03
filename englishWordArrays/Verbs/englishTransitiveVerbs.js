@@ -17,6 +17,10 @@ function addWords() {
     transitiveVerb3SArray.push("apportions");
     transitiveVerbPastArray.push("apportioned");
 
+    transitiveVerbArray.push("arrange");
+    transitiveVerb3SArray.push("arranges");
+    transitiveVerbPastArray.push("arranged");
+
     transitiveVerbArray.push("attain");
     transitiveVerb3SArray.push("attains");
     transitiveVerbPastArray.push("attained");

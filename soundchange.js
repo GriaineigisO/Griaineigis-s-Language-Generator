@@ -201,6 +201,7 @@ let timeslongABecomesO = 0;
 let timespalatalisationofPlosives = 0;
 let timeseOBecomeJW = 0;
 let timesVzbecomesVr = 0;
+let timesintialVBecomesHV = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -252,6 +253,7 @@ function clearPreviousOutput() {
     timespalatalisationofPlosives = 0;
     timeseOBecomeJW = 0;
     timesVzbecomesVr = 0;
+    timesintialVBecomesHV = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -282,7 +284,7 @@ let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
 let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
-    chosenSoundChanges = [];
+    chosenSoundChanges = [intialVBecomesHV];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
     potentialSoundChanges = [
@@ -322,7 +324,8 @@ function selectSoundChanges() {
         longABecomesO,
         palatalisationofPlosives,
         eOBecomeJW,
-        VzbecomesVr
+        VzbecomesVr,
+        intialVBecomesHV
     ];
     
     //selects which sound changes will be chosen
@@ -988,6 +991,20 @@ function selectSoundChanges() {
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `/z/ becomes /r/ when after a vowel: <div class="sound-change-example" id="VzbecomesVr"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === intialVBecomesHV) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "intialVBecomesHV-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Epenthesis of /ħ/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "intialVBecomesHV-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The pharyngeal fricative /ħ/ is inserted before all word initial vowels: <div class="sound-change-example" id="intialVBecomesHV"></div>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -1921,7 +1938,7 @@ function eOBecomeJW(wordArray) {
     let eO = ["e", "o"];
     let jW = ["j", "w"]
     for(let i = 0; i < wordArray.length; i++) {
-        if(eO.includes(wordArray[i]) && vowels.includes(wordArray[i+1])) {
+        if(eO.includes(wordArray[i]) && vowels.includes(wordArray[i+1]) && wordArray[i] !== wordArray[i+1]) {
             let index = eO.indexOf(wordArray[i]);
             wordArray[i] = jW[index];
             timeseOBecomeJW++;
@@ -1944,6 +1961,18 @@ function VzbecomesVr(wordArray) {
             };
         };
     };
+};
+
+function intialVBecomesHV(wordArray) {
+    if(vowels.includes(wordArray[0])) {
+        console.log("Hello")
+        wordArray.splice(0, 0, "ħ");
+        timesintialVBecomesHV++;
+        if(timesintialVBecomesHV > 0) {
+            document.getElementById("intialVBecomesHV-li").style.display = "block";
+            document.getElementById("intialVBecomesHV-ul").style.display = "block";
+        };
+    }
 };
 
 /*------------------------------------------------------*/

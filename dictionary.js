@@ -1045,9 +1045,9 @@ function makeDictionary() {
                     thesaurusEntryArrayCopy.splice(randomItem, 1);
                 };
                 if(chosenOldMeanings.length === 1) {
-                    etymologyTranslation = chosenOldMeanings.join("");
+                    etymologyTranslation = removeVFromVerb(chosenOldMeanings.join(""));
                 } else {
-                    etymologyTranslation = chosenOldMeanings.join(",&nbsp");
+                    etymologyTranslation = removeVFromVerb(chosenOldMeanings.join(",&nbsp"));
                 }
                 
                 break;

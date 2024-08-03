@@ -1225,6 +1225,19 @@ animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
 
+countNounArray.push("chair");
+countNounArrayPlural.push("chairs");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("artificial");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("flat");
+shortGenericClassifierArray.push("tool");
+
 countNounArray.push("chariot");
 countNounArrayPlural.push("chariots");
 activePassive.push("active")
@@ -3396,6 +3409,19 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("flying-animal");
+
+countNounArray.push("hostage");
+countNounArrayPlural.push("hostages");
+activePassive.push("active")
+animInan.push("anim");
+divineNonDivine.push("profane");
+humanAnimalInan.push("human");
+mascFemNeut.push("masculine2");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("man");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("human2");
 
 countNounArray.push("house");
 countNounArrayPlural.push("houses");

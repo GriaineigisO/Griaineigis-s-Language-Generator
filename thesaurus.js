@@ -214,4 +214,10 @@ allWordsInThesaurus.push(edgeArray);
 let pointArray = ["point", "dot", "spot", "focus", "spec", "atom", "iota", "place", "degree", "extent", "grade", "small&nbspthing", "topic", "opinion", "intention", "reason", "meaning"];
 allWordsInThesaurus.push(pointArray);
 
+let vaginaArray = ["vagina", "vulva", "pussy", "twat", "cunt"];
+allWordsInThesaurus.push(vaginaArray);
+
+let birthArray = ["birth", "origin", "beginning", "lineage", "bloodline"];
+allWordsInThesaurus.push(birthArray);
+
 export { allWordsInThesaurus };

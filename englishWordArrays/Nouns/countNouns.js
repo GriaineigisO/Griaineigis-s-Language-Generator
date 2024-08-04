@@ -556,11 +556,37 @@ animInan.push("inan");
 divineNonDivine.push("profane");
 humanAnimalInan.push("animal");
 mascFemNeut.push("neuter");
-mascFem.push("masculine21");
+mascFem.push("masculine1");
 naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+
+countNounArray.push("birth");
+countNounArrayPlural.push("births");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("shapeless");
+shortGenericClassifierArray.push("natural-inanimate");
+
+countNounArray.push("bison");
+countNounArrayPlural.push("bison");
+activePassive.push("active")
+animInan.push("anim");
+divineNonDivine.push("profane");
+humanAnimalInan.push("animal");
+mascFemNeut.push("masculine2");
+mascFem.push("masculine21");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("wild-animal");
+shapeClassifierArray.push("short-and-wide");
+shortGenericClassifierArray.push("land-animal");
 
 countNounArray.push("blackbird");
 countNounArrayPlural.push("blackbirds");
@@ -573,7 +599,7 @@ mascFem.push("masculine21");
 naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
-shortGenericClassifierArray.push("natural-inanimate");
+shortGenericClassifierArray.push("flying-animal");
 
 countNounArray.push("bladder");
 countNounArrayPlural.push("bladders");
@@ -1563,6 +1589,19 @@ animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("water-animal");
 
+countNounArray.push("cradle");
+countNounArrayPlural.push("cradles");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("artificial");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("flat");
+shortGenericClassifierArray.push("tool");
+
 countNounArray.push("craftsman");
 countNounArrayPlural.push("craftsmen");
 activePassive.push("active")
@@ -1601,6 +1640,19 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+
+countNounArray.push("creature");
+countNounArrayPlural.push("creatures");
+activePassive.push("active")
+animInan.push("anim");
+divineNonDivine.push("profane");
+humanAnimalInan.push("animal");
+mascFemNeut.push("masculine2");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("wild-animal");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("land-animal");
 
 countNounArray.push("crime");
 countNounArrayPlural.push("crimes");
@@ -2799,6 +2851,19 @@ animacyClassifierArray.push("man");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("human2");
 
+countNounArray.push("good&nbspdeed");
+countNounArrayPlural.push("good&nbspdeeds");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("shapeless");
+shortGenericClassifierArray.push("natural-inanimate");
+
 countNounArray.push("goose");
 countNounArrayPlural.push("geese");
 activePassive.push("active")
@@ -3773,6 +3838,19 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("land-animal");
+
+countNounArray.push("laugh");
+countNounArrayPlural.push("laughs");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("shapeless");
+shortGenericClassifierArray.push("natural-inanimate");
 
 countNounArray.push("leaf");
 countNounArrayPlural.push("leaves");
@@ -5671,6 +5749,19 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+
+countNounArray.push("sailor");
+countNounArrayPlural.push("sailors");
+activePassive.push("active")
+animInan.push("anim");
+divineNonDivine.push("profane");
+humanAnimalInan.push("human");
+mascFemNeut.push("masculine2");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("man");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("human2");
 
 countNounArray.push("salmon");
 countNounArrayPlural.push("salmons");

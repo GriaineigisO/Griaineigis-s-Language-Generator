@@ -177,6 +177,10 @@ function addWords() {
     intransitiveVerb3SArray.push("laments");
     intransitiveVerbPastArray.push("lamented");
 
+    intransitiveVerbArray.push("laugh");
+    intransitiveVerb3SArray.push("laughs");
+    intransitiveVerbPastArray.push("laughed");
+
     intransitiveVerbArray.push("live");
     intransitiveVerb3SArray.push("lives");
     intransitiveVerbPastArray.push("lived");

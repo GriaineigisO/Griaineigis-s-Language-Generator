@@ -202,6 +202,8 @@ let timespalatalisationofPlosives = 0;
 let timeseOBecomeJW = 0;
 let timesVzbecomesVr = 0;
 let timesintialVBecomesHV = 0;
+let timesintialJBecomesL = 0;
+let timestDBecomeL = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -254,6 +256,8 @@ function clearPreviousOutput() {
     timeseOBecomeJW = 0;
     timesVzbecomesVr = 0;
     timesintialVBecomesHV = 0;
+    timesintialJBecomesL = 0;
+    timestDBecomeL = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -284,7 +288,7 @@ let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
 let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
-    chosenSoundChanges = [intialVBecomesHV];
+    chosenSoundChanges = [tDBecomeL];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
     potentialSoundChanges = [
@@ -325,7 +329,9 @@ function selectSoundChanges() {
         palatalisationofPlosives,
         eOBecomeJW,
         VzbecomesVr,
-        intialVBecomesHV
+        intialVBecomesHV,
+        intialJBecomesL,
+        tDBecomeL
     ];
     
     //selects which sound changes will be chosen
@@ -1005,6 +1011,40 @@ function selectSoundChanges() {
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `The pharyngeal fricative /ħ/ is inserted before all word initial vowels: <div class="sound-change-example" id="intialVBecomesHV"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === intialJBecomesL) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "intialJBecomesL-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Word Initial /j/ becomes /l/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "intialJBecomesL-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The palatal approximant /j/ becomes /l/ word initially: <div class="sound-change-example" id="intialJBecomesL"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === tDBecomeL) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "tDBecomeL-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Intervocalic Alveolar Plosives Become /l/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "tDBecomeL-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            let tDsoundChange = "";
+            if(chooseVoicing() === true) {
+                tDsoundChange = `The plosives /t/ and /d/ become /l/ when between two vowels`
+            } else {
+                tDsoundChange = `The plosive /t/ becomes /l/ when between two vowels`
+            }
+            nestLi.innerHTML = `${tDsoundChange}: <div class="sound-change-example" id="tDBecomeL"></div>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -1965,7 +2005,6 @@ function VzbecomesVr(wordArray) {
 
 function intialVBecomesHV(wordArray) {
     if(vowels.includes(wordArray[0])) {
-        console.log("Hello")
         wordArray.splice(0, 0, "ħ");
         timesintialVBecomesHV++;
         if(timesintialVBecomesHV > 0) {
@@ -1973,6 +2012,31 @@ function intialVBecomesHV(wordArray) {
             document.getElementById("intialVBecomesHV-ul").style.display = "block";
         };
     }
+};
+
+function intialJBecomesL(wordArray) {
+    if(wordArray[0] ===  "j") {
+        wordArray[0] = "l";
+        timesintialJBecomesL++;
+        if(timesintialJBecomesL > 0) {
+            document.getElementById("intialJBecomesL-li").style.display = "block";
+            document.getElementById("intialJBecomesL-ul").style.display = "block";
+        };
+    }
+};
+
+function tDBecomeL(wordArray) {
+    let tD = ["t", "d"]
+    for(let i = 0; i <  wordArray.length; i++) {
+        if(tD.includes(wordArray[i]) && vowels.includes(wordArray[i-1]) && vowels.includes(wordArray[i+1])) {
+            wordArray[i] = "l";
+            timestDBecomeL++;
+            if(timestDBecomeL > 0) {
+                document.getElementById("tDBecomeL-li").style.display = "block";
+                document.getElementById("tDBecomeL-ul").style.display = "block";
+            };
+        }
+    };
 };
 
 /*------------------------------------------------------*/

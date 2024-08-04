@@ -288,7 +288,7 @@ let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
 let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
-    chosenSoundChanges = [tDBecomeL];
+    chosenSoundChanges = [];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
     potentialSoundChanges = [

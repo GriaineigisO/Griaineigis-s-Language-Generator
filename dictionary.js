@@ -17,7 +17,7 @@ import {
     shapeClassifierArray,
     shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass, mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, languageName
 } from './script.js'
-import { grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, animGeneralAffix, inanGeneralAffix, nomGeneralAffix } from './fusionalNouns.js'
+import { grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, animGeneralAffix, inanGeneralAffix, nomGeneralAffix, femSgAffix, mascSgAffix } from './fusionalNouns.js'
 
 import { spell } from './orthography.js'
 import { soundChange, correctionsForStrings } from './soundchange.js';
@@ -541,7 +541,7 @@ function makeDictionary() {
                     let index = massNounArray.indexOf(englishWords[i])
                     if (animInanMass[index] === "anim") {
                         pOfSpeech = "n.anim," + bareRoots;
-                        animalArray.push(generatedMassNouns[i])
+                        animateArray.push(generatedMassNouns[i])
                         if (genderSuffixOrPrefix === "suffix") {
                             wordWithAffix = "X" + languageWords[i] + animSgAffix;
                         }
@@ -561,6 +561,56 @@ function makeDictionary() {
                         classifierInfo = "";
                     }
 
+                }
+            }
+            if (nounGenderArray.includes("masculine1") && nounGenderArray.includes("feminine1")) {
+                if (countNounArray.includes(englishWords[i])) {
+                    let index = countNounArray.indexOf(englishWords[i])
+                    if (mascFem[index] === "masculine1") {
+                        pOfSpeech = "n.masc" + bareRoots;
+                        masculine1Array.push(generatedCountNouns[i])
+                        if (genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + mascSgAffix;
+                        }
+                        if (genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = mascSgAffix + languageWords[i];
+                        }
+                        classifierInfo = "";;
+                    } else if (mascFem[index] === "feminine1") {
+                        pOfSpeech = "n.fem" + bareRoots;
+                        feminine1Array.push(generatedCountNouns[i])
+                        if (genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + femSgAffix;
+                        }
+                        if (genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = femSgAffix + languageWords[i];
+                        }
+                    }
+                    classifierInfo = "";;
+                }
+                if (massNounArray.includes(englishWords[i])) {
+                    let index = massNounArray.indexOf(englishWords[i])
+                    if (mascFem[index] === "masculine1") {
+                        pOfSpeech = "n.masc" + bareRoots;
+                        masculine1Array.push(generatedMassNouns[i])
+                        if (genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + mascSgAffix;
+                        }
+                        if (genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = mascSgAffix + languageWords[i];
+                        }
+                        classifierInfo = "";
+                    } else if (mascFem[index] === "feminine1") {
+                        pOfSpeech = "n.fem" + bareRoots;
+                        feminine1Array.push(generatedMassNouns[i])
+                        if (genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + femSgAffix;
+                        }
+                        if (genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = femSgAffix + languageWords[i];
+                        }
+                        classifierInfo = "";
+                    }
                 }
             }
         }

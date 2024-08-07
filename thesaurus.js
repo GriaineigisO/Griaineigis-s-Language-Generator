@@ -73,10 +73,10 @@ allWordsInThesaurus.push(brownArray);
 let baldArray = ["bald", "bare", "exposed", "uncovered", "roofless", "unclad", "naked"];
 allWordsInThesaurus.push(baldArray);
 
-let pitchArray = ["pitch", "set up", "establish", "bring forth","found (a group, a society)"];
+let pitchArray = ["pitch", "set up", "establish", "bring forth","found&nbsp(a&nbspgroup,&nbspa&nbspsociety)"];
 allWordsInThesaurus.push(pitchArray);
 
-let streamArray = ["stream", "brook", "small river", "tributary", "tap", "shower", "outflow"];
+let streamArray = ["stream", "brook", "small&nbspriver", "tributary", "tap", "shower", "outflow"];
 allWordsInThesaurus.push(streamArray);
 
 let normalArray = ["normal", "typical", "usual", "ordinary", "expected", "regular", "consistent"];
@@ -88,13 +88,13 @@ allWordsInThesaurus.push(darkArray);
 let divineArray = ["holy", "divine", "sacred", "godly", "fateful", "hallowed", "celestial", "heavenly", "supreme"];
 allWordsInThesaurus.push(divineArray);
 
-let ravenArray = ["raven", "corvid", "clever person", "coniving person"];
+let ravenArray = ["raven", "corvid", "clever&nbspperson", "coniving&nbspperson"];
 allWordsInThesaurus.push(ravenArray);
 
 let huntArray = ["hunt", "to&nbspseek&nbspout", "to&nbspprowl", "to&nbspstalk", "to&nbsptrack&nbspdown", "to&nbspchase&nbsp", "to&nbspkill", "to&nbspslaughter", "to&nbsppursue"];
 allWordsInThesaurus.push(huntArray);
 
-let weakArray = ["weak", "feeble", "brittle", "pathetic", "pitiful", "unconvincing", "lame", "(of&nbspwater)&nbspstill,&nbspstagnant,&nbspslow-flowing", "languid", "lethargic", "impotent", "sterile", "infertile", "barren", "flaccid", "heaf-hearted", "asthenic", "powerless", "soft", "infirm", "faint", "(of colour) bleached, faded", "effeminate", "flimsy"];
+let weakArray = ["weak", "feeble", "brittle", "pathetic", "pitiful", "unconvincing", "lame", "(of&nbspwater)&nbspstill,&nbspstagnant,&nbspslow-flowing", "languid", "lethargic", "impotent", "sterile", "infertile", "barren", "flaccid", "half-hearted", "asthenic", "powerless", "soft", "infirm", "faint", "(of&nbspcolour)&nbspbleached, faded", "effeminate", "flimsy"];
 allWordsInThesaurus.push(weakArray);
 
 let preferArray = ["prefer", "to&nbsplike", "to&nbspchoose", "to&nbspadopt", "to&nbspembrace", "to&nbspaccept"];
@@ -151,7 +151,7 @@ allWordsInThesaurus.push(holeArray);
 let shortArray = ["short", "brief", "curt", "compact", "small", "stubby", "shorn", "stocky", "concise", "inferior"];
 allWordsInThesaurus.push(shortArray);
 
-let ableArray = ["able", "powerful", "competant", "capable", "potent"];
+let ableArray = ["able", "powerful", "competent", "capable", "potent"];
 allWordsInThesaurus.push(ableArray);
 
 let abundantArray = ["abundant", "great", "lush", "considerable", "extravagant", "massive", "ample", "enough", "suitable", "vast"];

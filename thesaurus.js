@@ -151,7 +151,7 @@ allWordsInThesaurus.push(holeArray);
 let shortArray = ["short", "brief", "curt", "compact", "small", "stubby", "shorn", "stocky", "concise", "inferior"];
 allWordsInThesaurus.push(shortArray);
 
-let ableArray = ["able", "powerful", "competant", "capable", "potent", "stubby", "shorn", "stocky", "concise", "inferior"];
+let ableArray = ["able", "powerful", "competant", "capable", "potent"];
 allWordsInThesaurus.push(ableArray);
 
 let abundantArray = ["abundant", "great", "lush", "considerable", "extravagant", "massive", "ample", "enough", "suitable", "vast"];

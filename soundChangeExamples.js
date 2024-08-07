@@ -45,6 +45,8 @@ let intialVBecomesHVNum = 0;
 let intialJBecomesLNum = 0;
 let tDBecomeLNum = 0;
 let longVowelsBreakNum = 0;
+let vowelsHeightenBeforeVelarsNum = 0;
+let palatalsBecomeVelarNum = 0;
 
 function clearArrays() {
     num = 0;
@@ -90,6 +92,8 @@ function clearArrays() {
     intialJBecomesLNum = 0;
     tDBecomeLNum = 0;
     longVowelsBreakNum = 0;
+    vowelsHeightenBeforeVelarsNum = 0;
+    palatalsBecomeVelarNum = 0;
 };
 
 function cloneArray(array) {
@@ -314,6 +318,16 @@ function populateArray() {
         if(chosenSoundChanges[i].name === "longVowelsBreak") {
             if(soundChangeArray.includes(longVowelsBreak) === false) {
                 soundChangeArray.push(longVowelsBreak);
+            }
+        };
+        if(chosenSoundChanges[i].name === "vowelsHeightenBeforeVelars") {
+            if(soundChangeArray.includes(vowelsHeightenBeforeVelars) === false) {
+                soundChangeArray.push(vowelsHeightenBeforeVelars);
+            }
+        };
+        if(chosenSoundChanges[i].name === "palatalsBecomeVelar") {
+            if(soundChangeArray.includes(palatalsBecomeVelar) === false) {
+                soundChangeArray.push(palatalsBecomeVelar);
             }
         };
     };
@@ -2342,6 +2356,90 @@ function longVowelsBreak(word, originalWord) {
             };
         }
     }
+};
+
+function vowelsHeightenBeforeVelars(word, originalWord) {
+    let originalVowel = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a", "i", "u", "y", "ɯ", "ɨ", "ʉ"];
+    let heightenedVowel = ["ɪ", "ʏ", "ɨ", "ʉ", "ɘ", "e", "ɘ", "ɵ", "i", "o", "ø", "ɔ", "u", "ɤ", "ɯ", "u", "ɛ", "ʌ", "ɜ", "æ", "ii", "uu", "yy", "ɯɯ", "ɨɨ", "ʉʉ"];
+    let velars = ["k", "g", "x", "ɣ"]
+
+    for(let i = 0; i < word.length; i++) {
+        if(vowels.includes(word[i]) && velars.includes(word[i+1])) {
+            let index = originalVowel.indexOf(word[i]);
+            let before = correctionsForStrings(word.join(""));
+            if(word[i-1] === word[i]) {
+                word[i] = heightenedVowel[index];
+                word[i-1] =  word[i];
+            } else {
+                word[i] = heightenedVowel[index];
+            }
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(vowelsHeightenBeforeVelarsNum < 6) {    
+                if(vowelsHeightenBeforeVelarsNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("vowelsHeightenBeforeVelars").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("vowelsHeightenBeforeVelars").appendChild(example);
+                }
+                vowelsHeightenBeforeVelarsNum++;   
+            };
+        };
+    };
+};
+
+function palatalsBecomeVelar(word, originalWord) {
+    let palatal = ["c", "ɟ", "ç", "ʝ", "ʎ", "j"];
+    let velar = ["k", "g", "x", "ɣ", "ɣ", "x"];
+    for(let i = 0; i < word.length; i++) {
+        if(palatal.includes(word[i])) {
+            let before = correctionsForStrings(word.join(""));
+            let index = palatal.indexOf(word[i]);
+            word[i] = velar[index];
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(palatalsBecomeVelarNum < 6) {    
+                if(palatalsBecomeVelarNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("palatalsBecomeVelar").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("palatalsBecomeVelar").appendChild(example);
+                }
+                palatalsBecomeVelarNum++;   
+            };
+        };
+    };
+   
 };
 
 /*--------------------------------------------------------------------*/

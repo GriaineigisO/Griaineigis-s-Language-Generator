@@ -205,6 +205,8 @@ let timesintialVBecomesHV = 0;
 let timesintialJBecomesL = 0;
 let timestDBecomeL = 0;
 let timeslongVowelsBreak = 0;
+let timesvowelsHeightenBeforeVelars = 0;
+let timespalatalsBecomeVelar = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -260,6 +262,8 @@ function clearPreviousOutput() {
     timesintialJBecomesL = 0;
     timestDBecomeL = 0;
     timeslongVowelsBreak = 0;
+    timesvowelsHeightenBeforeVelars = 0;
+    timespalatalsBecomeVelar = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -335,7 +339,8 @@ function selectSoundChanges() {
         intialVBecomesHV,
         intialJBecomesL,
         tDBecomeL,
-        longVowelsBreak
+        longVowelsBreak,
+        vowelsHeightenBeforeVelars
     ];
     
     //selects which sound changes will be chosen
@@ -1131,6 +1136,40 @@ function selectSoundChanges() {
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
             };
+        };
+        if(chosenSoundChanges[i] === vowelsHeightenBeforeVelars) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "vowelsHeightenBeforeVelars-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Vowels Raise Before Velars`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "vowelsHeightenBeforeVelars-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `Non-high vowels raise, and high vowels lengthen, when they occur before velar consonants:`;
+            let ul = document.createElement("ul");
+            ul.setAttribute("id", "vowelsHeightenBeforeVelars-list");
+            let examples = document.createElement("span");
+            examples.innerHTML = `<div class="sound-change-example" id="vowelsHeightenBeforeVelars"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+            nestUl.appendChild(ul);
+            nestUl.appendChild(examples);
+        };
+        if(chosenSoundChanges[i] === palatalsBecomeVelar) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "palatalsBecomeVelar-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Palatals Become Velars`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "palatalsBecomeVelar-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `<span id="palatalsBecomeVelar-list"></span>: <div class="sound-change-example" id="palatalsBecomeVelar"></div>`;
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
         };
     };
 };
@@ -2195,6 +2234,73 @@ function longVowelsBreak(wordArray) {
 
         }
     }
+};
+
+function vowelsHeightenBeforeVelars(wordArray) {
+    let originalVowel = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a", "i", "u", "y", "ɯ", "ɨ", "ʉ"];
+    let heightenedVowel = ["ɪ", "ʏ", "ɨ", "ʉ", "ɘ", "e", "ɘ", "ɵ", "i", "o", "ø", "ɔ", "u", "ɤ", "ɯ", "u", "ɛ", "ʌ", "ɜ", "æ", "ii", "uu", "yy", "ɯɯ", "ɨɨ", "ʉʉ"];
+    let velars = ["k", "g", "x", "ɣ"]
+
+    for(let i = 0; i < wordArray.length; i++) {
+        if(vowels.includes(wordArray[i])  && velars.includes(wordArray[i+1])) {
+            timesvowelsHeightenBeforeVelars++;
+            let index = originalVowel.indexOf(wordArray[i]);
+            if(wordArray[i-1] === wordArray[i]) {
+                wordArray[i] = heightenedVowel[index];
+                wordArray[i-1] =  wordArray[i];
+            } else {
+                wordArray[i] = heightenedVowel[index];
+            };
+            
+            if(timesvowelsHeightenBeforeVelars === 1) {
+                for(let j = 0; j < vowels.length; j++) {
+                    if(chosenVowels.includes(vowels[j])) {
+                        let newLi = document.createElement("li");
+                        let exampleIndex = originalVowel.indexOf(vowels[j]);
+                        newLi.innerHTML = `${vowels[j]} > [${heightenedVowel[exampleIndex]}] ⟨${spell(heightenedVowel[exampleIndex])}⟩`
+                        document.getElementById("vowelsHeightenBeforeVelars-list").appendChild(newLi);
+                    };
+                };
+            };
+            if(timesvowelsHeightenBeforeVelars > 0) {
+                document.getElementById("vowelsHeightenBeforeVelars-li").style.display = "block";
+                document.getElementById("vowelsHeightenBeforeVelars-ul").style.display = "block";
+            };
+        };
+    };
+};
+
+function palatalsBecomeVelar(wordArray) {
+    let palatal = ["c", "ɟ", "ç", "ʝ", "j", "ʎ"];
+    let velar = ["k", "g", "x", "ɣ", "x", "ɣ"];
+    for(let i = 0; i < wordArray.length; i++) {
+        if(palatal.includes(wordArray[i])) {
+            let index = palatal.indexOf(wordArray[i]);
+            wordArray[i] = velar[index];
+            timespalatalsBecomeVelar++;
+            if(timespalatalsBecomeVelar > 0) {
+                document.getElementById("palatalsBecomeVelar-li").style.display = "block";
+                document.getElementById("palatalsBecomeVelar-ul").style.display = "block";
+            };
+        };
+    };
+    let existingPalatals = [];
+    let resultingVelars = [];
+    for(let i = 0; i < palatal.length; i++) {
+        if(consonants.includes(palatal[i])) {
+            existingPalatals.push(palatal[i]);
+            resultingVelars.push(velar[i])
+        };
+    };
+    let joinedPalatals = existingPalatals.join(", ");
+    let joinedVelars = resultingVelars.join(", ");
+    let palatalText = "";
+    if(existingPalatals.length === 1) {
+        palatalText = `The palatal consonant /${joinedPalatals}/ becomes the velar consonant /${joinedVelars}/`;
+    } else if (existingPalatals.length > 1) {
+        palatalText = `The palatal consonants /${joinedPalatals}/ become the velar consonants /${joinedVelars}/`;
+    }
+    document.getElementById("palatalsBecomeVelar-list").innerHTML = palatalText;
 };
 
 /*------------------------------------------------------*/

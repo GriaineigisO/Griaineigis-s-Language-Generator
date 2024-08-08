@@ -215,6 +215,7 @@ let timeslongEBecomesLongI = 0;
 let timeswordFinalLongOBecomesLongU = 0;
 let timeslongVowelsShortenBeforeRC = 0;
 let timesCCBecomesXC = 0;
+let timespBecomesBBeforeResonants = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -280,6 +281,7 @@ function clearPreviousOutput() {
     timeswordFinalLongOBecomesLongU = 0;
     timeslongVowelsShortenBeforeRC = 0;
     timesCCBecomesXC = 0;
+    timespBecomesBBeforeResonants = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -311,7 +313,7 @@ let randomNumForLongVowelsBreak = 0;
 let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
-    chosenSoundChanges = [];
+    chosenSoundChanges = [pBecomesBBeforeResonants];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
     potentialSoundChanges = [
@@ -1302,6 +1304,20 @@ function selectSoundChanges() {
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `Any consonant becomes the velar fricative /x/ when a plosive or /s/ follows: <div class="sound-change-example" id="CCBecomesXC"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === pBecomesBBeforeResonants) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "pBecomesBBeforeResonants-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/p/ Voices Before Resonants`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "pBecomesBBeforeResonants-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The voiceless labial plosive /p/ voices to /b/ when a resonant follows: <div class="sound-change-example" id="pBecomesBBeforeResonants"></div>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -2541,6 +2557,19 @@ function CCBecomesXC(wordArray) {
             if(timesCCBecomesXC > 0) {
                 document.getElementById("CCBecomesXC-li").style.display = "block";
                 document.getElementById("CCBecomesXC-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function pBecomesBBeforeResonants(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "p" && resonants.includes(wordArray[i+1])) {
+            wordArray[i] = "b";
+            timespBecomesBBeforeResonants++;
+            if(timespBecomesBBeforeResonants > 0) {
+                document.getElementById("pBecomesBBeforeResonants-li").style.display = "block";
+                document.getElementById("pBecomesBBeforeResonants-ul").style.display = "block";
             };
         }
     }

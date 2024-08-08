@@ -55,6 +55,7 @@ let longEBecomesLongINum = 0;
 let wordFinalLongOBecomesLongUNum = 0;
 let longVowelsShortenBeforeRCNum = 0;
 let CCBecomesXCNum = 0
+let pBecomesBBeforeResonantsNum = 0;
 
 function clearArrays() {
     num = 0;
@@ -110,6 +111,7 @@ function clearArrays() {
     wordFinalLongOBecomesLongUNum = 0;
     longVowelsShortenBeforeRCNum = 0;
     CCBecomesXCNum = 0;
+    pBecomesBBeforeResonantsNum = 0;
 };
 
 function cloneArray(array) {
@@ -384,6 +386,11 @@ function populateArray() {
         if(chosenSoundChanges[i].name === "CCBecomesXC") {
             if(soundChangeArray.includes(CCBecomesXC) === false) {
                 soundChangeArray.push(CCBecomesXC);
+            }
+        };
+        if(chosenSoundChanges[i].name === "pBecomesBBeforeResonants") {
+            if(soundChangeArray.includes(pBecomesBBeforeResonants) === false) {
+                soundChangeArray.push(pBecomesBBeforeResonants);
             }
         };
     };
@@ -2775,6 +2782,41 @@ function CCBecomesXC(word, originalWord) {
                     document.getElementById("CCBecomesXC").appendChild(example);
                 }
                 CCBecomesXCNum++;   
+            };
+        }
+    }
+};
+
+function pBecomesBBeforeResonants(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "p" && resonants.includes(word[i+1])) {
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "b";
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(pBecomesBBeforeResonantsNum < 6) {    
+                if(pBecomesBBeforeResonantsNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("pBecomesBBeforeResonants").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("pBecomesBBeforeResonants").appendChild(example);
+                }
+                pBecomesBBeforeResonantsNum++;   
             };
         }
     }

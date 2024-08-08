@@ -861,7 +861,7 @@ function chooseLabialisation() {
             }
 
         randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 30) {
+        if(randomNum === 3) {
             allLabialisedPlosives.push("sʷ");
             allAlveolarFricativesArray.push("sʷ");
             if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
@@ -871,7 +871,7 @@ function chooseLabialisation() {
         }
 
         randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 30) {
+        if(randomNum === 3) {
             allLabialisedPlosives.push("pʷ");
             allLabialPlosivesArray.push("pʷ");
             if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
@@ -891,7 +891,7 @@ function chooseLabialisation() {
         }
 
         randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 30) {
+        if(randomNum === 3) {
             allLabialisedPlosives.push("kʷ");
             allVelarPlosivesArray.push("kʷ");
             if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {

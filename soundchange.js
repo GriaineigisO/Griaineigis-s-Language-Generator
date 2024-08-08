@@ -207,6 +207,10 @@ let timestDBecomeL = 0;
 let timeslongVowelsBreak = 0;
 let timesvowelsHeightenBeforeVelars = 0;
 let timespalatalsBecomeVelar = 0;
+let timesgwbecomesB = 0;
+let timeseRaBecomesARa = 0;
+let timesepentheticA = 0;
+let timespKWBecomesKwKw = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -264,6 +268,10 @@ function clearPreviousOutput() {
     timeslongVowelsBreak = 0;
     timesvowelsHeightenBeforeVelars = 0;
     timespalatalsBecomeVelar = 0;
+    timesgwbecomesB = 0;
+    timeseRaBecomesARa = 0;
+    timesepentheticA = 0;
+    timespKWBecomesKwKw = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -340,7 +348,9 @@ function selectSoundChanges() {
         intialJBecomesL,
         tDBecomeL,
         longVowelsBreak,
-        vowelsHeightenBeforeVelars
+        vowelsHeightenBeforeVelars,
+        gwbecomesB,
+        eRaBecomesARa
     ];
     
     //selects which sound changes will be chosen
@@ -1167,6 +1177,62 @@ function selectSoundChanges() {
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `<span id="palatalsBecomeVelar-list"></span>: <div class="sound-change-example" id="palatalsBecomeVelar"></div>`;
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === gwbecomesB) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "gwbecomesB-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/gʷ/ Becomes /b/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "gwbecomesB-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The labialised velar plosive /gʷ/ merges with /b/: <div class="sound-change-example" id="gwbecomesB"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === eRaBecomesARa) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "eRaBecomesARa-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/eRa/ Becomes /aRa/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "eRaBecomesARa-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `When the vowel /e/ comes before a resonant after which there is the vowel /a/, the vowel /e/ becomes /a/: <div class="sound-change-example" id="eRaBecomesARa"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === epentheticA) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "epentheticA-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/CRC/ Becomes /CaRC/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "epentheticA-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The vowel /a/ is inserted between a consonant and a resonant followed by a consonant: <div class="sound-change-example" id="epentheticA"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === pKWBecomesKwKw) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "pKWBecomesKwKw-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `p...kʷ > kʷ...kʷ`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "pKWBecomesKwKw-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The labial plosive /p/ becomes the labialised velar plosive /kʷ/ when /kʷ/ occurs later in the word: <div class="sound-change-example" id="pKWBecomesKwKw"></div>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -2301,6 +2367,62 @@ function palatalsBecomeVelar(wordArray) {
         palatalText = `The palatal consonants /${joinedPalatals}/ become the velar consonants /${joinedVelars}/`;
     }
     document.getElementById("palatalsBecomeVelar-list").innerHTML = palatalText;
+};
+
+function gwbecomesB(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "g" && wordArray[i+1] === "ʷ") {
+            wordArray[i] = "b";
+            wordArray.splice(i+1,1);
+            timesgwbecomesB++;
+            if(timesgwbecomesB > 0) {
+                document.getElementById("gwbecomesB-li").style.display = "block";
+                document.getElementById("gwbecomesB-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function eRaBecomesARa(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "e" && resonants.includes(wordArray[i+1]) && wordArray[i+2] === "a") {
+            wordArray[i] = "a";
+            timeseRaBecomesARa++;
+            if(timeseRaBecomesARa > 0) {
+                document.getElementById("eRaBecomesARa-li").style.display = "block";
+                document.getElementById("eRaBecomesARa-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function epentheticA(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(consonants.includes(wordArray[i]) && resonants.includes(wordArray[i+1]) && consonants.includes(wordArray[i+2])) {
+            wordArray.splice(i+1, 0, "a");
+            timesepentheticA++;
+            if(timesepentheticA > 0) {
+                document.getElementById("epentheticA-li").style.display = "block";
+                document.getElementById("epentheticA-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function pKWBecomesKwKw(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "p" && wordArray.includes("k")) {
+            let index = wordArray.indexOf("k");
+            if(wordArray[index+1] === "ʷ" && index > i) {
+                wordArray[i] = "kʷ";
+            };
+            timespKWBecomesKwKw++;
+            if(timespKWBecomesKwKw > 0) {
+                document.getElementById("pKWBecomesKwKw-li").style.display = "block";
+                document.getElementById("pKWBecomesKwKw-ul").style.display = "block";
+            };
+        }
+    }
 };
 
 /*------------------------------------------------------*/

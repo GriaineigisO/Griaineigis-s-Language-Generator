@@ -47,6 +47,10 @@ let tDBecomeLNum = 0;
 let longVowelsBreakNum = 0;
 let vowelsHeightenBeforeVelarsNum = 0;
 let palatalsBecomeVelarNum = 0;
+let gwbecomesBNum = 0;
+let eRaBecomesARaNum = 0;
+let epentheticANum = 0;
+let pKWBecomesKwKwNum = 0;
 
 function clearArrays() {
     num = 0;
@@ -94,6 +98,10 @@ function clearArrays() {
     longVowelsBreakNum = 0;
     vowelsHeightenBeforeVelarsNum = 0;
     palatalsBecomeVelarNum = 0;
+    gwbecomesBNum = 0; 
+    eRaBecomesARaNum = 0;
+    epentheticANum = 0;
+    pKWBecomesKwKwNum = 0;
 };
 
 function cloneArray(array) {
@@ -328,6 +336,26 @@ function populateArray() {
         if(chosenSoundChanges[i].name === "palatalsBecomeVelar") {
             if(soundChangeArray.includes(palatalsBecomeVelar) === false) {
                 soundChangeArray.push(palatalsBecomeVelar);
+            }
+        };
+        if(chosenSoundChanges[i].name === "gwbecomesB") {
+            if(soundChangeArray.includes(gwbecomesB) === false) {
+                soundChangeArray.push(gwbecomesB);
+            }
+        };
+        if(chosenSoundChanges[i].name === "eRaBecomesARa") {
+            if(soundChangeArray.includes(eRaBecomesARa) === false) {
+                soundChangeArray.push(eRaBecomesARa);
+            }
+        };
+        if(chosenSoundChanges[i].name === "epentheticA") {
+            if(soundChangeArray.includes(epentheticA) === false) {
+                soundChangeArray.push(epentheticA);
+            }
+        };
+        if(chosenSoundChanges[i].name === "pKWBecomesKwKw") {
+            if(soundChangeArray.includes(pKWBecomesKwKw) === false) {
+                soundChangeArray.push(pKWBecomesKwKw);
             }
         };
     };
@@ -2440,6 +2468,150 @@ function palatalsBecomeVelar(word, originalWord) {
         };
     };
    
+};
+
+function gwbecomesB(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "g" && word[i+1] === "ʷ") {
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "b";
+            word.splice(i+1,1);
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(gwbecomesBNum < 6) {    
+                if(gwbecomesBNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("gwbecomesB").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("gwbecomesB").appendChild(example);
+                }
+                gwbecomesBNum++;   
+            };
+        }
+    }
+};
+
+function eRaBecomesARa(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "e" && resonants.includes(word[i+1]) && word[i+2] === "a") {
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "a";
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(eRaBecomesARaNum < 6) {    
+                if(eRaBecomesARaNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("eRaBecomesARa").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("eRaBecomesARa").appendChild(example);
+                }
+                eRaBecomesARaNum++;   
+            };
+        }
+    }
+};
+
+function epentheticA(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(consonants.includes(word[i]) && resonants.includes(word[i+1]) && consonants.includes(word[i+2])) {
+            let before = correctionsForStrings(word.join(""));
+            word.splice(i+1, 0, "a");
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(epentheticANum < 6) {    
+                if(epentheticANum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("epentheticA").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("epentheticA").appendChild(example);
+                }
+                epentheticANum++;   
+            };
+        }
+    }
+};
+
+function pKWBecomesKwKw(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "p" && word.includes("k")) {
+            let index = word.indexOf("k");
+            if(word[index+1] === "ʷ" && index > i) {
+                let before = correctionsForStrings(word.join(""));
+                word[i] = "kʷ";
+                let after = correctionsForStrings(word.join(""));
+                let afterExample = "";
+                let originalJoined = originalWord.join("");
+                if(soundChange(originalJoined) !== after) {
+                    afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+                } else {
+                    afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+                };
+                let beforeExample = "";
+                if(correctionsForStrings(originalJoined) === before) {
+                    beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+                } else {
+                    beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+                }
+                if(pKWBecomesKwKwNum < 6) {    
+                    if(pKWBecomesKwKwNum === 0) {
+                        let example = document.createElement("span");
+                        example.innerHTML = `${beforeExample} > ${afterExample}`;
+                        document.getElementById("pKWBecomesKwKw").appendChild(example);
+                    } else {
+                        let example = document.createElement("span");
+                        example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                        document.getElementById("pKWBecomesKwKw").appendChild(example);
+                    }
+                    pKWBecomesKwKwNum++;   
+                };
+                };
+        }
+    }
 };
 
 /*--------------------------------------------------------------------*/

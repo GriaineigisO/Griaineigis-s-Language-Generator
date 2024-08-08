@@ -211,6 +211,10 @@ let timesgwbecomesB = 0;
 let timeseRaBecomesARa = 0;
 let timesepentheticA = 0;
 let timespKWBecomesKwKw = 0;
+let timeslongEBecomesLongI = 0;
+let timeswordFinalLongOBecomesLongU = 0;
+let timeslongVowelsShortenBeforeRC = 0;
+let timesCCBecomesXC = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -272,6 +276,10 @@ function clearPreviousOutput() {
     timeseRaBecomesARa = 0;
     timesepentheticA = 0;
     timespKWBecomesKwKw = 0;
+    timeslongEBecomesLongI = 0;
+    timeswordFinalLongOBecomesLongU = 0;
+    timeslongVowelsShortenBeforeRC = 0;
+    timesCCBecomesXC = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -350,7 +358,12 @@ function selectSoundChanges() {
         longVowelsBreak,
         vowelsHeightenBeforeVelars,
         gwbecomesB,
-        eRaBecomesARa
+        eRaBecomesARa,
+        epentheticA,
+        pKWBecomesKwKw,
+        longEBecomesLongI,
+        longVowelsShortenBeforeRC,
+        CCBecomesXC
     ];
     
     //selects which sound changes will be chosen
@@ -932,7 +945,7 @@ function selectSoundChanges() {
             nestUl.setAttribute("id", "VCVBecomesVCWordFinally-ul");
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Word final vowels are lost when they occur after a single consonant which follows a vowel:`;
+            nestLi.innerHTML = `Word final short vowels are lost when they occur after a single consonant which follows a vowel:`;
             let VCVBecomesVCWordFinallyUl = document.createElement("ul");
             VCVBecomesVCWordFinallyUl.setAttribute("id", "VCVBecomesVCWordFinally-list");
             let examples = document.createElement("span");
@@ -1233,6 +1246,62 @@ function selectSoundChanges() {
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `The labial plosive /p/ becomes the labialised velar plosive /kʷ/ when /kʷ/ occurs later in the word: <div class="sound-change-example" id="pKWBecomesKwKw"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === longEBecomesLongI) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "longEBecomesLongI-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Long E Becomes Long I`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "longEBecomesLongI-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The long front mid-vowel /eː/ raises to become /iː/: <div class="sound-change-example" id="longEBecomesLongI"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === wordFinalLongOBecomesLongU) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "wordFinalLongOBecomesLongU-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Word Final /oː/ Raises`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "wordFinalLongOBecomesLongU-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `Word final /oː/ becomes /uː/: <div class="sound-change-example" id="wordFinalLongOBecomesLongU"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === longVowelsShortenBeforeRC) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "longVowelsShortenBeforeRC-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Long Vowels Shorten Before RC`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "longVowelsShortenBeforeRC-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `Long vowels shorten before a resonant followed by a consonant: <div class="sound-change-example" id="longVowelsShortenBeforeRC"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === CCBecomesXC) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "CCBecomesXC-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `CC Becomes xC`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "CCBecomesXC-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `Any consonant becomes the velar fricative /x/ when a plosive or /s/ follows: <div class="sound-change-example" id="CCBecomesXC"></div>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -2215,7 +2284,7 @@ function intialJBecomesL(wordArray) {
             document.getElementById("intialJBecomesL-li").style.display = "block";
             document.getElementById("intialJBecomesL-ul").style.display = "block";
         };
-    }
+    };
 };
 
 function tDBecomeL(wordArray) {
@@ -2415,11 +2484,63 @@ function pKWBecomesKwKw(wordArray) {
             let index = wordArray.indexOf("k");
             if(wordArray[index+1] === "ʷ" && index > i) {
                 wordArray[i] = "kʷ";
-            };
-            timespKWBecomesKwKw++;
+                timespKWBecomesKwKw++;
             if(timespKWBecomesKwKw > 0) {
                 document.getElementById("pKWBecomesKwKw-li").style.display = "block";
                 document.getElementById("pKWBecomesKwKw-ul").style.display = "block";
+            };
+            };
+        }
+    }
+};
+
+function longEBecomesLongI(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "e" && wordArray[i+1] === "e") {
+            wordArray[i] = "i";
+            wordArray[i+1] = "i";
+            timeslongEBecomesLongI++;
+            if(timeslongEBecomesLongI > 0) {
+                document.getElementById("longEBecomesLongI-li").style.display = "block";
+                document.getElementById("longEBecomesLongI-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function wordFinalLongOBecomesLongU(wordArray) {
+    if(wordArray[wordArray.length-1] === "o" && wordArray[wordArray.length-2] === "o") {
+        wordArray[wordArray.length-1] = "u";
+        wordArray[wordArray.length-2] = "u";
+        timeswordFinalLongOBecomesLongU++;
+        if(timeswordFinalLongOBecomesLongU > 0) {
+            document.getElementById("wordFinalLongOBecomesLongU-li").style.display = "block";
+            document.getElementById("wordFinalLongOBecomesLongU-ul").style.display = "block";
+        };
+    }
+};
+
+function longVowelsShortenBeforeRC(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(vowels.includes(wordArray[i]) && wordArray[i-1] === wordArray[i] && resonants.includes(wordArray[i+1]) && consonants.includes(wordArray[i+2])) {
+            wordArray.splice(i,1);
+            timeslongVowelsShortenBeforeRC++;
+            if(timeslongVowelsShortenBeforeRC > 0) {
+                document.getElementById("longVowelsShortenBeforeRC-li").style.display = "block";
+                document.getElementById("longVowelsShortenBeforeRC-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function CCBecomesXC(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(consonants.includes(wordArray[i]) && plosives.includes(wordArray[i+1]) || consonants.includes(wordArray[i]) && wordArray[i+1] === "s") {
+            wordArray[i] = "x";
+            timesCCBecomesXC++;
+            if(timesCCBecomesXC > 0) {
+                document.getElementById("CCBecomesXC-li").style.display = "block";
+                document.getElementById("CCBecomesXC-ul").style.display = "block";
             };
         }
     }

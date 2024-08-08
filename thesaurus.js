@@ -20,7 +20,7 @@ let jewelArray = ["jewel", "gem", "ornament", "diamond", "crystal", "pearl", "be
 allWordsInThesaurus.push(jewelArray);
 
 let newArray = ["new", "fresh", "recent", "novel", "unknown", "original", "unique", "unprecedented"];
-allWordsInThesaurus.push(jewelArray);
+allWordsInThesaurus.push(newArray);
 
 let mouseArray = ["mouse", "rodent", "pest", "scoundrel", "rat", "nuissance"];
 allWordsInThesaurus.push(mouseArray);
@@ -94,7 +94,7 @@ allWordsInThesaurus.push(ravenArray);
 let huntArray = ["hunt", "to&nbspseek&nbspout", "to&nbspprowl", "to&nbspstalk", "to&nbsptrack&nbspdown", "to&nbspchase&nbsp", "to&nbspkill", "to&nbspslaughter", "to&nbsppursue"];
 allWordsInThesaurus.push(huntArray);
 
-let weakArray = ["weak", "feeble", "brittle", "pathetic", "pitiful", "unconvincing", "lame", "(of&nbspwater)&nbspstill,&nbspstagnant,&nbspslow-flowing", "languid", "lethargic", "impotent", "sterile", "infertile", "barren", "flaccid", "half-hearted", "asthenic", "powerless", "soft", "infirm", "faint", "(of&nbspcolour)&nbspbleached, faded", "effeminate", "flimsy"];
+let weakArray = ["weak", "feeble", "brittle", "pathetic", "pitiful", "unconvincing", "lame", "(of&nbspwater)&nbspstill,&nbspstagnant,&nbspslow-flowing", "languid", "lethargic", "impotent", "sterile", "infertile", "barren", "flaccid", "half-hearted", "asthenic", "powerless", "soft", "infirm", "faint", "(of&nbspcolour)&nbspbleached&nbspfaded", "effeminate", "flimsy"];
 allWordsInThesaurus.push(weakArray);
 
 let preferArray = ["prefer", "to&nbsplike", "to&nbspchoose", "to&nbspadopt", "to&nbspembrace", "to&nbspaccept"];

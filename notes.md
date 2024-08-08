@@ -10,6 +10,9 @@ Phonotactic ideas:
 
 - perhaps introduce a sound changes from Old X section? To describe some sound changes that do not nexessarily result in productive phonotactics.figure out how to make resulting hponology appear in tables in such
 
+uC > Cu/#_C
+uc > Cw/#_V
+#uCu >  Cu:
 wo > wu
 w > ∅/_u
 i u > e o/\_R

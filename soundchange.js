@@ -224,6 +224,8 @@ let timespBecomesF = 0;
 let timeslongOBecomesA = 0;
 let timeseWBecomesOW = 0;
 let timeslongUBecomesOU = 0;
+let timesvelarsDelabialise = 0;
+let timeslossOfAspiration = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -295,6 +297,8 @@ function clearPreviousOutput() {
     timeslongOBecomesA = 0;
     timeseWBecomesOW = 0;
     timeslongUBecomesOU = 0;
+    timesvelarsDelabialise = 0;
+    timeslossOfAspiration = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -372,20 +376,26 @@ function selectSoundChanges() {
         tDBecomeL,
         longVowelsBreak,
         vowelsHeightenBeforeVelars,
+        palatalsBecomeVelar,
         gwbecomesB,
         eRaBecomesARa,
         epentheticA,
         pKWBecomesKwKw,
         longEBecomesLongI,
+        wordFinalLongOBecomesLongU,
         longVowelsShortenBeforeRC,
         CCBecomesXC,
         pBecomesBBeforeResonants,
         pBecomesU,
         pBecomesF,
         longOBecomesA,
-        eWBecomesOW
-
+        eWBecomesOW,
+        longOBecomesA,
+        longUBecomesOU,
+        velarsDelabialise,
+        lossOfAspiration
     ];
+    console.log(`NUmber of sound changes: ${potentialSoundChanges.length}`)
     
     //selects which sound changes will be chosen
     while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
@@ -1407,6 +1417,34 @@ function selectSoundChanges() {
             let nestLi = document.createElement("li");
             nestLi.style.listStyleType = "none";
             nestLi.innerHTML = `The long vowel /uː/ becomes /ou/ when it occurs before a plosive or a fricative: <div class="sound-change-example" id="longUBecomesOU"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === velarsDelabialise) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "velarsDelabialise-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Velars Delabialise`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "velarsDelabialise-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `Labialised velar plosives lose their labialisation: <div class="sound-change-example" id="velarsDelabialise"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === lossOfAspiration) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "lossOfAspiration-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Aspiration is Lost`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "lossOfAspiration-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `All aspirated consonants lose their aspiration: <div class="sound-change-example" id="lossOfAspiration"></div>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -2725,6 +2763,33 @@ function longUBecomesOU(wordArray) {
             if(timeslongUBecomesOU > 0) {
                 document.getElementById("longUBecomesOU-li").style.display = "block";
                 document.getElementById("longUBecomesOU-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function velarsDelabialise(wordArray) {
+    let velars = ["k", "g", "kʰ", "gʰ"];
+    for(let i = 0; i < wordArray.length; i++) {
+        if(velars.includes(wordArray[i]) && wordArray[i+1] === "ʷ") {
+            wordArray.splice(i+1,1);
+            timesvelarsDelabialise++;
+            if(timesvelarsDelabialise > 0) {
+                document.getElementById("velarsDelabialise-li").style.display = "block";
+                document.getElementById("velarsDelabialise-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function lossOfAspiration(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ʰ") {
+            wordArray.splice(i,1);
+            timeslossOfAspiration++;
+            if(timeslossOfAspiration > 0) {
+                document.getElementById("lossOfAspiration-li").style.display = "block";
+                document.getElementById("lossOfAspiration-ul").style.display = "block";
             };
         }
     }

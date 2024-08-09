@@ -1,6 +1,6 @@
 //@collapse
 import { spell } from "./orthography.js";
-import { soundChange, voiced, unvoiced, chosenSoundChanges, vowels, consonants, selectFricatives, plosives, randomNumForWordInitialPlosiveClusters, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive,lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, frontVowels,randomNumForLongVowelsBreak} from "./soundchange.js";
+import { soundChange, voiced, unvoiced, chosenSoundChanges, vowels, consonants, selectFricatives, plosives, randomNumForWordInitialPlosiveClusters, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive,lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, frontVowels,randomNumForLongVowelsBreak, backVowels, obstruents} from "./soundchange.js";
 import { languageName } from "./script.js";
 
 let soundChangeArray = [];
@@ -56,6 +56,11 @@ let wordFinalLongOBecomesLongUNum = 0;
 let longVowelsShortenBeforeRCNum = 0;
 let CCBecomesXCNum = 0
 let pBecomesBBeforeResonantsNum = 0;
+let pBecomesUNum = 0;
+let pBecomesFNum = 0;
+let longOBecomesANum = 0;
+let eWBecomesOWNum = 0;
+let longUBecomesOUNum = 0;
 
 function clearArrays() {
     num = 0;
@@ -112,6 +117,11 @@ function clearArrays() {
     longVowelsShortenBeforeRCNum = 0;
     CCBecomesXCNum = 0;
     pBecomesBBeforeResonantsNum = 0;
+    pBecomesUNum = 0;
+    pBecomesFNum = 0;
+    longOBecomesANum = 0;
+    eWBecomesOWNum = 0;
+    longUBecomesOUNum = 0;
 };
 
 function cloneArray(array) {
@@ -120,6 +130,17 @@ function cloneArray(array) {
         newArray.push(array[i]);
     }
     return newArray;
+};
+
+function markLengthInIPA(word) {
+    let array = Array.from(word)
+    for(let i = 0; i < array.length; i++) {
+        if(array[i] === array[i+1]) {
+            array[i+1] = "ː";
+        };
+    };
+    word = array.join("");
+    return word;
 };
 
 let oldName = "";
@@ -393,6 +414,31 @@ function populateArray() {
                 soundChangeArray.push(pBecomesBBeforeResonants);
             }
         };
+        if(chosenSoundChanges[i].name === "pBecomesU") {
+            if(soundChangeArray.includes(pBecomesU) === false) {
+                soundChangeArray.push(pBecomesU);
+            }
+        };
+        if(chosenSoundChanges[i].name === "pBecomesF") {
+            if(soundChangeArray.includes(pBecomesF) === false) {
+                soundChangeArray.push(pBecomesF);
+            }
+        };
+        if(chosenSoundChanges[i].name === "longOBecomesA") {
+            if(soundChangeArray.includes(longOBecomesA) === false) {
+                soundChangeArray.push(longOBecomesA);
+            }
+        };
+        if(chosenSoundChanges[i].name === "eWBecomesOW") {
+            if(soundChangeArray.includes(eWBecomesOW) === false) {
+                soundChangeArray.push(eWBecomesOW);
+            }
+        };
+        if(chosenSoundChanges[i].name === "longUBecomesOU") {
+            if(soundChangeArray.includes(longUBecomesOU) === false) {
+                soundChangeArray.push(longUBecomesOU);
+            }
+        };
     };
 };
 
@@ -424,15 +470,15 @@ function wordFinalDevoicing(word, originalWord) {
             let originalJoined = correctionsForStrings(originalWord.join(""));
             let afterExample = "";
             if(soundChange(originalJoined) !== afterwordFinalDevoicing) {
-                afterExample = `<i>*${spell(afterwordFinalDevoicing)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+                afterExample = `<i>*${spell(afterwordFinalDevoicing)}</i> [${markLengthInIPA(afterwordFinalDevoicing)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
             } else {
-                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
             if(originalJoined === beforewordFinalDevoicing) {
-                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i>`;
+                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
-                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i> > *<i>${spell(beforewordFinalDevoicing)}</i>`
+                beforeExample = `${oldName} <i><strong>${spell(originalJoined)}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(beforewordFinalDevoicing)}</i> [${markLengthInIPA(beforewordFinalDevoicing)}]`
             }
             if(wordFinalDevoicingNum < 6) {
                 if(wordFinalDevoicingNum === 0) {
@@ -1995,7 +2041,7 @@ function longABecomesO(word, originalWord) {
         };
     };
     return word;
-}
+};
 
 function palatalisationofPlosives(word, originalWord) {
     let labial = ["b", "bʰ", "bʲ", "bʷ", "bʰʲ", "bʷʰ", "p", "pʰ", "pʲ", "pʷ","pʰʲ", "pʷʰ"];
@@ -2817,6 +2863,183 @@ function pBecomesBBeforeResonants(word, originalWord) {
                     document.getElementById("pBecomesBBeforeResonants").appendChild(example);
                 }
                 pBecomesBBeforeResonantsNum++;   
+            };
+        }
+    }
+};
+
+function pBecomesU(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "p" && backVowels.includes(word[i-1]) && allNasalsArray.includes(word[i+1])) {
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "u";
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(pBecomesUNum < 6) {    
+                if(pBecomesUNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("pBecomesU").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("pBecomesU").appendChild(example);
+                }
+                pBecomesUNum++;   
+            };
+        }
+    };
+};
+
+function pBecomesF(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "p") {
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "f";
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(pBecomesFNum < 6) {    
+                if(pBecomesFNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("pBecomesF").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("pBecomesF").appendChild(example);
+                }
+                pBecomesFNum++;   
+            };
+        };
+    };
+};
+
+function longOBecomesA(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "o" && word[i+1] === "ː") {
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "a";
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(longOBecomesANum < 6) {    
+                if(longOBecomesANum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("longOBecomesA").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("longOBecomesA").appendChild(example);
+                }
+                longOBecomesANum++;   
+            };
+        };
+    };
+    return word;
+};
+
+function eWBecomesOW(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "e" && word[i+1] === "w") {
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "o";
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(eWBecomesOWNum < 6) {    
+                if(eWBecomesOWNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("eWBecomesOW").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("eWBecomesOW").appendChild(example);
+                }
+                eWBecomesOWNum++;   
+            };
+        }
+    }
+};
+
+function longUBecomesOU(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
+        if(word[i] === "u" && word[i+1] === "ː" && obstruents.includes(word[i+2])) {
+            let before = correctionsForStrings(word.join(""));
+            word[i] = "o";
+            word[i+1] = "u"
+            let after = correctionsForStrings(word.join(""));
+            let afterExample = "";
+            let originalJoined = originalWord.join("");
+            if(soundChange(originalJoined) !== after) {
+                afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+            } else {
+                afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
+            };
+            let beforeExample = "";
+            if(correctionsForStrings(originalJoined) === before) {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+            } else {
+                beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
+            }
+            if(longUBecomesOUNum < 6) {    
+                if(longUBecomesOUNum === 0) {
+                    let example = document.createElement("span");
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                    document.getElementById("longUBecomesOU").appendChild(example);
+                } else {
+                    let example = document.createElement("span");
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                    document.getElementById("longUBecomesOU").appendChild(example);
+                }
+                longUBecomesOUNum++;   
             };
         }
     }

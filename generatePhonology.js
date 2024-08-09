@@ -265,7 +265,7 @@ function chooseAspiration() {
         }
     
 
-    let randomNum = Math.floor(Math.random() * 21);
+    let randomNum = Math.floor(Math.random() * 10);
     let chosenAspiration = "";
     if(randomNum === 1) { 
         let randomNum = Math.floor(Math.random() * 3);
@@ -279,15 +279,17 @@ function chooseAspiration() {
 }
 
 function chooseLabial() {
-    let randomNum = Math.floor(Math.random() * 15);
-    if (randomNum === 4) {
-        allLabialFricativesArray.push("ɸ");
-        randomNum = Math.floor(Math.random() * 6)
+    let randomNum = Math.floor(Math.random() * 3);
+    if (randomNum === 1) {
+        randomNum = Math.floor(Math.random() * 6);
+        if(randomNum === 2) {
+            allLabialFricativesArray.push("ɸ");
+            randomNum = Math.floor(Math.random() * 6)
             if(randomNum === 4 && chooseGemination()) {
                 allLabialApproximants.push("ɸː");
                 allLongConsonants.push("ɸː")
             }
-            
+        }
         if(chooseVoicing()) {
             randomNum = Math.floor(Math.random() * 2);
             if(randomNum === 1) {
@@ -299,15 +301,13 @@ function chooseLabial() {
                 }
                 }
         }
+        allLabialApproximants.push("w")
         randomNum = Math.floor(Math.random() * 6)
-        if(randomNum !== 2) {
-            allLabialApproximants.push("w")
-            randomNum = Math.floor(Math.random() * 6)
-            if(randomNum === 4 && chooseGemination()) {
-                allLabialApproximants.push("wː")
-                allLongConsonants.push("wː")
-            }
+        if(randomNum === 4 && chooseGemination()) {
+            allLabialApproximants.push("wː")
+            allLongConsonants.push("wː")
         }
+        
         randomNum = Math.floor(Math.random() * 25)
         if(randomNum === 2) {
             allLabialAffricates.push("pɸ")
@@ -841,7 +841,7 @@ function choosePalatalised() {
 }
 
 function chooseLabialisation() {
-    let randomNum = Math.floor(Math.random() * 14);
+    let randomNum = Math.floor(Math.random() * 10);
     if(randomNum === 5) {
         allLabialisedPlosives.push("tʷ");
         allAlveolarPlosivesArray.push("tʷ");
@@ -860,7 +860,7 @@ function chooseLabialisation() {
                 allAspiratesArray.push("tʷʰ");
             }
 
-        randomNum = Math.floor(Math.random() * 7);
+        randomNum = Math.floor(Math.random() * 4);
         if(randomNum === 3) {
             allLabialisedPlosives.push("sʷ");
             allAlveolarFricativesArray.push("sʷ");

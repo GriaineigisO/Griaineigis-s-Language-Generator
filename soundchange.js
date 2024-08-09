@@ -153,13 +153,16 @@ let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
 let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ", "ə", "ɛ", "œ", "ɜ", "ɞ", "ʌ", "ɔ", "ɑ", "ɒ", "ɐ", "æ"];
 let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a"];
 let frontVowels = ["i", "y", "e", "ø", "ɛ", "œ", "æ", "ɪ"];
+let backVowels = ["u", "ɔ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "ɑ"];
 let vowels = highVowels.concat(nonHighVowels);
 let addedVowels = vowels;
 let resonants = ["r", "l", "rʲ", "lʲ", "ʎ","ɽ", "ɭ"];
 let plosives = ["b", "d", "g", "bʰ", "dʰ", "gʰ", "ɖ", "ɟ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "p", "t", "k", "pʰ", "tʰ", "kʰ", "ʈ", "c", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "ʔ", "q", "ɢ"];
 let lenitionFromPlosives1 = ["β", "ð", "ɣ", "β", "ð", "ɣ", "ʐ", "ʝ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "βʲ", "ðʲ", "ɣʲ", "βʷ", "ðʷ", "ɣʷ", "ɸ", "θ", "x", "ɸ", "θ", "x", "θ", "ç", "ɸʲ", "θʲ", "xʲ", "ɸʷ", "θʷ", "xʷ", "ɸʲ", "θʲ", "xʲ", "θʷ", "θʷ", "xʷ", "h", "χ", "ʁ"];
 let lenitionFromPlosives2 = ["v", "z", "h", "v", "z", "h", "ʐ", "j", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "vʲ", "zʲ", "hʲ", "vʷ", "zʷ", "hʷ", "f", "s", "h", "f", "s", "h", "ʂ", "j", "fʲ", "sʲ", "hʲ", "fʷ", "sʷ", "hʷ", "fʲ", "sʲ", "hʲ", "fʷ", "stʷ", "hʷ", "h", "h", "h"];
+let fricatives = ["ɸ", "β", "f", "v", "s", "z", "ʃ", "ʒ", "ʂ", "ʐ", "θ", "ð", "ç", "ʝ", "h", "ɦ", "x", "ɣ", "ʕ", "ħ", "ɬ", "ɮ", "χ", "ʁ"]
 let syllablestructuresThatHaveWordFinalConsonants = ["CVC", "VVC", "VVCC", "VCC", "AVC", "CAVCC", "CVNC", "VNC", "CVFC", "FCVC", "CCFV", "CVRC", "CVCR", "CRVC", "CVH", "HVC", "VC"];
+let obstruents = plosives.concat(fricatives)
 
 let timeswordFinalDevoicingApplied = 0;  
 let timesplosivesCantClusterTogetherWordInitiallyApplied = 0;
@@ -216,6 +219,11 @@ let timeswordFinalLongOBecomesLongU = 0;
 let timeslongVowelsShortenBeforeRC = 0;
 let timesCCBecomesXC = 0;
 let timespBecomesBBeforeResonants = 0;
+let timespBecomesU = 0;
+let timespBecomesF = 0;
+let timeslongOBecomesA = 0;
+let timeseWBecomesOW = 0;
+let timeslongUBecomesOU = 0;
 
 function cloneArray(array) {
     let newArray = [];
@@ -282,6 +290,11 @@ function clearPreviousOutput() {
     timeslongVowelsShortenBeforeRC = 0;
     timesCCBecomesXC = 0;
     timespBecomesBBeforeResonants = 0;
+    timespBecomesU = 0;
+    timespBecomesF = 0;
+    timeslongOBecomesA = 0;
+    timeseWBecomesOW = 0;
+    timeslongUBecomesOU = 0;
 };
 
 function checkIfWordFinalConsonantsArePossible() {
@@ -313,7 +326,7 @@ let randomNumForLongVowelsBreak = 0;
 let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
 function selectSoundChanges() {
-    chosenSoundChanges = [pBecomesBBeforeResonants];
+    chosenSoundChanges = [];
     wordArray = [];
     wordFinalDevoicingTrueOrFalse = "";
     potentialSoundChanges = [
@@ -365,7 +378,13 @@ function selectSoundChanges() {
         pKWBecomesKwKw,
         longEBecomesLongI,
         longVowelsShortenBeforeRC,
-        CCBecomesXC
+        CCBecomesXC,
+        pBecomesBBeforeResonants,
+        pBecomesU,
+        pBecomesF,
+        longOBecomesA,
+        eWBecomesOW
+
     ];
     
     //selects which sound changes will be chosen
@@ -1322,6 +1341,76 @@ function selectSoundChanges() {
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
         };
+        if(chosenSoundChanges[i] === pBecomesU) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "pBecomesU-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/p/ lenites to /u/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "pBecomesU-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `/p/ becomes /u/ when after a back vowel and before a nasal: <div class="sound-change-example" id="pBecomesU"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === pBecomesF) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "pBecomesF-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/p/ Lenites to /f/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "pBecomesF-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `All instances of /p/become /f/: <div class="sound-change-example" id="pBecomesF"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === longOBecomesA) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "longOBecomesA-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Long O Becomes Long A`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "longOBecomesA-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The long vowel /oː/: <div class="sound-change-example" id="longOBecomesA"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === eWBecomesOW) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "eWBecomesOW-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `/ew/ Becomes /ow/`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "eWBecomesOW-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The front vowel /e/ becomes the back vowel /o/ before /w/: <div class="sound-change-example" id="eWBecomesOW"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
+        if(chosenSoundChanges[i] === longUBecomesOU) {
+            let li= document.createElement("li");
+            li.setAttribute("id", "longUBecomesOU-li")
+            li.style.fontWeight = "bold";
+            li.innerHTML = `Long /uː/ Breaks`;
+            let nestUl = document.createElement("ul");
+            nestUl.setAttribute("id", "longUBecomesOU-ul");
+            let nestLi = document.createElement("li");
+            nestLi.style.listStyleType = "none";
+            nestLi.innerHTML = `The long vowel /uː/ becomes /ou/ when it occurs before a plosive or a fricative: <div class="sound-change-example" id="longUBecomesOU"></div>`
+            document.getElementById("sound-change-explanation").appendChild(li);
+            document.getElementById("sound-change-explanation").appendChild(nestUl);
+            nestUl.appendChild(nestLi);
+        };
     };
 };
 
@@ -2233,7 +2322,7 @@ function longABecomesO(wordArray) {
             };
         }
     }
-}
+};
 
 function palatalisationofPlosives(wordArray) {
     let labial = ["b", "bʰ", "bʲ", "bʷ", "bʰʲ", "bʷʰ", "p", "pʰ", "pʲ", "pʷ","pʰʲ", "pʷʰ"];
@@ -2575,10 +2664,76 @@ function pBecomesBBeforeResonants(wordArray) {
     }
 };
 
+function pBecomesU(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "p" && backVowels.includes(wordArray[i-1]) && allNasalsArray.includes(wordArray[i+1])) {
+            wordArray[i] = "u";
+            timespBecomesU++;
+            if(timespBecomesU > 0) {
+                document.getElementById("pBecomesU-li").style.display = "block";
+                document.getElementById("pBecomesU-ul").style.display = "block";
+            };
+        }
+    };
+};
+
+function pBecomesF(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "p") {
+            wordArray[i] = "f";
+            timespBecomesF++;
+            if(timespBecomesF > 0) {
+                document.getElementById("pBecomesF-li").style.display = "block";
+                document.getElementById("pBecomesF-ul").style.display = "block";
+            };
+        }
+    };
+};
+
+function longOBecomesA(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "o" && wordArray[i-1] === "o") {
+            wordArray[i] = "a";
+            wordArray[i-1] = "a";
+            timeslongOBecomesA++;
+            if(timeslongOBecomesA > 0) {
+                document.getElementById("longOBecomesA-li").style.display = "block";
+                document.getElementById("longOBecomesA-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function eWBecomesOW(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "e" && wordArray[i+1] === "w") {
+            wordArray[i] = "o";
+            timeseWBecomesOW++;
+            if(timeseWBecomesOW > 0) {
+                document.getElementById("eWBecomesOW-li").style.display = "block";
+                document.getElementById("eWBecomesOW-ul").style.display = "block";
+            };
+        }
+    }
+};
+
+function longUBecomesOU(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "u" && wordArray[i+1] === "u" && obstruents.includes(wordArray[i+2])) {
+            wordArray[i] = "o";
+            timeslongUBecomesOU++;
+            if(timeslongUBecomesOU > 0) {
+                document.getElementById("longUBecomesOU-li").style.display = "block";
+                document.getElementById("longUBecomesOU-ul").style.display = "block";
+            };
+        }
+    }
+};
+
 /*------------------------------------------------------*/
 
 
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, chosenSoundChanges, frontVowels, randomNumForLongVowelsBreak};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, chosenSoundChanges, frontVowels, randomNumForLongVowelsBreak, backVowels, obstruents};

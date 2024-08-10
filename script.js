@@ -870,7 +870,7 @@ function lengthExplanation() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = 2//Math.floor(Math.random() * 3) //change to 3 once fusional is added
+    typologyNum = Math.floor(Math.random() * 3) //change to 3 once fusional is added
 }
 
 function chooseTypology() {

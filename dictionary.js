@@ -1931,13 +1931,13 @@ function makeDictionary() {
             //if the word is also a classifier, this is to include a note of such in the entry
             if (newArray[4] === ";" && newArray[5] === "classifier") {
                 headWordText = newArray[0];
-                ipaText = newArray[1];
+                ipaText = newArray[1] + " ";
                 pOSText = newArray[2];
                 translationText = newArray[3];
                 classifierInfotext = `${newArray[4]} ${newArray[5]} ${newArray[6]} ${newArray[7]} ${newArray[8]} ${newArray[9]} ${newArray[10]} ${newArray[11]}`
             } else {
                 headWordText = newArray[0];
-                ipaText = newArray[1];
+                ipaText = newArray[1] + " ";
                 pOSText = newArray[2];
                 translationText = newArray[3];
                 classifierInfotext = newArray[4];
@@ -1947,7 +1947,7 @@ function makeDictionary() {
             //adverbs, conjunctions and adpositions don't need to have bare roots shown, thus the length of their newArray is different
             if (newArray[2] === "conj" || newArray[2] === "adv" || newArray[2] === "adpo") {
                 headWordText = newArray[0];
-                ipaText = newArray[1]
+                ipaText = newArray[1] + " "
                 pOSText = newArray[2]
                 translationText = newArray[3];
                 classifierInfotext = newArray[4];

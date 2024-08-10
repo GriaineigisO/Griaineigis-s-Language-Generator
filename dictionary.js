@@ -1114,7 +1114,7 @@ function makeDictionary() {
                 
                 break;
             } else {
-                etymologyTranslation = englishWords[i];
+                etymologyTranslation = removeVFromVerb(englishWords[i]);
             }
         };
 

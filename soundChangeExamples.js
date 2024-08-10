@@ -501,11 +501,11 @@ function wordFinalDevoicing(word, originalWord) {
             if(wordFinalDevoicingNum < 6) {
                 if(wordFinalDevoicingNum === 0) {
                     let example = document.createElement("span");
-                    example.innerHTML = `${before} > ${after}`;
+                    example.innerHTML = `${beforeExample} > ${afterExample}`;
                     document.getElementById("wordFinalDevoicing").appendChild(example);
                 } else {
                     let example = document.createElement("span");
-                    example.innerHTML = `, ${before} > ${after}`;
+                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
                     document.getElementById("wordFinalDevoicing").appendChild(example);
                 }
                 wordFinalDevoicingNum++;
@@ -2777,7 +2777,7 @@ function longVowelsShortenBeforeRC(word, originalWord) {
 
 function CCBecomesXC(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(consonants.includes(word[i]) && plosives.includes(word[i+1]) || consonants.includes(word[i]) && word[i+1] === "s") {
+        if(consonants.includes(word[i]) && plosives.includes(word[i+1]) && word[i] !== word[i+1]|| consonants.includes(word[i]) && word[i+1] === "s"&& word[i] !== word[i+1]) {
             let before = correctionsForStrings(word.join(""));
             word[i] = "x";
             let after = correctionsForStrings(word.join(""));

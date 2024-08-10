@@ -395,7 +395,7 @@ function selectSoundChanges() {
         velarsDelabialise,
         lossOfAspiration
     ];
-    console.log(`NUmber of sound changes: ${potentialSoundChanges.length}`)
+    console.log(`Number of sound changes: ${potentialSoundChanges.length}`)
     
     //selects which sound changes will be chosen
     while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
@@ -1461,7 +1461,6 @@ function corrections(wordArray) {
             wordArray.splice(i, 1)
         } 
     }
-
     //since long vowels in the IPA are marked like 'iː', with ː being an extra character, this loop deletes the following long vowel if it is the same
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i + 1] === "ː" && wordArray[i + 2] === wordArray[i] && wordArray[i + 3] === "ː") {
@@ -1482,7 +1481,6 @@ function corrections(wordArray) {
             wordArray[i] = wordArray[i - 1]
         }
     }
-
     
     //prevent preaspirated consonants occuring word initially
     if(wordArray[0] === "ʰ") {
@@ -2678,7 +2676,7 @@ function longVowelsShortenBeforeRC(wordArray) {
 
 function CCBecomesXC(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
-        if(consonants.includes(wordArray[i]) && plosives.includes(wordArray[i+1]) || consonants.includes(wordArray[i]) && wordArray[i+1] === "s") {
+        if(consonants.includes(wordArray[i]) && plosives.includes(wordArray[i+1]) && wordArray[i] !== wordArray[i+1]|| consonants.includes(wordArray[i]) && wordArray[i+1] === "s" && wordArray[i] !== wordArray[i+1]) {
             wordArray[i] = "x";
             timesCCBecomesXC++;
             if(timesCCBecomesXC > 0) {

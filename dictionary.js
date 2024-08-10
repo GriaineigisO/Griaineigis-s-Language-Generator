@@ -43,8 +43,20 @@ function capitaliseLanguageName(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-function Dictionary(word, partOfSpeech, translation, classifierExplanation, etymology) {
+function ipaFix(word) {
+    let array = Array.from(word);
+    for(let i = 0; i < array.length; i++) {
+        if(array[i] === array[i+1]) {
+            array[i+1] = "ː";
+        }
+    }
+    word = array.join("");
+    return word;
+}
+
+function Dictionary(word, ipa, partOfSpeech, translation, classifierExplanation, etymology) {
     this.word = word;
+    this.ipa = ipa;
     this.partOfSpeech = partOfSpeech;
     this.translation = translation;
     this.classifierExplanation = classifierExplanation;
@@ -1106,14 +1118,16 @@ function makeDictionary() {
             }
         };
 
-        word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+        word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
         let headWord = document.createElement("span");
+        let ipaTranscription = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");
         let classiferEtymology = document.createElement("span");
         let etymology = document.createElement("span");
 
         headWord.innerHTML = word1.word;
+        ipaTranscription.innerHTML = `[${word1.ipa}];`;
         pOS.innerHTML = word1.partOfSpeech;
         meaning.innerHTML = word1.translation;
         classiferEtymology.innerHTML = word1.classifierExplanation;
@@ -1121,7 +1135,7 @@ function makeDictionary() {
 
         let entry = document.createElement("div");
         entry.classList.add("entry");
-        entry.innerHTML = `${headWord.innerHTML} ${pOS.innerHTML} ${meaning.innerHTML} ${classiferEtymology.innerHTML} ${etymology.innerHTML}`;
+        entry.innerHTML = `${headWord.innerHTML} ${ipaTranscription.innerHTML} ${pOS.innerHTML} ${meaning.innerHTML} ${classiferEtymology.innerHTML} ${etymology.innerHTML}`;
         document.getElementById("language-to-english").appendChild(entry);
     }
 
@@ -1574,6 +1588,56 @@ function makeDictionary() {
 
                 }
             }
+            if (nounGenderArray.includes("masculine1") && nounGenderArray.includes("feminine1")) {
+                if (countNounArray.includes(englishWords[i])) {
+                    let index = countNounArray.indexOf(englishWords[i])
+                    if (mascFem[index] === "masculine1") {
+                        pOfSpeech = "n.masc";
+                        masculine1Array.push(generatedCountNouns[i])
+                        if (genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + mascSgAffix;
+                        }
+                        if (genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = mascSgAffix + languageWords[i];
+                        }
+                        classifierInfo = "";;
+                    } else if (mascFem[index] === "feminine1") {
+                        pOfSpeech = "n.fem";
+                        feminine1Array.push(generatedCountNouns[i])
+                        if (genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + femSgAffix;
+                        }
+                        if (genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = femSgAffix + languageWords[i];
+                        }
+                    }
+                    classifierInfo = "";;
+                }
+                if (massNounArray.includes(englishWords[i])) {
+                    let index = massNounArray.indexOf(englishWords[i])
+                    if (mascFem[index] === "masculine1") {
+                        pOfSpeech = "n.masc";
+                        masculine1Array.push(generatedMassNouns[i])
+                        if (genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + mascSgAffix;
+                        }
+                        if (genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = mascSgAffix + languageWords[i];
+                        }
+                        classifierInfo = "";
+                    } else if (mascFem[index] === "feminine1") {
+                        pOfSpeech = "n.fem" ;
+                        feminine1Array.push(generatedMassNouns[i])
+                        if (genderSuffixOrPrefix === "suffix") {
+                            wordWithAffix = "X" + languageWords[i] + femSgAffix;
+                        }
+                        if (genderSuffixOrPrefix === "prefix") {
+                            wordWithAffix = femSgAffix + languageWords[i];
+                        }
+                        classifierInfo = "";
+                    }
+                }
+            }
         };
         if (genderNum > 0 && typologyNum === 2 && grammaticalNumber > 24 && grammaticalNumber < 27) {
             if (nounGenderArray.includes("animate") && nounGenderArray.includes("inanimate")) {
@@ -1756,7 +1820,6 @@ function makeDictionary() {
             }
         }
 
-
         //if the language has a marked singular, then the singular affix is added to the dictionary form of nouns
         if (typologyNum === 1 && grammaticalNumAgglutinative < 24 && markedSingularOrNot() === true) {
             if (countNounArray.includes(englishWords[i])) {
@@ -1816,12 +1879,14 @@ function makeDictionary() {
             }
         }
 
-        word1 = new Dictionary(spell(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]));
+        word1 = new Dictionary(spell(soundChange(wordWithAffix)), "" ,pOfSpeech, removeVFromVerb(englishWords[i]));
         let headWord = document.createElement("span");
+        let ipa = document.createElement("span");
         let pOS = document.createElement("span");
         let meaning = document.createElement("span");
 
         headWord.innerHTML = word1.word;
+        ipa.innerHTML = word1.ipa;
         pOS.innerHTML = word1.partOfSpeech;
         meaning.innerHTML = word1.translation;
 
@@ -1854,6 +1919,7 @@ function makeDictionary() {
         let entryText = entryDiv[i].innerHTML;
         let newArray = entryText.split(" ");
         let headWordText = "";
+        let ipaText = "";
         let pOSText = "";
         let translationText = "";
         let classifierInfotext = "";
@@ -1863,32 +1929,36 @@ function makeDictionary() {
         //if typology is isolating
         if (typologyNum === 0) {
             //if the word is also a classifier, this is to include a note of such in the entry
-            if (newArray[3] === ";" && newArray[4] === "classifier") {
+            if (newArray[4] === ";" && newArray[5] === "classifier") {
                 headWordText = newArray[0];
-                pOSText = newArray[1];
-                translationText = newArray[2];
-                classifierInfotext = `${newArray[3]} ${newArray[4]} ${newArray[5]} ${newArray[6]} ${newArray[7]} ${newArray[8]} ${newArray[9]} ${newArray[10]}`
+                ipaText = newArray[1];
+                pOSText = newArray[2];
+                translationText = newArray[3];
+                classifierInfotext = `${newArray[4]} ${newArray[5]} ${newArray[6]} ${newArray[7]} ${newArray[8]} ${newArray[9]} ${newArray[10]} ${newArray[11]}`
             } else {
                 headWordText = newArray[0];
-                pOSText = newArray[1];
-                translationText = newArray[2];
-                classifierInfotext = newArray[3];
-                etymologyText = newArray[4]
-            }
-        } else if (typologyNum > 0) { //if typology is agglutinative, the bare root is newArray[2] listed after the part of speech
-            //adverbs, conjunctions and adpositions don't need to have bare roots shown, thus the length of their newArray is different
-            if (newArray[1] === "conj" || newArray[1] === "adv" || newArray[1] === "adpo") {
-                headWordText = newArray[0];
-                pOSText = newArray[1]
-                translationText = newArray[2];
-                classifierInfotext = newArray[3];
-                etymologyText = newArray[4];
-            } else {
-                headWordText = newArray[0];
-                pOSText = newArray[1] + " " + newArray[2];
+                ipaText = newArray[1];
+                pOSText = newArray[2];
                 translationText = newArray[3];
                 classifierInfotext = newArray[4];
                 etymologyText = newArray[5];
+            }
+        } else if (typologyNum > 0) { //if typology is agglutinative, the bare root is newArray[3] listed after the part of speech
+            //adverbs, conjunctions and adpositions don't need to have bare roots shown, thus the length of their newArray is different
+            if (newArray[2] === "conj" || newArray[2] === "adv" || newArray[2] === "adpo") {
+                headWordText = newArray[0];
+                ipaText = newArray[1]
+                pOSText = newArray[2]
+                translationText = newArray[3];
+                classifierInfotext = newArray[4];
+                etymologyText = newArray[5];
+            } else {
+                headWordText = newArray[0];
+                ipaText = newArray[1] + " ";
+                pOSText = newArray[2] + " " + newArray[3];
+                translationText = newArray[4];
+                classifierInfotext = newArray[5];
+                etymologyText = newArray[6];
             }
 
         }
@@ -1898,6 +1968,9 @@ function makeDictionary() {
         headWord.style.fontWeight = "bold";
         headWord.style.fontSize = "18px";
         headWord.style.marginRight = "5px";
+
+        let ipa = document.createElement("span");
+        ipa.innerHTML = ipaText;
 
         let pOS = document.createElement("span");
         pOS.innerHTML = pOSText;
@@ -1939,7 +2012,6 @@ function makeDictionary() {
             }
         };
 
-
         //for additional information in entries such as classifier etmyology and such
         let classifierEtymology = document.createElement("span");
         classifierEtymology.style.fontSize = "16px";
@@ -1952,6 +2024,7 @@ function makeDictionary() {
 
         entryDiv[i].innerHTML = "";
         entryDiv[i].appendChild(headWord)
+        entryDiv[i].appendChild(ipa)
         entryDiv[i].appendChild(pOS)
         entryDiv[i].appendChild(translation)
         entryDiv[i].appendChild(classifierEtymology);

@@ -263,7 +263,7 @@ function chooseAspiration() {
                 }
             return trueOrFalse;
         }
-    let randomNum = 1//Math.floor(Math.random() * 10);
+    let randomNum = Math.floor(Math.random() * 10);
     let chosenAspiration = "";
     if(randomNum === 1) { 
         let randomNum = Math.floor(Math.random() * 3);

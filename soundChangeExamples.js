@@ -493,7 +493,7 @@ function wordFinalDevoicing(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -530,7 +530,7 @@ function plosivesCantClusterTogetherWordInitially(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -572,7 +572,7 @@ function fricativesDebuccaliseBeforeVowels(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -608,7 +608,7 @@ function fricativesLostAfterWordInitialConsonants(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -643,17 +643,17 @@ function wordFinalHighVowelsLower(word, originalWord) {
         let after = correctionsForStrings(word.join(""));
         let afterExample = "";
         let originalJoined = correctionsForStrings(originalWord.join(""));
-        if(soundChange(originalWord) !== after) {
-            afterExample = `<i>*${spell(after)}</i> (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>)`
+        if(soundChange(originalJoined) !== after) {
+            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
         } else {
-            afterExample = `${newName} <i>${spell(after)}</i>`
-        };
+            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+        }
         let beforeExample = "";
-        if(originalJoined === before) {
-            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
+        if(correctionsForStrings(originalJoined) === before) {
+            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
         } else {
-            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
-        };
+            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+        }
         if(wordFinalHighVowelsLowerNum < 6) {
             if(wordFinalHighVowelsLowerNum === 0) {
                 let example = document.createElement("span");
@@ -685,7 +685,7 @@ function NoResonantsBeforeConsonants(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -719,7 +719,7 @@ function NoResonantsBeforeConsonants(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -754,7 +754,7 @@ function NoResonantsBeforeConsonants(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -795,7 +795,7 @@ function NoResonantsBeforeConsonants(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -834,7 +834,7 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -866,7 +866,7 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -904,7 +904,7 @@ function nonInitialNonHighVowelsBecomeA(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -943,7 +943,7 @@ function nasalsCantAppearAfterConsonants(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -979,7 +979,7 @@ function vowelLostBetweenTwoOfSameConsonant(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1019,7 +1019,7 @@ function voicedConsonantsLostIntervocalically(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1045,7 +1045,7 @@ function RVCToVRCMetathesis(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1086,7 +1086,7 @@ function vowelLostBetweenConsonantAndResonant(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1126,7 +1126,7 @@ function intervocalicVoicing(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1162,7 +1162,7 @@ function hLostAfterConsonants(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1201,7 +1201,7 @@ function nasalsLostBetweenVowelAndConsonant(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1237,7 +1237,7 @@ function auBecomesOu(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1276,7 +1276,7 @@ function aCaBecomesaCi(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1315,7 +1315,7 @@ function VʔVBecomesVV(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1352,7 +1352,7 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1382,7 +1382,7 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
             };
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(correctionsForStrings(before))}</i>`
@@ -1413,7 +1413,7 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i>`
             };
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
@@ -1443,7 +1443,7 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(after)}</strong></i>`
             };
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i>`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> > *<i>${spell(before)}</i>`
@@ -1485,7 +1485,7 @@ function CVRBecomesCCVR(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1522,7 +1522,7 @@ function glottalStopJFortites(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1553,7 +1553,7 @@ function glottalStopJFortites(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1593,7 +1593,7 @@ function eciBecomesiCi(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1632,7 +1632,7 @@ function iCbecomeseC(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1673,7 +1673,7 @@ function VJbecomesLongI(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1712,7 +1712,7 @@ function uNBecomesoN(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1751,7 +1751,7 @@ function gBecomesJ(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1789,7 +1789,7 @@ function VvBecomesVV(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1828,7 +1828,7 @@ function eNBecomesiN(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1866,7 +1866,7 @@ function CJBecomesCC(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1910,7 +1910,7 @@ function iUmlaut(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1940,7 +1940,7 @@ function vowelShiftInHeavySyllables(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1963,7 +1963,7 @@ function VCVBecomesVCWordFinally(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -1998,7 +1998,7 @@ function longABecomesO(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2037,7 +2037,7 @@ function palatalisationofPlosives(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2078,7 +2078,7 @@ function eOBecomeJW(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2113,7 +2113,7 @@ function VzbecomesVr(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2147,7 +2147,7 @@ function intialVBecomesHV(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2180,7 +2180,7 @@ function intialJBecomesL(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2216,7 +2216,7 @@ function tDBecomeL(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2468,7 +2468,7 @@ function vowelsHeightenBeforeVelars(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2506,7 +2506,7 @@ function palatalsBecomeVelar(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2543,7 +2543,7 @@ function gwbecomesB(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2578,7 +2578,7 @@ function eRaBecomesARa(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2613,7 +2613,7 @@ function epentheticA(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2789,7 +2789,7 @@ function CCBecomesXC(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2824,7 +2824,7 @@ function pBecomesBBeforeResonants(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2859,7 +2859,7 @@ function pBecomesU(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2894,7 +2894,7 @@ function pBecomesF(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2929,7 +2929,7 @@ function longOBecomesA(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -2965,7 +2965,7 @@ function eWBecomesOW(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -3001,7 +3001,7 @@ function longUBecomesOU(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -3037,7 +3037,7 @@ function velarsDelabialise(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
@@ -3072,7 +3072,7 @@ function lossOfAspiration(word, originalWord) {
                 afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
             }
             let beforeExample = "";
-            if(originalJoined === before) {
+            if(correctionsForStrings(originalJoined) === before) {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`

@@ -520,7 +520,7 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("invite");
     transitiveVerb3SArray.push("invites");
     transitiveVerbPastArray.push("invited");
-    proneADJ.push(["inviting"< "hospitable"]);
+    proneADJ.push(["inviting", "hospitable"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("invoke");

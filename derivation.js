@@ -97,7 +97,7 @@ function VtoADJprone() {
                 };
                 if(exampleCounter < 6) {
                     let exampleLi = document.createElement("li");
-                    exampleLi.innerHTML = `-<i>${spell(soundChange(generatedTransitiveVerbs[i]))}</i>- "to ${transitiveVerbArray[i]}" > <i>${derivedTerm}</i> "${meaning}"`;
+                    exampleLi.innerHTML = `-<i>${spell(soundChange(generatedTransitiveVerbs[i]))}</i>- "to ${transitiveVerbArray[i]}" > <i>${spell(derivedTerm)}</i> "${meaning}"`;
                     ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 

@@ -1897,7 +1897,7 @@ function fricativesDebuccaliseBeforeVowels(wordArray) {
     let tD = ["t", "d"];
     for(let i = 0; i < wordArray.length; i++) {
         if(selectFricatives().includes(wordArray[i]) && vowels.includes(wordArray[i+1]) && wordArray[i] !== wordArray[i-1]) {
-            if(postAlveolar.includes(wordArray[i]) === false && tD.includes(wordArray[i-1]) === false) {
+            if(tD.includes(wordArray[i-1]) === false) {
                 wordArray[i] = "h";
             }
             

@@ -1119,7 +1119,7 @@ function makeDictionary() {
 
         let word1 = "";
         if(adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") {
-            word1 = new Dictionary(spell(wordWithAffix), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+            word1 = new Dictionary(spell(wordWithAffix), ipaFix(wordWithAffix), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
         } else {
             word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
         };

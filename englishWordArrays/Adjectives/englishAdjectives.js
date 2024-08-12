@@ -1,407 +1,803 @@
 let adjectiveArray = [];
 let comparativeAdjectiveArray = [];
+let derivedOrInheritedADJ = [];
+let etymologyArrayADJ = [];
+let etymologyADJ = [];
 
 function clearArrays() {
     adjectiveArray = [];
     comparativeAdjectiveArray = [];
-}
+    derivedOrInheritedADJ = [];
+    etymologyArrayADJ = [];
+    etymologyADJ = [];
+};
 
 //add adverb forms, and comparative and superlative forms (superlative forms come after "the" e.g "I lived the longest")
 
 function addWords() {
     adjectiveArray.push("short");
     comparativeAdjectiveArray.push("shorter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("able");
+adjectiveArray.push("able");
     comparativeAdjectiveArray.push("more&nbspable");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("abundant");
+adjectiveArray.push("abundant");
     comparativeAdjectiveArray.push("more&nbspabundant");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("afraid");
+adjectiveArray.push("afraid");
     comparativeAdjectiveArray.push("more&nbspafraid");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("alive");
+adjectiveArray.push("alive");
     comparativeAdjectiveArray.push("more&nbspalive");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("alone");
+adjectiveArray.push("alone");
     comparativeAdjectiveArray.push("more&nbspalone");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("angry");
+adjectiveArray.push("angry");
     comparativeAdjectiveArray.push("angrier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("awake");
+adjectiveArray.push("awake");
     comparativeAdjectiveArray.push("more&nbspawake");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("bad");
+adjectiveArray.push("bad");
     comparativeAdjectiveArray.push("worse");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("bald");
+adjectiveArray.push("bald");
     comparativeAdjectiveArray.push("balder");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("bare");
+adjectiveArray.push("bare");
     comparativeAdjectiveArray.push("barer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("beautiful");
+adjectiveArray.push("beautiful");
     comparativeAdjectiveArray.push("more&nbspbeautiful");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("big");
+adjectiveArray.push("big");
     comparativeAdjectiveArray.push("bigger");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("bitter");
+adjectiveArray.push("bitter");
     comparativeAdjectiveArray.push("more&nbspbitter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("blind");
+adjectiveArray.push("blind");
     comparativeAdjectiveArray.push("more&nbspblind");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("bold");
+adjectiveArray.push("bold");
     comparativeAdjectiveArray.push("bolder");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("brave");
+adjectiveArray.push("brave");
     comparativeAdjectiveArray.push("braver");
-    
-    adjectiveArray.push("brown");
+    derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+
+adjectiveArray.push("brown");
     comparativeAdjectiveArray.push("browner");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("cold");
+adjectiveArray.push("cold");
     comparativeAdjectiveArray.push("colder");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("confident");
+adjectiveArray.push("confident");
     comparativeAdjectiveArray.push("more confident");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("correct");
+adjectiveArray.push("correct");
     comparativeAdjectiveArray.push("more&nbspcorrect");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("crooked");
+adjectiveArray.push("crooked");
     comparativeAdjectiveArray.push("more&nbspcrooked");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("damp");
+adjectiveArray.push("damp");
     comparativeAdjectiveArray.push("more&nbspdamp");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("dark");
+adjectiveArray.push("dark");
     comparativeAdjectiveArray.push("darker");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("dead");
+adjectiveArray.push("dead");
     comparativeAdjectiveArray.push("deader");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("deaf");
+adjectiveArray.push("deaf");
     comparativeAdjectiveArray.push("deafer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("dear");
+adjectiveArray.push("dear");
     comparativeAdjectiveArray.push("dearer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("deep");
+adjectiveArray.push("deep");
     comparativeAdjectiveArray.push("deeper");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("difficult");
+adjectiveArray.push("difficult");
     comparativeAdjectiveArray.push("more&nbspdifficult");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("dry");
+adjectiveArray.push("dry");
     comparativeAdjectiveArray.push("drier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("dumb");
+adjectiveArray.push("dumb");
     comparativeAdjectiveArray.push("dumber");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("early");
+adjectiveArray.push("early");
     comparativeAdjectiveArray.push("earlier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("empty");
+adjectiveArray.push("empty");
     comparativeAdjectiveArray.push("emptier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("evil");
+adjectiveArray.push("evil");
     comparativeAdjectiveArray.push("more&nbspevil");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("fast");
+adjectiveArray.push("fast");
     comparativeAdjectiveArray.push("faster");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("fat");
+adjectiveArray.push("fat");
     comparativeAdjectiveArray.push("fatter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("fertile");
+adjectiveArray.push("fertile");
     comparativeAdjectiveArray.push("more&nbspfertile");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("firm");
+adjectiveArray.push("firm");
     comparativeAdjectiveArray.push("firmer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("flat");
+adjectiveArray.push("flat");
     comparativeAdjectiveArray.push("flatter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("foul");
+adjectiveArray.push("foul");
     comparativeAdjectiveArray.push("fouler");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("free");
+adjectiveArray.push("free");
     comparativeAdjectiveArray.push("freer");
-    
-    adjectiveArray.push("fresh");
+    derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+
+adjectiveArray.push("fresh");
     comparativeAdjectiveArray.push("fresher");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("full");
+adjectiveArray.push("full");
     comparativeAdjectiveArray.push("fuller");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("fun");
+adjectiveArray.push("fun");
     comparativeAdjectiveArray.push("funner");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("funny");
+adjectiveArray.push("funny");
     comparativeAdjectiveArray.push("funnier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("good");
+adjectiveArray.push("good");
     comparativeAdjectiveArray.push("better");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("gracious");
+adjectiveArray.push("gracious");
     comparativeAdjectiveArray.push("more&nbspgracious");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("gray");
+adjectiveArray.push("gray");
     comparativeAdjectiveArray.push("grayer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("green");
+adjectiveArray.push("green");
     comparativeAdjectiveArray.push("greener");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("half");
+adjectiveArray.push("half");
     comparativeAdjectiveArray.push("X");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("happy");
+adjectiveArray.push("happy");
     comparativeAdjectiveArray.push("happier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("hard");
+adjectiveArray.push("hard");
     comparativeAdjectiveArray.push("harder");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("healthy");
+adjectiveArray.push("healthy");
     comparativeAdjectiveArray.push("healthier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("high");
+adjectiveArray.push("high");
     comparativeAdjectiveArray.push("higher");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("hollow");
+adjectiveArray.push("hollow");
     comparativeAdjectiveArray.push("hollower");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("holy");
+adjectiveArray.push("holy");
     comparativeAdjectiveArray.push("holier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("hostile");
+adjectiveArray.push("hostile");
     comparativeAdjectiveArray.push("more&nbsphostile");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("hot");
+adjectiveArray.push("hot");
     comparativeAdjectiveArray.push("hotter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("hungry");
+adjectiveArray.push("hungry");
     comparativeAdjectiveArray.push("hungrier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("impure");
+adjectiveArray.push("impure");
     comparativeAdjectiveArray.push("more&nbspimpure");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("intelligent");
+adjectiveArray.push("intelligent");
     comparativeAdjectiveArray.push("more&nbspintelligent");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("intense");
+adjectiveArray.push("intense");
     comparativeAdjectiveArray.push("more&nbspintense");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("kind");
+adjectiveArray.push("kind");
     comparativeAdjectiveArray.push("kinder");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("lean");
+adjectiveArray.push("lean");
     comparativeAdjectiveArray.push("leaner");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("light&nbsp(of&nbspweight)");
+adjectiveArray.push("light&nbsp(of&nbspweight)");
     comparativeAdjectiveArray.push("lighter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("long");
+adjectiveArray.push("long");
     comparativeAdjectiveArray.push("longer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("loose");
+adjectiveArray.push("loose");
     comparativeAdjectiveArray.push("looser");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("mild");
+adjectiveArray.push("mild");
     comparativeAdjectiveArray.push("milder");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("moist");
+adjectiveArray.push("moist");
     comparativeAdjectiveArray.push("moister");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("naked");
+adjectiveArray.push("naked");
     comparativeAdjectiveArray.push("more&nbspnaked");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("narrow");
+adjectiveArray.push("narrow");
     comparativeAdjectiveArray.push("narrower");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("near");
+adjectiveArray.push("near");
     comparativeAdjectiveArray.push("nearer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("new");
+adjectiveArray.push("new");
     comparativeAdjectiveArray.push("newer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("noble");
+adjectiveArray.push("noble");
     comparativeAdjectiveArray.push("nobler");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("normal");
+adjectiveArray.push("normal");
     comparativeAdjectiveArray.push("more&nbspnormal");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("nourishing");
+adjectiveArray.push("nourishing");
     comparativeAdjectiveArray.push("more&nbspnourishing");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("obvious");
+adjectiveArray.push("obvious");
     comparativeAdjectiveArray.push("more&nbspobvious");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("old");
+adjectiveArray.push("old");
     comparativeAdjectiveArray.push("older");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("other");
+adjectiveArray.push("other");
     comparativeAdjectiveArray.push("X");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("padded");
+adjectiveArray.push("padded");
     comparativeAdjectiveArray.push("more&nbsppadded");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("pale");
+adjectiveArray.push("pale");
     comparativeAdjectiveArray.push("paler");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("polluted");
+adjectiveArray.push("polluted");
     comparativeAdjectiveArray.push("more&nbsppolluted");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("powerful");
+adjectiveArray.push("powerful");
     comparativeAdjectiveArray.push("more&nbsppowerful");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("pure");
+adjectiveArray.push("pure");
     comparativeAdjectiveArray.push("purer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("quiet");
+adjectiveArray.push("quiet");
     comparativeAdjectiveArray.push("quieter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("raw");
+adjectiveArray.push("raw");
     comparativeAdjectiveArray.push("rawer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("ready");
+adjectiveArray.push("ready");
     comparativeAdjectiveArray.push("more&nbspready");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("real");
+adjectiveArray.push("real");
     comparativeAdjectiveArray.push("more&nbspreal");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("rich");
+adjectiveArray.push("rich");
     comparativeAdjectiveArray.push("richer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("right");
+adjectiveArray.push("right");
     comparativeAdjectiveArray.push("righter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("rough");
+adjectiveArray.push("rough");
     comparativeAdjectiveArray.push("rougher");
-    
-    adjectiveArray.push("rude");
+    derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+
+adjectiveArray.push("rude");
     comparativeAdjectiveArray.push("ruder");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("scared");
+adjectiveArray.push("scared");
     comparativeAdjectiveArray.push("more&nbspscared");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("sharp");
+adjectiveArray.push("sharp");
     comparativeAdjectiveArray.push("sharper");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("skinny");
+adjectiveArray.push("skinny");
     comparativeAdjectiveArray.push("skinnier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("slippery");
+adjectiveArray.push("slippery");
     comparativeAdjectiveArray.push("more&nbspslippery");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("slow");
+adjectiveArray.push("slow");
     comparativeAdjectiveArray.push("slower");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("small");
+adjectiveArray.push("small");
     comparativeAdjectiveArray.push("smaller");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("smooth");
+adjectiveArray.push("smooth");
     comparativeAdjectiveArray.push("smoother");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("soft");
+adjectiveArray.push("soft");
     comparativeAdjectiveArray.push("softer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("sour");
+adjectiveArray.push("sour");
     comparativeAdjectiveArray.push("more&nbspsour");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("speckled");
+adjectiveArray.push("speckled");
     comparativeAdjectiveArray.push("more&nbspspeckled");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("stark");
+adjectiveArray.push("stark");
     comparativeAdjectiveArray.push("starker");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("stiff");
+adjectiveArray.push("stiff");
     comparativeAdjectiveArray.push("stiffer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("stinky");
+adjectiveArray.push("stinky");
     comparativeAdjectiveArray.push("stinkier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("strong");
+adjectiveArray.push("strong");
     comparativeAdjectiveArray.push("stronger");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("suitable");
+adjectiveArray.push("suitable");
     comparativeAdjectiveArray.push("more suitable");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("sure");
+adjectiveArray.push("sure");
     comparativeAdjectiveArray.push("surer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("tall");
+adjectiveArray.push("tall");
     comparativeAdjectiveArray.push("taller");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("tasty");
+adjectiveArray.push("tasty");
     comparativeAdjectiveArray.push("tastier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("thick");
+adjectiveArray.push("thick");
     comparativeAdjectiveArray.push("thicker");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("thin");
+adjectiveArray.push("thin");
     comparativeAdjectiveArray.push("thinner");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("tired");
+adjectiveArray.push("tired");
     comparativeAdjectiveArray.push("more&nbsptired");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("tough");
+adjectiveArray.push("tough");
     comparativeAdjectiveArray.push("tougher");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("true");
+adjectiveArray.push("true");
     comparativeAdjectiveArray.push("truer");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("unhealthy");
+adjectiveArray.push("unhealthy");
     comparativeAdjectiveArray.push("more&nbspunhealthy");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("unpleasant");
+adjectiveArray.push("unpleasant");
     comparativeAdjectiveArray.push("more&nbspunpleasant");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("useful");
+adjectiveArray.push("useful");
     comparativeAdjectiveArray.push("more&nbspuseful");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("unusual");
+adjectiveArray.push("unusual");
     comparativeAdjectiveArray.push("X");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("violent");
+adjectiveArray.push("violent");
     comparativeAdjectiveArray.push("more&nbspviolent");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("visible");
+adjectiveArray.push("visible");
     comparativeAdjectiveArray.push("more&nbspvisible");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("weak");
+adjectiveArray.push("weak");
     comparativeAdjectiveArray.push("weaker");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("weird");
+adjectiveArray.push("weird");
     comparativeAdjectiveArray.push("weirder");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("wet");
+adjectiveArray.push("wet");
     comparativeAdjectiveArray.push("wetter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("white");
+adjectiveArray.push("white");
     comparativeAdjectiveArray.push("whiter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("wide");
+adjectiveArray.push("wide");
     comparativeAdjectiveArray.push("wider");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("wild");
+adjectiveArray.push("wild");
     comparativeAdjectiveArray.push("wilder");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("wonderful");
+adjectiveArray.push("wonderful");
     comparativeAdjectiveArray.push("more&nbspwonderful");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("yellow");
+adjectiveArray.push("yellow");
     comparativeAdjectiveArray.push("yellower");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 
-    adjectiveArray.push("young");
+adjectiveArray.push("young");
     comparativeAdjectiveArray.push("younger");
+    derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
 }
 
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", clearArrays);
 generateLanguageButton.addEventListener("click", addWords);
 
-export {adjectiveArray, comparativeAdjectiveArray}
+export {adjectiveArray, comparativeAdjectiveArray, derivedOrInheritedADJ, etymologyArrayADJ, etymologyADJ}

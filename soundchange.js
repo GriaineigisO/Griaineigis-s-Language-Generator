@@ -395,7 +395,7 @@ function selectSoundChanges() {
         velarsDelabialise,
         lossOfAspiration
     ];
-    console.log(`Number of sound changes: ${potentialSoundChanges.length}`)
+    //console.log(`Number of sound changes: ${potentialSoundChanges.length}`)
     
     //selects which sound changes will be chosen
     while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
@@ -2715,7 +2715,7 @@ function pBecomesU(wordArray) {
 
 function pBecomesF(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "p") {
+        if(wordArray[i] === "p" && wordArray[i+1] !== "ʰ" || wordArray[i] === "p" && wordArray[i+1] !== "ʷ") {
             wordArray[i] = "f";
             timespBecomesF++;
             if(timespBecomesF > 0) {
@@ -2799,4 +2799,4 @@ function lossOfAspiration(wordArray) {
 
 
 
-export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, chosenSoundChanges, frontVowels, randomNumForLongVowelsBreak, backVowels, obstruents};
+export {soundChange, voiced, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, chosenSoundChanges, frontVowels, randomNumForLongVowelsBreak, backVowels, obstruents, cloneArray};

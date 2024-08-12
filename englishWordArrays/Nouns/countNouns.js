@@ -10,10 +10,10 @@ let naturalArtificial = [];
 let animacyClassifierArray = [];
 let shapeClassifierArray = [];
 let shortGenericClassifierArray = [];
+let derivedOrInheritedCountNoun = [];
 
 function clearArrays() {
-    countNounArray = [];
-    countNounArrayPlural = [];
+countNounArray = [];countNounArrayPlural = [];
     activePassive = [];
     animInan = [];
     divineNonDivine= [];
@@ -24,12 +24,11 @@ function clearArrays() {
     animacyClassifierArray = [];
     shapeClassifierArray = [];
     shortGenericClassifierArray = [];
+    derivedOrInheritedCountNoun = [];
 }
 
 function addWords() {
-
-countNounArray.push("acorn");
-countNounArrayPlural.push("acorns");
+countNounArray.push("acorn");countNounArrayPlural.push("acorns");
 activePassive.push("passive")
 animInan.push("inan");
 divineNonDivine.push("profane");
@@ -40,9 +39,9 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
-countNounArray.push("adam's&nbspapple");
-countNounArrayPlural.push("adam's&nbspapples");
+countNounArray.push("adam's&nbspapple");countNounArrayPlural.push("adam's&nbspapples");
 activePassive.push("passive")
 animInan.push("inan");
 divineNonDivine.push("profane");
@@ -53,6 +52,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("affliction");
 countNounArrayPlural.push("afflictions");
@@ -66,6 +66,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("alder");
 countNounArrayPlural.push("alders");
@@ -79,6 +80,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ant");
 countNounArrayPlural.push("ants");
@@ -92,6 +94,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("anus");
 countNounArrayPlural.push("anuses");
@@ -105,6 +108,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("apple");
 countNounArrayPlural.push("apples");
@@ -118,6 +122,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("arch");
 countNounArrayPlural.push("arches");
@@ -131,6 +136,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("tool");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("arm");
 countNounArrayPlural.push("arms");
@@ -144,6 +150,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("tool");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("army");
 countNounArrayPlural.push("armies");
@@ -157,6 +164,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("arrow");
 countNounArrayPlural.push("arrows");
@@ -170,6 +178,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("tool");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("attack");
 countNounArrayPlural.push("attacks");
@@ -184,6 +193,7 @@ animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
 
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("audience");
 countNounArrayPlural.push("audiences");
@@ -197,6 +207,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("auger");
 countNounArrayPlural.push("augers");
@@ -210,6 +221,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("autumn");
 countNounArrayPlural.push("autumns");
@@ -223,6 +235,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("axe");
 countNounArrayPlural.push("axes");
@@ -236,6 +249,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("back");
 countNounArrayPlural.push("backs");
@@ -249,6 +263,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("badger");
 countNounArrayPlural.push("badgers");
@@ -262,6 +277,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bag");
 countNounArrayPlural.push("bags");
@@ -275,6 +291,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ball");
 countNounArrayPlural.push("balls");
@@ -288,6 +305,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("band");
 countNounArrayPlural.push("bands");
@@ -301,6 +319,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("banquet");
 countNounArrayPlural.push("banquets");
@@ -314,6 +333,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bar");
 countNounArrayPlural.push("bars");
@@ -327,6 +347,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("barrow");
 countNounArrayPlural.push("barrows");
@@ -340,6 +361,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("basin");
 countNounArrayPlural.push("basins");
@@ -353,6 +375,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("basket");
 countNounArrayPlural.push("baskets");
@@ -366,6 +389,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bead");
 countNounArrayPlural.push("beads");
@@ -379,6 +403,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("beak");
 countNounArrayPlural.push("beaks");
@@ -392,6 +417,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("beam");
 countNounArrayPlural.push("beams");
@@ -405,6 +431,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bean");
 countNounArrayPlural.push("beans");
@@ -418,6 +445,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bear");
 countNounArrayPlural.push("bears");
@@ -431,6 +459,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("beard");
 countNounArrayPlural.push("beards");
@@ -444,6 +473,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("beaver");
 countNounArrayPlural.push("beavers");
@@ -457,6 +487,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bed");
 countNounArrayPlural.push("beds");
@@ -470,6 +501,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bedroom");
 countNounArrayPlural.push("bedrooms");
@@ -483,6 +515,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bee");
 countNounArrayPlural.push("bees");
@@ -496,6 +529,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("beech");
 countNounArrayPlural.push("beeches");
@@ -509,6 +543,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("belt");
 countNounArrayPlural.push("belts");
@@ -522,6 +557,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("berry");
 countNounArrayPlural.push("berries");
@@ -535,6 +571,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bird");
 countNounArrayPlural.push("birds");
@@ -548,6 +585,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("birdsong");
 countNounArrayPlural.push("birdsongs");
@@ -561,6 +599,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("birth");
 countNounArrayPlural.push("births");
@@ -574,6 +613,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bison");
 countNounArrayPlural.push("bison");
@@ -587,6 +627,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("blackbird");
 countNounArrayPlural.push("blackbirds");
@@ -600,6 +641,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bladder");
 countNounArrayPlural.push("bladders");
@@ -613,6 +655,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("blade");
 countNounArrayPlural.push("blades");
@@ -626,6 +669,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("blister");
 countNounArrayPlural.push("blisters");
@@ -639,6 +683,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("blow");
 countNounArrayPlural.push("blows");
@@ -652,6 +697,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("boar");
 countNounArrayPlural.push("boars");
@@ -665,6 +711,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("board");
 countNounArrayPlural.push("boards");
@@ -678,6 +725,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("boat");
 countNounArrayPlural.push("boats");
@@ -691,6 +739,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("body");
 countNounArrayPlural.push("bodies");
@@ -704,6 +753,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bolt");
 countNounArrayPlural.push("bolts");
@@ -717,6 +767,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bone");
 countNounArrayPlural.push("bones");
@@ -730,6 +781,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("book");
 countNounArrayPlural.push("books");
@@ -743,6 +795,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("boot");
 countNounArrayPlural.push("boots");
@@ -756,6 +809,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("border");
 countNounArrayPlural.push("borders");
@@ -769,6 +823,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bottom");
 countNounArrayPlural.push("bottoms");
@@ -782,6 +837,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("boulder");
 countNounArrayPlural.push("boulders");
@@ -795,6 +851,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bow");
 countNounArrayPlural.push("bows");
@@ -808,6 +865,7 @@ naturalArtificial.push("naturaartificiall");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bowl");
 countNounArrayPlural.push("bowls");
@@ -821,6 +879,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bowstring");
 countNounArrayPlural.push("bowstrings");
@@ -834,6 +893,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("boy");
 countNounArrayPlural.push("boys");
@@ -847,6 +907,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bracelet");
 countNounArrayPlural.push("bracelets");
@@ -860,6 +921,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("brain");
 countNounArrayPlural.push("brains");
@@ -873,6 +935,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("branch");
 countNounArrayPlural.push("branches");
@@ -886,6 +949,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("breast");
 countNounArrayPlural.push("breasts");
@@ -899,6 +963,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("breath");
 countNounArrayPlural.push("breaths");
@@ -912,6 +977,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bristle");
 countNounArrayPlural.push("bristles");
@@ -925,6 +991,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("broom");
 countNounArrayPlural.push("brooms");
@@ -938,6 +1005,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("brother");
 countNounArrayPlural.push("brothers");
@@ -951,6 +1019,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("brow");
 countNounArrayPlural.push("brows");
@@ -964,6 +1033,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("buck");
 countNounArrayPlural.push("bucks");
@@ -977,6 +1047,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bucket");
 countNounArrayPlural.push("buckets");
@@ -990,6 +1061,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("buffet");
 countNounArrayPlural.push("buffets");
@@ -1003,6 +1075,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("building");
 countNounArrayPlural.push("buildings");
@@ -1016,6 +1089,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bull");
 countNounArrayPlural.push("bulls");
@@ -1029,6 +1103,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("meat");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bump");
 countNounArrayPlural.push("bumps");
@@ -1042,6 +1117,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("burden");
 countNounArrayPlural.push("burdens");
@@ -1055,6 +1131,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("bush");
 countNounArrayPlural.push("bushes");
@@ -1068,6 +1145,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("butterfly");
 countNounArrayPlural.push("butterflies");
@@ -1081,6 +1159,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("butt");
 countNounArrayPlural.push("butts");
@@ -1094,6 +1173,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural=inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cabin");
 countNounArrayPlural.push("cabins");
@@ -1107,6 +1187,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cage");
 countNounArrayPlural.push("cages");
@@ -1120,6 +1201,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("carp");
 countNounArrayPlural.push("carps");
@@ -1133,6 +1215,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("carrot");
 countNounArrayPlural.push("carrots");
@@ -1146,6 +1229,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cat");
 countNounArrayPlural.push("cats");
@@ -1159,6 +1243,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("catterpillar");
 countNounArrayPlural.push("catterpillars");
@@ -1172,6 +1257,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cauldron");
 countNounArrayPlural.push("cauldrons");
@@ -1185,6 +1271,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cave");
 countNounArrayPlural.push("caves");
@@ -1198,6 +1285,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cavity");
 countNounArrayPlural.push("cavities");
@@ -1211,6 +1299,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cedar");
 countNounArrayPlural.push("cedars");
@@ -1224,6 +1313,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cell");
 countNounArrayPlural.push("cells");
@@ -1237,6 +1327,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("change");
 countNounArrayPlural.push("changes");
@@ -1250,6 +1341,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("chair");
 countNounArrayPlural.push("chairs");
@@ -1263,6 +1355,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("chariot");
 countNounArrayPlural.push("chariots");
@@ -1276,6 +1369,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cherry");
 countNounArrayPlural.push("cherries");
@@ -1289,6 +1383,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("chicken");
 countNounArrayPlural.push("chickens");
@@ -1302,6 +1397,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("meat");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("chickpea");
 countNounArrayPlural.push("chickpeas");
@@ -1315,6 +1411,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("child");
 countNounArrayPlural.push("children");
@@ -1328,6 +1425,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("child");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("chin");
 countNounArrayPlural.push("chins");
@@ -1341,6 +1439,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("chunk");
 countNounArrayPlural.push("chunks");
@@ -1354,6 +1453,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("circle");
 countNounArrayPlural.push("circles");
@@ -1367,6 +1467,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("clan");
 countNounArrayPlural.push("clans");
@@ -1380,6 +1481,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cliff");
 countNounArrayPlural.push("cliffs");
@@ -1393,6 +1495,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cloak");
 countNounArrayPlural.push("cloaks");
@@ -1406,6 +1509,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cloud");
 countNounArrayPlural.push("clouds");
@@ -1419,6 +1523,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("club");
 countNounArrayPlural.push("clubs");
@@ -1432,6 +1537,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cluster");
 countNounArrayPlural.push("clusters");
@@ -1445,6 +1551,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("coin");
 countNounArrayPlural.push("coins");
@@ -1458,6 +1565,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("column");
 countNounArrayPlural.push("columns");
@@ -1471,6 +1579,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("comb");
 countNounArrayPlural.push("combs");
@@ -1484,6 +1593,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("confession");
 countNounArrayPlural.push("confessions");
@@ -1497,6 +1607,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("confluence");
 countNounArrayPlural.push("confluences");
@@ -1510,6 +1621,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("coot");
 countNounArrayPlural.push("coots");
@@ -1523,6 +1635,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("corner");
 countNounArrayPlural.push("corner");
@@ -1536,6 +1649,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("council");
 countNounArrayPlural.push("councils");
@@ -1549,6 +1663,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cow");
 countNounArrayPlural.push("cows");
@@ -1562,6 +1677,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("milk");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cowherd");
 countNounArrayPlural.push("cowherds");
@@ -1575,6 +1691,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("crab");
 countNounArrayPlural.push("crabs");
@@ -1588,6 +1705,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cradle");
 countNounArrayPlural.push("cradles");
@@ -1601,6 +1719,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("craftsman");
 countNounArrayPlural.push("craftsmen");
@@ -1614,6 +1733,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("crane");
 countNounArrayPlural.push("cranes");
@@ -1627,6 +1747,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("crease");
 countNounArrayPlural.push("creases");
@@ -1640,6 +1761,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("creature");
 countNounArrayPlural.push("creatures");
@@ -1653,6 +1775,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("crime");
 countNounArrayPlural.push("crimes");
@@ -1666,6 +1789,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");   
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("criminal");
 countNounArrayPlural.push("criminals");
@@ -1679,6 +1803,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");   
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("crow");
 countNounArrayPlural.push("crows");
@@ -1692,6 +1817,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("crowd");
 countNounArrayPlural.push("crowds");
@@ -1705,6 +1831,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("crown");
 countNounArrayPlural.push("crowns");
@@ -1719,6 +1846,7 @@ animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
 
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cuckoo");
 countNounArrayPlural.push("cuckoos");
@@ -1732,6 +1860,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("cup");
 countNounArrayPlural.push("cups");
@@ -1745,6 +1874,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("tall-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("curve");
 countNounArrayPlural.push("curves");
@@ -1758,6 +1888,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("curved&nbspbeam");
 countNounArrayPlural.push("curved&nbspbeams");
@@ -1771,6 +1902,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("custom");
 countNounArrayPlural.push("customs");
@@ -1784,6 +1916,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("daughter");
 countNounArrayPlural.push("daughters");
@@ -1797,6 +1930,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("child");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dawn");
 countNounArrayPlural.push("dawns");
@@ -1810,6 +1944,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("day");
 countNounArrayPlural.push("days");
@@ -1823,6 +1958,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("deer");
 countNounArrayPlural.push("deer");
@@ -1836,6 +1972,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dent");
 countNounArrayPlural.push("dents");
@@ -1849,6 +1986,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dice");
 countNounArrayPlural.push("die");
@@ -1862,6 +2000,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dinner");
 countNounArrayPlural.push("dinners");
@@ -1875,6 +2014,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dip");
 countNounArrayPlural.push("dips");
@@ -1888,6 +2028,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("direction");
 countNounArrayPlural.push("directions");
@@ -1901,6 +2042,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ditch");
 countNounArrayPlural.push("ditches");
@@ -1914,6 +2056,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dog");
 countNounArrayPlural.push("dogs");
@@ -1927,6 +2070,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("labour");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dolphin");
 countNounArrayPlural.push("dolphins");
@@ -1940,6 +2084,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("donkey");
 countNounArrayPlural.push("donkeys");
@@ -1953,6 +2098,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("labour");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("door");
 countNounArrayPlural.push("doors");
@@ -1966,6 +2112,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("doorjam");
 countNounArrayPlural.push("doorjams");
@@ -1979,6 +2126,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dormouse");
 countNounArrayPlural.push("dormice");
@@ -1992,6 +2140,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dorsal&nbspfin");
 countNounArrayPlural.push("dorsal&nbspfins");
@@ -2005,6 +2154,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dragon");
 countNounArrayPlural.push("dragons");
@@ -2018,6 +2168,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dream");
 countNounArrayPlural.push("dreams");
@@ -2031,6 +2182,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("drop");
 countNounArrayPlural.push("drops");
@@ -2044,6 +2196,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("liquid");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("duck");
 countNounArrayPlural.push("ducks");
@@ -2057,6 +2210,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("dugout");
 countNounArrayPlural.push("dugouts");
@@ -2070,6 +2224,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("eagle");
 countNounArrayPlural.push("eagles");
@@ -2083,6 +2238,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ear");
 countNounArrayPlural.push("ears");
@@ -2096,6 +2252,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("edge");
 countNounArrayPlural.push("edges");
@@ -2109,6 +2266,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("eel");
 countNounArrayPlural.push("eels");
@@ -2122,6 +2280,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("egg");
 countNounArrayPlural.push("eggs");
@@ -2135,6 +2294,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("elbow");
 countNounArrayPlural.push("elbows");
@@ -2148,6 +2308,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("elk");
 countNounArrayPlural.push("elks");
@@ -2161,6 +2322,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("elm");
 countNounArrayPlural.push("elms");
@@ -2174,6 +2336,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("embrace");
 countNounArrayPlural.push("embraces");
@@ -2187,6 +2350,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("emotion");
 countNounArrayPlural.push("emotions");
@@ -2200,6 +2364,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("enclosure");
 countNounArrayPlural.push("enclosures");
@@ -2213,6 +2378,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("enemy");
 countNounArrayPlural.push("enemies");
@@ -2226,6 +2392,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("estuary");
 countNounArrayPlural.push("estuaries");
@@ -2239,6 +2406,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ewe");
 countNounArrayPlural.push("ewes");
@@ -2252,6 +2420,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("fur");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("exchange");
 countNounArrayPlural.push("exchanges");
@@ -2265,6 +2434,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("eye");
 countNounArrayPlural.push("eyes");
@@ -2278,6 +2448,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("eyebrow");
 countNounArrayPlural.push("eyebrows");
@@ -2291,6 +2462,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("face");
 countNounArrayPlural.push("faces");
@@ -2304,6 +2476,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("falcon");
 countNounArrayPlural.push("falcons");
@@ -2317,6 +2490,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("family");
 countNounArrayPlural.push("families");
@@ -2330,6 +2504,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("father");
 countNounArrayPlural.push("fathers");
@@ -2343,6 +2518,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("favour");
 countNounArrayPlural.push("favours");
@@ -2356,6 +2532,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("feast");
 countNounArrayPlural.push("feasts");
@@ -2369,6 +2546,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fence");
 countNounArrayPlural.push("fences");
@@ -2382,6 +2560,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("festival");
 countNounArrayPlural.push("festivals");
@@ -2395,6 +2574,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("field");
 countNounArrayPlural.push("fields");
@@ -2408,6 +2588,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("finger");
 countNounArrayPlural.push("fingers");
@@ -2421,6 +2602,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("finch");
 countNounArrayPlural.push("finches");
@@ -2434,6 +2616,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fir");
 countNounArrayPlural.push("firs");
@@ -2447,6 +2630,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fire");
 countNounArrayPlural.push("fires");
@@ -2460,6 +2644,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fish");
 countNounArrayPlural.push("fish");
@@ -2473,6 +2658,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fist");
 countNounArrayPlural.push("fists");
@@ -2486,6 +2672,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("flock");
 countNounArrayPlural.push("flocks");
@@ -2499,6 +2686,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("floor");
 countNounArrayPlural.push("floors");
@@ -2512,6 +2700,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("flower");
 countNounArrayPlural.push("flowers");
@@ -2525,6 +2714,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flower");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fly");
 countNounArrayPlural.push("flies");
@@ -2538,6 +2728,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fold");
 countNounArrayPlural.push("folds");
@@ -2551,6 +2742,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("foot");
 countNounArrayPlural.push("feet");
@@ -2564,6 +2756,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("footprint");
 countNounArrayPlural.push("footprints");
@@ -2577,6 +2770,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("forearm");
 countNounArrayPlural.push("forearms");
@@ -2590,6 +2784,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("forehead");
 countNounArrayPlural.push("foreheads");
@@ -2603,6 +2798,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("foreigner");
 countNounArrayPlural.push("foreigners");
@@ -2616,6 +2812,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("forest");
 countNounArrayPlural.push("forests");
@@ -2629,6 +2826,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tree")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fork");
 countNounArrayPlural.push("forks");
@@ -2642,6 +2840,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fort");
 countNounArrayPlural.push("forts");
@@ -2655,6 +2854,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("fortification");
 countNounArrayPlural.push("fortifications");
@@ -2668,6 +2868,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("freeman");
 countNounArrayPlural.push("freemen");
@@ -2681,6 +2882,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("friend");
 countNounArrayPlural.push("friends");
@@ -2694,6 +2896,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("frog");
 countNounArrayPlural.push("frogs");
@@ -2707,6 +2910,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("water-animal")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("furnace");
 countNounArrayPlural.push("furnaces");
@@ -2720,6 +2924,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("furrow");
 countNounArrayPlural.push("furrows");
@@ -2733,6 +2938,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("gate");
 countNounArrayPlural.push("gates");
@@ -2746,6 +2952,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("genocide");
 countNounArrayPlural.push("genocides");
@@ -2759,6 +2966,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("gift");
 countNounArrayPlural.push("gifts");
@@ -2772,6 +2980,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("girl");
 countNounArrayPlural.push("girls");
@@ -2785,6 +2994,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("woman");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("gland");
 countNounArrayPlural.push("glands");
@@ -2798,6 +3008,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("glove");
 countNounArrayPlural.push("gloves");
@@ -2811,6 +3022,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("gnat");
 countNounArrayPlural.push("gnats");
@@ -2824,6 +3036,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("goat");
 countNounArrayPlural.push("goats");
@@ -2837,6 +3050,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("milk");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("god");
 countNounArrayPlural.push("gods");
@@ -2850,6 +3064,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("good&nbspdeed");
 countNounArrayPlural.push("good&nbspdeeds");
@@ -2863,6 +3078,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("goose");
 countNounArrayPlural.push("geese");
@@ -2876,6 +3092,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("gosling");
 countNounArrayPlural.push("goslings");
@@ -2889,6 +3106,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("grain");
 countNounArrayPlural.push("grains");
@@ -2902,6 +3120,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("granddaughter");
 countNounArrayPlural.push("granddaughters");
@@ -2915,6 +3134,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("child");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("grandfather");
 countNounArrayPlural.push("grandfathers");
@@ -2928,6 +3148,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("grandmother");
 countNounArrayPlural.push("grandmothers");
@@ -2941,6 +3162,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("woman");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("grandson");
 countNounArrayPlural.push("grandsons");
@@ -2954,6 +3176,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("child");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("grave");
 countNounArrayPlural.push("graves");
@@ -2967,6 +3190,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("groove");
 countNounArrayPlural.push("grooves");
@@ -2980,6 +3204,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("group");
 countNounArrayPlural.push("groups");
@@ -2993,6 +3218,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("grunt");
 countNounArrayPlural.push("grunts");
@@ -3006,6 +3232,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("guest");
 countNounArrayPlural.push("guests");
@@ -3019,6 +3246,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("guitar");
 countNounArrayPlural.push("guitars");
@@ -3032,6 +3260,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("gull");
 countNounArrayPlural.push("gulls");
@@ -3045,6 +3274,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("gullet");
 countNounArrayPlural.push("gullets");
@@ -3058,6 +3288,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("gulley");
 countNounArrayPlural.push("gulleys");
@@ -3071,6 +3302,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("gum");
 countNounArrayPlural.push("gums");
@@ -3084,6 +3316,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hall");
 countNounArrayPlural.push("halls");
@@ -3097,6 +3330,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hammer");
 countNounArrayPlural.push("hammers");
@@ -3110,6 +3344,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hand");
 countNounArrayPlural.push("hands");
@@ -3123,6 +3358,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("handle");
 countNounArrayPlural.push("handles");
@@ -3136,6 +3372,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hare");
 countNounArrayPlural.push("hares");
@@ -3149,6 +3386,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("harp");
 countNounArrayPlural.push("harps");
@@ -3162,6 +3400,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hat");
 countNounArrayPlural.push("hats");
@@ -3175,6 +3414,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hawk");
 countNounArrayPlural.push("hawks");
@@ -3188,6 +3428,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hawthorn");
 countNounArrayPlural.push("hawthorns");
@@ -3201,6 +3442,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hazel");
 countNounArrayPlural.push("hazels");
@@ -3214,6 +3456,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("head");
 countNounArrayPlural.push("heads");
@@ -3227,6 +3470,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("heart");
 countNounArrayPlural.push("hearts");
@@ -3240,6 +3484,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hearth");
 countNounArrayPlural.push("hearths");
@@ -3253,6 +3498,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hedgehog");
 countNounArrayPlural.push("hedgehogs");
@@ -3266,6 +3512,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("height");
 countNounArrayPlural.push("heights");
@@ -3279,6 +3526,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hemlet");
 countNounArrayPlural.push("helmets");
@@ -3292,6 +3540,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("henbane");
 countNounArrayPlural.push("henbanes");
@@ -3305,6 +3554,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("herd");
 countNounArrayPlural.push("herds");
@@ -3318,6 +3568,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("meat");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hill");
 countNounArrayPlural.push("hills");
@@ -3331,6 +3582,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hip");
 countNounArrayPlural.push("hips");
@@ -3344,6 +3596,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hole");
 countNounArrayPlural.push("holes");
@@ -3357,6 +3610,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("home");
 countNounArrayPlural.push("homes");
@@ -3370,6 +3624,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("honour");
 countNounArrayPlural.push("honours");
@@ -3383,6 +3638,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hood");
 countNounArrayPlural.push("hoods");
@@ -3396,6 +3652,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("toole");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hoof");
 countNounArrayPlural.push("hoofs");
@@ -3409,6 +3666,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hook");
 countNounArrayPlural.push("hooks");
@@ -3422,6 +3680,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("horn");
 countNounArrayPlural.push("horns");
@@ -3435,6 +3694,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hornet");
 countNounArrayPlural.push("hornets");
@@ -3448,6 +3708,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("horse");
 countNounArrayPlural.push("horses");
@@ -3461,6 +3722,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("labour");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("horsefly");
 countNounArrayPlural.push("horseflies");
@@ -3474,6 +3736,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hostage");
 countNounArrayPlural.push("hostages");
@@ -3487,6 +3750,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("house");
 countNounArrayPlural.push("houses");
@@ -3500,6 +3764,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("howl");
 countNounArrayPlural.push("howls");
@@ -3513,6 +3778,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("hug");
 countNounArrayPlural.push("hugs");
@@ -3526,6 +3792,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("human");
 countNounArrayPlural.push("humans");
@@ -3539,6 +3806,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("husband");
 countNounArrayPlural.push("husbands");
@@ -3552,6 +3820,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("icicle");
 countNounArrayPlural.push("icicles");
@@ -3565,6 +3834,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("insect");
 countNounArrayPlural.push("insects");
@@ -3578,6 +3848,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("island");
 countNounArrayPlural.push("islands");
@@ -3591,6 +3862,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("javelin");
 countNounArrayPlural.push("javelins");
@@ -3604,6 +3876,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("jaw");
 countNounArrayPlural.push("jaws");
@@ -3617,6 +3890,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("jay");
 countNounArrayPlural.push("jays");
@@ -3630,6 +3904,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("jewel");
 countNounArrayPlural.push("jewels");
@@ -3643,6 +3918,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("journey");
 countNounArrayPlural.push("journeys");
@@ -3656,6 +3932,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("juniper");
 countNounArrayPlural.push("junipers");
@@ -3669,6 +3946,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("kernel");
 countNounArrayPlural.push("kernels");
@@ -3682,6 +3960,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("kidney");
 countNounArrayPlural.push("kidneys");
@@ -3695,6 +3974,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("king");
 countNounArrayPlural.push("kings");
@@ -3708,6 +3988,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("kiss");
 countNounArrayPlural.push("kisses");
@@ -3721,6 +4002,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("kitten");
 countNounArrayPlural.push("kittens");
@@ -3734,6 +4016,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("knee");
 countNounArrayPlural.push("knees");
@@ -3747,6 +4030,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("knife");
 countNounArrayPlural.push("knives");
@@ -3760,6 +4044,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("knuckle");
 countNounArrayPlural.push("knuckles");
@@ -3773,6 +4058,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("lake");
 countNounArrayPlural.push("lakes");
@@ -3786,6 +4072,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("lamb");
 countNounArrayPlural.push("lambs");
@@ -3799,6 +4086,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("meat");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("land");
 countNounArrayPlural.push("lands");
@@ -3812,6 +4100,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("language");
 countNounArrayPlural.push("languages");
@@ -3825,6 +4114,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("word");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("larva");
 countNounArrayPlural.push("larvae");
@@ -3838,6 +4128,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("laugh");
 countNounArrayPlural.push("laughs");
@@ -3851,6 +4142,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("leaf");
 countNounArrayPlural.push("leaves");
@@ -3864,6 +4156,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("leech");
 countNounArrayPlural.push("leeches");
@@ -3877,6 +4170,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("leg");
 countNounArrayPlural.push("legs");
@@ -3890,6 +4184,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("lever");
 countNounArrayPlural.push("levers");
@@ -3903,6 +4198,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("libation");
 countNounArrayPlural.push("libations");
@@ -3916,6 +4212,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("liquid");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("limb");
 countNounArrayPlural.push("limbs");
@@ -3929,6 +4226,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("lineage");
 countNounArrayPlural.push("lineages");
@@ -3942,6 +4240,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("lion");
 countNounArrayPlural.push("lions");
@@ -3955,6 +4254,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("lip");
 countNounArrayPlural.push("lips");
@@ -3968,6 +4268,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("liver");
 countNounArrayPlural.push("livers");
@@ -3981,6 +4282,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("log");
 countNounArrayPlural.push("logs");
@@ -3994,6 +4296,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("lord");
 countNounArrayPlural.push("lords");
@@ -4007,6 +4310,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("louse");
 countNounArrayPlural.push("lice");
@@ -4020,6 +4324,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("lung");
 countNounArrayPlural.push("lungs");
@@ -4033,6 +4338,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("lynx");
 countNounArrayPlural.push("lynxes");
@@ -4046,6 +4352,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mace");
 countNounArrayPlural.push("maces");
@@ -4059,6 +4366,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("maggot");
 countNounArrayPlural.push("maggots");
@@ -4072,6 +4380,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("magpie");
 countNounArrayPlural.push("magpies");
@@ -4085,6 +4394,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mallet");
 countNounArrayPlural.push("mallets");
@@ -4098,6 +4408,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mammoth");
 countNounArrayPlural.push("mammoths");
@@ -4111,6 +4422,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("man");
 countNounArrayPlural.push("men");
@@ -4124,6 +4436,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mane");
 countNounArrayPlural.push("manes");
@@ -4137,6 +4450,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("map");
 countNounArrayPlural.push("maps");
@@ -4150,6 +4464,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("maple");
 countNounArrayPlural.push("maples");
@@ -4163,6 +4478,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mare");
 countNounArrayPlural.push("mares");
@@ -4176,6 +4492,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("labour");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("market");
 countNounArrayPlural.push("markets");
@@ -4189,6 +4506,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("married&nbspcouple");
 countNounArrayPlural.push("married&nbspcouples");
@@ -4202,6 +4520,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("marsh");
 countNounArrayPlural.push("marshes");
@@ -4215,6 +4534,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("marten");
 countNounArrayPlural.push("martens");
@@ -4228,6 +4548,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("massacre");
 countNounArrayPlural.push("massacres");
@@ -4241,6 +4562,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("master");
 countNounArrayPlural.push("masters");
@@ -4254,6 +4576,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("maternal&nbspkinsman");
 countNounArrayPlural.push("maternal&nbspkinsmen");
@@ -4267,6 +4590,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("meadow");
 countNounArrayPlural.push("meadows");
@@ -4280,6 +4604,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("meeting");
 countNounArrayPlural.push("meetings");
@@ -4293,6 +4618,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("membrane");
 countNounArrayPlural.push("membranes");
@@ -4306,6 +4632,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("memory");
 countNounArrayPlural.push("memories");
@@ -4319,6 +4646,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mill");
 countNounArrayPlural.push("mills");
@@ -4332,6 +4660,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mirror");
 countNounArrayPlural.push("mirrors");
@@ -4345,6 +4674,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mistress");
 countNounArrayPlural.push("mistresses");
@@ -4358,6 +4688,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("woman");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("moon");
 countNounArrayPlural.push("moons");
@@ -4371,6 +4702,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mother");
 countNounArrayPlural.push("mothers");
@@ -4384,6 +4716,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("woman");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mountain");
 countNounArrayPlural.push("mountains");
@@ -4397,6 +4730,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mouse");
 countNounArrayPlural.push("mice");
@@ -4410,6 +4744,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mouth");
 countNounArrayPlural.push("mouths");
@@ -4423,6 +4758,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("word");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mushroom");
 countNounArrayPlural.push("mushrooms");
@@ -4436,6 +4772,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("mussel");
 countNounArrayPlural.push("mussels");
@@ -4449,6 +4786,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("nail");
 countNounArrayPlural.push("nails");
@@ -4462,6 +4800,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("name");
 countNounArrayPlural.push("names");
@@ -4475,6 +4814,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("navel");
 countNounArrayPlural.push("navels");
@@ -4488,6 +4828,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("neck");
 countNounArrayPlural.push("necks");
@@ -4501,6 +4842,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("necklace");
 countNounArrayPlural.push("necklaces");
@@ -4514,6 +4856,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("needle");
 countNounArrayPlural.push("needles");
@@ -4527,6 +4870,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("neighbour");
 countNounArrayPlural.push("neighbours");
@@ -4540,6 +4884,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("nest");
 countNounArrayPlural.push("nests");
@@ -4553,6 +4898,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("net");
 countNounArrayPlural.push("nets");
@@ -4566,6 +4912,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("nettle");
 countNounArrayPlural.push("nettles");
@@ -4579,6 +4926,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("pointed");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("night");
 countNounArrayPlural.push("nights");
@@ -4592,6 +4940,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("nipple");
 countNounArrayPlural.push("nipples");
@@ -4605,6 +4954,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("noon");
 countNounArrayPlural.push("noons");
@@ -4618,6 +4968,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("nose");
 countNounArrayPlural.push("noses");
@@ -4631,6 +4982,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("pointed");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("notch");
 countNounArrayPlural.push("notches");
@@ -4644,6 +4996,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("nut");
 countNounArrayPlural.push("nuts");
@@ -4657,6 +5010,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("oak");
 countNounArrayPlural.push("oaks");
@@ -4670,6 +5024,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("oar");
 countNounArrayPlural.push("oars");
@@ -4683,6 +5038,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("oath");
 countNounArrayPlural.push("oaths");
@@ -4696,6 +5052,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("onion");
 countNounArrayPlural.push("onions");
@@ -4709,6 +5066,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("origin");
 countNounArrayPlural.push("origins");
@@ -4722,6 +5080,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("orphan");
 countNounArrayPlural.push("orphans");
@@ -4735,6 +5094,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("child");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("otter");
 countNounArrayPlural.push("otters");
@@ -4748,6 +5108,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("oven");
 countNounArrayPlural.push("ovens");
@@ -4761,6 +5122,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("owl");
 countNounArrayPlural.push("owls");
@@ -4774,6 +5136,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ox");
 countNounArrayPlural.push("oxen");
@@ -4787,6 +5150,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("labour");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("page");
 countNounArrayPlural.push("pages");
@@ -4800,6 +5164,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("palm");
 countNounArrayPlural.push("palms");
@@ -4813,6 +5178,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pasture");
 countNounArrayPlural.push("pastures");
@@ -4826,6 +5192,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("paternal&nbspkinsman");
 countNounArrayPlural.push("paternal&nbspkinsmen");
@@ -4839,6 +5206,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("path");
 countNounArrayPlural.push("paths");
@@ -4852,6 +5220,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("paw");
 countNounArrayPlural.push("paws");
@@ -4865,6 +5234,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pea");
 countNounArrayPlural.push("peas");
@@ -4878,6 +5248,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pebble");
 countNounArrayPlural.push("pebbles");
@@ -4891,6 +5262,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("peg");
 countNounArrayPlural.push("pegs");
@@ -4904,6 +5276,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pendant");
 countNounArrayPlural.push("pendants");
@@ -4917,6 +5290,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("penis");
 countNounArrayPlural.push("penises");
@@ -4930,6 +5304,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("perch");
 countNounArrayPlural.push("perches");
@@ -4943,6 +5318,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("person");
 countNounArrayPlural.push("people");
@@ -4956,6 +5332,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("phantom");
 countNounArrayPlural.push("phantoms");
@@ -4969,6 +5346,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pick");
 countNounArrayPlural.push("picks");
@@ -4982,6 +5360,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pig");
 countNounArrayPlural.push("pigs");
@@ -4995,6 +5374,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("meat");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("piglet");
 countNounArrayPlural.push("piglets");
@@ -5008,6 +5388,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("meat");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pike");
 countNounArrayPlural.push("pikes");
@@ -5021,6 +5402,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pillar");
 countNounArrayPlural.push("pillars");
@@ -5034,6 +5416,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pin");
 countNounArrayPlural.push("pins");
@@ -5047,6 +5430,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pit");
 countNounArrayPlural.push("pits");
@@ -5060,6 +5444,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("place");
 countNounArrayPlural.push("places");
@@ -5073,6 +5458,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("plank");
 countNounArrayPlural.push("planks");
@@ -5086,6 +5472,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("plough");
 countNounArrayPlural.push("ploughs");
@@ -5099,6 +5486,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("poem");
 countNounArrayPlural.push("poems");
@@ -5112,6 +5500,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("word");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("poet");
 countNounArrayPlural.push("poets");
@@ -5125,6 +5514,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("point");
 countNounArrayPlural.push("points");
@@ -5138,6 +5528,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("pointed");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pole");
 countNounArrayPlural.push("poles");
@@ -5151,6 +5542,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("polecat");
 countNounArrayPlural.push("polecats");
@@ -5164,6 +5556,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pool");
 countNounArrayPlural.push("pools");
@@ -5177,6 +5570,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("poplar");
 countNounArrayPlural.push("poplars");
@@ -5190,6 +5584,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("poppy");
 countNounArrayPlural.push("poppies");
@@ -5203,6 +5598,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("flower");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("post");
 countNounArrayPlural.push("posts");
@@ -5216,6 +5612,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("pot");
 countNounArrayPlural.push("pots");
@@ -5229,6 +5626,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("potato");
 countNounArrayPlural.push("potatoes");
@@ -5242,6 +5640,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("prayer");
 countNounArrayPlural.push("prayers");
@@ -5255,6 +5654,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("priest");
 countNounArrayPlural.push("priests");
@@ -5268,6 +5668,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("price");
 countNounArrayPlural.push("prices");
@@ -5281,6 +5682,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("prize");
 countNounArrayPlural.push("prizes");
@@ -5294,6 +5696,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("problem");
 countNounArrayPlural.push("problems");
@@ -5307,6 +5710,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("projection");
 countNounArrayPlural.push("projections");
@@ -5320,6 +5724,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("proverb");
 countNounArrayPlural.push("proverbs");
@@ -5333,6 +5738,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("word");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("puppy");
 countNounArrayPlural.push("puppies");
@@ -5346,6 +5752,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("labour");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("purchase");
 countNounArrayPlural.push("purchases");
@@ -5359,6 +5766,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("rabbit");
 countNounArrayPlural.push("rabbits");
@@ -5372,6 +5780,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("race");
 countNounArrayPlural.push("races");
@@ -5385,6 +5794,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("rag");
 countNounArrayPlural.push("rags");
@@ -5398,6 +5808,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ram");
 countNounArrayPlural.push("rams");
@@ -5411,6 +5822,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("fur");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("raven");
 countNounArrayPlural.push("ravens");
@@ -5424,6 +5836,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ravine");
 countNounArrayPlural.push("ravines");
@@ -5437,6 +5850,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("razor");
 countNounArrayPlural.push("razors");
@@ -5450,6 +5864,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("realm");
 countNounArrayPlural.push("realms");
@@ -5463,6 +5878,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("reed");
 countNounArrayPlural.push("reeds");
@@ -5476,6 +5892,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("grass");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("relation");
 countNounArrayPlural.push("relations");
@@ -5489,6 +5906,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("relationship");
 countNounArrayPlural.push("relationships");
@@ -5502,6 +5920,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("rhythm");
 countNounArrayPlural.push("rhythms");
@@ -5515,6 +5934,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("rib");
 countNounArrayPlural.push("ribs");
@@ -5528,6 +5948,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("right");
 countNounArrayPlural.push("rights");
@@ -5541,6 +5962,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ring");
 countNounArrayPlural.push("rings");
@@ -5554,6 +5976,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("river");
 countNounArrayPlural.push("rivers");
@@ -5567,6 +5990,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("riverbank");
 countNounArrayPlural.push("riverbanks");
@@ -5580,6 +6004,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("road");
 countNounArrayPlural.push("roads");
@@ -5593,6 +6018,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("rock");
 countNounArrayPlural.push("rocks");
@@ -5606,6 +6032,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("rod");
 countNounArrayPlural.push("rods");
@@ -5619,6 +6046,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("roll");
 countNounArrayPlural.push("rolls");
@@ -5632,6 +6060,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("roof");
 countNounArrayPlural.push("roofs");
@@ -5645,6 +6074,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("room");
 countNounArrayPlural.push("rooms");
@@ -5658,6 +6088,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("rooster");
 countNounArrayPlural.push("roosters");
@@ -5671,6 +6102,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("meat");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("root");
 countNounArrayPlural.push("roots");
@@ -5684,6 +6116,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("route");
 countNounArrayPlural.push("routes");
@@ -5697,6 +6130,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("row");
 countNounArrayPlural.push("rows");
@@ -5710,6 +6144,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("rug");
 countNounArrayPlural.push("rugs");
@@ -5723,6 +6158,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("rule");
 countNounArrayPlural.push("rules");
@@ -5736,6 +6172,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sail");
 countNounArrayPlural.push("sails");
@@ -5749,6 +6186,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sailor");
 countNounArrayPlural.push("sailors");
@@ -5762,6 +6200,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("salmon");
 countNounArrayPlural.push("salmons");
@@ -5775,6 +6214,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("saying");
 countNounArrayPlural.push("sayings");
@@ -5788,6 +6228,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("word");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("scent");
 countNounArrayPlural.push("scents");
@@ -5801,6 +6242,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("scroll");
 countNounArrayPlural.push("scrolls");
@@ -5814,6 +6256,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("scythe");
 countNounArrayPlural.push("scythes");
@@ -5827,6 +6270,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sea");
 countNounArrayPlural.push("seas");
@@ -5840,6 +6284,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("seal");
 countNounArrayPlural.push("seals");
@@ -5853,6 +6298,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("season");
 countNounArrayPlural.push("seasons");
@@ -5866,6 +6312,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("seat");
 countNounArrayPlural.push("seats");
@@ -5879,6 +6326,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("seed");
 countNounArrayPlural.push("seeds");
@@ -5892,6 +6340,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("serpent");
 countNounArrayPlural.push("serpents");
@@ -5905,6 +6354,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("servant");
 countNounArrayPlural.push("servants");
@@ -5918,6 +6368,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shadow");
 countNounArrayPlural.push("shadows");
@@ -5931,6 +6382,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shaft");
 countNounArrayPlural.push("shafts");
@@ -5944,6 +6396,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shark");
 countNounArrayPlural.push("sharks");
@@ -5957,6 +6410,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sheaf");
 countNounArrayPlural.push("sheaves");
@@ -5970,6 +6424,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sheep");
 countNounArrayPlural.push("sheep");
@@ -5983,6 +6438,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("fur");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sheet");
 countNounArrayPlural.push("sheets");
@@ -5996,6 +6452,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shelf");
 countNounArrayPlural.push("shelves");
@@ -6009,6 +6466,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shell");
 countNounArrayPlural.push("shells");
@@ -6022,6 +6480,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shield");
 countNounArrayPlural.push("shields");
@@ -6035,6 +6494,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shin");
 countNounArrayPlural.push("shins");
@@ -6048,6 +6508,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ship");
 countNounArrayPlural.push("ships");
@@ -6061,6 +6522,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shoe");
 countNounArrayPlural.push("shoes");
@@ -6074,6 +6536,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shoulder");
 countNounArrayPlural.push("shoulders");
@@ -6087,6 +6550,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shovel");
 countNounArrayPlural.push("shovels");
@@ -6100,6 +6564,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("shroud");
 countNounArrayPlural.push("shrouds");
@@ -6113,6 +6578,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sieve");
 countNounArrayPlural.push("sieves");
@@ -6126,6 +6592,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sign");
 countNounArrayPlural.push("signs");
@@ -6139,6 +6606,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sinew");
 countNounArrayPlural.push("sinews");
@@ -6152,6 +6620,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("skull");
 countNounArrayPlural.push("skulls");
@@ -6165,6 +6634,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sky");
 countNounArrayPlural.push("skies");
@@ -6178,6 +6648,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("slab");
 countNounArrayPlural.push("slabs");
@@ -6191,6 +6662,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("slice");
 countNounArrayPlural.push("slices");
@@ -6204,6 +6676,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("slit");
 countNounArrayPlural.push("slits");
@@ -6217,6 +6690,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("slot");
 countNounArrayPlural.push("slots");
@@ -6230,6 +6704,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("slug");
 countNounArrayPlural.push("slugs");
@@ -6243,6 +6718,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("snail");
 countNounArrayPlural.push("snails");
@@ -6256,6 +6732,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("snake");
 countNounArrayPlural.push("snakes");
@@ -6269,6 +6746,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("snare");
 countNounArrayPlural.push("snares");
@@ -6282,6 +6760,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sniff");
 countNounArrayPlural.push("sniffs");
@@ -6295,6 +6774,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sock");
 countNounArrayPlural.push("socks");
@@ -6308,6 +6788,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("soldier");
 countNounArrayPlural.push("soldiers");
@@ -6321,6 +6802,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("son");
 countNounArrayPlural.push("sons");
@@ -6334,6 +6816,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("child");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("song");
 countNounArrayPlural.push("songs");
@@ -6347,6 +6830,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("word");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sound");
 countNounArrayPlural.push("sounds");
@@ -6360,6 +6844,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sparrow");
 countNounArrayPlural.push("sparrow");
@@ -6373,6 +6858,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("spear");
 countNounArrayPlural.push("spears");
@@ -6386,6 +6872,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("spearhead");
 countNounArrayPlural.push("spearheads");
@@ -6399,6 +6886,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("pointed");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("spell");
 countNounArrayPlural.push("spells");
@@ -6412,6 +6900,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("spider");
 countNounArrayPlural.push("spiders");
@@ -6425,6 +6914,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("spirit");
 countNounArrayPlural.push("spirits");
@@ -6438,6 +6928,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("splint");
 countNounArrayPlural.push("splints");
@@ -6451,6 +6942,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("splatter");
 countNounArrayPlural.push("splatters");
@@ -6464,6 +6956,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("splinter");
 countNounArrayPlural.push("splinters");
@@ -6477,6 +6970,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("spoon");
 countNounArrayPlural.push("spoons");
@@ -6490,6 +6984,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("spouse");
 countNounArrayPlural.push("spouses");
@@ -6503,6 +6998,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("spout");
 countNounArrayPlural.push("spouts");
@@ -6516,6 +7012,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("spring");
 countNounArrayPlural.push("springs");
@@ -6529,6 +7026,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("squirrel");
 countNounArrayPlural.push("squirrels");
@@ -6542,6 +7040,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stable");
 countNounArrayPlural.push("stables");
@@ -6555,6 +7054,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("staff");
 countNounArrayPlural.push("staffs");
@@ -6568,6 +7068,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stag");
 countNounArrayPlural.push("stags");
@@ -6581,6 +7082,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stake");
 countNounArrayPlural.push("stakes");
@@ -6594,6 +7096,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stalagmite");
 countNounArrayPlural.push("stalagmites");
@@ -6607,6 +7110,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stalk");
 countNounArrayPlural.push("stalks");
@@ -6620,6 +7124,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("star");
 countNounArrayPlural.push("stars");
@@ -6633,6 +7138,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("starling");
 countNounArrayPlural.push("starlings");
@@ -6646,6 +7152,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("steed");
 countNounArrayPlural.push("steeds");
@@ -6659,6 +7166,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("labour");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("steppe");
 countNounArrayPlural.push("steppes");
@@ -6672,6 +7180,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stick");
 countNounArrayPlural.push("sticks");
@@ -6685,6 +7194,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stinger");
 countNounArrayPlural.push("stingers");
@@ -6698,6 +7208,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("pointed");
 shortGenericClassifierArray.push("natural-inanimate")
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stoat");
 countNounArrayPlural.push("stoats");
@@ -6711,6 +7222,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stomach");
 countNounArrayPlural.push("stomachs");
@@ -6724,6 +7236,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stone");
 countNounArrayPlural.push("stones");
@@ -6737,6 +7250,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("storeroom");
 countNounArrayPlural.push("storerooms");
@@ -6750,6 +7264,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stranger");
 countNounArrayPlural.push("strangers");
@@ -6763,6 +7278,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("strap");
 countNounArrayPlural.push("straps");
@@ -6776,6 +7292,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("stream");
 countNounArrayPlural.push("streams");
@@ -6789,6 +7306,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("street");
 countNounArrayPlural.push("streets");
@@ -6802,6 +7320,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("strike");
 countNounArrayPlural.push("strikes");
@@ -6815,6 +7334,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("strip");
 countNounArrayPlural.push("strips");
@@ -6828,6 +7348,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sturgeon");
 countNounArrayPlural.push("sturgeons");
@@ -6841,6 +7362,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("summer");
 countNounArrayPlural.push("summers");
@@ -6854,6 +7376,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sun");
 countNounArrayPlural.push("suns");
@@ -6867,6 +7390,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("supper");
 countNounArrayPlural.push("suppers");
@@ -6880,6 +7404,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("surprise");
 countNounArrayPlural.push("surprises");
@@ -6893,6 +7418,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("swamp");
 countNounArrayPlural.push("swamps");
@@ -6906,6 +7432,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("swap");
 countNounArrayPlural.push("swaps");
@@ -6919,6 +7446,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("swan");
 countNounArrayPlural.push("swans");
@@ -6932,6 +7460,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("sword");
 countNounArrayPlural.push("swords");
@@ -6945,6 +7474,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("table");
 countNounArrayPlural.push("tables");
@@ -6958,6 +7488,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("team");
 countNounArrayPlural.push("teams");
@@ -6971,6 +7502,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("teat");
 countNounArrayPlural.push("teats");
@@ -6984,6 +7516,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("temple");
 countNounArrayPlural.push("temples");
@@ -6997,6 +7530,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tent");
 countNounArrayPlural.push("tents");
@@ -7010,6 +7544,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("testicle");
 countNounArrayPlural.push("testicles");
@@ -7023,6 +7558,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("texture");
 countNounArrayPlural.push("textures");
@@ -7036,6 +7572,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("thorn");
 countNounArrayPlural.push("thorns");
@@ -7049,6 +7586,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("pointed");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("thought");
 countNounArrayPlural.push("thoughts");
@@ -7062,6 +7600,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("thread");
 countNounArrayPlural.push("threads");
@@ -7075,6 +7614,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("threat");
 countNounArrayPlural.push("threats");
@@ -7088,6 +7628,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("throat");
 countNounArrayPlural.push("throats");
@@ -7101,6 +7642,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tick");
 countNounArrayPlural.push("ticks");
@@ -7114,6 +7656,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tile");
 countNounArrayPlural.push("tiles");
@@ -7127,6 +7670,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("time");
 countNounArrayPlural.push("times");
@@ -7140,6 +7684,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("thing");
 countNounArrayPlural.push("things");
@@ -7153,6 +7698,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("toe");
 countNounArrayPlural.push("toes");
@@ -7166,6 +7712,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tongue");
 countNounArrayPlural.push("tongues");
@@ -7179,6 +7726,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tooth");
 countNounArrayPlural.push("teeth");
@@ -7192,6 +7740,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("pointed");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("torch");
 countNounArrayPlural.push("torches");
@@ -7205,6 +7754,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tortoise");
 countNounArrayPlural.push("tortoises");
@@ -7218,6 +7768,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("touch");
 countNounArrayPlural.push("touches");
@@ -7231,6 +7782,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tower");
 countNounArrayPlural.push("towers");
@@ -7244,6 +7796,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("town");
 countNounArrayPlural.push("towns");
@@ -7257,6 +7810,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("trade");
 countNounArrayPlural.push("trades");
@@ -7270,6 +7824,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("transformation");
 countNounArrayPlural.push("transformations");
@@ -7283,6 +7838,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("transition");
 countNounArrayPlural.push("transitions");
@@ -7296,6 +7852,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("trap");
 countNounArrayPlural.push("traps");
@@ -7309,6 +7866,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tree");
 countNounArrayPlural.push("trees");
@@ -7322,6 +7880,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tribe");
 countNounArrayPlural.push("tribes");
@@ -7335,6 +7894,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("troop");
 countNounArrayPlural.push("troops");
@@ -7348,6 +7908,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("trouser&nbspleg");
 countNounArrayPlural.push("trouser&nbsplegs");
@@ -7361,6 +7922,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("trout");
 countNounArrayPlural.push("trouts");
@@ -7374,6 +7936,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("trunk");
 countNounArrayPlural.push("trunks");
@@ -7387,6 +7950,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tube");
 countNounArrayPlural.push("tubes");
@@ -7400,6 +7964,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("tune");
 countNounArrayPlural.push("tunes");
@@ -7413,6 +7978,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("turnip");
 countNounArrayPlural.push("turnips");
@@ -7426,6 +7992,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("twilight");
 countNounArrayPlural.push("twilights");
@@ -7439,6 +8006,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("twin");
 countNounArrayPlural.push("twins");
@@ -7452,6 +8020,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("udder");
 countNounArrayPlural.push("udders");
@@ -7465,6 +8034,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("ulcer");
 countNounArrayPlural.push("ulcers");
@@ -7478,6 +8048,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("uncle");
 countNounArrayPlural.push("uncles");
@@ -7491,6 +8062,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("unused&nbspland");
 countNounArrayPlural.push("unused&nbsplands");
@@ -7504,6 +8076,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("vagina");
 countNounArrayPlural.push("vaginas");
@@ -7517,6 +8090,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("valley");
 countNounArrayPlural.push("valleys");
@@ -7530,6 +8104,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("vegetable");
 countNounArrayPlural.push("vegetables");
@@ -7543,6 +8118,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("village");
 countNounArrayPlural.push("villages");
@@ -7556,6 +8132,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("violin");
 countNounArrayPlural.push("violins");
@@ -7569,6 +8146,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("voice");
 countNounArrayPlural.push("voices");
@@ -7582,6 +8160,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wagon");
 countNounArrayPlural.push("wagons");
@@ -7595,6 +8174,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("walk");
 countNounArrayPlural.push("walks");
@@ -7608,6 +8188,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wall");
 countNounArrayPlural.push("walls");
@@ -7621,6 +8202,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("warrior");
 countNounArrayPlural.push("warriors");
@@ -7634,6 +8216,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wart");
 countNounArrayPlural.push("warts");
@@ -7647,6 +8230,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wasp");
 countNounArrayPlural.push("wasps");
@@ -7660,6 +8244,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("flying-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wave");
 countNounArrayPlural.push("waves");
@@ -7673,6 +8258,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("way");
 countNounArrayPlural.push("way");
@@ -7686,6 +8272,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("weapon");
 countNounArrayPlural.push("weapons");
@@ -7699,6 +8286,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("weasel");
 countNounArrayPlural.push("weasels");
@@ -7712,6 +8300,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wedding");
 countNounArrayPlural.push("weddings");
@@ -7725,6 +8314,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wedge");
 countNounArrayPlural.push("wedges");
@@ -7738,6 +8328,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("pointed");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("weevil");
 countNounArrayPlural.push("weevils");
@@ -7751,6 +8342,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("well");
 countNounArrayPlural.push("wells");
@@ -7764,6 +8356,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("whale");
 countNounArrayPlural.push("whales");
@@ -7777,6 +8370,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("water-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wheel");
 countNounArrayPlural.push("wheels");
@@ -7790,6 +8384,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("whetstone");
 countNounArrayPlural.push("whetstones");
@@ -7803,6 +8398,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("whip");
 countNounArrayPlural.push("whips");
@@ -7816,6 +8412,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("widow");
 countNounArrayPlural.push("widows");
@@ -7829,6 +8426,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("woman");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wife");
 countNounArrayPlural.push("wives");
@@ -7842,6 +8440,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("woman");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wig");
 countNounArrayPlural.push("wigs");
@@ -7855,6 +8454,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("willow");
 countNounArrayPlural.push("willows");
@@ -7868,6 +8468,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("window");
 countNounArrayPlural.push("windows");
@@ -7881,6 +8482,7 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wing");
 countNounArrayPlural.push("wings");
@@ -7894,6 +8496,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("flat");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("winter");
 countNounArrayPlural.push("winters");
@@ -7907,6 +8510,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("witch");
 countNounArrayPlural.push("witches");
@@ -7920,6 +8524,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("woman");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wolf");
 countNounArrayPlural.push("wolves");
@@ -7933,6 +8538,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("woman");
 countNounArrayPlural.push("women");
@@ -7946,6 +8552,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("woman");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("womb");
 countNounArrayPlural.push("wombs");
@@ -7959,6 +8566,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("world");
 countNounArrayPlural.push("worlds");
@@ -7972,6 +8580,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("worm");
 countNounArrayPlural.push("worms");
@@ -7985,6 +8594,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("word");
 countNounArrayPlural.push("words");
@@ -7998,6 +8608,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("word");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wort");
 countNounArrayPlural.push("worts");
@@ -8011,6 +8622,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("edible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("worm");
 countNounArrayPlural.push("worms");
@@ -8024,6 +8636,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("wound");
 countNounArrayPlural.push("wounds");
@@ -8037,6 +8650,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("year");
 countNounArrayPlural.push("years");
@@ -8050,6 +8664,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("yelp");
 countNounArrayPlural.push("yelps");
@@ -8063,6 +8678,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("shapeless");
 shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("yew");
 countNounArrayPlural.push("yews");
@@ -8076,6 +8692,7 @@ naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tree");
+derivedOrInheritedCountNoun.push("inherited")
 
 countNounArray.push("yoke");
 countNounArrayPlural.push("yokes");
@@ -8088,7 +8705,8 @@ mascFem.push("masculine1");
 naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
-shortGenericClassifierArray.push("toole");
+shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited")
 }
 
 let generateLanguageButton = document.getElementById("generate-language");
@@ -8097,8 +8715,8 @@ generateLanguageButton.addEventListener("click", addWords);
 
 
 export {
-    countNounArray,
-    countNounArrayPlural,
+countNounArray,
+countNounArrayPlural,
     activePassive,
     animInan,
     divineNonDivine,
@@ -8108,6 +8726,7 @@ export {
     naturalArtificial,
     animacyClassifierArray,
     shapeClassifierArray,
-    shortGenericClassifierArray
+    shortGenericClassifierArray,
+    derivedOrInheritedCountNoun
 }
 

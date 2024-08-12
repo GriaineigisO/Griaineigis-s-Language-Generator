@@ -2882,7 +2882,7 @@ function pBecomesU(word, originalWord) {
 
 function pBecomesF(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(word[i] === "p") {
+        if(word[i] === "p" && word[i+1] !== "ʰ" || word[i] === "p" && word[i+1] !== "ʷ") {
             let before = correctionsForStrings(word.join(""));
             word[i] = "f";
             let after = correctionsForStrings(word.join(""));

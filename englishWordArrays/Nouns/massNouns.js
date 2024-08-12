@@ -11,6 +11,7 @@ let naturalArtificialMass = [];
 let animacyClassifierMassArray = [];
 let shapeClassifierMassArray = [];
 let shortGenericClassifierMassArray = [];
+let derivedOrInheritedMassNoun = [];
 
 function clearArrays() {
     massNounArray = [];
@@ -26,10 +27,11 @@ function clearArrays() {
     animacyClassifierMassArray = [];
     shapeClassifierMassArray = [];
     shortGenericClassifierMassArray = [];
+    derivedOrInheritedMassNoun = [];
 }
 
 function addWords() {
-    massNounArray.push("admiration");
+massNounArray.push("admiration");
     singulativeMassNounArray.push("act&nbspof&nbspadmiration");
     pluralSingulativeMassNounArray.push("acts&nbspof&nbspadmiration");
     activePassiveMass.push("active")
@@ -42,8 +44,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("adoration");
+massNounArray.push("adoration");
     singulativeMassNounArray.push("act&nbspof&nbspadoration");
     pluralSingulativeMassNounArray.push("acts&nbspof&nbspadoration");
     activePassiveMass.push("active")
@@ -56,8 +59,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("air");
+massNounArray.push("air");
     singulativeMassNounArray.push("wiff&nbspof&nbspair");
     pluralSingulativeMassNounArray.push("wiffs&nbspof&nbspair");
     activePassiveMass.push("passive")
@@ -70,8 +74,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("ash");
+massNounArray.push("ash");
     singulativeMassNounArray.push("pinch&nbspof&nbspash");
     pluralSingulativeMassNounArray.push("pinches&nbspof&nbspash");
     activePassiveMass.push("passive")
@@ -84,8 +89,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("bark");
+massNounArray.push("bark");
     singulativeMassNounArray.push("strip&nbspof&nbspbark");
     pluralSingulativeMassNounArray.push("strips&nbspof&nbspbark");
     activePassiveMass.push("passive")
@@ -98,8 +104,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
-    
-    massNounArray.push("beer");
+     derivedOrInheritedMassNoun.push("inherited")
+
+massNounArray.push("beer");
     singulativeMassNounArray.push("pint&nbspof&nbspbeer");
     pluralSingulativeMassNounArray.push("pints&nbspof&nbspbeer");
     activePassiveMass.push("passive")
@@ -112,8 +119,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
-    
-    massNounArray.push("blood");
+     derivedOrInheritedMassNoun.push("inherited")
+
+massNounArray.push("blood");
     singulativeMassNounArray.push("drop&nbspof&nbspblood");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbspblood");
     activePassiveMass.push("passive")
@@ -126,8 +134,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("bread");
+massNounArray.push("bread");
     singulativeMassNounArray.push("slice&nbspof&nbspbread");
     pluralSingulativeMassNounArray.push("slices&nbspof&nbspbread");
     activePassiveMass.push("passive")
@@ -140,8 +149,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("short-and-wide");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("bronze");
+massNounArray.push("bronze");
     singulativeMassNounArray.push("chunk&nbspof&nbspbronze");
     pluralSingulativeMassNounArray.push("chunks&nbspof&nbspbronze");
     activePassiveMass.push("passive")
@@ -154,8 +164,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("candle&nbspwax");
+massNounArray.push("candle&nbspwax");
     singulativeMassNounArray.push("stick&nbspof&nbspcandle&nbspwax");
     pluralSingulativeMassNounArray.push("sticks&nbspof&nbspcandle&nbspwax");
     activePassiveMass.push("passive")
@@ -168,8 +179,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("dirt");
+massNounArray.push("dirt");
     singulativeMassNounArray.push("handful&nbspof&nbspdirt");
     pluralSingulativeMassNounArray.push("handfuls&nbspof&nbspdirt");
     activePassiveMass.push("passive")
@@ -182,8 +194,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("dust");
+massNounArray.push("dust");
     singulativeMassNounArray.push("bit&nbspof&nbspdust");
     pluralSingulativeMassNounArray.push("bits&nbspof&nbspdust");
     activePassiveMass.push("passive")
@@ -196,8 +209,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("captivity");
+massNounArray.push("captivity");
     singulativeMassNounArray.push("period&nbspof&nbspcaptivity");
     pluralSingulativeMassNounArray.push("periods&nbspof&nbspcaptivity");
     activePassiveMass.push("passive")
@@ -210,8 +224,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("chalk");
+massNounArray.push("chalk");
     singulativeMassNounArray.push("stick&nbspof&nbspchalk");
     pluralSingulativeMassNounArray.push("sticks&nbspof&nbschalk");
     activePassiveMass.push("passive")
@@ -224,8 +239,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("charcoal");
+massNounArray.push("charcoal");
     singulativeMassNounArray.push("clump&nbspof&nbspcharcoal");
     pluralSingulativeMassNounArray.push("clumps&nbspof&nbspcharcoal");
     activePassiveMass.push("passive")
@@ -238,8 +254,9 @@ function addWords() {
     animacyClassifierMassArray.push("tree");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("clay");
+massNounArray.push("clay");
     singulativeMassNounArray.push("clump&nbspof&nbspclay");
     pluralSingulativeMassNounArray.push("clumps&nbspof&nbspclay");
     activePassiveMass.push("passive")
@@ -252,8 +269,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("cloth");
+massNounArray.push("cloth");
     singulativeMassNounArray.push("patch&nbspof&nbspcloth");
     pluralSingulativeMassNounArray.push("patches&nbspof&nbspcloth");
     activePassiveMass.push("passive")
@@ -266,8 +284,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("flat");
     shortGenericClassifierMassArray.push("tool");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("cream");
+massNounArray.push("cream");
     singulativeMassNounArray.push("dollop&nbspof&nbspcream");
     pluralSingulativeMassNounArray.push("dollops&nbspof&nbspcream");
     activePassiveMass.push("passive")
@@ -280,8 +299,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("confusion");
+massNounArray.push("confusion");
     singulativeMassNounArray.push("ounce&nbspof&nbspconfusion");
     pluralSingulativeMassNounArray.push("ounces&nbspof&nbspconfusion");
     activePassiveMass.push("passive")
@@ -294,8 +314,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("copper");
+massNounArray.push("copper");
     singulativeMassNounArray.push("chunk&nbspof&nbspcopper");
     pluralSingulativeMassNounArray.push("chunks&nbspof&nbspcopper");
     activePassiveMass.push("passive")
@@ -308,8 +329,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("deception");
+massNounArray.push("deception");
     singulativeMassNounArray.push("act&nbspof&nbspdeception");
     pluralSingulativeMassNounArray.push("acts&nbspof&nbspdeception");
     activePassiveMass.push("active")
@@ -322,8 +344,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("flint");
+massNounArray.push("flint");
     singulativeMassNounArray.push("piece&nbspof&nbspflint");
     pluralSingulativeMassNounArray.push("pieces&nbspof&nbspflint");
     activePassiveMass.push("passive")
@@ -336,8 +359,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
-    
-    massNounArray.push("flour");
+     derivedOrInheritedMassNoun.push("inherited")
+
+massNounArray.push("flour");
     singulativeMassNounArray.push("handful&nbspof&nbspflour");
     pluralSingulativeMassNounArray.push("handfuls&nbspof&nbspflour");
     activePassiveMass.push("passive")
@@ -350,8 +374,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("frogspawn");
+massNounArray.push("frogspawn");
     singulativeMassNounArray.push("clump&nbspof&nbspfrogspaw");
     pluralSingulativeMassNounArray.push("clumps&nbspof&nbspfrogspaw");
     activePassiveMass.push("passive")
@@ -365,7 +390,9 @@ function addWords() {
     shapeClassifierMassArray.push("round");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
-      massNounArray.push("fog");
+      derivedOrInheritedMassNoun.push("inherited")
+
+massNounArray.push("fog");
     singulativeMassNounArray.push("bit&nbspof&nbspfog");
     pluralSingulativeMassNounArray.push("bits&nbspof&nbspfog");
     activePassiveMass.push("passive")
@@ -378,8 +405,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("food");
+massNounArray.push("food");
     singulativeMassNounArray.push("bit&nbspof&nbspfood");
     pluralSingulativeMassNounArray.push("bits&nbspof&nbspfood");
     activePassiveMass.push("passive")
@@ -392,8 +420,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("garlic");
+massNounArray.push("garlic");
     singulativeMassNounArray.push("clove&nbspof&nbspgarlic");
     pluralSingulativeMassNounArray.push("cloves&nbspof&nbspgarlic");
     activePassiveMass.push("passive")
@@ -406,8 +435,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("round");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("glass");
+massNounArray.push("glass");
     singulativeMassNounArray.push("shard&nbspof&nbspglass");
     pluralSingulativeMassNounArray.push("shards&nbspof&nbspglass");
     activePassiveMass.push("passive")
@@ -420,8 +450,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("pointed");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("gold");
+massNounArray.push("gold");
     singulativeMassNounArray.push("chunk&nbspof&nbspgold");
     pluralSingulativeMassNounArray.push("chunks&nbspof&nbspgold");
     activePassiveMass.push("passive")
@@ -434,8 +465,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("grace");
+massNounArray.push("grace");
     singulativeMassNounArray.push("display&nbspof&nbspgrace");
     pluralSingulativeMassNounArray.push("displays&nbspof&nbspgrace");
     activePassiveMass.push("passive")
@@ -448,8 +480,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("grass");
+massNounArray.push("grass");
     singulativeMassNounArray.push("blade&nbspof&nbspgrass");
     pluralSingulativeMassNounArray.push("blades&nbspof&nbspgrass");
     activePassiveMass.push("passive")
@@ -462,8 +495,9 @@ function addWords() {
     animacyClassifierMassArray.push("grass");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("hail");
+massNounArray.push("hail");
     singulativeMassNounArray.push("downpour&nbspof&nbsphail");
     pluralSingulativeMassNounArray.push("downpours&nbspof&nbsphail");
     activePassiveMass.push("passive")
@@ -476,8 +510,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("rown");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("hair");
+massNounArray.push("hair");
     singulativeMassNounArray.push("strand&nbspof&nbsphair");
     pluralSingulativeMassNounArray.push("strands&nbspof&nbsphairs");
     activePassiveMass.push("passive")
@@ -490,8 +525,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("hatred");
+massNounArray.push("hatred");
     singulativeMassNounArray.push("act&nbspof&nbsphatred");
     pluralSingulativeMassNounArray.push("acts&nbspof&nbsphatred");
     activePassiveMass.push("passive")
@@ -504,8 +540,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("honey");
+massNounArray.push("honey");
     singulativeMassNounArray.push("spoonful&nbspof&nbsphoney");
     pluralSingulativeMassNounArray.push("spoonfuls&nbspof&nbsphoney");
     activePassiveMass.push("passive")
@@ -518,8 +555,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("hostility");
+massNounArray.push("hostility");
     singulativeMassNounArray.push("act&nbspof&nbsphostility");
     pluralSingulativeMassNounArray.push("acts&nbspof&nbsphostility");
     activePassiveMass.push("passive")
@@ -532,8 +570,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("ice");
+massNounArray.push("ice");
     singulativeMassNounArray.push("chunk&nbspof&nbspice");
     pluralSingulativeMassNounArray.push("chunks&nbspof&nbspice");
     activePassiveMass.push("passive")
@@ -546,8 +585,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("incense");
+massNounArray.push("incense");
     singulativeMassNounArray.push("stick&nbspof&nbspincense");
     pluralSingulativeMassNounArray.push("sticks&nbspof&nbspincense");
     activePassiveMass.push("passive")
@@ -560,8 +600,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("iron");
+massNounArray.push("iron");
     singulativeMassNounArray.push("chunk&nbspof&nbspiron");
     pluralSingulativeMassNounArray.push("chunks&nbspof&nbspiron");
     activePassiveMass.push("active")
@@ -574,8 +615,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("jam");
+massNounArray.push("jam");
     singulativeMassNounArray.push("jar&nbspof&nbspjam");
     pluralSingulativeMassNounArray.push("jars&nbspof&nbspjam");
     activePassiveMass.push("passive")
@@ -588,8 +630,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("labour");
+massNounArray.push("labour");
     singulativeMassNounArray.push("work&nbspof&nbsplabour");
     pluralSingulativeMassNounArray.push("works&nbspof&nbsplabour");
     activePassiveMass.push("passive")
@@ -602,8 +645,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("tool");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("leather");
+massNounArray.push("leather");
     singulativeMassNounArray.push("strip&nbspof&nbspleather");
     pluralSingulativeMassNounArray.push("strips&nbspof&nbspleather");
     activePassiveMass.push("passive")
@@ -616,8 +660,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("tool");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("love");
+massNounArray.push("love");
     singulativeMassNounArray.push("act&nbspof&nbsplove");
     pluralSingulativeMassNounArray.push("acts&nbspof&nbsplove");
     activePassiveMass.push("passive")
@@ -630,8 +675,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("marrow");
+massNounArray.push("marrow");
     singulativeMassNounArray.push("piece&nbspof&nbspmarrow");
     pluralSingulativeMassNounArray.push("pieces&nbspof&nbspmarrow");
     activePassiveMass.push("passive")
@@ -644,8 +690,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("mead");
+massNounArray.push("mead");
     singulativeMassNounArray.push("pint&nbspof&nbspmead");
     pluralSingulativeMassNounArray.push("pints&nbspof&nbspmead");
     activePassiveMass.push("passive")
@@ -658,8 +705,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("meat");
+massNounArray.push("meat");
     singulativeMassNounArray.push("cut&nbspof&nbspmeat");
     pluralSingulativeMassNounArray.push("cuts&nbspof&nbspmeat");
     activePassiveMass.push("passive")
@@ -672,8 +720,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("money");
+massNounArray.push("money");
     singulativeMassNounArray.push("amount&nbspof&nbspmoney");
     pluralSingulativeMassNounArray.push("amounts&nbspof&nbspmoney");
     activePassiveMass.push("passive")
@@ -686,8 +735,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("round");
     shortGenericClassifierMassArray.push("tool");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("milk");
+massNounArray.push("milk");
     singulativeMassNounArray.push("drop&nbspof&nbspmilk");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbspmilk");
     activePassiveMass.push("passive")
@@ -700,8 +750,9 @@ function addWords() {
     animacyClassifierMassArray.push("milk");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("mud");
+massNounArray.push("mud");
     singulativeMassNounArray.push("clump&nbspof&nbspmud");
     pluralSingulativeMassNounArray.push("clumps&nbspof&nbspmud");
     activePassiveMass.push("passive")
@@ -714,8 +765,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("music");
+massNounArray.push("music");
     singulativeMassNounArray.push("piece&nbspof&nbspmusic");
     pluralSingulativeMassNounArray.push("pieces&nbspof&nbspmusic");
     activePassiveMass.push("active")
@@ -728,8 +780,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("mustard");
+massNounArray.push("mustard");
     singulativeMassNounArray.push("jar&nbspof&nbspmustard");
     pluralSingulativeMassNounArray.push("jar&nbspof&nbspmustard");
     activePassiveMass.push("passive")
@@ -742,8 +795,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("oil");
+massNounArray.push("oil");
     singulativeMassNounArray.push("drop&nbspof&nbspoil");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbspoil");
     activePassiveMass.push("passive")
@@ -756,8 +810,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("paper");
+massNounArray.push("paper");
     singulativeMassNounArray.push("sheet&nbspof&nbsppaper");
     pluralSingulativeMassNounArray.push("sheets&nbspof&nbsppaper");
     activePassiveMass.push("passive")
@@ -770,8 +825,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("tool");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("poison");
+massNounArray.push("poison");
     singulativeMassNounArray.push("drop&nbspof&nbsppoison");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbsppoison");
     activePassiveMass.push("passive")
@@ -784,8 +840,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("porridge");
+massNounArray.push("porridge");
     singulativeMassNounArray.push("bowl&nbspof&nbspporridge");
     pluralSingulativeMassNounArray.push("bowls&nbspof&nbspporridge");
     activePassiveMass.push("passive")
@@ -798,8 +855,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("prose");
+massNounArray.push("prose");
     singulativeMassNounArray.push("work&nbspof&nbspprose");
     pluralSingulativeMassNounArray.push("works&nbspof&nbspprose");
     activePassiveMass.push("passive")
@@ -811,8 +869,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("rain");
+massNounArray.push("rain");
     singulativeMassNounArray.push("raindrop");
     pluralSingulativeMassNounArray.push("raindrops");
     activePassiveMass.push("passive")
@@ -825,8 +884,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("revenge");
+massNounArray.push("revenge");
     singulativeMassNounArray.push("act&nbspof&nbsprevenge");
     pluralSingulativeMassNounArray.push("acts&nbspof&nbsprevenge");
     activePassiveMass.push("passive")
@@ -839,8 +899,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("rope");
+massNounArray.push("rope");
     singulativeMassNounArray.push("length&nbspof&nbsprope");
     pluralSingulativeMassNounArray.push("lengths&nbspof&nbsprope");
     activePassiveMass.push("passive")
@@ -853,8 +914,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("tool");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("saliva");
+massNounArray.push("saliva");
     singulativeMassNounArray.push("drop&nbspof&nbspsaliva");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbspsaliva");
     activePassiveMass.push("passive")
@@ -867,8 +929,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("salt");
+massNounArray.push("salt");
     singulativeMassNounArray.push("pinch&nbspof&nbspsalt");
     pluralSingulativeMassNounArray.push("pinches&nbspof&nbspsalta");
     activePassiveMass.push("passive")
@@ -881,8 +944,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("sand");
+massNounArray.push("sand");
     singulativeMassNounArray.push("grain&nbspof&nbspsand");
     pluralSingulativeMassNounArray.push("grains&nbspof&nbspsand");
     activePassiveMass.push("passive")
@@ -895,8 +959,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("sap");
+massNounArray.push("sap");
     singulativeMassNounArray.push("drop&nbspof&nbspsap");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbspsap");
     activePassiveMass.push("passive")
@@ -909,8 +974,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("sauce");
+massNounArray.push("sauce");
     singulativeMassNounArray.push("portion&nbspof&nbspsauce");
     pluralSingulativeMassNounArray.push("portions&nbspof&nbspsauce");
     activePassiveMass.push("passive")
@@ -923,8 +989,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("sight");
+massNounArray.push("sight");
     singulativeMassNounArray.push("glimpse&nbspof&nbspsight");
     pluralSingulativeMassNounArray.push("glimpses&nbspof&nbspsight");
     activePassiveMass.push("passive")
@@ -937,8 +1004,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("skin");
+massNounArray.push("skin");
     singulativeMassNounArray.push("piece&nbspof&nbspskin");
     pluralSingulativeMassNounArray.push("pieces&nbspof&nbspskin");
     activePassiveMass.push("passive")
@@ -951,8 +1019,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("smoke");
+massNounArray.push("smoke");
     singulativeMassNounArray.push("wisp&nbspof&nbspsmoke");
     pluralSingulativeMassNounArray.push("wisps&nbspof&nbspsmoke");
     activePassiveMass.push("active")
@@ -965,8 +1034,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("smoked&nbspmeat");
+massNounArray.push("smoked&nbspmeat");
     singulativeMassNounArray.push("chunk&nbspof&nbspsmoked&nbspmeat");
     pluralSingulativeMassNounArray.push("chunks&nbspof&nbspsmoked&nbspmeat");
     activePassiveMass.push("passive")
@@ -979,8 +1049,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("snow");
+massNounArray.push("snow");
     singulativeMassNounArray.push("handful&nbspof&nbspsnow");
     pluralSingulativeMassNounArray.push("handfuls&nbspof&nbspsnow");
     activePassiveMass.push("passive")
@@ -993,8 +1064,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("soup");
+massNounArray.push("soup");
     singulativeMassNounArray.push("bowl&nbspof&nbspsoup");
     pluralSingulativeMassNounArray.push("bowls&nbspof&nbspsoup");
     activePassiveMass.push("passive")
@@ -1007,8 +1079,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("steam");
+massNounArray.push("steam");
     singulativeMassNounArray.push("wisp&nbspof&nbspsteam");
     pluralSingulativeMassNounArray.push("wisps&nbspof&nbspsteam");
     activePassiveMass.push("active")
@@ -1021,8 +1094,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("straw");
+massNounArray.push("straw");
     singulativeMassNounArray.push("bale&nbspof&nbspstraw");
     pluralSingulativeMassNounArray.push("bales&nbspof&nbspstraw");
     activePassiveMass.push("passive")
@@ -1035,8 +1109,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("tool");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("string");
+massNounArray.push("string");
     singulativeMassNounArray.push("length&nbspof&nbspstring");
     pluralSingulativeMassNounArray.push("lengths&nbspof&nbspstring");
     activePassiveMass.push("passive")
@@ -1049,8 +1124,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("tool");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("sweat");
+massNounArray.push("sweat");
     singulativeMassNounArray.push("bead&nbspof&nbspsweat");
     pluralSingulativeMassNounArray.push("beads&nbspof&nbspsweat");
     activePassiveMass.push("passive")
@@ -1063,8 +1139,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("trickery");
+massNounArray.push("trickery");
     singulativeMassNounArray.push("act&nbspof&nbsptrickery");
     pluralSingulativeMassNounArray.push("acts&nbspof&nbsptrickery");
     activePassiveMass.push("passive")
@@ -1077,8 +1154,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("truth");
+massNounArray.push("truth");
     singulativeMassNounArray.push("ounce&nbspof&nbsptruth");
     pluralSingulativeMassNounArray.push("ounces&nbspof&nbsptruth");
     activePassiveMass.push("active")
@@ -1091,8 +1169,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("vigour");
+massNounArray.push("vigour");
     singulativeMassNounArray.push("display&nbspof&nbspvigour");
     pluralSingulativeMassNounArray.push("displays&nbspof&nbspvigour");
     activePassiveMass.push("passive")
@@ -1105,8 +1184,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("vinegar");
+massNounArray.push("vinegar");
     singulativeMassNounArray.push("drop&nbspof&nbspvinegar");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbspvinegar");
     activePassiveMass.push("passive")
@@ -1119,8 +1199,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("water");
+massNounArray.push("water");
     singulativeMassNounArray.push("drop&nbspof&nbspwater");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbspwater");
     activePassiveMass.push("active")
@@ -1133,8 +1214,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("wind");
+massNounArray.push("wind");
     singulativeMassNounArray.push("gust&nbspof&nbspwind");
     pluralSingulativeMassNounArray.push("gusts&nbspof&nbspwind");
     activePassiveMass.push("active")
@@ -1147,8 +1229,9 @@ function addWords() {
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("wine");
+massNounArray.push("wine");
     singulativeMassNounArray.push("glass&nbspof&nbspwine");
     pluralSingulativeMassNounArray.push("glasses&nbspof&nbspwine");
     activePassiveMass.push("passive")
@@ -1161,8 +1244,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("wood");
+massNounArray.push("wood");
     singulativeMassNounArray.push("chunk&nbspof&nbspwood");
     pluralSingulativeMassNounArray.push("chunks&nbspof&nbspwood");
     activePassiveMass.push("passive")
@@ -1175,8 +1259,9 @@ function addWords() {
     animacyClassifierMassArray.push("tree");
     shapeClassifierMassArray.push("short-and-wide");
     shortGenericClassifierMassArray.push("natural-inanimate");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("work");
+massNounArray.push("work");
     singulativeMassNounArray.push("period&nbspof&nbspwork");
     pluralSingulativeMassNounArray.push("periods&nbspof&nbspwork");
     activePassiveMass.push("passive")
@@ -1189,8 +1274,9 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("tool");
+ derivedOrInheritedMassNoun.push("inherited")
 
-    massNounArray.push("yeast");
+massNounArray.push("yeast");
     singulativeMassNounArray.push("bit&nbspof&nbspyeast");
     pluralSingulativeMassNounArray.push("bits&nbspof&nbspyeast");
     activePassiveMass.push("passive")
@@ -1203,6 +1289,7 @@ function addWords() {
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
+    derivedOrInheritedMassNoun.push("inherited")
 };
 
 let generateLanguageButton = document.getElementById("generate-language");
@@ -1210,7 +1297,7 @@ generateLanguageButton.addEventListener("click", clearArrays);
 generateLanguageButton.addEventListener("click", addWords);
 
 export {
-    massNounArray,
+massNounArray,
     singulativeMassNounArray,
     pluralSingulativeMassNounArray,
     activePassiveMass,
@@ -1222,5 +1309,6 @@ export {
     naturalArtificialMass,
     animacyClassifierMassArray,
     shapeClassifierMassArray,
-    shortGenericClassifierMassArray
+    shortGenericClassifierMassArray,
+    derivedOrInheritedMassNoun
 }

@@ -1,11 +1,5 @@
 
-import {
-    generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedAdverbs, generatedConjunctions, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdpositions, generatedIntensifiers, genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour, labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, flowerExample, randomNumForFlower, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, grammaticalNumAgglutinative,
-    adjectiveArray,
-    conjunctionArray,
-    adverbArray,
-    adpositionArray,
-    intensifierArray, countNounArrayPlural,
+import {genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour, labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, flowerExample, randomNumForFlower, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, grammaticalNumAgglutinative,
     activePassive,
     animInan,
     divineNonDivine,
@@ -17,7 +11,13 @@ import {
     shapeClassifierArray,
     shortGenericClassifierArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass, mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, languageName
 } from './script.js'
-import { grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, animGeneralAffix, inanGeneralAffix, nomGeneralAffix, femSgAffix, mascSgAffix } from './fusionalNouns.js'
+import { grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, animGeneralAffix, inanGeneralAffix, nomGeneralAffix, femSgAffix, mascSgAffix } from './fusionalNouns.js';
+import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ} from './derivation.js';
+
+import {derivedOrInheritedCountNoun} from './englishWordArrays/Nouns/countNouns.js'
+import {derivedOrInheritedMassNoun} from './englishWordArrays/Nouns/massNouns.js'
+import {derivedOrInheritedTransVerb} from './englishWordArrays/Verbs/englishTransitiveVerbs.js'
+import {derivedOrInheritedIntransVerb} from './englishWordArrays/Verbs/englishIntransitiveVerbs.js'
 
 import { spell } from './orthography.js'
 import { soundChange, correctionsForStrings } from './soundchange.js';
@@ -1068,7 +1068,6 @@ function makeDictionary() {
                 }
             }
         }
-
         //if language is fusional and has cases but no gender
         if (typologyNum === 2 && grammaticalNumber < 24 && caseNumber > 0 && genderNum < 9) {
             if (countNounArray.includes(englishWords[i])) {
@@ -1118,7 +1117,12 @@ function makeDictionary() {
             }
         };
 
-        word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+        if(adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") {
+                word1 = new Dictionary(wordWithAffix, ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+        } else {
+            word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+        }
+        
         let headWord = document.createElement("span");
         let ipaTranscription = document.createElement("span");
         let pOS = document.createElement("span");
@@ -1131,13 +1135,22 @@ function makeDictionary() {
         pOS.innerHTML = word1.partOfSpeech;
         meaning.innerHTML = word1.translation;
         classiferEtymology.innerHTML = word1.classifierExplanation;
-        etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
-
+        if(adjectiveArray.includes(englishWords[i])) {
+            if(derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "inherited") {
+                etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
+            } else if (derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived"){
+                if(transitiveVerbArray.includes(etymologyArrayADJ[adjectiveArray.indexOf(englishWords[i])])) {
+                    etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyADJ[adjectiveArray.indexOf(englishWords[i])]}`;
+                };
+            };
+        } else {
+            etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
+        };
         let entry = document.createElement("div");
         entry.classList.add("entry");
         entry.innerHTML = `${headWord.innerHTML} ${ipaTranscription.innerHTML} ${pOS.innerHTML} ${meaning.innerHTML} ${classiferEtymology.innerHTML} ${etymology.innerHTML}`;
         document.getElementById("language-to-english").appendChild(entry);
-    }
+    };
 
 
     //English to Kerkebulo

@@ -490,7 +490,7 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("honour");
     transitiveVerb3SArray.push("honours");
     transitiveVerbPastArray.push("honoured");
-    proneADJ.push("X");
+    proneADJ.push("honourable");
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("hum");
@@ -502,25 +502,25 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("hunt");
     transitiveVerb3SArray.push("hunts");
     transitiveVerbPastArray.push("hunted");
-    proneADJ.push("X");
+    proneADJ.push("predatory");
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("instruct");
     transitiveVerb3SArray.push("instructs");
     transitiveVerbPastArray.push("instructed");
-    proneADJ.push("X");
+    proneADJ.push("instructive");
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("insult");
     transitiveVerb3SArray.push("insults");
     transitiveVerbPastArray.push("insulted");
-    proneADJ.push("X");
+    proneADJ.push(["mean", "rude", "offensive", "unkind", "nasty"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("invite");
     transitiveVerb3SArray.push("invites");
     transitiveVerbPastArray.push("invited");
-    proneADJ.push("X");
+    proneADJ.push(["inviting"< "hospitable"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("invoke");
@@ -550,31 +550,31 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("know");
     transitiveVerb3SArray.push("knows");
     transitiveVerbPastArray.push("knew");
-    proneADJ.push("X");
+    proneADJ.push(["wise", "smart", "intelligent", "clever"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("lack");
     transitiveVerb3SArray.push("lacks");
     transitiveVerbPastArray.push("lacked");
-    proneADJ.push("X");
+    proneADJ.push(["empty", "insufficient", "devoid", "bereft", "lacking"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("leap");
     transitiveVerb3SArray.push("leaps");
     transitiveVerbPastArray.push("leapt");
-    proneADJ.push("X");
+    proneADJ.push(["bouncy", "energetic", "dynamic"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("learn");
     transitiveVerb3SArray.push("learns");
     transitiveVerbPastArray.push("learned");
-    proneADJ.push("X");
+    proneADJ.push(["studious", "erudite", "smart", "knowledgable", "well-versed"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("leave");
     transitiveVerb3SArray.push("leaves");
     transitiveVerbPastArray.push("left");
-    proneADJ.push("X");
+    proneADJ.push(["absent", "gone", "away"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("lick");
@@ -592,19 +592,19 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("loveV");
     transitiveVerb3SArray.push("loves");
     transitiveVerbPastArray.push("loved");
-    proneADJ.push("X");
+    proneADJ.push(["loving", "affectionte", "caring", "doting"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("make");
     transitiveVerb3SArray.push("makes");
     transitiveVerbPastArray.push("made");
-    proneADJ.push("X");
+    proneADJ.push(["creative", "industrious"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("marry");
     transitiveVerb3SArray.push("marries");
     transitiveVerbPastArray.push("married");
-    proneADJ.push("X");
+    proneADJ.push(["wed", "betrothed"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("meet");
@@ -616,7 +616,7 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("need");
     transitiveVerb3SArray.push("needs");
     transitiveVerbPastArray.push("needed");
-    proneADJ.push("X");
+    proneADJ.push("in&nbspneed");
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("notice");
@@ -634,7 +634,7 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("praise");
     transitiveVerb3SArray.push("praises");
     transitiveVerbPastArray.push("praised");
-    proneADJ.push("X");
+    proneADJ.push(["exhalting", "complimentive"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("pay");
@@ -646,13 +646,13 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("perceive");
     transitiveVerb3SArray.push("perceives");
     transitiveVerbPastArray.push("perceived");
-    proneADJ.push("X");
+    proneADJ.push(["perceptive", "alert", "watchful"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("persuade");
     transitiveVerb3SArray.push("persuades");
     transitiveVerbPastArray.push("persuaded");
-    proneADJ.push("X");
+    proneADJ.push("persuasive");
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("pierce");
@@ -676,7 +676,7 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("please");
     transitiveVerb3SArray.push("pleases");
     transitiveVerbPastArray.push("pleased");
-    proneADJ.push("X");
+    proneADJ.push(["pleasing", "delightful", "likeable", "pleasant"]);
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("pluck");
@@ -694,7 +694,7 @@ derivedOrInheritedTransVerb.push("inherited")
     transitiveVerbArray.push("prefer");
     transitiveVerb3SArray.push("prefers");
     transitiveVerbPastArray.push("preferred");
-    proneADJ.push("X");
+    proneADJ.push("biased");
 derivedOrInheritedTransVerb.push("inherited")
 
     transitiveVerbArray.push("propel");

@@ -80,10 +80,10 @@ function makeDictionary() {
                 newArray.splice(i, 1);
                 let newVerb = newArray.join("");
                 return newVerb;
-            }
-        }
+            };
+        };
         return verb;
-    }
+    };
 
     //Kerbekulo to English
     for (let i = 0; i < englishWords.length; i++) {
@@ -1117,11 +1117,12 @@ function makeDictionary() {
             }
         };
 
+        let word1 = "";
         if(adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") {
-                word1 = new Dictionary(wordWithAffix, ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+            word1 = new Dictionary(spell(wordWithAffix), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
         } else {
             word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
-        }
+        };
         
         let headWord = document.createElement("span");
         let ipaTranscription = document.createElement("span");
@@ -1907,7 +1908,7 @@ function makeDictionary() {
         entry.classList.add("entry-english");
         entry.innerHTML = meaning.innerHTML + " " + pOS.innerHTML + " " + headWord.innerHTML;
         document.getElementById("english-to-language").appendChild(entry);
-    }
+    };
 
     //Sorts the dictionary alphabetically
     let entryDiv = document.getElementsByClassName("entry");
@@ -1919,12 +1920,12 @@ function makeDictionary() {
         entryEnglishArray.push(entryEnglish[i].innerHTML);
         entryArray.sort();
         entryEnglishArray.sort();
-    }
+    };
 
     for (let i = 0; i < entryDiv.length; i++) {
         entryDiv[i].innerHTML = entryArray[i];
         entryEnglish[i].innerHTML = entryEnglishArray[i];
-    }
+    };
 
     //styles each part of the entry by turning the single string into three span elements. If the part of speech is a noun, adjective or verb with a bare root listed in the entry, then the length of entryDiv will be 4, if not, the length will be 3
 

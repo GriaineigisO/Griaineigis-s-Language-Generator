@@ -870,7 +870,7 @@ function lengthExplanation() {
 
 let typologyNum = 0;
 function randomNumForTypology() {
-    typologyNum = Math.floor(Math.random() * 3) //change to 3 once fusional is added
+    typologyNum = 1//Math.floor(Math.random() * 3) //change to 3 once fusional is added
 }
 
 function chooseTypology() {
@@ -934,7 +934,7 @@ function chooseWordOrder() {
 
 /*****CHOOSE IF SOMETHING IS MARKED WITH SUFFIX OR PREFIX****/
 function suffixOrPrefix() {
-    if(Math.floor(Math.random() * 5) !== 2) {
+    if(/*Math.floor(Math.random() * 5)*/3!== 2) {
         return "suffix";
     } else {
         return "prefix";
@@ -1103,7 +1103,7 @@ function fixAffixes() {
 
 /*****CHOOSE IF THE LANGUAGE HAS A MARKED SINGULAR****/
 function randomNumMarkedSingular() {
-    randomNumForMarkedSingular = Math.floor(Math.random() * 4)
+    randomNumForMarkedSingular = 1//Math.floor(Math.random() * 4)
 }
 
 function markedSingularOrNot() {
@@ -1124,7 +1124,7 @@ function randomNumForNounGender() {
     if(typologyNum === 0) {
         genderNum = 0;
     } else {
-        genderNum = 10//Math.floor(Math.random() * 16);
+        genderNum = 1//Math.floor(Math.random() * 16);
     }
     if(genderNum < 9) {
         document.getElementById("agglutinative-gender").style.display = "none";
@@ -6043,7 +6043,7 @@ function createQuantifiers() {
 let grammaticalNumAgglutinative = 0;
 function randomNumForAgglutinativeGrammaticalNumbers() {
     if(typologyNum === 1) {
-    grammaticalNumAgglutinative = Math.floor(Math.random() * 31)
+    grammaticalNumAgglutinative = 2//Math.floor(Math.random() * 31)
     if(grammaticalNumAgglutinative < 4) {
         grammaticalNumberArray.push("singular", "plural");
         document.getElementById("singular-plural").style.display = "block";

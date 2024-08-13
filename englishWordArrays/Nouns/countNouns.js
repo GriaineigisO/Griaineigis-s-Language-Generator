@@ -599,7 +599,9 @@ mascFempossessorOfCount.push("X")
 naturalArtificialpossessorOfCount.push("X")
 animacyClassifierArraypossessorOfCount.push("X")
 shapeClassifierArraypossessorOfCount.push("X")
-shortGenericClassifierArraypossessorOfCount.push("X")
+shortGenericClassifierArraypossessorOfCount.push("X");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
 
 countNounArray.push("ball");
 countNounArrayPlural.push("balls");
@@ -17898,17 +17900,17 @@ shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
-possessorOfCount.push("X");
-activePassivepossessorOfCount.push("X");
-animInanpossessorOfCount.push("X");
-divineNonDivinepossessorOfCount.push("X");
-humanAnimalInanpossessorOfCount.push("X");
-mascFemNeutpossessorOfCount.push("X");
-mascFempossessorOfCount.push("X");
-naturalArtificialpossessorOfCount.push("X");
-animacyClassifierArraypossessorOfCount.push("X");
-shapeClassifierArraypossessorOfCount.push("X");
-shortGenericClassifierArraypossessorOfCount.push("X");
+possessorOfCount.push("casulty");
+activePassivepossessorOfCount.push("active");
+animInanpossessorOfCount.push("anim");
+divineNonDivinepossessorOfCount.push("profane");
+humanAnimalInanpossessorOfCount.push("human");
+mascFemNeutpossessorOfCount.push("masculine2");
+mascFempossessorOfCount.push("masculine1");
+naturalArtificialpossessorOfCount.push("natural");
+animacyClassifierArraypossessorOfCount.push("man");
+shapeClassifierArraypossessorOfCount.push("long-and-slender");
+shortGenericClassifierArraypossessorOfCount.push("man");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 

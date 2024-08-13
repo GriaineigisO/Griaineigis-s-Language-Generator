@@ -18,7 +18,7 @@ function clearArrays() {
 
 let grammaticalNumber = 0;
 function makeRandomNumbers() {
-    grammaticalNumber = 22//Math.floor(Math.random() * 31);
+    grammaticalNumber = 2//Math.floor(Math.random() * 31);
 }
 
 function markedSingular() {

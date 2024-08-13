@@ -1,4 +1,4 @@
-import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, generateAffixes} from './script.js';
+import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, generateAffixes, typologyNum, markedSingularOrNot, singularAffix, numberSuffixOrPrefix, grammaticalNum, generalAffix} from './script.js';
 import { spell } from './orthography.js';
 import { soundChange, cloneArray } from './soundchange.js';
 import {activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, derivedOrInheritedCountNoun, activePassivepossessorOfCount,
@@ -14,6 +14,7 @@ shortGenericClassifierArraypossessorOfCount, possessorOfCount, etymologyArrayCou
 import {proneADJtrans} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import {proneADJintrans} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import { etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ} from './englishWordArrays/Adjectives/englishAdjectives.js';
+import {grammaticalNumber} from './fusionalNouns.js'
 
 let proneAffix = "";
 let possessorAffix = "";
@@ -41,6 +42,31 @@ function removeVFromVerb(verb) {
     }
     return verb;
 }
+
+//if the language requires an affix in the nominative, this function applies ther appropiate affix to the derived term
+function addGrammaticalAffixes(noun) {
+    let inflectedNoun = "";
+    if(typologyNum === 1) {
+        if(grammaticalNum < 24 && markedSingularOrNot()) {
+            if(numberSuffixOrPrefix === "suffix") {
+                inflectedNoun = noun + singularAffix;
+            } else {
+                inflectedNoun = singularAffix + noun;
+            }
+        } else if(grammaticalNum >- 24) {
+            if(numberSuffixOrPrefix === "suffix") {
+                inflectedNoun = noun + generalAffix;
+            } else {
+                inflectedNoun = generalAffix + noun;
+            }
+        }
+    } else if (typology === 2) {
+
+    } else {
+        inflectedNoun = noun;
+    }
+    return soundChange(inflectedNoun);
+};
 
 let randomNumberForDerivationSelection = 0;
 function selectDerivationalAffixes() {
@@ -197,10 +223,10 @@ function NtoNPossessorOf() {
         if(/*Math.floor(Math.random() * 3)*/1 === 1) {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
-                derivedTerm = soundChange(generatedCountNouns[i]) + soundChange(possessorAffix);
+                derivedTerm = generatedCountNouns[i] + possessorAffix;
                 li.innerHTML = `<i>-${spell(soundChange(possessorAffix + "A"))}</i> "possessor&nbspof"`
             } else {
-                derivedTerm = soundChange(possessorAffix) + soundChange(generatedCountNouns[i]);
+                derivedTerm = possessorAffix + generatedCountNouns[i];
                 li.innerHTML = `<i>${spell(soundChange("X" + possessorAffix))}-</i> "possessor&nbspof"`
             };
             //assigns the English meaning of the newly derived term
@@ -222,9 +248,9 @@ function NtoNPossessorOf() {
                     etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = countNounArray[i];
                     possessorOfCount[countNounArray.indexOf(meaning)] = "X";
                     if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>-${spell(soundChange(generatedCountNouns[i]))}-</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
                     } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp-<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>-&nbsp"${countNounArray[i]}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>&nbsp"${countNounArray[i]}"`;
                     };
                 } else {//if the derived meaning is not already present in the vocab, it shall be added as a new word
                     countNounArray.push(meaning);
@@ -243,18 +269,15 @@ function NtoNPossessorOf() {
                     shortGenericClassifierArray.push(shortGenericClassifierArraypossessorOfCount[i]);
                     etymologyArrayCountNoun.push(countNounArray[i]);
                     if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>-${spell(soundChange(generatedCountNouns[i]))}-</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        console.log(`<i>-${spell(soundChange(generatedCountNouns[i]))}-</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
+                        etymologyCountNoun.push(`<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
                     } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp-<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>-&nbsp"${countNounArray[i]}"`)
-                        console.log(`<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp-<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>-&nbsp"${countNounArray[i]}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>&nbsp"${countNounArray[i]}"`)
                     };
                 };
                 
-               console.log(meaning + " " + countNounArray[i])
                 if(exampleCounter < 6) {
                     let exampleLi = document.createElement("li");
-                    exampleLi.innerHTML = `-<i>${spell(soundChange(generatedCountNouns[i]))}</i>- "${countNounArray[i]}" > <i>${spell(derivedTerm)}</i> "${meaning}"`;
+                    exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                     ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 

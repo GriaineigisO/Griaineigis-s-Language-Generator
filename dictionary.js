@@ -1106,14 +1106,14 @@ function makeDictionary() {
             }
         };
 
-        let word1 = "";
-        if(adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") {
-            word1 = new Dictionary(spell(wordWithAffix), ipaFix(wordWithAffix), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
-        } else if(countNounArray.includes(englishWords[i]) && derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived") {
-            word1 = new Dictionary(spell(wordWithAffix), ipaFix(wordWithAffix), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
-        } else {
-            word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
-        };
+        // let word1 = "";
+        // if(adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") {
+        //     word1 = new Dictionary(spell(correctionsForStrings(wordWithAffix)), ipaFix(correctionsForStrings(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+        // } else if(countNounArray.includes(englishWords[i]) && derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived") {
+        //     word1 = new Dictionary(spell(correctionsForStrings(wordWithAffix)), ipaFix(correctionsForStrings(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+        // } else {
+            let word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+       // };
         
         let headWord = document.createElement("span");
         let ipaTranscription = document.createElement("span");
@@ -1896,7 +1896,14 @@ function makeDictionary() {
             }
         }
 
-        word1 = new Dictionary(spell(soundChange(wordWithAffix)), "" ,pOfSpeech, removeVFromVerb(englishWords[i]));
+        // let word1 = "";
+        // if(adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") {
+        //     word1 = new Dictionary(spell(correctionsForStrings(wordWithAffix)), "", pOfSpeech, removeVFromVerb(englishWords[i]));
+        // } else if(countNounArray.includes(englishWords[i]) && derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived") {
+        //     word1 = new Dictionary(spell(correctionsForStrings(wordWithAffix)), "", pOfSpeech, removeVFromVerb(englishWords[i]));
+        // } else {
+            let word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), "", pOfSpeech, removeVFromVerb(englishWords[i]));
+        //};
         let headWord = document.createElement("span");
         let ipa = document.createElement("span");
         let pOS = document.createElement("span");

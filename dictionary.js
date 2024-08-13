@@ -1109,6 +1109,8 @@ function makeDictionary() {
         let word1 = "";
         if(adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") {
             word1 = new Dictionary(spell(wordWithAffix), ipaFix(wordWithAffix), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+        } else if(countNounArray.includes(englishWords[i]) && derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived") {
+            word1 = new Dictionary(spell(wordWithAffix), ipaFix(wordWithAffix), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
         } else {
             word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
         };
@@ -1137,13 +1139,11 @@ function makeDictionary() {
                 };
             };
         } else if(countNounArray.includes(englishWords[i])) {
-            
             if(derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "inherited") {
                 etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
             } else if (derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived"){
-                //console.log(englishWords[i] + " " + etymologyArrayCountNoun[countNounArray.indexOf(englishWords[i])])
                 if(countNounArray.includes(etymologyArrayCountNoun[countNounArray.indexOf(englishWords[i])])) {
-                    console.log(englishWords[i] + " " + etymologyArrayCountNoun[countNounArray.indexOf(englishWords[i])])
+                    //console.log(englishWords[i] + " " + etymologyArrayCountNoun[countNounArray.indexOf(englishWords[i])])
                     etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyCountNoun[countNounArray.indexOf(englishWords[i])]}`;
                 };
             };

@@ -1,4 +1,4 @@
-import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, generateAffixes, typologyNum, markedSingularOrNot, singularAffix, numberSuffixOrPrefix, grammaticalNum, generalAffix} from './script.js';
+import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, generateAffixes, typologyNum, markedSingularOrNot, singularAffix, numberSuffixOrPrefix, grammaticalNum, generalAffix, genderNum, animateAffix, inanimateAffix, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, masculineAffix, feminineAffix, neuterAffix, humanAffix, animalAffix, inanimate2Affix, divineAffix, profaneAffix, activeAffix, passiveAffix, naturalAffix, artificialAffix, nominativeAffix} from './script.js';
 import { spell } from './orthography.js';
 import { soundChange, cloneArray } from './soundchange.js';
 import {activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, derivedOrInheritedCountNoun, activePassivepossessorOfCount,
@@ -10,11 +10,22 @@ mascFempossessorOfCount,
 naturalArtificialpossessorOfCount,
 animacyClassifierArraypossessorOfCount,
 shapeClassifierArraypossessorOfCount,
-shortGenericClassifierArraypossessorOfCount, possessorOfCount, etymologyArrayCountNoun, etymologyCountNoun} from './englishWordArrays/Nouns/countNouns.js'
+shortGenericClassifierArraypossessorOfCount, possessorOfCount, etymologyArrayCountNoun, etymologyCountNoun,possessorOfCountPlural} from './englishWordArrays/Nouns/countNouns.js'
+import {derivedOrInheritedMassNoun, possessorOfMass, etymologyArrayMassNoun, etymologyMassNoun, 
+activePassivepossessorOfMass,
+animInanpossessorOfMass,
+divineNonDivinepossessorOfMass,
+humanAnimalInanpossessorOfMass,
+mascFemNeutpossessorOfMass,
+mascFempossessorOfMass,
+naturalArtificialpossessorOfMass,
+animacyClassifierArraypossessorOfMass,
+shapeClassifierArraypossessorOfMass,
+shortGenericClassifierArraypossessorOfMass, possessorOfMassPlural} from './englishWordArrays/Nouns/massNouns.js'
 import {proneADJtrans} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import {proneADJintrans} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import { etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ} from './englishWordArrays/Adjectives/englishAdjectives.js';
-import {grammaticalNumber} from './fusionalNouns.js'
+import {grammaticalNumber, caseNumber, animSgAffix, inanSgAffix, grammaticalNumber as grammaticalNumberFusional, mascSgAffix, femSgAffix} from './fusionalNouns.js'
 
 let proneAffix = "";
 let possessorAffix = "";
@@ -28,7 +39,7 @@ function clear() {
 
 function createAffixes() {
     proneAffix = generateAffixes();
-    possessorAffix = generateAffixes();
+    possessorAffix = "ion"//generateAffixes();
 };
 
 function removeVFromVerb(verb) {
@@ -38,33 +49,436 @@ function removeVFromVerb(verb) {
             newArray.splice(i, 1);
             let newVerb = newArray.join("");
             return newVerb;
-        }
-    }
+        };
+    };
     return verb;
-}
+};
 
 //if the language requires an affix in the nominative, this function applies ther appropiate affix to the derived term
 function addGrammaticalAffixes(noun) {
     let inflectedNoun = "";
     if(typologyNum === 1) {
-        if(grammaticalNum < 24 && markedSingularOrNot()) {
+        if(grammaticalNum < 24 && markedSingularOrNot() && genderNum < 9) {
             if(numberSuffixOrPrefix === "suffix") {
                 inflectedNoun = noun + singularAffix;
             } else {
                 inflectedNoun = singularAffix + noun;
             }
-        } else if(grammaticalNum >- 24) {
-            if(numberSuffixOrPrefix === "suffix") {
-                inflectedNoun = noun + generalAffix;
-            } else {
-                inflectedNoun = generalAffix + noun;
-            }
-        }
-    } else if (typology === 2) {
+        } if(grammaticalNum < 24 && markedSingularOrNot() && genderNum === 9) {
+            for(let i = 0; i < countNounArray.length; i++) {
+                if(generatedCountNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + animateAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + animateAffix + noun;
+                } else if(generatedCountNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + inanimateAffix + singularAffix;
+                        console.log(noun + " " + inanimateAffix + " " + singularAffix)
+                } else if(generatedCountNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + inanimateAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() === false && genderNum === 9) {
+            for(let i = 0; i < generatedCountNouns.length; i++) {
+                if(generatedCountNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + animateAffix;
+                } else if(generatedCountNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = animateAffix + noun;
+                } else if(generatedCountNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + inanimateAffix;
+                } else if(generatedCountNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = inanimateAffix + noun;
+                };
+            };
+            for(let i = 0; i < generatedMassNouns.length; i++) {
+                if(generatedMassNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + animateAffix;
+                } else if(generatedMassNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = animateAffix + noun;
+                } else if(generatedMassNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + inanimateAffix;
+                } else if(generatedMassNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = inanimateAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() && genderNum === 10) {
+            for(let i = 0; i < countNounArray.length; i++) {
+                if(generatedCountNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + masculineAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + masculineAffix + noun;
+                } else if(generatedCountNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + feminineAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + feminineAffix + noun;
+                };
+            };
+            for(let i = 0; i < massNounArray.length; i++) {
+                if(generatedMassNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + masculineAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + masculineAffix + noun;
+                } else if(generatedMassNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + feminineAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + feminineAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() === false && genderNum === 10) {
+            for(let i = 0; i < generatedCountNouns.length; i++) {
+                if(generatedCountNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + masculineAffix;
+                } else if(generatedCountNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = masculineAffix + noun;
+                } else if(generatedCountNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + feminineAffix;
+                } else if(generatedCountNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = feminineAffix + noun;
+                };
+            };
+            for(let i = 0; i < generatedMassNouns.length; i++) {
+                if(generatedMassNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + masculineAffix;
+                } else if(generatedMassNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = masculineAffix + noun;
+                } else if(generatedMassNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + feminineAffix;
+                } else if(generatedMassNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = feminineAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() && genderNum === 11) {
+            for(let i = 0; i < countNounArray.length; i++) {
+                if(generatedCountNouns[i] === noun && mascFemNeut[i] === "masculine2" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + masculineAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "masculine2" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + masculineAffix + noun;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "feminine2" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + feminineAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "feminine2" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + feminineAffix + noun;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "neuter" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + neuterAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "neuter" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + neuterAffix + noun;
+                };
+            };
+            for(let i = 0; i < massNounArray.length; i++) {
+                if(generatedMassNouns[i] === noun && mascFemNeut[i] === "masculine2" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + masculineAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "masculine2" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + masculineAffix + noun;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "feminine2" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + feminineAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "feminine2" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + feminineAffix + noun;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "neuter" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + neuterAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "neuter" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + neuterAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() === false && genderNum === 11) {
+            for(let i = 0; i < generatedCountNouns.length; i++) {
+                if(generatedCountNouns[i] === noun && mascFemNeut[i] === "masculine2" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + masculineAffix;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "masculine2" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = masculineAffix + noun;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "feminine2" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + feminineAffix;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "feminine2" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = feminineAffix + noun;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "neuter" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + neuterAffix;
+                } else if(generatedCountNouns[i] === noun && mascFemNeut[i] === "neuter" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = neuterAffix + noun;
+                };
+            };
+            for(let i = 0; i < generatedMassNouns.length; i++) {
+                if(generatedMassNouns[i] === noun && mascFemNeut[i] === "masculine2" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + masculineAffix;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "masculine2" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = masculineAffix + noun;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "feminine2" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + feminineAffix;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "feminine2" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = feminineAffix + noun;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "neuter" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + neuterAffix;
+                } else if(generatedMassNouns[i] === noun && mascFemNeut[i] === "neuter" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = neuterAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() && genderNum === 12) {
+            for(let i = 0; i < countNounArray.length; i++) {
+                if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "human" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + humanAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "human" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + humanAffix + noun;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "animal" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + animalAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "animal" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + animalAffix + noun;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "secondinanimate" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + inanimate2Affix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "secondinanimate" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + inanimate2Affix + noun;
+                };
+            };
+            for(let i = 0; i < massNounArray.length; i++) {
+                if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "human" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + humanAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "human" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + humanAffix + noun;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "animal" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + animalAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "animal" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + animalAffix + noun;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "secondinanimate" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + inanimate2Affix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "secondinanimate" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + inanimate2Affix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() === false && genderNum === 12) {
+            for(let i = 0; i < generatedCountNouns.length; i++) {
+                if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "human" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + humanAffix;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "human" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = humanAffix + noun;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "animal" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + animalAffix;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "animal" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = animalAffix + noun;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "secondinanimate" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + inanimate2Affix;
+                } else if(generatedCountNouns[i] === noun && humanAnimalInan[i] === "secondinanimate" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = inanimate2Affix + noun;
+                };
+            };
+            for(let i = 0; i < generatedMassNouns.length; i++) {
+                if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "human" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + humanAffix;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "human" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = humanAffix + noun;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "animal" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + animalAffix;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "animal" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = animalAffix + noun;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "secondinanimate" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + inanimate2Affix;
+                } else if(generatedMassNouns[i] === noun && humanAnimalInan[i] === "secondinanimate" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = inanimate2Affix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() && genderNum === 13) {                                                                          
+            for(let i = 0; i < countNounArray.length; i++) {
+                if(generatedCountNouns[i] === noun && divineNonDivine[i] === "divine" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + divineAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && divineNonDivine[i] === "divine" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + divineAffix + noun;
+                } else if(generatedCountNouns[i] === noun && divineNonDivine[i] === "profane" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + profaneAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && divineNonDivine[i] === "profane" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + profaneAffix + noun;
+                };
+            };
+            for(let i = 0; i < massNounArray.length; i++) {
+                if(generatedMassNouns[i] === noun && divineNonDivine[i] === "divine" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + divineAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && divineNonDivine[i] === "divine" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + divineAffix + noun;
+                } else if(generatedMassNouns[i] === noun && divineNonDivine[i] === "profane" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + profaneAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && divineNonDivine[i] === "profane" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + profaneAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() === false && genderNum === 13) {
+            for(let i = 0; i < generatedCountNouns.length; i++) {
+                if(generatedCountNouns[i] === noun && divineNonDivine[i] === "divine" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + divineAffix;
+                } else if(generatedCountNouns[i] === noun && divineNonDivine[i] === "divine" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = divineAffix + noun;
+                } else if(generatedCountNouns[i] === noun && divineNonDivine[i] === "profane" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + profaneAffix;
+                } else if(generatedCountNouns[i] === noun && divineNonDivine[i] === "profane" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = profaneAffix + noun;
+                };
+            };
+            for(let i = 0; i < generatedMassNouns.length; i++) {
+                if(generatedMassNouns[i] === noun && divineNonDivine[i] === "divine" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + divineAffix;
+                } else if(generatedMassNouns[i] === noun && divineNonDivine[i] === "divine" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = divineAffix + noun;
+                } else if(generatedMassNouns[i] === noun && divineNonDivine[i] === "profane" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + profaneAffix;
+                } else if(generatedMassNouns[i] === noun && divineNonDivine[i] === "profane" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = profaneAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() && genderNum === 14) {                                                                          
+            for(let i = 0; i < countNounArray.length; i++) {
+                if(generatedCountNouns[i] === noun && activePassive[i] === "active" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + activeAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && activePassive[i] === "active" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + activeAffix + noun;
+                } else if(generatedCountNouns[i] === noun && activePassive[i] === "passive" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + passiveAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && activePassive[i] === "passive" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + passiveAffix + noun;
+                };
+            };
+            for(let i = 0; i < massNounArray.length; i++) {
+                if(generatedMassNouns[i] === noun && activePassive[i] === "active" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + activeAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && activePassive[i] === "active" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + activeAffix + noun;
+                } else if(generatedMassNouns[i] === noun && activePassive[i] === "passive" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + passiveAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && activePassive[i] === "passive" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + passiveAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() === false && genderNum === 14) {
+            for(let i = 0; i < generatedCountNouns.length; i++) {
+                if(generatedCountNouns[i] === noun && activePassive[i] === "active" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + activeAffix;
+                } else if(generatedCountNouns[i] === noun && activePassive[i] === "active" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = activeAffix + noun;
+                } else if(generatedCountNouns[i] === noun && activePassive[i] === "passive" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + passiveAffix;
+                } else if(generatedCountNouns[i] === noun && activePassive[i] === "passive" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = passiveAffix + noun;
+                };
+            };
+            for(let i = 0; i < generatedMassNouns.length; i++) {
+                if(generatedMassNouns[i] === noun && activePassive[i] === "active" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + activeAffix;
+                } else if(generatedMassNouns[i] === noun && activePassive[i] === "active" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = activeAffix + noun;
+                } else if(generatedMassNouns[i] === noun && activePassive[i] === "passive" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + passiveAffix;
+                } else if(generatedMassNouns[i] === noun && activePassive[i] === "passive" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = passiveAffix + noun;
+                };
+            };
+        }  else if(grammaticalNum < 24 && markedSingularOrNot() && genderNum === 15) {                                                                          
+            for(let i = 0; i < countNounArray.length; i++) {
+                if(generatedCountNouns[i] === noun && naturalArtificial[i] === "natural" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + naturalAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && naturalArtificial[i] === "natural" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + naturalAffix + noun;
+                } else if(generatedCountNouns[i] === noun && naturalArtificial[i] === "artificial" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + artificialAffix + singularAffix;
+                } else if(generatedCountNouns[i] === noun && naturalArtificial[i] === "artificial" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + artificialAffix + noun;
+                };
+            };
+            for(let i = 0; i < massNounArray.length; i++) {
+                if(generatedMassNouns[i] === noun && naturalArtificial[i] === "natural" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + naturalAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && naturalArtificial[i] === "natural" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + naturalAffix + noun;
+                } else if(generatedMassNouns[i] === noun && naturalArtificial[i] === "artificial" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + artificialAffix + singularAffix;
+                } else if(generatedMassNouns[i] === noun && naturalArtificial[i] === "artificial" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = singularAffix + artificialAffix + noun;
+                };
+            };
+        } else if(grammaticalNum < 24 && markedSingularOrNot() === false && genderNum === 15) {
+            for(let i = 0; i < generatedCountNouns.length; i++) {
+                if(generatedCountNouns[i] === noun && naturalArtificial[i] === "natural" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + naturalAffix;
+                } else if(generatedCountNouns[i] === noun && naturalArtificial[i] === "natural" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = naturalAffix + noun;
+                } else if(generatedCountNouns[i] === noun && naturalArtificial[i] === "artificial" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + artificialAffix;
+                } else if(generatedCountNouns[i] === noun && naturalArtificial[i] === "artificial" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = artificialAffix + noun;
+                };
+            };
 
+            for(let i = 0; i < generatedMassNouns.length; i++) {
+                if(generatedMassNouns[i] === noun && naturalArtificial[i] === "natural" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + naturalAffix;
+                } else if(generatedMassNouns[i] === noun && naturalArtificial[i] === "natural" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = naturalAffix + noun;
+                } else if(generatedMassNouns[i] === noun && naturalArtificial[i] === "artificial" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + artificialAffix;
+                } else if(generatedMassNouns[i] === noun && naturalArtificial[i] === "artificial" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = artificialAffix + noun;
+                };
+            };
+        };
+    } else if (typologyNum === 2) {
+        if(grammaticalNumberFusional < 24 && markedSingularOrNot() && genderNum < 9 && caseNumber === 0) {
+            if(numberSuffixOrPrefix === "suffix") {
+                inflectedNoun = noun + singularAffix;
+            } else {
+                inflectedNoun = singularAffix + noun;
+            };
+        } else if(grammaticalNumberFusional < 24 && markedSingularOrNot() === false && genderNum < 9 && caseNumber === 0) {
+            inflectedNoun = noun;
+        };
+        if(grammaticalNumberFusional < 24 && genderNum < 9 && caseNumber > 0) {
+            if(numberSuffixOrPrefix === "suffix") {
+                inflectedNoun = noun + nominativeAffix;
+            } else {
+                inflectedNoun = nominativeAffix + noun;
+            };
+        };
+        if(grammaticalNumberFusional < 24 && genderNum === 9 && caseNumber === 0) {
+            for(let i = 0; i < generatedCountNouns.length; i++) {
+                if(generatedCountNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + animSgAffix;
+                } else if(generatedCountNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = animSgAffix + noun;
+                } else if(generatedCountNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + inanSgAffix;
+                } else if(generatedCountNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = inanSgAffix + noun;
+                };
+            };
+            for(let i = 0; i < generatedMassNouns.length; i++) {
+                if(generatedMassNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + animSgAffix;
+                } else if(generatedMassNouns[i] === noun && animInan[i] === "anim" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = animSgAffix + noun;
+                } else if(generatedMassNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + inanSgAffix;
+                } else if(generatedMassNouns[i] === noun && animInan[i] === "inan" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = inanSgAffix + noun;
+                };
+            };
+        };
+        if(grammaticalNumberFusional < 24 && genderNum === 10 && caseNumber === 0) {
+            for(let i = 0; i < generatedCountNouns.length; i++) {
+                if(generatedCountNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + mascSgAffix;
+                } else if(generatedCountNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = mascSgAffix + noun;
+                } else if(generatedCountNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + femSgAffix;
+                } else if(generatedCountNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = femSgAffix + noun;
+                };
+            };
+            for(let i = 0; i < generatedMassNouns.length; i++) {
+                if(generatedMassNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + mascSgAffix;
+                } else if(generatedMassNouns[i] === noun && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = mascSgAffix + noun;
+                } else if(generatedMassNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "suffix") {
+                        inflectedNoun = noun + femSgAffix;
+                } else if(generatedMassNouns[i] === noun && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "prefix") {
+                        inflectedNoun = femSgAffix + noun;
+                };
+            };
+        };
+    /**add more here */     
     } else {
         inflectedNoun = noun;
-    }
+    };
     return soundChange(inflectedNoun);
 };
 
@@ -212,15 +626,16 @@ function NtoNPossessorOf() {
 
     let derivedTerm = "";
     let suffixOrPrefix = "";
-    if(Math.floor(Math.random() * 2) === 0) {
+    if(/*Math.floor(Math.random() * 2)*/0 === 0) {
         suffixOrPrefix = "suffix";
     } else {
         suffixOrPrefix = "prefix";
     };
     let exampleCounter = 0;
+    //count noun to count noun
     for(let i = 0; i < countNounArray.length; i++) {
         //decides if word will have a derivation
-        if(/*Math.floor(Math.random() * 3)*/1 === 1) {
+        if(Math.floor(Math.random() * 3) === 1) {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
                 derivedTerm = generatedCountNouns[i] + possessorAffix;
@@ -247,6 +662,7 @@ function NtoNPossessorOf() {
                     derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                     etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = countNounArray[i];
                     possessorOfCount[countNounArray.indexOf(meaning)] = "X";
+                    possessorOfCountPlural[countNounArray.indexOf(meaning)] = "X";
                     if(suffixOrPrefix === "suffix") {
                         etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
                     } else {
@@ -254,9 +670,11 @@ function NtoNPossessorOf() {
                     };
                 } else {//if the derived meaning is not already present in the vocab, it shall be added as a new word
                     countNounArray.push(meaning);
+                    countNounArrayPlural.push(possessorOfCountPlural[i])
                     generatedCountNouns.push(derivedTerm) 
                     derivedOrInheritedCountNoun.push("derived");
                     possessorOfCount.push("X");
+                    possessorOfCountPlural.push("X");
                     activePassive.push(activePassivepossessorOfCount[i]);
                     animInan.push(animInanpossessorOfCount[i]);
                     divineNonDivine.push(divineNonDivinepossessorOfCount[i]);
@@ -281,6 +699,79 @@ function NtoNPossessorOf() {
                     ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
+            };
+        };
+    };
+
+    //mass noun to count noun
+    for(let i = 0; i < massNounArray.length; i++) {
+        //decides if word will have a derivation
+        if(/*Math.floor(Math.random() * 3)*/1 === 1) {
+            //decides if the affix will be a suffix or prefix
+            if(suffixOrPrefix === "suffix") {
+                derivedTerm = generatedMassNouns[i] + possessorAffix;
+            } else {
+                derivedTerm = possessorAffix + generatedMassNouns[i];
+            };
+            //assigns the English meaning of the newly derived term
+            let meaning = "";
+            //if the derived meaning is an array of possible meanings, it chooses only one word from the array
+            if(typeof possessorOfMass[i] === "string") {
+                meaning = possessorOfMass[i];
+            } else if(typeof possessorOfMass[i] === "object"){
+                let array = cloneArray(possessorOfMass[i])
+                meaning = array[Math.floor(Math.random() * array.length)]
+            };
+             
+            //not all words can have this derivation, such words are marked with X
+            if(meaning !== "X") {
+                //if the derived meaning is already present in the vocab, the pre-existing word is replaced with new derivation
+                if(countNounArray.includes(meaning)) {
+                    generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
+                    derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
+                    etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
+                    possessorOfCount[countNounArray.indexOf(meaning)] = "X";
+                    possessorOfCountPlural[countNounArray.indexOf(meaning)] = "X";
+                    activePassive[countNounArray.indexOf(meaning)] = activePassivepossessorOfMass[i];
+                    animInan[countNounArray.indexOf(meaning)] = animInanpossessorOfMass[i];
+                    divineNonDivine[countNounArray.indexOf(meaning)] = divineNonDivinepossessorOfMass[i];
+                    humanAnimalInan[countNounArray.indexOf(meaning)] = humanAnimalInanpossessorOfMass[i];
+                    mascFemNeut[countNounArray.indexOf(meaning)] = mascFemNeutpossessorOfMass[i];
+                    mascFem[countNounArray.indexOf(meaning)] = mascFempossessorOfMass[i];
+                    naturalArtificial[countNounArray.indexOf(meaning)] = naturalArtificialpossessorOfMass[i];
+                    animacyClassifierArray[countNounArray.indexOf(meaning)] = animacyClassifierArraypossessorOfMass[i];
+                    shapeClassifierArray[countNounArray.indexOf(meaning)] = shapeClassifierArraypossessorOfMass[i];
+                    shortGenericClassifierArray[countNounArray.indexOf(meaning)] = shortGenericClassifierArraypossessorOfMass[i];
+                    etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
+                    if(suffixOrPrefix === "suffix") {
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
+                    } else {
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i>&nbsp"${massNounArray[i]}"`;
+                    };
+                } else {//if the derived meaning is not already present in the vocab, it shall be added as a new word
+                    countNounArray.push(meaning);
+                    countNounArrayPlural.push(possessorOfMassPlural[i])
+                    generatedCountNouns.push(derivedTerm) 
+                    derivedOrInheritedCountNoun.push("derived");
+                    possessorOfCount.push("X");
+                    possessorOfCountPlural.push("X");
+                    activePassive.push(activePassivepossessorOfMass[i]);
+                    animInan.push(animInanpossessorOfMass[i]);
+                    divineNonDivine.push(divineNonDivinepossessorOfMass[i]);
+                    humanAnimalInan.push(humanAnimalInanpossessorOfMass[i]);
+                    mascFemNeut.push(mascFemNeutpossessorOfMass[i]);
+                    mascFem.push(mascFempossessorOfMass[i]);
+                    naturalArtificial.push(naturalArtificialpossessorOfMass[i]);
+                    animacyClassifierArray.push(animacyClassifierArraypossessorOfMass[i]);
+                    shapeClassifierArray.push(shapeClassifierArraypossessorOfMass[i]);
+                    shortGenericClassifierArray.push(shortGenericClassifierArraypossessorOfMass[i]);
+                    etymologyArrayCountNoun.push(massNounArray[i]);
+                    if(suffixOrPrefix === "suffix") {
+                        etymologyCountNoun.push(`<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
+                    } else {
+                        etymologyCountNoun.push(`<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
+                    };
+                };
             };
         };
     };

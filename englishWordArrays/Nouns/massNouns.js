@@ -12,6 +12,20 @@ let animacyClassifierMassArray = [];
 let shapeClassifierMassArray = [];
 let shortGenericClassifierMassArray = [];
 let derivedOrInheritedMassNoun = [];
+let possessorOfMass = [];
+let etymologyMassNoun = [];
+let etymologyArrayMassNoun = [];
+let activePassivepossessorOfMass = [];
+let animInanpossessorOfMass = [];
+let divineNonDivinepossessorOfMass = [];
+let humanAnimalInanpossessorOfMass = [];
+let mascFemNeutpossessorOfMass = [];
+let mascFempossessorOfMass = [];
+let naturalArtificialpossessorOfMass = [];
+let animacyClassifierArraypossessorOfMass = [];
+let shapeClassifierArraypossessorOfMass = [];
+let shortGenericClassifierArraypossessorOfMass = [];
+let possessorOfMassPlural = [];
 
 function clearArrays() {
     massNounArray = [];
@@ -28,6 +42,20 @@ function clearArrays() {
     shapeClassifierMassArray = [];
     shortGenericClassifierMassArray = [];
     derivedOrInheritedMassNoun = [];
+    possessorOfMass = [];
+    possessorOfMassPlural = [];
+    etymologyMassNoun = [];
+    etymologyArrayMassNoun = [];
+    activePassivepossessorOfMass = [];
+animInanpossessorOfMass = [];
+divineNonDivinepossessorOfMass = [];
+humanAnimalInanpossessorOfMass = [];
+mascFemNeutpossessorOfMass = [];
+mascFempossessorOfMass = [];
+naturalArtificialpossessorOfMass = [];
+animacyClassifierArraypossessorOfMass = [];
+shapeClassifierArraypossessorOfMass = [];
+shortGenericClassifierArraypossessorOfMass = [];
 }
 
 function addWords() {
@@ -44,7 +72,22 @@ massNounArray.push("admiration");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("admirer");
+possessorOfMassPlural.push("admirers");
+activePassivepossessorOfMass.push("active");
+animInanpossessorOfMass.push("anim");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("human");
+mascFemNeutpossessorOfMass.push("masculine2");
+mascFempossessorOfMass.push("masculine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("man");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("human2");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("adoration");
     singulativeMassNounArray.push("act&nbspof&nbspadoration");
@@ -59,7 +102,22 @@ massNounArray.push("adoration");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("air");
     singulativeMassNounArray.push("wiff&nbspof&nbspair");
@@ -74,7 +132,22 @@ massNounArray.push("air");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("ash");
     singulativeMassNounArray.push("pinch&nbspof&nbspash");
@@ -89,7 +162,22 @@ massNounArray.push("ash");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("firepit");
+possessorOfMassPlural.push("firepits");
+activePassivepossessorOfMass.push("passive");
+animInanpossessorOfMass.push("inan");
+divineNonDivinepossessorOfMass.push("divine");
+humanAnimalInanpossessorOfMass.push("secondinanimate");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("masculine1");
+naturalArtificialpossessorOfMass.push("artificial");
+animacyClassifierArraypossessorOfMass.push("inedible");
+shapeClassifierArraypossessorOfMass.push("round");
+shortGenericClassifierArraypossessorOfMass.push("tool");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("bark");
     singulativeMassNounArray.push("strip&nbspof&nbspbark");
@@ -104,7 +192,22 @@ massNounArray.push("bark");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
-     derivedOrInheritedMassNoun.push("inherited")
+     derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("trunk");
+possessorOfMassPlural.push("trunks");
+activePassivepossessorOfMass.push("passive");
+animInanpossessorOfMass.push("inan");
+divineNonDivinepossessorOfMass.push("divine");
+humanAnimalInanpossessorOfMass.push("secondinanimate");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("masculine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("tree");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("beer");
     singulativeMassNounArray.push("pint&nbspof&nbspbeer");
@@ -119,14 +222,29 @@ massNounArray.push("beer");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
-     derivedOrInheritedMassNoun.push("inherited")
+     derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("pint");
+possessorOfMassPlural.push("pints");
+activePassivepossessorOfMass.push("passive");
+animInanpossessorOfMass.push("inan");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("secondinanimate");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("feminine1");
+naturalArtificialpossessorOfMass.push("artificial");
+animacyClassifierArraypossessorOfMass.push("edible");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("liquid");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("blood");
     singulativeMassNounArray.push("drop&nbspof&nbspblood");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbspblood");
     activePassiveMass.push("passive")
     animInanMass.push("inan");
-    divineNonDivineMass.push("profane");
+    divineNonDivineMass.push("divine");
     humanAnimalInanMass.push("secondinanimate");
     mascFemNeutMass.push("neuter");
     mascFemMass.push("masculine1");
@@ -134,7 +252,22 @@ massNounArray.push("blood");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("vein");
+possessorOfMassPlural.push("veins");
+activePassivepossessorOfMass.push("passive");
+animInanpossessorOfMass.push("inan");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("secondinanimate");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("feminine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("inedible");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("bread");
     singulativeMassNounArray.push("slice&nbspof&nbspbread");
@@ -149,7 +282,22 @@ massNounArray.push("bread");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("short-and-wide");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("bread-basket");
+possessorOfMassPlural.push("bread-baskets");
+activePassivepossessorOfMass.push("passive");
+animInanpossessorOfMass.push("inan");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("secondinanimate");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("feminine1");
+naturalArtificialpossessorOfMass.push("artificial");
+animacyClassifierArraypossessorOfMass.push("inedible");
+shapeClassifierArraypossessorOfMass.push("round");
+shortGenericClassifierArraypossessorOfMass.push("tool");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("bronze");
     singulativeMassNounArray.push("chunk&nbspof&nbspbronze");
@@ -164,7 +312,22 @@ massNounArray.push("bronze");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("candle&nbspwax");
     singulativeMassNounArray.push("stick&nbspof&nbspcandle&nbspwax");
@@ -179,7 +342,22 @@ massNounArray.push("candle&nbspwax");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("dirt");
     singulativeMassNounArray.push("handful&nbspof&nbspdirt");
@@ -194,7 +372,22 @@ massNounArray.push("dirt");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("dust");
     singulativeMassNounArray.push("bit&nbspof&nbspdust");
@@ -209,7 +402,22 @@ massNounArray.push("dust");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("captivity");
     singulativeMassNounArray.push("period&nbspof&nbspcaptivity");
@@ -224,7 +432,22 @@ massNounArray.push("captivity");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("captor");
+possessorOfMassPlural.push("captors");
+activePassivepossessorOfMass.push("active");
+animInanpossessorOfMass.push("anim");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("human");
+mascFemNeutpossessorOfMass.push("masculine2");
+mascFempossessorOfMass.push("masculine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("man");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("human");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("chalk");
     singulativeMassNounArray.push("stick&nbspof&nbspchalk");
@@ -239,7 +462,22 @@ massNounArray.push("chalk");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("charcoal");
     singulativeMassNounArray.push("clump&nbspof&nbspcharcoal");
@@ -254,7 +492,22 @@ massNounArray.push("charcoal");
     animacyClassifierMassArray.push("tree");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("clay");
     singulativeMassNounArray.push("clump&nbspof&nbspclay");
@@ -269,7 +522,22 @@ massNounArray.push("clay");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("cloth");
     singulativeMassNounArray.push("patch&nbspof&nbspcloth");
@@ -284,7 +552,22 @@ massNounArray.push("cloth");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("flat");
     shortGenericClassifierMassArray.push("tool");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("cream");
     singulativeMassNounArray.push("dollop&nbspof&nbspcream");
@@ -299,7 +582,22 @@ massNounArray.push("cream");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("confusion");
     singulativeMassNounArray.push("ounce&nbspof&nbspconfusion");
@@ -314,7 +612,22 @@ massNounArray.push("confusion");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("idiot");
+possessorOfMassPlural.push("idiots");
+activePassivepossessorOfMass.push("active");
+animInanpossessorOfMass.push("anim");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("human");
+mascFemNeutpossessorOfMass.push("masculine2");
+mascFempossessorOfMass.push("masculine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("man");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("human2");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("copper");
     singulativeMassNounArray.push("chunk&nbspof&nbspcopper");
@@ -329,7 +642,22 @@ massNounArray.push("copper");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("deception");
     singulativeMassNounArray.push("act&nbspof&nbspdeception");
@@ -344,7 +672,22 @@ massNounArray.push("deception");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("liar");
+possessorOfMassPlural.push("liars");
+activePassivepossessorOfMass.push("active");
+animInanpossessorOfMass.push("anim");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("human");
+mascFemNeutpossessorOfMass.push("masculine2");
+mascFempossessorOfMass.push("masculine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("man");
+shapeClassifierArraypossessorOfMass.push("longand-slender");
+shortGenericClassifierArraypossessorOfMass.push("human2");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("flint");
     singulativeMassNounArray.push("piece&nbspof&nbspflint");
@@ -359,7 +702,22 @@ massNounArray.push("flint");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
-     derivedOrInheritedMassNoun.push("inherited")
+     derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("flour");
     singulativeMassNounArray.push("handful&nbspof&nbspflour");
@@ -374,7 +732,22 @@ massNounArray.push("flour");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("frogspawn");
     singulativeMassNounArray.push("clump&nbspof&nbspfrogspaw");
@@ -390,7 +763,22 @@ massNounArray.push("frogspawn");
     shapeClassifierMassArray.push("round");
     shortGenericClassifierMassArray.push("natural-inanimate");
 
-      derivedOrInheritedMassNoun.push("inherited")
+      derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("fog");
     singulativeMassNounArray.push("bit&nbspof&nbspfog");
@@ -405,7 +793,22 @@ massNounArray.push("fog");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("food");
     singulativeMassNounArray.push("bit&nbspof&nbspfood");
@@ -420,7 +823,22 @@ massNounArray.push("food");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("garlic");
     singulativeMassNounArray.push("clove&nbspof&nbspgarlic");
@@ -435,7 +853,22 @@ massNounArray.push("garlic");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("round");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("glass");
     singulativeMassNounArray.push("shard&nbspof&nbspglass");
@@ -450,7 +883,22 @@ massNounArray.push("glass");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("pointed");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("gold");
     singulativeMassNounArray.push("chunk&nbspof&nbspgold");
@@ -465,7 +913,22 @@ massNounArray.push("gold");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("grace");
     singulativeMassNounArray.push("display&nbspof&nbspgrace");
@@ -480,7 +943,22 @@ massNounArray.push("grace");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("grass");
     singulativeMassNounArray.push("blade&nbspof&nbspgrass");
@@ -495,7 +973,22 @@ massNounArray.push("grass");
     animacyClassifierMassArray.push("grass");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("hail");
     singulativeMassNounArray.push("downpour&nbspof&nbsphail");
@@ -510,7 +1003,22 @@ massNounArray.push("hail");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("rown");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("hair");
     singulativeMassNounArray.push("strand&nbspof&nbsphair");
@@ -520,12 +1028,27 @@ massNounArray.push("hair");
     divineNonDivineMass.push("profane");
     humanAnimalInanMass.push("secondinanimate");
     mascFemNeutMass.push("neuter");
-    mascFemMass.push("masculine1");
+    mascFemMass.push("feminine1");
     naturalArtificialMass.push("natural");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("scalp");
+possessorOfMassPlural.push("scalps");
+activePassivepossessorOfMass.push("passive");
+animInanpossessorOfMass.push("secondinanimate");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("secondinanimate");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("feminine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("inedible");
+shapeClassifierArraypossessorOfMass.push("round");
+shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("hatred");
     singulativeMassNounArray.push("act&nbspof&nbsphatred");
@@ -540,7 +1063,22 @@ massNounArray.push("hatred");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("honey");
     singulativeMassNounArray.push("spoonful&nbspof&nbsphoney");
@@ -555,7 +1093,22 @@ massNounArray.push("honey");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("beehive");
+possessorOfMassPlural.push("beehives");
+activePassivepossessorOfMass.push("passive");
+animInanpossessorOfMass.push("inan");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("secondinanimate");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("feminine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("inedible");
+shapeClassifierArraypossessorOfMass.push("round");
+shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("hostility");
     singulativeMassNounArray.push("act&nbspof&nbsphostility");
@@ -570,7 +1123,22 @@ massNounArray.push("hostility");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("enemy");
+possessorOfMassPlural.push("enemies");
+activePassivepossessorOfMass.push("active");
+animInanpossessorOfMass.push("anim");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("human");
+mascFemNeutpossessorOfMass.push("masculine2");
+mascFempossessorOfMass.push("masculine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("man");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("human");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("ice");
     singulativeMassNounArray.push("chunk&nbspof&nbspice");
@@ -585,7 +1153,22 @@ massNounArray.push("ice");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("incense");
     singulativeMassNounArray.push("stick&nbspof&nbspincense");
@@ -600,7 +1183,22 @@ massNounArray.push("incense");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("iron");
     singulativeMassNounArray.push("chunk&nbspof&nbspiron");
@@ -615,7 +1213,22 @@ massNounArray.push("iron");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("smith");
+possessorOfMassPlural.push("smiths");
+activePassivepossessorOfMass.push("active");
+animInanpossessorOfMass.push("anim");
+divineNonDivinepossessorOfMass.push("divine");
+humanAnimalInanpossessorOfMass.push("human");
+mascFemNeutpossessorOfMass.push("masculine2");
+mascFempossessorOfMass.push("masculine1");
+naturalArtificialpossessorOfMass.push("artificial");
+animacyClassifierArraypossessorOfMass.push("man");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("human2");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("jam");
     singulativeMassNounArray.push("jar&nbspof&nbspjam");
@@ -630,7 +1243,22 @@ massNounArray.push("jam");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("labour");
     singulativeMassNounArray.push("work&nbspof&nbsplabour");
@@ -645,7 +1273,22 @@ massNounArray.push("labour");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("tool");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("leather");
     singulativeMassNounArray.push("strip&nbspof&nbspleather");
@@ -660,7 +1303,22 @@ massNounArray.push("leather");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("tool");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("love");
     singulativeMassNounArray.push("act&nbspof&nbsplove");
@@ -675,7 +1333,22 @@ massNounArray.push("love");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("marrow");
     singulativeMassNounArray.push("piece&nbspof&nbspmarrow");
@@ -690,7 +1363,22 @@ massNounArray.push("marrow");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("bone");
+possessorOfMassPlural.push("bones");
+activePassivepossessorOfMass.push("passive");
+animInanpossessorOfMass.push("inan");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("secondinanimate");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("feminine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("inedible");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("mead");
     singulativeMassNounArray.push("pint&nbspof&nbspmead");
@@ -705,7 +1393,22 @@ massNounArray.push("mead");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("meat");
     singulativeMassNounArray.push("cut&nbspof&nbspmeat");
@@ -720,7 +1423,22 @@ massNounArray.push("meat");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("money");
     singulativeMassNounArray.push("amount&nbspof&nbspmoney");
@@ -735,7 +1453,22 @@ massNounArray.push("money");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("round");
     shortGenericClassifierMassArray.push("tool");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("wallet");
+possessorOfMassPlural.push("wallets");
+activePassivepossessorOfMass.push("passive");
+animInanpossessorOfMass.push("inan");
+divineNonDivinepossessorOfMass.push("profane");
+humanAnimalInanpossessorOfMass.push("secondinanimaete");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("masculine1");
+naturalArtificialpossessorOfMass.push("artificial");
+animacyClassifierArraypossessorOfMass.push("inedible");
+shapeClassifierArraypossessorOfMass.push("short-and-wide");
+shortGenericClassifierArraypossessorOfMass.push("tool");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("milk");
     singulativeMassNounArray.push("drop&nbspof&nbspmilk");
@@ -750,7 +1483,22 @@ massNounArray.push("milk");
     animacyClassifierMassArray.push("milk");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("mud");
     singulativeMassNounArray.push("clump&nbspof&nbspmud");
@@ -765,7 +1513,22 @@ massNounArray.push("mud");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("music");
     singulativeMassNounArray.push("piece&nbspof&nbspmusic");
@@ -780,7 +1543,22 @@ massNounArray.push("music");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("mustard");
     singulativeMassNounArray.push("jar&nbspof&nbspmustard");
@@ -795,7 +1573,22 @@ massNounArray.push("mustard");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("oil");
     singulativeMassNounArray.push("drop&nbspof&nbspoil");
@@ -810,7 +1603,22 @@ massNounArray.push("oil");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("paper");
     singulativeMassNounArray.push("sheet&nbspof&nbsppaper");
@@ -825,7 +1633,22 @@ massNounArray.push("paper");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("tool");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("poison");
     singulativeMassNounArray.push("drop&nbspof&nbsppoison");
@@ -840,7 +1663,22 @@ massNounArray.push("poison");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("porridge");
     singulativeMassNounArray.push("bowl&nbspof&nbspporridge");
@@ -855,7 +1693,22 @@ massNounArray.push("porridge");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("prose");
     singulativeMassNounArray.push("work&nbspof&nbspprose");
@@ -869,7 +1722,22 @@ massNounArray.push("prose");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("rain");
     singulativeMassNounArray.push("raindrop");
@@ -884,7 +1752,22 @@ massNounArray.push("rain");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("revenge");
     singulativeMassNounArray.push("act&nbspof&nbsprevenge");
@@ -899,7 +1782,22 @@ massNounArray.push("revenge");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("rope");
     singulativeMassNounArray.push("length&nbspof&nbsprope");
@@ -914,7 +1812,22 @@ massNounArray.push("rope");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("tool");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("saliva");
     singulativeMassNounArray.push("drop&nbspof&nbspsaliva");
@@ -929,7 +1842,22 @@ massNounArray.push("saliva");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("salt");
     singulativeMassNounArray.push("pinch&nbspof&nbspsalt");
@@ -944,7 +1872,22 @@ massNounArray.push("salt");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("sand");
     singulativeMassNounArray.push("grain&nbspof&nbspsand");
@@ -959,7 +1902,22 @@ massNounArray.push("sand");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("sap");
     singulativeMassNounArray.push("drop&nbspof&nbspsap");
@@ -974,7 +1932,22 @@ massNounArray.push("sap");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("sauce");
     singulativeMassNounArray.push("portion&nbspof&nbspsauce");
@@ -989,7 +1962,22 @@ massNounArray.push("sauce");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("sight");
     singulativeMassNounArray.push("glimpse&nbspof&nbspsight");
@@ -1004,7 +1992,22 @@ massNounArray.push("sight");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("skin");
     singulativeMassNounArray.push("piece&nbspof&nbspskin");
@@ -1019,7 +2022,22 @@ massNounArray.push("skin");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("smoke");
     singulativeMassNounArray.push("wisp&nbspof&nbspsmoke");
@@ -1034,7 +2052,22 @@ massNounArray.push("smoke");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("smoked&nbspmeat");
     singulativeMassNounArray.push("chunk&nbspof&nbspsmoked&nbspmeat");
@@ -1049,7 +2082,22 @@ massNounArray.push("smoked&nbspmeat");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("snow");
     singulativeMassNounArray.push("handful&nbspof&nbspsnow");
@@ -1064,7 +2112,22 @@ massNounArray.push("snow");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("soup");
     singulativeMassNounArray.push("bowl&nbspof&nbspsoup");
@@ -1079,7 +2142,22 @@ massNounArray.push("soup");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("steam");
     singulativeMassNounArray.push("wisp&nbspof&nbspsteam");
@@ -1094,7 +2172,22 @@ massNounArray.push("steam");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("straw");
     singulativeMassNounArray.push("bale&nbspof&nbspstraw");
@@ -1109,7 +2202,22 @@ massNounArray.push("straw");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("tool");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("string");
     singulativeMassNounArray.push("length&nbspof&nbspstring");
@@ -1124,7 +2232,22 @@ massNounArray.push("string");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("long-and-slender");
     shortGenericClassifierMassArray.push("tool");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("sweat");
     singulativeMassNounArray.push("bead&nbspof&nbspsweat");
@@ -1139,7 +2262,22 @@ massNounArray.push("sweat");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("trickery");
     singulativeMassNounArray.push("act&nbspof&nbsptrickery");
@@ -1154,7 +2292,22 @@ massNounArray.push("trickery");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("truth");
     singulativeMassNounArray.push("ounce&nbspof&nbsptruth");
@@ -1169,7 +2322,22 @@ massNounArray.push("truth");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("vigour");
     singulativeMassNounArray.push("display&nbspof&nbspvigour");
@@ -1184,7 +2352,22 @@ massNounArray.push("vigour");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("vinegar");
     singulativeMassNounArray.push("drop&nbspof&nbspvinegar");
@@ -1199,7 +2382,22 @@ massNounArray.push("vinegar");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("water");
     singulativeMassNounArray.push("drop&nbspof&nbspwater");
@@ -1214,7 +2412,22 @@ massNounArray.push("water");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("river");
+possessorOfMassPlural.push("rivers");
+activePassivepossessorOfMass.push("active");
+animInanpossessorOfMass.push("anim");
+divineNonDivinepossessorOfMass.push("divine");
+humanAnimalInanpossessorOfMass.push("secondinanimate");
+mascFemNeutpossessorOfMass.push("neuter");
+mascFempossessorOfMass.push("feminine1");
+naturalArtificialpossessorOfMass.push("natural");
+animacyClassifierArraypossessorOfMass.push("inedible");
+shapeClassifierArraypossessorOfMass.push("long-and-slender");
+shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("wind");
     singulativeMassNounArray.push("gust&nbspof&nbspwind");
@@ -1229,7 +2442,22 @@ massNounArray.push("wind");
     animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("wine");
     singulativeMassNounArray.push("glass&nbspof&nbspwine");
@@ -1244,7 +2472,22 @@ massNounArray.push("wine");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("liquid");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("wood");
     singulativeMassNounArray.push("chunk&nbspof&nbspwood");
@@ -1259,7 +2502,22 @@ massNounArray.push("wood");
     animacyClassifierMassArray.push("tree");
     shapeClassifierMassArray.push("short-and-wide");
     shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("work");
     singulativeMassNounArray.push("period&nbspof&nbspwork");
@@ -1274,7 +2532,22 @@ massNounArray.push("work");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("tool");
- derivedOrInheritedMassNoun.push("inherited")
+ derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 
 massNounArray.push("yeast");
     singulativeMassNounArray.push("bit&nbspof&nbspyeast");
@@ -1289,7 +2562,22 @@ massNounArray.push("yeast");
     animacyClassifierMassArray.push("edible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
-    derivedOrInheritedMassNoun.push("inherited")
+    derivedOrInheritedMassNoun.push("inherited");
+/*********************************************/
+possessorOfMass.push("X");
+possessorOfMassPlural.push("X");
+activePassivepossessorOfMass.push("X");
+animInanpossessorOfMass.push("X");
+divineNonDivinepossessorOfMass.push("X");
+humanAnimalInanpossessorOfMass.push("X");
+mascFemNeutpossessorOfMass.push("X");
+mascFempossessorOfMass.push("X");
+naturalArtificialpossessorOfMass.push("X");
+animacyClassifierArraypossessorOfMass.push("X");
+shapeClassifierArraypossessorOfMass.push("X");
+shortGenericClassifierArraypossessorOfMass.push("X");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
 };
 
 let generateLanguageButton = document.getElementById("generate-language");
@@ -1310,5 +2598,20 @@ massNounArray,
     animacyClassifierMassArray,
     shapeClassifierMassArray,
     shortGenericClassifierMassArray,
-    derivedOrInheritedMassNoun
+    derivedOrInheritedMassNoun,
+    possessorOfMass,
+    etymologyArrayMassNoun, 
+    etymologyMassNoun,
+    
+activePassivepossessorOfMass,
+animInanpossessorOfMass,
+divineNonDivinepossessorOfMass,
+humanAnimalInanpossessorOfMass,
+mascFemNeutpossessorOfMass,
+mascFempossessorOfMass,
+naturalArtificialpossessorOfMass,
+animacyClassifierArraypossessorOfMass,
+shapeClassifierArraypossessorOfMass,
+shortGenericClassifierArraypossessorOfMass,
+possessorOfMassPlural
 }

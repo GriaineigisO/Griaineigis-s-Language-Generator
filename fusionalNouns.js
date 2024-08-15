@@ -9450,4 +9450,4 @@ function generateLanguage() {
     makeFusionalNounHeader();
 }
 
-export {grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, grammaticalNumber, animGeneralAffix, inanGeneralAffix, nomGeneralAffix, femSgAffix, mascSgAffix};
+export {grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, grammaticalNumber, animGeneralAffix, inanGeneralAffix, nomGeneralAffix, femSgAffix, mascSgAffix, animSgAffix, inanSgAffix};

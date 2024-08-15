@@ -12,6 +12,7 @@ let shapeClassifierArray = [];
 let shortGenericClassifierArray = [];
 let derivedOrInheritedCountNoun = [];
 let possessorOfCount = [];
+let possessorOfCountPlural = [];
 let activePassivepossessorOfCount = [];
 let animInanpossessorOfCount = [];
 let divineNonDivinepossessorOfCount = [];
@@ -40,6 +41,7 @@ countNounArrayPlural = [];
     shortGenericClassifierArray = [];
     derivedOrInheritedCountNoun = [];
     possessorOfCount = [];
+    possessorOfCountPlural = [];
 activePassivepossessorOfCount = [];
 animInanpossessorOfCount = [];
 divineNonDivinepossessorOfCount = [];
@@ -70,6 +72,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -98,6 +101,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -127,6 +131,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -156,6 +161,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -185,6 +191,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -214,6 +221,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -243,6 +251,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -272,6 +281,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -301,6 +311,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -330,6 +341,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -359,6 +371,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -388,6 +401,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -417,6 +431,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -446,6 +461,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -475,6 +491,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -504,6 +521,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -533,6 +551,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -562,6 +581,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -618,6 +638,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -647,6 +668,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -676,6 +698,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -705,6 +728,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -734,6 +758,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -763,6 +788,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -792,6 +818,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -821,6 +848,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -850,6 +878,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -879,6 +908,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -908,6 +938,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -937,6 +968,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -966,6 +998,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -995,6 +1028,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1024,6 +1058,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1053,6 +1088,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1082,6 +1118,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1111,6 +1148,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1140,6 +1178,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1169,6 +1208,7 @@ shortGenericClassifierArray.push("natural");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1198,6 +1238,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1227,6 +1268,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1256,6 +1298,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1285,6 +1328,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1314,6 +1358,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1343,6 +1388,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1372,6 +1418,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1401,6 +1448,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1430,6 +1478,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1459,6 +1508,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1488,6 +1538,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1517,6 +1568,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1546,6 +1598,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1575,6 +1628,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1604,6 +1658,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1633,6 +1688,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1662,6 +1718,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1691,6 +1748,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1720,6 +1778,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1749,6 +1808,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1778,6 +1838,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1807,6 +1868,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1836,6 +1898,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1865,6 +1928,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1894,6 +1958,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1923,6 +1988,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1952,6 +2018,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -1981,6 +2048,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2010,6 +2078,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2039,6 +2108,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2068,6 +2138,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2097,6 +2168,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2126,6 +2198,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2155,6 +2228,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2184,6 +2258,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2213,6 +2288,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2242,6 +2318,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2271,6 +2348,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2300,6 +2378,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2329,6 +2408,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2358,6 +2438,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2387,6 +2468,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2416,6 +2498,7 @@ shortGenericClassifierArray.push("natural=inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2445,6 +2528,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2474,6 +2558,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2503,6 +2588,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2532,6 +2618,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2561,6 +2648,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2590,6 +2678,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2619,6 +2708,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2648,6 +2738,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("bear");
+possessorOfCountPlural.push("bears");
 activePassivepossessorOfCount.push("active");
 animInanpossessorOfCount.push("anim");
 divineNonDivinepossessorOfCount.push("profane");
@@ -2677,6 +2768,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2706,6 +2798,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2735,6 +2828,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2764,6 +2858,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2793,6 +2888,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2822,6 +2918,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2851,6 +2948,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2880,6 +2978,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2909,6 +3008,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2938,6 +3038,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2967,6 +3068,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -2996,6 +3098,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3025,6 +3128,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3054,6 +3158,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3083,6 +3188,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3112,6 +3218,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3141,6 +3248,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3170,6 +3278,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("warrior");
+possessorOfCountPlural.push("warriors");
 activePassivepossessorOfCount.push("active");
 animInanpossessorOfCount.push("anim");
 divineNonDivinepossessorOfCount.push("profane");
@@ -3199,6 +3308,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3228,6 +3338,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3257,6 +3368,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3286,6 +3398,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3315,6 +3428,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3344,6 +3458,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3373,6 +3488,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3402,6 +3518,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3431,6 +3548,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3460,6 +3578,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3489,6 +3608,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3518,6 +3638,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3547,6 +3668,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3576,6 +3698,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3605,6 +3728,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3634,6 +3758,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3663,6 +3788,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3692,6 +3818,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3721,6 +3848,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3750,6 +3878,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3779,6 +3908,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3809,6 +3939,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3838,6 +3969,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3867,6 +3999,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3896,6 +4029,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3925,6 +4059,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3954,6 +4089,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -3983,6 +4119,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4012,6 +4149,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4041,6 +4179,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4070,6 +4209,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4099,6 +4239,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4128,6 +4269,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4157,6 +4299,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4186,6 +4329,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4215,6 +4359,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4244,6 +4389,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4273,6 +4419,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4302,6 +4449,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4331,6 +4479,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4360,6 +4509,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4389,6 +4539,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4418,6 +4569,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4447,6 +4599,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4476,6 +4629,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4505,6 +4659,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4534,6 +4689,7 @@ shortGenericClassifierArray.push("liquid");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4563,6 +4719,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4592,6 +4749,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4621,6 +4779,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4650,6 +4809,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4679,6 +4839,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4708,6 +4869,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4737,6 +4899,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4766,6 +4929,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4795,6 +4959,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4824,6 +4989,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4853,6 +5019,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4882,6 +5049,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4911,6 +5079,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4940,6 +5109,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4969,6 +5139,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -4998,6 +5169,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5027,6 +5199,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5056,6 +5229,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5085,6 +5259,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5114,6 +5289,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5143,6 +5319,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5172,6 +5349,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5201,6 +5379,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5230,6 +5409,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5259,6 +5439,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5288,6 +5469,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5317,6 +5499,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5346,6 +5529,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5375,6 +5559,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5404,6 +5589,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5433,6 +5619,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5462,6 +5649,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5491,6 +5679,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5520,6 +5709,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5549,6 +5739,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5578,6 +5769,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5607,6 +5799,7 @@ shortGenericClassifierArray.push("flower");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5636,6 +5829,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5665,6 +5859,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5694,6 +5889,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5723,6 +5919,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5752,6 +5949,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5781,6 +5979,7 @@ shortGenericClassifierArray.push("natural-inanimate")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5810,6 +6009,7 @@ shortGenericClassifierArray.push("human2")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5839,6 +6039,7 @@ shortGenericClassifierArray.push("tree")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5868,6 +6069,7 @@ shortGenericClassifierArray.push("tool")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5897,6 +6099,7 @@ shortGenericClassifierArray.push("tool")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5926,6 +6129,7 @@ shortGenericClassifierArray.push("tool")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5955,6 +6159,7 @@ shortGenericClassifierArray.push("human2")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -5984,6 +6189,7 @@ shortGenericClassifierArray.push("human2")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6013,6 +6219,7 @@ shortGenericClassifierArray.push("water-animal")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6042,6 +6249,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6071,6 +6279,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6100,6 +6309,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6129,6 +6339,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6158,6 +6369,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6187,6 +6399,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6216,6 +6429,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6245,6 +6459,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6274,6 +6489,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6303,6 +6519,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6332,6 +6549,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6361,6 +6579,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6390,6 +6609,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6419,6 +6639,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6448,6 +6669,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6477,6 +6699,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6506,6 +6729,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6535,6 +6759,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6564,6 +6789,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6593,6 +6819,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6622,6 +6849,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6651,6 +6879,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6680,6 +6909,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6709,6 +6939,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6738,6 +6969,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6767,6 +6999,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6796,6 +7029,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6825,6 +7059,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6854,6 +7089,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6883,6 +7119,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6912,6 +7149,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6941,6 +7179,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6970,6 +7209,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -6999,6 +7239,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7028,6 +7269,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7057,6 +7299,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7086,6 +7329,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7115,6 +7359,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7144,6 +7389,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7173,6 +7419,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7202,6 +7449,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7231,6 +7479,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7260,6 +7509,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7289,6 +7539,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7318,6 +7569,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7347,6 +7599,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7376,6 +7629,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7405,6 +7659,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7434,6 +7689,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7463,6 +7719,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7492,6 +7749,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7521,6 +7779,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7550,6 +7809,7 @@ shortGenericClassifierArray.push("toole");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7579,6 +7839,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7608,6 +7869,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7637,6 +7899,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7666,6 +7929,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7695,6 +7959,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7724,6 +7989,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7753,6 +8019,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7782,6 +8049,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7811,6 +8079,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7840,6 +8109,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7869,6 +8139,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7898,6 +8169,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7927,6 +8199,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7956,6 +8229,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -7985,6 +8259,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8014,6 +8289,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8043,6 +8319,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8072,6 +8349,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8101,6 +8379,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8130,6 +8409,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8159,6 +8439,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8188,6 +8469,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8217,6 +8499,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8246,6 +8529,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8275,6 +8559,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8304,6 +8589,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8333,6 +8619,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8362,6 +8649,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8391,6 +8679,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8420,6 +8709,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8449,6 +8739,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8478,6 +8769,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8507,6 +8799,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8536,6 +8829,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8565,6 +8859,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8594,6 +8889,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8623,6 +8919,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8652,6 +8949,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8681,6 +8979,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8710,6 +9009,7 @@ shortGenericClassifierArray.push("liquid");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8739,6 +9039,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8768,6 +9069,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8797,6 +9099,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8826,6 +9129,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8855,6 +9159,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8884,6 +9189,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8913,6 +9219,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8942,6 +9249,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -8971,6 +9279,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9000,6 +9309,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9029,6 +9339,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9058,6 +9369,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9087,6 +9399,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9116,6 +9429,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9145,6 +9459,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9174,6 +9489,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9203,6 +9519,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9232,6 +9549,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9261,6 +9579,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9290,6 +9609,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9319,6 +9639,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9348,6 +9669,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9377,6 +9699,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9406,6 +9729,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9435,6 +9759,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9464,6 +9789,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9493,6 +9819,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9522,6 +9849,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9551,6 +9879,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9580,6 +9909,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9609,6 +9939,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9638,6 +9969,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9667,6 +9999,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9696,6 +10029,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9725,6 +10059,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9754,6 +10089,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9783,6 +10119,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9812,6 +10149,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9841,6 +10179,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9870,6 +10209,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9899,6 +10239,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9928,6 +10269,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9957,6 +10299,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -9986,6 +10329,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10015,6 +10359,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10044,6 +10389,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10073,6 +10419,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10102,6 +10449,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10131,6 +10479,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10160,6 +10509,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10189,6 +10539,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10218,6 +10569,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10247,6 +10599,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10276,6 +10629,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10305,6 +10659,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10334,6 +10689,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10363,6 +10719,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10392,6 +10749,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10421,6 +10779,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10450,6 +10809,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10479,6 +10839,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10508,6 +10869,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10537,6 +10899,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10566,6 +10929,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10595,6 +10959,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10624,6 +10989,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10653,6 +11019,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10682,6 +11049,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10711,6 +11079,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10740,6 +11109,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10769,6 +11139,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10798,6 +11169,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10827,6 +11199,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10856,6 +11229,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10885,6 +11259,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10914,6 +11289,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10943,6 +11319,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -10972,6 +11349,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11001,6 +11379,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11030,6 +11409,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11059,6 +11439,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11088,6 +11469,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11117,6 +11499,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11146,6 +11529,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11175,6 +11559,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11204,6 +11589,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11233,6 +11619,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11262,6 +11649,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11291,6 +11679,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11320,6 +11709,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11349,6 +11739,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11378,6 +11769,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11407,6 +11799,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11436,6 +11829,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11465,6 +11859,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11494,6 +11889,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11523,6 +11919,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11552,6 +11949,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11581,6 +11979,7 @@ shortGenericClassifierArray.push("flower");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11610,6 +12009,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11639,6 +12039,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11668,6 +12069,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11697,6 +12099,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11726,6 +12129,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("temple");
+possessorOfCountPlural.push("temples");
 activePassivepossessorOfCount.push("passive");
 animInanpossessorOfCount.push("inan");
 divineNonDivinepossessorOfCount.push("divine");
@@ -11755,6 +12159,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11784,6 +12189,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11813,6 +12219,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11842,6 +12249,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11871,6 +12279,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11900,6 +12309,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11929,6 +12339,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11958,6 +12369,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -11987,6 +12399,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12016,6 +12429,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12045,6 +12459,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12074,6 +12489,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12103,6 +12519,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12132,6 +12549,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12161,6 +12579,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12190,6 +12609,7 @@ shortGenericClassifierArray.push("grass");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12219,6 +12639,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12248,6 +12669,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12277,6 +12699,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12306,6 +12729,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12335,6 +12759,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12364,6 +12789,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12393,6 +12819,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12422,6 +12849,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12451,6 +12879,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12480,6 +12909,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12509,6 +12939,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12538,6 +12969,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12567,6 +12999,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12596,6 +13029,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12625,6 +13059,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12654,6 +13089,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12683,6 +13119,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12712,6 +13149,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12741,6 +13179,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12770,6 +13209,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12799,6 +13239,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12828,6 +13269,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("ship");
+possessorOfCountPlural.push("ships");
 activePassivepossessorOfCount.push("passive");
 animInanpossessorOfCount.push("inan");
 divineNonDivinepossessorOfCount.push("profane");
@@ -12857,6 +13299,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12886,6 +13329,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12915,6 +13359,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12944,6 +13389,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -12973,6 +13419,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13002,6 +13449,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13031,6 +13479,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13060,6 +13509,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13089,6 +13539,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13118,6 +13569,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13147,6 +13599,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13175,6 +13628,7 @@ shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 possessorOfCount.push("master");
+possessorOfCountPlural.push("masters");
 activePassivepossessorOfCount.push("active");
 animInanpossessorOfCount.push("anim");
 divineNonDivinepossessorOfCount.push("profane");
@@ -13204,6 +13658,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13233,6 +13688,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13262,6 +13718,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13291,6 +13748,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13319,6 +13777,7 @@ shapeClassifierArray.push("short-and-wide");
 shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 possessorOfCount.push("shepherd");
+possessorOfCountPlural.push("shepherds");
 activePassivepossessorOfCount.push("active");
 animInanpossessorOfCount.push("anim");
 divineNonDivinepossessorOfCount.push("profane");
@@ -13348,6 +13807,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13377,6 +13837,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13406,6 +13867,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13435,6 +13897,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13464,6 +13927,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13493,6 +13957,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13522,6 +13987,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13551,6 +14017,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13580,6 +14047,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13609,6 +14077,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13638,6 +14107,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13667,6 +14137,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13696,6 +14167,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13725,6 +14197,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13754,6 +14227,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13783,6 +14257,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13812,6 +14287,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13841,6 +14317,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13870,6 +14347,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13899,6 +14377,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13928,6 +14407,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13957,6 +14437,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -13986,6 +14467,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14015,6 +14497,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14044,6 +14527,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14073,6 +14557,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14102,6 +14587,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14131,6 +14617,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14160,6 +14647,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14189,6 +14677,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14218,6 +14707,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14247,6 +14737,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14276,6 +14767,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14334,6 +14826,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14363,6 +14856,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14392,6 +14886,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14421,6 +14916,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14450,6 +14946,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14479,6 +14976,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14508,6 +15006,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14537,6 +15036,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14566,6 +15066,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14595,6 +15096,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14624,6 +15126,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14653,6 +15156,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14682,6 +15186,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14711,6 +15216,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14740,6 +15246,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14769,6 +15276,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14798,6 +15306,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14827,6 +15336,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14856,6 +15366,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14885,6 +15396,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14914,6 +15426,7 @@ shortGenericClassifierArray.push("natural-inanimate")
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14943,6 +15456,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -14972,6 +15486,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15001,6 +15516,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15030,6 +15546,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15059,6 +15576,7 @@ shortGenericClassifierArray.push("human");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15088,6 +15606,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15117,6 +15636,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15146,6 +15666,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15175,6 +15696,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15204,6 +15726,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15233,6 +15756,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15262,6 +15786,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15291,6 +15816,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15320,6 +15846,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15349,6 +15876,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15378,6 +15906,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15407,6 +15936,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15436,6 +15966,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15465,6 +15996,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15494,6 +16026,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15523,6 +16056,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15552,6 +16086,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15581,6 +16116,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15610,6 +16146,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15639,6 +16176,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15668,6 +16206,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15697,6 +16236,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15726,6 +16266,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15755,6 +16296,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15784,6 +16326,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15813,6 +16356,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15842,6 +16386,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15871,6 +16416,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15900,6 +16446,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15929,6 +16476,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15958,6 +16506,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -15987,6 +16536,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16016,6 +16566,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16045,6 +16596,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16074,6 +16626,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16103,6 +16656,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16132,6 +16686,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16161,6 +16716,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16190,6 +16746,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16219,6 +16776,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16248,6 +16806,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16277,6 +16836,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16306,6 +16866,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16335,6 +16896,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16364,6 +16926,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16393,6 +16956,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16422,6 +16986,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16451,6 +17016,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16480,6 +17046,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16509,6 +17076,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16538,6 +17106,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16567,6 +17136,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16596,6 +17166,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16625,6 +17196,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16654,6 +17226,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16683,6 +17256,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16712,6 +17286,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16741,6 +17316,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16770,6 +17346,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16799,6 +17376,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16828,6 +17406,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16857,6 +17436,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16886,6 +17466,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16915,6 +17496,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16944,6 +17526,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -16973,6 +17556,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17002,6 +17586,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17031,6 +17616,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17060,6 +17646,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17089,6 +17676,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17118,6 +17706,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17147,6 +17736,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17176,6 +17766,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17205,6 +17796,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17234,6 +17826,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17263,6 +17856,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17292,6 +17886,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17321,6 +17916,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17350,6 +17946,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17379,6 +17976,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17408,6 +18006,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17437,6 +18036,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17466,6 +18066,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17495,6 +18096,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17524,6 +18126,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17553,6 +18156,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17582,6 +18186,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17611,6 +18216,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17640,6 +18246,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17669,6 +18276,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17698,6 +18306,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17727,6 +18336,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17756,6 +18366,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17785,6 +18396,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17814,6 +18426,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17843,6 +18456,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17872,6 +18486,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17930,6 +18545,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17959,6 +18575,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -17988,6 +18605,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
+possessorOfCountPlural.push("X");
 activePassivepossessorOfCount.push("X");
 animInanpossessorOfCount.push("X");
 divineNonDivinepossessorOfCount.push("X");
@@ -18016,17 +18634,18 @@ shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
-possessorOfCount.push("X");
-activePassivepossessorOfCount.push("X");
-animInanpossessorOfCount.push("X");
-divineNonDivinepossessorOfCount.push("X");
-humanAnimalInanpossessorOfCount.push("X");
-mascFemNeutpossessorOfCount.push("X");
-mascFempossessorOfCount.push("X");
-naturalArtificialpossessorOfCount.push("X");
-animacyClassifierArraypossessorOfCount.push("X");
-shapeClassifierArraypossessorOfCount.push("X");
-shortGenericClassifierArraypossessorOfCount.push("X");
+possessorOfCount.push("yoked&animal");
+possessorOfCountPlural.push("yoked&animals");
+activePassivepossessorOfCount.push("active");
+animInanpossessorOfCount.push("anim");
+divineNonDivinepossessorOfCount.push("profane");
+humanAnimalInanpossessorOfCount.push("animal");
+mascFemNeutpossessorOfCount.push("masculine2");
+mascFempossessorOfCount.push("masculine1");
+naturalArtificialpossessorOfCount.push("artificial");
+animacyClassifierArraypossessorOfCount.push("labour");
+shapeClassifierArraypossessorOfCount.push("short-and-wide");
+shortGenericClassifierArraypossessorOfCount.push("land-animal");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
@@ -18071,6 +18690,7 @@ animacyClassifierArraypossessorOfCount,
 shapeClassifierArraypossessorOfCount,
 shortGenericClassifierArraypossessorOfCount,
 etymologyCountNoun,
-etymologyArrayCountNoun
+etymologyArrayCountNoun,
+possessorOfCountPlural
 }
 

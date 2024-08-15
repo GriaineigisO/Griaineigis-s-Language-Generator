@@ -555,7 +555,7 @@ h1, h2, h3, h4 {
     #grammar {
         page-break-after: always;
     }
-    #language-to-english {
+    #language-to-english, #vocab-stats {
         page-break-after: always;
     }
     #title-for-pdf {

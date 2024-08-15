@@ -25,7 +25,9 @@ shortGenericClassifierArraypossessorOfMass, possessorOfMassPlural} from './engli
 import {proneADJtrans} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import {proneADJintrans} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import { etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ} from './englishWordArrays/Adjectives/englishAdjectives.js';
-import {grammaticalNumber, caseNumber, animSgAffix, inanSgAffix, grammaticalNumber as grammaticalNumberFusional, mascSgAffix, femSgAffix} from './fusionalNouns.js'
+import {grammaticalNumber, caseNumber, animSgAffix, inanSgAffix, grammaticalNumber as grammaticalNumberFusional, mascSgAffix, femSgAffix} from './fusionalNouns.js';
+import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
+
 
 let proneAffix = "";
 let possessorAffix = "";
@@ -39,7 +41,7 @@ function clear() {
 
 function createAffixes() {
     proneAffix = generateAffixes();
-    possessorAffix = "ion"//generateAffixes();
+    possessorAffix = generateAffixes();
 };
 
 function removeVFromVerb(verb) {
@@ -706,7 +708,7 @@ function NtoNPossessorOf() {
     //mass noun to count noun
     for(let i = 0; i < massNounArray.length; i++) {
         //decides if word will have a derivation
-        if(/*Math.floor(Math.random() * 3)*/1 === 1) {
+        if(Math.floor(Math.random() * 3) === 1) {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
                 derivedTerm = generatedMassNouns[i] + possessorAffix;
@@ -780,13 +782,129 @@ function NtoNPossessorOf() {
     li.appendChild(ul);
 };
 
+function makeVocabStats() {
+        let nounNum = countNounArray.length + massNounArray.length;
+        let verbNum = transitiveVerbArray.length + intransitiveVerbArray.length;
+        let adjNum = adjectiveArray.length;
+        let advNum = adverbArray.length;
+        let conjNum = conjunctionArray.length;
+        let adpoNum = adpositionArray.length;
+        let intensNum = intensifierArray.length;
+        let quantifierNum = smallQuantifiersArray.length + middingQuantifierArray.length +  bigQuantifierArray.length +  opinionQuantifierArray.length;
+        let wordsNum = nounNum + verbNum + adjNum + conjNum + adpoNum + intensNum + advNum + quantifierNum;
+
+        //counts all nouns
+        let nounAmount = document.getElementById("amount-of-nouns");
+        let nounPercent = Math.round(nounNum/wordsNum * 100);
+        nounAmount.innerHTML = `${nounPercent}% (${nounNum})`;
+
+        //counts all verbs
+        let verbAmount = document.getElementById("amount-of-verbs");
+        let verbPercent = Math.round(verbNum/wordsNum * 100);
+        verbAmount.innerHTML = `${verbPercent}% (${verbNum})`;
+
+        //counts all adjectives
+        let adjectiveAmount = document.getElementById("amount-of-adj");
+        let adjPercent = Math.round(adjNum/wordsNum * 100);
+        adjectiveAmount.innerHTML = `${adjPercent}% (${adjNum})`;
+
+        //counts all conjunctions
+        let conjAmount = document.getElementById("amount-of-conj");
+        let conjPercent = Math.round(conjNum/wordsNum * 100);
+        conjAmount.innerHTML = `${conjPercent}% (${conjNum})`;
+
+        //counts all adpositions
+        let adpoAmount = document.getElementById("amount-of-adpo");
+        let adpoPercent = Math.round(adpoNum/wordsNum * 100);
+        adpoAmount.innerHTML = `${adpoPercent}% (${adpoNum})`;
+
+        //counts all adverbs
+        let advAmount = document.getElementById("amount-of-adverbs");
+        let advPercent = Math.round(advNum/wordsNum * 100);
+        advAmount.innerHTML = `${advPercent}% (${advNum})`;
+
+        //counts all intensiiers
+        let intensAmount = document.getElementById("amount-of-intens");
+        let intensPercent = Math.round(intensNum/wordsNum * 100);
+        intensAmount.innerHTML = `${intensPercent}% (${intensNum})`;
+
+        //counts all quanitifers
+        let quantifierAmount = document.getElementById("amount-of-quantifiers");
+        let quantifierPercent = Math.round(quantifierNum/wordsNum * 100);
+        quantifierAmount.innerHTML = `${quantifierPercent}% (${quantifierNum})`;
+
+        //counts all count nouns
+        let countNounAmount = document.getElementById("amount-of-count-nouns");;
+        let countNounNum = countNounArray.length;
+        let countNounPercent = Math.round(countNounNum/nounNum * 100);
+        countNounAmount.innerHTML = `${countNounPercent}% (${countNounNum})`;
+
+        //counts all mass nouns
+        let massNounAmount = document.getElementById("amount-of-mass-nouns");;
+        let massNounNum = massNounArray.length;
+        let massNounPercent = Math.round(massNounNum/nounNum * 100);
+        massNounAmount.innerHTML = `${massNounPercent}% (${massNounNum})`;
+
+        //counts all transitive nouns
+        let transVerbAmount = document.getElementById("amount-of-trans-verbs");;
+        let transVerbNum = transitiveVerbArray.length;
+        let transVerbPercent = Math.round(transVerbNum/verbNum * 100);
+        transVerbAmount.innerHTML = `${transVerbPercent}% (${transVerbNum})`;
+
+        //counts all intransitive nouns
+        let intransVerbAmount = document.getElementById("amount-of-intrans-verbs");;
+        let intransVerbNum = intransitiveVerbArray.length;
+        let intransVerbPercent = Math.round(intransVerbNum/verbNum * 100);
+        intransVerbAmount.innerHTML = `${intransVerbPercent}% (${intransVerbNum})`;
+
+        //counts which nouns were inherites vs derived
+        let inheritedNoun = document.getElementById("inherited-vocab-noun");
+        let derivedNoun = document.getElementById("derived-vocab-noun");
+        let inheritedNounNum = 0;
+        let derivedNounNum = 0;
+        for(let i = 0; i < countNounArray.length; i++) {
+                if(derivedOrInheritedCountNoun[i] === "inherited") {
+                        inheritedNounNum++;
+                } else if(derivedOrInheritedCountNoun[i] === "derived") {
+                        derivedNounNum++;
+                };
+        };
+        for(let i = 0; i < massNounArray.length; i++) {
+                if(derivedOrInheritedMassNoun[i] === "inherited") {
+                        inheritedNounNum++;
+                } else if(derivedOrInheritedMassNoun[i] === "derived") {
+                        derivedNounNum++;
+                };
+        };
+        inheritedNoun.innerHTML = `${Math.round(inheritedNounNum/nounNum*100)}% (${inheritedNounNum})`;
+        derivedNoun.innerHTML = `${Math.round(derivedNounNum/nounNum*100)}% (${derivedNounNum})`;
+
+        //counts which adjectives were inherites vs derived
+        let inheritedAdj = document.getElementById("inherited-vocab-adjectives");
+        let derivedAdj = document.getElementById("derived-vocab-adjectives");
+        let inheritedAdjNum = 0;
+        let derivedAdjNum = 0;
+        for(let i = 0; i < adjectiveArray.length; i++) {
+                if(derivedOrInheritedADJ[i] === "inherited") {
+                        inheritedAdjNum++;
+                } else if(derivedOrInheritedADJ[i] === "derived") {
+                        derivedAdjNum++;
+                };
+        };
+        inheritedAdj.innerHTML = `${Math.round(inheritedAdjNum/adjNum*100)}% (${inheritedAdjNum})`;
+        derivedAdj.innerHTML = `${Math.round(derivedAdjNum/adjNum*100)}% (${derivedAdjNum})`;
+
+
+};
+
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
 function generateLanguage() {
     clear();
     createAffixes();
-    selectDerivationalAffixes()
+    selectDerivationalAffixes();
+    makeVocabStats();
 };
 
 

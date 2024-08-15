@@ -1,5 +1,5 @@
 # Immediate To-Do List
-- Add agglutinative gendered endings to derivation examples
+- Add stats about noun gender
 - Make fusional nouns with gender but no case
 - Make fusional nouns with gender and case
 - consonantal root system

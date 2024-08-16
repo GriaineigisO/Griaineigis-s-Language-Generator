@@ -1130,6 +1130,12 @@ function makeDictionary() {
                 if(intransitiveVerbArray.includes(etymologyArrayADJ[adjectiveArray.indexOf(englishWords[i])])) {
                     etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyADJ[adjectiveArray.indexOf(englishWords[i])]}`;
                 };
+                if(countNounArray.includes(etymologyArrayADJ[adjectiveArray.indexOf(englishWords[i])])) {
+                    etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyADJ[adjectiveArray.indexOf(englishWords[i])]}`;
+                };
+                if(massNounArray.includes(etymologyArrayADJ[adjectiveArray.indexOf(englishWords[i])])) {
+                    etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyADJ[adjectiveArray.indexOf(englishWords[i])]}`;
+                };
             };
         } else if(countNounArray.includes(englishWords[i])) {
             if(derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "inherited") {

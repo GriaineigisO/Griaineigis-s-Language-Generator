@@ -10,7 +10,7 @@ mascFempossessorOfCount,
 naturalArtificialpossessorOfCount,
 animacyClassifierArraypossessorOfCount,
 shapeClassifierArraypossessorOfCount,
-shortGenericClassifierArraypossessorOfCount, possessorOfCount, etymologyArrayCountNoun, etymologyCountNoun,possessorOfCountPlural} from './englishWordArrays/Nouns/countNouns.js'
+shortGenericClassifierArraypossessorOfCount, possessorOfCount, etymologyArrayCountNoun, etymologyCountNoun,possessorOfCountPlural, possessorOfQualityCount} from './englishWordArrays/Nouns/countNouns.js'
 import {derivedOrInheritedMassNoun, possessorOfMass, etymologyArrayMassNoun, etymologyMassNoun, 
 activePassivepossessorOfMass,
 animInanpossessorOfMass,
@@ -21,20 +21,26 @@ mascFempossessorOfMass,
 naturalArtificialpossessorOfMass,
 animacyClassifierArraypossessorOfMass,
 shapeClassifierArraypossessorOfMass,
-shortGenericClassifierArraypossessorOfMass, possessorOfMassPlural} from './englishWordArrays/Nouns/massNouns.js'
-import {proneADJtrans} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
-import {proneADJintrans} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
+shortGenericClassifierArraypossessorOfMass, possessorOfMassPlural, possessorOfQualityMass} from './englishWordArrays/Nouns/massNouns.js'
+import {proneADJtrans, derivedOrInheritedTransVerb} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
+import {proneADJintrans, derivedOrInheritedIntransVerb} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import { etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ} from './englishWordArrays/Adjectives/englishAdjectives.js';
 import {grammaticalNumber, caseNumber, animSgAffix, inanSgAffix, grammaticalNumber as grammaticalNumberFusional, mascSgAffix, femSgAffix} from './fusionalNouns.js';
 import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
-
+import {derivedOrInheritedCONJ} from './englishWordArrays/conjunctions.js'
+import {derivedOrInheritedADV} from './englishWordArrays/adverbs.js'
+import {derivedOrInheritedINTENS} from './englishWordArrays/intensifier.js'
+import {derivedOrInheritedQuantifier} from './englishWordArrays/quantifierArray.js'
+import {derivedOrInheritedADPO} from './englishWordArrays/adpositions.js'
 
 let proneAffix = "";
 let possessorAffix = "";
+let possessorQualityAffix = "";
 
 function clear() {
     proneAffix = "";
     possessorAffix = "";
+    possessorQualityAffix = "";
     document.getElementById("derivational-affixes").replaceChildren();
     
 };
@@ -42,6 +48,7 @@ function clear() {
 function createAffixes() {
     proneAffix = generateAffixes();
     possessorAffix = generateAffixes();
+    possessorQualityAffix = generateAffixes();
 };
 
 function removeVFromVerb(verb) {
@@ -486,10 +493,11 @@ function addGrammaticalAffixes(noun) {
 
 let randomNumberForDerivationSelection = 0;
 function selectDerivationalAffixes() {
-    let chosenDerivations = [VtoADJprone, NtoNPossessorOf];
+    let chosenDerivations = [VtoADJprone, NtoNPossessorOf, NADJtoADJpossessorOfQuality];
     let potentialDerivations = [
         VtoADJprone,
-        NtoNPossessorOf
+        NtoNPossessorOf,
+        NADJtoADJpossessorOfQuality
     ];
     
     //selects which derivational affixes will be chosen
@@ -536,40 +544,43 @@ function VtoADJprone() {
             if(typeof proneADJtrans[i] === "string") {
                 meaning = proneADJtrans[i];
             } else if(typeof proneADJtrans[i] === "object"){
-                let array = cloneArray(proneADJtrans[i])
+                let array = proneADJtrans[i]
                 meaning = array[Math.floor(Math.random() * array.length)]
-            };
+            } else if(proneADJtrans[i] === undefined){
+                continue;
+            }
              
             //not all words can have this derivation, such words are marked with X
             if(meaning !== "X") {
                 //if the derived meaning already exists, this chooses if the derivation replaces the word or if both exist as synonyms
                 if(adjectiveArray.includes(meaning)) {
-                    if(Math.floor(Math.random() * 2) === 0) {
-                        //both exist as synonyms
-                        adjectiveArray.push(meaning);
-                    } else {
                         //replaces pre-existing word with new derivation
-                        let adjIndex = adjectiveArray.indexOf(meaning);
-                        adjectiveArray.splice(adjIndex, 1);
-                        generatedAdjectives.splice(adjIndex, 1);
-                        adjectiveArray.push(meaning);
-                    };
-                };
-                generatedAdjectives.push(derivedTerm) 
-                derivedOrInheritedADJ.push("derived");
-                etymologyArrayADJ.push(transitiveVerbArray[i]);
-                if(suffixOrPrefix === "suffix") {
-                    etymologyADJ.push(`<i>-${spell(soundChange(generatedTransitiveVerbs[i]))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(proneAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
+                        generatedAdjectives[adjectiveArray.indexOf(meaning)] = derivedTerm;
+                        derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
+                        etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
+                        if(suffixOrPrefix === "suffix") {
+                                etymologyADJ[adjectiveArray.indexOf(meaning)] =`<i>-${spell(soundChange(generatedTransitiveVerbs[i]))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(proneAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`
+                        } else {
+                                etymologyADJ[adjectiveArray.indexOf(meaning)] =`<i>${spell(soundChange("X" + proneAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp-<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>-&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`
+                        };
                 } else {
-                    etymologyADJ.push(`<i>${spell(soundChange("X" + proneAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp-<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>-&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        adjectiveArray.push(meaning);
+                        generatedAdjectives.push(derivedTerm) 
+                        derivedOrInheritedADJ.push("derived");
+                        etymologyArrayADJ.push(transitiveVerbArray[i]);
+                        if(suffixOrPrefix === "suffix") {
+                                etymologyADJ.push(`<i>-${spell(soundChange(generatedTransitiveVerbs[i]))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(proneAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
+                        } else {
+                                etymologyADJ.push(`<i>${spell(soundChange("X" + proneAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp-<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>-&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        };  
                 };
                 if(exampleCounter < 6) {
                     let exampleLi = document.createElement("li");
-                    exampleLi.innerHTML = `-<i>${spell(soundChange(generatedTransitiveVerbs[i]))}</i>- "to ${transitiveVerbArray[i]}" > <i>${spell(derivedTerm)}</i> "${meaning}"`;
+                    exampleLi.innerHTML = `-<i>${spell(soundChange(generatedTransitiveVerbs[i]))}</i>- "to ${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(soundChange(derivedTerm))}</i> "${meaning}"`;
                     ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
-            };
+            }
         };
     };
 
@@ -578,9 +589,9 @@ function VtoADJprone() {
         if(Math.floor(Math.random() * 3) === 1) {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
-                derivedTerm = soundChange(generatedIntransitiveVerbs[i]) + soundChange(proneAffix);
+                derivedTerm = generatedIntransitiveVerbs[i] + proneAffix;
             } else {
-                derivedTerm = soundChange(proneAffix) + soundChange(generatedIntransitiveVerbs[i]);
+                derivedTerm = proneAffix + generatedIntransitiveVerbs[i];
             };
             //assigns the English meaning of the newly derived term
             let meaning = "";
@@ -590,31 +601,35 @@ function VtoADJprone() {
             } else if(typeof proneADJintrans[i] === "object"){
                 let array = cloneArray(proneADJintrans[i])
                 meaning = array[Math.floor(Math.random() * array.length)]
-            };
+            }else if(proneADJintrans[i] === undefined){
+                continue;
+            }
              
             //not all words can have this derivation, such words are marked with X
             if(meaning !== "X") {
                 //if the derived meaning already exists, this chooses if the derivation replaces the word or if both exist as synonyms
                 if(adjectiveArray.includes(meaning)) {
-                    if(Math.floor(Math.random() * 2) === 0) {
-                        //both exist as synonyms
-                        adjectiveArray.push(meaning);
-                    } else {
                         //replaces pre-existing word with new derivation
-                        let adjIndex = adjectiveArray.indexOf(meaning);
-                        adjectiveArray.splice(adjIndex, 1);
-                        generatedAdjectives.splice(adjIndex, 1);
+                        generatedAdjectives[adjectiveArray.indexOf(meaning)] = derivedTerm;
+                        derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
+                        etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = intransitiveVerbArray[i];
+                        if(suffixOrPrefix === "suffix") {
+                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>-${spell(soundChange(generatedIntransitiveVerbs[i]))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(proneAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`
+                } else {
+                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + proneAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp-<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>-&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`
+                };
+                } else {
                         adjectiveArray.push(meaning);
-                    };
-                };  
-                generatedAdjectives.push(derivedTerm) 
-                derivedOrInheritedADJ.push("derived");
-                etymologyArrayADJ.push(intransitiveVerbArray[i]);
-                if(suffixOrPrefix === "suffix") {
+                        generatedAdjectives.push(derivedTerm) 
+                        derivedOrInheritedADJ.push("derived");
+                        etymologyArrayADJ.push(intransitiveVerbArray[i]);  
+                        if(suffixOrPrefix === "suffix") {
                     etymologyADJ.push(`<i>-${spell(soundChange(generatedIntransitiveVerbs[i]))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(proneAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
                 } else {
                     etymologyADJ.push(`<i>${spell(soundChange("X" + proneAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp-<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>-&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
                 };
+                }; 
+                
             };
         };
     };
@@ -697,7 +712,7 @@ function NtoNPossessorOf() {
                 
                 if(exampleCounter < 6) {
                     let exampleLi = document.createElement("li");
-                    exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
+                    exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
                     ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -782,6 +797,131 @@ function NtoNPossessorOf() {
     li.appendChild(ul);
 };
 
+function NADJtoADJpossessorOfQuality() {
+    let li = document.createElement("li");
+    let ul = document.createElement("ul");
+
+    let derivedTerm = "";
+    let suffixOrPrefix = "";
+    if(Math.floor(Math.random() * 2) === 0) {
+        suffixOrPrefix = "suffix";
+    } else {
+        suffixOrPrefix = "prefix";
+    };
+    let exampleCounter = 0;
+    //count noun to adjective
+    for(let i = 0; i < countNounArray.length; i++) {
+        //decides if word will have a derivation
+        if(Math.floor(Math.random() * 3) === 1) {
+            //decides if the affix will be a suffix or prefix
+            if(suffixOrPrefix === "suffix") {
+                derivedTerm = generatedCountNouns[i] + possessorQualityAffix;
+                li.innerHTML = `<i>-${spell(soundChange(possessorQualityAffix + "A"))}</i> "derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
+            } else {
+                derivedTerm = possessorQualityAffix + generatedCountNouns[i];
+                li.innerHTML = `<i>${spell(soundChange("X" + possessorQualityAffix))}-</i> "derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
+            };
+            //assigns the English meaning of the newly derived term
+            
+            let meaning = "";
+            //if the derived meaning is an array of possible meanings, it chooses only one word from the array
+            if(typeof possessorOfQualityCount[i] === "string") {
+                meaning = possessorOfQualityCount[i];
+            } else if(typeof possessorOfQualityCount[i] === "object"){
+                let array = cloneArray(possessorOfQualityCount[i])
+                meaning = array[Math.floor(Math.random() * array.length)]
+            } else if(possessorOfQualityCount[i] === undefined){
+                continue;
+            }
+
+            //not all words can have this derivation, such words are marked with X
+            if(meaning !== "X") {
+                if(adjectiveArray.includes(meaning)) {
+                        //replaces pre-existing word with new derivation
+                        generatedAdjectives[adjectiveArray.indexOf(meaning)] = derivedTerm;
+                        derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
+                        etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = countNounArray[i];
+                        if(suffixOrPrefix === "suffix") {
+                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i])))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorQualityAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
+                } else if(suffixOrPrefix === "prefix"){
+                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + possessorQualityAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])])))}</i>&nbsp"${countNounArray[i]}"`
+                };
+                } else {
+                        //console.log(meaning)
+                        adjectiveArray.push(meaning);
+                        generatedAdjectives.push(derivedTerm) 
+                        derivedOrInheritedADJ.push("derived");
+                        etymologyArrayADJ.push(countNounArray[i]);  
+                        if(suffixOrPrefix === "suffix") {
+                    etymologyADJ.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i])))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorQualityAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`)
+                } else if(suffixOrPrefix === "prefix"){
+                    etymologyADJ.push(`<i>${spell(soundChange("X" + possessorQualityAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])])))}</i>&nbsp"${countNounArray[i]}"`)
+                };
+                };
+                if(exampleCounter < 6) {
+                    let exampleLi = document.createElement("li");
+                    exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i])))}</i> "${countNounArray[i]}" > <i>${spell(derivedTerm)}</i> "${meaning}"`;
+                    ul.appendChild(exampleLi)
+                };
+                exampleCounter++; 
+            };
+        };
+    };
+
+    //mass noun to adjective
+    for(let i = 0; i < massNounArray.length; i++) {
+        //decides if word will have a derivation
+        if(Math.floor(Math.random() * 3) === 1) {
+            //decides if the affix will be a suffix or prefix
+            if(suffixOrPrefix === "suffix") {
+                derivedTerm = generatedMassNouns[i] + possessorQualityAffix;
+                li.innerHTML = `<i>-${spell(soundChange(possessorQualityAffix + "A"))}</i> "derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
+            } else {
+                derivedTerm = soundChange(possessorQualityAffix) + soundChange(generatedMassNouns[i]);
+                li.innerHTML = `<i>${spell(soundChange("X" + possessorQualityAffix))}-</i> "derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
+            };
+            //assigns the English meaning of the newly derived term
+            let meaning = "";
+            //if the derived meaning is an array of possible meanings, it chooses only one word from the array
+            if(typeof possessorOfQualityMass[i] === "string") {
+                meaning = possessorOfQualityMass[i];
+            } else if(typeof possessorOfQualityMass[i] === "object"){
+                let array = cloneArray(possessorOfQualityMass[i])
+                meaning = array[Math.floor(Math.random() * array.length)]
+            } else if(possessorOfQualityMass[i] === undefined){
+                continue;
+            }
+             
+            //not all words can have this derivation, such words are marked with X
+            if(meaning !== "X") {
+                if(adjectiveArray.includes(meaning)) {
+                        //replaces pre-existing word with new derivation
+                        generatedAdjectives[adjectiveArray.indexOf(meaning)] = derivedTerm;
+                        derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
+                        etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = massNounArray[i];
+                        if(suffixOrPrefix === "suffix") {
+                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i])))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorQualityAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
+                } else {
+                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + possessorQualityAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])])))}</i>&nbsp"${massNounArray[i]}"`
+                };
+                } else {
+                        adjectiveArray.push(meaning);
+                        generatedAdjectives.push(derivedTerm) 
+                        derivedOrInheritedADJ.push("derived");
+                        etymologyArrayADJ.push(massNounArray[i]);  
+                        if(suffixOrPrefix === "suffix") {
+                    etymologyADJ.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i])))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorQualityAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`)
+                } else {
+                    etymologyADJ.push(`<i>${spell(soundChange("X" + possessorQualityAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])])))}</i>&nbsp"${massNounArray[i]}"`)
+                };
+                };
+            };
+        };
+    };
+    document.getElementById("derivational-affixes").appendChild(li);
+    li.appendChild(ul);   
+};
+
 function makeVocabStats() {
         let nounNum = countNounArray.length + massNounArray.length;
         let verbNum = transitiveVerbArray.length + intransitiveVerbArray.length;
@@ -791,6 +931,7 @@ function makeVocabStats() {
         let adpoNum = adpositionArray.length;
         let intensNum = intensifierArray.length;
         let quantifierNum = smallQuantifiersArray.length + middingQuantifierArray.length +  bigQuantifierArray.length +  opinionQuantifierArray.length;
+        let allQuantifierArray = smallQuantifiersArray.concat(middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray);
         let wordsNum = nounNum + verbNum + adjNum + conjNum + adpoNum + intensNum + advNum + quantifierNum;
 
         //counts all nouns
@@ -857,7 +998,85 @@ function makeVocabStats() {
         let intransVerbPercent = Math.round(intransVerbNum/verbNum * 100);
         intransVerbAmount.innerHTML = `${intransVerbPercent}% (${intransVerbNum})`;
 
-        //counts which nouns were inherites vs derived
+        //counts which words were inherited vs derived
+        let inheritedWord = document.getElementById("inherited-vocab");
+        let derivedWord = document.getElementById("derived-vocab");
+        let inheritedWordNum = 0;
+        let derivedWordNum = 0;
+        for(let i = 0; i < countNounArray.length; i++) {
+                if(derivedOrInheritedCountNoun[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedCountNoun[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        for(let i = 0; i < massNounArray.length; i++) {
+                if(derivedOrInheritedMassNoun[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedMassNoun[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        for(let i = 0; i < adjectiveArray.length; i++) {
+                if(derivedOrInheritedADJ[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedADJ[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        for(let i = 0; i < transitiveVerbArray.length; i++) {
+                if(derivedOrInheritedTransVerb[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedTransVerb[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        for(let i = 0; i < intransitiveVerbArray.length; i++) {
+                if(derivedOrInheritedIntransVerb[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedIntransVerb[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        for(let i = 0; i < conjunctionArray.length; i++) {
+                if(derivedOrInheritedCONJ[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedCONJ[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        for(let i = 0; i < adverbArray.length; i++) {
+                if(derivedOrInheritedADV[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedADV[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        for(let i = 0; i < intensifierArray.length; i++) {
+                if(derivedOrInheritedINTENS[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedINTENS[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        for(let i = 0; i < allQuantifierArray.length; i++) {
+                if(derivedOrInheritedQuantifier[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedQuantifier[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        for(let i = 0; i < adpositionArray.length; i++) {
+                if(derivedOrInheritedADPO[i] === "inherited") {
+                        inheritedWordNum++;
+                } else if(derivedOrInheritedADPO[i] === "derived") {
+                        derivedWordNum++;
+                };
+        };
+        inheritedWord.innerHTML = `${Math.round(inheritedWordNum/wordsNum*100)}% (${inheritedWordNum})`;
+        derivedWord.innerHTML = `${Math.round(derivedWordNum/wordsNum*100)}% (${derivedWordNum})`;
+
+        //counts which nouns were inherited vs derived
         let inheritedNoun = document.getElementById("inherited-vocab-noun");
         let derivedNoun = document.getElementById("derived-vocab-noun");
         let inheritedNounNum = 0;
@@ -879,7 +1098,29 @@ function makeVocabStats() {
         inheritedNoun.innerHTML = `${Math.round(inheritedNounNum/nounNum*100)}% (${inheritedNounNum})`;
         derivedNoun.innerHTML = `${Math.round(derivedNounNum/nounNum*100)}% (${derivedNounNum})`;
 
-        //counts which adjectives were inherites vs derived
+        //counts which verbs were inherited vs derived
+        let inheritedVerb = document.getElementById("inherited-vocab-verb");
+        let derivedVerb = document.getElementById("derived-vocab-verb");
+        let inheritedVerbNum = 0;
+        let derivedVerbNum = 0;
+        for(let i = 0; i < transitiveVerbArray.length; i++) {
+                if(derivedOrInheritedTransVerb[i] === "inherited") {
+                        inheritedVerbNum++;
+                } else if(derivedOrInheritedTransVerb[i] === "derived") {
+                        derivedVerbNum++;
+                };
+        };
+        for(let i = 0; i < intransitiveVerbArray.length; i++) {
+                if(derivedOrInheritedIntransVerb[i] === "inherited") {
+                        inheritedVerbNum++;
+                } else if(derivedOrInheritedIntransVerb[i] === "derived") {
+                        derivedVerbNum++;
+                };
+        };
+        inheritedVerb.innerHTML = `${Math.round(inheritedVerbNum/verbNum*100)}% (${inheritedVerbNum})`;
+        derivedVerb.innerHTML = `${Math.round(derivedVerbNum/verbNum*100)}% (${derivedVerbNum})`;
+
+        //counts which adjectives were inherited vs derived
         let inheritedAdj = document.getElementById("inherited-vocab-adjectives");
         let derivedAdj = document.getElementById("derived-vocab-adjectives");
         let inheritedAdjNum = 0;
@@ -893,6 +1134,81 @@ function makeVocabStats() {
         };
         inheritedAdj.innerHTML = `${Math.round(inheritedAdjNum/adjNum*100)}% (${inheritedAdjNum})`;
         derivedAdj.innerHTML = `${Math.round(derivedAdjNum/adjNum*100)}% (${derivedAdjNum})`;
+
+        //counts which adverbs were inherited vs derived
+        let inheritedAdv = document.getElementById("inherited-vocab-adverbs");
+        let derivedAdv = document.getElementById("derived-vocab-adverbs");
+        let inheritedAdvNum = 0;
+        let derivedAdvNum = 0;
+        for(let i = 0; i < adverbArray.length; i++) {
+                if(derivedOrInheritedADV[i] === "inherited") {
+                        inheritedAdvNum++;
+                } else if(derivedOrInheritedADV[i] === "derived") {
+                        derivedAdvNum++;
+                };
+        };
+        inheritedAdv.innerHTML = `${Math.round(inheritedAdvNum/advNum*100)}% (${inheritedAdvNum})`;
+        derivedAdv.innerHTML = `${Math.round(derivedAdvNum/advNum*100)}% (${derivedAdvNum})`;
+
+        //counts which conjunctions were inherited vs derived
+        let inheritedConj = document.getElementById("inherited-vocab-conj");
+        let derivedConj = document.getElementById("derived-vocab-conj");
+        let inheritedConjNum = 0;
+        let derivedConjNum = 0;
+        for(let i = 0; i < conjunctionArray.length; i++) {
+                if(derivedOrInheritedCONJ[i] === "inherited") {
+                        inheritedConjNum++;
+                } else if(derivedOrInheritedCONJ[i] === "derived") {
+                        derivedConjNum++;
+                };
+        };
+        inheritedConj.innerHTML = `${Math.round(inheritedConjNum/conjNum*100)}% (${inheritedConjNum})`;
+        derivedConj.innerHTML = `${Math.round(derivedConjNum/conjNum*100)}% (${derivedConjNum})`;
+
+        //counts which adpositions were inherited vs derived
+        let inheritedADPO = document.getElementById("inherited-vocab-adpo");
+        let derivedADPO = document.getElementById("derived-vocab-adpo");
+        let inheritedADPONum = 0;
+        let derivedADPONum = 0;
+        for(let i = 0; i < adpositionArray.length; i++) {
+                if(derivedOrInheritedADPO[i] === "inherited") {
+                        inheritedADPONum++;
+                } else if(derivedOrInheritedADPO[i] === "derived") {
+                        derivedADPONum++;
+                };
+        };
+        inheritedADPO.innerHTML = `${Math.round(inheritedADPONum/adpoNum*100)}% (${inheritedADPONum})`;
+        derivedADPO.innerHTML = `${Math.round(derivedADPONum/adpoNum*100)}% (${derivedADPONum})`;
+
+        //counts which intensifiers were inherited vs derived
+        let inheritedINTENS = document.getElementById("inherited-vocab-intens");
+        let derivedINTENS = document.getElementById("derived-vocab-intens");
+        let inheritedINTENSNum = 0;
+        let derivedINTENSNum = 0;
+        for(let i = 0; i < intensifierArray.length; i++) {
+                if(derivedOrInheritedADPO[i] === "inherited") {
+                        inheritedINTENSNum++;
+                } else if(derivedOrInheritedADPO[i] === "derived") {
+                        derivedINTENSNum++;
+                };
+        };
+        inheritedINTENS.innerHTML = `${Math.round(inheritedINTENSNum/intensNum*100)}% (${inheritedINTENSNum})`;
+        derivedINTENS.innerHTML = `${Math.round(derivedINTENSNum/intensNum*100)}% (${derivedINTENSNum})`;
+
+        //counts which quantifiers were inherited vs derived
+        let inheritedQUANT = document.getElementById("inherited-vocab-quant");
+        let derivedQUANT = document.getElementById("derived-vocab-quant");
+        let inheritedQUANTNum = 0;
+        let derivedQUANTNum = 0;
+        for(let i = 0; i < allQuantifierArray.length; i++) {
+                if(derivedOrInheritedQuantifier[i] === "inherited") {
+                        inheritedQUANTNum++;
+                } else if(derivedOrInheritedQuantifier[i] === "derived") {
+                        derivedQUANTNum++;
+                };
+        };
+        inheritedQUANT.innerHTML = `${Math.round(inheritedQUANTNum/quantifierNum*100)}% (${inheritedQUANTNum})`;
+        derivedQUANT.innerHTML = `${Math.round(derivedQUANTNum/quantifierNum*100)}% (${derivedQUANTNum})`;
 
 
 };

@@ -550,7 +550,7 @@ etymologyArrayADJ.push("X");
 etymologyADJ.push("X");
 
 adjectiveArray.push("right");
-    comparativeAdjectiveArray.push("righter");
+    comparativeAdjectiveArray.push("more right");
 derivedOrInheritedADJ.push("inherited")
 etymologyArrayADJ.push("X");
 etymologyADJ.push("X");

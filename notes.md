@@ -1,4 +1,5 @@
 # Immediate To-Do List
+
 - Add stats about noun gender
 - Make fusional nouns with gender but no case
 - Make fusional nouns with gender and case
@@ -11,10 +12,10 @@ Phonotactic ideas:
 - perhaps introduce a sound changes from Old X section? To describe some sound changes that do not nexessarily result in productive phonotactics.figure out how to make resulting hponology appear in tables in such
 
 uC > Cu/#_C
-uc > Cw/#_V
-#uCu >  Cu:
+uc > Cw/#\_V
+#uCu > Cu:
 wo > wu
-w > ∅/_u
+w > ∅/\_u
 i u > e o/\_R
 a > e/\_RCi
 a > æ/\_N
@@ -199,6 +200,64 @@ Colour metaohors?
 
 - danger affix
 - unstable affix
+  Adjective-Forming Suffixes:
+
+-ēs - Primarily forms last members of adjectival bahuvrīhi compounds
+-ōn - Derives adjectives indicating possession, denoting burden, authority
+-inos - Creates adjectives of materials
+-iskos - Characteristic of, typical of, pertaining to
+-kos - Creates deadjectival and desubstantival adjectives denoting the characteristic of, typical of, pertaining to
+-nós - Creates verbal adjectives from roots, master of, lord of, pertaining to, belonging to
+-onts - Forms adjectives from Caland system roots, forms participles
+-rós - Forms adjectives from Caland system roots
+-teros, -eros - Contrastive or oppositional adjectival suffix
+-t'm̥mós, -'m̥ós, -'m̥mós - absolute superlative adjectival suffix
+-t'n̥nós - Used to form adjectives related to time
+-tós - Creates verbal adjectives from verb stems
+-us - Forms adjectives from Caland system roots
+-wénts - Forms possessive adjectives from nominal stems
+-wós - Creates adjectives from verb stems
+-wōs - Forms perfect participles from verbs
+-jós - Creates adjectives from noun stems
+-jōs - Forms adjectives from roots, meaning "very" or "rather"
+Noun-Forming Suffixes:
+
+-dhlom, -dhrom, -tlom, -trom - forms neuter nouns denoting a tool or instrument
+-ḗn - derives masculine nouns from roots
+-ā - creates feminine collective nouns and mass nouns; creates action nouns and abstract nouns
+-ōn - creates nouns indicating possession, denoting burden, authority
+-ī - feminizes athematic nominal stems
+-is - forms feminine nouns from verbs
+-lós - forms agent nouns from verbal roots; forms diminutive nouns from noun stems
+-mḗn(masculine), -mn‌(neuter), -mō(masculine), -mon(masculine), -mōn(masculine) - creates agent nouns or result nouns from verbs
+-mós, -mos - creates masculine action/result nouns from verb stems
+-nī - feminizes athematic nominal stems
+-ōn - creates masculine “individualizing” or “participant” nouns from nouns and adjectives, agent or patient nouns from verbs
+_gʷréh₂us (“heavy”) + ‎_-ō → ‎*gʷréh₂wōn (“millstone”, literally “the heavy one”)
+‎*tḗtḱti (“to create”) + ‎*-ō → ‎*tétḱōn (“carpenter”, literally “one who creates”)
+‎*(s)kérti (“to cut”) + ‎*-ō → ‎*(s)kérōn (“meat”, literally “something cut”) (> Latin carō)
+(rare) Derives nouns from nouns or roots, often with unclear distinction
+*h₂eḱs- + ‎*-ō → ‎*h₂éksōn (“axis”) (> Ancient Greek ἄξων (áxōn))
+‎*meh₂k- + ‎*-ō → ‎*méh₂kōn (“poppy”) (> Proto-Germanic *mōhô)
+-ónts - derives masculine nouns indicating body parts(it is a participle)
+-ós - Creates masculine agent nouns from verb stems, denoting someone or something that performs that verb's action
+-ōs - Creates masculine and feminine action nouns or result nouns from verbs
+-ót'r‌ - Derives neuter action nouns from verbal stems
+-os - Creates neuter action nouns or result nouns from verbs
+-'r‌ - Derives neuter nouns from roots, frequently mass nouns
+-s - Derives feminine mobile-accented root nouns from roots
+-snā - Used to form feminine nouns denoting an object
+-sōr - Derives feminine gender stems from roots
+-tḗr - Derives agent masculine nouns from verbs, denoting someone or something whose role or purpose it is to perform the verb's action
+-tā - Used to form feminine nouns representing state of being
+-tāts - Used to form feminine nouns representing state of being
+-tis - Derives feminine abstract/action nouns from verb roots
+-tōr - Derives masculine agent nouns from verbs, denoting someone or something who has performed the verb's action
+-t'r‌ - Derives neuter nouns from verbal roots
+-trī - Derives feminine agent nouns from verbs, denoting someone or something who has performed the verb's action
+-tus - Derives masculine action nouns from verb nouns
+-twā - Forms feminine nouns from verbs
+-w'r‌ - Forms neuter object nouns from verbal roots(ex: per- "to go through" > pérwr‌ "ford, crossing")
 
 ### Gender Swtiching
 

@@ -5,10 +5,10 @@ import {massNounArray, singulativeMassNounArray, pluralSingulativeMassNounArray,
 import {adjectiveArray, comparativeAdjectiveArray } from './englishWordArrays/Adjectives/englishAdjectives.js';
 import {intransitiveVerbArray, intransitiveVerb3SArray, intransitiveVerbPastArray} from './englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import {transitiveVerbArray, transitiveVerb3SArray, transitiveVerbPastArray} from './englishWordArrays/Verbs/englishTransitiveVerbs.js';
-import conjunctionArray from './englishWordArrays/conjunctions.js'
-import adverbArray from './englishWordArrays/adverbs.js'
-import adpositionArray from './englishWordArrays/adpositions.js';
-import intensifierArray from './englishWordArrays/intensifier.js';
+import {conjunctionArray} from './englishWordArrays/conjunctions.js'
+import {adverbArray} from './englishWordArrays/adverbs.js'
+import {adpositionArray} from './englishWordArrays/adpositions.js';
+import {intensifierArray} from './englishWordArrays/intensifier.js';
 import nounCases from './allPossibleNounCases.js'
 
 import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';

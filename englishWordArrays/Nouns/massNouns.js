@@ -26,6 +26,7 @@ let animacyClassifierArraypossessorOfMass = [];
 let shapeClassifierArraypossessorOfMass = [];
 let shortGenericClassifierArraypossessorOfMass = [];
 let possessorOfMassPlural = [];
+let possessorOfQualityMass = [];
 
 function clearArrays() {
     massNounArray = [];
@@ -56,6 +57,7 @@ naturalArtificialpossessorOfMass = [];
 animacyClassifierArraypossessorOfMass = [];
 shapeClassifierArraypossessorOfMass = [];
 shortGenericClassifierArraypossessorOfMass = [];
+possessorOfQualityMass = [];
 }
 
 function addWords() {
@@ -88,6 +90,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("human2");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("admiring");
 
 massNounArray.push("adoration");
     singulativeMassNounArray.push("act&nbspof&nbspadoration");
@@ -118,6 +122,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("air");
     singulativeMassNounArray.push("wiff&nbspof&nbspair");
@@ -148,6 +154,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("ash");
     singulativeMassNounArray.push("pinch&nbspof&nbspash");
@@ -178,6 +186,8 @@ shapeClassifierArraypossessorOfMass.push("round");
 shortGenericClassifierArraypossessorOfMass.push("tool");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("bark");
     singulativeMassNounArray.push("strip&nbspof&nbspbark");
@@ -208,6 +218,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("beer");
     singulativeMassNounArray.push("pint&nbspof&nbspbeer");
@@ -238,6 +250,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("liquid");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("blood");
     singulativeMassNounArray.push("drop&nbspof&nbspblood");
@@ -268,6 +282,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("bread");
     singulativeMassNounArray.push("slice&nbspof&nbspbread");
@@ -298,6 +314,8 @@ shapeClassifierArraypossessorOfMass.push("round");
 shortGenericClassifierArraypossessorOfMass.push("tool");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("bronze");
     singulativeMassNounArray.push("chunk&nbspof&nbspbronze");
@@ -328,6 +346,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("candle&nbspwax");
     singulativeMassNounArray.push("stick&nbspof&nbspcandle&nbspwax");
@@ -358,6 +378,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("dirt");
     singulativeMassNounArray.push("handful&nbspof&nbspdirt");
@@ -388,6 +410,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("dust");
     singulativeMassNounArray.push("bit&nbspof&nbspdust");
@@ -418,6 +442,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("captivity");
     singulativeMassNounArray.push("period&nbspof&nbspcaptivity");
@@ -448,6 +474,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("human");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("chalk");
     singulativeMassNounArray.push("stick&nbspof&nbspchalk");
@@ -478,6 +506,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("charcoal");
     singulativeMassNounArray.push("clump&nbspof&nbspcharcoal");
@@ -508,6 +538,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("clay");
     singulativeMassNounArray.push("clump&nbspof&nbspclay");
@@ -538,6 +570,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("cloth");
     singulativeMassNounArray.push("patch&nbspof&nbspcloth");
@@ -568,6 +602,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("cream");
     singulativeMassNounArray.push("dollop&nbspof&nbspcream");
@@ -598,6 +634,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("confusion");
     singulativeMassNounArray.push("ounce&nbspof&nbspconfusion");
@@ -628,6 +666,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("human2");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("copper");
     singulativeMassNounArray.push("chunk&nbspof&nbspcopper");
@@ -658,6 +698,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("deception");
     singulativeMassNounArray.push("act&nbspof&nbspdeception");
@@ -688,6 +730,8 @@ shapeClassifierArraypossessorOfMass.push("longand-slender");
 shortGenericClassifierArraypossessorOfMass.push("human2");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("untrustworthy");
 
 massNounArray.push("flint");
     singulativeMassNounArray.push("piece&nbspof&nbspflint");
@@ -718,6 +762,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("flour");
     singulativeMassNounArray.push("handful&nbspof&nbspflour");
@@ -748,6 +794,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("frogspawn");
     singulativeMassNounArray.push("clump&nbspof&nbspfrogspaw");
@@ -779,6 +827,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("fog");
     singulativeMassNounArray.push("bit&nbspof&nbspfog");
@@ -809,6 +859,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("foggy");
 
 massNounArray.push("food");
     singulativeMassNounArray.push("bit&nbspof&nbspfood");
@@ -839,6 +891,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("garlic");
     singulativeMassNounArray.push("clove&nbspof&nbspgarlic");
@@ -869,6 +923,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("glass");
     singulativeMassNounArray.push("shard&nbspof&nbspglass");
@@ -899,6 +955,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("gold");
     singulativeMassNounArray.push("chunk&nbspof&nbspgold");
@@ -929,6 +987,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("wealthy");
 
 massNounArray.push("grace");
     singulativeMassNounArray.push("display&nbspof&nbspgrace");
@@ -959,6 +1019,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("graceful");
 
 massNounArray.push("grass");
     singulativeMassNounArray.push("blade&nbspof&nbspgrass");
@@ -989,6 +1051,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("hail");
     singulativeMassNounArray.push("downpour&nbspof&nbsphail");
@@ -1019,6 +1083,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("hair");
     singulativeMassNounArray.push("strand&nbspof&nbsphair");
@@ -1049,6 +1115,8 @@ shapeClassifierArraypossessorOfMass.push("round");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("hatred");
     singulativeMassNounArray.push("act&nbspof&nbsphatred");
@@ -1079,6 +1147,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("honey");
     singulativeMassNounArray.push("spoonful&nbspof&nbsphoney");
@@ -1109,6 +1179,8 @@ shapeClassifierArraypossessorOfMass.push("round");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("hostility");
     singulativeMassNounArray.push("act&nbspof&nbsphostility");
@@ -1139,6 +1211,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("human");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("ice");
     singulativeMassNounArray.push("chunk&nbspof&nbspice");
@@ -1169,6 +1243,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("incense");
     singulativeMassNounArray.push("stick&nbspof&nbspincense");
@@ -1199,6 +1275,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("iron");
     singulativeMassNounArray.push("chunk&nbspof&nbspiron");
@@ -1229,6 +1307,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("human2");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("jam");
     singulativeMassNounArray.push("jar&nbspof&nbspjam");
@@ -1259,6 +1339,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("labour");
     singulativeMassNounArray.push("work&nbspof&nbsplabour");
@@ -1289,6 +1371,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("leather");
     singulativeMassNounArray.push("strip&nbspof&nbspleather");
@@ -1319,6 +1403,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("love");
     singulativeMassNounArray.push("act&nbspof&nbsplove");
@@ -1349,6 +1435,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("marrow");
     singulativeMassNounArray.push("piece&nbspof&nbspmarrow");
@@ -1379,6 +1467,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("mead");
     singulativeMassNounArray.push("pint&nbspof&nbspmead");
@@ -1409,6 +1499,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("meat");
     singulativeMassNounArray.push("cut&nbspof&nbspmeat");
@@ -1439,6 +1531,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("money");
     singulativeMassNounArray.push("amount&nbspof&nbspmoney");
@@ -1469,6 +1563,8 @@ shapeClassifierArraypossessorOfMass.push("short-and-wide");
 shortGenericClassifierArraypossessorOfMass.push("tool");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("milk");
     singulativeMassNounArray.push("drop&nbspof&nbspmilk");
@@ -1499,6 +1595,8 @@ shapeClassifierArraypossessorOfMass.push("round");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("mud");
     singulativeMassNounArray.push("clump&nbspof&nbspmud");
@@ -1529,6 +1627,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("music");
     singulativeMassNounArray.push("piece&nbspof&nbspmusic");
@@ -1559,6 +1659,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("musical");
 
 massNounArray.push("mustard");
     singulativeMassNounArray.push("jar&nbspof&nbspmustard");
@@ -1589,6 +1691,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("oil");
     singulativeMassNounArray.push("drop&nbspof&nbspoil");
@@ -1619,6 +1723,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("oily");
 
 massNounArray.push("paper");
     singulativeMassNounArray.push("sheet&nbspof&nbsppaper");
@@ -1649,6 +1755,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("poison");
     singulativeMassNounArray.push("drop&nbspof&nbsppoison");
@@ -1679,6 +1787,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("poisonous");
 
 massNounArray.push("porridge");
     singulativeMassNounArray.push("bowl&nbspof&nbspporridge");
@@ -1709,6 +1819,8 @@ shapeClassifierArraypossessorOfMass.push("round");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("prose");
     singulativeMassNounArray.push("work&nbspof&nbspprose");
@@ -1738,6 +1850,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("prosaic");
 
 massNounArray.push("rain");
     singulativeMassNounArray.push("raindrop");
@@ -1768,6 +1882,8 @@ shapeClassifierArraypossessorOfMass.push("shapeless");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("revenge");
     singulativeMassNounArray.push("act&nbspof&nbsprevenge");
@@ -1798,6 +1914,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("vengeful");
 
 massNounArray.push("rope");
     singulativeMassNounArray.push("length&nbspof&nbsprope");
@@ -1828,6 +1946,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("saliva");
     singulativeMassNounArray.push("drop&nbspof&nbspsaliva");
@@ -1858,6 +1978,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("salt");
     singulativeMassNounArray.push("pinch&nbspof&nbspsalt");
@@ -1888,6 +2010,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("salty");
 
 massNounArray.push("sand");
     singulativeMassNounArray.push("grain&nbspof&nbspsand");
@@ -1918,6 +2042,8 @@ shapeClassifierArraypossessorOfMass.push("flat");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("sap");
     singulativeMassNounArray.push("drop&nbspof&nbspsap");
@@ -1948,6 +2074,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("sauce");
     singulativeMassNounArray.push("portion&nbspof&nbspsauce");
@@ -1978,6 +2106,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("sight");
     singulativeMassNounArray.push("glimpse&nbspof&nbspsight");
@@ -2008,6 +2138,8 @@ shapeClassifierArraypossessorOfMass.push("round");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push(["watchful", "observant", "peering", "insightful"]);
 
 massNounArray.push("skin");
     singulativeMassNounArray.push("piece&nbspof&nbspskin");
@@ -2038,6 +2170,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("smoke");
     singulativeMassNounArray.push("wisp&nbspof&nbspsmoke");
@@ -2068,6 +2202,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("smoky");
 
 massNounArray.push("smoked&nbspmeat");
     singulativeMassNounArray.push("chunk&nbspof&nbspsmoked&nbspmeat");
@@ -2098,6 +2234,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("snow");
     singulativeMassNounArray.push("handful&nbspof&nbspsnow");
@@ -2128,6 +2266,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("snowy");
 
 massNounArray.push("soup");
     singulativeMassNounArray.push("bowl&nbspof&nbspsoup");
@@ -2158,6 +2298,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("steam");
     singulativeMassNounArray.push("wisp&nbspof&nbspsteam");
@@ -2188,6 +2330,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("straw");
     singulativeMassNounArray.push("bale&nbspof&nbspstraw");
@@ -2218,6 +2362,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("string");
     singulativeMassNounArray.push("length&nbspof&nbspstring");
@@ -2248,6 +2394,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("sweat");
     singulativeMassNounArray.push("bead&nbspof&nbspsweat");
@@ -2278,6 +2426,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("sweaty");
 
 massNounArray.push("trickery");
     singulativeMassNounArray.push("act&nbspof&nbsptrickery");
@@ -2307,7 +2457,9 @@ animacyClassifierArraypossessorOfMass.push("man");
 shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("human2");
 etymologyMassNoun.push("X");
-etymologyArrayMassNoun.push("X");
+etymologyArrayMassNoun.push("deceptive");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("truth");
     singulativeMassNounArray.push("ounce&nbspof&nbsptruth");
@@ -2338,6 +2490,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("human2");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push(["true", "honest", "real", "genuine"]);
 
 massNounArray.push("vigour");
     singulativeMassNounArray.push("display&nbspof&nbspvigour");
@@ -2368,6 +2522,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("human2");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("vigourous");
 
 massNounArray.push("vinegar");
     singulativeMassNounArray.push("drop&nbspof&nbspvinegar");
@@ -2398,6 +2554,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("water");
     singulativeMassNounArray.push("drop&nbspof&nbspwater");
@@ -2428,6 +2586,8 @@ shapeClassifierArraypossessorOfMass.push("long-and-slender");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("wet");
 
 massNounArray.push("wind");
     singulativeMassNounArray.push("gust&nbspof&nbspwind");
@@ -2458,6 +2618,8 @@ shapeClassifierArraypossessorOfMass.push("shapeless");
 shortGenericClassifierArraypossessorOfMass.push("natural-inanimate");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("wine");
     singulativeMassNounArray.push("glass&nbspof&nbspwine");
@@ -2488,6 +2650,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("wood");
     singulativeMassNounArray.push("chunk&nbspof&nbspwood");
@@ -2518,6 +2682,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 
 massNounArray.push("work");
     singulativeMassNounArray.push("period&nbspof&nbspwork");
@@ -2548,6 +2714,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("labourious");
 
 massNounArray.push("yeast");
     singulativeMassNounArray.push("bit&nbspof&nbspyeast");
@@ -2578,6 +2746,8 @@ shapeClassifierArraypossessorOfMass.push("X");
 shortGenericClassifierArraypossessorOfMass.push("X");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
+/*--------------------------------------------*/
+possessorOfQualityMass.push("X");
 };
 
 let generateLanguageButton = document.getElementById("generate-language");
@@ -2602,7 +2772,6 @@ massNounArray,
     possessorOfMass,
     etymologyArrayMassNoun, 
     etymologyMassNoun,
-    
 activePassivepossessorOfMass,
 animInanpossessorOfMass,
 divineNonDivinepossessorOfMass,
@@ -2613,5 +2782,6 @@ naturalArtificialpossessorOfMass,
 animacyClassifierArraypossessorOfMass,
 shapeClassifierArraypossessorOfMass,
 shortGenericClassifierArraypossessorOfMass,
-possessorOfMassPlural
+possessorOfMassPlural,
+possessorOfQualityMass
 }

@@ -97,7 +97,7 @@ derivedOrInheritedTransVerb.push("inherited")
     proneADJtrans.push("accusatory");
 derivedOrInheritedTransVerb.push("inherited")
 
-    transitiveVerbArray.push("blow");
+    transitiveVerbArray.push("blowV");
     transitiveVerb3SArray.push("blows");
     transitiveVerbPastArray.push("blew");
     proneADJtrans.push("windy");

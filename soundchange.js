@@ -2415,15 +2415,6 @@ function intialVBecomesHV(wordArray) {
             document.getElementById("intialVBecomesHV-ul").style.display = "block";
         };
     };
-
-    if(vowels.includes(wordArray[1]) && wordArray[0] === "X") {
-        wordArray[0] = "ħ";
-        timesintialVBecomesHV++;
-        if(timesintialVBecomesHV > 0) {
-            document.getElementById("intialVBecomesHV-li").style.display = "block";
-            document.getElementById("intialVBecomesHV-ul").style.display = "block";
-        };
-    };
 };
 
 function intialJBecomesL(wordArray) {

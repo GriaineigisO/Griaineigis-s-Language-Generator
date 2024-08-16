@@ -43,19 +43,21 @@ countNounArrayPlural = [];
     derivedOrInheritedCountNoun = [];
     possessorOfCount = [];
     possessorOfCountPlural = [];
-activePassivepossessorOfCount = [];
-animInanpossessorOfCount = [];
-divineNonDivinepossessorOfCount = [];
-humanAnimalInanpossessorOfCount = [];
-mascFemNeutpossessorOfCount = [];
-mascFempossessorOfCount = [];
-naturalArtificialpossessorOfCount = [];
-animacyClassifierArraypossessorOfCount = [];
-shapeClassifierArraypossessorOfCount = [];
-shortGenericClassifierArraypossessorOfCount = [];
-etymologyCountNoun = [];
-etymologyArrayCountNoun = [];
-possessorOfQualityCount = [];
+    activePassivepossessorOfCount = [];
+    animInanpossessorOfCount = [];
+    divineNonDivinepossessorOfCount = [];
+    humanAnimalInanpossessorOfCount = [];
+    mascFemNeutpossessorOfCount = [];
+    mascFempossessorOfCount = [];
+    naturalArtificialpossessorOfCount = [];
+    animacyClassifierArraypossessorOfCount = [];
+    shapeClassifierArraypossessorOfCount = [];
+    shortGenericClassifierArraypossessorOfCount = [];
+    etymologyCountNoun = [];
+    etymologyArrayCountNoun = [];
+    possessorOfQualityCount = [];
+    etymologyArrayCountNoun = [];
+    etymologyCountNoun = [];
 }
 
 function addWords() {
@@ -91,6 +93,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("adam's&nbspapple");countNounArrayPlural.push("adam's&nbspapples");
 activePassive.push("passive")
 animInan.push("inan");
@@ -120,6 +123,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("affliction");
@@ -154,6 +158,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("afflicted");
 
 
+
 countNounArray.push("alder");
 countNounArrayPlural.push("alders");
 activePassive.push("passive")
@@ -184,6 +189,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("ant");
@@ -218,6 +224,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("anus");
 countNounArrayPlural.push("anuses");
 activePassive.push("passive")
@@ -248,6 +255,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("apple");
@@ -282,6 +290,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("arch");
 countNounArrayPlural.push("arches");
 activePassive.push("passive")
@@ -312,6 +321,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("arm");
@@ -346,6 +356,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("army");
 countNounArrayPlural.push("armies");
 activePassive.push("active")
@@ -376,6 +387,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["militaristic", "powerful", "in-charge", "in-command", "commanding"]);
+
 
 
 countNounArray.push("arrow");
@@ -410,6 +422,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("attack");
 countNounArrayPlural.push("attacks");
 activePassive.push("active")
@@ -440,6 +453,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("audience");
@@ -474,6 +488,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push(["famous", "well-known", "popular"]);
 
 
+
 countNounArray.push("auger");
 countNounArrayPlural.push("augers");
 activePassive.push("active")
@@ -506,6 +521,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("autumn");
 countNounArrayPlural.push("autumns");
 activePassive.push("passive")
@@ -536,6 +552,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("axe");
@@ -602,6 +619,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("badger");
 countNounArrayPlural.push("badgers");
 activePassive.push("active")
@@ -634,6 +652,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bag");
 countNounArrayPlural.push("bags");
 activePassive.push("passive")
@@ -662,6 +681,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("equipt");
+
 
 countNounArray.push("ball");
 countNounArrayPlural.push("balls");
@@ -693,6 +713,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("band");
@@ -727,6 +748,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("accompanied");
 
 
+
 countNounArray.push("banquet");
 countNounArrayPlural.push("banquets");
 activePassive.push("passive")
@@ -757,6 +779,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("bar");
@@ -791,6 +814,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("barrow");
 countNounArrayPlural.push("barrows");
 activePassive.push("passive")
@@ -823,6 +847,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push(["honoured&nbspin&nbspdeath", "eternally&nbspfamous"]);
 
 
+
 countNounArray.push("basin");
 countNounArrayPlural.push("basins");
 activePassive.push("passive")
@@ -853,6 +878,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("basket");
@@ -919,6 +945,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("beak");
 countNounArrayPlural.push("beaks");
 activePassive.push("passive")
@@ -949,6 +976,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("beam");
@@ -983,6 +1011,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bean");
 countNounArrayPlural.push("beans");
 activePassive.push("passive")
@@ -1013,6 +1042,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("bear");
@@ -1047,6 +1077,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("beard");
 countNounArrayPlural.push("beards");
 activePassive.push("passive")
@@ -1077,6 +1108,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["manly", "virile"]);
+
 
 
 countNounArray.push("beaver");
@@ -1111,6 +1143,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bed");
 countNounArrayPlural.push("beds");
 activePassive.push("passive")
@@ -1141,6 +1174,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("bedroom");
@@ -1175,6 +1209,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bee");
 countNounArrayPlural.push("bees");
 activePassive.push("active")
@@ -1205,6 +1240,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("beech");
@@ -1239,6 +1275,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("belt");
 countNounArrayPlural.push("belts");
 activePassive.push("active");
@@ -1269,6 +1306,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("clothed");
+
 
 
 countNounArray.push("berry");
@@ -1303,6 +1341,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bird");
 countNounArrayPlural.push("birds");
 activePassive.push("active");
@@ -1335,6 +1374,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("birdsong");
 countNounArrayPlural.push("birdsongs");
 activePassive.push("passive")
@@ -1365,6 +1405,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("birth");
@@ -1431,6 +1472,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("blackbird");
 countNounArrayPlural.push("blackbirds");
 activePassive.push("active")
@@ -1463,6 +1505,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bladder");
 countNounArrayPlural.push("bladders");
 activePassive.push("passive")
@@ -1493,6 +1536,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("blade");
@@ -1559,6 +1603,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("blow");
 countNounArrayPlural.push("blows");
 activePassive.push("passive")
@@ -1589,6 +1634,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("boar");
@@ -1623,6 +1669,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("board");
 countNounArrayPlural.push("boards");
 activePassive.push("passive")
@@ -1653,6 +1700,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("boat");
@@ -1751,6 +1799,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bone");
 countNounArrayPlural.push("bones");
 activePassive.push("passive")
@@ -1847,6 +1896,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("border");
 countNounArrayPlural.push("borders");
 activePassive.push("passive")
@@ -1911,6 +1961,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("boulder");
 countNounArrayPlural.push("boulders");
 activePassive.push("passive")
@@ -1941,6 +1992,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("bow");
@@ -1975,6 +2027,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bowl");
 countNounArrayPlural.push("bowls");
 activePassive.push("passive")
@@ -2005,6 +2058,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("bowstring");
@@ -2039,6 +2093,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("boy");
 countNounArrayPlural.push("boys");
 activePassive.push("active")
@@ -2069,6 +2124,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("bracelet");
@@ -2103,6 +2159,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("brain");
 countNounArrayPlural.push("brains");
 activePassive.push("passive")
@@ -2133,6 +2190,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("branch");
@@ -2167,6 +2225,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("breast");
 countNounArrayPlural.push("breasts");
 activePassive.push("passive")
@@ -2197,6 +2256,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("breath");
@@ -2263,6 +2323,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("broom");
 countNounArrayPlural.push("brooms");
 activePassive.push("passive")
@@ -2293,6 +2354,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("brother");
@@ -2327,6 +2389,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("brow");
 countNounArrayPlural.push("brows");
 activePassive.push("passive")
@@ -2357,6 +2420,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("buck");
@@ -2391,6 +2455,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bucket");
 countNounArrayPlural.push("buckets");
 activePassive.push("passive")
@@ -2421,6 +2486,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("buffet");
@@ -2455,6 +2521,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("building");
 countNounArrayPlural.push("buildings");
 activePassive.push("passive")
@@ -2485,6 +2552,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("bull");
@@ -2519,6 +2587,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("bump");
 countNounArrayPlural.push("bumps");
 activePassive.push("passive")
@@ -2549,6 +2618,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("burden");
@@ -2615,6 +2685,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("butterfly");
 countNounArrayPlural.push("butterflies");
 activePassive.push("active")
@@ -2645,6 +2716,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("butt");
@@ -2679,6 +2751,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("cabin");
 countNounArrayPlural.push("cabins");
 activePassive.push("passive")
@@ -2709,6 +2782,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("cage");
@@ -2743,6 +2817,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("carp");
 countNounArrayPlural.push("carps");
 activePassive.push("active")
@@ -2773,6 +2848,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("carrot");
@@ -2807,6 +2883,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("cat");
 countNounArrayPlural.push("cats");
 activePassive.push("active")
@@ -2837,6 +2914,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("caterpillar");
@@ -2871,6 +2949,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("cauldron");
 countNounArrayPlural.push("cauldrons");
 activePassive.push("passive")
@@ -2901,6 +2980,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("cave");
@@ -2935,6 +3015,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("cavity");
 countNounArrayPlural.push("cavities");
 activePassive.push("passive")
@@ -2965,6 +3046,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("cedar");
@@ -2999,6 +3081,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("cell");
 countNounArrayPlural.push("cells");
 activePassive.push("passive")
@@ -3029,6 +3112,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("change");
@@ -3063,6 +3147,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("chair");
 countNounArrayPlural.push("chairs");
 activePassive.push("passive")
@@ -3093,6 +3178,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("chariot");
@@ -3159,6 +3245,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("chicken");
 countNounArrayPlural.push("chickens");
 activePassive.push("active")
@@ -3191,6 +3278,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("chickpea");
 countNounArrayPlural.push("chickpeas");
 activePassive.push("passive")
@@ -3221,6 +3309,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("child");
@@ -3287,6 +3376,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("chunk");
 countNounArrayPlural.push("chunks");
 activePassive.push("passive")
@@ -3317,6 +3407,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("circle");
@@ -3351,6 +3442,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("clan");
 countNounArrayPlural.push("clans");
 activePassive.push("active")
@@ -3381,6 +3473,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("cliff");
@@ -3415,6 +3508,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("cloak");
 countNounArrayPlural.push("cloaks");
 activePassive.push("passive")
@@ -3447,6 +3541,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("cloud");
 countNounArrayPlural.push("clouds");
 activePassive.push("passive")
@@ -3476,7 +3571,7 @@ shortGenericClassifierArraypossessorOfCount.push("X");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
-possessorOfQualityCount.push("celestial");
+possessorOfQualityCount.push(["celestial", "cloudy"]);
 
 
 countNounArray.push("club");
@@ -3509,6 +3604,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("club-weilding");
+/*----------------------------------------*/
 
 
 countNounArray.push("cluster");
@@ -3543,6 +3639,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("coin");
 countNounArrayPlural.push("coins");
 activePassive.push("passive")
@@ -3573,6 +3670,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["wealthy", "rich"]);
+/*----------------------------------------*/
 
 
 countNounArray.push("column");
@@ -3605,6 +3703,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("comb");
@@ -3671,6 +3770,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("confluence");
 countNounArrayPlural.push("confluences");
 activePassive.push("passive")
@@ -3701,6 +3801,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("coot");
@@ -3735,6 +3836,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("corner");
 countNounArrayPlural.push("corner");
 activePassive.push("passive")
@@ -3765,6 +3867,8 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+/*----------------------------------------*/
+
 
 
 countNounArray.push("council");
@@ -3797,6 +3901,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("cow");
@@ -3863,6 +3968,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("crab");
 countNounArrayPlural.push("crabs");
 activePassive.push("active")
@@ -3893,6 +3999,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("cradle");
@@ -3927,6 +4034,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("craftsman");
 countNounArrayPlural.push("craftsmen");
 activePassive.push("active")
@@ -3957,6 +4065,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("crane");
@@ -3991,6 +4100,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("crease");
 countNounArrayPlural.push("creases");
 activePassive.push("passive")
@@ -4021,6 +4131,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("creature");
@@ -4055,6 +4166,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("crime");
 countNounArrayPlural.push("crimes");
 activePassive.push("passive")
@@ -4085,6 +4197,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("criminal");
@@ -4119,6 +4232,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("crow");
 countNounArrayPlural.push("crows");
 activePassive.push("active")
@@ -4149,6 +4263,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("crowd");
@@ -4183,6 +4298,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("crown");
 countNounArrayPlural.push("crowns");
 activePassive.push("passive")
@@ -4195,7 +4311,6 @@ naturalArtificial.push("artificial");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
-
 derivedOrInheritedCountNoun.push("inherited");
 /*--------------------------------------------*/
 possessorOfCount.push("X");
@@ -4214,6 +4329,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("cuckoo");
@@ -4248,6 +4364,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("cup");
 countNounArrayPlural.push("cups");
 activePassive.push("passive")
@@ -4278,6 +4395,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("curve");
@@ -4312,6 +4430,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("curved&nbspbeam");
 countNounArrayPlural.push("curved&nbspbeams");
 activePassive.push("passive")
@@ -4342,6 +4461,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("custom");
@@ -4376,6 +4496,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("daughter");
 countNounArrayPlural.push("daughters");
 activePassive.push("active")
@@ -4406,6 +4527,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("dawn");
@@ -4440,6 +4562,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("day");
 countNounArrayPlural.push("days");
 activePassive.push("passive")
@@ -4470,6 +4593,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("deer");
@@ -4504,6 +4628,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("dent");
 countNounArrayPlural.push("dents");
 activePassive.push("passive")
@@ -4534,6 +4659,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("dice");
@@ -4568,6 +4694,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("dinner");
 countNounArrayPlural.push("dinners");
 activePassive.push("passive")
@@ -4598,6 +4725,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("dip");
@@ -4632,6 +4760,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("direction");
 countNounArrayPlural.push("directions");
 activePassive.push("passive")
@@ -4662,6 +4791,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("ditch");
@@ -4696,6 +4826,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("dog");
 countNounArrayPlural.push("dogs");
 activePassive.push("active")
@@ -4726,6 +4857,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("dolphin");
@@ -4760,6 +4892,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("donkey");
 countNounArrayPlural.push("donkeys");
 activePassive.push("active")
@@ -4790,6 +4923,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("door");
@@ -4824,6 +4958,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("doorjam");
 countNounArrayPlural.push("doorjams");
 activePassive.push("passive")
@@ -4854,6 +4989,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("dormouse");
@@ -4888,6 +5024,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("dorsal&nbspfin");
 countNounArrayPlural.push("dorsal&nbspfins");
 activePassive.push("passive")
@@ -4918,6 +5055,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("dragon");
@@ -4952,6 +5090,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("dream");
 countNounArrayPlural.push("dreams");
 activePassive.push("active")
@@ -4982,6 +5121,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("drop");
@@ -5016,6 +5156,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("duck");
 countNounArrayPlural.push("ducks");
 activePassive.push("active")
@@ -5046,6 +5187,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("dugout");
@@ -5080,6 +5222,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("eagle");
 countNounArrayPlural.push("eagles");
 activePassive.push("active")
@@ -5110,6 +5253,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("ear");
@@ -5144,6 +5288,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("edge");
 countNounArrayPlural.push("edges");
 activePassive.push("passive")
@@ -5174,6 +5319,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("eel");
@@ -5208,6 +5354,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("egg");
 countNounArrayPlural.push("eggs");
 activePassive.push("passive")
@@ -5240,6 +5387,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("elbow");
 countNounArrayPlural.push("elbows");
 activePassive.push("passive")
@@ -5247,7 +5395,7 @@ animInan.push("inan");
 divineNonDivine.push("profane");
 humanAnimalInan.push("secondinanimate");
 mascFemNeut.push("neuter");
-mascFem.push("feminine2");
+mascFem.push("feminine1");
 naturalArtificial.push("natural");
 animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
@@ -5270,6 +5418,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("elk");
@@ -5304,6 +5453,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("elm");
 countNounArrayPlural.push("elms");
 activePassive.push("passive")
@@ -5334,6 +5484,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("embrace");
@@ -5368,6 +5519,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("emotion");
 countNounArrayPlural.push("emotions");
 activePassive.push("passive")
@@ -5398,6 +5550,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("enclosure");
@@ -5432,6 +5585,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("enemy");
 countNounArrayPlural.push("enemies");
 activePassive.push("active")
@@ -5462,6 +5616,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("estuary");
@@ -5496,6 +5651,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("ewe");
 countNounArrayPlural.push("ewes");
 activePassive.push("active")
@@ -5526,6 +5682,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("exchange");
@@ -5560,6 +5717,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("eye");
 countNounArrayPlural.push("eyes");
 activePassive.push("passive")
@@ -5590,6 +5748,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("eyebrow");
@@ -5624,6 +5783,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("face");
 countNounArrayPlural.push("faces");
 activePassive.push("passive")
@@ -5654,6 +5814,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("falcon");
@@ -5688,6 +5849,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("family");
 countNounArrayPlural.push("families");
 activePassive.push("active")
@@ -5718,6 +5880,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("father");
@@ -5752,6 +5915,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("favour");
 countNounArrayPlural.push("favours");
 activePassive.push("passive")
@@ -5782,6 +5946,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("feast");
@@ -5816,6 +5981,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("fence");
 countNounArrayPlural.push("fences");
 activePassive.push("passive")
@@ -5846,6 +6012,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("festival");
@@ -5880,6 +6047,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("field");
 countNounArrayPlural.push("fields");
 activePassive.push("passive")
@@ -5910,6 +6078,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("finger");
@@ -5944,6 +6113,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("finch");
 countNounArrayPlural.push("finches");
 activePassive.push("active")
@@ -5974,6 +6144,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("fir");
@@ -6008,6 +6179,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("fire");
 countNounArrayPlural.push("fires");
 activePassive.push("active")
@@ -6038,6 +6210,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("fish");
@@ -6072,6 +6245,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("fist");
 countNounArrayPlural.push("fists");
 activePassive.push("active")
@@ -6102,6 +6276,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("flock");
@@ -6136,6 +6311,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("floor");
 countNounArrayPlural.push("floors");
 activePassive.push("passive")
@@ -6166,6 +6342,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("flower");
@@ -6200,6 +6377,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("fly");
 countNounArrayPlural.push("flies");
 activePassive.push("active")
@@ -6230,6 +6408,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("fold");
@@ -6264,6 +6443,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("foot");
 countNounArrayPlural.push("feet");
 activePassive.push("passive")
@@ -6294,6 +6474,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("footprint");
@@ -6328,6 +6509,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("forearm");
 countNounArrayPlural.push("forearms");
 activePassive.push("passive")
@@ -6358,6 +6540,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("forehead");
@@ -6392,6 +6575,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("foreigner");
 countNounArrayPlural.push("foreigners");
 activePassive.push("active")
@@ -6422,6 +6606,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("forest");
@@ -6456,6 +6641,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("fork");
 countNounArrayPlural.push("forks");
 activePassive.push("passive")
@@ -6486,6 +6672,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("fort");
@@ -6520,6 +6707,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("fortification");
 countNounArrayPlural.push("fortifications");
 activePassive.push("passive")
@@ -6550,6 +6738,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("freeman");
@@ -6584,6 +6773,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("friend");
 countNounArrayPlural.push("friends");
 activePassive.push("active")
@@ -6614,6 +6804,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("frog");
@@ -6648,6 +6839,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("furnace");
 countNounArrayPlural.push("furnaces");
 activePassive.push("passive")
@@ -6678,6 +6870,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("furrow");
@@ -6712,6 +6905,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("gate");
 countNounArrayPlural.push("gates");
 activePassive.push("passive")
@@ -6742,6 +6936,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("genocide");
@@ -6776,6 +6971,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("gift");
 countNounArrayPlural.push("gifts");
 activePassive.push("passive")
@@ -6806,6 +7002,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("girl");
@@ -6840,6 +7037,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("gland");
 countNounArrayPlural.push("glands");
 activePassive.push("passive")
@@ -6870,6 +7068,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("glove");
@@ -6904,6 +7103,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("gnat");
 countNounArrayPlural.push("gnats");
 activePassive.push("active")
@@ -6934,6 +7134,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("goat");
@@ -6968,6 +7169,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("god");
 countNounArrayPlural.push("gods");
 activePassive.push("active")
@@ -6998,6 +7200,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("good&nbspdeed");
@@ -7032,6 +7235,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("goose");
 countNounArrayPlural.push("geese");
 activePassive.push("active")
@@ -7062,6 +7266,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("gosling");
@@ -7096,6 +7301,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("grain");
 countNounArrayPlural.push("grains");
 activePassive.push("passive")
@@ -7126,6 +7332,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("granddaughter");
@@ -7160,6 +7367,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("grandfather");
 countNounArrayPlural.push("grandfathers");
 activePassive.push("active")
@@ -7190,6 +7398,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("grandmother");
@@ -7224,6 +7433,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("grandson");
 countNounArrayPlural.push("grandsons");
 activePassive.push("active")
@@ -7254,6 +7464,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("grave");
@@ -7288,6 +7499,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("groove");
 countNounArrayPlural.push("grooves");
 activePassive.push("passive")
@@ -7318,6 +7530,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("group");
@@ -7352,6 +7565,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("grunt");
 countNounArrayPlural.push("grunts");
 activePassive.push("passive")
@@ -7382,6 +7596,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("guest");
@@ -7416,6 +7631,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("guitar");
 countNounArrayPlural.push("guitars");
 activePassive.push("passive")
@@ -7446,6 +7662,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("gull");
@@ -7480,6 +7697,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("gullet");
 countNounArrayPlural.push("gullets");
 activePassive.push("passive")
@@ -7510,6 +7728,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("gulley");
@@ -7544,6 +7763,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("gum");
 countNounArrayPlural.push("gums");
 activePassive.push("passive")
@@ -7574,6 +7794,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hall");
@@ -7608,6 +7829,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hammer");
 countNounArrayPlural.push("hammers");
 activePassive.push("active")
@@ -7638,6 +7860,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hand");
@@ -7672,6 +7895,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("handle");
 countNounArrayPlural.push("handles");
 activePassive.push("passive")
@@ -7702,6 +7926,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hare");
@@ -7736,6 +7961,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("harp");
 countNounArrayPlural.push("harps");
 activePassive.push("passive")
@@ -7766,6 +7992,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hat");
@@ -7800,6 +8027,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hawk");
 countNounArrayPlural.push("hawks");
 activePassive.push("active")
@@ -7830,6 +8058,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hawthorn");
@@ -7864,6 +8093,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hazel");
 countNounArrayPlural.push("hazels");
 activePassive.push("passive")
@@ -7894,6 +8124,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("head");
@@ -7928,6 +8159,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("heart");
 countNounArrayPlural.push("hearts");
 activePassive.push("passive")
@@ -7958,6 +8190,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hearth");
@@ -7992,6 +8225,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hedgehog");
 countNounArrayPlural.push("hedgehogs");
 activePassive.push("active")
@@ -8022,6 +8256,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("height");
@@ -8056,6 +8291,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hemlet");
 countNounArrayPlural.push("helmets");
 activePassive.push("passive")
@@ -8086,6 +8322,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("henbane");
@@ -8120,6 +8357,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("herd");
 countNounArrayPlural.push("herds");
 activePassive.push("passive")
@@ -8150,6 +8388,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hill");
@@ -8184,6 +8423,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hip");
 countNounArrayPlural.push("hips");
 activePassive.push("passive")
@@ -8214,6 +8454,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hole");
@@ -8248,6 +8489,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("home");
 countNounArrayPlural.push("homes");
 activePassive.push("passive")
@@ -8278,6 +8520,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("honour");
@@ -8312,6 +8555,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hood");
 countNounArrayPlural.push("hoods");
 activePassive.push("passive")
@@ -8342,6 +8586,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hoof");
@@ -8376,6 +8621,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hook");
 countNounArrayPlural.push("hooks");
 activePassive.push("passive")
@@ -8406,6 +8652,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("horn");
@@ -8440,6 +8687,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hornet");
 countNounArrayPlural.push("hornets");
 activePassive.push("active")
@@ -8470,6 +8718,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("horse");
@@ -8504,6 +8753,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("horsefly");
 countNounArrayPlural.push("horseflies");
 activePassive.push("active")
@@ -8534,6 +8784,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("hostage");
@@ -8568,6 +8819,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("house");
 countNounArrayPlural.push("houses");
 activePassive.push("passive")
@@ -8598,6 +8850,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("howl");
@@ -8632,6 +8885,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("hug");
 countNounArrayPlural.push("hugs");
 activePassive.push("passive")
@@ -8662,6 +8916,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("human");
@@ -8696,6 +8951,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("husband");
 countNounArrayPlural.push("husbands");
 activePassive.push("active")
@@ -8726,6 +8982,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("icicle");
@@ -8760,6 +9017,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("insect");
 countNounArrayPlural.push("insects");
 activePassive.push("active")
@@ -8790,6 +9048,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("island");
@@ -8824,6 +9083,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("javelin");
 countNounArrayPlural.push("javelins");
 activePassive.push("passive")
@@ -8854,6 +9114,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("jaw");
@@ -8888,6 +9149,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("jay");
 countNounArrayPlural.push("jays");
 activePassive.push("active")
@@ -8918,6 +9180,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("jewel");
@@ -8952,6 +9215,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("journey");
 countNounArrayPlural.push("journeys");
 activePassive.push("passive")
@@ -8982,6 +9246,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("juniper");
@@ -9016,6 +9281,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("kernel");
 countNounArrayPlural.push("kernels");
 activePassive.push("passive")
@@ -9046,6 +9312,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("kidney");
@@ -9080,6 +9347,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("king");
 countNounArrayPlural.push("kings");
 activePassive.push("active")
@@ -9110,6 +9378,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("kiss");
@@ -9144,6 +9413,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("kitten");
 countNounArrayPlural.push("kittens");
 activePassive.push("active")
@@ -9174,6 +9444,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("knee");
@@ -9208,6 +9479,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("knife");
 countNounArrayPlural.push("knives");
 activePassive.push("active")
@@ -9238,6 +9510,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("knuckle");
@@ -9272,6 +9545,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("lake");
 countNounArrayPlural.push("lakes");
 activePassive.push("passive")
@@ -9302,6 +9576,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("lamb");
@@ -9336,6 +9611,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("land");
 countNounArrayPlural.push("lands");
 activePassive.push("passive")
@@ -9366,6 +9642,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("language");
@@ -9400,6 +9677,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("larva");
 countNounArrayPlural.push("larvae");
 activePassive.push("active")
@@ -9430,6 +9708,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("laugh");
@@ -9464,6 +9743,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("leaf");
 countNounArrayPlural.push("leaves");
 activePassive.push("passive")
@@ -9494,6 +9774,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("leech");
@@ -9528,6 +9809,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("leg");
 countNounArrayPlural.push("legs");
 activePassive.push("passive")
@@ -9558,6 +9840,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("lever");
@@ -9592,6 +9875,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("libation");
 countNounArrayPlural.push("libations");
 activePassive.push("passive")
@@ -9622,6 +9906,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("limb");
@@ -9656,6 +9941,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("lineage");
 countNounArrayPlural.push("lineages");
 activePassive.push("passive")
@@ -9686,6 +9972,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("lion");
@@ -9720,6 +10007,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("lip");
 countNounArrayPlural.push("lips");
 activePassive.push("passive")
@@ -9750,6 +10038,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("liver");
@@ -9784,6 +10073,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("log");
 countNounArrayPlural.push("logs");
 activePassive.push("passive")
@@ -9814,6 +10104,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("lord");
@@ -9848,6 +10139,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("louse");
 countNounArrayPlural.push("lice");
 activePassive.push("active")
@@ -9878,6 +10170,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("lung");
@@ -9912,6 +10205,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("lynx");
 countNounArrayPlural.push("lynxes");
 activePassive.push("active")
@@ -9942,6 +10236,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("mace");
@@ -9976,6 +10271,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("maggot");
 countNounArrayPlural.push("maggots");
 activePassive.push("active")
@@ -10006,6 +10302,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("magpie");
@@ -10040,6 +10337,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("mallet");
 countNounArrayPlural.push("mallets");
 activePassive.push("passive")
@@ -10070,6 +10368,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("mammoth");
@@ -10104,6 +10403,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("man");
 countNounArrayPlural.push("men");
 activePassive.push("active")
@@ -10134,6 +10434,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("mane");
@@ -10168,6 +10469,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("map");
 countNounArrayPlural.push("maps");
 activePassive.push("passive")
@@ -10198,6 +10500,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("maple");
@@ -10232,6 +10535,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("mare");
 countNounArrayPlural.push("mares");
 activePassive.push("active")
@@ -10262,6 +10566,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("market");
@@ -10296,6 +10601,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("married&nbspcouple");
 countNounArrayPlural.push("married&nbspcouples");
 activePassive.push("active")
@@ -10326,6 +10632,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("marsh");
@@ -10360,6 +10667,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("marten");
 countNounArrayPlural.push("martens");
 activePassive.push("active")
@@ -10390,6 +10698,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("massacre");
@@ -10424,6 +10733,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("master");
 countNounArrayPlural.push("masters");
 activePassive.push("active")
@@ -10454,6 +10764,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("maternal&nbspkinsman");
@@ -10488,6 +10799,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("meadow");
 countNounArrayPlural.push("meadows");
 activePassive.push("passive")
@@ -10518,6 +10830,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("meeting");
@@ -10552,6 +10865,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("membrane");
 countNounArrayPlural.push("membranes");
 activePassive.push("passive")
@@ -10582,6 +10896,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("memory");
@@ -10616,6 +10931,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("mill");
 countNounArrayPlural.push("mills");
 activePassive.push("passive")
@@ -10646,6 +10962,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("mirror");
@@ -10680,6 +10997,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("mistress");
 countNounArrayPlural.push("mistresses");
 activePassive.push("active")
@@ -10710,6 +11028,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("moon");
@@ -10744,6 +11063,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("mother");
 countNounArrayPlural.push("mothers");
 activePassive.push("active")
@@ -10774,6 +11094,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("mountain");
@@ -10808,6 +11129,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("mouse");
 countNounArrayPlural.push("mice");
 activePassive.push("active")
@@ -10838,6 +11160,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("mouth");
@@ -10872,6 +11195,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("mushroom");
 countNounArrayPlural.push("mushrooms");
 activePassive.push("passive")
@@ -10902,6 +11226,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("mussel");
@@ -10936,6 +11261,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("nail");
 countNounArrayPlural.push("nails");
 activePassive.push("passive")
@@ -10966,6 +11292,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("name");
@@ -11000,6 +11327,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("navel");
 countNounArrayPlural.push("navels");
 activePassive.push("passive")
@@ -11030,6 +11358,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("neck");
@@ -11064,6 +11393,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("necklace");
 countNounArrayPlural.push("necklaces");
 activePassive.push("passive")
@@ -11094,6 +11424,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("needle");
@@ -11128,6 +11459,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("neighbour");
 countNounArrayPlural.push("neighbours");
 activePassive.push("active")
@@ -11158,6 +11490,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("nest");
@@ -11192,6 +11525,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("net");
 countNounArrayPlural.push("nets");
 activePassive.push("passive")
@@ -11222,6 +11556,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("nettle");
@@ -11256,6 +11591,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("night");
 countNounArrayPlural.push("nights");
 activePassive.push("passive")
@@ -11286,6 +11622,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("nipple");
@@ -11320,6 +11657,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("noon");
 countNounArrayPlural.push("noons");
 activePassive.push("passive")
@@ -11350,6 +11688,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("nose");
@@ -11384,6 +11723,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("notch");
 countNounArrayPlural.push("notches");
 activePassive.push("passive")
@@ -11414,6 +11754,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("nut");
@@ -11448,6 +11789,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("oak");
 countNounArrayPlural.push("oaks");
 activePassive.push("passive")
@@ -11478,6 +11820,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("oar");
@@ -11512,6 +11855,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("oath");
 countNounArrayPlural.push("oaths");
 activePassive.push("passive")
@@ -11542,6 +11886,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("onion");
@@ -11576,6 +11921,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("origin");
 countNounArrayPlural.push("origins");
 activePassive.push("passive")
@@ -11606,6 +11952,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("orphan");
@@ -11640,6 +11987,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("otter");
 countNounArrayPlural.push("otters");
 activePassive.push("active")
@@ -11670,6 +12018,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("oven");
@@ -11704,6 +12053,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("owl");
 countNounArrayPlural.push("owls");
 activePassive.push("active")
@@ -11734,6 +12084,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("ox");
@@ -11768,6 +12119,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("page");
 countNounArrayPlural.push("pages");
 activePassive.push("passive")
@@ -11798,6 +12150,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("palm");
@@ -11832,6 +12185,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("pasture");
 countNounArrayPlural.push("pastures");
 activePassive.push("passive")
@@ -11862,6 +12216,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("paternal&nbspkinsman");
@@ -11896,6 +12251,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("path");
 countNounArrayPlural.push("paths");
 activePassive.push("passive")
@@ -11926,6 +12282,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("paw");
@@ -11960,6 +12317,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("pea");
 countNounArrayPlural.push("peas");
 activePassive.push("passive")
@@ -11990,6 +12348,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("pebble");
@@ -12024,6 +12383,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("peg");
 countNounArrayPlural.push("pegs");
 activePassive.push("passive")
@@ -12054,6 +12414,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("pendant");
@@ -12088,6 +12449,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("penis");
 countNounArrayPlural.push("penises");
 activePassive.push("passive")
@@ -12118,6 +12480,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("perch");
@@ -12152,6 +12515,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("person");
 countNounArrayPlural.push("people");
 activePassive.push("active")
@@ -12182,6 +12546,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("phantom");
@@ -12216,6 +12581,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("pick");
 countNounArrayPlural.push("picks");
 activePassive.push("passive")
@@ -12246,6 +12612,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("pig");
@@ -12280,6 +12647,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("piglet");
 countNounArrayPlural.push("piglets");
 activePassive.push("active")
@@ -12310,6 +12678,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("pike");
@@ -12344,6 +12713,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("pillar");
 countNounArrayPlural.push("pillars");
 activePassive.push("passive")
@@ -12374,6 +12744,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("pin");
@@ -12408,6 +12779,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("pit");
 countNounArrayPlural.push("pits");
 activePassive.push("passive")
@@ -12438,6 +12810,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("place");
@@ -12472,6 +12845,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("plank");
 countNounArrayPlural.push("planks");
 activePassive.push("passive")
@@ -12502,6 +12876,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("plough");
@@ -12536,6 +12911,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("poem");
 countNounArrayPlural.push("poems");
 activePassive.push("passive")
@@ -12566,6 +12942,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("poet");
@@ -12600,6 +12977,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("point");
 countNounArrayPlural.push("points");
 activePassive.push("passive")
@@ -12630,6 +13008,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("pole");
@@ -12664,6 +13043,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("polecat");
 countNounArrayPlural.push("polecats");
 activePassive.push("active")
@@ -12694,6 +13074,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("pool");
@@ -12728,6 +13109,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("poplar");
 countNounArrayPlural.push("poplars");
 activePassive.push("passive")
@@ -12758,6 +13140,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("poppy");
@@ -12792,6 +13175,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("post");
 countNounArrayPlural.push("posts");
 activePassive.push("passive")
@@ -12822,6 +13206,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("pot");
@@ -12856,6 +13241,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("potato");
 countNounArrayPlural.push("potatoes");
 activePassive.push("passive")
@@ -12886,6 +13272,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("prayer");
@@ -12920,6 +13307,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("priest");
 countNounArrayPlural.push("priests");
 activePassive.push("active")
@@ -12950,6 +13338,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("price");
@@ -12984,6 +13373,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("prize");
 countNounArrayPlural.push("prizes");
 activePassive.push("passive")
@@ -13014,6 +13404,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("problem");
@@ -13048,6 +13439,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("projection");
 countNounArrayPlural.push("projections");
 activePassive.push("passive")
@@ -13078,6 +13470,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("proverb");
@@ -13112,6 +13505,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("puppy");
 countNounArrayPlural.push("puppies");
 activePassive.push("active")
@@ -13142,6 +13536,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("purchase");
@@ -13176,6 +13571,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("rabbit");
 countNounArrayPlural.push("rabbits");
 activePassive.push("active")
@@ -13206,6 +13602,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("race");
@@ -13240,6 +13637,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("rag");
 countNounArrayPlural.push("rags");
 activePassive.push("passive")
@@ -13270,6 +13668,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("ram");
@@ -13304,6 +13703,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("raven");
 countNounArrayPlural.push("ravens");
 activePassive.push("active")
@@ -13334,6 +13734,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("ravine");
@@ -13368,6 +13769,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("razor");
 countNounArrayPlural.push("razors");
 activePassive.push("passive")
@@ -13398,6 +13800,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("realm");
@@ -13432,6 +13835,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("reed");
 countNounArrayPlural.push("reeds");
 activePassive.push("passive")
@@ -13462,6 +13866,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("relation");
@@ -13496,6 +13901,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("relationship");
 countNounArrayPlural.push("relationships");
 activePassive.push("passive")
@@ -13526,6 +13932,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("rhythm");
@@ -13560,6 +13967,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("rib");
 countNounArrayPlural.push("ribs");
 activePassive.push("passive")
@@ -13590,6 +13998,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("right");
@@ -13624,6 +14033,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("ring");
 countNounArrayPlural.push("rings");
 activePassive.push("passive")
@@ -13654,6 +14064,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("river");
@@ -13688,6 +14099,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("riverbank");
 countNounArrayPlural.push("riverbanks");
 activePassive.push("passive")
@@ -13718,6 +14130,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("road");
@@ -13752,6 +14165,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("rock");
 countNounArrayPlural.push("rocks");
 activePassive.push("passive")
@@ -13782,6 +14196,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("rod");
@@ -13816,6 +14231,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("roll");
 countNounArrayPlural.push("rolls");
 activePassive.push("passive")
@@ -13846,6 +14262,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("roof");
@@ -13880,6 +14297,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("room");
 countNounArrayPlural.push("rooms");
 activePassive.push("passive")
@@ -13910,6 +14328,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("rooster");
@@ -13944,6 +14363,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("root");
 countNounArrayPlural.push("roots");
 activePassive.push("passive")
@@ -13974,6 +14394,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("route");
@@ -14008,6 +14429,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("row");
 countNounArrayPlural.push("rows");
 activePassive.push("passive")
@@ -14038,6 +14460,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("rug");
@@ -14072,6 +14495,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("rule");
 countNounArrayPlural.push("rules");
 activePassive.push("passive")
@@ -14102,6 +14526,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("sail");
@@ -14136,6 +14561,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sailor");
 countNounArrayPlural.push("sailors");
 activePassive.push("active")
@@ -14166,6 +14592,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("salmon");
@@ -14200,6 +14627,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("saying");
 countNounArrayPlural.push("sayings");
 activePassive.push("passive")
@@ -14230,6 +14658,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("scent");
@@ -14264,6 +14693,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("scroll");
 countNounArrayPlural.push("scrolls");
 activePassive.push("passive")
@@ -14294,6 +14724,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("scythe");
@@ -14328,6 +14759,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sea");
 countNounArrayPlural.push("seas");
 activePassive.push("active")
@@ -14358,6 +14790,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("seal");
@@ -14392,6 +14825,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("season");
 countNounArrayPlural.push("seasons");
 activePassive.push("passive")
@@ -14422,6 +14856,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("seat");
@@ -14456,6 +14891,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("seed");
 countNounArrayPlural.push("seeds");
 activePassive.push("passive")
@@ -14486,6 +14922,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("serpent");
@@ -14520,6 +14957,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("servant");
 countNounArrayPlural.push("servants");
 activePassive.push("active")
@@ -14549,6 +14987,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("shadow");
@@ -14583,6 +15022,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("shaft");
 countNounArrayPlural.push("shafts");
 activePassive.push("passive")
@@ -14613,6 +15053,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("shark");
@@ -14647,6 +15088,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sheaf");
 countNounArrayPlural.push("sheaves");
 activePassive.push("passive")
@@ -14679,6 +15121,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sheep");
 countNounArrayPlural.push("sheep");
 activePassive.push("active")
@@ -14708,6 +15151,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("sheet");
@@ -14742,6 +15186,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("shelf");
 countNounArrayPlural.push("shelves");
 activePassive.push("passive")
@@ -14772,6 +15217,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("shell");
@@ -14806,6 +15252,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("shield");
 countNounArrayPlural.push("shields");
 activePassive.push("passive")
@@ -14836,6 +15283,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("shin");
@@ -14870,6 +15318,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("ship");
 countNounArrayPlural.push("ships");
 activePassive.push("passive")
@@ -14900,6 +15349,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("shoe");
@@ -14934,6 +15384,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("shoulder");
 countNounArrayPlural.push("shoulders");
 activePassive.push("passive")
@@ -14964,6 +15415,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("shovel");
@@ -14998,6 +15450,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("shroud");
 countNounArrayPlural.push("shrouds");
 activePassive.push("passive")
@@ -15028,6 +15481,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("sieve");
@@ -15062,6 +15516,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sign");
 countNounArrayPlural.push("signs");
 activePassive.push("passive")
@@ -15092,6 +15547,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("sinew");
@@ -15126,6 +15582,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("skull");
 countNounArrayPlural.push("skulls");
 activePassive.push("passive")
@@ -15156,6 +15613,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("sky");
@@ -15190,6 +15648,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("slab");
 countNounArrayPlural.push("slabs");
 activePassive.push("passive")
@@ -15220,6 +15679,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("slice");
@@ -15254,6 +15714,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("slit");
 countNounArrayPlural.push("slits");
 activePassive.push("passive")
@@ -15284,6 +15745,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("slot");
@@ -15318,6 +15780,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("slug");
 countNounArrayPlural.push("slugs");
 activePassive.push("active")
@@ -15348,6 +15811,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("snail");
@@ -15382,6 +15846,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("snake");
 countNounArrayPlural.push("snakes");
 activePassive.push("active")
@@ -15412,6 +15877,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("snare");
@@ -15446,6 +15912,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sniff");
 countNounArrayPlural.push("sniffs");
 activePassive.push("passive")
@@ -15476,6 +15943,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("sock");
@@ -15510,6 +15978,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("soldier");
 countNounArrayPlural.push("soldiers");
 activePassive.push("active")
@@ -15540,6 +16009,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("son");
@@ -15574,6 +16044,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("song");
 countNounArrayPlural.push("songs");
 activePassive.push("passive")
@@ -15604,6 +16075,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("sound");
@@ -15638,6 +16110,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sparrow");
 countNounArrayPlural.push("sparrow");
 activePassive.push("active")
@@ -15668,6 +16141,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("spear");
@@ -15702,6 +16176,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("spearhead");
 countNounArrayPlural.push("spearheads");
 activePassive.push("passive")
@@ -15732,6 +16207,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("spell");
@@ -15766,6 +16242,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("spider");
 countNounArrayPlural.push("spiders");
 activePassive.push("active")
@@ -15795,6 +16272,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("spirit");
@@ -15829,6 +16307,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("splint");
 countNounArrayPlural.push("splints");
 activePassive.push("passive")
@@ -15859,6 +16338,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("splatter");
@@ -15893,6 +16373,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("splinter");
 countNounArrayPlural.push("splinters");
 activePassive.push("passive")
@@ -15923,6 +16404,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("spoon");
@@ -15957,6 +16439,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("spouse");
 countNounArrayPlural.push("spouses");
 activePassive.push("active")
@@ -15987,6 +16470,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("spout");
@@ -16021,6 +16505,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("spring");
 countNounArrayPlural.push("springs");
 activePassive.push("active")
@@ -16051,6 +16536,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("squirrel");
@@ -16085,6 +16571,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("stable");
 countNounArrayPlural.push("stables");
 activePassive.push("passive")
@@ -16115,6 +16602,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("staff");
@@ -16149,6 +16637,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("stag");
 countNounArrayPlural.push("stags");
 activePassive.push("active")
@@ -16179,6 +16668,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("stake");
@@ -16213,6 +16703,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("stalagmite");
 countNounArrayPlural.push("stalagmites");
 activePassive.push("passive")
@@ -16243,6 +16734,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("stalk");
@@ -16277,6 +16769,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("star");
 countNounArrayPlural.push("stars");
 activePassive.push("passive")
@@ -16307,6 +16800,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("starling");
@@ -16341,6 +16835,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("steed");
 countNounArrayPlural.push("steeds");
 activePassive.push("active")
@@ -16371,6 +16866,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("steppe");
@@ -16405,6 +16901,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("stick");
 countNounArrayPlural.push("sticks");
 activePassive.push("passive")
@@ -16435,6 +16932,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("stinger");
@@ -16469,6 +16967,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("stoat");
 countNounArrayPlural.push("stoats");
 activePassive.push("active")
@@ -16499,6 +16998,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("stomach");
@@ -16533,6 +17033,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("stone");
 countNounArrayPlural.push("stones");
 activePassive.push("passive")
@@ -16563,6 +17064,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("storeroom");
@@ -16597,6 +17099,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("stranger");
 countNounArrayPlural.push("strangers");
 activePassive.push("active")
@@ -16627,6 +17130,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("strap");
@@ -16661,6 +17165,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("stream");
 countNounArrayPlural.push("streams");
 activePassive.push("active")
@@ -16691,6 +17196,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("street");
@@ -16725,6 +17231,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("strike");
 countNounArrayPlural.push("strikes");
 activePassive.push("active")
@@ -16755,6 +17262,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("strip");
@@ -16789,6 +17297,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sturgeon");
 countNounArrayPlural.push("sturgeons");
 activePassive.push("active")
@@ -16819,6 +17328,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("summer");
@@ -16853,6 +17363,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sun");
 countNounArrayPlural.push("suns");
 activePassive.push("active")
@@ -16883,6 +17394,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("supper");
@@ -16917,6 +17429,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("surprise");
 countNounArrayPlural.push("surprises");
 activePassive.push("passive")
@@ -16947,6 +17460,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("swamp");
@@ -16981,6 +17495,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("swap");
 countNounArrayPlural.push("swaps");
 activePassive.push("passive")
@@ -17011,6 +17526,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("swan");
@@ -17045,6 +17561,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("sword");
 countNounArrayPlural.push("swords");
 activePassive.push("active")
@@ -17075,6 +17592,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("table");
@@ -17109,6 +17627,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("team");
 countNounArrayPlural.push("teams");
 activePassive.push("active")
@@ -17139,6 +17658,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("teat");
@@ -17173,6 +17693,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("temple");
 countNounArrayPlural.push("temples");
 activePassive.push("passive")
@@ -17203,6 +17724,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("tent");
@@ -17237,6 +17759,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("testicle");
 countNounArrayPlural.push("testicles");
 activePassive.push("passive")
@@ -17267,6 +17790,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("texture");
@@ -17301,6 +17825,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("thorn");
 countNounArrayPlural.push("thorns");
 activePassive.push("passive")
@@ -17331,6 +17856,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("thought");
@@ -17365,6 +17891,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("thread");
 countNounArrayPlural.push("threads");
 activePassive.push("passive")
@@ -17395,6 +17922,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("threat");
@@ -17429,6 +17957,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("throat");
 countNounArrayPlural.push("throats");
 activePassive.push("passive")
@@ -17459,6 +17988,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("tick");
@@ -17493,6 +18023,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("tile");
 countNounArrayPlural.push("tiles");
 activePassive.push("passive")
@@ -17523,6 +18054,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("time");
@@ -17557,6 +18089,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("thing");
 countNounArrayPlural.push("things");
 activePassive.push("passive")
@@ -17587,6 +18120,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("toe");
@@ -17621,6 +18155,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("tongue");
 countNounArrayPlural.push("tongues");
 activePassive.push("passive")
@@ -17651,6 +18186,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("tooth");
@@ -17685,6 +18221,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("torch");
 countNounArrayPlural.push("torches");
 activePassive.push("passive")
@@ -17715,6 +18252,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("tortoise");
@@ -17749,6 +18287,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("touch");
 countNounArrayPlural.push("touches");
 activePassive.push("passive")
@@ -17779,6 +18318,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("tower");
@@ -17813,6 +18353,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("town");
 countNounArrayPlural.push("towns");
 activePassive.push("passive")
@@ -17843,6 +18384,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("trade");
@@ -17877,6 +18419,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("transformation");
 countNounArrayPlural.push("transformations");
 activePassive.push("passive")
@@ -17907,6 +18450,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("transition");
@@ -17941,6 +18485,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("trap");
 countNounArrayPlural.push("traps");
 activePassive.push("passive")
@@ -17971,6 +18516,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("tree");
@@ -18005,6 +18551,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("tribe");
 countNounArrayPlural.push("tribes");
 activePassive.push("passive")
@@ -18035,6 +18582,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("troop");
@@ -18069,6 +18617,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("trouser&nbspleg");
 countNounArrayPlural.push("trouser&nbsplegs");
 activePassive.push("passive")
@@ -18099,6 +18648,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("trout");
@@ -18133,6 +18683,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("trunk");
 countNounArrayPlural.push("trunks");
 activePassive.push("passive")
@@ -18163,6 +18714,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("tube");
@@ -18197,6 +18749,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("tune");
 countNounArrayPlural.push("tunes");
 activePassive.push("passive")
@@ -18227,6 +18780,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("turnip");
@@ -18261,6 +18815,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("twilight");
 countNounArrayPlural.push("twilights");
 activePassive.push("passive")
@@ -18291,6 +18846,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("twin");
@@ -18325,6 +18881,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("udder");
 countNounArrayPlural.push("udders");
 activePassive.push("passive")
@@ -18355,6 +18912,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("ulcer");
@@ -18389,6 +18947,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("uncle");
 countNounArrayPlural.push("uncles");
 activePassive.push("active")
@@ -18419,6 +18978,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("unused&nbspland");
@@ -18453,6 +19013,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("vagina");
 countNounArrayPlural.push("vaginas");
 activePassive.push("passive")
@@ -18483,6 +19044,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("valley");
@@ -18517,6 +19079,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("vegetable");
 countNounArrayPlural.push("vegetables");
 activePassive.push("passive")
@@ -18547,6 +19110,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("village");
@@ -18581,6 +19145,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("violin");
 countNounArrayPlural.push("violins");
 activePassive.push("passive")
@@ -18611,6 +19176,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("voice");
@@ -18645,6 +19211,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("wagon");
 countNounArrayPlural.push("wagons");
 activePassive.push("passive")
@@ -18675,6 +19242,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("walk");
@@ -18709,6 +19277,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("wall");
 countNounArrayPlural.push("walls");
 activePassive.push("passive")
@@ -18739,6 +19308,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("warrior");
@@ -18773,6 +19343,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("wart");
 countNounArrayPlural.push("warts");
 activePassive.push("passive")
@@ -18803,6 +19374,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("wasp");
@@ -18837,6 +19409,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("wave");
 countNounArrayPlural.push("waves");
 activePassive.push("passive")
@@ -18867,6 +19440,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("way");
@@ -18901,6 +19475,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("weapon");
 countNounArrayPlural.push("weapons");
 activePassive.push("active")
@@ -18931,6 +19506,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("weasel");
@@ -18965,6 +19541,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("wedding");
 countNounArrayPlural.push("weddings");
 activePassive.push("passive")
@@ -18995,6 +19572,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("wedge");
@@ -19029,6 +19607,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("weevil");
 countNounArrayPlural.push("weevils");
 activePassive.push("active")
@@ -19059,6 +19638,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("well");
@@ -19125,6 +19705,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("wheel");
 countNounArrayPlural.push("wheels");
 activePassive.push("active")
@@ -19155,6 +19736,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("whetstone");
@@ -19189,6 +19771,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("whip");
 countNounArrayPlural.push("whips");
 activePassive.push("passive")
@@ -19219,6 +19802,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("widow");
@@ -19253,6 +19837,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("wife");
 countNounArrayPlural.push("wives");
 activePassive.push("active")
@@ -19283,6 +19868,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("wig");
@@ -19317,6 +19903,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("willow");
 countNounArrayPlural.push("willows");
 activePassive.push("passive")
@@ -19347,6 +19934,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("window");
@@ -19381,6 +19969,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("wing");
 countNounArrayPlural.push("wings");
 activePassive.push("passive")
@@ -19411,6 +20000,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("winter");
@@ -19445,6 +20035,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("witch");
 countNounArrayPlural.push("witches");
 activePassive.push("active")
@@ -19475,6 +20066,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("wolf");
@@ -19509,6 +20101,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("woman");
 countNounArrayPlural.push("women");
 activePassive.push("active")
@@ -19539,6 +20132,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("womb");
@@ -19573,6 +20167,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("world");
 countNounArrayPlural.push("worlds");
 activePassive.push("passive")
@@ -19603,6 +20198,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("worm");
@@ -19637,6 +20233,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("word");
 countNounArrayPlural.push("words");
 activePassive.push("passive")
@@ -19667,6 +20264,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("wort");
@@ -19701,6 +20299,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("worm");
 countNounArrayPlural.push("worms");
 activePassive.push("active")
@@ -19733,6 +20332,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("wound");
 countNounArrayPlural.push("wounds");
 activePassive.push("passive")
@@ -19762,6 +20362,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("year");
@@ -19796,6 +20397,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("yelp");
 countNounArrayPlural.push("yelps");
 activePassive.push("passive")
@@ -19826,6 +20428,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 
 
 countNounArray.push("yew");
@@ -19860,6 +20463,7 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
+
 countNounArray.push("yoke");
 countNounArrayPlural.push("yokes");
 activePassive.push("passive")
@@ -19890,6 +20494,7 @@ etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
+
 /*--------------------------------------------*/
 }
 
@@ -19934,6 +20539,6 @@ shortGenericClassifierArraypossessorOfCount,
 etymologyCountNoun,
 etymologyArrayCountNoun,
 possessorOfCountPlural,
-possessorOfQualityCount
+possessorOfQualityCount,
 }
 

@@ -2553,7 +2553,7 @@ function NtoNPossessorOf() {
     //count noun to mass noun
     for(let i = 0; i < countNounArray.length; i++) {
         //decides if word will have a derivation
-        if(/*Math.floor(Math.random() * 3) === 1*/true) {
+        if(Math.floor(Math.random() * 3) === 1) {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
                 derivedTerm = generatedCountNouns[i] + possessorAffix;
@@ -3928,7 +3928,7 @@ function bodyParts() {
     //transitive verb to count noun
     for(let i = 0; i < transitiveVerbArray.length; i++) {
         //decides if word will have a derivation
-        if(/*Math.floor(Math.random() * 3) === 1*/ 1===1) {
+        if(Math.floor(Math.random() * 3) === 1) {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
                 derivedTerm = generatedTransitiveVerbs[i] + bodyPartAffix;
@@ -4506,9 +4506,6 @@ function bodyParts() {
         exampleCounter++; 
         };
 
-        
-
-        
 
      document.getElementById("derivational-affixes").appendChild(li);
     li.appendChild(ul);

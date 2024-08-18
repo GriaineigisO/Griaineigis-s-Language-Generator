@@ -1141,12 +1141,7 @@ function makeDictionary() {
             if(derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "inherited") {
                 etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
             } else if (derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived"){
-                if(countNounArray.includes(etymologyArrayCountNoun[countNounArray.indexOf(englishWords[i])])) {
                     etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyCountNoun[countNounArray.indexOf(englishWords[i])]}`;
-                };
-                if(massNounArray.includes(etymologyArrayCountNoun[countNounArray.indexOf(englishWords[i])])) {
-                    etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyCountNoun[countNounArray.indexOf(englishWords[i])]}`;
-                };
             };
         } else if(massNounArray.includes(englishWords[i])) {
             if(derivedOrInheritedMassNoun[massNounArray.indexOf(englishWords[i])] === "inherited") {

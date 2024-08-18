@@ -2,6 +2,7 @@
 import { verbFinalWordOrders } from './allPossibleWordOrders.js';
 import {consonants, vowels as chosenVowels,selectedSyllables, allNasalsArray, selectFricatives, selectNasals, chooseVoicing} from './generatePhonology.js';
 import {spell} from './orthography.js'
+import {randomIndexOfArray} from './library.js'
 let addedConsonants = consonants;
 
 // function soundChange(word) {

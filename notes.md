@@ -1,20 +1,6 @@
 # Immediate To-Do List
 
-
-  insult > mouth, anus, ass
-  kick/leap/run > foot, leg
-  lick > tongue
-  notice/see/read > eye
-  ride > ass
-  rowV > upper back
-  scratch > fingernail
-  sing > throat
-  smear > palm
-  sprinkle > fingertip
-  suckle > nipple
-  swallow > throat
-- distinguish which sound changes become phontactics and which don't. Not all sound changes may become phototactics. word+derivatioanl affixes will be affected by photactics changes only, only being individually affected by sound changes
-- FINISH REFORMING DERIVED ADJECTIVED
+- FINISH REFORMING DERIVED ADJECTIVED (finish transitive verbs then go onto poosessorQuality)
 - Add stats about noun gender
 - Make fusional nouns with gender but no case
 - Make fusional nouns with gender and case

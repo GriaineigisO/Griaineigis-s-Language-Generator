@@ -689,7 +689,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -729,7 +729,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -769,7 +769,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -809,7 +809,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -849,7 +849,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -889,7 +889,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -929,7 +929,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -969,7 +969,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1009,7 +1009,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1049,7 +1049,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1089,7 +1089,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1129,7 +1129,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1169,7 +1169,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1209,7 +1209,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1249,7 +1249,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1289,7 +1289,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1329,7 +1329,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1369,7 +1369,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1409,7 +1409,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1449,7 +1449,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1489,7 +1489,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1542,7 +1542,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1582,7 +1582,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1622,7 +1622,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1662,7 +1662,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1702,7 +1702,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1742,7 +1742,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1782,7 +1782,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1822,7 +1822,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1862,7 +1862,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1902,7 +1902,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1942,7 +1942,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -1982,7 +1982,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2022,7 +2022,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2062,7 +2062,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2102,7 +2102,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2142,7 +2142,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2182,7 +2182,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2222,7 +2222,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2262,7 +2262,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2302,7 +2302,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2342,7 +2342,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2382,7 +2382,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2422,7 +2422,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2462,7 +2462,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2502,7 +2502,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2542,7 +2542,7 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2576,7 +2576,7 @@ function NtoNPossessorOf() {
                         if(meaning === "volume") {
                                 singulativeMassNounArray.push("fraction&nbspof&nbspvolume");
                                 pluralSingulativeMassNounArray.push("fractions&nbspof&nbspvolume");
-                        } else if(meaning === "volume") {
+                        } else if(meaning === "capacity") {
                                 singulativeMassNounArray.push("fraction&nbspof&nbspcapacity");
                                 pluralSingulativeMassNounArray.push("fractions&nbspof&nbspcapacity");
                         }
@@ -2601,7 +2601,53 @@ function NtoNPossessorOf() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
+                        ul.appendChild(exampleLi)
+                };
+                exampleCounter++; 
+            };
+            if(countNounArray[i] === "barrow") {
+                let meaning = randomIndexOfArray(["undying&nbspfame", "eternal&nbsoglory"])
+                if(massNounArray.includes(meaning)) {
+                        generatedMassNouns[massNounArray.indexOf(meaning)] = derivedTerm;
+                        derivedOrInheritedMassNoun[massNounArray.indexOf(meaning)] = "derived";
+                        etymologyArrayMassNoun[massNounArray.indexOf(meaning)] = countNounArray[i];
+                        if(suffixOrPrefix === "suffix") {
+                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
+                        } else {
+                                 etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`;
+                        };
+                } else {
+                        massNounArray.push(meaning);
+                        if(meaning === "undying&nbspfame") {
+                                singulativeMassNounArray.push("deed&nbspof&nbspundying&nbspfame");
+                                pluralSingulativeMassNounArray.push("deeds&nbspof&nbspundying&nbspfame");
+                        } else if(meaning === "eternal&nbsoglory") {
+                                singulativeMassNounArray.push("deed&nbspof&nbspeternal&nbsoglory");
+                                pluralSingulativeMassNounArray.push("deeds&nbspof&nbspeternal&nbsoglory");
+                        }
+                        generatedMassNouns.push(derivedTerm) 
+                        derivedOrInheritedMassNoun.push("derived");
+                        activePassiveMass.push("passive");
+                        animInanMass.push("inan");
+                        divineNonDivineMass.push("divine");
+                        humanAnimalInanMass.push("secondinanimate");
+                        mascFemNeutMass.push("neuter");
+                        mascFemMass.push("masculine1");
+                        naturalArtificialMass.push("natural");
+                        animacyClassifierMassArray.push("inedible");
+                        shapeClassifierMassArray.push("shapeless");
+                        shortGenericClassifierMassArray.push("natural-inanimate");
+                        etymologyArrayMassNoun.push(countNounArray[i]);
+                        if(suffixOrPrefix === "suffix") {
+                                etymologyMassNoun.push(`<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
+                        } else {
+                                etymologyMassNoun.push(`<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>&nbsp"${countNounArray[i]}"`)
+                };
+                };
+                if(exampleCounter < 6) {
+                        let exampleLi = document.createElement("li");
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2757,10 +2803,10 @@ function bodyParts() {
         //decides if the affix will be a suffix or prefix
         if(suffixOrPrefix === "suffix") {
         derivedTerm = generatedCountNouns[i] + bodyPartAffix;
-        li.innerHTML = `<i>-${spell(soundChange(bodyPartAffix + "A"))}</i> "derives&nbspterms&nbspfor&nbspbody&nbspparts"`
+        li.innerHTML = `<i>-${spell(soundChange(bodyPartAffix + "A"))}</i> "derives&nbspterms&nbspfor&nbspbody&nbspparts&nbspfrom&nbspnouns,&nbspadjectives&nbspand&nbspverbs"`
         } else {
         derivedTerm = bodyPartAffix + generatedCountNouns[i];
-        li.innerHTML = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i> "derives&nbspterms&nbspfor&nbspbody&nbspparts"`
+        li.innerHTML = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i> "derives&nbspterms&nbspfor&nbspbody&nbspparts&nbspfrom&nbspnouns,&nbspadjectives&nbspand&nbspverbs"`
         };
 
         if(countNounArray[i] === "club") {
@@ -2833,7 +2879,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -2874,7 +2920,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -2915,7 +2961,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -2956,7 +3002,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -2997,7 +3043,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3038,7 +3084,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3079,7 +3125,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3119,7 +3165,7 @@ function bodyParts() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -3160,7 +3206,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3201,7 +3247,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3242,7 +3288,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3283,7 +3329,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3324,7 +3370,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3365,7 +3411,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3406,7 +3452,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3463,7 +3509,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3503,7 +3549,7 @@ function bodyParts() {
                 };
                 if(exampleCounter < 6) {
                         let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                         ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -3544,7 +3590,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3585,7 +3631,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3626,7 +3672,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3667,7 +3713,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3708,7 +3754,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3750,7 +3796,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3791,7 +3837,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3832,7 +3878,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3873,7 +3919,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3914,7 +3960,7 @@ function bodyParts() {
 
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -3970,7 +4016,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4012,7 +4058,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4061,7 +4107,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4114,7 +4160,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4167,7 +4213,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4220,7 +4266,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4262,7 +4308,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4304,7 +4350,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4346,7 +4392,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4399,7 +4445,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4456,7 +4502,7 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
@@ -4498,10 +4544,142 @@ function bodyParts() {
         
         if(exampleCounter < 6) {
                 let exampleLi = document.createElement("li");
-                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(addGrammaticalAffixes(derivedTerm)))}</i> "${meaning}"`;
+                exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
                 ul.appendChild(exampleLi)
         };
         exampleCounter++; 
+        };
+
+        if(transitiveVerbArray[i] === "feel") {
+                let meaning = "finger";
+                if(countNounArray.includes(meaning)) {
+                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
+                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
+                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
+                        if(suffixOrPrefix === "suffix") {
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i]))}</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        } else {
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}-</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"`;
+                        };
+                } else {
+                        countNounArray.push(meaning);
+                        countNounArrayPlural.push("fingers");
+                        generatedCountNouns.push(derivedTerm) 
+                        derivedOrInheritedCountNoun.push("derived");
+                        activePassive.push("passive");
+                        animInan.push("inan");
+                        divineNonDivine.push("profane");
+                        humanAnimalInan.push("secondinanimate");
+                        mascFemNeut.push("neuter");
+                        mascFem.push("feminine1");
+                        naturalArtificial.push("natural");
+                        animacyClassifierArray.push("inedible");
+                        shortGenericClassifierArray.push("natural-inanimate");
+                        shapeClassifierArray.push("long-and-slender");
+                        etymologyArrayCountNoun.push(transitiveVerbArray[i]);
+                        if(suffixOrPrefix === "suffix") {
+                        etymologyCountNoun.push(`<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i]))}</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        } else {
+                        etymologyCountNoun.push(`<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"`)
+                        };
+                };
+                
+                if(exampleCounter < 6) {
+                        let exampleLi = document.createElement("li");
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
+                        ul.appendChild(exampleLi)
+                };
+                exampleCounter++; 
+        };
+
+        if(transitiveVerbArray[i] === "gird") {
+                let meaning = "waist";
+                if(countNounArray.includes(meaning)) {
+                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
+                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
+                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
+                        if(suffixOrPrefix === "suffix") {
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i]))}</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        } else {
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}-</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"`;
+                        };
+                } else {
+                        countNounArray.push(meaning);
+                        countNounArrayPlural.push("waists");
+                        generatedCountNouns.push(derivedTerm) 
+                        derivedOrInheritedCountNoun.push("derived");
+                        activePassive.push("passive");
+                        animInan.push("inan");
+                        divineNonDivine.push("profane");
+                        humanAnimalInan.push("secondinanimate");
+                        mascFemNeut.push("neuter");
+                        mascFem.push("feminine1");
+                        naturalArtificial.push("natural");
+                        animacyClassifierArray.push("inedible");
+                        shortGenericClassifierArray.push("natural-inanimate");
+                        shapeClassifierArray.push("round");
+                        etymologyArrayCountNoun.push(transitiveVerbArray[i]);
+                        if(suffixOrPrefix === "suffix") {
+                        etymologyCountNoun.push(`<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i]))}</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        } else {
+                        etymologyCountNoun.push(`<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"`)
+                        };
+                };
+                
+                if(exampleCounter < 6) {
+                        let exampleLi = document.createElement("li");
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
+                        ul.appendChild(exampleLi)
+                };
+                exampleCounter++; 
+        };
+
+        if(transitiveVerbArray[i] === "hum") {
+                let meaning = randomIndexOfArray(["voicebox", "vocal&nbspchord", "throat"])
+                if(countNounArray.includes(meaning)) {
+                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
+                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
+                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
+                        if(suffixOrPrefix === "suffix") {
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i]))}</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        } else {
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}-</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"`;
+                        };
+                } else {
+                        countNounArray.push(meaning);
+                        if(meaning === "voicebox") {
+                                countNounArrayPlural.push("voiceboxes");
+                        } else if(meaning === "vocal&nbspchord") {
+                                countNounArrayPlural.push("vocal&nbspchords");
+                        } if(meaning === "throat") {
+                                countNounArrayPlural.push("throats");
+                        }
+                        generatedCountNouns.push(derivedTerm) 
+                        derivedOrInheritedCountNoun.push("derived");
+                        activePassive.push("passive");
+                        animInan.push("inan");
+                        divineNonDivine.push("profane");
+                        humanAnimalInan.push("secondinanimate");
+                        mascFemNeut.push("neuter");
+                        mascFem.push("feminine1");
+                        naturalArtificial.push("natural");
+                        animacyClassifierArray.push("inedible");
+                        shortGenericClassifierArray.push("natural-inanimate");
+                        shapeClassifierArray.push("long-and-slender");
+                        etymologyArrayCountNoun.push(transitiveVerbArray[i]);
+                        if(suffixOrPrefix === "suffix") {
+                        etymologyCountNoun.push(`<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i]))}</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        } else {
+                        etymologyCountNoun.push(`<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${transitiveVerbArray[i]}"`)
+                        };
+                };
+                
+                if(exampleCounter < 6) {
+                        let exampleLi = document.createElement("li");
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
+                        ul.appendChild(exampleLi)
+                };
+                exampleCounter++; 
         };
 
 

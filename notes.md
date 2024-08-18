@@ -1,9 +1,6 @@
 # Immediate To-Do List
 
-- add these verb > count noun derivations odyparts
-  feel > finger
-  gird > waist
-  hum > throat
+
   insult > mouth, anus, ass
   kick/leap/run > foot, leg
   lick > tongue

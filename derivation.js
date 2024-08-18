@@ -2594,10 +2594,8 @@ function NtoNPossessorOf() {
                         shortGenericClassifierMassArray.push("natural-inanimate");
                         etymologyArrayMassNoun.push(countNounArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                                console.log("suffix")
                                 etymologyMassNoun.push(`<i>${spell(addGrammaticalAffixes(generatedCountNouns[i]))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
                         } else {
-                                console.log("prefix")
                                 etymologyMassNoun.push(`<i>${spell(soundChange("X" + possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>&nbsp"${countNounArray[i]}"`)
                 };
                 };

@@ -61,7 +61,7 @@ allWordsInThesaurus.push(oathArray);
 let landArray = ["land", "ground", "earth", "estate", "territory", "area", "region"];
 allWordsInThesaurus.push(landArray);
 
-let fingerArray = ["finger", "probe", "probing stick"];
+let fingerArray = ["finger", "probe", "probing&nbspstick"];
 allWordsInThesaurus.push(fingerArray);
 
 let happyArray = ["happy", "cheerful", "upbeat", "positive", "delightful", "fun", "glad", "fortunate", "lucky", "smiling", "pleased", "satisfied", "at ease", "comfortable"];

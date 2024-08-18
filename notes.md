@@ -1,6 +1,22 @@
 # Immediate To-Do List
 
-- FINISH REFORMING DERIVATION SYSTEM BASED ON BODYPARTS
+- add these verb > count noun derivations odyparts
+  feel > finger
+  gird > waist
+  hum > throat
+  insult > mouth, anus, ass
+  kick/leap/run > foot, leg
+  lick > tongue
+  notice/see/read > eye
+  ride > ass
+  rowV > upper back
+  scratch > fingernail
+  sing > throat
+  smear > palm
+  sprinkle > fingertip
+  suckle > nipple
+  swallow > throat
+- FINISH REFORMING DERIVED ADJECTIVED
 - Add stats about noun gender
 - Make fusional nouns with gender but no case
 - Make fusional nouns with gender and case

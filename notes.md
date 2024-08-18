@@ -13,6 +13,7 @@
   sprinkle > fingertip
   suckle > nipple
   swallow > throat
+- distinguish which sound changes become phontactics and which don't. Not all sound changes may become phototactics. word+derivatioanl affixes will be affected by photactics changes only, only being individually affected by sound changes
 - FINISH REFORMING DERIVED ADJECTIVED
 - Add stats about noun gender
 - Make fusional nouns with gender but no case

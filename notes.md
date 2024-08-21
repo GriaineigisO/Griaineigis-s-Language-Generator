@@ -1,5 +1,69 @@
 # Immediate To-Do List
-
+arrange > methodical
+blame > accusatory
+blowV > windy
+choose > selective
+compel > compleling
+fight > aggressive
+follow > loyal
+forget > forgetful
+give> generous
+honourV > honourable
+hunt > predatory
+instruct > instructive
+insult > "mean", "rude", "offensive", "unkind", "nasty"
+know > wise", "smart", "intelligent", "clever
+lack > empty", "insufficient", "devoid", "bereft", "lacking"
+learn > ["studious", "erudite", "smart", "knowledgeable", "well-versed"]
+leave > absent", "gone", "away"]
+loveV > loving", "affectionate", "caring", "doting
+make > creative", "industrious
+marry > wed", "betrothed"
+need > in need
+praise > exalting", "complementive
+perceive > perceptive", "alert", "watchful
+persuade > persuasive
+please > "pleasing", "delightful", "likeable", "pleasant
+prefer > biased
+protect > protective", "defensive
+pull > addictive", "entrapping", "influential", "interesting", "fascinating
+push > impelling", "booming", "dynamic", "impulsive
+put > in&nbspcharge", "authorative
+read > "literate", "studious", "erudite
+refresh > resfreshing, invigorating 
+remember > having&nbspa&nbspgood&nbspmemory", "reminiscing", "recollective", "pensive
+respect > respectful", "polite", "well-mannered"
+revel > jovial", "entertained", "happy", "cheerful", "playful", "rowdy", "jolly"
+reward > "rewarding", "worthwhile"
+roast > hot", "piping-hot", "scalding
+run > fast", "quick", "swift
+say > vocal", "loud", "long-winded
+see > watchful", "observant
+scratch > sharp, rough, abrasive
+sell > merchantile
+separate > divisive", "intrusive", "interruptive
+shame > shameful", "disgraceful", "pathetic", "degenerate
+show > explanatory", "instructive", "helpful"
+sing > musical
+smash > angry
+split > divisive, polarising
+sprout >  sprouting", "young
+stab > murderous", "piercing", "slaughterous", "homicidal", "blood-thirsty
+steal > theftuous
+stick > sticky, adherent
+strike > aggressive", "threatening", "harmful", "dangerous
+support > supportive
+surpass > excellent", "incredible", "amazing", "superior"
+suit > suitable
+take > "greedy", "interesting", "captivating", "receptive"
+teach >     proneADJtrans.push("educational");
+thank > grateful", "thankful"
+use > manipulative
+want > jealous", "covetous", "envious", "lacking
+wash > clean", "hygenic"
+write > earned", "educated
+invite > inviting", "hospitable"
+leap > bouncy", "energetic", "dynamic"
 - FINISH REFORMING DERIVED ADJECTIVED (finish transitive verbs then go onto poosessorQuality)
 - Add stats about noun gender
 - Make fusional nouns with gender but no case

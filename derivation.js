@@ -3,7 +3,7 @@ import { spell } from './orthography.js';
 import { soundChange, cloneArray} from './soundchange.js';
 import {activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, derivedOrInheritedCountNoun, etymologyArrayCountNoun, etymologyCountNoun, possessorOfQualityCount} from './englishWordArrays/Nouns/countNouns.js'
 import {derivedOrInheritedMassNoun, etymologyArrayMassNoun, etymologyMassNoun, possessorOfQualityMass, singulativeMassNounArray, pluralSingulativeMassNounArray} from './englishWordArrays/Nouns/massNouns.js'
-import {proneADJtrans, derivedOrInheritedTransVerb} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
+import {derivedOrInheritedTransVerb} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import {derivedOrInheritedIntransVerb} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import { etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ, comparativeAdjectiveArray} from './englishWordArrays/Adjectives/englishAdjectives.js';
 import {grammaticalNumber, caseNumber, animSgAffix, inanSgAffix, grammaticalNumber as grammaticalNumberFusional, mascSgAffix, femSgAffix} from './fusionalNouns.js';
@@ -527,57 +527,40 @@ function VtoADJprone() {
         if(Math.floor(Math.random() * 3) === 1) {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
-                derivedTerm = soundChange(generatedTransitiveVerbs[i]) + soundChange(proneAffix);
-                li.innerHTML = `<i>-${spell(soundChange(proneAffix + "A"))}</i> "derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`
+                derivedTerm = generatedTransitiveVerbs[i] + proneAffix;
             } else {
-                derivedTerm = soundChange(proneAffix) + soundChange(generatedTransitiveVerbs[i]);
-                li.innerHTML = `<i>${spell(soundChange("X" + proneAffix))}-</i> "derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`
+                derivedTerm = proneAffix + generatedTtransitiveVerbs[i];
             };
-
-            
-            //assigns the English meaning of the newly derived term
-            let meaning = "";
-            //if the derived meaning is an array of possible meanings, it chooses only one word from the array
-            if(typeof proneADJtrans[i] === "string") {
-                meaning = proneADJtrans[i];
-            } else if(typeof proneADJtrans[i] === "object"){
-                let array = proneADJtrans[i]
-                meaning = array[Math.floor(Math.random() * array.length)]
-            } else if(proneADJtrans[i] === undefined){
-                continue;
-            }
-             
-            //not all words can have this derivation, such words are marked with X
-            if(meaning !== "X") {
-                //if the derived meaning already exists, this chooses if the derivation replaces the word or if both exist as synonyms
+            if(transitiveVerbArray[i] === "accept") {
+                let meaning = randomIndexOfArray("accepting")
                 if(adjectiveArray.includes(meaning)) {
-                        //replaces pre-existing word with new derivation
                         generatedAdjectives[adjectiveArray.indexOf(meaning)] = derivedTerm;
                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                                etymologyADJ[adjectiveArray.indexOf(meaning)] =`<i>-${spell(soundChange(generatedTransitiveVerbs[i]))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(proneAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`
+                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(proneAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
                         } else {
-                                etymologyADJ[adjectiveArray.indexOf(meaning)] =`<i>${spell(soundChange("X" + proneAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp-<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>-&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`
-                        };
+                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + proneAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                };
                 } else {
                         adjectiveArray.push(meaning);
+                        comparativeAdjectiveArray.push("more&nbspaccepting")
                         generatedAdjectives.push(derivedTerm) 
                         derivedOrInheritedADJ.push("derived");
                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                                etymologyADJ.push(`<i>-${spell(soundChange(generatedTransitiveVerbs[i]))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(proneAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
+                                etymologyADJ.push(`<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(proneAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
                         } else {
-                                etymologyADJ.push(`<i>${spell(soundChange("X" + proneAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp-<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>-&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
-                        };  
+                                etymologyADJ.push(`<i>${spell(soundChange("X" + proneAffix))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                };
                 };
                 if(exampleCounter < 6) {
-                    let exampleLi = document.createElement("li");
-                    exampleLi.innerHTML = `-<i>${spell(soundChange(generatedTransitiveVerbs[i]))}</i>- "to ${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(soundChange(derivedTerm))}</i> "${meaning}"`;
-                    ul.appendChild(exampleLi)
+                        let exampleLi = document.createElement("li");
+                        exampleLi.innerHTML = `<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i]))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
+                        ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
-            }
+            };
         };
     };
 

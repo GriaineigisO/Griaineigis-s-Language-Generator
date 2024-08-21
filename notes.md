@@ -1,70 +1,69 @@
 # Immediate To-Do List
-arrange > methodical
-blame > accusatory
-blowV > windy
-choose > selective
-compel > compleling
-fight > aggressive
-follow > loyal
-forget > forgetful
-give> generous
-honourV > honourable
-hunt > predatory
-instruct > instructive
-insult > "mean", "rude", "offensive", "unkind", "nasty"
-know > wise", "smart", "intelligent", "clever
-lack > empty", "insufficient", "devoid", "bereft", "lacking"
-learn > ["studious", "erudite", "smart", "knowledgeable", "well-versed"]
-leave > absent", "gone", "away"]
-loveV > loving", "affectionate", "caring", "doting
-make > creative", "industrious
-marry > wed", "betrothed"
-need > in need
-praise > exalting", "complementive
-perceive > perceptive", "alert", "watchful
-persuade > persuasive
-please > "pleasing", "delightful", "likeable", "pleasant
-prefer > biased
-protect > protective", "defensive
-pull > addictive", "entrapping", "influential", "interesting", "fascinating
-push > impelling", "booming", "dynamic", "impulsive
-put > in&nbspcharge", "authorative
-read > "literate", "studious", "erudite
-refresh > resfreshing, invigorating 
-remember > having&nbspa&nbspgood&nbspmemory", "reminiscing", "recollective", "pensive
-respect > respectful", "polite", "well-mannered"
-revel > jovial", "entertained", "happy", "cheerful", "playful", "rowdy", "jolly"
-reward > "rewarding", "worthwhile"
-roast > hot", "piping-hot", "scalding
-run > fast", "quick", "swift
-say > vocal", "loud", "long-winded
-see > watchful", "observant
-scratch > sharp, rough, abrasive
-sell > merchantile
-separate > divisive", "intrusive", "interruptive
-shame > shameful", "disgraceful", "pathetic", "degenerate
-show > explanatory", "instructive", "helpful"
-sing > musical
-smash > angry
-split > divisive, polarising
-sprout >  sprouting", "young
-stab > murderous", "piercing", "slaughterous", "homicidal", "blood-thirsty
-steal > theftuous
-stick > sticky, adherent
-strike > aggressive", "threatening", "harmful", "dangerous
-support > supportive
-surpass > excellent", "incredible", "amazing", "superior"
-suit > suitable
-take > "greedy", "interesting", "captivating", "receptive"
-teach >     proneADJtrans.push("educational");
-thank > grateful", "thankful"
-use > manipulative
-want > jealous", "covetous", "envious", "lacking
-wash > clean", "hygenic"
-write > earned", "educated
-invite > inviting", "hospitable"
-leap > bouncy", "energetic", "dynamic"
-- FINISH REFORMING DERIVED ADJECTIVED (finish transitive verbs then go onto poosessorQuality)
+
+fresh > refresh, freshen
+full > fill
+good > improve
+gray > make gray
+green > make green
+half > split in half, divide in two, cleave
+happy > cheer up, make happy
+heavy > add weight to, bulk
+high > raise, lift
+holy > bless
+hostile > provoke
+hot > heat up
+hungry > starve
+impure > pollute
+intelligent > make smarter
+intense > intensify, increase
+light (of weight) > lighten, ease
+loose > loosen
+low > lower
+mild > ease
+moist > moisten
+narrow > make thin, make narrow
+near > make nearer, place nearer
+new > renew, restore
+noble > ennoble
+normal > normalise
+nourishing > nourish
+obvious > make obvious, show, reveal
+old > age, weather, erode
+padded > stuff
+pale > bleach
+polluted > pollute
+powerful > empower
+pure > purify, filter
+"quiet" > silence, stiffle, gag, shut up
+ready > prepare
+rich > enrich
+right > correct
+rough > roughened
+sharp > sharpen
+slippery > make slippery
+smooth > smoothen
+soft > soften
+speckled > sprinkle, spray
+stiff/rigid > stiffen
+stinky > make stinky
+strong > strengthen
+thick > thicken
+tired > tire out, exhaust
+true > make true, verify, confirm
+unhealthy > make unhealthy
+unusual/weird > make unusual, make odd, differentiate, estrange, cast out, exile
+useful > utilise
+visible > make visible
+warm > warm up, health up
+weak > weaken
+wet > soak
+white > make white/bleach, clean, wash, brighten
+wide> widen, stretch
+wild > madden
+young > invigorate, rejuvenate
+yellow > make yellow
+
+- possessorQuality
 - Add stats about noun gender
 - Make fusional nouns with gender but no case
 - Make fusional nouns with gender and case
@@ -265,6 +264,10 @@ Colour metaohors?
 
 - danger affix
 - unstable affix
+  VERB FORMING SUFFIXES
+  Noun/Adj: to become, intransitive change of state: old > get old/age, married > get married, happy > cheer up, absent > wither
+  Adj > v: to grow X: wary > to grow wary, angry > grow angry
+
   Adjective-Forming Suffixes:
 
 -ēs - Primarily forms last members of adjectival bahuvrīhi compounds

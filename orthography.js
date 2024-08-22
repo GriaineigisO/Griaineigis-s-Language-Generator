@@ -32,6 +32,8 @@ function randomNumbers() {
 }
  
 function spell(word) {
+
+    
    checkIfCanUseMacron()
 
    let wordArray = [];
@@ -41,6 +43,12 @@ function spell(word) {
     let str = word.join("");
     wordArray = Array.from(str)
    }
+
+   for(let i = 0; i < wordArray.length; i++) {
+        while(wordArray[i] === "A" || wordArray[i] === "X") {
+            wordArray.splice(i, 1);
+        };
+    }
    
     for(let i = 0; i <  wordArray.length; i++) {
         if(checkIfCanUseMacron() && wordArray[i] === wordArray[i + 1] && vowels.includes(wordArray[i])) {

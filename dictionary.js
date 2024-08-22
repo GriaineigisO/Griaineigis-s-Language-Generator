@@ -35,6 +35,11 @@ function ipaFix(word) {
             array[i+1] = "ː";
         }
     }
+    for(let i = 0; i < array.length; i++) {
+        while(array[i] === "A" || array[i] === "X") {
+            array.splice(i, 1);
+        };
+    }
     word = array.join("");
     return word;
 }
@@ -1102,8 +1107,18 @@ function makeDictionary() {
             }
         };
 
-        
-        let word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+        //if the word is a derived word created using derivational morphology, then the soundChange() function won't be applied, as the word has dound changes applied during its creation
+        let word1 = "";
+        if(
+            (adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") ||
+            (countNounArray.includes(englishWords[i]) && derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived") ||
+            (massNounArray.includes(englishWords[i]) && derivedOrInheritedMassNoun[massNounArray.indexOf(englishWords[i])] === "derived") ||
+            (transitiveVerbArray.includes(englishWords[i]) && derivedOrInheritedTransVerb[transitiveVerbArray.indexOf(englishWords[i])] === "derived")
+        ) {
+            word1 = new Dictionary(spell(wordWithAffix), ipaFix(wordWithAffix), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(wordWithAffix));
+        } else {
+            word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+        }
         let headWord = document.createElement("span");
         let ipaTranscription = document.createElement("span");
         let pOS = document.createElement("span");

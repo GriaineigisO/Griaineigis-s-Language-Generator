@@ -1,8 +1,67 @@
 # Immediate To-Do List
 
-fresh > refresh, freshen
-full > fill
-good > improve
+to make it so that a word was inherted from Old X but derived with Old X
+
+if(suffixOrPrefix === "suffix") {
+                derivedTerm = soundChange(generatedMassNouns[i]) + soundChange(possessorAffix);
+            } else {
+                derivedTerm = soundChange(possessorAffix) + soundChange(generatedMassNouns[i]);
+            };
+
+will become 
+
+if(suffixOrPrefix === "suffix") {
+                derivedTerm = soundChange(generatedMassNouns[i]) + soundChange(possessorAffix);
+		oldDerivedTerm = generatedMassNouns[i] + possessorAffix;
+            } else {
+                derivedTerm = soundChange(possessorAffix) + soundChange(generatedMassNouns[i]);
+		oldDerivedTerm = possessorAffix + generatedMassNouns[i];
+            };
+
+
+if(countNounArray.includes(meaning)) {
+                        generatedCountNouns[countNounArray.indexOf(meaning)] = soundChange(derivedTerm);
+                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "inheritedOldDerived";
+                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
+                        if(suffixOrPrefix === "suffix") {
+                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `< Old X oldDerivedTerm "meaning" < <i>${spell(addGrammaticalAffixes(generatedMassNouns[i]))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(possessorAffix + "A")}</i>&nbsp"possessor&nbspof"`;
+                        } else {
+                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `< Old X oldDerivedTerm "meaning" < <i>${spell(possessorAffix)}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`;
+                        };
+                } else {
+                        countNounArray.push(meaning);
+                        countNounArrayPlural.push("admirers")
+                        generatedCountNouns.push(oldDerivedTerm) 
+                        derivedOrInheritedCountNoun.push("inheritedOldDerived");
+                        activePassive.push("active");
+                        animInan.push("anim");
+                        divineNonDivine.push("profane");
+                        humanAnimalInan.push("human");
+                        mascFemNeut.push("masculine2");
+                        mascFem.push("masculine1");
+                        naturalArtificial.push("natural");
+                        animacyClassifierArray.push("man");
+                        shapeClassifierArray.push("short-and-wide");
+                        shortGenericClassifierArray.push("human2");
+                        etymologyArrayCountNoun.push(massNounArray[i]);
+                        if(suffixOrPrefix === "suffix") {
+                                etymologyCountNoun.push(`< Old X oldDerivedTerm "meaning" < <i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i])))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
+                        } else {
+                                etymologyCountNoun.push(`< Old X oldDerivedTerm "meaning" < <i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
+---------------------------
+in dictionary.js
+if(adjectiveArray.includes(englishWords[i])) {
+            if(derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "inherited") {
+                etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
+            } else if (derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived"){
+
+                    etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyADJ[adjectiveArray.indexOf(englishWords[i])]}`;
+            } else if (derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "ineritedOldDerived"){
+
+                    etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyADJ[adjectiveArray.indexOf(englishWords[i])]}`;
+            };
+                };
+
 gray > make gray
 green > make green
 half > split in half, divide in two, cleave
@@ -14,7 +73,7 @@ hostile > provoke
 hot > heat up
 hungry > starve
 impure > pollute
-intelligent > make smarter
+intelligent > make smarter, smarten
 intense > intensify, increase
 light (of weight) > lighten, ease
 loose > loosen
@@ -62,7 +121,27 @@ wide> widen, stretch
 wild > madden
 young > invigorate, rejuvenate
 yellow > make yellow
+short > shorten, reduce
+big > enlarge, increase, expand
+bold > enbolden
+brave > encourage
+confident > support, empower
+dead > kill, murder, slaughter, slay
+free > free, release
+funny > make fun of, to mock
+healthy > heal
+hostile > aggravate, provoke
+long> lengthen, stretch
+other > distinguish
+powerful > empower
+slow > slow down, retard, hamber, delay
+stark > distinguish, clarify
+suitable > customise, adjust
+tasty > improve taste
+tough > toughen
+wonderful > to make wonderful, to improve
 
+- function to apply certain sound changes only across morphome boundries. The functions takes the two morphemes as arguments, and then determines which sound changes are in chosenChanges. If a change is conditional and the condition is met at the morpheme boundrie e.g bak-or where intervocalic voicing detects that the final sound in word1 is a voiceless plosive following a vowel and that the first sound in word2 is a vowel, intervocalic voicing will be triggered and only at the boundry
 - possessorQuality
 - Add stats about noun gender
 - Make fusional nouns with gender but no case

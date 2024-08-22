@@ -2177,7 +2177,7 @@ function VtoADJprone() {
                 exampleCounter++; 
             };
             if(transitiveVerbArray[i] === "sing") {
-                let meaning = "sing";
+                let meaning = "musical";
                 if(adjectiveArray.includes(meaning)) {
                         generatedAdjectives[adjectiveArray.indexOf(meaning)] = derivedTerm;
                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";

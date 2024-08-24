@@ -45,6 +45,12 @@ function spell(word) {
    }
 
    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ː") {
+            wordArray[i] = wordArray[i-1]
+        };
+   };
+
+   for(let i = 0; i < wordArray.length; i++) {
         while(wordArray[i] === "A" || wordArray[i] === "X") {
             wordArray.splice(i, 1);
         };

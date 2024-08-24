@@ -62,84 +62,7 @@ if(adjectiveArray.includes(englishWords[i])) {
             };
                 };
 
-gray > make gray
-green > make green
-half > split in half, divide in two, cleave
-happy > cheer up, make happy
-heavy > add weight to, bulk
-high > raise, lift
-holy > bless
-hostile > provoke
-hot > heat up
-hungry > starve
-impure > pollute
-intelligent > make smarter, smarten
-intense > intensify, increase
-light (of weight) > lighten, ease
-loose > loosen
-low > lower
-mild > ease
-moist > moisten
-narrow > make thin, make narrow
-near > make nearer, place nearer
-new > renew, restore
-noble > ennoble
-normal > normalise
-nourishing > nourish
-obvious > make obvious, show, reveal
-old > age, weather, erode
-padded > stuff
-pale > bleach
-polluted > pollute
-powerful > empower
-pure > purify, filter
-"quiet" > silence, stiffle, gag, shut up
-ready > prepare
-rich > enrich
-right > correct
-rough > roughened
-sharp > sharpen
-slippery > make slippery
-smooth > smoothen
-soft > soften
-speckled > sprinkle, spray
-stiff/rigid > stiffen
-stinky > make stinky
-strong > strengthen
-thick > thicken
-tired > tire out, exhaust
-true > make true, verify, confirm
-unhealthy > make unhealthy
-unusual/weird > make unusual, make odd, differentiate, estrange, cast out, exile
-useful > utilise
-visible > make visible
-warm > warm up, health up
-weak > weaken
-wet > soak
-white > make white/bleach, clean, wash, brighten
-wide> widen, stretch
-wild > madden
-young > invigorate, rejuvenate
-yellow > make yellow
-short > shorten, reduce
-big > enlarge, increase, expand
-bold > enbolden
-brave > encourage
-confident > support, empower
-dead > kill, murder, slaughter, slay
-free > free, release
-funny > make fun of, to mock
-healthy > heal
-hostile > aggravate, provoke
-long> lengthen, stretch
-other > distinguish
-powerful > empower
-slow > slow down, retard, hamber, delay
-stark > distinguish, clarify
-suitable > customise, adjust
-tasty > improve taste
-tough > toughen
-wonderful > to make wonderful, to improve
+
 
 - function to apply certain sound changes only across morphome boundries. The functions takes the two morphemes as arguments, and then determines which sound changes are in chosenChanges. If a change is conditional and the condition is met at the morpheme boundrie e.g bak-or where intervocalic voicing detects that the final sound in word1 is a voiceless plosive following a vowel and that the first sound in word2 is a vowel, intervocalic voicing will be triggered and only at the boundry
 - possessorQuality
@@ -346,6 +269,7 @@ Colour metaohors?
   VERB FORMING SUFFIXES
   Noun/Adj: to become, intransitive change of state: old > get old/age, married > get married, happy > cheer up, absent > wither
   Adj > v: to grow X: wary > to grow wary, angry > grow angry
+  intrans v > trans v causative affix
 
   Adjective-Forming Suffixes:
 

@@ -95,8 +95,12 @@ function makeDictionary() {
             pOfSpeech = "adj" + bareRoots;
             wordWithAffix = languageWords[i];
             classifierInfo = "";;
-        } else if (transitiveVerbArray.includes(englishWords[i]) || intransitiveVerbArray.includes(englishWords[i])) {
-            pOfSpeech = "v" + bareRoots;
+        } else if (transitiveVerbArray.includes(englishWords[i])) {
+            pOfSpeech = "v.trans" + bareRoots;
+            wordWithAffix = languageWords[i];
+            classifierInfo = "";
+        } else if (intransitiveVerbArray.includes(englishWords[i])) {
+            pOfSpeech = "v.intrans" + bareRoots;
             wordWithAffix = languageWords[i];
             classifierInfo = "";
         } else if (adverbArray.includes(englishWords[i])) {
@@ -1183,8 +1187,11 @@ function makeDictionary() {
         } else if (adjectiveArray.includes(englishWords[i])) {
             pOfSpeech = "adj";
             wordWithAffix = "X" + languageWords[i];
-        } else if (transitiveVerbArray.includes(englishWords[i]) || intransitiveVerbArray.includes(englishWords[i])) {
-            pOfSpeech = "v";
+        } else if (transitiveVerbArray.includes(englishWords[i])) {
+            pOfSpeech = "v.trans";
+            wordWithAffix = "X" + languageWords[i];
+        } else if (intransitiveVerbArray.includes(englishWords[i])) {
+            pOfSpeech = "v.intrans";
             wordWithAffix = "X" + languageWords[i];
         } else if (adverbArray.includes(englishWords[i])) {
             pOfSpeech = "adv";

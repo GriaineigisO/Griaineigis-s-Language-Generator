@@ -16,7 +16,7 @@ function addWords() {
     intransitiveVerbArray.push("aim");
     intransitiveVerb3SArray.push("aims");
     intransitiveVerbPastArray.push("aimed");
-    derivedOrInheritedIntransVerb.push("inherited")
+    derivedOrInheritedIntransVerb.push("inherited");
 
 intransitiveVerbArray.push("appear");
     intransitiveVerb3SArray.push("appears");

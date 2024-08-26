@@ -12299,27 +12299,6 @@ etymologyArrayCountNoun.push("X");
 possessorOfQualityCount.push("X");
 
 
-
-countNounArray.push("worm");
-countNounArrayPlural.push("worms");
-activePassive.push("active")
-animInan.push("anim");
-divineNonDivine.push("profane");
-humanAnimalInan.push("secondinanimate");
-mascFemNeut.push("neuter");
-mascFem.push("feminine1");
-naturalArtificial.push("natural");
-animacyClassifierArray.push("wild-animal");
-shapeClassifierArray.push("long-and-slender");
-shortGenericClassifierArray.push("land-animal");
-derivedOrInheritedCountNoun.push("inherited");
-etymologyCountNoun.push("X");
-etymologyArrayCountNoun.push("X");
-/*--------------------------------------------*/
-possessorOfQualityCount.push("X");
-
-
-
 countNounArray.push("wound");
 countNounArrayPlural.push("wounds");
 activePassive.push("passive")

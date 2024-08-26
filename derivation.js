@@ -13550,70 +13550,70 @@ function makeVocabStats() {
         let inheritednounNum = 0;
         let derivednounNum = 0;
         for(let i = 0; i < countNounArray.length; i++) {
-                if(derivedOrInheritedCountNoun[i] === "inherited") {
+                if(derivedOrInheritedCountNoun[i] === "inherited"||derivedOrInheritedCountNoun[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedCountNoun[i] === "derived") {
                         derivednounNum++;
                 };
         };
         for(let i = 0; i < massNounArray.length; i++) {
-                if(derivedOrInheritedMassNoun[i] === "inherited") {
+                if(derivedOrInheritedMassNoun[i] === "inherited"||derivedOrInheritedMassNoun[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedMassNoun[i] === "derived") {
                         derivednounNum++;
                 };
         };
         for(let i = 0; i < adjectiveArray.length; i++) {
-                if(derivedOrInheritedADJ[i] === "inherited") {
+                if(derivedOrInheritedADJ[i] === "inherited"||derivedOrInheritedADJ[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedADJ[i] === "derived") {
                         derivednounNum++;
                 };
         };
         for(let i = 0; i < transitiveVerbArray.length; i++) {
-                if(derivedOrInheritedTransVerb[i] === "inherited") {
+                if(derivedOrInheritedTransVerb[i] === "inherited"||derivedOrInheritedTransVerb[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedTransVerb[i] === "derived") {
                         derivednounNum++;
                 };
         };
         for(let i = 0; i < intransitiveVerbArray.length; i++) {
-                if(derivedOrInheritedIntransVerb[i] === "inherited") {
+                if(derivedOrInheritedIntransVerb[i] === "inherited"||derivedOrInheritedIntransVerb[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedIntransVerb[i] === "derived") {
                         derivednounNum++;
                 };
         };
         for(let i = 0; i < conjunctionArray.length; i++) {
-                if(derivedOrInheritedCONJ[i] === "inherited") {
+                if(derivedOrInheritedCONJ[i] === "inherited"||derivedOrInheritedCONJ[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedCONJ[i] === "derived") {
                         derivednounNum++;
                 };
         };
         for(let i = 0; i < adverbArray.length; i++) {
-                if(derivedOrInheritedADV[i] === "inherited") {
+                if(derivedOrInheritedADV[i] === "inherited"||derivedOrInheritedADV[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedADV[i] === "derived") {
                         derivednounNum++;
                 };
         };
         for(let i = 0; i < intensifierArray.length; i++) {
-                if(derivedOrInheritedINTENS[i] === "inherited") {
+                if(derivedOrInheritedINTENS[i] === "inherited"||derivedOrInheritedINTENS[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedINTENS[i] === "derived") {
                         derivednounNum++;
                 };
         };
         for(let i = 0; i < allQuantifierArray.length; i++) {
-                if(derivedOrInheritedQuantifier[i] === "inherited") {
+                if(derivedOrInheritedQuantifier[i] === "inherited"||derivedOrInheritedQuantifier[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedQuantifier[i] === "derived") {
                         derivednounNum++;
                 };
         };
         for(let i = 0; i < adpositionArray.length; i++) {
-                if(derivedOrInheritedADPO[i] === "inherited") {
+                if(derivedOrInheritedADPO[i] === "inherited"||derivedOrInheritedADPO[i] === "inheritedOldDerived") {
                         inheritednounNum++;
                 } else if(derivedOrInheritedADPO[i] === "derived") {
                         derivednounNum++;
@@ -13635,7 +13635,7 @@ function makeVocabStats() {
                 };
         };
         for(let i = 0; i < massNounArray.length; i++) {
-                if(derivedOrInheritedMassNoun[i] === "inherited") {
+                if(derivedOrInheritedMassNoun[i] === "inherited"||derivedOrInheritedMassNoun[i] === "inheritedOldDerived") {
                         inheritedNounNum++;
                 } else if(derivedOrInheritedMassNoun[i] === "derived") {
                         derivedNounNum++;
@@ -13657,7 +13657,7 @@ function makeVocabStats() {
                 };
         };
         for(let i = 0; i < intransitiveVerbArray.length; i++) {
-                if(derivedOrInheritedIntransVerb[i] === "inherited") {
+                if(derivedOrInheritedIntransVerb[i] === "inherited"||derivedOrInheritedIntransVerb[i] === "inheritedOldDerived") {
                         inheritedVerbNum++;
                 } else if(derivedOrInheritedIntransVerb[i] === "derived") {
                         derivedVerbNum++;

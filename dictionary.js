@@ -79,7 +79,16 @@ function makeDictionary() {
     for (let i = 0; i < englishWords.length; i++) {
         let bareRoots = "";
         if (typologyNum !== 0) {
-            bareRoots = ` (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`
+            if(
+                (adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") ||
+                (countNounArray.includes(englishWords[i]) && derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived") ||
+                (massNounArray.includes(englishWords[i]) && derivedOrInheritedMassNoun[massNounArray.indexOf(englishWords[i])] === "derived") ||
+                (transitiveVerbArray.includes(englishWords[i]) && derivedOrInheritedTransVerb[transitiveVerbArray.indexOf(englishWords[i])] === "derived")
+            ) {
+                bareRoots = ` (<i>-${spell("X" + languageWords[i] + "A")}-</i>)`
+            } else {
+                bareRoots = ` (<i>-${spell(soundChange("X" + languageWords[i] + "A"))}-</i>)`
+            };
         } else {
             bareRoots = "";
         }

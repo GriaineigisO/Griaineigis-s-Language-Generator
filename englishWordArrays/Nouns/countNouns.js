@@ -9141,8 +9141,8 @@ possessorOfQualityCount.push("X");
 
 
 
-countNounArray.push("sheaf");
-countNounArrayPlural.push("sheaves");
+countNounArray.push("sheath");
+countNounArrayPlural.push("sheathes");
 activePassive.push("passive")
 animInan.push("inan");
 divineNonDivine.push("profane");

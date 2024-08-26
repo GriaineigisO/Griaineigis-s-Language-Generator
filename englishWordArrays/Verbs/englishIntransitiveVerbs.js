@@ -198,7 +198,7 @@ intransitiveVerbArray.push("hiss");
     intransitiveVerbPastArray.push("hissed");
 derivedOrInheritedIntransVerb.push("inherited")
 
-intransitiveVerbArray.push("howl");
+intransitiveVerbArray.push("howlV");
     intransitiveVerb3SArray.push("howls");
     intransitiveVerbPastArray.push("howled");
 derivedOrInheritedIntransVerb.push("inherited")

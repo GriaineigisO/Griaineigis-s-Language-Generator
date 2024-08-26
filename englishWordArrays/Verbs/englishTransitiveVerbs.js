@@ -50,7 +50,7 @@ derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 
-    transitiveVerbArray.push("bark");
+    transitiveVerbArray.push("barkV");
     transitiveVerb3SArray.push("barks");
     transitiveVerbPastArray.push("barked")
 derivedOrInheritedTransVerb.push("inherited");
@@ -771,7 +771,7 @@ derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 
-    transitiveVerbArray.push("pin");
+    transitiveVerbArray.push("pinV");
     transitiveVerb3SArray.push("pins");
     transitiveVerbPastArray.push("pinned")
 derivedOrInheritedTransVerb.push("inherited");
@@ -1037,7 +1037,7 @@ derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 
-    transitiveVerbArray.push("spring");
+    transitiveVerbArray.push("springV");
     transitiveVerb3SArray.push("springs");
     transitiveVerbPastArray.push("sprang")
 derivedOrInheritedTransVerb.push("inherited");
@@ -1100,7 +1100,7 @@ derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 
-    transitiveVerbArray.push("strike");
+    transitiveVerbArray.push("strikeV");
     transitiveVerb3SArray.push("strikes");
     transitiveVerbPastArray.push("struck");
 derivedOrInheritedTransVerb.push("inherited");

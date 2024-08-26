@@ -497,7 +497,7 @@ function addGrammaticalAffixes(word, partOfSpeech) {
 
 let randomNumberForDerivationSelection = 0;
 function selectDerivationalAffixes() {
-    let chosenDerivations = [VtoADJprone];
+    let chosenDerivations = [];
     let potentialDerivations = [
         VtoADJprone,
         NtoNPossessorOf,
@@ -675,7 +675,7 @@ function VtoADJprone() {
             deriveTransVtoADJprone(["stab", "kill", "murder", "slaughter"], ["murderous", "piercing", "slaughterous", "homicidal", "blood-thirsty"], ["more&nbspmurderous", "more&nbsppiercing", "more&nbspslaughterous", "more&nbsphomicidal", "more&nbspblood-thirsty"]);
             deriveTransVtoADJprone("steal", "theftuous", "more&nbsptheftuous");
             deriveTransVtoADJprone("stick", ["sticky", "adherent"], ["stickier", "more&nbspadherent"]);
-            deriveTransVtoADJprone("strike", ["aggressive", "threatening", "harmful", "dangerous"], ["more&nbspaggressive", "more&nbspthreatening", "more&nbspharmful", "more&nbspdangerous"]);
+            deriveTransVtoADJprone("strikeV", ["aggressive", "threatening", "harmful", "dangerous"], ["more&nbspaggressive", "more&nbspthreatening", "more&nbspharmful", "more&nbspdangerous"]);
             deriveTransVtoADJprone("support", "supportive", "more&nbspsupportive");
             deriveTransVtoADJprone("surpass", ["excellent", "incredible", "amazing", "superior"], ["more&nbspexcellent", "more&nbspincredible", "more&nbspamazing", "more&nbspsuperior"]);
             deriveTransVtoADJprone("suit", "suitable", "suitable");
@@ -4508,7 +4508,7 @@ function bodyParts() {
         exampleCounter++; 
         };
 
-        if(transitiveVerbArray[i] === "compel"||transitiveVerbArray[i] === "strike"||transitiveVerbArray[i] === "loveV") {
+        if(transitiveVerbArray[i] === "compel"||transitiveVerbArray[i] === "strikeV"||transitiveVerbArray[i] === "loveV") {
         let meaning = "heart";
         if(countNounArray.includes(meaning)) {
                 generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
@@ -4702,7 +4702,7 @@ function bodyParts() {
         exampleCounter++; 
         };
 
-        if(transitiveVerbArray[i] === "strike") {
+        if(transitiveVerbArray[i] === "strikeV") {
         let meaning = "fist";
         if(countNounArray.includes(meaning)) {
                 generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
@@ -5485,7 +5485,7 @@ function bodyParts() {
      document.getElementById("derivational-affixes").appendChild(li);
     li.appendChild(ul);
         };
-        if(intransitiveVerbArray[i] === "bleat"||intransitiveVerbArray[i] === "cackle"||intransitiveVerbArray[i] === "howl") {
+        if(intransitiveVerbArray[i] === "bleat"||intransitiveVerbArray[i] === "cackle"||intransitiveVerbArray[i] === "howlV") {
         let meaning = "throat";
         if(countNounArray.includes(meaning)) {
                 generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
@@ -10432,7 +10432,7 @@ function intransToTransVerb() {
                                 };
                                 exampleCounter++; 
                         };
-                        if(intransitiveVerbArray[i] === "howl") {
+                        if(intransitiveVerbArray[i] === "howlV") {
                                 let meaning = "howl&nbspat"
                                 if(transitiveVerbArray.includes(meaning)) {
                                         generatedTransitiveVerbs[transitiveVerbArray.indexOf(meaning)] = derivedTerm;

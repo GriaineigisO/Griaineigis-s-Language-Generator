@@ -1,8 +1,6 @@
 # Immediate To-Do List
 
-- convert VtoADJprone intransitive verbs to new layout using function, then do the same with all the other derivations
-
-
+- convert derivation functions to new layout using function
 - function to apply certain sound changes only across morphome boundries. The functions takes the two morphemes as arguments, and then determines which sound changes are in chosenChanges. If a change is conditional and the condition is met at the morpheme boundrie e.g bak-or where intervocalic voicing detects that the final sound in word1 is a voiceless plosive following a vowel and that the first sound in word2 is a vowel, intervocalic voicing will be triggered and only at the boundry
 - possessorQuality
 - Add stats about noun gender

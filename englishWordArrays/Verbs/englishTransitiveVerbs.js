@@ -584,7 +584,8 @@ etymologyTransVerb.push("X");
 
     transitiveVerbArray.push("hunt");
     transitiveVerb3SArray.push("hunts");
-    transitiveVerbPastArray.push("hunted");derivedOrInheritedTransVerb.push("inherited");
+    transitiveVerbPastArray.push("hunted");
+    derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 

@@ -4,8 +4,8 @@ import { spell } from './orthography.js';
 import { soundChange, cloneArray} from './soundchange.js';
 import {activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, derivedOrInheritedCountNoun, etymologyArrayCountNoun, etymologyCountNoun, possessorOfQualityCount} from './englishWordArrays/Nouns/countNouns.js'
 import {derivedOrInheritedMassNoun, etymologyArrayMassNoun, etymologyMassNoun, possessorOfQualityMass, singulativeMassNounArray, pluralSingulativeMassNounArray} from './englishWordArrays/Nouns/massNouns.js'
-import {derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb, transitiveVerb3SArray, transitiveVerbPastArray} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
-import {derivedOrInheritedIntransVerb} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
+import {derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb, transitiveVerb3SArray, transitiveVerbPastArray, derivationListTransVerb} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
+import {derivedOrInheritedIntransVerb, derivationListIntransVerb, etymologyArrayIntransVerb, etymologyIntransVerb} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
 import { etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ, comparativeAdjectiveArray} from './englishWordArrays/Adjectives/englishAdjectives.js';
 import {grammaticalNumber, caseNumber, animSgAffix, inanSgAffix, grammaticalNumber as grammaticalNumberFusional, mascSgAffix, femSgAffix} from './fusionalNouns.js';
 import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
@@ -543,7 +543,7 @@ function VtoADJprone() {
             if(suffixOrPrefix === "suffix") {
                 derivedTerm = soundChange(generatedTransitiveVerbs[i]) + soundChange(proneAffix);
                 olderDerivedTerm = generatedTransitiveVerbs[i] + proneAffix;
-                li.innerHTML = `<i>-${spell(soundChange(proneAffix + "A"))}</i> "derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`
+                li.innerHTML = `<i>-${spell(soundChange("X" + proneAffix))}</i> "derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`
             } else {
                 derivedTerm = soundChange(proneAffix) + soundChange(generatedTransitiveVerbs[i]);
                 olderDerivedTerm = proneAffix + generatedTransitiveVerbs[i];
@@ -590,6 +590,12 @@ function VtoADJprone() {
                                         };
                                 }
                                 etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
+                                //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                if(derivationListTransVerb[i] === "") {
+	                                derivationListTransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`
+                                } else {
+	                                derivationListTransVerb[i] = derivationListTransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`;
+                                };
                         } else {
                                 adjectiveArray.push(meaning);
                                 comparativeAdjectiveArray.push(comparative)
@@ -611,7 +617,12 @@ function VtoADJprone() {
                                         };
                                 }
                                 etymologyArrayADJ.push(transitiveVerbArray[i]);
-                        };
+                                //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                if(derivationListTransVerb[i] === "") {
+	                                derivationListTransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`
+                                } else {
+	                                derivationListTransVerb[i] = derivationListTransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`;
+                                };
                         if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
                                 let exampleLi = document.createElement("li");
                                 exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
@@ -621,6 +632,7 @@ function VtoADJprone() {
                          
                 };
             };
+        };
 
             deriveTransVtoADJprone("accept", "accepting", "more&nbspaccepting");
             deriveTransVtoADJprone("arrange", "methodical", "more&nbspmethodical");
@@ -743,6 +755,11 @@ function VtoADJprone() {
                                         };
                                 }
                                 etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = intransitiveVerbArray[i];
+                                if(derivationListIntransVerb[i] === "") {
+	                                derivationListIntransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`
+                                } else {
+	                                derivationListIntransVerb[i] = derivationListIntransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`;
+                                };
                         } else {
                                 adjectiveArray.push(meaning);
                                 comparativeAdjectiveArray.push(comparative)
@@ -764,6 +781,11 @@ function VtoADJprone() {
                                         };
                                 }
                                 etymologyArrayADJ.push(intransitiveVerbArray[i]);
+                                if(derivationListIntransVerb[i] === "") {
+	                                derivationListIntransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`
+                                } else {
+	                                derivationListIntransVerb[i] = derivationListIntransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`;
+                                };
                         };
                         if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
                                 let exampleLi = document.createElement("li");
@@ -807,7 +829,7 @@ function VtoADJprone() {
             deriveIntransVtoADJprone("stand", ["upright", "attentive", "erect"], ["more&nbspupright", "more&nbspattentive", "more&nbsperect"]);
             deriveIntransVtoADJprone("stink", ["smelly", "stinky", "foul", "gross", "disgusting"], ["smellier", "stinkier", "fouler", "grosser", "more&nbspdisgusting"]);
             deriveIntransVtoADJprone("suffer", ["suffering", "in&nbsppain", "tormented"], ["more&nbspsuffering", "more&nbspin&nbsppain", "more&nbsptormented"]);
-            deriveIntransVtoADJprone("sweat", ["sweaty", "physically&nbsptired", "exhausted"], ["sweatier", "more&nbspphysically&nbsptired", "more&nbspexhausted"]);
+            deriveIntransVtoADJprone("sweatV", ["sweaty", "physically&nbsptired", "exhausted"], ["sweatier", "more&nbspphysically&nbsptired", "more&nbspexhausted"]);
             deriveIntransVtoADJprone("suggest", "suggestive", "more&nbspsuggestive");
             deriveIntransVtoADJprone("think", ["thoughtful", "pensive"], ["more&nbspthoughtful", "more&nbsppensive"]);
             deriveIntransVtoADJprone("tremble", ["trembling", "scared", "cowardly", "afraid"], ["more&nbsptrembling", "more&nbspscared", "more&nbspcowardly", "more&nbspafraid"]);
@@ -843,10 +865,10 @@ function NtoNPossessorOf() {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
                 derivedTerm = soundChange(generatedCountNouns[i]) + soundChange(possessorAffix);
-                li.innerHTML = `<i>-${spell(soundChange(possessorAffix + "A"))}</i> "possessor&nbspof"`
+                li.innerHTML = `<i>-${spell(soundChange("X" + possessorAffix))}</i> "possessor&nbspof"`
             } else {
                 derivedTerm = soundChange(possessorAffix) + soundChange(generatedCountNouns[i]);
-                li.innerHTML = `<i>${spell(soundChange(possessorAffix))}-</i> "possessor&nbspof"`
+                li.innerHTML = `<i>${spell(soundChange(possessorAffix + "A"))}-</i> "possessor&nbspof"`
             };
              
             if(countNounArray[i] === "cave") {
@@ -2917,7 +2939,7 @@ function NADJtoADJpossessorOfQuality() {
                 };
                 if(exampleCounter < 6) {
                     let exampleLi = document.createElement("li");
-                    exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i> "${countNounArray[i]}" > <i>${spell(soundChange(derivedTerm))}</i> "${meaning}"`;
+                    exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i> "${countNounArray[i]}" > <i>${spell(derivedTerm)}</i> "${meaning}"`;
                     ul.appendChild(exampleLi)
                 };
                 exampleCounter++; 
@@ -2932,10 +2954,10 @@ function NADJtoADJpossessorOfQuality() {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
                 derivedTerm = soundChange(generatedMassNouns[i]) + soundChange(possessorQualityAffix);
-                li.innerHTML = `<i>-${spell(soundChange(possessorQualityAffix + "A"))}</i> "derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
+                li.innerHTML = `<i>-${spell(soundChange("X" + possessorQualityAffix))}</i> "derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
             } else {
                 derivedTerm = soundChange(possessorQualityAffix) + soundChange(generatedMassNouns[i]);
-                li.innerHTML = `<i>${spell(soundChange("X" + possessorQualityAffix))}-</i> "derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
+                li.innerHTML = `<i>${spell(soundChange(possessorQualityAffix + "A"))}-</i> "derives&nbspadjectives&nbspfrom&nbspnouns&nbspdenoting&nbspthe&nbsppossession&nbspof&nbspa&nbspthing&nbspor&nbspquality"`
             };
             //assigns the English meaning of the newly derived term
             let meaning = "";
@@ -2997,10 +3019,10 @@ function bodyParts() {
         //decides if the affix will be a suffix or prefix
         if(suffixOrPrefix === "suffix") {
         derivedTerm = soundChange(generatedCountNouns[i]) + soundChange(bodyPartAffix);
-        li.innerHTML = `<i>-${spell(soundChange(bodyPartAffix + "A"))}</i> "derives&nbspterms&nbspfor&nbspbody&nbspparts&nbspfrom&nbspnouns,&nbspadjectives&nbspand&nbspverbs"`
+        li.innerHTML = `<i>-${spell(soundChange("X" + bodyPartAffix))}</i> "derives&nbspterms&nbspfor&nbspbody&nbspparts&nbspfrom&nbspnouns,&nbspadjectives&nbspand&nbspverbs"`
         } else {
         derivedTerm = soundChange(bodyPartAffix) + soundChange(generatedCountNouns[i]);
-        li.innerHTML = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i> "derives&nbspterms&nbspfor&nbspbody&nbspparts&nbspfrom&nbspnouns,&nbspadjectives&nbspand&nbspverbs"`
+        li.innerHTML = `<i>${spell(soundChange(bodyPartAffix + "A"))}-</i> "derives&nbspterms&nbspfor&nbspbody&nbspparts&nbspfrom&nbspnouns,&nbspadjectives&nbspand&nbspverbs"`
         };
 
         if(countNounArray[i] === "club") {
@@ -5917,10 +5939,10 @@ function ADJtoCausVerb() {
         //decides if the affix will be a suffix or prefix
                 if(suffixOrPrefix === "suffix") {
                         derivedTerm = soundChange(generatedAdjectives[i]) + soundChange(adjToCausativeVerbAffix);
-                        li.innerHTML = `<i>-${spell(soundChange(adjToCausativeVerbAffix + "A"))}</i> "derives&nbspcausative&nbspverbs&nbspfrom&nbspadjectives"`
+                        li.innerHTML = `<i>-${spell(soundChange("X" + adjToCausativeVerbAffix))}</i> "derives&nbspcausative&nbspverbs&nbspfrom&nbspadjectives"`
                 } else {
                         derivedTerm = soundChange(adjToCausativeVerbAffix) + soundChange(generatedAdjectives[i]);
-                        li.innerHTML = `<i>${spell(soundChange("X" + adjToCausativeVerbAffix))}-</i> "derives&nbspcausative&nbspverbs&nbspfrom&nbspadjectives"`
+                        li.innerHTML = `<i>${spell(soundChange(adjToCausativeVerbAffix + "A"))}-</i> "derives&nbspcausative&nbspverbs&nbspfrom&nbspadjectives"`
                 };
 
                 if(adjectiveArray[i] === "able") {
@@ -9756,10 +9778,10 @@ function intransToTransVerb() {
                 if(Math.floor(Math.random() * 3) === 1) {
                         if(suffixOrPrefix === "suffix") {
                                 derivedTerm = soundChange(generatedIntransitiveVerbs[i]) + soundChange(intransToTransVerbAffix);
-                                li.innerHTML = `<i>-${spell(soundChange(intransToTransVerbAffix + "A"))}</i> "derives&nbsptransitive&nbspverbs&nbspfrom&nbspintransitive&nbspverbs. The resulting verb may be causative in nature, or just transitive in general, often translating to a phrasal verb in English."`
+                                li.innerHTML = `<i>-${spell(soundChange("X" + intransToTransVerbAffix))}</i> "derives&nbsptransitive&nbspverbs&nbspfrom&nbspintransitive&nbspverbs. The resulting verb may be causative in nature, or just transitive in general, often translating to a phrasal verb in English."`
                         } else {
                                 derivedTerm = soundChange(intransToTransVerbAffix) + soundChange(generatedIntransitiveVerbs[i]);
-                                li.innerHTML = `<i>${spell(soundChange("X" + intransToTransVerbAffix))}-</i> "derives&nbsptransitive&nbspverbs&nbspfrom&nbspintransitive&nbspverbs. The resulting verb may be causative in nature, or just transitive in general, often translating to a phrasal verb in English."`
+                                li.innerHTML = `<i>${spell(soundChange(intransToTransVerbAffix + "A"))}-</i> "derives&nbsptransitive&nbspverbs&nbspfrom&nbspintransitive&nbspverbs. The resulting verb may be causative in nature, or just transitive in general, often translating to a phrasal verb in English."`
                         };
                         if(intransitiveVerbArray[i] === "aim") {
                                 let meaning = randomIndexOfArray(["aim&nbspat", "take&nbspaim"])
@@ -11218,10 +11240,10 @@ function transVerbToABleAdjective() {
                 if(Math.floor(Math.random() * 3) === 1) {
                         if(suffixOrPrefix === "suffix") {
                                 derivedTerm = soundChange(generatedTransitiveVerbs[i]) + soundChange(transVerbToABleAdjectiveAffix);
-                                li.innerHTML = `<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i> "derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`
+                                li.innerHTML = `<i>-${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}</i> "derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`
                         } else {
                                 derivedTerm = soundChange(transVerbToABleAdjectiveAffix) + soundChange(generatedTransitiveVerbs[i]);
-                                li.innerHTML = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i> "derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`
+                                li.innerHTML = `<i>${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}-</i> "derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`
                         };
                         if(transitiveVerbArray[i] === "accept") {
                                 let meaning = "acceptable";
@@ -13765,9 +13787,10 @@ function generateLanguage() {
     createAffixes();
     selectDerivationalAffixes();
     makeVocabStats();
+    //console.log(derivationListTransVerb)
 };
 
 
 
-export {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ, etymologyCountNoun, derivedOrInheritedCountNoun, activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, etymologyArrayCountNoun, pluralSingulativeMassNounArray, singulativeMassNounArray, etymologyMassNoun, etymologyArrayMassNoun, comparativeAdjectiveArray, derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb,derivedOrInheritedMassNoun
+export {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ, etymologyCountNoun, derivedOrInheritedCountNoun, activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, etymologyArrayCountNoun, pluralSingulativeMassNounArray, singulativeMassNounArray, etymologyMassNoun, etymologyArrayMassNoun, comparativeAdjectiveArray, derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb,derivedOrInheritedMassNoun, derivationListTransVerb, derivationListIntransVerb, derivedOrInheritedIntransVerb, etymologyArrayIntransVerb, etymologyIntransVerb
 }

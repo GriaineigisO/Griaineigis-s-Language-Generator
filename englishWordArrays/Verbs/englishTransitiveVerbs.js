@@ -4,6 +4,7 @@ let transitiveVerbPastArray = [];
 let derivedOrInheritedTransVerb = [];
 let etymologyArrayTransVerb = [];
 let etymologyTransVerb = [];
+let derivationListTransVerb = [];
 
 function clearArrays() {
     transitiveVerbArray = [];
@@ -12,7 +13,13 @@ function clearArrays() {
     derivedOrInheritedTransVerb = [];
     etymologyArrayTransVerb = [];
     etymologyTransVerb = [];
+    derivationListTransVerb = [];
 }
+
+// function createDiv() {
+//     let div = document.createElement("div");
+//     return div
+// }
 
 function addWords() {
     transitiveVerbArray.push("accept");
@@ -21,6 +28,7 @@ function addWords() {
     derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("apportion");
     transitiveVerb3SArray.push("apportions");
@@ -28,6 +36,7 @@ etymologyTransVerb.push("X");
     derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("arrange");
     transitiveVerb3SArray.push("arranges");
@@ -35,6 +44,7 @@ etymologyTransVerb.push("X");
     derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("attain");
     transitiveVerb3SArray.push("attains");
@@ -42,6 +52,7 @@ etymologyTransVerb.push("X");
     derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("bake");
     transitiveVerb3SArray.push("bakes");
@@ -49,6 +60,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("barkV");
     transitiveVerb3SArray.push("barks");
@@ -56,6 +68,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("bearV");
     transitiveVerb3SArray.push("bears");
@@ -63,6 +76,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("beat");
     transitiveVerb3SArray.push("beats");
@@ -70,6 +84,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("beg");
     transitiveVerb3SArray.push("begs");
@@ -77,6 +92,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("bend");
     transitiveVerb3SArray.push("bends");
@@ -84,6 +100,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("bestow");
     transitiveVerb3SArray.push("bestows");
@@ -91,6 +108,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("bind");
     transitiveVerb3SArray.push("binds");
@@ -98,6 +116,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("bite");
     transitiveVerb3SArray.push("bites");
@@ -105,6 +124,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("blame");
     transitiveVerb3SArray.push("blames");
@@ -112,6 +132,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("blowV");
     transitiveVerb3SArray.push("blows");
@@ -119,6 +140,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("boil");
     transitiveVerb3SArray.push("boils");
@@ -126,6 +148,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("braid");
     transitiveVerb3SArray.push("braids");
@@ -133,6 +156,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("break");
     transitiveVerb3SArray.push("breaks");
@@ -140,6 +164,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("breathe");
     transitiveVerb3SArray.push("breathes");
@@ -147,6 +172,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("brew");
     transitiveVerb3SArray.push("brews");
@@ -154,6 +180,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("build");
     transitiveVerb3SArray.push("builds");
@@ -161,6 +188,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("burn");
     transitiveVerb3SArray.push("burns");
@@ -168,6 +196,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("burrow");
     transitiveVerb3SArray.push("burrows");
@@ -175,6 +204,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("buy");
     transitiveVerb3SArray.push("buys");
@@ -182,6 +212,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("carry");
     transitiveVerb3SArray.push("carries");
@@ -189,6 +220,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("carve");
     transitiveVerb3SArray.push("carves");
@@ -196,6 +228,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("catch");
     transitiveVerb3SArray.push("catches");
@@ -203,6 +236,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("chew");
     transitiveVerb3SArray.push("chews");
@@ -210,6 +244,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("choose");
     transitiveVerb3SArray.push("chooses");
@@ -217,6 +252,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("collect");
     transitiveVerb3SArray.push("collects");
@@ -224,6 +260,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("compel");
     transitiveVerb3SArray.push("compels");
@@ -231,6 +268,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("compensate");
     transitiveVerb3SArray.push("compensates");
@@ -238,6 +276,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("cook");
     transitiveVerb3SArray.push("cooks");
@@ -245,6 +284,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("cost");
     transitiveVerb3SArray.push("costs");
@@ -252,6 +292,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("cover");
     transitiveVerb3SArray.push("covers");
@@ -259,6 +300,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("craft");
     transitiveVerb3SArray.push("crafts");
@@ -266,6 +308,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("cure");
     transitiveVerb3SArray.push("cures");
@@ -273,6 +316,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("curse");
     transitiveVerb3SArray.push("curses");
@@ -280,6 +324,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("cut");
     transitiveVerb3SArray.push("cuts");
@@ -287,6 +332,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("deem");
     transitiveVerb3SArray.push("deems");
@@ -294,6 +340,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("deceive");
     transitiveVerb3SArray.push("deceives");
@@ -301,6 +348,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("defeat");
     transitiveVerb3SArray.push("defeats");
@@ -308,6 +356,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("defile");
     transitiveVerb3SArray.push("defiles");
@@ -315,6 +364,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("desire");
     transitiveVerb3SArray.push("desires");
@@ -322,6 +372,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("destroy");
     transitiveVerb3SArray.push("destroys");
@@ -329,6 +380,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("dig");
     transitiveVerb3SArray.push("digs");
@@ -336,6 +388,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("distribute");
     transitiveVerb3SArray.push("distributes");
@@ -343,6 +396,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("divide");
     transitiveVerb3SArray.push("divides");
@@ -350,6 +404,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("do");
     transitiveVerb3SArray.push("does");
@@ -357,6 +412,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("drink");
     transitiveVerb3SArray.push("drinks");
@@ -364,6 +420,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("drive");
     transitiveVerb3SArray.push("drives");
@@ -371,6 +428,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("dye");
     transitiveVerb3SArray.push("dyes");
@@ -378,6 +436,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("eat");
     transitiveVerb3SArray.push("eats");
@@ -385,6 +444,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("employ");
     transitiveVerb3SArray.push("employs");
@@ -392,6 +452,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("enjoy");
     transitiveVerb3SArray.push("enjoys");
@@ -399,6 +460,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("exchangeV");
     transitiveVerb3SArray.push("exchanges");
@@ -406,6 +468,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("extinguish");
     transitiveVerb3SArray.push("extinguishes");
@@ -413,6 +476,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("feel");
     transitiveVerb3SArray.push("feels");
@@ -420,6 +484,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("fight");
     transitiveVerb3SArray.push("fights");
@@ -427,6 +492,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("flay");
     transitiveVerb3SArray.push("flays");
@@ -434,6 +500,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("follow");
     transitiveVerb3SArray.push("follows");
@@ -441,6 +508,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("forget");
     transitiveVerb3SArray.push("forgets");
@@ -448,6 +516,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("gather");
     transitiveVerb3SArray.push("gathers");
@@ -455,6 +524,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("gird");
     transitiveVerb3SArray.push("girds");
@@ -462,6 +532,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("give");
     transitiveVerb3SArray.push("gives");
@@ -469,6 +540,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("grasp");
     transitiveVerb3SArray.push("grasps");
@@ -476,6 +548,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("grind");
     transitiveVerb3SArray.push("grinds");
@@ -483,6 +556,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("grip");
     transitiveVerb3SArray.push("grips");
@@ -490,6 +564,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("growl");
     transitiveVerb3SArray.push("growls");
@@ -497,6 +572,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("harm");
     transitiveVerb3SArray.push("harms");
@@ -504,6 +580,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("harvest");
     transitiveVerb3SArray.push("harvests");
@@ -511,6 +588,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("hate");
     transitiveVerb3SArray.push("hates");
@@ -518,6 +596,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("have");
     transitiveVerb3SArray.push("has");
@@ -525,6 +604,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("hear");
     transitiveVerb3SArray.push("hears");
@@ -532,6 +612,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("help");
     transitiveVerb3SArray.push("helps");
@@ -539,6 +620,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("hew");
     transitiveVerb3SArray.push("hews");
@@ -546,6 +628,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("hide");
     transitiveVerb3SArray.push("hides");
@@ -553,6 +636,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("hit");
     transitiveVerb3SArray.push("hits");
@@ -560,6 +644,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("hold");
     transitiveVerb3SArray.push("holds");
@@ -567,6 +652,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("honourV");
     transitiveVerb3SArray.push("honours");
@@ -574,6 +660,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("hum");
     transitiveVerb3SArray.push("hums");
@@ -581,6 +668,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("hunt");
     transitiveVerb3SArray.push("hunts");
@@ -588,6 +676,7 @@ etymologyTransVerb.push("X");
     derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("instruct");
     transitiveVerb3SArray.push("instructs");
@@ -595,6 +684,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("insult");
     transitiveVerb3SArray.push("insults");
@@ -602,6 +692,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("invite");
     transitiveVerb3SArray.push("invites");
@@ -609,6 +700,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("invoke");
     transitiveVerb3SArray.push("invokes");
@@ -616,6 +708,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("join");
     transitiveVerb3SArray.push("joins");
@@ -623,6 +716,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("keep");
     transitiveVerb3SArray.push("keeps");
@@ -630,6 +724,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("kick");
     transitiveVerb3SArray.push("kicks");
@@ -637,6 +732,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("know");
     transitiveVerb3SArray.push("knows");
@@ -644,6 +740,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("lack");
     transitiveVerb3SArray.push("lacks");
@@ -651,6 +748,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("leap");
     transitiveVerb3SArray.push("leaps");
@@ -658,6 +756,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("learn");
     transitiveVerb3SArray.push("learns");
@@ -665,6 +764,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("leave");
     transitiveVerb3SArray.push("leaves");
@@ -672,6 +772,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("lick");
     transitiveVerb3SArray.push("licks");
@@ -679,6 +780,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("like");
     transitiveVerb3SArray.push("likes");
@@ -686,6 +788,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("loveV");
     transitiveVerb3SArray.push("loves");
@@ -693,6 +796,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("make");
     transitiveVerb3SArray.push("makes");
@@ -700,6 +804,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("marry");
     transitiveVerb3SArray.push("marries");
@@ -707,6 +812,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("meet");
     transitiveVerb3SArray.push("meets");
@@ -714,6 +820,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("need");
     transitiveVerb3SArray.push("needs");
@@ -721,6 +828,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("notice");
     transitiveVerb3SArray.push("notices");
@@ -728,6 +836,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("paint");
     transitiveVerb3SArray.push("paints");
@@ -735,6 +844,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("praise");
     transitiveVerb3SArray.push("praises");
@@ -742,6 +852,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("pay");
     transitiveVerb3SArray.push("pays");
@@ -749,6 +860,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("perceive");
     transitiveVerb3SArray.push("perceives");
@@ -756,6 +868,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("persuade");
     transitiveVerb3SArray.push("persuades");
@@ -763,6 +876,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("pierce");
     transitiveVerb3SArray.push("pierces");
@@ -770,6 +884,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("pinV");
     transitiveVerb3SArray.push("pins");
@@ -777,6 +892,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("pitch");
     transitiveVerb3SArray.push("pitches");
@@ -784,6 +900,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("please");
     transitiveVerb3SArray.push("pleases");
@@ -791,6 +908,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("pluck");
     transitiveVerb3SArray.push("plucks");
@@ -798,6 +916,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("pour");
     transitiveVerb3SArray.push("pours");
@@ -805,6 +924,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("prefer");
     transitiveVerb3SArray.push("prefers");
@@ -812,6 +932,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("propel");
     transitiveVerb3SArray.push("propels");
@@ -819,6 +940,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("protect");
     transitiveVerb3SArray.push("protects");
@@ -826,6 +948,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("pull");
     transitiveVerb3SArray.push("pulls");
@@ -833,6 +956,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("push");
     transitiveVerb3SArray.push("pushes");
@@ -840,6 +964,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("put");
     transitiveVerb3SArray.push("puts");
@@ -847,6 +972,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("rake");
     transitiveVerb3SArray.push("rakes");
@@ -854,6 +980,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("read");
     transitiveVerb3SArray.push("reads");
@@ -861,6 +988,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("refresh");
     transitiveVerb3SArray.push("refreshes");
@@ -868,6 +996,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("remember");
     transitiveVerb3SArray.push("remembers");
@@ -875,6 +1004,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("respect");
     transitiveVerb3SArray.push("respects");
@@ -882,6 +1012,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("revel");
     transitiveVerb3SArray.push("revels");
@@ -889,6 +1020,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("reward");
     transitiveVerb3SArray.push("rewards");
@@ -896,6 +1028,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("ride");
     transitiveVerb3SArray.push("rides");
@@ -903,6 +1036,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("roast");
     transitiveVerb3SArray.push("roasts");
@@ -910,6 +1044,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("rowV");
     transitiveVerb3SArray.push("rows");
@@ -917,6 +1052,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("rub");
     transitiveVerb3SArray.push("rubs");
@@ -924,6 +1060,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("run");
     transitiveVerb3SArray.push("runs");
@@ -931,6 +1068,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("sacrifice");
     transitiveVerb3SArray.push("sacrifices");
@@ -938,6 +1076,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("say");
     transitiveVerb3SArray.push("says");
@@ -945,6 +1084,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("scratch");
     transitiveVerb3SArray.push("scratches");
@@ -952,6 +1092,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("see");
     transitiveVerb3SArray.push("sees");
@@ -959,6 +1100,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("seethe");
     transitiveVerb3SArray.push("seethes");
@@ -966,6 +1108,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("sell");
     transitiveVerb3SArray.push("sells");
@@ -973,6 +1116,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("separate");
     transitiveVerb3SArray.push("separates");
@@ -980,6 +1124,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("shake");
     transitiveVerb3SArray.push("shakes");
@@ -987,6 +1132,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("shame");
     transitiveVerb3SArray.push("shames");
@@ -994,6 +1140,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("shave");
     transitiveVerb3SArray.push("shaves");
@@ -1001,6 +1148,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("show");
     transitiveVerb3SArray.push("shows");
@@ -1008,6 +1156,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("sing");
     transitiveVerb3SArray.push("sings");
@@ -1015,6 +1164,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("smash");
     transitiveVerb3SArray.push("smashes");
@@ -1022,6 +1172,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("smear");
     transitiveVerb3SArray.push("smears");
@@ -1029,6 +1180,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("split");
     transitiveVerb3SArray.push("splits");
@@ -1036,6 +1188,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("springV");
     transitiveVerb3SArray.push("springs");
@@ -1043,6 +1196,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("sprinkle");
     transitiveVerb3SArray.push("sprinkles");
@@ -1050,6 +1204,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("sprout");
     transitiveVerb3SArray.push("sprouts");
@@ -1057,6 +1212,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("squeeze");
     transitiveVerb3SArray.push("squeezes");
@@ -1064,6 +1220,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("stab");
     transitiveVerb3SArray.push("stabs");
@@ -1071,6 +1228,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("steal");
     transitiveVerb3SArray.push("steals");
@@ -1078,6 +1236,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("stickV");
     transitiveVerb3SArray.push("sticks");
@@ -1085,6 +1244,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("sting");
     transitiveVerb3SArray.push("stings");
@@ -1092,6 +1252,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("stir");
     transitiveVerb3SArray.push("stirs");
@@ -1099,6 +1260,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("strikeV");
     transitiveVerb3SArray.push("strikes");
@@ -1106,6 +1268,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("suck");
     transitiveVerb3SArray.push("sucks");
@@ -1113,6 +1276,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("suckle");
     transitiveVerb3SArray.push("suckles");
@@ -1120,6 +1284,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("suit");
     transitiveVerb3SArray.push("suits");
@@ -1127,6 +1292,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("support");
     transitiveVerb3SArray.push("supports");
@@ -1134,6 +1300,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("surmount");
     transitiveVerb3SArray.push("surmounts");
@@ -1141,6 +1308,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("surpass");
     transitiveVerb3SArray.push("surpasses");
@@ -1148,6 +1316,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("surround");
     transitiveVerb3SArray.push("surrounds");
@@ -1155,6 +1324,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("swallow");
     transitiveVerb3SArray.push("swallows");
@@ -1162,6 +1332,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("take");
     transitiveVerb3SArray.push("takes");
@@ -1169,6 +1340,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("taste");
     transitiveVerb3SArray.push("tastes");
@@ -1176,6 +1348,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("teach");
     transitiveVerb3SArray.push("teaches");
@@ -1183,6 +1356,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("tear");
     transitiveVerb3SArray.push("tears");
@@ -1190,6 +1364,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("thank");
     transitiveVerb3SArray.push("thanks");
@@ -1197,6 +1372,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("throw");
     transitiveVerb3SArray.push("throws");
@@ -1204,6 +1380,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("tickle");
     transitiveVerb3SArray.push("tickles");
@@ -1211,6 +1388,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("tie");
     transitiveVerb3SArray.push("ties");
@@ -1218,6 +1396,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("touchV");
     transitiveVerb3SArray.push("touches");
@@ -1225,6 +1404,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("trust");
     transitiveVerb3SArray.push("trusts");
@@ -1232,6 +1412,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("twist");
     transitiveVerb3SArray.push("twists");
@@ -1239,6 +1420,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("use");
     transitiveVerb3SArray.push("uses");
@@ -1246,6 +1428,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("want");
     transitiveVerb3SArray.push("wants");
@@ -1253,6 +1436,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("wash");
     transitiveVerb3SArray.push("washes");
@@ -1260,6 +1444,7 @@ etymologyTransVerb.push("X");
     derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("weave");
     transitiveVerb3SArray.push("weaves");
@@ -1267,6 +1452,7 @@ etymologyTransVerb.push("X");
     derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("weed");
     transitiveVerb3SArray.push("weeds");
@@ -1274,6 +1460,7 @@ etymologyTransVerb.push("X");
     derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("wipe");
     transitiveVerb3SArray.push("wipes");
@@ -1281,6 +1468,7 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 
     transitiveVerbArray.push("write");
     transitiveVerb3SArray.push("writes");
@@ -1288,10 +1476,11 @@ etymologyTransVerb.push("X");
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 }
 
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", clearArrays);
 generateLanguageButton.addEventListener("click", addWords);
 
-export {transitiveVerbArray, transitiveVerb3SArray, transitiveVerbPastArray, derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb};
+export {transitiveVerbArray, transitiveVerb3SArray, transitiveVerbPastArray, derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb, derivationListTransVerb};

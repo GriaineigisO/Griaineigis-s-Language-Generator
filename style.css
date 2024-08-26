@@ -520,7 +520,8 @@ h1, h2, h3, h4 {
 
     hr {
      color: black;
-     height: 3px;
+     border: none;
+    border-top: 3px solid black;
     }
 
     hr.style-eight {
@@ -539,6 +540,13 @@ h1, h2, h3, h4 {
         font-size: 1.5em;
         padding: 0 0.25em;
         background: white;
+    }
+
+    
+    hr.dictionaryHr {
+        border-color: black;
+        border: none;
+        border-top: 2px solid black;
     }
      
 

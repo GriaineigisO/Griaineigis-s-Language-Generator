@@ -7,6 +7,7 @@
 - Make fusional nouns with gender but no case
 - Make fusional nouns with gender and case
 - consonantal root system
+- after fusional nouns are done, make it so that all inflected forms of a noun appear in the dictionary entry before the etymology on a new line in small text
 
 # Phonology
 

@@ -14,6 +14,7 @@ let derivedOrInheritedCountNoun = [];
 let etymologyCountNoun = [];
 let etymologyArrayCountNoun = [];
 let possessorOfQualityCount = [];
+let derivationListCountNoun = [];
 
 function clearArrays() {
 countNounArray = [];
@@ -34,6 +35,7 @@ countNounArrayPlural = [];
     possessorOfQualityCount = [];
     etymologyArrayCountNoun = [];
     etymologyCountNoun = [];
+    derivationListCountNoun = [];
 }
 
 function addWords() {
@@ -52,6 +54,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -71,6 +74,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -91,6 +95,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("afflicted");
 
@@ -111,6 +116,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -131,6 +137,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -151,6 +158,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -171,6 +179,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -191,6 +200,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -211,6 +221,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -231,6 +242,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["militaristic", "powerful", "in-charge", "in-command", "commanding"]);
 
@@ -251,6 +263,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -271,6 +284,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -291,6 +305,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["famous", "well-known", "popular"]);
 
@@ -311,6 +326,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -331,6 +347,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -351,6 +368,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("dangerous");
 
@@ -370,6 +388,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -390,6 +409,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -410,6 +430,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("equipt");
 
@@ -429,6 +450,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -449,6 +471,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("accompanied");
 
@@ -469,6 +492,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -489,6 +513,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -509,6 +534,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["honoured&nbspin&nbspdeath", "eternally&nbspfamous"]);
 
@@ -529,6 +555,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -549,6 +576,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["burdened", "ladened"]);
 
@@ -568,6 +596,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -588,6 +617,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -608,6 +638,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -628,6 +659,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -648,6 +680,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -668,6 +701,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["manly", "virile"]);
 
@@ -688,6 +722,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -708,6 +743,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -728,6 +764,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -748,6 +785,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -768,6 +806,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -788,6 +827,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("clothed");
 
@@ -808,6 +848,7 @@ shortGenericClassifierArray.push("natural");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -828,6 +869,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -848,6 +890,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -868,6 +911,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("real");
 
@@ -887,6 +931,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -907,6 +952,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -927,6 +973,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -947,6 +994,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("armed");
 
@@ -966,6 +1014,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -986,6 +1035,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1006,6 +1056,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1026,6 +1077,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1046,6 +1098,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("sea-faring");
 
@@ -1065,6 +1118,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["alive", "living", "corporeal", "mortal"]);
 
@@ -1084,6 +1138,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1104,6 +1159,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["skeletal", "emaciated"]);
 
@@ -1123,6 +1179,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["book-loving", "well-read", "learned"]);
 
@@ -1142,6 +1199,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1162,6 +1220,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["territorial", "demarcated"]);
 
@@ -1181,6 +1240,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1201,6 +1261,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1221,6 +1282,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1241,6 +1303,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1261,6 +1324,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1281,6 +1345,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1301,6 +1366,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1321,6 +1387,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1341,6 +1408,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1361,6 +1429,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1381,6 +1450,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["alive", "living"]);
 
@@ -1400,6 +1470,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1420,6 +1491,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1440,6 +1512,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1460,6 +1533,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1480,6 +1554,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1500,6 +1575,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1520,6 +1596,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1540,6 +1617,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1560,6 +1638,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1580,6 +1659,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1600,6 +1680,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["burdened", "troubled", "stress"]);
 
@@ -1619,6 +1700,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1639,6 +1721,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1659,6 +1742,7 @@ shortGenericClassifierArray.push("natural=inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1679,6 +1763,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1699,6 +1784,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1719,6 +1805,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1739,6 +1826,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1759,6 +1847,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1779,6 +1868,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1799,6 +1889,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1819,6 +1910,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1839,6 +1931,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1859,6 +1952,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1879,6 +1973,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1899,6 +1994,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1919,6 +2015,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1939,6 +2036,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["fast-and-dangerous"]);
 
@@ -1958,6 +2056,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1978,6 +2077,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -1998,6 +2098,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2018,6 +2119,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("ancestral");
 
@@ -2037,6 +2139,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2057,6 +2160,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2077,6 +2181,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2097,6 +2202,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2117,6 +2223,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2137,6 +2244,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2157,6 +2265,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["celestial", "cloudy"]);
 
@@ -2176,6 +2285,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("club-weilding");
 /*----------------------------------------*/
@@ -2196,6 +2306,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2216,6 +2327,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["wealthy", "rich"]);
 /*----------------------------------------*/
@@ -2236,6 +2348,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2256,6 +2369,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("well-kempt");
 
@@ -2275,6 +2389,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2295,6 +2410,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2315,6 +2431,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2335,6 +2452,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 /*----------------------------------------*/
@@ -2356,6 +2474,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2376,6 +2495,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push(["wealthy", "rich", "cattle-owning"]);
 
@@ -2395,6 +2515,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2415,6 +2536,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2435,6 +2557,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2455,6 +2578,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2475,6 +2599,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2495,6 +2620,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2515,6 +2641,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2535,6 +2662,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2555,6 +2683,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2575,6 +2704,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2595,6 +2725,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2615,6 +2746,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2635,6 +2767,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2655,6 +2788,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2675,6 +2809,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2695,6 +2830,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2715,6 +2851,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2735,6 +2872,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2755,6 +2893,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2775,6 +2914,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2795,6 +2935,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2815,6 +2956,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2835,6 +2977,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2855,6 +2998,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2875,6 +3019,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2895,6 +3040,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2915,6 +3061,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2935,6 +3082,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2955,6 +3103,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2975,6 +3124,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -2995,6 +3145,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3015,6 +3166,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3035,6 +3187,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3055,6 +3208,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3075,6 +3229,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3095,6 +3250,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3115,6 +3271,7 @@ shortGenericClassifierArray.push("liquid");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3135,6 +3292,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3155,6 +3313,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3175,6 +3334,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3195,6 +3355,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3215,6 +3376,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3235,6 +3397,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3255,6 +3418,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3275,6 +3439,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3295,6 +3460,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3315,6 +3481,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3335,6 +3502,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3355,6 +3523,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3375,6 +3544,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3395,6 +3565,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3415,6 +3586,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3435,6 +3607,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3455,6 +3628,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3475,6 +3649,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3495,6 +3670,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3515,6 +3691,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3535,6 +3712,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3555,6 +3733,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3575,6 +3754,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3595,6 +3775,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3615,6 +3796,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3635,6 +3817,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3655,6 +3838,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3675,6 +3859,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3695,6 +3880,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3715,6 +3901,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3735,6 +3922,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3755,6 +3943,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3775,6 +3964,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3795,6 +3985,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3815,6 +4006,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3835,6 +4027,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3855,6 +4048,7 @@ shortGenericClassifierArray.push("flower");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3875,6 +4069,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3895,6 +4090,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3915,6 +4111,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3935,6 +4132,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3955,6 +4153,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3975,6 +4174,7 @@ shortGenericClassifierArray.push("natural-inanimate")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -3995,6 +4195,7 @@ shortGenericClassifierArray.push("human2")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4015,6 +4216,7 @@ shortGenericClassifierArray.push("tree")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4035,6 +4237,7 @@ shortGenericClassifierArray.push("tool")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4055,6 +4258,7 @@ shortGenericClassifierArray.push("tool")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4075,6 +4279,7 @@ shortGenericClassifierArray.push("tool")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4095,6 +4300,7 @@ shortGenericClassifierArray.push("human2")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4115,6 +4321,7 @@ shortGenericClassifierArray.push("human2")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4135,6 +4342,7 @@ shortGenericClassifierArray.push("water-animal")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4155,6 +4363,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4175,6 +4384,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4195,6 +4405,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4215,6 +4426,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4235,6 +4447,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4255,6 +4468,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4275,6 +4489,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4295,6 +4510,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4315,6 +4531,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4335,6 +4552,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4355,6 +4573,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4375,6 +4594,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4395,6 +4615,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4415,6 +4636,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4435,6 +4657,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4455,6 +4678,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4475,6 +4699,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4495,6 +4720,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4515,6 +4741,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4535,6 +4762,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4555,6 +4783,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4575,6 +4804,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4595,6 +4825,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4615,6 +4846,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4635,6 +4867,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4655,6 +4888,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4675,6 +4909,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4695,6 +4930,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4715,6 +4951,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4735,6 +4972,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4755,6 +4993,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4775,6 +5014,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
@@ -4796,6 +5036,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4816,6 +5057,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4836,6 +5078,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4856,6 +5099,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4876,6 +5120,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4896,6 +5141,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4916,6 +5162,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4936,6 +5183,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4956,6 +5204,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4976,6 +5225,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -4996,6 +5246,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5016,6 +5267,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5036,6 +5288,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5056,6 +5309,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5076,6 +5330,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5096,6 +5351,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5116,6 +5372,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5136,6 +5393,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5156,6 +5414,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5176,6 +5435,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5196,6 +5456,7 @@ shortGenericClassifierArray.push("toole");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5216,6 +5477,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5236,6 +5498,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5256,6 +5519,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5276,6 +5540,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5296,6 +5561,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5316,6 +5582,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5336,6 +5603,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5356,6 +5624,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5376,6 +5645,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5396,6 +5666,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5416,6 +5687,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5436,6 +5708,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5456,6 +5729,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5476,6 +5750,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5496,6 +5771,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5516,6 +5792,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5536,6 +5813,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5556,6 +5834,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5576,6 +5855,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5596,6 +5876,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5616,6 +5897,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5636,6 +5918,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5656,6 +5939,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5676,6 +5960,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5696,6 +5981,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5716,6 +6002,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5736,6 +6023,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5756,6 +6044,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5776,6 +6065,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5796,6 +6086,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5816,6 +6107,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5836,6 +6128,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5856,6 +6149,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5876,6 +6170,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5896,6 +6191,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5916,6 +6212,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5936,6 +6233,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5956,6 +6254,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5976,6 +6275,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -5996,6 +6296,7 @@ shortGenericClassifierArray.push("liquid");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6016,6 +6317,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6036,6 +6338,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6056,6 +6359,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6076,6 +6380,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6096,6 +6401,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6116,6 +6422,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6136,6 +6443,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6156,6 +6464,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6176,6 +6485,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6196,6 +6506,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6216,6 +6527,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6236,6 +6548,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6256,6 +6569,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6276,6 +6590,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6296,6 +6611,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6316,6 +6632,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6336,6 +6653,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6356,6 +6674,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6376,6 +6695,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6396,6 +6716,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6416,6 +6737,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6436,6 +6758,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6456,6 +6779,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6476,6 +6800,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6496,6 +6821,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6516,6 +6842,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6536,6 +6863,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6556,6 +6884,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6576,6 +6905,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6596,6 +6926,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6616,6 +6947,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6636,6 +6968,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6656,6 +6989,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6676,6 +7010,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6696,6 +7031,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6716,6 +7052,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6736,6 +7073,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6756,6 +7094,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6776,6 +7115,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6796,6 +7136,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6816,6 +7157,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6836,6 +7178,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6856,6 +7199,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6876,6 +7220,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6896,6 +7241,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6916,6 +7262,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6936,6 +7283,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6956,6 +7304,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6976,6 +7325,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -6996,6 +7346,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7016,6 +7367,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7036,6 +7388,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7056,6 +7409,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7076,6 +7430,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7096,6 +7451,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7116,6 +7472,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7136,6 +7493,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7156,6 +7514,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7176,6 +7535,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7196,6 +7556,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7216,6 +7577,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7236,6 +7598,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7256,6 +7619,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7276,6 +7640,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7296,6 +7661,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7316,6 +7682,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7336,6 +7703,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7356,6 +7724,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7376,6 +7745,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7396,6 +7766,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7416,6 +7787,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7436,6 +7808,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7456,6 +7829,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7476,6 +7850,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7496,6 +7871,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7516,6 +7892,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7536,6 +7913,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7556,6 +7934,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7576,6 +7955,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7596,6 +7976,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7616,6 +7997,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7636,6 +8018,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7656,6 +8039,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7676,6 +8060,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7696,6 +8081,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7716,6 +8102,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7736,6 +8123,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7756,6 +8144,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7776,6 +8165,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7796,6 +8186,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7816,6 +8207,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7836,6 +8228,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7856,6 +8249,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7876,6 +8270,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7896,6 +8291,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7916,6 +8312,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7936,6 +8333,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7956,6 +8354,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7976,6 +8375,7 @@ shortGenericClassifierArray.push("flower");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -7996,6 +8396,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8016,6 +8417,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8036,6 +8438,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8056,6 +8459,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8076,6 +8480,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8096,6 +8501,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8116,6 +8522,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8136,6 +8543,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8156,6 +8564,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8176,6 +8585,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8196,6 +8606,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8216,6 +8627,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8236,6 +8648,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8256,6 +8669,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8276,6 +8690,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8296,6 +8711,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8316,6 +8732,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8336,6 +8753,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8356,6 +8774,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8376,6 +8795,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8396,6 +8816,7 @@ shortGenericClassifierArray.push("grass");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8416,6 +8837,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8436,6 +8858,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8456,6 +8879,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8476,6 +8900,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8496,6 +8921,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8516,6 +8942,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8536,6 +8963,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8556,6 +8984,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8576,6 +9005,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8596,6 +9026,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8616,6 +9047,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8636,6 +9068,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8656,6 +9089,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8676,6 +9110,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8696,6 +9131,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8716,6 +9152,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8736,6 +9173,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8756,6 +9194,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8776,6 +9215,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8796,6 +9236,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8816,6 +9257,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8836,6 +9278,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8856,6 +9299,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8876,6 +9320,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8896,6 +9341,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8916,6 +9362,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8936,6 +9383,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8956,6 +9404,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8976,6 +9425,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -8996,6 +9446,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9016,6 +9467,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9036,6 +9488,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9056,6 +9509,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9076,6 +9530,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9096,6 +9551,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9116,6 +9572,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9136,6 +9593,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9156,6 +9614,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9176,6 +9635,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9196,6 +9656,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9216,6 +9677,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9236,6 +9698,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9256,6 +9719,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9276,6 +9740,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9296,6 +9761,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9316,6 +9782,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9336,6 +9803,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9356,6 +9824,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9376,6 +9845,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9396,6 +9866,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9416,6 +9887,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9436,6 +9908,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9456,6 +9929,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9476,6 +9950,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9496,6 +9971,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9516,6 +9992,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9536,6 +10013,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9556,6 +10034,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9576,6 +10055,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9596,6 +10076,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9616,6 +10097,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9636,6 +10118,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9656,6 +10139,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9676,6 +10160,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9696,6 +10181,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9716,6 +10202,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9736,6 +10223,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9756,6 +10244,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9776,6 +10265,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9796,6 +10286,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9816,6 +10307,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9836,6 +10328,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9856,6 +10349,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9876,6 +10370,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9896,6 +10391,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9916,6 +10412,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9936,6 +10433,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9956,6 +10454,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9976,6 +10475,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -9996,6 +10496,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10016,6 +10517,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10036,6 +10538,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10056,6 +10559,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10076,6 +10580,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10096,6 +10601,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10116,6 +10622,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10136,6 +10643,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10156,6 +10664,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10176,6 +10685,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10196,6 +10706,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10216,6 +10727,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10236,6 +10748,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10256,6 +10769,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10276,6 +10790,7 @@ shortGenericClassifierArray.push("natural-inanimate")
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10296,6 +10811,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10316,6 +10832,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10336,6 +10853,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10356,6 +10874,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10376,6 +10895,7 @@ shortGenericClassifierArray.push("human");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10396,6 +10916,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10416,6 +10937,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10436,6 +10958,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10456,6 +10979,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10476,6 +11000,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10496,6 +11021,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10516,6 +11042,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10536,6 +11063,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10556,6 +11084,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10576,6 +11105,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10596,6 +11126,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10616,6 +11147,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10636,6 +11168,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10656,6 +11189,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10676,6 +11210,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10696,6 +11231,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10716,6 +11252,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10736,6 +11273,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10756,6 +11294,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10776,6 +11315,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10796,6 +11336,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10816,6 +11357,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10836,6 +11378,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10856,6 +11399,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10876,6 +11420,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10896,6 +11441,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10916,6 +11462,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10936,6 +11483,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10956,6 +11504,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10976,6 +11525,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -10996,6 +11546,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11016,6 +11567,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11036,6 +11588,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11056,6 +11609,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11076,6 +11630,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11096,6 +11651,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11116,6 +11672,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11136,6 +11693,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11156,6 +11714,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11176,6 +11735,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11196,6 +11756,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11216,6 +11777,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11236,6 +11798,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11256,6 +11819,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11276,6 +11840,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11296,6 +11861,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11316,6 +11882,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11336,6 +11903,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11356,6 +11924,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11376,6 +11945,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11396,6 +11966,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11416,6 +11987,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11436,6 +12008,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11456,6 +12029,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11476,6 +12050,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11496,6 +12071,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11516,6 +12092,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11536,6 +12113,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11556,6 +12134,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11576,6 +12155,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11596,6 +12176,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11616,6 +12197,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11636,6 +12218,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11656,6 +12239,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11676,6 +12260,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11696,6 +12281,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11716,6 +12302,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11736,6 +12323,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11756,6 +12344,7 @@ shortGenericClassifierArray.push("flying-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11776,6 +12365,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11796,6 +12386,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11816,6 +12407,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11836,6 +12428,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11856,6 +12449,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11876,6 +12470,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11896,6 +12491,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11916,6 +12512,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11935,6 +12532,7 @@ shortGenericClassifierArray.push("water-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11955,6 +12553,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11975,6 +12574,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -11995,6 +12595,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12015,6 +12616,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12035,6 +12637,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12055,6 +12658,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12075,6 +12679,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12095,6 +12700,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12115,6 +12721,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12135,6 +12742,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12155,6 +12763,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12175,6 +12784,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12195,6 +12805,7 @@ shortGenericClassifierArray.push("human2");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12215,6 +12826,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12235,6 +12847,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12255,6 +12868,7 @@ shortGenericClassifierArray.push("land-animal");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12275,6 +12889,7 @@ shortGenericClassifierArray.push("word");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12295,6 +12910,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12314,6 +12930,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12334,6 +12951,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12354,6 +12972,7 @@ shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12374,6 +12993,7 @@ shortGenericClassifierArray.push("tree");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12394,6 +13014,7 @@ shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
@@ -12421,5 +13042,6 @@ countNounArrayPlural,
     derivedOrInheritedCountNoun, etymologyArrayCountNoun,
 etymologyCountNoun,
 possessorOfQualityCount,
+derivationListCountNoun
 }
 

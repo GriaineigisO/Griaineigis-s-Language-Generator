@@ -32,8 +32,6 @@ function randomNumbers() {
 }
  
 function spell(word) {
-
-    
    checkIfCanUseMacron()
 
    let wordArray = [];
@@ -79,7 +77,6 @@ function spell(word) {
             
         }
     }
-
 
     //POST ALVEOLAR FRICATIVES AND AFFRICATES AND /J/
     for(let i = 0; i < wordArray.length; i++) {

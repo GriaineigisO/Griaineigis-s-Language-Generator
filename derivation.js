@@ -902,7 +902,7 @@ function NtoNPossessorOf() {
                                         if(derivationListCountNoun[i] === "") {
                                                 derivationListCountNoun[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`
                                         } else {
-                                                derivationListTransVerb[i] = derivationListTransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`;
+                                                derivationListCountNoun[i] = derivationListCountNoun[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`;
                                         };
                                 }
                                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = countNounArray[i];
@@ -985,1049 +985,119 @@ function NtoNPossessorOf() {
             //decides if the affix will be a suffix or prefix
             if(suffixOrPrefix === "suffix") {
                 derivedTerm = soundChange(generatedMassNouns[i]) + soundChange(possessorAffix);
+                olderDerivedTerm = generatedMassNouns[i] + possessorAffix;
             } else {
                 derivedTerm = soundChange(possessorAffix) + soundChange(generatedMassNouns[i]);
+                olderDerivedTerm = possessorAffix + generatedMassNouns[i];
             };
-            if(massNounArray[i] === "admiration") {
-                let meaning = "admirer";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
+            //decides if term is derived in modern language or old language
+            let derivedInModernOrOld = "";
+            if(Math.floor(Math.random() * 3) === 1) {
+                derivedInModernOrOld = "old";
+            } else {
+                derivedInModernOrOld = "modern";
+            };
+
+            function deriveMassNtoCountNPossessorOf(originalWord, meaning, plural, activePass, animateInimate, divineProfane, humanAnimal, masculineFeminineNeuter, masculineFeminine, naturalArt, animacy, shape, shortGeneric) {
+                if(massNounArray[i] === originalWord) {
+                        if(countNounArray.includes(meaning)) {
+                                if(derivedInModernOrOld === "old") {
+                                        generatedCountNouns[countNounArray.indexOf(meaning)] = olderDerivedTerm;
+                                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "inheritedOldDerived";
+                                        if(suffixOrPrefix === "suffix") {
+                                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[i], "noun"))}</i>&nbsp"${massNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + possessorAffix)}</i>&nbsp"possessor&nbspof"`;
+                                        } else {
+                                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(possessorAffix + "A")}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun"))}</i>&nbsp"${massNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>)`;
+                                        };
+                                } else {
+                                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
+                                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
+                                        if(suffixOrPrefix === "suffix") {
+                                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + possessorAffix))}</i>&nbsp"possessor&nbspof"`;
+                                        } else {
+                                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix + "A"))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
+                                        };
+                                        //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                        if(derivationListCountNoun[i] === "") {
+                                                derivationListCountNoun[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`
+                                        } else {
+                                                derivationListCountNoun[i] = derivationListCountNoun[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`;
+                                        };
+                                }
+                                etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
                         } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
+                                countNounArray.push(meaning);
+                                countNounArrayPlural.push(plural);
+                                activePassive.push(activePass);
+                                animInan.push(animateInimate);
+                                divineNonDivine.push(divineProfane);
+                                humanAnimalInan.push(humanAnimal);
+                                mascFemNeut.push(masculineFeminineNeuter);
+                                mascFem.push(masculineFeminine);
+                                naturalArtificial.push(naturalArt);
+                                animacyClassifierArray.push(animacy);
+                                shapeClassifierArray.push(shape);
+                                shortGenericClassifierArray.push(shortGeneric);
+                                derivationListCountNoun.push("");
+                                if(derivedInModernOrOld === "old") {
+                                        generatedCountNouns.push(olderDerivedTerm);
+                                        derivedOrInheritedCountNoun.push("inheritedOldDerived");
+                                        if(suffixOrPrefix === "suffix") {
+                                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[i], "noun"))}</i>&nbsp"${massNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + possessorAffix)}</i>&nbsp"possessor&nbspof"`;
+                                        } else {
+                                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(possessorAffix + "A")}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun"))}</i>&nbsp"${massNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>)`;
+                                        };
+                                } else {
+                                        generatedCountNouns.push(derivedTerm) 
+                                        derivedOrInheritedCountNoun.push("derived");
+                                        if(suffixOrPrefix === "suffix") {
+                                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + possessorAffix))}</i>&nbsp"possessor&nbspof"`;
+                                        } else {
+                                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix + "A"))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
+                                        }; 
+                                };
+                                //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                if(derivationListCountNoun[i] === "") {
+                                        derivationListCountNoun[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`
+                                } else {
+                                        derivationListCountNoun[i] = derivationListCountNoun[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`;
+                                }; 
+                                etymologyArrayCountNoun.push(massNounArray[i]);                       
                         };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("admirers")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("human");
-                        mascFemNeut.push("masculine2");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("man");
-                        shapeClassifierArray.push("short-and-wide");
-                        shortGenericClassifierArray.push("human2");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "ash") {
-                let meaning = "firepit";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
+                        if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
+                                let exampleLi = document.createElement("li");
+                                exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i> "${meaning}"`;
+                                ul.appendChild(exampleLi);
+                                exampleCounter++;
                         };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("firepits")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("anim");
-                        divineNonDivine.push("divine");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("artificial");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("round");
-                        shortGenericClassifierArray.push("tool");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
                 };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
             };
-            if(massNounArray[i] === "bark") {
-                let meaning = "trunk";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("trunks")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("tree");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "beer") {
-                let meaning = "pint";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("pints")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("artificial");
-                        animacyClassifierArray.push("edible");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("tool");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "blood") {
-                let meaning = "vein";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("veins")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "bread") {
-                let meaning = "bread-basket";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("bread-baskets")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("artificial");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("round");
-                        shortGenericClassifierArray.push("tool");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "captivity") {
-                let meaning = "captor";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("captors")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("human");
-                        mascFemNeut.push("masculine2");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("man");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("human2");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "confusion") {
-                let meaning = "idiot";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("idiots")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("human");
-                        mascFemNeut.push("masculine2");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("man");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("human2");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "deception") {
-                let meaning = "liar";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("liars")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("human");
-                        mascFemNeut.push("masculine2");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("man");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("human2");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "hair") {
-                let meaning = "scalp";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("scalps")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("round");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "honey") {
-                let meaning = "beehive";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("beehives")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("round");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "hostility") {
-                let meaning = "enemy";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("enemies")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("human");
-                        mascFemNeut.push("masculine2");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("man");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("human2");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "iron") {
-                let meaning = "smith";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("smiths")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("divine");
-                        humanAnimalInan.push("human");
-                        mascFemNeut.push("masculine2");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("man");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("human2");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "marrow") {
-                let meaning = "bone";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("bones")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "money") {
-                let meaning = "wallet";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("wallets")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("artificial");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("short-and-wide");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "money") {
-                let meaning = "wallet";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("wallets")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("artificial");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("short-and-wide");
-                        shortGenericClassifierArray.push("tool");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "milk") {
-                let meaning = "udder";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("udders")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("round");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "porridge") {
-                let meaning = "stomach";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("stomachs")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("round");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "rain") {
-                let meaning = "raincloud";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("raincloud")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("divine");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("shapeless");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "vigour") {
-                let meaning = "hero";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("heroes")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("divine");
-                        humanAnimalInan.push("human");
-                        mascFemNeut.push("masculine2");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("man");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("human2");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "wind") {
-                let meaning = "sky";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("skies")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("divine");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("round");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "sand") {
-                let meaning = "beach";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("beaches")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "trickery") {
-                let meaning = "trickster";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("trickster")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("human");
-                        mascFemNeut.push("masculine2");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("man");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("human2");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "water") {
-                let meaning = "river";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("rivers")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("anim");
-                        divineNonDivine.push("divine");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("liquid");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "truth") {
-                let meaning = "honest&nbspperson";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("honest&nbsppeople")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("passive");
-                        animInan.push("inan");
-                        divineNonDivine.push("divine");
-                        humanAnimalInan.push("human");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("masculine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("man");
-                        shapeClassifierArray.push("long-and-slender");
-                        shortGenericClassifierArray.push("human2");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
-            if(massNounArray[i] === "sight") {
-                let meaning = "eye";
-                if(countNounArray.includes(meaning)) {
-                        generatedCountNouns[countNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = massNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        countNounArray.push(meaning);
-                        countNounArrayPlural.push("eyes")
-                        generatedCountNouns.push(derivedTerm) 
-                        derivedOrInheritedCountNoun.push("derived");
-                        activePassive.push("active");
-                        animInan.push("inan");
-                        divineNonDivine.push("profane");
-                        humanAnimalInan.push("secondinanimate");
-                        mascFemNeut.push("neuter");
-                        mascFem.push("feminine1");
-                        naturalArtificial.push("natural");
-                        animacyClassifierArray.push("inedible");
-                        shapeClassifierArray.push("round");
-                        shortGenericClassifierArray.push("natural-inanimate");
-                        etymologyArrayCountNoun.push(massNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedMassNouns[massNounArray.indexOf(massNounArray[i])]))}</i>&nbsp"${massNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i> "${massNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
-            };
+
+            deriveMassNtoCountNPossessorOf("admiration", "admirer", "admirers", "active", "anim", "profane", "human", "masculine2", "masculine1", "natural", "man", "short-and-wide", "human2");
+            deriveMassNtoCountNPossessorOf("ash", "firepit", "firepits", "passive", "anim", "divine", "secondinanimate", "neuter", "masculine1", "artificial", "inedible", "round", "tool");
+            deriveMassNtoCountNPossessorOf("bark", "trunk", "trunks", "passive", "inan", "profane", "secondinanimate", "neuter", "masculine1", "natural", "tree", "long-and-slender", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("beer", "pint", "pints", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "artificial", "edible", "long-and-slender", "tool");
+            deriveMassNtoCountNPossessorOf("blood", "vein", "veins", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "long-and-slender", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("bread", "bread-basket", "bread-baskets", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "artificial", "inedible", "round", "tool");
+            deriveMassNtoCountNPossessorOf("captivity", "captor", "captors", "active", "anim", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "man", "long-and-slender", "human2");
+            deriveMassNtoCountNPossessorOf("confusion", "idiot", "idiots", "active", "anim", "profane", "human", "masculine2", "masculine1", "natural", "man", "long-and-slender", "human2");
+            deriveMassNtoCountNPossessorOf("deception", "liar", "liars", "active", "anim", "profane", "human", "masculine2", "masculine1", "natural", "man", "long-and-slender", "human2");
+            deriveMassNtoCountNPossessorOf("hair", "scalp", "scalps", "active", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "round", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("honey", "beehive", "beehives", "active", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "round", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("hostility", "enemy", "enemies", "active", "anim", "profane", "human", "masculine2", "masculine1", "natural", "man", "long-and-slender", "human2");
+            deriveMassNtoCountNPossessorOf("iron", "smith", "smiths", "active", "anim", "divine", "human", "masculine2", "masculine1", "natural", "man", "long-and-slender", "human2");
+            deriveMassNtoCountNPossessorOf("marrow", "bone", "bones", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "long-and-slender", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("money", "wallet", "wallets", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "artificial", "inedible", "short-and-wide", "tool");
+            deriveMassNtoCountNPossessorOf("milk", "udder", "udders", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "round", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("porridge", "stomach", "stomachs", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "round", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("rain", "raincloud", "rainclouds", "active", "anim", "divine", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("vigour", "hero", "heroes", "active", "anim", "divine", "human", "masculine2", "masculine1", "natural", "man", "long-and-slender", "human2");
+            deriveMassNtoCountNPossessorOf("wind", "sky", "skies", "active", "anim", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "round", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("sand", "beach", "beaches", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "long-and-slender", "natural-inanimate");
+            deriveMassNtoCountNPossessorOf("trickery", "trickster", "tricksters", "active", "anim", "profane", "human", "masculine2", "masculine1", "natural", "man", "long-and-slender", "human2");
+            deriveMassNtoCountNPossessorOf("water", "river", "rivers", "active", "anim", "divine", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "long-and-slender", "liquid");
+            deriveMassNtoCountNPossessorOf("truth", "honest&nbspperson", "honest&nbsppeople", "passive", "inan", "divine", "human", "neuter", "masculine1", "natural", "man", "long-and-slender", "human2");
+            deriveMassNtoCountNPossessorOf("sight", "eye", "eyes", "active", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "round", "natural-inanimate");
         };
     };
 
@@ -2041,99 +1111,99 @@ function NtoNPossessorOf() {
             } else {
                 derivedTerm = soundChange(possessorAffix) + soundChange(generatedCountNouns[i]);
             };
-            if(countNounArray[i] === "bag") {
-                let meaning = randomIndexOfArray(["volume", "capacity"])
-                if(massNounArray.includes(meaning)) {
-                        generatedMassNouns[massNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedMassNoun[massNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayMassNoun[massNounArray.indexOf(meaning)] = countNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
-                        } else {
-                                 etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
-                        };
-                } else {
-                        massNounArray.push(meaning);
-                        if(meaning === "volume") {
-                                singulativeMassNounArray.push("fraction&nbspof&nbspvolume");
-                                pluralSingulativeMassNounArray.push("fractions&nbspof&nbspvolume");
-                        } else if(meaning === "capacity") {
-                                singulativeMassNounArray.push("fraction&nbspof&nbspcapacity");
-                                pluralSingulativeMassNounArray.push("fractions&nbspof&nbspcapacity");
-                        }
-                        generatedMassNouns.push(derivedTerm) 
-                        derivedOrInheritedMassNoun.push("derived");
-                        activePassiveMass.push("passive");
-                        animInanMass.push("inan");
-                        divineNonDivineMass.push("profane");
-                        humanAnimalInanMass.push("secondinanimate");
-                        mascFemNeutMass.push("neuter");
-                        mascFemMass.push("feminine1");
-                        naturalArtificialMass.push("natural");
-                        animacyClassifierMassArray.push("inedible");
-                        shapeClassifierMassArray.push("shapeless");
-                        shortGenericClassifierMassArray.push("natural-inanimate");
-                        etymologyArrayMassNoun.push(countNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyMassNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyMassNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>&nbsp"${countNounArray[i]}"`)
-                };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
+            //decides if term is derived in modern language or old language
+            let derivedInModernOrOld = "";
+            if(Math.floor(Math.random() * 3) === 1) {
+                derivedInModernOrOld = "old";
+            } else {
+                derivedInModernOrOld = "modern";
             };
-            if(countNounArray[i] === "barrow") {
-                let meaning = randomIndexOfArray(["undying&nbspfame", "eternal&nbspglory"])
-                if(massNounArray.includes(meaning)) {
-                        generatedMassNouns[massNounArray.indexOf(meaning)] = derivedTerm;
-                        derivedOrInheritedMassNoun[massNounArray.indexOf(meaning)] = "derived";
-                        etymologyArrayMassNoun[massNounArray.indexOf(meaning)] = countNounArray[i];
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[i], "noun")))}</i>&nbsp"${massNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`;
+
+            function deriveCountNtoMassNPossessorOf(originalWord, meaning, singulative, singulativePlural, activePass, animateInimate, divineProfane, humanAnimal, masculineFeminineNeuter, masculineFeminine, naturalArt, animacy, shape, shortGeneric) {
+                if(typeof meaning !== "string") {
+                        let meaningArray = cloneArray(meaning);
+                        meaning = randomIndexOfArray(meaning);
+                        singulative = singulative[meaningArray.indexOf(meaning)];
+                        singulativePlural = singulativePlural[meaningArray.indexOf(meaning)];
+                };
+                if(countNounArray[i] === originalWord) {
+                        if(massNounArray.includes(meaning)) {
+                                if(derivedInModernOrOld === "old") {
+                                        generatedMassNouns[massNounArray.indexOf(meaning)] = olderDerivedTerm;
+                                        derivedOrInheritedMassNoun[massNounArray.indexOf(meaning)] = "inheritedOldDerived";
+                                        if(suffixOrPrefix === "suffix") {
+                                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[i], "noun"))}</i>&nbsp"${countNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + possessorAffix)}</i>&nbsp"possessor&nbspof"`;
+                                        } else {
+                                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(possessorAffix + "A")}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])], "noun"))}</i>&nbsp"${countNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>)`;
+                                        };
+                                } else {
+                                        generatedMassNouns[massNounArray.indexOf(meaning)] = derivedTerm;
+                                        derivedOrInheritedMassNoun[massNounArray.indexOf(meaning)] = "derived";
+                                        if(suffixOrPrefix === "suffix") {
+                                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + possessorAffix))}</i>&nbsp"possessor&nbspof"`;
+                                        } else {
+                                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix + "A"))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])], "noun")))}</i>&nbsp"${countNounArray[i]}"`;
+                                        };
+                                        //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                        if(derivationListMassNoun[i] === "") {
+                                                derivationListMassNoun[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`
+                                        } else {
+                                                derivationListMassNoun[i] = derivationListMassNoun[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`;
+                                        };
+                                }
+                                etymologyArrayMassNoun[massNounArray.indexOf(meaning)] = countNounArray[i];
                         } else {
-                                 etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[i])], "noun")))}</i>&nbsp"${massNounArray[i]}"`;
+                                massNounArray.push(meaning);
+                                singulativeMassNounArray.push(singulative);
+                                pluralSingulativeMassNounArray.push(singulativePlural);
+                                activePassiveMass.push(activePass);
+                                animInanMass.push(animateInimate);
+                                divineNonDivineMass.push(divineProfane);
+                                humanAnimalInanMass.push(humanAnimal);
+                                mascFemNeutMass.push(masculineFeminineNeuter);
+                                mascFemMass.push(masculineFeminine);
+                                naturalArtificialMass.push(naturalArt);
+                                animacyClassifierMassArray.push(animacy);
+                                shapeClassifierMassArray.push(shape);
+                                shortGenericClassifierMassArray.push(shortGeneric);
+                                derivationListCountNoun.push("");
+                                if(derivedInModernOrOld === "old") {
+                                        generatedMassNouns.push(olderDerivedTerm);
+                                        derivedOrInheritedMassNoun.push("inheritedOldDerived");
+                                        if(suffixOrPrefix === "suffix") {
+                                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[i], "noun"))}</i>&nbsp"${countNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + possessorAffix)}</i>&nbsp"possessor&nbspof"`;
+                                        } else {
+                                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(possessorAffix + "A")}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])], "noun"))}</i>&nbsp"${countNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>)`;
+                                        };
+                                } else {
+                                        generatedMassNouns.push(derivedTerm) 
+                                        derivedOrInheritedMassNoun.push("derived");
+                                        if(suffixOrPrefix === "suffix") {
+                                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + possessorAffix))}</i>&nbsp"possessor&nbspof"`;
+                                        } else {
+                                                etymologyMassNoun[massNounArray.indexOf(meaning)] = `<i>${spell(soundChange(possessorAffix + "A"))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])], "noun")))}</i>&nbsp"${countNounArray[i]}"`;
+                                        }; 
+                                };
+                                //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                if(derivationListMassNoun[i] === "") {
+                                        derivationListMassNoun[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`
+                                } else {
+                                        derivationListMassNoun[i] = derivationListMassNoun[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${meaning}"`;
+                                }; 
+                                etymologyArrayCountNoun.push(countNounArray[i]);                       
                         };
-                } else {
-                        massNounArray.push(meaning);
-                        if(meaning === "undying&nbspfame") {
-                                singulativeMassNounArray.push("deed&nbspof&nbspundying&nbspfame");
-                                pluralSingulativeMassNounArray.push("deeds&nbspof&nbspundying&nbspfame");
-                        } else if(meaning === "eternal&nbsoglory") {
-                                singulativeMassNounArray.push("deed&nbspof&nbspeternal&nbsoglory");
-                                pluralSingulativeMassNounArray.push("deeds&nbspof&nbspeternal&nbsoglory");
-                        }
-                        generatedMassNouns.push(derivedTerm) 
-                        derivedOrInheritedMassNoun.push("derived");
-                        activePassiveMass.push("passive");
-                        animInanMass.push("inan");
-                        divineNonDivineMass.push("divine");
-                        humanAnimalInanMass.push("secondinanimate");
-                        mascFemNeutMass.push("neuter");
-                        mascFemMass.push("masculine1");
-                        naturalArtificialMass.push("natural");
-                        animacyClassifierMassArray.push("inedible");
-                        shapeClassifierMassArray.push("shapeless");
-                        shortGenericClassifierMassArray.push("natural-inanimate");
-                        etymologyArrayMassNoun.push(countNounArray[i]);
-                        if(suffixOrPrefix === "suffix") {
-                                etymologyMassNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange(possessorAffix + "A"))}</i>&nbsp"possessor&nbspof"`)
-                        } else {
-                                etymologyMassNoun.push(`<i>${spell(soundChange(possessorAffix))}-</i>&nbsp"possessor&nbspof"&nbsp+&nbsp<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>&nbsp"${countNounArray[i]}"`)
+                        if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
+                                let exampleLi = document.createElement("li");
+                                exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i> "${meaning}"`;
+                                ul.appendChild(exampleLi);
+                                exampleCounter++;
+                        };
                 };
-                };
-                if(exampleCounter < 6) {
-                        let exampleLi = document.createElement("li");
-                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i> "${meaning}"`;
-                        ul.appendChild(exampleLi)
-                };
-                exampleCounter++; 
             };
-            
+
+            deriveCountNtoMassNPossessorOf("bag", ["volume", "capacity"], ["fraction&nbspof&nbspvolume", "fraction&nbspof&nbspcapacity"], ["fractions&nbspof&nbspvolume", "fractions&nbspof&nbspcapacity"], "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+
+            deriveCountNtoMassNPossessorOf("barrow", ["undying&nbspfame", "eternal&nbspglory"], ["deed&nbspof&nbspundying&nbspfame", "deed&nbspof&nbspeternal&nbsoglory"], ["deeds&nbspof&nbspundying&nbspfame", "deeds&nbspof&nbspeternal&nbsoglory"], "passive", "inan", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");            
         };
     };
 
@@ -13051,7 +12121,7 @@ function generateLanguage() {
     createAffixes();
     selectDerivationalAffixes();
     makeVocabStats();
-    //console.log(derivationListTransVerb)
+    //console.log(derivationListCountNoun)
 };
 
 

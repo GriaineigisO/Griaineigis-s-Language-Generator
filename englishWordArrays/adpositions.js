@@ -57,9 +57,6 @@ derivedOrInheritedADPO.push("inherited");
 adpositionArray.push("behind");
 derivedOrInheritedADPO.push("inherited");
 
-adpositionArray.push("near");
-derivedOrInheritedADPO.push("inherited");
-
 adpositionArray.push("without");
 derivedOrInheritedADPO.push("inherited");
 

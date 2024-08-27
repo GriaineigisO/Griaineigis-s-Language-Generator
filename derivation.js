@@ -462,24 +462,24 @@ function addGrammaticalAffixes(word, partOfSpeech) {
                         if(grammaticalNumberFusional < 24 && genderNum === 10 && caseNumber === 0) {
                                 for(let i = 0; i < generatedCountNouns.length; i++) {
                                         if(generatedCountNouns[i] === word && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "suffix") {
-                                                inflectedWord = word + soundChange(mascSgAffix);
+                                                inflectedWord = word + mascSgAffix;
                                         } else if(generatedCountNouns[i] === word && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "prefix") {
-                                                inflectedWord = soundChange(mascSgAffix) + word;
+                                                inflectedWord = mascSgAffix + word;
                                         } else if(generatedCountNouns[i] === word && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "suffix") {
-                                                inflectedWord = word + soundChange(femSgAffix);
+                                                inflectedWord = word + femSgAffix;
                                         } else if(generatedCountNouns[i] === word && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "prefix") {
-                                                inflectedWord = soundChange(femSgAffix) + word;
+                                                inflectedWord = femSgAffix + word;
                                         };
                                 };
                                 for(let i = 0; i < generatedMassNouns.length; i++) {
                                         if(generatedMassNouns[i] === word && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "suffix") {
                                                 inflectedWord = word + soundChange(mascSgAffix);
                                         } else if(generatedMassNouns[i] === word && mascFem[i] === "masculine1" && numberSuffixOrPrefix === "prefix") {
-                                                inflectedWord = soundChange(mascSgAffix) + word;
+                                                inflectedWord = mascSgAffix + word;
                                         } else if(generatedMassNouns[i] === word && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "suffix") {
-                                                inflectedWord = word + soundChange(femSgAffix);
+                                                inflectedWord = word + femSgAffix;
                                         } else if(generatedMassNouns[i] === word && mascFem[i] === "feminine1" && numberSuffixOrPrefix === "prefix") {
-                                                inflectedWord = soundChange(femSgAffix) + word;
+                                                inflectedWord = femSgAffix + word;
                                         };
                                 };
                         };
@@ -495,7 +495,7 @@ function addGrammaticalAffixes(word, partOfSpeech) {
 
 let randomNumberForDerivationSelection = 0;
 function selectDerivationalAffixes() {
-    let chosenDerivations = [NtoNPossessorOf];
+    let chosenDerivations = [];
     let potentialDerivations = [
         VtoADJprone,
         NtoNPossessorOf,

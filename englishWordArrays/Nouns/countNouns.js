@@ -204,8 +204,6 @@ derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
 
-
-
 countNounArray.push("arm");
 countNounArrayPlural.push("arms");
 activePassive.push("passive")
@@ -224,8 +222,6 @@ etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
 /*--------------------------------------------*/
 possessorOfQualityCount.push("X");
-
-
 
 countNounArray.push("army");
 countNounArrayPlural.push("armies");
@@ -401,7 +397,7 @@ animInan.push("anim");
 divineNonDivine.push("profane");
 humanAnimalInan.push("animal");
 mascFemNeut.push("masculine2");
-mascFem.push("masculine2");
+mascFem.push("masculine1");
 naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("long-and-slender");
@@ -861,7 +857,7 @@ animInan.push("anim");
 divineNonDivine.push("profane");
 humanAnimalInan.push("animal");
 mascFemNeut.push("masculine2");
-mascFem.push("masculine21");
+mascFem.push("masculine1");
 naturalArtificial.push("natural");
 animacyClassifierArray.push("wild-animal");
 shapeClassifierArray.push("short-and-wide");
@@ -13019,6 +13015,31 @@ derivationListCountNoun.push("");
 possessorOfQualityCount.push("X");
 
 /*--------------------------------------------*/
+
+countNounArray.push("granule");
+countNounArrayPlural.push("granules");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("round");
+shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+/*--------------------------------------------*/
+possessorOfQualityCount.push("X");
+
+/*--------------------------------------------*/
+
+
+
+
 }
 
 let generateLanguageButton = document.getElementById("generate-language");

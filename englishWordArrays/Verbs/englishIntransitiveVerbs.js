@@ -353,7 +353,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("laugh");
+intransitiveVerbArray.push("laughV");
     intransitiveVerb3SArray.push("laughs");
     intransitiveVerbPastArray.push("laughed");
 derivedOrInheritedIntransVerb.push("inherited");

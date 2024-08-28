@@ -1,5 +1,104 @@
 # Immediate To-Do List
 
+granddaughter > relating to granddaughters
+grandfather > relating to grandfathers
+grandmother > relating to grandmothers
+grandson > relating to grandsons
+groove > groovy
+hand > manual
+head > main
+heart > cardinal
+home > familiar
+horse > equestrian
+house > domestic
+human > humane
+husband > relating to husbands
+island > insular
+language > linguistic
+larva > larval
+laugh > funny
+lord > lordly
+man > manly, masculine
+married&nbspcouple/spouse > spousal
+maternal&nbspkinsman  cognate, related on the maternal side
+mirror > reflective
+mistress > adulterous
+mother > maternal
+mountain > mountainious
+mouth > oral
+mushroom > fungal
+name > eponymous 
+neighbour > neighbourly
+night > nocturnal
+noon > relating to noon
+nose > nasal
+oak > oaken
+oath > relating to oaths
+origin > original
+pasture > pastoral
+paternal&nbspkinsman > related on the father's side
+penis > penal
+person > humane, personal
+pig > porcine
+place > local
+poem/poet > poetic
+priest > priestly, pious, esoteric
+problem > troublesome, problematic
+proverb > proverbial
+race > racial
+relation > relative
+rhythm > rhythmic
+right > lawful
+river > fluvial
+sea/ocean > marine
+season > seasonal
+serpent/snake > serpentine
+skull > cranial
+sky > celestial
+snare > ensnaring
+sound > noisy, loud
+spider > arachnid
+spirit > spiritual
+star > starlike, astral
+sun > solar
+moon > lunar
+testicle > testicular
+thorn > thorny
+thought/mind > pensive
+time > temporal
+thing > generic, vague
+tooth > dental
+touch > tactile
+town > urban
+transformation > transformational
+transition > transitional
+tree > arboreal
+tube > cylindrical, tubular
+tune > musical
+twilight > relating to twilight
+twin > dual
+uncle > relating to uncles
+vagina > vaginal
+vegetable > vegetal
+village > rural
+voice > vocal
+wagon > relating to wagons, wagonlike
+warrior > warlike
+weapon > weaponlike, relating to weapons
+wedding > matrimonial
+wheel > wheel-like, relating to wheels
+wife > wifelike, relating to wives
+winter > wintery
+wolf > lupine
+woman > feminine, womanly
+world > worldy, global
+year > annual
+master > dominant
+vein > veiny
+idiot > idiotic
+hero > heroic
+beach > coastal
+
 - next do NADJtoADJpossessorOfQuality: the issue with "undefined" should go away once each section is converted to new layout
 - function to apply certain sound changes only across morphome boundries. The functions takes the two morphemes as arguments, and then determines which sound changes are in chosenChanges. If a change is conditional and the condition is met at the morpheme boundrie e.g bak-or where intervocalic voicing detects that the final sound in word1 is a voiceless plosive following a vowel and that the first sound in word2 is a vowel, intervocalic voicing will be triggered and only at the boundry
 - possessorQuality
@@ -199,6 +298,12 @@ Colour metaohors?
 - adpo/adv > adjective
   - here > present
   - away > absent
+- sparkle/glimmer/shine > star
+- derives frequentive verbs
+- derives verbs of greater intensity
+- derives verbs of lesser intensity
+- N > ADJ derives adjectives describing the prototypical state of the noun (mother > maternal, wolf > lupine etc)
+- N > N -worthy of: describes a noun which is worthy of having X, or worthy because of deeds relating to X (battle-worthy, cattle-worthy)
 
 ## Derivational Morphology Ideas
 

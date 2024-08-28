@@ -23,6 +23,7 @@ let bodyPartAffix = "";
 let adjToCausativeVerbAffix = "";
 let intransToTransVerbAffix = "";
 let transVerbToABleAdjectiveAffix = "";
+let NtoADJPrototypicalAffix = "";
 
 function clear() {
     proneAffix = "";
@@ -32,6 +33,7 @@ function clear() {
     adjToCausativeVerbAffix = "";
     intransToTransVerbAffix = "";
     transVerbToABleAdjectiveAffix = "";
+    NtoADJPrototypicalAffix = "";
     document.getElementById("derivational-affixes").replaceChildren();
     
 };
@@ -44,23 +46,24 @@ function createAffixes() {
     adjToCausativeVerbAffix = generateAffixes();
     intransToTransVerbAffix  = generateAffixes();
     transVerbToABleAdjectiveAffix = generateAffixes();
+    NtoADJPrototypicalAffix = generateAffixes();
 };
 
 function capitaliseLanguageName(str) {
         return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
 
-function removeVFromVerb(verb) {
-    let newArray = Array.from(verb);
-    for (let i = 0; i < newArray.length; i++) {
-        if (newArray[i] === "V") {
-            newArray.splice(i, 1);
-            let newVerb = newArray.join("");
-            return newVerb;
+function removeDistinguishingLetter(word) {
+        let newArray = Array.from(word);
+        for (let i = 0; i < newArray.length; i++) {
+            if (newArray[i] === "V"||newArray[i] === "A") {
+                newArray.splice(i, 1);
+                let newWord = newArray.join("");
+                return newWord;
+            };
         };
+        return word;
     };
-    return verb;
-};
 
 //if the language requires an affix in the nominative, this function applies ther appropiate affix to the derived term
 function addGrammaticalAffixes(word, partOfSpeech) {
@@ -495,7 +498,7 @@ function addGrammaticalAffixes(word, partOfSpeech) {
 
 let randomNumberForDerivationSelection = 0;
 function selectDerivationalAffixes() {
-    let chosenDerivations = [];
+    let chosenDerivations = [NtoADJPrototypical];
     let potentialDerivations = [
         VtoADJprone,
         NtoNPossessorOf,
@@ -503,7 +506,8 @@ function selectDerivationalAffixes() {
         bodyParts,
         ADJtoCausVerb,
         intransToTransVerb,
-        transVerbToABleAdjective
+        transVerbToABleAdjective,
+        NtoADJPrototypical
     ];
     
     //selects which derivational affixes will be chosen
@@ -574,23 +578,23 @@ function VtoADJprone() {
                                         generatedAdjectives[adjectiveArray.indexOf(meaning)] = olderDerivedTerm;
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "inheritedOldDerived";
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb"))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + proneAffix)}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + proneAffix)}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(proneAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb"))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>)`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(proneAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>)`;
                                         };
                                 } else {
                                         generatedAdjectives[adjectiveArray.indexOf(meaning)] = derivedTerm;
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + proneAffix))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + proneAffix))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(proneAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(proneAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                         //lists the derived word, so it can be displayed in the dictionary entry of the original word
                                         if(derivationListTransVerb[i] === "") {
-                                                derivationListTransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`
+                                                derivationListTransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${meaning}"`
                                         } else {
-                                                derivationListTransVerb[i] = derivationListTransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`;
+                                                derivationListTransVerb[i] = derivationListTransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${meaning}"`;
                                         };
                                 }
                                 etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
@@ -601,29 +605,29 @@ function VtoADJprone() {
                                         generatedAdjectives.push(soundChange(olderDerivedTerm));
                                         derivedOrInheritedADJ.push("inheritedOldDerived");
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb"))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + proneAffix)}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + proneAffix)}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(proneAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb"))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>)`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(proneAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>)`;
                                         };
                                 } else {
                                         generatedAdjectives.push(derivedTerm) 
                                         derivedOrInheritedADJ.push("derived");
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + proneAffix))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
+                                                etymologyADJ.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + proneAffix))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
                                         } else {
-                                                etymologyADJ.push(`<i>${spell(soundChange(proneAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                                                etymologyADJ.push(`<i>${spell(soundChange(proneAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                                         };
                                         //lists the derived word, so it can be displayed in the dictionary entry of the original word
                                         if(derivationListTransVerb[i] === "") {
-                                                derivationListTransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`
+                                                derivationListTransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${meaning}"`
                                         } else {
-                                                derivationListTransVerb[i] = derivationListTransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`;
+                                                derivationListTransVerb[i] = derivationListTransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${meaning}"`;
                                         };
                                 }
                                 etymologyArrayADJ.push(transitiveVerbArray[i]);
                         if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
                                 let exampleLi = document.createElement("li");
-                                exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                 ul.appendChild(exampleLi);
                                 exampleCounter++;
                         };
@@ -739,22 +743,22 @@ function VtoADJprone() {
                                         generatedAdjectives[adjectiveArray.indexOf(meaning)] = olderDerivedTerm;
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "inheritedOldDerived";
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb"))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + proneAffix)}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + proneAffix)}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(proneAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb"))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>)`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(proneAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>)`;
                                         };
                                 } else {
                                         generatedAdjectives[adjectiveArray.indexOf(meaning)] = derivedTerm;
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + proneAffix))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + proneAffix))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(proneAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(proneAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                                         };
                                         if(derivationListIntransVerb[i] === "") {
-                                                derivationListIntransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`
+                                                derivationListIntransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${meaning}"`
                                         } else {
-                                                derivationListIntransVerb[i] = derivationListIntransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`;
+                                                derivationListIntransVerb[i] = derivationListIntransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${meaning}"`;
                                         };
                                 }
                                 etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = intransitiveVerbArray[i];
@@ -765,29 +769,29 @@ function VtoADJprone() {
                                         generatedAdjectives.push(soundChange(olderDerivedTerm));
                                         derivedOrInheritedADJ.push("inheritedOldDerived");
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb"))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + proneAffix)}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + proneAffix)}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(proneAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb"))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>)`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(proneAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>)`;
                                         };
                                 } else {
                                         generatedAdjectives.push(derivedTerm) 
                                         derivedOrInheritedADJ.push("derived");
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + proneAffix))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
+                                                etymologyADJ.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + proneAffix))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
                                         } else {
-                                                etymologyADJ.push(`<i>${spell(soundChange(proneAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                                                etymologyADJ.push(`<i>${spell(soundChange(proneAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                                         };
                                         if(derivationListIntransVerb[i] === "") {
-                                                derivationListIntransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`
+                                                derivationListIntransVerb[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${meaning}"`
                                         } else {
-                                                derivationListIntransVerb[i] = derivationListIntransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm))}</i></strong>&nbsp"${meaning}"`;
+                                                derivationListIntransVerb[i] = derivationListIntransVerb[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${meaning}"`;
                                         };
                                 }
                                 etymologyArrayADJ.push(intransitiveVerbArray[i]);
                         };
                         if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
                                 let exampleLi = document.createElement("li");
-                                exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                 ul.appendChild(exampleLi);
                                 exampleCounter++;
                         };
@@ -2537,9 +2541,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2558,9 +2562,9 @@ function bodyParts() {
                 shapeClassifierArray.push("flat");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -2579,9 +2583,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2600,9 +2604,9 @@ function bodyParts() {
                 shapeClassifierArray.push("flat");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -2622,9 +2626,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2649,9 +2653,9 @@ function bodyParts() {
                 shortGenericClassifierArray.push("natural-inanimate");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -2671,9 +2675,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2702,9 +2706,9 @@ function bodyParts() {
                 shortGenericClassifierArray.push("natural-inanimate");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -2724,9 +2728,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2755,9 +2759,9 @@ function bodyParts() {
                 shortGenericClassifierArray.push("natural-inanimate");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -2777,9 +2781,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2808,9 +2812,9 @@ function bodyParts() {
                 shortGenericClassifierArray.push("natural-inanimate");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -2829,9 +2833,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2850,9 +2854,9 @@ function bodyParts() {
                 shapeClassifierArray.push("flat");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -2871,9 +2875,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2892,9 +2896,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -2913,9 +2917,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2934,9 +2938,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -2956,9 +2960,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -2987,9 +2991,9 @@ function bodyParts() {
                 shortGenericClassifierArray.push("natural-inanimate");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -3009,9 +3013,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -3044,9 +3048,9 @@ function bodyParts() {
                 shortGenericClassifierArray.push("natural-inanimate");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -3065,9 +3069,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -3086,9 +3090,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                 };
         };
         
@@ -3107,9 +3111,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3128,9 +3132,9 @@ function bodyParts() {
                         shapeClassifierArray.push("long-and-slender");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3149,9 +3153,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3170,9 +3174,9 @@ function bodyParts() {
                         shapeClassifierArray.push("round");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3191,9 +3195,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3218,9 +3222,9 @@ function bodyParts() {
                         shapeClassifierArray.push("long-and-slender");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3239,9 +3243,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3260,9 +3264,9 @@ function bodyParts() {
                         shapeClassifierArray.push("flat");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3281,9 +3285,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3310,9 +3314,9 @@ function bodyParts() {
                         shapeClassifierArray.push("flat");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3331,9 +3335,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3357,9 +3361,9 @@ function bodyParts() {
                         shapeClassifierArray.push("long-and-slender");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3378,9 +3382,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3399,9 +3403,9 @@ function bodyParts() {
                         shapeClassifierArray.push("round");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3420,9 +3424,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3446,9 +3450,9 @@ function bodyParts() {
                         shapeClassifierArray.push("round");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3467,9 +3471,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3488,9 +3492,9 @@ function bodyParts() {
                         shapeClassifierArray.push("flat");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3509,9 +3513,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3530,9 +3534,9 @@ function bodyParts() {
                         shapeClassifierArray.push("flat");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3551,9 +3555,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3572,9 +3576,9 @@ function bodyParts() {
                         shapeClassifierArray.push("long-and-slender");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3593,9 +3597,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3614,9 +3618,9 @@ function bodyParts() {
                         shapeClassifierArray.push("flat");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3635,9 +3639,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3656,9 +3660,9 @@ function bodyParts() {
                         shapeClassifierArray.push("round");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3677,9 +3681,9 @@ function bodyParts() {
                         derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                         etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = transitiveVerbArray[i];
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                         } else {
-                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                        etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                         };
                 } else {
                         countNounArray.push(meaning);
@@ -3698,9 +3702,9 @@ function bodyParts() {
                         shapeClassifierArray.push("round");
                         etymologyArrayCountNoun.push(transitiveVerbArray[i]);
                         if(suffixOrPrefix === "suffix") {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                         } else {
-                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`)
+                        etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`)
                         };
                 };
                 
@@ -3737,9 +3741,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -3758,9 +3762,9 @@ function bodyParts() {
                 shapeClassifierArray.push("long-and-slender");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
         };
@@ -3771,9 +3775,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -3797,9 +3801,9 @@ function bodyParts() {
                 shapeClassifierArray.push("flat");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -3812,9 +3816,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -3833,9 +3837,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -3848,9 +3852,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -3869,9 +3873,9 @@ function bodyParts() {
                 shapeClassifierArray.push("long-and-slender");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -3884,9 +3888,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -3905,9 +3909,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -3920,9 +3924,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -3947,9 +3951,9 @@ function bodyParts() {
                 shortGenericClassifierArray.push("natural-inanimate");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -3962,9 +3966,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -3983,9 +3987,9 @@ function bodyParts() {
                 shortGenericClassifierArray.push("natural-inanimate");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -3998,9 +4002,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -4024,9 +4028,9 @@ function bodyParts() {
                 shortGenericClassifierArray.push("natural-inanimate");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -4039,9 +4043,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -4060,9 +4064,9 @@ function bodyParts() {
                 shapeClassifierArray.push("flat");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -4075,9 +4079,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -4096,9 +4100,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -4111,9 +4115,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -4132,9 +4136,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -4147,9 +4151,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -4168,9 +4172,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -4183,9 +4187,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -4204,9 +4208,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -4219,9 +4223,9 @@ function bodyParts() {
                 derivedOrInheritedCountNoun[countNounArray.indexOf(meaning)] = "derived";
                 etymologyArrayCountNoun[countNounArray.indexOf(meaning)] = intransitiveVerbArray[i];
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                 } else {
-                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`;
+                etymologyCountNoun[countNounArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])], "verb")))}-</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`;
                 };
         } else {
                 countNounArray.push(meaning);
@@ -4240,9 +4244,9 @@ function bodyParts() {
                 shapeClassifierArray.push("round");
                 etymologyArrayCountNoun.push(intransitiveVerbArray[i]);
                 if(suffixOrPrefix === "suffix") {
-                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(bodyPartAffix + "A"))}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`)
                 } else {
-                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeVFromVerb(intransitiveVerbArray[i])}"`)
+                etymologyCountNoun.push(`<i>${spell(soundChange(bodyPartAffix))}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(soundChange(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[i])]))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[i])}"`)
                 };
         };
      document.getElementById("derivational-affixes").appendChild(li);
@@ -9556,6 +9560,191 @@ function intransToTransVerb() {
         };
 };
 
+function NtoADJPrototypical() {
+        let li = document.createElement("li");  
+        let ul = document.createElement("ul");
+
+        let derivedTerm = "";
+        let olderDerivedTerm = "";
+        let suffixOrPrefix = "";
+        if(Math.floor(Math.random() * 2) === 0) {
+                suffixOrPrefix = "suffix";
+        } else {
+                suffixOrPrefix = "prefix";
+        };
+        let exampleCounter = 0;
+
+        for(let i = 0; i < countNounArray.length; i++) {
+                //decides if word will have a derivation
+        if(Math.floor(Math.random() * 3) === 1) {
+                //decides if the affix will be a suffix or prefix
+                if(suffixOrPrefix === "suffix") {
+                    derivedTerm = soundChange(generatedCountNouns[i]) + soundChange(NtoADJPrototypicalAffix);
+                    olderDerivedTerm = generatedCountNouns[i] + NtoADJPrototypicalAffix;
+                    li.innerHTML = `<i>-${spell(soundChange("X" + NtoADJPrototypicalAffix))}</i> "derives&nbspadjectives&nbspdescribing&nbspthe&nbspprototypical&nbspstate&nbspof&nbspthe&nbspnoun"`
+                } else {
+                    derivedTerm = soundChange(NtoADJPrototypicalAffix) + soundChange(generatedCountNouns[i]);
+                    olderDerivedTerm = NtoADJPrototypicalAffix + generatedCountNouns[i];
+                    li.innerHTML = `<i>${spell(soundChange(NtoADJPrototypicalAffix + "A"))}-</i> "derives&nbspadjectives&nbspdescribing&nbspthe&nbspprototypical&nbspstate&nbspof&nbspthe&nbspnoun"`
+                };
+                //decides if term is derived in modern language or old language
+                let derivedInModernOrOld = "";
+                if(Math.floor(Math.random() * 3) === 1) {
+                    derivedInModernOrOld = "old";
+                } else {
+                    derivedInModernOrOld = "modern";
+                };
+    
+                function deriveCountNtoADJPrototypical(originalWord, derivedWord, comparative) {
+                    if(typeof derivedWord !== "string") {
+                            let derivedWordArray = cloneArray(derivedWord);
+                            derivedWord = randomIndexOfArray(derivedWord);
+                            comparative = comparative[derivedWordArray.indexOf(derivedWord)];
+                    };
+                    let trueOrFalse = "";
+                    if(typeof originalWord !== "string" && originalWord.includes(countNounArray[i])) {
+                            trueOrFalse = true;
+                    } else if (countNounArray[i] === originalWord){
+                            trueOrFalse = true;
+                    };
+                    if(trueOrFalse) {
+                            let meaning = derivedWord;
+                            if(adjectiveArray.includes(meaning)) {
+                                    if(derivedInModernOrOld === "old") {
+                                            generatedAdjectives[adjectiveArray.indexOf(meaning)] = olderDerivedTerm;
+                                            derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "inheritedOldDerived";
+                                            if(suffixOrPrefix === "suffix") {
+                                                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[i], "noun"))}</i>&nbsp"${countNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + NtoADJPrototypicalAffix)}</i>&nbsp"derives&nbspadjectives&nbspdescribing&nbspthe&nbspprototypical&nbspstate&nbspof&nbspthe&nbspnoun"`;
+                                            } else {
+                                                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(NtoADJPrototypicalAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspdescribing&nbspthe&nbspprototypical&nbspstate&nbspof&nbspthe&nbspnoun"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])], "noun"))}</i>&nbsp"${countNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>)`;
+                                            };
+                                    } else {
+                                            generatedAdjectives[adjectiveArray.indexOf(meaning)] = derivedTerm;
+                                            derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
+                                            if(suffixOrPrefix === "suffix") {
+                                                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>&nbsp"${removeDistinguishingLetter(countNounArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + NtoADJPrototypicalAffix))}</i>&nbsp"derives&nbspadjectives&nbspdescribing&nbspthe&nbspprototypical&nbspstate&nbspof&nbspthe&nbspnoun"`;
+                                            } else {
+                                                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(NtoADJPrototypicalAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspdescribing&nbspthe&nbspprototypical&nbspstate&nbspof&nbspthe&nbspnoun"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])], "noun")))}</i>&nbsp"${removeDistinguishingLetter(countNounArray[i])}"`;
+                                            };
+                                            //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                            if(derivationListCountNoun[i] === "") {
+                                                derivationListCountNoun[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${removeDistinguishingLetter(meaning)}"`
+                                            } else {
+                                                derivationListCountNoun[i] = derivationListCountNoun[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${removeDistinguishingLetter(meaning)}"`;
+                                            };
+                                    };
+                                    etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = countNounArray[i];
+                            } else {
+                                    adjectiveArray.push(meaning);
+                                    comparativeAdjectiveArray.push(comparative)
+                                    if(derivedInModernOrOld === "old") {
+                                            generatedAdjectives.push(soundChange(olderDerivedTerm));
+                                            derivedOrInheritedADJ.push("inheritedOldDerived");
+                                            if(suffixOrPrefix === "suffix") {
+                                                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[i], "noun"))}</i>&nbsp"${countNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + NtoADJPrototypicalAffix)}</i>&nbsp"derives&nbspadjectives&nbspdescribing&nbspthe&nbspprototypical&nbspstate&nbspof&nbspthe&nbspnoun"`;
+                                            } else {
+                                                    etymologyADJ[adjectiveArray.indexOf(meaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(olderDerivedTerm)}</i>&nbsp"${meaning}"&nbsp<&nbsp<i>${spell(NtoADJPrototypicalAffix + "A")}-</i>&nbsp"derives&nbspadjectives&nbspdescribing&nbspthe&nbspprototypical&nbspstate&nbspof&nbspthe&nbspnoun"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[i])], "noun"))}</i>&nbsp"${countNounArray[i]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>)`;
+                                            };
+                                    } else {
+                                            generatedAdjectives.push(derivedTerm) 
+                                            derivedOrInheritedADJ.push("derived");
+                                            if(suffixOrPrefix === "suffix") {
+                                                    etymologyADJ.push(`<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i>&nbsp"${countNounArray[i]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + NtoADJPrototypicalAffix))}</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"`)
+                                            } else {
+                                                    etymologyADJ.push(`<i>${spell(soundChange(NtoADJPrototypicalAffix + "A"))}-</i>&nbsp"derives&nbspadjectives&nbspfrom&nbspverbs&nbspdescribing&nbspthe&nbspstate&nbspof&nbspthe&nbspagent&nbspof&nbspthe&nbspaction"&nbsp+&nbsp<i>${spell(soundChange(generatedCountNouns[countNounArray.indexOf(countNounArray[i])]))}</i>&nbsp"${countNounArray[i]}"`)
+                                            };
+                                            //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                            if(derivationListCountNoun[i] === "") {
+                                                derivationListCountNoun[i] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${removeDistinguishingLetter(meaning)}"`
+                                            } else {
+                                                derivationListCountNoun[i] = derivationListCountNoun[i] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i></strong>&nbsp"${removeDistinguishingLetter(meaning)}"`;
+                                            };
+                                    }
+                                    etymologyArrayADJ.push(countNounArray[i]);
+                            if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
+                                    let exampleLi = document.createElement("li");
+                                    exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[i], "noun")))}</i> "${countNounArray[i]}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "adjective"))}</i> "${removeDistinguishingLetter(meaning)}"`;
+                                    ul.appendChild(exampleLi);
+                                    exampleCounter++;
+                            };
+                             
+                    };
+                };
+                document.getElementById("derivational-affixes").appendChild(li);
+                li.appendChild(ul);
+                };
+
+                deriveCountNtoADJPrototypical("army", "militaristic", "more&nbspmilitaristic");
+                deriveCountNtoADJPrototypical(["attack", "enemy"], "hostile", "more&nbsphostile");
+                deriveCountNtoADJPrototypical("audience", ["observant", "keen"
+                ], ["more&nbspobservant", "keener"]);
+                deriveCountNtoADJPrototypical("auger", "prophetic", "more&nbspprophetic");
+                deriveCountNtoADJPrototypical("badger", "mustelid", "more&nbspmustelid");
+                deriveCountNtoADJPrototypical("ball", ["spherical", "round"], ["more&nbspspherical", "rounder"]);
+                deriveCountNtoADJPrototypical("bead", "beady", "beadier");
+                deriveCountNtoADJPrototypical("beard", "bearded", "more&nbspbeaded");
+                deriveCountNtoADJPrototypical("belt", "binding", "more&nbspbinding");
+                deriveCountNtoADJPrototypical("bird", "avian", "more&nbspavian");
+                deriveCountNtoADJPrototypical("birth", "natal", "more&nbspnatal");
+                deriveCountNtoADJPrototypical(["boat", "sailor", "ship"], "naval", "more&nbspnaval");
+                deriveCountNtoADJPrototypical("body", "corporeal", "more&nbspcorporeal");
+                deriveCountNtoADJPrototypical("bone", "bony", "bonier");
+                deriveCountNtoADJPrototypical("book", ["literary", "bookish", "relating&nbspto&nbspbooks"], ["more&nbspliterary", "more&nbspbookish", "X"]);
+                deriveCountNtoADJPrototypical("border", ["near", "bordering", "adjacent"], ["nearer", "more&nbspbordering", "more&nbspadjacent"]);
+                deriveCountNtoADJPrototypical(["bottom", "butt"], "low", "lower");
+                deriveCountNtoADJPrototypical("anus", "anal", "more&nbspanal");
+                deriveCountNtoADJPrototypical("bowl", ["bowl-shaped", "relating&nbspto&nbspbowls"], "X");
+                deriveCountNtoADJPrototypical("boy", "boyish", "more&nbspboyish");
+                deriveCountNtoADJPrototypical("branch", ["offshooting", "secondary"], "X");
+                deriveCountNtoADJPrototypical("bristle", "bristly", "more&nbspbristly");
+                deriveCountNtoADJPrototypical("brother", "fraternal", "more&nbspfraternal");
+                deriveCountNtoADJPrototypical(["bull", "cow"], "bovine", "more&nbspbovine");
+                deriveCountNtoADJPrototypical("bump", "bumpy", "bumpier");
+                deriveCountNtoADJPrototypical("burden", "burdensome", "more&nbspburdensome");
+                deriveCountNtoADJPrototypical("cage", "entrapping", "more&nbspentrapping");
+                deriveCountNtoADJPrototypical("cat", "feline", "more&nbspfeline");
+                deriveCountNtoADJPrototypical("cave", "cavernous", "more&nbspcavernous");
+                deriveCountNtoADJPrototypical("change", ["different", "transient", "mobile"], ["more&nbspdifferent", "more&nbsptransient", "more&nbspmobile"]);
+                deriveCountNtoADJPrototypical("child", ["childish", "childlike"], ["more&nbspchildish", "more&nbspchildlike"]);
+                deriveCountNtoADJPrototypical("chunky", "chunky", "chunkier");
+                deriveCountNtoADJPrototypical("circle", "circular", "more&nbspcircular");
+                deriveCountNtoADJPrototypical(["clan", "tribe"], "tribal", "more&nbsptribal");
+                deriveCountNtoADJPrototypical("cloud", "cloudy", "cloudier");
+                deriveCountNtoADJPrototypical("coin", "monetary", "more&nbspmonetary");
+                deriveCountNtoADJPrototypical(["crime", "criminal"], "criminalA", "more&nbspcriminal");
+                deriveCountNtoADJPrototypical(["crow", "raven"], "corvid", "more&nbspcorvid");
+                deriveCountNtoADJPrototypical(["crown", "king", "throne"], ["royal", "regal"], ["more&nbsproyal", "more&nbspregal"]);
+                deriveCountNtoADJPrototypical("curve", "curvy", "curvier");
+                deriveCountNtoADJPrototypical("custom", "customary", "more&nbspcustomary");
+                deriveCountNtoADJPrototypical(["daughter", "son"], "filial", "more&nbspfilial");
+                deriveCountNtoADJPrototypical("dawn", ["early", "auroral"], ["earlier", "more&nbspauroral"]);
+                deriveCountNtoADJPrototypical("day", ["diurnal", "daily"], ["more&nbspdiurnal", "more&nbspdaily"]);
+                deriveCountNtoADJPrototypical("dog", "canine", "more&nbspcanine");
+                deriveCountNtoADJPrototypical("door", "liminal", "more&nbspliminal");
+                deriveCountNtoADJPrototypical("dream", "dreamy", "dreamier");
+                deriveCountNtoADJPrototypical("emotion", "emotional", "more&nbspemotional");
+                deriveCountNtoADJPrototypical("table", "tabular", "more&nbsptabular");
+                deriveCountNtoADJPrototypical("eye", ["visual", "optical"], ["more&nbspvisual", "more&nbspoptical"]);
+                deriveCountNtoADJPrototypical("facial", "facial", "more&nbspfacial");
+                deriveCountNtoADJPrototypical("family", "familial", "more&nbspfamilial");
+                deriveCountNtoADJPrototypical("father", "paternal", "more&nbsppaternal");
+                deriveCountNtoADJPrototypical("festival", "festive", "more&nbspfestive");
+                deriveCountNtoADJPrototypical("fire", "firey", "more&nbspfirey");
+                deriveCountNtoADJPrototypical("fish", "fishy", "fishier");
+                deriveCountNtoADJPrototypical("flower", "floral", "more&nbspfloral");
+                deriveCountNtoADJPrototypical("foot", "podal", "more&nbsppodal");
+                deriveCountNtoADJPrototypical("foreigner", "foreign", "more&nbspforeign");
+                deriveCountNtoADJPrototypical("freeman", "free", "freer");
+                deriveCountNtoADJPrototypical("friend", "friendly", "friendlier");
+                deriveCountNtoADJPrototypical("genocide", "genocidal", "more&nbspgenocidal");
+                deriveCountNtoADJPrototypical("girl", "girly", "girlier");
+                deriveCountNtoADJPrototypical("god", ["godly", "divine"], ["godlier", "more&nbspdivine"]);
+                deriveCountNtoADJPrototypical("grain", "grainy", "grainier");
+                deriveCountNtoADJPrototypical("granule", "granular", "more&nbspgranular");
+        }
+}
+};
+
 //derives adjective meaning "-able" from transitive verbs
 function transVerbToABleAdjective() {
         let li = document.createElement("li");
@@ -9586,9 +9775,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9597,14 +9786,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9616,9 +9805,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9627,14 +9816,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9646,9 +9835,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9657,14 +9846,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9676,9 +9865,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9687,14 +9876,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9706,9 +9895,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9717,14 +9906,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9736,9 +9925,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9752,14 +9941,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9771,9 +9960,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9782,14 +9971,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9801,9 +9990,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9812,14 +10001,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9831,9 +10020,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9842,14 +10031,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9861,9 +10050,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9872,14 +10061,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9891,9 +10080,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9902,14 +10091,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9921,9 +10110,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9932,14 +10121,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9951,9 +10140,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9962,14 +10151,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -9981,9 +10170,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -9992,14 +10181,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10011,9 +10200,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10022,14 +10211,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10041,9 +10230,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10052,14 +10241,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10071,9 +10260,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10082,14 +10271,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10101,9 +10290,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10120,14 +10309,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10139,9 +10328,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10150,14 +10339,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10169,9 +10358,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10180,14 +10369,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10199,9 +10388,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10221,14 +10410,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10240,9 +10429,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10251,14 +10440,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10270,9 +10459,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10281,14 +10470,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10300,9 +10489,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10316,14 +10505,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10335,9 +10524,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10346,14 +10535,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10365,9 +10554,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10376,14 +10565,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10395,9 +10584,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10414,14 +10603,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10433,9 +10622,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10444,14 +10633,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10463,9 +10652,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10474,14 +10663,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10493,9 +10682,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10504,14 +10693,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10523,9 +10712,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10534,14 +10723,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10553,9 +10742,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10564,14 +10753,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10583,9 +10772,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10608,14 +10797,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10627,9 +10816,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10638,14 +10827,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10657,9 +10846,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10673,14 +10862,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10692,9 +10881,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10720,14 +10909,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10739,9 +10928,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10750,14 +10939,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10769,9 +10958,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10780,14 +10969,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10799,9 +10988,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10810,14 +10999,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10829,9 +11018,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10840,14 +11029,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10859,9 +11048,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10870,14 +11059,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10889,9 +11078,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10900,14 +11089,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10919,9 +11108,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10930,14 +11119,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10949,9 +11138,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10960,14 +11149,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -10979,9 +11168,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -10995,14 +11184,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11014,9 +11203,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11025,14 +11214,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11044,9 +11233,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11055,14 +11244,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11074,9 +11263,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11085,14 +11274,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11104,9 +11293,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11115,14 +11304,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11134,9 +11323,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11145,14 +11334,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11164,9 +11353,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11175,14 +11364,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11194,9 +11383,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11205,14 +11394,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11224,9 +11413,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11235,14 +11424,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11254,9 +11443,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11265,14 +11454,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11284,9 +11473,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11300,14 +11489,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11319,9 +11508,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11335,14 +11524,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11354,9 +11543,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11365,14 +11554,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11384,9 +11573,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11395,14 +11584,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11414,9 +11603,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11425,14 +11614,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11444,9 +11633,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11463,14 +11652,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11482,9 +11671,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11493,14 +11682,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11512,9 +11701,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11523,14 +11712,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11542,9 +11731,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11558,14 +11747,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11577,9 +11766,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11588,14 +11777,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11607,9 +11796,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11618,14 +11807,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11637,9 +11826,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11648,14 +11837,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11667,9 +11856,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11678,14 +11867,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11697,9 +11886,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11716,14 +11905,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11735,9 +11924,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11746,14 +11935,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11765,9 +11954,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11776,14 +11965,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 
@@ -11795,9 +11984,9 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ[adjectiveArray.indexOf(meaning)] = "derived";
                                         etymologyArrayADJ[adjectiveArray.indexOf(meaning)] = transitiveVerbArray[i];
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 } else {
                                         adjectiveArray.push(meaning);
@@ -11806,14 +11995,14 @@ function transVerbToABleAdjective() {
                                         derivedOrInheritedADJ.push("derived");
                                         etymologyArrayADJ.push(transitiveVerbArray[i]);
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"&nbsp+&nbsp<i>-${spell(soundChange(transVerbToABleAdjectiveAffix + "A"))}</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"`;
                                         } else {
-                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeVFromVerb(transitiveVerbArray[i])}"`;
+                                                etymologyADJ[adjectiveArray.indexOf(meaning)] = `<i>${spell(soundChange("X" + transVerbToABleAdjectiveAffix))}-</i>&nbsp"derives&nbspadjectives&nbspof&nbspability&nbspfrom&nbsptransitive&nbspverbs,&nbsp-able"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[i])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}"`;
                                         };
                                 };
                                 if(exampleCounter < 6) {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeVFromVerb(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[i], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[i])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "verb"))}</i> "${meaning}"`;
                                         ul.appendChild(exampleLi)
                                 };
                                 exampleCounter++; 

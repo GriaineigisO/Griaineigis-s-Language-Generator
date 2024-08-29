@@ -2,7 +2,7 @@
 import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, generateAffixes, typologyNum, markedSingularOrNot, singularAffix, numberSuffixOrPrefix, grammaticalNum, generalAffix, genderNum, animateAffix, inanimateAffix, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, activePassiveMass, shortGenericClassifierMassArray, masculineAffix, feminineAffix, neuterAffix, humanAffix, animalAffix, inanimate2Affix, divineAffix, profaneAffix, activeAffix, passiveAffix, naturalAffix, artificialAffix, nominativeAffix, languageName} from './script.js';
 import { spell } from './orthography.js';
 import { soundChange, cloneArray} from './soundchange.js';
-import {activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, derivedOrInheritedCountNoun, etymologyArrayCountNoun, etymologyCountNoun, possessorOfQualityCount,derivationListCountNoun} from './englishWordArrays/Nouns/countNouns.js'
+import {activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, derivedOrInheritedCountNoun, etymologyArrayCountNoun, etymologyCountNoun, derivationListCountNoun} from './englishWordArrays/Nouns/countNouns.js'
 import {derivedOrInheritedMassNoun, etymologyArrayMassNoun, etymologyMassNoun, possessorOfQualityMass, singulativeMassNounArray, pluralSingulativeMassNounArray, derivationListMassNoun} from './englishWordArrays/Nouns/massNouns.js'
 import {derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb, transitiveVerb3SArray, transitiveVerbPastArray, derivationListTransVerb} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import {derivedOrInheritedIntransVerb, derivationListIntransVerb, etymologyArrayIntransVerb, etymologyIntransVerb} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
@@ -9796,7 +9796,7 @@ function NtoADJPrototypical() {
         deriveCountNtoADJPrototypical("oath", "juratory", "more&nbspjuratory");
         deriveCountNtoADJPrototypical(["origin", "base", "foundation"], ["original", "basal", "foundational"], ["more&nbsporiginal", "more&nbspbasal", "more&nbspfoundational"]);
         deriveCountNtoADJPrototypical("pasture", "pastoral", "more&nbsppastoral");
-        deriveCountNtoADJPrototypical("paternal&nbspkinsman", "related&&nbspthe&nbsppaternal&nbspside", "X");
+        deriveCountNtoADJPrototypical("paternal&nbspkinsman", "related&nbspthe&nbsppaternal&nbspside", "X");
         deriveCountNtoADJPrototypical("penis", "penile", "more&nbsppenile");
         deriveCountNtoADJPrototypical("person", ["humane", "personal"], ["more&nbsphumane", "more&nbsppersonal"]);
         deriveCountNtoADJPrototypical("pig", "porcine", "more&nbspporcine");
@@ -9968,6 +9968,51 @@ function NtoADJPrototypical() {
 
         deriveMassNtoADJPrototypical("blood", "bloody", "bloodier");
         deriveMassNtoADJPrototypical("prose", "prosaic", "more&nbspprosaic");
+        deriveMassNtoADJPrototypical("admiration", "admirable", "more&nbspadmirable");
+        deriveMassNtoADJPrototypical("adoration", "adorable", "more&nbspadorable");
+        deriveMassNtoADJPrototypical("air", "airy", "arier");
+        deriveMassNtoADJPrototypical("ash", "ashy", "ashier");
+        deriveMassNtoADJPrototypical("bronze", "bronzeA", "more&nbspbronze");
+        deriveMassNtoADJPrototypical("dirt", "dirty", "dirtier");
+        deriveMassNtoADJPrototypical("dust", "dusty", "dustier");
+        deriveMassNtoADJPrototypical("cream", "creamy", "creamier");
+        deriveMassNtoADJPrototypical("confusion", "confusing", "more&nbspconfusing");
+        deriveMassNtoADJPrototypical("deception", "deceptive", "more&nbspdeceptive");
+        deriveMassNtoADJPrototypical("flint", "flint", "more&nbspflint");
+        deriveMassNtoADJPrototypical("fog", "foggy", "foggier");
+        deriveMassNtoADJPrototypical("glass", "glassA", "more&nbspglass");
+        deriveMassNtoADJPrototypical("gold", "golden", "more&nbspgolden");
+        deriveMassNtoADJPrototypical("grace", "graceful", "more&nbspgraceful");
+        deriveMassNtoADJPrototypical("grass", "grassy", "grassier");
+        deriveMassNtoADJPrototypical("hair", "hairy", "hairier");
+        deriveMassNtoADJPrototypical("hostility", "hostile", "more&nbsphostile");
+        deriveMassNtoADJPrototypical("hatred", "hateful", "more&nbsphateful");
+        deriveMassNtoADJPrototypical("ice", "icy", "icier");
+        deriveMassNtoADJPrototypical("iron", "ironA", "more&nbspiron");
+        deriveMassNtoADJPrototypical("labour", "labourious", "more&nbsplabourious");
+        deriveMassNtoADJPrototypical("leather", "leathery", "more&nbspleathery");
+        deriveMassNtoADJPrototypical("love", "lovely", "lovelier");
+        deriveMassNtoADJPrototypical("meat", "meaty", "meatier");
+        deriveMassNtoADJPrototypical("money", ["economic", "financial"], ["more&nbspeconomic", "more&nbspfinancial"]);
+        deriveMassNtoADJPrototypical("milk", ["dairy", "milky"], ["more&nbspdairy", "milkier"]);
+        deriveMassNtoADJPrototypical("mud", "muddy", "muddier");
+        deriveMassNtoADJPrototypical("music", "musical", "more&nbspmusical");
+        deriveMassNtoADJPrototypical("oil", "oily", "more&nbspoily");
+        deriveMassNtoADJPrototypical("poison", "poisonous", "more&nbsppoisonous");
+        deriveMassNtoADJPrototypical("rain", "rainy", "rainier");
+        deriveMassNtoADJPrototypical("revenge", "vengeful", "more&nbspvengeful");
+        deriveMassNtoADJPrototypical("salt", "salty", "saltier");
+        deriveMassNtoADJPrototypical("sweat", "sweaty", "sweatier");
+        deriveMassNtoADJPrototypical("sand", "sandy", "sandier");
+        deriveMassNtoADJPrototypical("string", "stringy", "stringier");
+        deriveMassNtoADJPrototypical("steam", "steamy", "steamier");
+        deriveMassNtoADJPrototypical("truth", ["true", "honest"], ["truer", "more&nbsphonest"]);
+        deriveMassNtoADJPrototypical("vigour", "vigourous", "more&nbspvigourous");
+        deriveMassNtoADJPrototypical("smoke", "smoky", "smokier");
+        deriveMassNtoADJPrototypical("wood", "wooden", "more&nbspwooden");
+        deriveMassNtoADJPrototypical("snow", "snowy", "snowier");
+        deriveMassNtoADJPrototypical("water", "wet", "wetter");
+        deriveMassNtoADJPrototypical("wind", "windy", "windier");
 };
 
 //derives adjective meaning "-able" from transitive verbs

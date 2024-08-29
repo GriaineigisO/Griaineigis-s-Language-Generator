@@ -163,7 +163,7 @@ allWordsInThesaurus.push(afraidArray);
 let graceArray = ["grace", "favour", "elegance", "purity", "distinction", "aristocracy", "nobility", "ease", "beauty", "loveliness", "fairness", "splendour", "radiance"];
 allWordsInThesaurus.push(graceArray);
 
-let proseArray = ["prose", "poetry", "lyric", "spell", "verbosity", "verbal magic", "wordiness"];
+let proseArray = ["prose", "poetry", "lyric", "spell", "verbosity", "verbal&nbspmagic", "wordiness"];
 allWordsInThesaurus.push(proseArray);
 
 let revengeArray = ["revenge", "reciprocity"];

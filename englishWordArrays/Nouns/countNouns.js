@@ -13037,6 +13037,27 @@ possessorOfQualityCount.push("X");
 
 /*--------------------------------------------*/
 
+countNounArray.push("nebula");
+countNounArrayPlural.push("nebulas");
+activePassive.push("passive")
+animInan.push("anim");
+divineNonDivine.push("divine");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("shapeless");
+shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+/*--------------------------------------------*/
+possessorOfQualityCount.push("X");
+
+/*--------------------------------------------*/
+
 
 
 

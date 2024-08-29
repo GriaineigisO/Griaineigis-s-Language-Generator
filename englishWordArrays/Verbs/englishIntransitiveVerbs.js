@@ -153,7 +153,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("dream");
+intransitiveVerbArray.push("dreamV");
     intransitiveVerb3SArray.push("dreams");
     intransitiveVerbPastArray.push("dreamed");
 derivedOrInheritedIntransVerb.push("inherited");

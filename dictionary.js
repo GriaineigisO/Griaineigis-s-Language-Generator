@@ -64,16 +64,16 @@ function makeDictionary() {
     let languageWords = generatedCountNouns.concat(generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers);
 
     //when an English verb is homophonous with a noun, e.g "to love" and "love", the dictionary assigns both as being nouns. To avoid this, such verbs end with a capital "V", so that the strings are different. This function serves to remove that "V" after the dictionary has designated the word as a verb
-    function removeVFromVerb(verb) {
-        let newArray = Array.from(verb);
+    function removeDistinguishingLetter(word) {
+        let newArray = Array.from(word);
         for (let i = 0; i < newArray.length; i++) {
-            if (newArray[i] === "V") {
+            if (newArray[i] === "V"||newArray[i] === "A") {
                 newArray.splice(i, 1);
-                let newVerb = newArray.join("");
-                return newVerb;
+                let newWord = newArray.join("");
+                return newWord;
             };
         };
-        return verb;
+        return word;
     };
 
     //Kerbekulo to English
@@ -1110,14 +1110,14 @@ function makeDictionary() {
                     thesaurusEntryArrayCopy.splice(randomItem, 1);
                 };
                 if(chosenOldMeanings.length === 1) {
-                    etymologyTranslation = removeVFromVerb(chosenOldMeanings.join(""));
+                    etymologyTranslation = removeDistinguishingLetter(chosenOldMeanings.join(""));
                 } else {
-                    etymologyTranslation = removeVFromVerb(chosenOldMeanings.join(",&nbsp"));
+                    etymologyTranslation = removeDistinguishingLetter(chosenOldMeanings.join(",&nbsp"));
                 }
                 
                 break;
             } else {
-                etymologyTranslation = removeVFromVerb(englishWords[i]);
+                etymologyTranslation = removeDistinguishingLetter(englishWords[i]);
             }
         };
 
@@ -1129,9 +1129,9 @@ function makeDictionary() {
             (massNounArray.includes(englishWords[i]) && derivedOrInheritedMassNoun[massNounArray.indexOf(englishWords[i])] === "derived") ||
             (transitiveVerbArray.includes(englishWords[i]) && derivedOrInheritedTransVerb[transitiveVerbArray.indexOf(englishWords[i])] === "derived")
         ) {
-            word1 = new Dictionary(spell(wordWithAffix), ipaFix(wordWithAffix), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(wordWithAffix));
+            word1 = new Dictionary(spell(wordWithAffix), ipaFix(wordWithAffix), pOfSpeech, removeDistinguishingLetter(englishWords[i]), classifierInfo, spell(wordWithAffix));
         } else {
-            word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeVFromVerb(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
+            word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), ipaFix(soundChange(wordWithAffix)), pOfSpeech, removeDistinguishingLetter(englishWords[i]), classifierInfo, spell(correctionsForStrings(wordWithAffix)));
         }
         let headWord = document.createElement("span");
         let ipaTranscription = document.createElement("span");
@@ -1952,9 +1952,9 @@ function makeDictionary() {
             (massNounArray.includes(englishWords[i]) && derivedOrInheritedMassNoun[massNounArray.indexOf(englishWords[i])] === "derived") ||
             (transitiveVerbArray.includes(englishWords[i]) && derivedOrInheritedTransVerb[transitiveVerbArray.indexOf(englishWords[i])] === "derived")
         ) {
-            word1 = new Dictionary(spell(soundChangeExample(wordWithAffix)), "", pOfSpeech, removeVFromVerb(englishWords[i]));
+            word1 = new Dictionary(spell(soundChangeExample(wordWithAffix)), "", pOfSpeech, removeDistinguishingLetter(englishWords[i]));
         } else {
-            word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), "", pOfSpeech, removeVFromVerb(englishWords[i]));
+            word1 = new Dictionary(spell(soundChange(soundChangeExample(wordWithAffix))), "", pOfSpeech, removeDistinguishingLetter(englishWords[i]));
         }
         let headWord = document.createElement("span");
         let ipa = document.createElement("span");

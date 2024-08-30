@@ -233,10 +233,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["militaristic", "powerful", "in-charge", "in-command", "commanding"]);
-
-
 
 countNounArray.push("arrow");
 countNounArrayPlural.push("arrows");
@@ -296,10 +292,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["famous", "well-known", "popular"]);
-
-
 
 countNounArray.push("auger");
 countNounArrayPlural.push("augers");
@@ -519,10 +511,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["honoured&nbspin&nbspdeath", "eternally&nbspfamous"]);
-
-
 
 countNounArray.push("basin");
 countNounArrayPlural.push("basins");
@@ -561,9 +549,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["burdened", "ladened"]);
-
 
 countNounArray.push("bead");
 countNounArrayPlural.push("beads");
@@ -686,10 +671,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["manly", "virile"]);
-
-
 
 countNounArray.push("beaver");
 countNounArrayPlural.push("beavers");
@@ -1091,9 +1072,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["alive", "living", "corporeal", "mortal"]);
-
 
 countNounArray.push("bolt");
 countNounArrayPlural.push("bolts");
@@ -1132,9 +1110,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["skeletal", "emaciated"]);
-
 
 countNounArray.push("book");
 countNounArrayPlural.push("books");
@@ -1152,9 +1127,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["book-loving", "well-read", "learned"]);
-
 
 countNounArray.push("boot");
 countNounArrayPlural.push("boots");
@@ -1193,9 +1165,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["territorial", "demarcated"]);
-
 
 countNounArray.push("bottom");
 countNounArrayPlural.push("bottoms");
@@ -1423,9 +1392,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["alive", "living"]);
-
 
 countNounArray.push("bristle");
 countNounArrayPlural.push("bristles");
@@ -1653,9 +1619,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["burdened", "troubled", "stress"]);
-
 
 countNounArray.push("bush");
 countNounArrayPlural.push("bushes");
@@ -2009,9 +1972,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["fast-and-dangerous"]);
-
 
 countNounArray.push("cherry");
 countNounArrayPlural.push("cherries");
@@ -2235,9 +2195,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["celestial", "cloudy"]);
-
 
 countNounArray.push("club");
 countNounArrayPlural.push("clubs");
@@ -2293,10 +2250,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["wealthy", "rich"]);
-/*----------------------------------------*/
-
 
 countNounArray.push("column");
 countNounArrayPlural.push("columns");
@@ -2458,9 +2411,6 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityCount.push(["wealthy", "rich", "cattle-owning"]);
-
 
 countNounArray.push("cowherd");
 countNounArrayPlural.push("cowherds");

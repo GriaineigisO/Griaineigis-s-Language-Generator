@@ -14,7 +14,6 @@ let shortGenericClassifierMassArray = [];
 let derivedOrInheritedMassNoun = [];
 let etymologyMassNoun = [];
 let etymologyArrayMassNoun = [];
-let possessorOfQualityMass = [];
 let derivationListMassNoun = [];
 
 function clearArrays() {
@@ -34,7 +33,6 @@ function clearArrays() {
     derivedOrInheritedMassNoun = [];
     etymologyMassNoun = [];
     etymologyArrayMassNoun = [];
-possessorOfQualityMass = [];
 derivationListMassNoun = [];
 }
 
@@ -56,8 +54,6 @@ massNounArray.push("admiration");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("admiring");
 
 massNounArray.push("adoration");
     singulativeMassNounArray.push("act&nbspof&nbspadoration");
@@ -77,7 +73,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("air");
     singulativeMassNounArray.push("wiff&nbspof&nbspair");
@@ -97,7 +93,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("ash");
     singulativeMassNounArray.push("pinch&nbspof&nbspash");
@@ -117,7 +113,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("bark");
     singulativeMassNounArray.push("strip&nbspof&nbspbark");
@@ -137,7 +133,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("beer");
     singulativeMassNounArray.push("pint&nbspof&nbspbeer");
@@ -157,7 +153,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("blood");
     singulativeMassNounArray.push("drop&nbspof&nbspblood");
@@ -177,7 +173,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("bread");
     singulativeMassNounArray.push("slice&nbspof&nbspbread");
@@ -197,7 +193,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("bronze");
     singulativeMassNounArray.push("chunk&nbspof&nbspbronze");
@@ -217,7 +213,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("candle&nbspwax");
     singulativeMassNounArray.push("stick&nbspof&nbspcandle&nbspwax");
@@ -237,7 +233,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("dirt");
     singulativeMassNounArray.push("handful&nbspof&nbspdirt");
@@ -257,7 +253,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("dust");
     singulativeMassNounArray.push("bit&nbspof&nbspdust");
@@ -277,7 +273,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("captivity");
     singulativeMassNounArray.push("period&nbspof&nbspcaptivity");
@@ -297,7 +293,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("chalk");
     singulativeMassNounArray.push("stick&nbspof&nbspchalk");
@@ -317,7 +313,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("charcoal");
     singulativeMassNounArray.push("clump&nbspof&nbspcharcoal");
@@ -337,7 +333,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("clay");
     singulativeMassNounArray.push("clump&nbspof&nbspclay");
@@ -357,7 +353,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("cloth");
     singulativeMassNounArray.push("patch&nbspof&nbspcloth");
@@ -377,7 +373,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("cream");
     singulativeMassNounArray.push("dollop&nbspof&nbspcream");
@@ -397,7 +393,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("confusion");
     singulativeMassNounArray.push("ounce&nbspof&nbspconfusion");
@@ -417,7 +413,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("copper");
     singulativeMassNounArray.push("chunk&nbspof&nbspcopper");
@@ -437,7 +433,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("deception");
     singulativeMassNounArray.push("act&nbspof&nbspdeception");
@@ -456,8 +452,6 @@ massNounArray.push("deception");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("untrustworthy");
 
 massNounArray.push("flint");
     singulativeMassNounArray.push("piece&nbspof&nbspflint");
@@ -477,7 +471,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("flour");
     singulativeMassNounArray.push("handful&nbspof&nbspflour");
@@ -497,7 +491,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("frogspawn");
     singulativeMassNounArray.push("clump&nbspof&nbspfrogspaw");
@@ -518,7 +512,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("fog");
     singulativeMassNounArray.push("bit&nbspof&nbspfog");
@@ -537,8 +531,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("foggy");
 
 massNounArray.push("food");
     singulativeMassNounArray.push("bit&nbspof&nbspfood");
@@ -558,7 +550,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("garlic");
     singulativeMassNounArray.push("clove&nbspof&nbspgarlic");
@@ -578,7 +570,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("glass");
     singulativeMassNounArray.push("shard&nbspof&nbspglass");
@@ -598,7 +590,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("gold");
     singulativeMassNounArray.push("chunk&nbspof&nbspgold");
@@ -617,8 +609,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("wealthy");
 
 massNounArray.push("grace");
     singulativeMassNounArray.push("display&nbspof&nbspgrace");
@@ -637,8 +627,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("graceful");
 
 massNounArray.push("grass");
     singulativeMassNounArray.push("blade&nbspof&nbspgrass");
@@ -658,7 +646,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("hail");
     singulativeMassNounArray.push("downpour&nbspof&nbsphail");
@@ -678,7 +666,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("hair");
     singulativeMassNounArray.push("strand&nbspof&nbsphair");
@@ -698,7 +686,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("hatred");
     singulativeMassNounArray.push("act&nbspof&nbsphatred");
@@ -718,7 +706,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("honey");
     singulativeMassNounArray.push("spoonful&nbspof&nbsphoney");
@@ -738,7 +726,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("hostility");
     singulativeMassNounArray.push("act&nbspof&nbsphostility");
@@ -758,7 +746,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("ice");
     singulativeMassNounArray.push("chunk&nbspof&nbspice");
@@ -778,7 +766,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("incense");
     singulativeMassNounArray.push("stick&nbspof&nbspincense");
@@ -798,7 +786,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("iron");
     singulativeMassNounArray.push("chunk&nbspof&nbspiron");
@@ -818,7 +806,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("jam");
     singulativeMassNounArray.push("jar&nbspof&nbspjam");
@@ -838,7 +826,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("labour");
     singulativeMassNounArray.push("work&nbspof&nbsplabour");
@@ -858,7 +846,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("leather");
     singulativeMassNounArray.push("strip&nbspof&nbspleather");
@@ -878,7 +866,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("love");
     singulativeMassNounArray.push("act&nbspof&nbsplove");
@@ -898,7 +886,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("marrow");
     singulativeMassNounArray.push("piece&nbspof&nbspmarrow");
@@ -918,7 +906,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("mead");
     singulativeMassNounArray.push("pint&nbspof&nbspmead");
@@ -938,7 +926,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("meat");
     singulativeMassNounArray.push("cut&nbspof&nbspmeat");
@@ -958,7 +946,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("money");
     singulativeMassNounArray.push("amount&nbspof&nbspmoney");
@@ -978,7 +966,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("milk");
     singulativeMassNounArray.push("drop&nbspof&nbspmilk");
@@ -998,7 +986,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("mud");
     singulativeMassNounArray.push("clump&nbspof&nbspmud");
@@ -1018,7 +1006,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("music");
     singulativeMassNounArray.push("piece&nbspof&nbspmusic");
@@ -1037,8 +1025,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("musical");
 
 massNounArray.push("mustard");
     singulativeMassNounArray.push("jar&nbspof&nbspmustard");
@@ -1058,7 +1044,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("oil");
     singulativeMassNounArray.push("drop&nbspof&nbspoil");
@@ -1077,8 +1063,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("oily");
 
 massNounArray.push("paper");
     singulativeMassNounArray.push("sheet&nbspof&nbsppaper");
@@ -1098,7 +1082,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("poison");
     singulativeMassNounArray.push("drop&nbspof&nbsppoison");
@@ -1117,8 +1101,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("poisonous");
 
 massNounArray.push("porridge");
     singulativeMassNounArray.push("bowl&nbspof&nbspporridge");
@@ -1138,7 +1120,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("prose");
     singulativeMassNounArray.push("work&nbspof&nbspprose");
@@ -1156,8 +1138,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("prosaic");
 
 massNounArray.push("rain");
     singulativeMassNounArray.push("raindrop");
@@ -1177,7 +1157,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("revenge");
     singulativeMassNounArray.push("act&nbspof&nbsprevenge");
@@ -1196,8 +1176,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("vengeful");
 
 massNounArray.push("rope");
     singulativeMassNounArray.push("length&nbspof&nbsprope");
@@ -1217,7 +1195,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("saliva");
     singulativeMassNounArray.push("drop&nbspof&nbspsaliva");
@@ -1237,7 +1215,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("salt");
     singulativeMassNounArray.push("pinch&nbspof&nbspsalt");
@@ -1256,8 +1234,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("salty");
 
 massNounArray.push("sand");
     singulativeMassNounArray.push("grain&nbspof&nbspsand");
@@ -1277,7 +1253,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("sap");
     singulativeMassNounArray.push("drop&nbspof&nbspsap");
@@ -1297,7 +1273,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("sauce");
     singulativeMassNounArray.push("portion&nbspof&nbspsauce");
@@ -1317,7 +1293,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("sight");
     singulativeMassNounArray.push("glimpse&nbspof&nbspsight");
@@ -1336,8 +1312,6 @@ massNounArray.push("sight");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push(["watchful", "observant", "peering", "insightful"]);
 
 massNounArray.push("skin");
     singulativeMassNounArray.push("piece&nbspof&nbspskin");
@@ -1357,7 +1331,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("smoke");
     singulativeMassNounArray.push("wisp&nbspof&nbspsmoke");
@@ -1376,8 +1350,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("smoky");
 
 massNounArray.push("smoked&nbspmeat");
     singulativeMassNounArray.push("chunk&nbspof&nbspsmoked&nbspmeat");
@@ -1397,7 +1369,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("snow");
     singulativeMassNounArray.push("handful&nbspof&nbspsnow");
@@ -1416,8 +1388,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("snowy");
 
 massNounArray.push("soup");
     singulativeMassNounArray.push("bowl&nbspof&nbspsoup");
@@ -1437,7 +1407,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("steam");
     singulativeMassNounArray.push("wisp&nbspof&nbspsteam");
@@ -1457,7 +1427,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("straw");
     singulativeMassNounArray.push("bale&nbspof&nbspstraw");
@@ -1477,7 +1447,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("string");
     singulativeMassNounArray.push("length&nbspof&nbspstring");
@@ -1497,7 +1467,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("sweat");
     singulativeMassNounArray.push("bead&nbspof&nbspsweat");
@@ -1516,8 +1486,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("sweaty");
 
 massNounArray.push("trickery");
     singulativeMassNounArray.push("act&nbspof&nbsptrickery");
@@ -1536,7 +1504,7 @@ massNounArray.push("trickery");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("deceptive");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("truth");
     singulativeMassNounArray.push("ounce&nbspof&nbsptruth");
@@ -1555,8 +1523,6 @@ massNounArray.push("truth");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push(["true", "honest", "real", "genuine"]);
 
 massNounArray.push("vigour");
     singulativeMassNounArray.push("display&nbspof&nbspvigour");
@@ -1575,8 +1541,6 @@ massNounArray.push("vigour");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("vigourous");
 
 massNounArray.push("vinegar");
     singulativeMassNounArray.push("drop&nbspof&nbspvinegar");
@@ -1596,7 +1560,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("water");
     singulativeMassNounArray.push("drop&nbspof&nbspwater");
@@ -1615,8 +1579,6 @@ massNounArray.push("water");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("wet");
 
 massNounArray.push("wind");
     singulativeMassNounArray.push("gust&nbspof&nbspwind");
@@ -1636,7 +1598,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("wine");
     singulativeMassNounArray.push("glass&nbspof&nbspwine");
@@ -1656,7 +1618,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("wood");
     singulativeMassNounArray.push("chunk&nbspof&nbspwood");
@@ -1676,7 +1638,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 
 massNounArray.push("work");
     singulativeMassNounArray.push("period&nbspof&nbspwork");
@@ -1695,8 +1657,6 @@ derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
-/*--------------------------------------------*/
-possessorOfQualityMass.push("labourious");
 
 massNounArray.push("yeast");
     singulativeMassNounArray.push("bit&nbspof&nbspyeast");
@@ -1716,7 +1676,7 @@ etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 /*--------------------------------------------*/
-possessorOfQualityMass.push("X");
+
 };
 
 let generateLanguageButton = document.getElementById("generate-language");
@@ -1740,6 +1700,5 @@ massNounArray,
     derivedOrInheritedMassNoun,
     etymologyArrayMassNoun, 
     etymologyMassNoun,
-possessorOfQualityMass,
 derivationListMassNoun
 }

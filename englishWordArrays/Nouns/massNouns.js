@@ -1675,6 +1675,24 @@ massNounArray.push("yeast");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
+
+massNounArray.push("butter");
+    singulativeMassNounArray.push("stick&nbspof&nbspbutter");
+    pluralSingulativeMassNounArray.push("sticks&nbspof&nbspbutter");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("edible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+   derivedOrInheritedMassNoun.push("inherited");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
+derivationListMassNoun.push("");
 /*--------------------------------------------*/
 
 };

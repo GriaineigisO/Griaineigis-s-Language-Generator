@@ -5185,7 +5185,7 @@ derivationListCountNoun.push("");
 
 
 
-countNounArray.push("hemlet");
+countNounArray.push("helmet");
 countNounArrayPlural.push("helmets");
 activePassive.push("passive")
 animInan.push("inan");

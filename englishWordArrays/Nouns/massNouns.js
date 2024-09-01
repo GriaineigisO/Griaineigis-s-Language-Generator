@@ -1503,6 +1503,7 @@ massNounArray.push("trickery");
  derivedOrInheritedMassNoun.push("inherited");
 etymologyMassNoun.push("X");
 etymologyArrayMassNoun.push("deceptive");
+derivationListMassNoun.push("");
 /*--------------------------------------------*/
 
 
@@ -1687,6 +1688,25 @@ massNounArray.push("butter");
     mascFemMass.push("feminine1");
     naturalArtificialMass.push("natural");
     animacyClassifierMassArray.push("edible");
+    shapeClassifierMassArray.push("shapeless");
+    shortGenericClassifierMassArray.push("natural-inanimate");
+   derivedOrInheritedMassNoun.push("inherited");
+etymologyMassNoun.push("X");
+etymologyArrayMassNoun.push("X");
+derivationListMassNoun.push("");
+/*--------------------------------------------*/
+
+massNounArray.push("moss");
+    singulativeMassNounArray.push("tuft&nbspof&nbspmoss");
+    pluralSingulativeMassNounArray.push("tufts&nbspof&nbspmoss");
+    activePassiveMass.push("passive")
+    animInanMass.push("inan");
+    divineNonDivineMass.push("profane");
+    humanAnimalInanMass.push("secondinanimate");
+    mascFemNeutMass.push("neuter");
+    mascFemMass.push("feminine1");
+    naturalArtificialMass.push("natural");
+    animacyClassifierMassArray.push("inedible");
     shapeClassifierMassArray.push("shapeless");
     shortGenericClassifierMassArray.push("natural-inanimate");
    derivedOrInheritedMassNoun.push("inherited");

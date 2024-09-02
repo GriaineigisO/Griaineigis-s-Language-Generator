@@ -215,6 +215,7 @@ Colour metaohors?
   Noun/Adj: to become, intransitive change of state: old > get old/age, married > get married, happy > cheer up, absent > wither
   Adj > v: to grow X: wary > to grow wary, angry > grow angry
   intrans v > trans v causative affix
+  noun > verb "to do X", "to perform an X", "to make an X"
 
   Adjective-Forming Suffixes:
 

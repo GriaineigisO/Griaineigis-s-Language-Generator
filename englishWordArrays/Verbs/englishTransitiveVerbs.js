@@ -486,7 +486,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("fight");
+    transitiveVerbArray.push("fightV");
     transitiveVerb3SArray.push("fights");
     transitiveVerbPastArray.push("fought");
 derivedOrInheritedTransVerb.push("inherited");
@@ -582,7 +582,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("harvest");
+    transitiveVerbArray.push("harvestV");
     transitiveVerb3SArray.push("harvests");
     transitiveVerbPastArray.push("harvested")
 derivedOrInheritedTransVerb.push("inherited");
@@ -590,7 +590,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("hate");
+    transitiveVerbArray.push("hateV");
     transitiveVerb3SArray.push("hates");
     transitiveVerbPastArray.push("hated")
 derivedOrInheritedTransVerb.push("inherited");
@@ -614,7 +614,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("help");
+    transitiveVerbArray.push("helpV");
     transitiveVerb3SArray.push("helps");
     transitiveVerbPastArray.push("helped")
 derivedOrInheritedTransVerb.push("inherited");
@@ -686,7 +686,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("insult");
+    transitiveVerbArray.push("insultV");
     transitiveVerb3SArray.push("insults");
     transitiveVerbPastArray.push("insulted");
 derivedOrInheritedTransVerb.push("inherited");
@@ -846,7 +846,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("praise");
+    transitiveVerbArray.push("praiseV");
     transitiveVerb3SArray.push("praises");
     transitiveVerbPastArray.push("praised");
 derivedOrInheritedTransVerb.push("inherited");
@@ -1006,7 +1006,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("respect");
+    transitiveVerbArray.push("respectV");
     transitiveVerb3SArray.push("respects");
     transitiveVerbPastArray.push("respected");
 derivedOrInheritedTransVerb.push("inherited");
@@ -1022,7 +1022,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("reward");
+    transitiveVerbArray.push("rewardV");
     transitiveVerb3SArray.push("rewards");
     transitiveVerbPastArray.push("rewarded");
 derivedOrInheritedTransVerb.push("inherited");
@@ -1070,7 +1070,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("sacrifice");
+    transitiveVerbArray.push("sacrificeV");
     transitiveVerb3SArray.push("sacrifices");
     transitiveVerbPastArray.push("sacrificed")
 derivedOrInheritedTransVerb.push("inherited");
@@ -1134,7 +1134,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("shame");
+    transitiveVerbArray.push("shameV");
     transitiveVerb3SArray.push("shames");
     transitiveVerbPastArray.push("shamed");
 derivedOrInheritedTransVerb.push("inherited");
@@ -1150,7 +1150,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("show");
+    transitiveVerbArray.push("showV");
     transitiveVerb3SArray.push("shows");
     transitiveVerbPastArray.push("showed");
 derivedOrInheritedTransVerb.push("inherited");
@@ -1294,7 +1294,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("support");
+    transitiveVerbArray.push("supportV");
     transitiveVerb3SArray.push("supports");
     transitiveVerbPastArray.push("supported");
 derivedOrInheritedTransVerb.push("inherited");
@@ -1342,7 +1342,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("taste");
+    transitiveVerbArray.push("tasteV");
     transitiveVerb3SArray.push("tastes");
     transitiveVerbPastArray.push("tasted")
 derivedOrInheritedTransVerb.push("inherited");
@@ -1406,7 +1406,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("trust");
+    transitiveVerbArray.push("trustV");
     transitiveVerb3SArray.push("trusts");
     transitiveVerbPastArray.push("trusted")
 derivedOrInheritedTransVerb.push("inherited");
@@ -1422,7 +1422,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("use");
+    transitiveVerbArray.push("useV");
     transitiveVerb3SArray.push("uses");
     transitiveVerbPastArray.push("used");
 derivedOrInheritedTransVerb.push("inherited");

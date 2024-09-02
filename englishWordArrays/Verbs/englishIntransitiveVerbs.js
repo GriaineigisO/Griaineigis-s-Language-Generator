@@ -57,7 +57,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("benefit");
+intransitiveVerbArray.push("benefitV");
     intransitiveVerb3SArray.push("benefits");
     intransitiveVerbPastArray.push("benefited");
 derivedOrInheritedIntransVerb.push("inherited");
@@ -193,7 +193,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("fart");
+intransitiveVerbArray.push("fartV");
     intransitiveVerb3SArray.push("farts");
     intransitiveVerbPastArray.push("farted");
 derivedOrInheritedIntransVerb.push("inherited");
@@ -201,7 +201,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("ferment");
+intransitiveVerbArray.push("fermentV");
     intransitiveVerb3SArray.push("ferments");
     intransitiveVerbPastArray.push("fermented");
 derivedOrInheritedIntransVerb.push("inherited");
@@ -225,7 +225,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("flow");
+intransitiveVerbArray.push("flowV");
     intransitiveVerb3SArray.push("flows");
     intransitiveVerbPastArray.push("flowed");
 derivedOrInheritedIntransVerb.push("inherited");
@@ -449,7 +449,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("rest");
+intransitiveVerbArray.push("restV");
     intransitiveVerb3SArray.push("rests");
     intransitiveVerbPastArray.push("rested");
 derivedOrInheritedIntransVerb.push("inherited");
@@ -481,7 +481,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("shit");
+intransitiveVerbArray.push("shitV");
     intransitiveVerb3SArray.push("shits");
     intransitiveVerbPastArray.push("shat");
 derivedOrInheritedIntransVerb.push("inherited");
@@ -497,7 +497,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("sleep");
+intransitiveVerbArray.push("sleepV");
     intransitiveVerb3SArray.push("sleeps");
     intransitiveVerbPastArray.push("slept");
 derivedOrInheritedIntransVerb.push("inherited");
@@ -665,7 +665,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("wish");
+intransitiveVerbArray.push("wishV");
     intransitiveVerb3SArray.push("wishes");
     intransitiveVerbPastArray.push("wished");
 derivedOrInheritedIntransVerb.push("inherited");

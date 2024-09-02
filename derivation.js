@@ -24,6 +24,7 @@ let adjToCausativeVerbAffix = "";
 let intransToTransVerbAffix = "";
 let transVerbToABleAdjectiveAffix = "";
 let NtoADJPrototypicalAffix = "";
+let abstractAffix = "";
 
 function clear() {
     proneAffix = "";
@@ -34,6 +35,7 @@ function clear() {
     intransToTransVerbAffix = "";
     transVerbToABleAdjectiveAffix = "";
     NtoADJPrototypicalAffix = "";
+    abstractAffix = "";
     document.getElementById("derivational-affixes").replaceChildren();
     
 };
@@ -47,6 +49,7 @@ function createAffixes() {
     intransToTransVerbAffix  = generateAffixes();
     transVerbToABleAdjectiveAffix = generateAffixes();
     NtoADJPrototypicalAffix = generateAffixes();
+    abstractAffix = generateAffixes();
 };
 
 function capitaliseLanguageName(str) {
@@ -498,7 +501,7 @@ function addGrammaticalAffixes(word, partOfSpeech) {
 
 let randomNumberForDerivationSelection = 0;
 function selectDerivationalAffixes() {
-    let chosenDerivations = [];
+    let chosenDerivations = [abstractNoun];
     let potentialDerivations = [
         VtoADJprone,
         NtoNPossessorOf,
@@ -507,7 +510,8 @@ function selectDerivationalAffixes() {
         ADJtoCausVerb,
         intransToTransVerb,
         transVerbToABleAdjective,
-        NtoADJPrototypical
+        NtoADJPrototypical,
+        abstractNoun
     ];
     
     //selects which derivational affixes will be chosen
@@ -707,7 +711,7 @@ function VtoADJprone() {
             deriveTransVtoADJprone("use", "manipulative", "more&nbspgmanipulative");
             deriveTransVtoADJprone("want", ["jealous", "covetous", "envious", "lacking"], ["more&nbspjealous", "more&nbspcovetous", "more&nbspenvious", "more&nbsplacking"]);
             deriveTransVtoADJprone("wash", ["clean", "hygenic"], ["cleaner", "more&nbsphygenic"]);
-            deriveTransVtoADJprone("write", ["earned", "educated"], ["more&nbspearned", "more&nbspeducated"]);
+            deriveTransVtoADJprone("write", ["learned", "educated"], ["more&nbspearned", "more&nbspeducated"]);
             deriveTransVtoADJprone("invite", ["inviting", "hospitable"], ["more&nbspinviting", "more&nbsphospitable"]);
             deriveTransVtoADJprone("leap", ["bouncy", "energetic", "dynamic"], ["bouncier", "more&nbspienergetic", "more&nbspidynamic"]);
 
@@ -1363,7 +1367,7 @@ function NADJtoADJpossessorOfQuality() {
     deriveNADJtoADJpossessorOfQuality("barrow", ["honoured&nbspin&nbspdeath", "eternally&nbspfamous"
     ], ["&nbsphonoured&nbspin&nbspdeath", "&nbspeternally&nbspfamous"
     ]);
-    deriveNADJtoADJpossessorOfQuality(["burden", "basket"], ["burdened", "ladened", "troubled"< "stressed"], ["more&nbspburdened", "more&nbspladened", "more&nbsptroubled", "more&nbspstressed"]);
+    deriveNADJtoADJpossessorOfQuality(["burden", "basket"], ["burdened", "ladened", "troubled", "stressed"], ["more&nbspburdened", "more&nbspladened", "more&nbsptroubled", "more&nbspstressed"]);
     deriveNADJtoADJpossessorOfQuality("beard", ["manly", "virile"], ["manlier", "more&nbspvirile"]);
     deriveNADJtoADJpossessorOfQuality("body", ["alive", "living", "corporeal", "mortal"], ["more&nbspalive", "X", "more&nbspcorporeal", "more&nbspmortal"]);
     deriveNADJtoADJpossessorOfQuality("bone", ["skeletal", "emaciated"], ["more&nbspskeletal", "more&nbspemaciated"]);
@@ -1487,7 +1491,7 @@ function NADJtoADJpossessorOfQuality() {
     deriveMassNtoADJPrototypical("gold", "wealthy", "wealthier");
     deriveMassNtoADJPrototypical("music", "musical", "more&nbspmusic");
     deriveMassNtoADJPrototypical("grace", "graceful", "more&nbspgraceful");
-    deriveMassNtoADJPrototypical("oil", "oil", "oilier");
+    deriveMassNtoADJPrototypical("oil", "oily", "oilier");
     deriveMassNtoADJPrototypical("poison", "poisonous", "more&nbsppoison");
     deriveMassNtoADJPrototypical("prose", "prosaic", "more&nbspprosaic");
     deriveMassNtoADJPrototypical("revenge", "vengeful", "more&nbspvengeful");deriveMassNtoADJPrototypical("salt", "salty", "saltier");
@@ -2271,12 +2275,12 @@ function ADJtoCausVerb() {
     deriveADJtoCausVerb("big", ["enlarge", "increase", "expand"], ["enlarges", "increases", "expands"], ["enlarged", "increased", "expanded"]);
     deriveADJtoCausVerb("brave", "encourage", "encourages", "encouraged");
     deriveADJtoCausVerb(["confident", "powerful"], ["support", "empower"], ["supports", "empowers"], ["supported", "empowered"]);
-    deriveADJtoCausVerb("dead", ["kill", "murder", "slaughter", "slay"], ["kills", "murders", "slaughters", "slays"], ["killed", "murdered", "slaughtered", "slayed"]);
+    deriveADJtoCausVerb("dead", ["kill", "murderV", "slaughter", "slay"], ["kills", "murders", "slaughters", "slays"], ["killed", "murdered", "slaughtered", "slayed"]);
     deriveADJtoCausVerb("free", ["freeV", "release"], ["frees", "releases"], ["freed", "released"]);
     deriveADJtoCausVerb("funny", ["make&nbspfun&nbspof", "mock"], ["makes&nbspfun&nbspof", "mocks"], ["made&nbspfun&nbspof", "mocked"]);
     deriveADJtoCausVerb("healthy", "heal", "heals", "healed");
     deriveADJtoCausVerb("long", ["lengthen", "stretch"], ["lengthens", "stretches"], ["lengthened", "stretched"]);
-    deriveADJtoCausVerb("slow", ["slow&nbspdown", "retard", "hamper", "delay"], ["slows&nbspdown", "retards", "hampers", "delays"], ["slowed&nbspdown", "retarded", "hampered", "delayed"]);
+    deriveADJtoCausVerb("slow", ["slow&nbspdown", "retard", "hamper", "delayV"], ["slows&nbspdown", "retards", "hampers", "delays"], ["slowed&nbspdown", "retarded", "hampered", "delayed"]);
     deriveADJtoCausVerb("stark", ["distinguish", "clarify"], ["distinguishes", "clarifies"], ["distinguished", "clarified"]);
     deriveADJtoCausVerb("suitable", ["customise", "adjust"], ["customises", "adjusts"], ["customised", "adjusted"]);
     deriveADJtoCausVerb("tasty", ["season", "improve&nbsptaste"], ["seasons", "improves&nbsptaste"], ["seasoned", "improved&nbsptaste"]);
@@ -2419,7 +2423,7 @@ function intransToTransVerb() {
         deriveIntransToTransVerb("complain", ["complain&nbspto", "give&nbspgrievance"], ["complains&nbspto", "gives&nbspgrievance"], ["complained&nbspto", "gave&nbspgrievance"]);
         deriveIntransToTransVerb(["die", "perish"], ["kill", "slaughter", "murder", "slay"], ["kills", "slaughters", "murders", "slays"], ["killed", "slaughtered", "murdered", "slew"]);
         deriveIntransToTransVerb("dream", "dream&nbspabout", "dreams&nbspabout", "dreamt&nbspabout");
-        deriveIntransToTransVerb("fail", "sabotage", "sabotages", "sabotaged");
+        deriveIntransToTransVerb("fail", "sabotageV", "sabotages", "sabotaged");
         deriveIntransToTransVerb("fall", ["push&nbspover", "chop&nbspdown"], ["pushes&nbspover", "chops&nbspdown"], ["pushed&nbspover", "chopped&nbspdown"]);
         deriveIntransToTransVerb("fart", ["fart&nbspon", "make&nbspfart"], ["farts&nbspon", "makes&nbspfart"], ["farted&nbspon", "made&nbspfart"]);
         deriveIntransToTransVerb("ferment", "ferment", "ferments", "fermented");
@@ -3029,7 +3033,7 @@ function transVerbToABleAdjective() {
         derivetransVerbToABleAdjective("braid", "braidable", "more&nbspbraidable");
         derivetransVerbToABleAdjective("breathe", "breatheable", "more&nbspbreatheable");
         derivetransVerbToABleAdjective("build", "buildable", "more&nbspbuildable");
-        derivetransVerbToABleAdjective("burn", "burnable", "more&nbspburnable");
+        derivetransVerbToABleAdjective("burn", "flammable", "more&nbspflammable");
         derivetransVerbToABleAdjective(["buy", "pay"], "for&nbspsale", "X");
         derivetransVerbToABleAdjective("carve", "carvable", "more&nbspcarvable");
         derivetransVerbToABleAdjective("chew", "chewable", "more&nbspchewable");
@@ -3042,7 +3046,7 @@ function transVerbToABleAdjective() {
         derivetransVerbToABleAdjective(["deceive", "lie", "trick"], ["gullible", "naive", "susceptible", "prone"], ["more&nbspgullible", "more&nbspnaive", "more&nbspsusceptible", "more&nbspprone"]);
         derivetransVerbToABleAdjective("defeat", "defeatable", "more&nbspdefeatable");
         derivetransVerbToABleAdjective(["desire", "want"], "desirable", "more&nbspdesirable");
-        derivetransVerbToABleAdjective(["divide", "separate"], ["separable", "divisbable"], ["more&nbspseparable", "more&nbspdivisbable"]);
+        derivetransVerbToABleAdjective(["divide", "separate"], ["separable", "divisable"], ["more&nbspseparable", "more&nbspdivisbable"]);
         derivetransVerbToABleAdjective("drink", ["drinkable", "potable"], ["more&nbspdrinkable", "more&nbsppotable"]);
         derivetransVerbToABleAdjective("do", ["doable", "achievable", "possible"], ["more&nbspdoable", "more&nbspachievable", "more&nbsppossible"]);
         derivetransVerbToABleAdjective("dye", "dyeable", "more&nbspdyeable");
@@ -3090,6 +3094,188 @@ function transVerbToABleAdjective() {
         derivetransVerbToABleAdjective("use", "usable", "more&nbspusable");
         derivetransVerbToABleAdjective("write", ["writable", "can&nbspbe&nbspwritten&nbspon", "describable"], ["more&nbspwritable", "X", "more&nbspdescribable"]);
         derivetransVerbToABleAdjective(["stab", "kill", "murder", "slaughter"], "mortal", "more&nbspmortal");
+
+        document.getElementById("derivational-affixes").appendChild(li);
+        li.appendChild(ul);
+};
+
+//derives abstract nouns from any part of speech
+function abstractNoun() {
+        let li = document.createElement("li");
+        let ul = document.createElement("ul");
+    
+        let derivedTerm = "";
+        let olderDerivedTerm = "";
+        let suffixOrPrefix = "";
+        if(Math.floor(Math.random() * 2) === 0) {
+            suffixOrPrefix = "suffix";
+            li.innerHTML = `<i>-${spell(soundChange("X" + abstractAffix))}</i> "derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`
+        } else {
+            suffixOrPrefix = "prefix";
+            li.innerHTML = `<i>${spell(soundChange(abstractAffix + "A"))}-</i> "derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`
+        };
+        let exampleCounter = 0;
+
+         //count noun to count noun
+         function deriveabstractNoun(originalWord, derivedWord, plural, activePass, animateInimate, divineProfane, humanAnimal, masculineFeminineNeuter, masculineFeminine, naturalArt, animacy, shape, shortGeneric) {
+                let index = countNounArray.indexOf(originalWord);
+                if(countNounArray.includes(originalWord)) {
+                        //decides if word will have a derivation
+                        if(Math.floor(Math.random() * 3) === 1) {
+                                if(typeof derivedWord !== "string") {
+                                        let derivedWordArray = cloneArray(derivedWord);
+                                        derivedWord = randomIndexOfArray(derivedWord);
+                                        if(typeof plural !== "string") {
+                                                plural = plural[derivedWordArray.indexOf(derivedWord)];
+                                        };
+                                        if(typeof divineProfane !== "string") {
+                                                divineProfane = divineProfane[derivedWordArray.indexOf(derivedWord)];
+                                        };
+                                };
+
+                                //decides if term is derived in modern language or old language
+                                let derivedInModernOrOld = "";
+                                if(Math.floor(Math.random() * 4) === 1) {
+                                        derivedInModernOrOld = "old";
+                                } else {
+                                        derivedInModernOrOld = "modern";
+                                };
+
+                                if(suffixOrPrefix === "suffix") {
+                                        derivedTerm = soundChange(generatedCountNouns[index] + "A") + soundChange("X" + abstractAffix);
+                                        olderDerivedTerm = generatedCountNouns[index] + abstractAffix;
+                                } else {
+                                        derivedTerm = soundChange(abstractAffix + "A") + soundChange("X" + generatedCountNouns[index]);
+                                        olderDerivedTerm = abstractAffix  + generatedCountNouns[index];
+                                };
+                                if(countNounArray.includes(derivedWord)) {
+                                        if(derivedInModernOrOld === "old") {
+                                                generatedCountNouns[countNounArray.indexOf(derivedWord)] = olderDerivedTerm;
+                                                derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "inheritedOldDerived";
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[massNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[index], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[massNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(possessorAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)`;
+                                                };
+                                        } else {
+                                                generatedCountNouns[countNounArray.indexOf(derivedWord)] = derivedTerm;
+                                                derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "derived";
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>&nbsp"${countNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun")))}</i>&nbsp"${countNounArray[index]}"`;
+                                                };
+                                                //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                                if(derivationListCountNoun[index] === "") {
+                                                        derivationListCountNoun[index] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`
+                                                } else {
+                                                        derivationListCountNoun[index] = derivationListCountNoun[index] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`;
+                                                };
+                                        }
+                                        etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = countNounArray[index];
+                                } else {
+                                        countNounArray.push(derivedWord);
+                                        countNounArrayPlural.push("X");
+                                        activePassive.push(activePass);
+                                        animInan.push(animateInimate);
+                                        divineNonDivine.push(divineProfane);
+                                        humanAnimalInan.push(humanAnimal);
+                                        mascFemNeut.push(masculineFeminineNeuter);
+                                        mascFem.push(masculineFeminine);
+                                        naturalArtificial.push(naturalArt);
+                                        animacyClassifierArray.push(animacy);
+                                        shapeClassifierArray.push(shape);
+                                        shortGenericClassifierArray.push(shortGeneric);
+                                        derivationListCountNoun.push("");
+                                        if(derivedInModernOrOld === "old") {
+                                                generatedCountNouns.push(olderDerivedTerm);
+                                                derivedOrInheritedCountNoun.push("inheritedOldDerived");
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[index], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)`;
+                                                };
+                                        } else {
+                                                generatedCountNouns.push(derivedTerm) 
+                                                derivedOrInheritedMassNoun.push("derived");
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>&nbsp"${countNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun")))}</i>&nbsp"${countNounArray[index]}"`;
+                                                }; 
+                                                //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                        if(derivationListCountNoun[index] === "") {
+                                                derivationListCountNoun[index] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`
+                                        } else {
+                                                derivationListCountNoun[index] = derivationListCountNoun[index] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`;
+                                        }; 
+                                        };
+                                        etymologyArrayCountNoun.push(countNounArray[index]);                       
+                                };
+                                if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
+                                        let exampleLi = document.createElement("li");
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i> "${countNounArray[index]}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i> "${derivedWord}"`;
+                                        ul.appendChild(exampleLi);
+                                        exampleCounter++;
+                                };
+                        };
+                };
+        };
+
+        deriveabstractNoun("army", "military", "militaries", "active", "inanimate", "profane", "human", "masculine2", "masculine1", "artificial", "man", "shapeless", "tool");
+        deriveabstractNoun(["band", "group"], ["brotherhood", "comradery"], ["brotherhoods", "X"], "active", "inanimate", "profane", "human", "masculine2", "masculine1", "natural", "man", "shapeless", "tool");
+        deriveabstractNoun("bed","sleep", "X", "passive", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("bedroom","privacy", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("blade", "danger", "dangers", "active", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "pointed", "natural-inanimate");
+        deriveabstractNoun("boat","sea-travel", "X", "passive", "inanimate", "profane", "secondinanimate", "feminine2", "feminine1", "natural", "inedible", "shapeless", "tool");
+        deriveabstractNoun("body","anatomy", "X", "active", "inanimate", "profane", "secondinanimate", "neuter", "feminine2", "natural", "man", "shapeless", "natural-inanimate");
+        deriveabstractNoun("book","literacy", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "artificial", "inedible", "shapeless", "tool");
+        deriveabstractNoun("boy","boyhood", "X", "passive", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("brain","intelligence", "X", "active", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("branch","divergence", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun(["breath", "creature"],"life", "lives", "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("brother","brotherhood", "brotherhoods", "passive", "inanimate", "divine", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("building",["shelter", "safety"], ["shelters", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "artificial", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("bull","virility", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun(["cage", "enclosure"],"captivity", "X", "passive", "inanimate", "divine", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("chariot","speed", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("child","childhood", "childhoods", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("cloak","concealment", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("child","childhood", "childhoods", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun(["club", "sword", "spear"],"war", "wars", "active", "inanimate", "divine", "secondinanimate", "masculine1", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("child","childhood", "childhoods", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("coin",["economy", "finance", "wealth"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "artificial", "inedible", "shapeless", "tool");
+        deriveabstractNoun(["confluence", "yoke"], ["convergence", "agreement", "meeting", "merger"], ["convergences", "agreements", "meetings", "mergers"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("craftsman","craftsmanship", "X", "passive", "inanimate", "divine", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("criminal",["criminality", "crime"], ["X", "crimes"], "passive", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun(["crowd", "group"],"consensus", "consensuses", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun(["crown", "king"],"monarchy", "monarchies", "active", "inanimate", "divine", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun(["dawn", "root"],["origin", "beginning", "start", "emergence"], ["origins", "beginnings", "starts", "emergences"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("dent","transgression", "transgressions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("dice", ["fate", "chance"], ["X", "chances"], "passive", "inanimate", ["divine", "profane"], "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("door", "transition", "transitions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("ear", ["attention", "hearing"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("embrace", ["adoption", "acceptance"], ["adoptions", "acceptances"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("enemy", "hostility", "hostilities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("eye", ["vision", "sight", "view", "insight"], ["X", "sights", "views", "insights"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("face", "identity", "identities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("father", ["fatherhood", "paternity"], "X", "passive", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("festival", "festivity", "festivities", "passive", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("fist", "conflict", "conflicts", "passive", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("floor", "basis", "X", "passive", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("fly", ["disease", "plague"], ["diseases", "plagues"], "active", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("foreign", "foreignness", "X", "active", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("forest", "tree-coverage", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "tree", "shapeless", "natural-inanimate");
+        deriveabstractNoun("fort", "fortification", "fortifications", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("freeman", "freedom", "X", "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("friend", ["friendship", "friendliness"], ["friendships", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("gate", "restriction", "restriction", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("gift", "generosity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("girl", "girlhood", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("god", ["divinity", "holiness", "religion"], ["X", "X", "religions"], "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("good&nbspdeed", "kindness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("grave", "death", "deaths", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNoun("guest", "hospitality", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
 
         document.getElementById("derivational-affixes").appendChild(li);
         li.appendChild(ul);

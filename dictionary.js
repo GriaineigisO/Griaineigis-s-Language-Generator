@@ -1159,6 +1159,9 @@ function makeDictionary() {
                 etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
                 derivations.innerHTML = `&nbsp&nbsp&nbsp&nbsp${derivationListCountNoun[countNounArray.indexOf(englishWords[i])]}`;
             } else if (derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived"||derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "inheritedOldDerived"){
+                    if(englishWords[i] === "lactose&nbsptolerance") {
+                        console.log("etymology" + " " + etymologyCountNoun[countNounArray.indexOf(englishWords[i])])
+                    }
                     etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyCountNoun[countNounArray.indexOf(englishWords[i])]}`;
                     derivations.innerHTML = `&nbsp&nbsp&nbsp&nbsp${derivationListCountNoun[countNounArray.indexOf(englishWords[i])]}`;
             };

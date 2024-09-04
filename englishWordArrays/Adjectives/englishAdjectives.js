@@ -926,6 +926,22 @@ adjectiveArray.push("young");
 etymologyArrayADJ.push("X");
 etymologyADJ.push("X");
 derivationListAdj.push("");
+
+adjectiveArray.push("clear");
+    comparativeAdjectiveArray.push("clearer");
+    derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+derivationListAdj.push("");
+
+adjectiveArray.push("loud");
+    comparativeAdjectiveArray.push("louder");
+    derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+derivationListAdj.push("");
+
+
 }
 
 let generateLanguageButton = document.getElementById("generate-language");

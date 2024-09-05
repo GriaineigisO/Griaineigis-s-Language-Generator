@@ -3,6 +3,7 @@ import {genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimat
 } from './script.js'
 import { grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, animGeneralAffix, inanGeneralAffix, nomGeneralAffix, femSgAffix, mascSgAffix } from './fusionalNouns.js';
 import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ, activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, etymologyCountNoun, etymologyArrayCountNoun, derivedOrInheritedCountNoun, etymologyMassNoun, etymologyArrayMassNoun, derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb, derivedOrInheritedMassNoun, derivationListTransVerb, derivedOrInheritedIntransVerb, derivationListIntransVerb, etymologyArrayIntransVerb, etymologyIntransVerb, derivationListCountNoun, derivationListMassNoun, derivationListAdj} from './derivation.js';
+import {oldCountNounArray, oldMassNounArray} from './semanticShift.js'
 
 import { spell } from './orthography.js'
 import { soundChange, correctionsForStrings } from './soundchange.js';
@@ -1095,33 +1096,39 @@ function makeDictionary() {
         //assigns meaning to the word in Old X, by choosing a random word from the thesaurus
         let etymologyTranslation = "";
         let chosenOldMeanings = [];
-        for (let j = 0; j < allWordsInThesaurus.length; j++) {
-            if (allWordsInThesaurus[j][0] === englishWords[i]) {
-                let thesaurusEntryArrayCopy = [].concat(allWordsInThesaurus[j]);
-                //selects a random  word
-                let randomAmountOfAdditionalMeanings = Math.floor(Math.random() * thesaurusEntryArrayCopy.length) + 1;
-                for (let k = 0; k < randomAmountOfAdditionalMeanings; k++) {
-                    let randomItem = Math.floor(Math.random() * thesaurusEntryArrayCopy.length);
-                    if(thesaurusEntryArrayCopy[randomItem] !== undefined) {
-                        chosenOldMeanings.push(thesaurusEntryArrayCopy[randomItem]);
+        if(countNounArray.includes(englishWords[i]) && oldCountNounArray[countNounArray.indexOf(englishWords[i])] !== "") {
+            etymologyTranslation = oldCountNounArray[countNounArray.indexOf(englishWords[i])];
+        } else if(massNounArray.includes(englishWords[i]) && oldMassNounArray[massNounArray.indexOf(englishWords[i])] !== "") {
+            etymologyTranslation = oldMassNounArray[massNounArray.indexOf(englishWords[i])];
+        } else {
+            for (let j = 0; j < allWordsInThesaurus.length; j++) {
+                if (allWordsInThesaurus[j][0] === englishWords[i]) {
+                    let thesaurusEntryArrayCopy = [].concat(allWordsInThesaurus[j]);
+                    //selects a random  word
+                    let randomAmountOfAdditionalMeanings = Math.floor(Math.random() * thesaurusEntryArrayCopy.length) + 1;
+                    for (let k = 0; k < randomAmountOfAdditionalMeanings; k++) {
+                        let randomItem = Math.floor(Math.random() * thesaurusEntryArrayCopy.length);
+                        if(thesaurusEntryArrayCopy[randomItem] !== undefined) {
+                            chosenOldMeanings.push(thesaurusEntryArrayCopy[randomItem]);
+                        };
+                        
+                        //removes the word from the array, to prevent the entry from listing the same word twice
+                        thesaurusEntryArrayCopy.splice(randomItem, 1);
                     };
+                    if(chosenOldMeanings.length === 1) {
+                        etymologyTranslation = removeDistinguishingLetter(chosenOldMeanings.join(""));
+                    } else {
+                        etymologyTranslation = removeDistinguishingLetter(chosenOldMeanings.join(",&nbsp"));
+                    }
                     
-                    //removes the word from the array, to prevent the entry from listing the same word twice
-                    thesaurusEntryArrayCopy.splice(randomItem, 1);
-                };
-                if(chosenOldMeanings.length === 1) {
-                    etymologyTranslation = removeDistinguishingLetter(chosenOldMeanings.join(""));
+                    break;
                 } else {
-                    etymologyTranslation = removeDistinguishingLetter(chosenOldMeanings.join(",&nbsp"));
+                    etymologyTranslation = removeDistinguishingLetter(englishWords[i]);
                 }
-                
-                break;
-            } else {
-                etymologyTranslation = removeDistinguishingLetter(englishWords[i]);
-            }
+            };
         };
 
-        //if the word is a derived word created using derivational morphology, then the soundChange() function won't be applied, as the word has dound changes applied during its creation
+        //if the word is a derived word created using derivational morphology, then the soundChange() function won't be applied, as the word has sound changes applied during its creation
         let word1 = "";
         if(
             (adjectiveArray.includes(englishWords[i]) && derivedOrInheritedADJ[adjectiveArray.indexOf(englishWords[i])] === "derived") ||
@@ -1159,9 +1166,6 @@ function makeDictionary() {
                 etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
                 derivations.innerHTML = `&nbsp&nbsp&nbsp&nbsp${derivationListCountNoun[countNounArray.indexOf(englishWords[i])]}`;
             } else if (derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "derived"||derivedOrInheritedCountNoun[countNounArray.indexOf(englishWords[i])] === "inheritedOldDerived"){
-                    if(englishWords[i] === "lactose&nbsptolerance") {
-                        console.log("etymology" + " " + etymologyCountNoun[countNounArray.indexOf(englishWords[i])])
-                    }
                     etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyCountNoun[countNounArray.indexOf(englishWords[i])]}`;
                     derivations.innerHTML = `&nbsp&nbsp&nbsp&nbsp${derivationListCountNoun[countNounArray.indexOf(englishWords[i])]}`;
             };

@@ -688,6 +688,14 @@ intransitiveVerbArray.push("yawn");
 etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
+
+intransitiveVerbArray.push("leap");
+intransitiveVerb3SArray.push("leaps");
+intransitiveVerbPastArray.push("leapt");
+derivedOrInheritedIntransVerb.push("inherited");
+etymologyArrayIntransVerb.push("X");
+etymologyIntransVerb.push("X");
+derivationListIntransVerb.push("");
 }
 
 let generateLanguageButton = document.getElementById("generate-language");

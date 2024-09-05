@@ -1477,6 +1477,22 @@ derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
+
+transitiveVerbArray.push("count");
+transitiveVerb3SArray.push("counts");
+transitiveVerbPastArray.push("counted");
+derivedOrInheritedTransVerb.push("inherited");
+etymologyArrayTransVerb.push("X");
+etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
+
+transitiveVerbArray.push("find");
+transitiveVerb3SArray.push("finds");
+transitiveVerbPastArray.push("found");
+derivedOrInheritedTransVerb.push("inherited");
+etymologyArrayTransVerb.push("X");
+etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
 }
 
 let generateLanguageButton = document.getElementById("generate-language");

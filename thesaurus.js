@@ -220,4 +220,10 @@ allWordsInThesaurus.push(vaginaArray);
 let birthArray = ["birth", "origin", "beginning", "lineage", "bloodline"];
 allWordsInThesaurus.push(birthArray);
 
+let countArray = ["count", "calculate", "take&nbspinto&nbspaccount", "respect"];
+allWordsInThesaurus.push(countArray);
+
+let findArray = ["find", "discover", "consider", "have&nbspan&nbspopinion"];
+allWordsInThesaurus.push(findArray);
+
 export { allWordsInThesaurus };

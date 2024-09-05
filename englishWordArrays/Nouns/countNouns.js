@@ -14,6 +14,7 @@ let derivedOrInheritedCountNoun = [];
 let etymologyCountNoun = [];
 let etymologyArrayCountNoun = [];
 let derivationListCountNoun = [];
+let oldCountNounArray = [];
 
 function clearArrays() {
 countNounArray = [];
@@ -34,6 +35,7 @@ countNounArrayPlural = [];
     etymologyArrayCountNoun = [];
     etymologyCountNoun = [];
     derivationListCountNoun = [];
+    oldCountNounArray = [];
 }
 
 function addWords() {
@@ -53,6 +55,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -73,6 +76,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -94,6 +98,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("alder");
 countNounArrayPlural.push("alders");
@@ -111,6 +116,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -132,6 +138,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -153,6 +160,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -174,6 +182,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -195,6 +204,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -214,6 +224,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -233,6 +244,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("arrow");
 countNounArrayPlural.push("arrows");
@@ -250,6 +262,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -271,6 +284,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -292,6 +306,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("auger");
 countNounArrayPlural.push("augers");
@@ -309,6 +324,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -330,6 +346,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -351,6 +368,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 
 countNounArray.push("back");
@@ -369,6 +387,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -390,6 +409,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -411,6 +431,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 
 countNounArray.push("ball");
@@ -429,6 +450,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -450,6 +472,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 
 
@@ -469,6 +492,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -490,6 +514,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -511,6 +536,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("basin");
 countNounArrayPlural.push("basins");
@@ -528,6 +554,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -549,6 +576,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("bead");
 countNounArrayPlural.push("beads");
@@ -566,6 +594,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -587,6 +616,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -608,6 +638,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -629,6 +660,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -650,6 +682,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -671,6 +704,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("beaver");
 countNounArrayPlural.push("beavers");
@@ -688,6 +722,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -709,6 +744,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -730,6 +766,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -751,6 +788,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -772,6 +810,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -793,6 +832,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 
 countNounArray.push("berry");
@@ -811,6 +851,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -832,6 +873,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -853,6 +895,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -874,6 +917,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("bison");
 countNounArrayPlural.push("bison");
@@ -891,6 +935,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -912,6 +957,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -933,6 +979,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -954,6 +1001,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("blister");
 countNounArrayPlural.push("blisters");
@@ -971,6 +1019,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -992,6 +1041,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1013,6 +1063,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1034,6 +1085,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1055,6 +1107,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("body");
 countNounArrayPlural.push("bodies");
@@ -1072,6 +1125,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("bolt");
 countNounArrayPlural.push("bolts");
@@ -1089,6 +1143,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1110,6 +1165,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("book");
 countNounArrayPlural.push("books");
@@ -1127,6 +1183,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("boot");
 countNounArrayPlural.push("boots");
@@ -1144,6 +1201,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1165,6 +1223,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("bottom");
 countNounArrayPlural.push("bottoms");
@@ -1182,6 +1241,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1203,6 +1263,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1224,6 +1285,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1245,6 +1307,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1266,6 +1329,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1287,6 +1351,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1308,6 +1373,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1329,6 +1395,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1350,6 +1417,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1371,6 +1439,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1392,6 +1461,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("bristle");
 countNounArrayPlural.push("bristles");
@@ -1409,6 +1479,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1430,6 +1501,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1451,6 +1523,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1472,6 +1545,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1493,6 +1567,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1514,6 +1589,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1535,6 +1611,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1556,6 +1633,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1577,6 +1655,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1598,6 +1677,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1619,6 +1699,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("bush");
 countNounArrayPlural.push("bushes");
@@ -1636,6 +1717,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1657,6 +1739,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1678,6 +1761,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1699,6 +1783,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1720,6 +1805,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1741,6 +1827,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1762,6 +1849,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1783,6 +1871,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1804,6 +1893,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1825,6 +1915,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1846,6 +1937,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1867,6 +1959,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1888,6 +1981,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1909,6 +2003,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1930,6 +2025,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1951,6 +2047,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -1972,6 +2069,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("cherry");
 countNounArrayPlural.push("cherries");
@@ -1989,6 +2087,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2010,6 +2109,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2031,6 +2131,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2052,6 +2153,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("chin");
 countNounArrayPlural.push("chins");
@@ -2069,6 +2171,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2090,6 +2193,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2111,6 +2215,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2132,6 +2237,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2153,6 +2259,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2174,6 +2281,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2195,6 +2303,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("club");
 countNounArrayPlural.push("clubs");
@@ -2212,6 +2321,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("cluster");
 countNounArrayPlural.push("clusters");
@@ -2229,6 +2339,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2250,6 +2361,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("column");
 countNounArrayPlural.push("columns");
@@ -2267,6 +2379,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2288,6 +2401,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("confession");
 countNounArrayPlural.push("confessions");
@@ -2305,6 +2419,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2326,6 +2441,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2347,6 +2463,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2368,6 +2485,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 /*----------------------------------------*/
@@ -2390,6 +2508,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2411,6 +2530,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 countNounArray.push("cowherd");
 countNounArrayPlural.push("cowherds");
@@ -2428,6 +2548,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2449,6 +2570,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2470,6 +2592,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2491,6 +2614,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2512,6 +2636,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2533,6 +2658,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2554,6 +2680,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2575,6 +2702,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2596,6 +2724,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2617,6 +2746,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2638,6 +2768,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2659,6 +2790,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2680,6 +2812,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2701,6 +2834,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2722,6 +2856,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2743,6 +2878,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2764,6 +2900,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2785,6 +2922,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2806,6 +2944,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2827,6 +2966,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2848,6 +2988,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2869,6 +3010,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2890,6 +3032,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2911,6 +3054,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2932,6 +3076,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2953,6 +3098,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2974,6 +3120,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -2995,6 +3142,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3016,6 +3164,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3037,6 +3186,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3058,6 +3208,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3079,6 +3230,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3100,6 +3252,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3121,6 +3274,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3142,6 +3296,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3163,6 +3318,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3184,6 +3340,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3205,6 +3362,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3226,6 +3384,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3247,6 +3406,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3268,6 +3428,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3289,6 +3450,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3310,6 +3472,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3331,6 +3494,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3352,6 +3516,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3373,6 +3538,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3394,6 +3560,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3415,6 +3582,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3436,6 +3604,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3457,6 +3626,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3478,6 +3648,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3499,6 +3670,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3520,6 +3692,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3541,6 +3714,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3562,6 +3736,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3583,6 +3758,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3604,6 +3780,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3625,6 +3802,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3646,6 +3824,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3667,6 +3846,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3688,6 +3868,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3709,6 +3890,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3730,6 +3912,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3751,6 +3934,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3772,6 +3956,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3793,6 +3978,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3814,6 +4000,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3835,6 +4022,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3856,6 +4044,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3877,6 +4066,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3898,6 +4088,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3919,6 +4110,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3940,6 +4132,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3961,6 +4154,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -3982,6 +4176,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4003,6 +4198,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4024,6 +4220,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4045,6 +4242,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4066,6 +4264,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4087,6 +4286,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4108,6 +4308,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4129,6 +4330,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4150,6 +4352,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4171,6 +4374,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4192,6 +4396,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4213,6 +4418,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4234,6 +4440,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4255,6 +4462,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4276,6 +4484,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4297,6 +4506,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4318,6 +4528,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4339,6 +4550,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4360,6 +4572,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4381,6 +4594,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4402,6 +4616,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4423,6 +4638,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4444,6 +4660,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4465,6 +4682,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4486,6 +4704,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4507,6 +4726,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4528,6 +4748,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4549,6 +4770,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4570,6 +4792,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4591,6 +4814,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4612,6 +4836,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4633,6 +4858,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4654,6 +4880,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4675,6 +4902,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4696,6 +4924,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4717,6 +4946,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4738,6 +4968,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4759,6 +4990,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4780,6 +5012,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4801,6 +5034,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4822,6 +5056,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4843,6 +5078,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4864,6 +5100,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4885,6 +5122,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4906,6 +5144,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4927,6 +5166,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 
 /*--------------------------------------------*/
 
@@ -4949,6 +5189,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4970,6 +5211,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -4991,6 +5233,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5012,6 +5255,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5033,6 +5277,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5054,6 +5299,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5075,6 +5321,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5096,6 +5343,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5117,6 +5365,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5138,6 +5387,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5159,6 +5409,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5180,6 +5431,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5201,6 +5453,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5222,6 +5475,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5243,6 +5497,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5264,6 +5519,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5285,6 +5541,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5306,6 +5563,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5327,6 +5585,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5348,6 +5607,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5369,6 +5629,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5390,6 +5651,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5411,6 +5673,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5432,6 +5695,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5453,6 +5717,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5474,6 +5739,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5495,6 +5761,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5516,6 +5783,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5537,6 +5805,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5558,6 +5827,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5579,6 +5849,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5600,6 +5871,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5621,6 +5893,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5642,6 +5915,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5663,6 +5937,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5684,6 +5959,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5705,6 +5981,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5726,6 +6003,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5747,6 +6025,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5768,6 +6047,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5789,6 +6069,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5810,6 +6091,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5831,6 +6113,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5852,6 +6135,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5873,6 +6157,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5894,6 +6179,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5915,6 +6201,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5936,6 +6223,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5957,6 +6245,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5978,6 +6267,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -5999,6 +6289,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6020,6 +6311,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6041,6 +6333,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6062,6 +6355,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6083,6 +6377,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6104,6 +6399,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6125,6 +6421,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6146,6 +6443,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6167,6 +6465,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6188,6 +6487,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6209,6 +6509,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6230,6 +6531,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6251,6 +6553,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6272,6 +6575,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6293,6 +6597,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6314,6 +6619,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6335,6 +6641,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6356,6 +6663,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6377,6 +6685,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6398,6 +6707,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6419,6 +6729,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6440,6 +6751,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6461,6 +6773,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6482,6 +6795,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6503,6 +6817,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6524,6 +6839,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6545,6 +6861,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6566,6 +6883,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6587,6 +6905,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6608,6 +6927,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6629,6 +6949,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6650,6 +6971,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6671,6 +6993,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6692,6 +7015,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6713,6 +7037,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6734,6 +7059,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6755,6 +7081,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6776,6 +7103,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6797,6 +7125,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6818,6 +7147,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6839,6 +7169,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6860,6 +7191,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6881,6 +7213,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6902,6 +7235,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6923,6 +7257,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6944,6 +7279,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6965,6 +7301,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -6986,6 +7323,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7007,6 +7345,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7028,6 +7367,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7049,6 +7389,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7070,6 +7411,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7091,6 +7433,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7112,6 +7455,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7133,6 +7477,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7154,6 +7499,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7175,6 +7521,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7196,6 +7543,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7217,6 +7565,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7238,6 +7587,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7259,6 +7609,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7280,6 +7631,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7301,6 +7653,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7322,6 +7675,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7343,6 +7697,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7364,6 +7719,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7385,6 +7741,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7406,6 +7763,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7427,6 +7785,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7448,6 +7807,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7469,6 +7829,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7490,6 +7851,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7511,6 +7873,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7532,6 +7895,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7553,6 +7917,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7574,6 +7939,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7595,6 +7961,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7616,6 +7983,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7637,6 +8005,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7658,6 +8027,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7679,6 +8049,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7700,6 +8071,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7721,6 +8093,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7742,6 +8115,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7763,6 +8137,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7784,6 +8159,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7805,6 +8181,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7826,6 +8203,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7847,6 +8225,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7868,6 +8247,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7889,6 +8269,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7910,6 +8291,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7931,6 +8313,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7952,6 +8335,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7973,6 +8357,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -7994,6 +8379,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8015,6 +8401,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8036,6 +8423,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8057,6 +8445,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8078,6 +8467,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8099,6 +8489,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8120,6 +8511,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8141,6 +8533,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8162,6 +8555,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8183,6 +8577,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8204,6 +8599,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8225,6 +8621,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8246,6 +8643,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8267,6 +8665,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8288,6 +8687,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8309,6 +8709,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8330,6 +8731,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8351,6 +8753,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8372,6 +8775,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8393,6 +8797,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8414,6 +8819,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8435,6 +8841,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8456,6 +8863,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8477,6 +8885,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8498,6 +8907,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8519,6 +8929,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8540,6 +8951,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8561,6 +8973,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8582,6 +8995,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8603,6 +9017,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8624,6 +9039,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8645,6 +9061,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8666,6 +9083,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8687,6 +9105,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8708,6 +9127,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8729,6 +9149,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8750,6 +9171,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8771,6 +9193,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8792,6 +9215,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8813,6 +9237,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8834,6 +9259,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8855,6 +9281,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8876,6 +9303,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8897,6 +9325,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8918,6 +9347,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8939,6 +9369,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8960,6 +9391,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -8981,6 +9413,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9002,6 +9435,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9023,6 +9457,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9044,6 +9479,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9065,6 +9501,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9086,6 +9523,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9107,6 +9545,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9128,6 +9567,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9149,6 +9589,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9170,6 +9611,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9191,6 +9633,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9212,6 +9655,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9233,6 +9677,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9254,6 +9699,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9275,6 +9721,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9296,6 +9743,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9317,6 +9765,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9338,6 +9787,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9359,6 +9809,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9380,6 +9831,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9401,6 +9853,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9422,6 +9875,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9443,6 +9897,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9464,6 +9919,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9485,6 +9941,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9506,6 +9963,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9527,6 +9985,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9548,6 +10007,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9569,6 +10029,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9590,6 +10051,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9611,6 +10073,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9632,6 +10095,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9653,6 +10117,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9674,6 +10139,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9695,6 +10161,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9716,6 +10183,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9737,6 +10205,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9758,6 +10227,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9779,6 +10249,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9800,6 +10271,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9821,6 +10293,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9842,6 +10315,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9863,6 +10337,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9884,6 +10359,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9905,6 +10381,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9926,6 +10403,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9947,6 +10425,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9968,6 +10447,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -9989,6 +10469,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10010,6 +10491,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10031,6 +10513,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10052,6 +10535,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10073,6 +10557,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10094,6 +10579,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10115,6 +10601,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10136,6 +10623,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10157,6 +10645,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10178,6 +10667,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10199,6 +10689,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10220,6 +10711,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10241,6 +10733,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10262,6 +10755,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10283,6 +10777,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10304,6 +10799,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10325,6 +10821,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10346,6 +10843,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10367,6 +10865,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10388,6 +10887,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10409,6 +10909,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10430,6 +10931,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10451,6 +10953,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10472,6 +10975,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10493,6 +10997,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10514,6 +11019,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10535,6 +11041,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10556,6 +11063,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10577,6 +11085,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10598,6 +11107,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10619,6 +11129,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10640,6 +11151,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10661,6 +11173,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10682,6 +11195,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10703,6 +11217,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10724,6 +11239,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10745,6 +11261,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10766,6 +11283,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10787,6 +11305,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10808,6 +11327,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10829,6 +11349,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10850,6 +11371,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10871,6 +11393,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10892,6 +11415,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10913,6 +11437,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10934,6 +11459,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10955,6 +11481,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10976,6 +11503,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -10997,6 +11525,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11018,6 +11547,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11039,6 +11569,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11060,6 +11591,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11081,6 +11613,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11102,6 +11635,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11123,6 +11657,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11144,6 +11679,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11165,6 +11701,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11186,6 +11723,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11207,6 +11745,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11228,6 +11767,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11249,6 +11789,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11270,6 +11811,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11291,6 +11833,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11312,6 +11855,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11333,6 +11877,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11354,6 +11899,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11375,6 +11921,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11396,6 +11943,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11417,6 +11965,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11438,6 +11987,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11459,6 +12009,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11480,6 +12031,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11501,6 +12053,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11522,6 +12075,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11543,6 +12097,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11564,6 +12119,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11585,6 +12141,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11606,6 +12163,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11627,6 +12185,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11648,6 +12207,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11669,6 +12229,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11690,6 +12251,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11711,6 +12273,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11732,6 +12295,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11753,6 +12317,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11774,6 +12339,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11795,6 +12361,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11816,6 +12383,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11837,6 +12405,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11858,6 +12427,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11879,6 +12449,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11900,6 +12471,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11921,6 +12493,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11942,6 +12515,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11963,6 +12537,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -11984,6 +12559,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12005,6 +12581,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12026,6 +12603,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12047,6 +12625,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12068,6 +12647,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12089,6 +12669,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12110,6 +12691,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12131,6 +12713,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12152,6 +12735,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12173,6 +12757,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12194,6 +12779,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12215,6 +12801,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12236,6 +12823,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12257,6 +12845,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12278,6 +12867,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12299,6 +12889,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12320,6 +12911,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12341,6 +12933,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12362,6 +12955,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12383,6 +12977,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12404,6 +12999,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12425,6 +13021,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12445,6 +13042,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12466,6 +13064,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12487,6 +13086,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12508,6 +13108,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12529,6 +13130,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12550,6 +13152,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12571,6 +13174,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12592,6 +13196,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12613,6 +13218,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12634,6 +13240,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12655,6 +13262,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12676,10 +13284,8 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
-
-
-
 
 countNounArray.push("wolf");
 countNounArrayPlural.push("wolves");
@@ -12697,10 +13303,8 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
-
-
-
 
 countNounArray.push("woman");
 countNounArrayPlural.push("women");
@@ -12718,6 +13322,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12739,6 +13344,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12760,6 +13366,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12781,6 +13388,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12802,6 +13410,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12823,6 +13432,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12843,6 +13453,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12864,6 +13475,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12885,6 +13497,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12906,6 +13519,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12927,6 +13541,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12948,6 +13563,7 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
@@ -12969,15 +13585,124 @@ derivedOrInheritedCountNoun.push("inherited");
 etymologyCountNoun.push("X");
 etymologyArrayCountNoun.push("X");
 derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
-
+countNounArray.push("knot");
+countNounArrayPlural.push("knots");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("round");
+shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
 /*--------------------------------------------*/
 
+countNounArray.push("plum");
+countNounArrayPlural.push("plums");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("round");
+shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
 
+countNounArray.push("almond");
+countNounArrayPlural.push("almonds");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("round");
+shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
 
+countNounArray.push("scorpion");
+countNounArrayPlural.push("scorpions");
+activePassive.push("active")
+animInan.push("anim");
+divineNonDivine.push("profane");
+humanAnimalInan.push("animal");
+mascFemNeut.push("masculine2");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("wild-animal");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
 
-}
+countNounArray.push("stallion");
+countNounArrayPlural.push("stallions");
+activePassive.push("active")
+animInan.push("anim");
+divineNonDivine.push("profane");
+humanAnimalInan.push("animal");
+mascFemNeut.push("masculine2");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("wild-animal");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
+
+countNounArray.push("hollow&nbsptree");
+countNounArrayPlural.push("hollow&nbsptrees");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter1");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("tree");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
+
+};
 
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", clearArrays);
@@ -12999,6 +13724,7 @@ countNounArrayPlural,
     shortGenericClassifierArray,
     derivedOrInheritedCountNoun, etymologyArrayCountNoun,
 etymologyCountNoun,
-derivationListCountNoun
+derivationListCountNoun,
+oldCountNounArray
 }
 

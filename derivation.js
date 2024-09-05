@@ -3156,7 +3156,7 @@ function abstractNoun() {
                 let index = countNounArray.indexOf(originalWord);
                 if(countNounArray.includes(originalWord)) {
                         //decides if word will have a derivation
-                        if(Math.floor(Math.random() * 3) === 1) {
+                        if(Math.floor(Math.random() * 2) === 1) {
                                 if(typeof derivedWord !== "string") {
                                         let derivedWordArray = cloneArray(derivedWord);
                                         derivedWord = randomIndexOfArray(derivedWord);
@@ -3600,6 +3600,177 @@ function abstractNoun() {
         deriveabstractNounFromAdj("intrusive", "intrusion", "intrusions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNounFromAdj("interruptive", "interruption", "interruptions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNounFromAdj("observant", "observance", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("abrasive", "abrasion", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("forgetful", ["forgetfulness", "memory&nbsploss", "dementia"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("generous", "generosity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("honourable", "honourability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("instructive", "instructiveness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("alone", "loneliness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("well-versed", "mastery", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["smart", "Intelligent"], "intelligence", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["absent", "away", "gone"], "absence", "absences", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["angry", "aggressive"], "anger", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["authoritive", "commanding"], "authority", "authorities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["reminiscing", "memorable"], "memory", "memories", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["complementive", "exalting"], ["compliment", "praise"], ["compliments", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["perceptive", "observant"], "perception", "perceptions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["addictive", "sticky"], "addiction", "addictions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("impulsive", "impulsion", "impulsions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("pleasant", "pleasantness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("biased", "bias", "biases", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("defensive", "defensiveness", "biases", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("offensive", "offence", "offences", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("affectionate", "affection", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("caring", "care", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("wed", ["marriage", "wedding"], ["marriages", "weddings"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["awake", "alert"], "alertness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["bad", "evil"], "evil", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["bad", "evil"], "evil", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["bald", "bare"], "baldness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("wide", "width", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("wonderful", "joy", "joys", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("beautiful", "beauty", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("useful", "usefulness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("young", "youth", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("visible", "visibility", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("weak", "weakness", "weaknesses", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("violent", "violence", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["big", "tall"], ["size", "height"], ["sizes", "heights"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("blind", "blindness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["bold", "brave"], ["boldness", "bravery", "courage"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["confident", "bold"], "confidence", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["correct", "true"], "truth", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("damp", "dampness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("soft", "softness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("unhealthy",["sickness", "illness"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("tired","exhaustion", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("tough", ["toughness", "endurance", "durability"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("stiff", ["stiffness", "rigidity"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("strong", "strength", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("suitable", "suitability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("sure", "certainty", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("stinky", "bad&nbspodour", "bad&nbspodours", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("tasty", "taste", "tastes", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dark", "darkness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("near", "proximity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("smooth", "smoothness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("sharp", "sharpness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("other", "distinction", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("right", "validity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("old", "age", "ages", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("real", "reality", "realities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["rich", "wealthy"], "wealth", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("rough", "roughness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("rude", ["rudeness", "rude&nbspbehabiour"], ["rudeness", "rude&nbspbehabiours"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("polluted", "pollution", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("powerful", "power", "powers", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("quiet", "silence", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("ready", "preparation", "preparation", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("pure", "purity", "purities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dead", "death", "deaths", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("nourishing", "nourishment", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("new", "innovation", "innovations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("deaf", "deafness", "innovations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("noble", "noblity", "nobility", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("normal", "normalcy", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("moist", "moisture", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("mild", "mediocracy", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dear", ["love", "affection"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("deep", "depth", "depths", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("long", "length", "lengths", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("difficult", "difficulty", "difficulties", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dumb", "stupidity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("intense", "intensity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("kind", "kindness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("hard", "hardness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("healthy", "health", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("high", "height", "heights", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("hot", ["heat", "temperature"], ["X", "temperatures"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("sleepy", ["sleepiness", "tiredness"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("erect", "erection", "erections", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("book-loving", "love&nbspof&nbspbooks", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("demarcated", "demarcation", "demarcations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("ancestral", "ancestry", "ancestries", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dangerous", "danger", "dangers", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("clothed", "modesty", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("corrupting", "corruption", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("bored", "boredom", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("hungry", "hunger", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("impure", ["impurity", "pollution"], ["impurities", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("fast", "speed", "speeds", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["wrong", "incorrect"], "error", "errors", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("bright", "brightness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("sad", "sadness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("woeful", "woe", "woes", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("in&nbspdespair", "despair", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("similar", "similarity", "similarites", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("mortal", "mortality", "mortalities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("devout", "devotion", "devotions", "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("pious", "piety", "X", "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("suspicious", "suspicion", "suspicions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("accountable", "accountability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("calculating", "calculation", "calculations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("holy", "holiness", "X", "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("hostile", "hostility", "hostilities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("flexible", "flexibility", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("bearable", "tolerance", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("flammable", "flammability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("desirable", "desirability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("decayed", "decay", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("expensive", "expense", "expenses", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("unwed", "virginity", "virginities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("memorable", "memorability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("trustworthy", "trustworthiness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("viscous", "viscosity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("throwable", "range", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("usable", "usability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("suitable", "suitability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dependable", "dependability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("employable", "employability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("edible", "edibility", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("tangible", "tangibility", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("possible", "possibility", "possibilities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("empty", "emptiness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("stressed", "stress", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("cloudy", "cloudiness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("celestial", "divinity", "divinities", "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("fat", "obesity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["cattle-owning", "pastoral"], "pastoralism", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("oily", "oiliness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("smoky", "smokiness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("fertile", "fertility", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("curious", "curiosity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("inquisative", "inquisition", "inquisitions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("nonsensical", "nonsense", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("irritated", "irritation", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("firm", "firmness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("flat", "flatness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("free", "freedom", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("happy", "happiness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("fresh", "freshness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("full", "satiety", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("funny", "humour", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("fun", "fun", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("good", ["goodness", "benefit", "upside"], ["X", "benefits", "upsides"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("gracious", ["graciousness", "grace"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["accurate", "precision"], ["accuracy", "precision"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("armed", "bearing&nbspof&nbspweapons", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("sea-faring", "sea-travel", "sea-travels", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("windy", "windiness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("selective", ["choice", "selection"], ["choices", "selections"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("aggressive", "aggression", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("loyal", "loyalty", "loyalties", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("honourable", "honourability", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("empty", "emptiness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["love", "affectionate"], "affection", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("energetic", ["life", "energy", "power"], ["lives", "energies", "powers"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["educated", "learned"], ["education", "knowledge"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("manipulative", "manipulation", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("lofty", ["loftiness", "divinity"], "X", "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("industrious", "production", "production", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("adventurous", ["eagerness", "adventure"], ["X", "adventures"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+
+        
 
         document.getElementById("derivational-affixes").appendChild(li);
         li.appendChild(ul);
@@ -3637,6 +3808,7 @@ function verbToInanimateAgent() {
                                  } else {
                                          derivedWordArray = cloneArray(derivedWord);
                                          derivedWord = randomIndexOfArray(derivedWordArray);
+                                         break;
                                  };
                         };
                  } else {
@@ -3645,7 +3817,6 @@ function verbToInanimateAgent() {
                          };     
                  };
 
-                
                 if(typeof shape !== "string") {
                         shape = shape[derivedWordArray.indexOf(derivedWord)];
                 };
@@ -3744,7 +3915,7 @@ function verbToInanimateAgent() {
                                 };
                                 if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
                                         let exampleLi = document.createElement("li");
-                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb")))}</i> "to&nbsp${intransitiveVerbArray[index]}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i> "${derivedWord}"`;
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[index])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i> "${derivedWord}"`;
                                         ul.appendChild(exampleLi);
                                         exampleCounter++;
                                 };
@@ -3754,7 +3925,12 @@ function verbToInanimateAgent() {
                 li.appendChild(ul);
         };
 
-        deriveIntransitiveVtoCountNPossessorOf(["shine", "burn", "glow"], "sun", "suns", "active", "anim", "divine", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "round", "natural-inanimate");
+        deriveIntransitiveVtoCountNPossessorOf(["shine", "burn", "glow", "gleam"], "sun", "suns", "active", "anim", "divine", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "round", "natural-inanimate");
+        deriveIntransitiveVtoCountNPossessorOf("aim", "sights", "sights", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "artificial", "inedible", "round", "tool");
+        deriveIntransitiveVtoCountNPossessorOf("ask", "question", "questions", "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveIntransitiveVtoCountNPossessorOf("belch", ["stomach", "belly"], ["stomachs", "bellies"], "passive", "inan", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "round", "natural-inanimate");
+        deriveIntransitiveVtoCountNPossessorOf("benefitV", ["tool", "gift"], ["tools", "gifts"], "passive", "inan", "profane", "secondinanimate", "neuter", "masculine1", "artificial", "inedible", "round", "tool");
+        deriveIntransitiveVtoCountNPossessorOf(["bloom", "blossoming"], ["flower", "spring"], ["flowers", "springs"], "passive", "inan", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "round", "tool");
 }
 
 function makeVocabStats() {

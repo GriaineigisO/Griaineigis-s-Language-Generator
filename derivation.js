@@ -519,16 +519,8 @@ function selectDerivationalAffixes() {
         abstractNoun,
         verbToInanimateAgent
     ];
-    
-    //selects which derivational method will be chosen
-    while(chosenDerivations.length < Math.floor(Math.random() * potentialDerivations.length) + 5) {
-        randomNumberForDerivationSelection = Math.floor(Math.random() * potentialDerivations.length);
-        if(chosenDerivations.includes(potentialDerivations[randomNumberForDerivationSelection]) === false) {
-            chosenDerivations.push(potentialDerivations[randomNumberForDerivationSelection]) 
-        };
-    };
 
-    //forces a derivational method to be chosen - this is done when a word in the Old Languge has shifted meaning but the word is too essential for the modern languagr to lack it. E.g is Old Language word for "hand" gains a new meaning, then a new term for "hand" MUST be made, this ensures that the correct method which can make this new word is chosen
+     //forces a derivational method to be chosen - this is done when a word in the Old Languge has shifted meaning but the word is too essential for the modern languagr to lack it. E.g is Old Language word for "hand" gains a new meaning, then a new term for "hand" MUST be made, this ensures that the correct method which can make this new word is chosen
     let mandatorybodyPartsWords = ["hand", "tooth"];
         for(let i = 0; i < mandatorybodyPartsWords.length; i++) {
                 if(oldCountNounArray.includes(mandatorybodyPartsWords[i])) {
@@ -542,6 +534,15 @@ function selectDerivationalAffixes() {
                         chosenDerivations.push(verbToInanimateAgent)
                 };
         };
+
+    
+    //selects which derivational method will be chosen
+    while(chosenDerivations.length < Math.floor(Math.random() * potentialDerivations.length) + 5) {
+        randomNumberForDerivationSelection = Math.floor(Math.random() * potentialDerivations.length);
+        if(chosenDerivations.includes(potentialDerivations[randomNumberForDerivationSelection]) === false) {
+            chosenDerivations.push(potentialDerivations[randomNumberForDerivationSelection]) 
+        };
+    };
     
 
     //applies the chosen derivation to the word
@@ -1819,6 +1820,7 @@ function bodyParts() {
                         } else {
                                 derivedWordArray = cloneArray(derivedWord);
                                 derivedWord = randomIndexOfArray(derivedWordArray);
+                                break;
                         };
                };
         } else {
@@ -3263,7 +3265,7 @@ function abstractNoun() {
         deriveabstractNoun("bedroom","privacy", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNoun("blade", "danger", "dangers", "active", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "pointed", "natural-inanimate");
         deriveabstractNoun("boat","sea-travel", "X", "passive", "inanimate", "profane", "secondinanimate", "feminine2", "feminine1", "natural", "inedible", "shapeless", "tool");
-        deriveabstractNoun("body", "anatomy", "X", "active", "inanimate", "profane", "secondinanimate", "neuter", "feminine2", "natural", "man", "shapeless", "natural-inanimate");
+        deriveabstractNoun("body", "anatomy", "X", "active", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "man", "shapeless", "natural-inanimate");
         deriveabstractNoun("book","literacy", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "artificial", "inedible", "shapeless", "tool");
         deriveabstractNoun("boy","boyhood", "X", "passive", "inanimate", "profane", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNoun("brain","intelligence", "X", "active", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
@@ -3276,9 +3278,7 @@ function abstractNoun() {
         deriveabstractNoun("chariot","speed", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNoun("child","childhood", "childhoods", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNoun("cloak","concealment", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
-        deriveabstractNoun("child","childhood", "childhoods", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNoun(["club", "sword", "spear"],"war", "wars", "active", "inanimate", "divine", "secondinanimate", "masculine1", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
-        deriveabstractNoun("child","childhood", "childhoods", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNoun("coin",["economy", "finance", "wealth"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "artificial", "inedible", "shapeless", "tool");
         deriveabstractNoun(["confluence", "yoke"], ["convergence", "agreement", "meeting", "merger"], ["convergences", "agreements", "meetings", "mergers"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNoun("craftsman","craftsmanship", "X", "passive", "inanimate", "divine", "secondinanimate", "masculine2", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");

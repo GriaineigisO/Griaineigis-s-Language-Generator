@@ -233,7 +233,7 @@ etymologyArrayIntransVerb.push("X");
 etymologyIntransVerb.push("X");
 derivationListIntransVerb.push("");
 
-intransitiveVerbArray.push("fly");
+intransitiveVerbArray.push("flyV");
     intransitiveVerb3SArray.push("flies");
     intransitiveVerbPastArray.push("flew");
 derivedOrInheritedIntransVerb.push("inherited");

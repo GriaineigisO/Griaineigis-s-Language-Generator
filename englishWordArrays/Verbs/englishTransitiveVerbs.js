@@ -750,14 +750,6 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("leap");
-    transitiveVerb3SArray.push("leaps");
-    transitiveVerbPastArray.push("leapt");
-derivedOrInheritedTransVerb.push("inherited");
-etymologyArrayTransVerb.push("X");
-etymologyTransVerb.push("X");
-derivationListTransVerb.push("");
-
     transitiveVerbArray.push("learn");
     transitiveVerb3SArray.push("learns");
     transitiveVerbPastArray.push("learned");
@@ -1073,6 +1065,14 @@ derivationListTransVerb.push("");
     transitiveVerbArray.push("sacrificeV");
     transitiveVerb3SArray.push("sacrifices");
     transitiveVerbPastArray.push("sacrificed")
+derivedOrInheritedTransVerb.push("inherited");
+etymologyArrayTransVerb.push("X");
+etymologyTransVerb.push("X");
+derivationListTransVerb.push("");
+
+transitiveVerbArray.push("sabotageV");
+    transitiveVerb3SArray.push("sabotages");
+    transitiveVerbPastArray.push("sabotaged")
 derivedOrInheritedTransVerb.push("inherited");
 etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");

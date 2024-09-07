@@ -1603,25 +1603,6 @@ etymologyArrayMassNoun.push("X");
 derivationListMassNoun.push("");
 oldMassNounArray.push("");
 
-massNounArray.push("vigour");
-    singulativeMassNounArray.push("display&nbspof&nbspvigour");
-    pluralSingulativeMassNounArray.push("displays&nbspof&nbspvigour");
-    activePassiveMass.push("passive")
-    animInanMass.push("inan");
-    divineNonDivineMass.push("divine");
-    humanAnimalInanMass.push("secondinanimate");
-    mascFemNeutMass.push("neuter");
-    mascFemMass.push("masculine1");
-    naturalArtificialMass.push("natural");
-    animacyClassifierMassArray.push("inedible");
-    shapeClassifierMassArray.push("shapeless");
-    shortGenericClassifierMassArray.push("natural-inanimate");
- derivedOrInheritedMassNoun.push("inherited");
-etymologyMassNoun.push("X");
-etymologyArrayMassNoun.push("X");
-derivationListMassNoun.push("");
-oldMassNounArray.push("");
-
 massNounArray.push("vinegar");
     singulativeMassNounArray.push("drop&nbspof&nbspvinegar");
     pluralSingulativeMassNounArray.push("drops&nbspof&nbspvinegar");

@@ -13702,6 +13702,24 @@ derivationListCountNoun.push("");
 oldCountNounArray.push("");
 /*--------------------------------------------*/
 
+countNounArray.push("vigour");
+countNounArrayPlural.push("X");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("divine");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("shapeless");
+shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+
 };
 
 let generateLanguageButton = document.getElementById("generate-language");

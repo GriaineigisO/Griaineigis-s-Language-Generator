@@ -544,7 +544,6 @@ function selectDerivationalAffixes() {
         };
     };
     
-
     //applies the chosen derivation to the word
     for(let i = 0; i < chosenDerivations.length; i++) {
         chosenDerivations[i]();
@@ -631,6 +630,7 @@ function VtoADJprone() {
                                 };
                         }
                         etymologyArrayADJ[adjectiveArray.indexOf(derivedWord)] = transitiveVerbArray[index];
+                        derivationListAdj[adjectiveArray.indexOf(derivedWord)] = "";
                         } else {
                         adjectiveArray.push(derivedWord);
                         comparativeAdjectiveArray.push(comparative)
@@ -721,7 +721,7 @@ function VtoADJprone() {
             deriveTransVtoADJprone("smash", "angry", "angrier");
             deriveTransVtoADJprone("split", ["divisive", "polarising"], ["more&nbspdivisive", "more&nbsppolarising"]);
             deriveTransVtoADJprone("sprout", ["sprouting", "young"], ["more&nbspsprouting", "younger"]);
-            deriveTransVtoADJprone(["stab", "kill", "murder", "slaughter"], ["murderous", "piercing", "slaughterous", "homicidal", "blood-thirsty"], ["more&nbspmurderous", "more&nbsppiercing", "more&nbspslaughterous", "more&nbsphomicidal", "more&nbspblood-thirsty"]);
+            deriveTransVtoADJprone(["stab", "kill", "murderV", "slaughter"], ["murderous", "piercing", "slaughterous", "homicidal", "blood-thirsty"], ["more&nbspmurderous", "more&nbsppiercing", "more&nbspslaughterous", "more&nbsphomicidal", "more&nbspblood-thirsty"]);
             deriveTransVtoADJprone("steal", "theftuous", "more&nbsptheftuous");
             deriveTransVtoADJprone("stick", ["sticky", "adherent"], ["stickier", "more&nbspadherent"]);
             deriveTransVtoADJprone("strikeV", ["aggressive", "threatening", "harmful", "dangerous"], ["more&nbspaggressive", "more&nbspthreatening", "more&nbspharmful", "more&nbspdangerous"]);
@@ -948,6 +948,7 @@ function NtoNPossessorOf() {
                                                 };
                                         }
                                         etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = countNounArray[index];
+                                        derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                                 } else {
                                         countNounArray.push(derivedWord);
                                         countNounArrayPlural.push(plural);
@@ -1068,6 +1069,7 @@ function NtoNPossessorOf() {
                                                 };
                                         }
                                         etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = massNounArray[index];
+                                        derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                                 } else {
                                         countNounArray.push(derivedWord);
                                         countNounArrayPlural.push(plural);
@@ -1233,7 +1235,8 @@ function NtoNPossessorOf() {
                                                 derivationListCountNoun[index] = derivationListCountNoun[index] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`;
                                         }; 
                                         };
-                                        etymologyArrayMassNoun.push(countNounArray[index]);                       
+                                        etymologyArrayMassNoun.push(countNounArray[index]);    
+                                        derivationListMassNoun[massNounArray.indexOf(derivedWord)] = "";                  
                                 };
                                 if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
                                         let exampleLi = document.createElement("li");
@@ -1305,7 +1308,6 @@ function NADJtoADJpossessorOfQuality() {
                                 olderDerivedTerm = possessorQualityAffix + generatedCountNouns[index];
                         };
                         
-                        
                         if(adjectiveArray.includes(derivedWord)) {
                                 if(derivedInModernOrOld === "old") {
                                         generatedAdjectives[adjectiveArray.indexOf(derivedWord)] = olderDerivedTerm;
@@ -1331,6 +1333,7 @@ function NADJtoADJpossessorOfQuality() {
                                         };
                                 };
                                 etymologyArrayADJ[adjectiveArray.indexOf(derivedWord)] = countNounArray[index];
+                                derivationListAdj[adjectiveArray.indexOf(derivedWord)] = "";
                         } else {
                                 adjectiveArray.push(derivedWord);
                                 comparativeAdjectiveArray.push(comparative)
@@ -1467,6 +1470,7 @@ function NADJtoADJpossessorOfQuality() {
                                         };
                                 };
                                 etymologyArrayADJ[adjectiveArray.indexOf(derivedWord)] = massNounArray[index];
+                                derivationListAdj[adjectiveArray.indexOf(derivedWord)] = "";
                         } else {
                                 adjectiveArray.push(derivedWord);
                                 comparativeAdjectiveArray.push(comparative);
@@ -1610,6 +1614,7 @@ function bodyParts() {
                                         };
                                 }
                                 etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = countNounArray[index];
+                                derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                         } else {
                                 countNounArray.push(derivedWord);
                                 countNounArrayPlural.push(plural);
@@ -1743,6 +1748,7 @@ function bodyParts() {
                                         };
                                 }
                                 etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = massNounArray[index];
+                                derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                         } else {
                                 countNounArray.push(derivedWord);
                                 countNounArrayPlural.push(plural);
@@ -1817,6 +1823,7 @@ function bodyParts() {
                         if (oldCountNounArray.includes(derivedWord[i])) {
                                 derivedWord = derivedWord;
                                 randomNumber = 1;
+                                trueOrFalse = true
                         } else {
                                 derivedWordArray = cloneArray(derivedWord);
                                 derivedWord = randomIndexOfArray(derivedWordArray);
@@ -1826,6 +1833,7 @@ function bodyParts() {
         } else {
                 if (oldCountNounArray.includes(derivedWord)) {
                         randomNumber = 1;
+                        trueOrFalse = true
                 }     
         }
         if(typeof shape !== "string") {
@@ -1885,6 +1893,7 @@ function bodyParts() {
                                         };
                                 }
                                 etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = transitiveVerbArray[index];
+                                derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                         } else {
                                 countNounArray.push(derivedWord);
                                 countNounArrayPlural.push(plural);
@@ -1903,9 +1912,9 @@ function bodyParts() {
                                         generatedCountNouns.push(olderDerivedTerm);
                                         derivedOrInheritedCountNoun.push("inheritedOldDerived");
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + bodyPartAffix)}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + bodyPartAffix)}</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"`;
                                         } else {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(bodyPartAffix + "A")}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[index])], "noun"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>)`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(bodyPartAffix + "A")}-</i>&nbsp"derives&nbspterms&nbspfor&nbspbody&nbspparts"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[index])], "noun"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>)`;
                                         };
                                 } else {
                                         generatedCountNouns.push(derivedTerm) 
@@ -2031,6 +2040,7 @@ function bodyParts() {
                                         };
                                 }
                                 etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = intransitiveVerbArray[index];
+                                derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                         } else {
                                 countNounArray.push(derivedWord);
                                 countNounArrayPlural.push(plural);
@@ -2181,6 +2191,7 @@ function ADJtoCausVerb() {
                                         };
                                 }
                                 etymologyArrayTransVerb[transitiveVerbArray.indexOf(derivedWord)] = adjectiveArray[index];
+                                derivationListTransVerb[transitiveVerbArray.indexOf(derivedWord)] = "";derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                         } else {
                                 transitiveVerbArray.push(derivedWord);
                                 transitiveVerb3SArray.push(thirdsg);
@@ -2411,6 +2422,7 @@ function intransToTransVerb() {
                                                 };
                                         }
                                         etymologyArrayTransVerb[transitiveVerbArray.indexOf(derivedWord)] = intransitiveVerbArray[index];
+                                        derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                                 } else {
                                         transitiveVerbArray.push(derivedWord);
                                         transitiveVerb3SArray.push(thirdsg);
@@ -2458,7 +2470,7 @@ function intransToTransVerb() {
         deriveIntransToTransVerb("cackle", "cackle&nbspat", "cackles&nbspat", "cackled&nbspat");
         deriveIntransToTransVerb("come", ["send&nbspfor", "summon", "invoke"], ["sends&nbspfor", "summons", "invokes"], ["sent&nbspfor", "summoned", "invoked"]);
         deriveIntransToTransVerb("complain", ["complain&nbspto", "give&nbspgrievance"], ["complains&nbspto", "gives&nbspgrievance"], ["complained&nbspto", "gave&nbspgrievance"]);
-        deriveIntransToTransVerb(["die", "perish"], ["kill", "slaughter", "murder", "slay"], ["kills", "slaughters", "murders", "slays"], ["killed", "slaughtered", "murdered", "slew"]);
+        deriveIntransToTransVerb(["die", "perish"], ["kill", "slaughter", "murderV", "slay"], ["kills", "slaughters", "murders", "slays"], ["killed", "slaughtered", "murdered", "slew"]);
         deriveIntransToTransVerb("dream", "dream&nbspabout", "dreams&nbspabout", "dreamt&nbspabout");
         deriveIntransToTransVerb("fail", "sabotageV", "sabotages", "sabotaged");
         deriveIntransToTransVerb("fall", ["push&nbspover", "chop&nbspdown"], ["pushes&nbspover", "chops&nbspdown"], ["pushed&nbspover", "chopped&nbspdown"]);
@@ -2577,6 +2589,7 @@ function NtoADJPrototypical() {
                                                 };
                                         };
                                         etymologyArrayADJ[adjectiveArray.indexOf(derivedWord)] = countNounArray[index];
+                                        derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                                 } else {
                                         adjectiveArray.push(derivedWord);
                                         comparativeAdjectiveArray.push(comparative)
@@ -2851,6 +2864,7 @@ function NtoADJPrototypical() {
                                                 };
                                         };
                                         etymologyArrayADJ[adjectiveArray.indexOf(derivedWord)] = massNounArray[index];
+                                        derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                                 } else {
                                         adjectiveArray.push(derivedWord);
                                         comparativeAdjectiveArray.push(comparative)
@@ -3020,6 +3034,7 @@ function transVerbToABleAdjective() {
                                         };
                                 }
                                 etymologyArrayADJ[adjectiveArray.indexOf(derivedWord)] = transitiveVerbArray[index];
+                                derivationListAdj[adjectiveArray.indexOf(derivedWord)] = "";
                                 } else {
                                 adjectiveArray.push(derivedWord);
                                 comparativeAdjectiveArray.push(comparative)
@@ -3130,7 +3145,7 @@ function transVerbToABleAdjective() {
         derivetransVerbToABleAdjective("trust", ["trustable", "trustworthy", "honest"], ["more&nbsptrustable", "more&nbsptrustworthy", "more&nbsphonest"]);
         derivetransVerbToABleAdjective("use", "usable", "more&nbspusable");
         derivetransVerbToABleAdjective("write", ["writable", "can&nbspbe&nbspwritten&nbspon", "describable"], ["more&nbspwritable", "X", "more&nbspdescribable"]);
-        derivetransVerbToABleAdjective(["stab", "kill", "murder", "slaughter"], "mortal", "more&nbspmortal");
+        derivetransVerbToABleAdjective(["stab", "kill", "murderV", "slaughter"], "mortal", "more&nbspmortal");
 
         document.getElementById("derivational-affixes").appendChild(li);
         li.appendChild(ul);
@@ -3146,10 +3161,10 @@ function abstractNoun() {
         let suffixOrPrefix = "";
         if(Math.floor(Math.random() * 2) === 0) {
             suffixOrPrefix = "suffix";
-            li.innerHTML = `<i>-${spell(soundChange("X" + abstractAffix))}</i> "derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`
+            li.innerHTML = `<i>-${spell(soundChange("X" + abstractAffix))}</i> "derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`
         } else {
             suffixOrPrefix = "prefix";
-            li.innerHTML = `<i>${spell(soundChange(abstractAffix + "A"))}-</i> "derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`
+            li.innerHTML = `<i>${spell(soundChange(abstractAffix + "A"))}-</i> "derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`
         };
         let exampleCounter = 0;
 
@@ -3190,17 +3205,17 @@ function abstractNoun() {
                                                 generatedCountNouns[countNounArray.indexOf(derivedWord)] = olderDerivedTerm;
                                                 derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "inheritedOldDerived";
                                                 if(suffixOrPrefix === "suffix") {
-                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[index], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[index], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                                 } else {
-                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)`;
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)`;
                                                 };
                                         } else {
                                                 generatedCountNouns[countNounArray.indexOf(derivedWord)] = derivedTerm;
                                                 derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "derived";
                                                 if(suffixOrPrefix === "suffix") {
-                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>&nbsp"${countNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>&nbsp"${countNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                                 } else {
-                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun")))}</i>&nbsp"${countNounArray[index]}"`;
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun")))}</i>&nbsp"${countNounArray[index]}"`;
                                                 };
                                                 //lists the derived word, so it can be displayed in the dictionary entry of the original word
                                                 if(derivationListCountNoun[index] === "") {
@@ -3210,6 +3225,7 @@ function abstractNoun() {
                                                 };
                                         }
                                         etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = countNounArray[index];
+                                        derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                                 } else {
                                         countNounArray.push(derivedWord);
                                         countNounArrayPlural.push(plural);
@@ -3228,17 +3244,17 @@ function abstractNoun() {
                                                 generatedCountNouns.push(olderDerivedTerm);
                                                 derivedOrInheritedCountNoun.push("inheritedOldDerived");
                                                 if(suffixOrPrefix === "suffix") {
-                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[index], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[index], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                                 } else {
-                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)`;
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun"))}</i>&nbsp"${countNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>)`;
                                                 };
                                         } else {
                                                 generatedCountNouns.push(derivedTerm) 
                                                 derivedOrInheritedCountNoun.push("derived");
                                                 if(suffixOrPrefix === "suffix") {
-                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>&nbsp"${countNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[index], "noun")))}</i>&nbsp"${countNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                                 } else {
-                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun")))}</i>&nbsp"${countNounArray[index]}"`;
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedCountNouns[countNounArray.indexOf(countNounArray[index])], "noun")))}</i>&nbsp"${countNounArray[index]}"`;
                                                 }; 
                                                 //lists the derived word, so it can be displayed in the dictionary entry of the original word
                                         if(derivationListCountNoun[index] === "") {
@@ -3396,17 +3412,17 @@ function abstractNoun() {
                                         generatedCountNouns[countNounArray.indexOf(derivedWord)] = olderDerivedTerm;
                                         derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "inheritedOldDerived";
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[index], "noun"))}</i>&nbsp"${massNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[index], "noun"))}</i>&nbsp"${massNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                         } else {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[index])], "noun"))}</i>&nbsp"${massNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>)`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[index])], "noun"))}</i>&nbsp"${massNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>)`;
                                         };
                                 } else {
                                         generatedCountNouns[countNounArray.indexOf(derivedWord)] = derivedTerm;
                                         derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "derived";
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>&nbsp"${massNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>&nbsp"${massNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                         } else {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[index])], "noun")))}</i>&nbsp"${massNounArray[index]}"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[index])], "noun")))}</i>&nbsp"${massNounArray[index]}"`;
                                         };
                                         //lists the derived word, so it can be displayed in the dictionary entry of the original word
                                         if(derivationListMassNoun[index] === "") {
@@ -3416,6 +3432,7 @@ function abstractNoun() {
                                         };
                                 }
                                 etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = massNounArray[index];
+                                derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                         } else {
                                 countNounArray.push(derivedWord);
                                 countNounArrayPlural.push(plural);
@@ -3434,17 +3451,17 @@ function abstractNoun() {
                                         generatedCountNouns.push(olderDerivedTerm);
                                         derivedOrInheritedCountNoun.push("inheritedOldDerived");
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[index], "noun"))}</i>&nbsp"${massNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[index], "noun"))}</i>&nbsp"${massNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                         } else {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[index])], "noun"))}</i>&nbsp"${massNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>)`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[index])], "noun"))}</i>&nbsp"${massNounArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>)`;
                                         };
                                 } else {
                                         generatedCountNouns.push(derivedTerm) 
                                         derivedOrInheritedCountNoun.push("derived");
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>&nbsp"${massNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[index], "noun")))}</i>&nbsp"${massNounArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                         } else {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[index])], "noun")))}</i>&nbsp"${massNounArray[index]}"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedMassNouns[massNounArray.indexOf(massNounArray[index])], "noun")))}</i>&nbsp"${massNounArray[index]}"`;
                                         }; 
                                         //lists the derived word, so it can be displayed in the dictionary entry of the original word
                                 if(derivationListMassNoun[index] === "") {
@@ -3507,17 +3524,17 @@ function abstractNoun() {
                                         generatedCountNouns[countNounArray.indexOf(derivedWord)] = olderDerivedTerm;
                                         derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "inheritedOldDerived";
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedAdjectives[index], "adjective"))}</i>&nbsp"${adjectiveArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedAdjectives[index], "adjective"))}</i>&nbsp"${adjectiveArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                         } else {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedAdjectives[adjectiveArray.indexOf(adjectiveArray[index])], "adjective"))}</i>&nbsp"${adjectiveArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>)`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedAdjectives[adjectiveArray.indexOf(adjectiveArray[index])], "adjective"))}</i>&nbsp"${adjectiveArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>)`;
                                         };
                                 } else {
                                         generatedCountNouns[countNounArray.indexOf(derivedWord)] = derivedTerm;
                                         derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "derived";
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>&nbsp"${adjectiveArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>&nbsp"${adjectiveArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                         } else {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[adjectiveArray.indexOf(adjectiveArray[index])], "adjective")))}</i>&nbsp"${adjectiveArray[index]}"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[adjectiveArray.indexOf(adjectiveArray[index])], "adjective")))}</i>&nbsp"${adjectiveArray[index]}"`;
                                         };
                                         //lists the derived word, so it can be displayed in the dictionary entry of the original word
                                         if(derivationListAdj[index] === "") {
@@ -3527,6 +3544,7 @@ function abstractNoun() {
                                         };
                                 }
                                 etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = adjectiveArray[index];
+                                derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                         } else {
                                 countNounArray.push(derivedWord);
                                 countNounArrayPlural.push(plural);
@@ -3545,17 +3563,17 @@ function abstractNoun() {
                                         generatedCountNouns.push(olderDerivedTerm);
                                         derivedOrInheritedCountNoun.push("inheritedOldDerived");
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedAdjectives[index], "adjective"))}</i>&nbsp"${adjectiveArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedAdjectives[index], "adjective"))}</i>&nbsp"${adjectiveArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                         } else {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedAdjectives[adjectiveArray.indexOf(adjectiveArray[index])], "adjective"))}</i>&nbsp"${adjectiveArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>)`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${derivedWord}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedAdjectives[adjectiveArray.indexOf(adjectiveArray[index])], "adjective"))}</i>&nbsp"${adjectiveArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>)`;
                                         };
                                 } else {
                                         generatedCountNouns.push(derivedTerm) 
                                         derivedOrInheritedCountNoun.push("derived");
                                         if(suffixOrPrefix === "suffix") {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>&nbsp"${adjectiveArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[index], "adjective")))}</i>&nbsp"${adjectiveArray[index]}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
                                         } else {
-                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbsp&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[adjectiveArray.indexOf(adjectiveArray[index])], "adjective")))}</i>&nbsp"${adjectiveArray[index]}"`;
+                                                etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedAdjectives[adjectiveArray.indexOf(adjectiveArray[index])], "adjective")))}</i>&nbsp"${adjectiveArray[index]}"`;
                                         }; 
                                         //lists the derived word, so it can be displayed in the dictionary entry of the original word
                                 if(derivationListAdj[index] === "") {
@@ -3769,7 +3787,538 @@ function abstractNoun() {
         deriveabstractNounFromAdj("lofty", ["loftiness", "divinity"], "X", "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNounFromAdj("industrious", "production", "production", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
         deriveabstractNounFromAdj("adventurous", ["eagerness", "adventure"], ["X", "adventures"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["bearded", "penile"], ["manliness", "masculinity", "maturity"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("fraternal", "brotherhood", "brotherhoods", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("different", "difference", "differences", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("transient", "transience", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("mobile", "mobility", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["royal", "regal"], "royalty", "royalties", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dreamy", "delusion", "delusions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("paternal", "paternity", "paternities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("friendly", ["fiendliness", "manners", "decorum"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("genocidal", "desire&nbspfor&nbspgenocide", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("domestic", "domesic&nbsplife", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("insular", "isolation", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("lordly", "nobility", "nobilities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("maternal", "maternity", "maternities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("adulterous", "adultery", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("reflective", "reflectiveness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["juratory", "lawful"], ["lawfulness", "law"], ["X", "laws"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("original", "originality", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("spiritual", "spirituality", "spiritualities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["starlike", "astral"], "astronomy", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("thorny", "thorniness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("vague", "vagueness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dual", "duality", "dualities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("rural", "rural&nbsplife", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("matrimonial", "matrimony", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["feminine", "womanly"], ["femininity", "womanhood"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("wordly", "worldliness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("heroic", "heroism", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj(["idiotic", "stupid"], ["idiocy", "stupidity"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dominant", "dominance", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("bloody", ["bloodshed", "conflict", "war"], ["bloodsheds", "conflicts", "wars"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("dirty", "filth", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("confusing", "confusion", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("golden", ["glory", "wealth"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("salty", "saltiness", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("wet", "moisture", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromAdj("economic", "economy", "economies", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "artificial", "inedible", "shapeless", "natural-inanimate");
 
+        //transitive verb to count noun
+        function deriveabstractNounFromTransVerb(originalWord, derivedWord, plural, activePass, animateInimate, divineProfane, humanAnimal, masculineFeminineNeuter, masculineFeminine, naturalArt, animacy, shape, shortGeneric) {
+
+                let randomNumber = Math.floor(Math.random() * 3);
+                let trueOrFalse = "";
+                let derivedWordArray = "";
+                let index = transitiveVerbArray.indexOf(originalWord);
+                let randomWordFromOriginalWordArray = randomIndexOfArray(originalWord);
+                if(typeof derivedWord !== "string") {
+                for(let i = 0; i < derivedWord.length; i++) {
+                                if (oldCountNounArray.includes(derivedWord[i])) {
+                                        derivedWord = derivedWord;
+                                        randomNumber = 1;
+                                        trueOrFalse = true
+                                } else {
+                                        derivedWordArray = cloneArray(derivedWord);
+                                        derivedWord = randomIndexOfArray(derivedWordArray);
+                                        break;
+                                };
+                };
+                } else {
+                        if (oldCountNounArray.includes(derivedWord)) {
+                                randomNumber = 1;
+                                trueOrFalse = true
+                        }     
+                }
+                if(typeof shape !== "string") {
+                        shape = shape[derivedWordArray.indexOf(derivedWord)];
+                };
+                if(typeof masculineFeminine !== "string") {
+                        masculineFeminine = masculineFeminine[derivedWordArray.indexOf(derivedWord)];
+                };
+                if(typeof plural !== "string") {
+                        plural = plural[derivedWordArray.indexOf(derivedWord)];
+                };
+                if(typeof originalWord !== "string" && transitiveVerbArray.includes(randomWordFromOriginalWordArray)) {
+                        trueOrFalse = true;
+                        index = transitiveVerbArray.indexOf(randomWordFromOriginalWordArray);
+                } else if (transitiveVerbArray.includes(originalWord)){
+                        trueOrFalse = true;
+                        index = transitiveVerbArray.indexOf(originalWord);
+                };
+                if(trueOrFalse) {
+                        //decides if word will have a derivation
+                        if(randomNumber === 1) {
+                                //decides if term is derived in modern language or old language
+                                let derivedInModernOrOld = "";
+                                if(randomNumber === 2) {
+                                        derivedInModernOrOld = "old";
+                                } else {
+                                        derivedInModernOrOld = "modern";
+                                };
+
+                                if(suffixOrPrefix === "suffix") {
+                                        derivedTerm = soundChange(generatedTransitiveVerbs[index] + "A") + soundChange("X" + abstractAffix);
+                                        olderDerivedTerm = generatedTransitiveVerbs[index] + abstractAffix;
+                                } else {
+                                        derivedTerm = soundChange(abstractAffix + "A") + soundChange("X" + generatedTransitiveVerbs[index]);
+                                        olderDerivedTerm = abstractAffix + generatedTransitiveVerbs[index];
+                                };
+
+                                if(countNounArray.includes(derivedWord)) {
+                                        if(derivedInModernOrOld === "old") {
+                                                generatedCountNouns[countNounArray.indexOf(derivedWord)] = olderDerivedTerm;
+                                                derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "inheritedOldDerived";
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[index])], "verb"))}</i>&nbsp"${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>)`;
+                                                };
+                                        } else {
+                                                generatedCountNouns[countNounArray.indexOf(derivedWord)] = derivedTerm;
+                                                derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "derived";
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[index])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"`;
+                                                };
+                                                //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                                if(derivationListTransVerb[index] === "") {
+                                                        derivationListTransVerb[index] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`
+                                                } else {
+                                                        derivationListTransVerb[index] = derivationListTransVerb[index] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`;
+                                                };
+                                        }
+                                        etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = transitiveVerbArray[index];
+                                        derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
+                                } else {
+                                        countNounArray.push(derivedWord);
+                                        countNounArrayPlural.push(plural);
+                                        activePassive.push(activePass);
+                                        animInan.push(animateInimate);
+                                        divineNonDivine.push(divineProfane);
+                                        humanAnimalInan.push(humanAnimal);
+                                        mascFemNeut.push(masculineFeminineNeuter);
+                                        mascFem.push(masculineFeminine);
+                                        naturalArtificial.push(naturalArt);
+                                        animacyClassifierArray.push(animacy);
+                                        shapeClassifierArray.push(shape);
+                                        shortGenericClassifierArray.push(shortGeneric);
+                                        derivationListCountNoun.push("");
+                                        if(derivedInModernOrOld === "old") {
+                                                generatedCountNouns.push(olderDerivedTerm);
+                                                derivedOrInheritedCountNoun.push("inheritedOldDerived");
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[index])], "noun"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>)`;
+                                                };
+                                        } else {
+                                                generatedCountNouns.push(derivedTerm) 
+                                                derivedOrInheritedCountNoun.push("derived");
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[transitiveVerbArray.indexOf(transitiveVerbArray[index])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}"`;
+                                                }; 
+                                        };
+                                        //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                        if(derivationListTransVerb[index] === "") {
+                                                derivationListTransVerb[index] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`
+                                        } else {
+                                                derivationListTransVerb[index] = derivationListTransVerb[index] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`;
+                                        }; 
+                                        etymologyArrayCountNoun.push(transitiveVerbArray[index]);                       
+                                };
+                                if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
+                                        let exampleLi = document.createElement("li");
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedTransitiveVerbs[index], "verb")))}</i> "to&nbsp${removeDistinguishingLetter(transitiveVerbArray[index])}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i> "${derivedWord}"`;
+                                        ul.appendChild(exampleLi);
+                                        exampleCounter++;
+                                };
+                        };
+                };
+                document.getElementById("derivational-affixes").appendChild(li);
+                li.appendChild(ul);
+        };
+
+        deriveabstractNounFromTransVerb("accept", "acceptance", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("arrange", ["arrangement", "order", "plan"], ["arrangements", "orders", "plans"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["bearV", "carry"], ["support", "weight", "meaning", "endurance", "pregnancy", "victory"], ["arrangements", "orders", "plans", "X", "pregnancies", "victories"], "passive", "inanimate", "profane", "secondinanimate", "neuter", ["masculine1", "masculine1", "masculine1", "masculine1", "feminine", "masculine1"], "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("beg", ["poverty", "pittance"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("bend", ["shift", "change", "curve", "addition", "return", "surprise"], ["shifts", "changes", "curves", "additions", "returns", "surprises"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("bestow", "bestowment", "bestowments", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["bind", "join", "tie"], ["binding", "predicament", "plight", "oath", "contract", "law", "promise", "fate"], ["bindings", "predicaments", "plights", "oaths", "contracts", "laws", "promises", "fates"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("bite", ["incursion", "attack"], ["incursions", "attacks"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("blame", "accusation", "accusations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("break", ["destruction", "chaos"], ["destructions", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("breathe", ["life", "vitality", "energy", "life&nbspforce"], ["lives", "X", "energies", "life&nbspforces"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("build", "construction", "constructions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["buy", "exchange"], ["commerce", "trade", "exchange", "trade"], ["X", "trades"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("catch", ["trap", "trick", "ploy", "invasion", "imprisonment", "complication"], ["traps", "tricks", "ploys", "invasions", "imprisonments", "complications"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("choose", ["choice", "selection"], ["choices", "selections"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("collect", "collection", "collections", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("compel", "urge", "urges", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("compensate", "compensation", "compensations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("cook", ["cooking", "cooking&nbspskills"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["cover", "hide", "decieve"], ["concealment", "coverage", "deception"], ["concealments", "coverages", "deceptions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("craft", ["craft", "skill", "talent"], ["crafts", "skills", "talents"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["cut", "split", "tear", "divide"], ["division", "partition", "severance", "exile", "banishment", "shame", "reduction", "divergence"], ["divisions", "partitions", "severances", "exiles", "banishments", "X", "reductions", "divergences"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("deem", "judgement", "judgements", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("defeat", ["defeat", "invasion", "conquest"], ["defeats", "invasions", "conquests"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("defile", ["defilement", "corruption"], ["defilements", "corruptions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("desire", ["desire", "lust", "libido"], ["desires", "X", "libidos"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("destroy", "destruction", "destructions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("distribute", "distribution", "distributions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("distribute", "distribution", "distributions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "feminine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["do", "make"], ["deed", "action", "act", "event"], ["deeds", "actions", "acts", "events"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("drive", ["direction", "thrust", "power", "influence"], ["directions", "thrusts", "powers", "influences"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("eat", ["consumption", "assimilation", "absorption", "conquest"], ["consumptions", "assimilations", "absorptions", "conquests"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("employ", "employment", "employments", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("enjoy", ["enjoyment", "fun"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["extinguish", "stop"], ["annihilation", "genocide", "end"], ["annihilations", "genocides", "ends"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["feel", "touchV"], ["sensation", "touch"], ["sensations", "touches"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("fightV", ["fight", "conflict", "strife"], ["fights", "conflicts", "strifes"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("flay", "skinning", "skinnings", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("follow", ["investigation", "loyalty"], ["investigations", "loyalties"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("forget", ["forgetfulness", "memory&nbsploss", "dementia"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["gather", "consolidate"], ["gathering", "consolidation"], ["gatherings", "consolidations"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["gird", "strangle", "grasp", "grip", "hold", "take"], ["tightness", "grip", "consolidation", "control", "comprehension", "understanding", "captivity","invasion", "capture"], ["X", "grips", "consolidations", "X", "X", "X", "X","invasions", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["give", "offer"], "generosity", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("grind", ["stress", "erosion", "harassment"], ["X", "erosions", "harassments"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("growl", ["hostility", "warning"], ["hostilities", "warnings"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("harvestV", ["harvest", "autumn"], ["harvests", "autumns"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("hateV", "hate", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["have", "keep"], ["possession", "control", "ownership", "retension"], ["possessions", "X", "X", "retensions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("hear", ["hearing", "attention", "fame", "renown", "agreement", "curiosity", "understanding", "comprehension", "rumour", "knowledge", "thought", "memory", "recognition"], ["X", "X", "X", "X", "agreements", "X", "understandings", "X", "rumour", "X", "thoughts", "memories", "recognitions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("helpV", ["help", "aid", "support"], ["X", "aids", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("hew", ["clearing&nbspof&nbspvegetation", "path", "road"], ["clearings&nbspof&nbspvegetation", "paths", "roads"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["hit", "kick", "strikeV"], ["strike", "attack", "provocation", "aggression"], ["strikes", "attacks", "provocations", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("honourV", "honour", "honours", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("hum", "tune", "tunes", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("hunt", "hunting", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("instruct", "instruction", "instructions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("insultV", ["offense", "insult"], ["offenses", "insults"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("invoke", "invocation", "invocations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("invite", "invitiation", "invitiations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("know", ["knowledge", "information"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("lack", ["absence", "deficiency"], ["absences", "deficiencies"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["leap", "springV"], ["rise", "increase", "improvement"], ["rises", "increases", "improvements"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["learn", "teach"], "education", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("leave", ["exit", "banishment"], ["exits", "banishments"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["lick", "tasteV"], ["taste", "lesson"], ["tastes", "lessons"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("make", ["creation", "construction"], ["creations", "constructions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("loveV", "love", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("marry", ["marriage", "wedding"], ["marriages", "weddings"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("meet", ["meeting", "confluence"], ["meetings", "confluences"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("need", "requirement", "requirements", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("notice", "attention", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("paint", "painting", "paintings", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("praiseV", ["praise", "appraisal", "panegyric"], ["praises", "appraisals", "panegyrics"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("pay", "payment", "payments", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("percieve", ["perception", "sense", "instinct", "emotion"], ["perceptions", "senses", "instincts", "emotions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("persuade", ["persuasion", "influence"], ["persuasions", "influences"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("peirce", ["conception", "impregnation", "infiltration"], ["conceptions", "impregnations", "infiltrations"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("pin", "constraint", "constraints", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("pitch", "founding", "foundings", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("please", ["pleasure", "entertainment", "delight", "gratification", "vice", "welcoming", "reception"], ["pleasures", "entertainments", "delights", "gratifications", "vices", "welcomings", "receptions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("pour", ["libation", "downpour", "flow"],["libations", "downpours", "flows"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("prefer", ["preference", "bias"],["preferences", "biases"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("propel", ["propulsion", "energy", "encouragement"],["propulsions", "energies", "encouragements"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("protect", ["protection", "defence"],["protections", "defences"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("pull", ["temptation", "influence", "control", "guidance", "direction", "assimilation"], ["temptations", "influences", "X", "guidances", "directions", "assimilations"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("push", ["reversion", "avoidance", "disgust", "movement", "energy", "encouragement"], ["reversions", "avoidances", "X", "movements", "energies", "encouragements"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("put", ["placement", "place"], ["placements", "places"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("rake", ["consolidation", "gathering", "collection", "tax"], ["consolidations", "gatherings", "collections", "taxes"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("read", ["literacy", "literature"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("refresh", ["renewal", "invigoration"], ["renewals", "invigorations"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("remember", "memory", "memories", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("respectV", "respect", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("revel", ["celebration", "festival", "holiday"], ["celebrations", "festivals", "holidays"], "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("rewardV", ["reward", "gift"], ["rewards", "gifts"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("ride", ["journey", "travel", "expedition"], ["journeys", "travels", "expeditions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("roast", "cooking&nbspfire", "cooking&nbspfires", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("rowV", "sea-travel", "sea-travels", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["rub", "smear"], ["influence", "coating"], ["influences", "coatings"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("run", ["exile", "desertion"], ["exiles", "desertions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("sacrificeV", "sacrifice", "sacrifices", "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("say", ["phrase", "speech", "language"], ["phrases", "speeches", "languages"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("see", ["sight", "vision", "view"], ["sights", "visions", "views"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("sell", "sale", "sales", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("seperate", ["separation", "division"], ["separations", "divisions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["shake", "stir"], ["disruption", "chaos"],  ["disruptions", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("shameV", ["shame", "disgrace"],  ["X", "disgraces"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("shave", ["shearing", "reduction", "degeneration"],  ["shearings", "reduction", "degenerations"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("showV", ["display", "show", "ritual"], ["displays", "shows", "rituals"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("sing", "song", "songs", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("smash", ["destruction", "shattering", "decimation", "disintegration"], ["destructions", "shatterings", "decimations", "disintegrations"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("sprout", "gemination", "geminations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("squeeze", ["pressure", "weight"], ["pressures", "weights"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("stab", "murder", "murders", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("steal", "theft", "thefts", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("stickV", ["adhesion", "connection", "loyalty"], ["adhesions", "connections", "loyalties"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("suit", "comfort", "comforts", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("support", ["aid", "help", "support"], ["aids", "X", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("surround", ["horizon", "understanding"], ["horizons", "understandings"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("swallow", ["gulp", "drink"], ["gulps", "drinks"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("thank", ["appreciation", "gratefulness"], ["appreciations", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("throw", ["range", "distance"], ["ranges", "distances"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("trustV", ["trust", "cohesion"], ["X", "cohesions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("twist", ["surprise", "lie", "revelation", "rotation", "revolution", "contortion", "distortion", "disfigurement", "deformation", "sprain", "injury", "deception", "misquotation", "slander", "oddity", "defect", "imperfection", "weakness", "flaw", "development", "turn&nbspof&nbspevents", "history"], ["surprises", "lies", "revelations", "rotations", "revolutions", "contortions", "distortions", "disfigurements", "deformations", "sprains", "injuries", "deceptions", "misquotations", "X", "oddities", "defects", "imperfections", "weaknesses", "flaws", "developments", "turns&nbspof&nbspevents", "histories"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("useV", ["use", "usefulness"], ["uses", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("wash", "hygeine", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("weave", ["weaving", "clothing", "fate", "lore", "history", "wisdom", "poetry"], ["X", "X", "X", "X", "histories", "X", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("wipe", ["erasure", "eradication", "genocide", "annihilation", "stroke"], ["erasures", "eradications", "genocides", "annihilations", "strokes"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("write", ["text", "literature"], ["texts", "literatures"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("enable", "enabling", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("multiply", "multiplication", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("invigorate", "invigoration", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("isolate", "isolation", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("infuriate", "infuriation", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("worsen", ["worsening", "decline", "degredation", "degeneration", "fall"], ["X", "declines", "degredations", "degenerations", "falls"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("reveal", ["revelation", "confession"], ["revelations", "confessions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("corrupt", "corruption", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("adore", "adoration", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("chill", "cooling", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("correct", ["correctness", "correction", "improvement"], ["X", "corrections", "improvements"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("darken", ["darkening", "nightfall", "twilight"], ["X", "X", "twilights"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("stupefy", ["stupification", "astonishment"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("entangle", "entanglement", "entanglements", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("emptyV", ["emptying", "emptiness"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("vilify", "villification", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("accelerate", "acceleration", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("fertilise", ["fertilisation", "fertility"], ["fertilisations", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("ensure", "insurance", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("impregnate", "impregnation", "impregnations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("verify", "verification", "verifications", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("confirm", "confirmation", "confirmations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("infect", "infection", "infections", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("contaminate", "contamination", "contaminations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("press", "pressure", "pressures", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("improve", "improvement", "improvement", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["cleave", "split&nbspin&nbsphalf", "divide&nbspinto&nbsptwo"], ["division", "segregation"], ["divisions", "segregations"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("intensify", "intensification", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("ennoble", "nobility", "nobilities", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("normalise", ["normalisation", "familiarity"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("nourish", "nourishment", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb(["weather", "erode"], ["erosion", "weathering"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("empower", "power", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("sicken", ["illness", "disease", "sickness"], ["illnesses", "diseases", "sicknesses"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("enrich", "enrichment", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("whiten", "whitening", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("toughen", "toughening", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("delayV", "delayment", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("adjust", "adjustment", "adjustments", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("customise", "customisation", "customisations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("murderV", "murder", "murders", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("fart&nbspon", "disrespect", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("sabotageV", "sabotage", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("celebrate", ["celebration", "festival", "holiday"], ["celebrations", "festivals", "holidays"], "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromTransVerb("set&nbspupright", "erection", "erections", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+
+        //intransitive verb to count noun
+        function deriveabstractNounFromIntransVerb(originalWord, derivedWord, plural, activePass, animateInimate, divineProfane, humanAnimal, masculineFeminineNeuter, masculineFeminine, naturalArt, animacy, shape, shortGeneric) {
+                
+                let trueOrFalse = "";
+                let derivedWordArray = "";
+                let index = intransitiveVerbArray.indexOf(originalWord);
+                let randomWordFromOriginalWordArray = randomIndexOfArray(originalWord);
+                if(typeof derivedWord !== "string") {
+                        derivedWordArray = cloneArray(derivedWord);
+                        derivedWord = randomIndexOfArray(derivedWordArray);
+                };
+                if(typeof shape !== "string") {
+                        shape = shape[derivedWordArray.indexOf(derivedWord)];
+                };
+                if(typeof plural !== "string") {
+                        plural = plural[derivedWordArray.indexOf(derivedWord)];
+                };
+                if(typeof originalWord !== "string" && intransitiveVerbArray.includes(randomWordFromOriginalWordArray)) {
+                        trueOrFalse = true;
+                        index = intransitiveVerbArray.indexOf(randomWordFromOriginalWordArray);
+                } else if (intransitiveVerbArray.includes(originalWord)){
+                        trueOrFalse = true;
+                        index = intransitiveVerbArray.indexOf(originalWord);
+                };
+                if(trueOrFalse) {
+                        //decides if word will have a derivation
+                        if(Math.floor(Math.random() * 3) === 1) {
+                                //decides if term is derived in modern language or old language
+                                let derivedInModernOrOld = "";
+                                if(Math.floor(Math.random() * 3) === 1) {
+                                        derivedInModernOrOld = "old";
+                                } else {
+                                        derivedInModernOrOld = "modern";
+                                };
+
+                                if(suffixOrPrefix === "suffix") {
+                                        derivedTerm = soundChange(generatedIntransitiveVerbs[index] + "A") + soundChange("X" + abstractAffix);
+                                        olderDerivedTerm = generatedIntransitiveVerbs[index] + abstractAffix;
+                                } else {
+                                        derivedTerm = soundChange(abstractAffix + "A") + soundChange("X" + generatedIntransitiveVerbs[index]);
+                                        olderDerivedTerm = abstractAffix + generatedIntransitiveVerbs[index];
+                                };
+
+                                if(countNounArray.includes(derivedWord)) {
+                                        if(derivedInModernOrOld === "old") {
+                                                generatedCountNouns[countNounArray.indexOf(derivedWord)] = olderDerivedTerm;
+                                                derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "inheritedOldDerived";
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb"))}</i>&nbsp"to&nbsp${intransitiveVerbArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[index])], "verb"))}</i>&nbsp"${intransitiveVerbArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb")))}</i>)`;
+                                                };
+                                        } else {
+                                                generatedCountNouns[countNounArray.indexOf(derivedWord)] = derivedTerm;
+                                                derivedOrInheritedCountNoun[countNounArray.indexOf(derivedWord)] = "derived";
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[index])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[index])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[index])}"`;
+                                                };
+                                                //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                                if(derivationListIntransVerb[index] === "") {
+                                                        derivationListIntransVerb[index] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`
+                                                } else {
+                                                        derivationListIntransVerb[index] = derivationListIntransVerb[index] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`;
+                                                };
+                                        }
+                                        etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = intransitiveVerbArray[index];
+                                        derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
+                                } else {
+                                        countNounArray.push(derivedWord);
+                                        countNounArrayPlural.push(plural);
+                                        activePassive.push(activePass);
+                                        animInan.push(animateInimate);
+                                        divineNonDivine.push(divineProfane);
+                                        humanAnimalInan.push(humanAnimal);
+                                        mascFemNeut.push(masculineFeminineNeuter);
+                                        mascFem.push(masculineFeminine);
+                                        naturalArtificial.push(naturalArt);
+                                        animacyClassifierArray.push(animacy);
+                                        shapeClassifierArray.push(shape);
+                                        shortGenericClassifierArray.push(shortGeneric);
+                                        derivationListCountNoun.push("");
+                                        if(derivedInModernOrOld === "old") {
+                                                generatedCountNouns.push(olderDerivedTerm);
+                                                derivedOrInheritedCountNoun.push("inheritedOldDerived");
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb"))}</i>&nbsp"${intransitiveVerbArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb")))}</i>)&nbsp+&nbsp<i>-${spell("X" + abstractAffix)}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderDerivedTerm, "noun"))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(derivedWord)}"&nbsp<&nbsp<i>${spell(abstractAffix + "A")}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[index])], "noun"))}</i>&nbsp"to&nbsp${intransitiveVerbArray[index]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb")))}</i>)`;
+                                                };
+                                        } else {
+                                                generatedCountNouns.push(derivedTerm) 
+                                                derivedOrInheritedCountNoun.push("derived");
+                                                if(suffixOrPrefix === "suffix") {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[index])}"&nbsp+&nbsp<i>-${spell(soundChange("X" + abstractAffix))}</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"`;
+                                                } else {
+                                                        etymologyCountNoun[countNounArray.indexOf(derivedWord)] = `<i>${spell(soundChange(abstractAffix + "A"))}-</i>&nbsp"derives&nbspabstract&nbspnouns&nbspfrom&nbspany&nbsppart&nbspof&nbspspeech"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[intransitiveVerbArray.indexOf(intransitiveVerbArray[index])], "verb")))}</i>&nbsp"to&nbsp${removeDistinguishingLetter(intransitiveVerbArray[index])}"`;
+                                                }; 
+                                        };
+                                        //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                        if(derivationListIntransVerb[index] === "") {
+                                                derivationListIntransVerb[index] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`
+                                        } else {
+                                                derivationListIntransVerb[index] = derivationListIntransVerb[index] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i></strong>&nbsp"${derivedWord}"`;
+                                        }; 
+                                        etymologyArrayCountNoun.push(transitiveVerbArray[index]);                       
+                                };
+                                if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
+                                        let exampleLi = document.createElement("li");
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(generatedIntransitiveVerbs[index], "verb")))}</i> "to&nbsp${intransitiveVerbArray[index]}" > <i>${spell(addGrammaticalAffixes(derivedTerm, "noun"))}</i> "${derivedWord}"`;
+                                        ul.appendChild(exampleLi);
+                                        exampleCounter++;
+                                };
+                        };
+                };
+        };
+
+        deriveabstractNounFromIntransVerb("aim", ["target", "aiming", "goal", "intention"], ["targets", "X", "goals", "intentions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("appear", ["appearance", "arrival", "presence"], ["appearances", "arrivals", "presences"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("ask", ["question", "curiosity"], ["questions", "curiosities"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("babble", "nonsense", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("belch", "emission", "emissions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("benefitV", ["benefit", "upside", "advantage", "improvement"], ["benefits", "upsides", "advantages", "improvements"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("bleat", ["call", "animal&nbspsound"], ["calls", "animal&nbspsounds"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("bloom", "spring", "springs", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("buzz", "commotion", "commotions", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("come", ["arrival", "conclusion"], ["arrivals", "conclusions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("complain", "complaint", "complaints", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("crawl", ["slow&nbspapproach", "gradient"], ["slow&nbspapproaches", "gradients"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("declare", "declaration", "declarations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb(["die", "perish"], "death", "deaths", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb(["dive", "fall"], ["intrusion", "degeneration", "fall", "decline"], ["intrusions", "degenerations", "falls", "declines"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("dreamV", ["dream", "prophesy"], ["dreams", "prophesies"], "passive", "inanimate", "divine", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("drip", "leakage", "leakages", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("fail", "failure", "failures", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("fartV", ["fart", "flatulence"], ["farts", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("fermentV", "fermentation", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("flee", ["retreat", "exile"], ["retreats", "exiles"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("float", "buoyancy", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("flyV", "flight", "flights", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("flowV", ["flow", "libation", "downpour", "transferral", "exchange"], ["flows", "libations", "downpours", "transferrals", "exchanges"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb(["gleam", "glow", "shine"], ["flash", "spark", "glimmer"], ["flashes", "sparks", "glimmers"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb(["go", "travelV"], ["travel", "adventure"], ["travels", "adventures"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("graze", "pasture", "pastures", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("grow", "growth", "growths", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb(["restV", "sleepV"], ["sleep", "rest"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("grieve", "grief", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("mean", ["intention", "meaning"], ["intentions", "meanings"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("hurry", "rush", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("nod", ["suggestion", "agreement"], ["suggestions", "agreements"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("overflow", "flood", "floods", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("rot", "decay", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("move", ["movement", "life", "action", "deed"], ["movements", "lives", "actions", "deeds"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("live", "life", "lives", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("rejoice", ["joy", "celebration"], ["joys", "celebrations"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("reckon", ["reckoning", "arithmetic", "mathematics", "investigation", "judgement", "description", "understanding", "comprehension"], ["X", "X", "X", "investigations", "judgements", "descriptions", "understandings", "comprehensions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("pray", "prayer", "prayers", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("speak", ["speech", "language", "sentence", "word", "phrase", "saying"], ["speeches", "languages", "sentences", "words", "phrases", "sayings"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("realise", "realisation", "realisations", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("sneak", "stealth", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("play", ["game", "fun"], ["games", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("impel", ["impulsion", "instinct", "emotion"], ["impulsions", "instincts", "emotions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("lament", ["lamentation", "sorrow", "sadness"], ["lamentations", "sorrows", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("shitV", ["shit", "excrement", "toilet"], ["X", "X", "toilets"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("sit", ["wait", "delay", "placement", "place", "stance", "opinion"], ["X", "delays", "placements", "places", "stances", "opinions"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("stand", ["stance", "place", "area", "posture", "rank"], ["stances", "places", "areas", "postures", "ranks"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("step", ["approach", "method"], ["approaches", "methods"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("suffer", ["suffering", "pain"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("suggest", ["suggestion", "reccomendation", "advice"], ["suggestions", "reccomendations", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("stink", ["bad&nbspsmell"], ["bad&nbspsmells"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("swell", ["swelling", "surge", "rise", "increase"], ["X", "surges", "rises", "increases"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("tame", ["taming", "domestication"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("think", ["thought", "mind", "idea"], ["thoughts", "minds", "ideas"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("tremble", ["fear", "quake", "chaos", "thunder"], ["fears", "quakes", "X", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("subdue", ["subduction", "servitude"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("understand", ["comprehension", "understanding", "knowledge"], "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("venture", ["journey", "adventure", "expedition", "exploration", "research"], ["journeys", "adventures", "expeditions", "explorations", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("wake", ["reality", "learning"], ["realities", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("weep", ["weeping", "sorry", "sadness", "lamentation", "woe", "depression", "grief"], ["X", "X", "X", "lamentations", "woes", "depression", "X"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("wishV", ["wish", "desire"], ["wishes", "desires"], "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
+        deriveabstractNounFromIntransVerb("workV", "labour", "X", "passive", "inanimate", "profane", "secondinanimate", "neuter", "masculine1", "natural", "inedible", "shapeless", "natural-inanimate");
         
 
         document.getElementById("derivational-affixes").appendChild(li);
@@ -3874,6 +4423,7 @@ function verbToInanimateAgent() {
                                                 };
                                         }
                                         etymologyArrayCountNoun[countNounArray.indexOf(derivedWord)] = intransitiveVerbArray[index];
+                                        derivationListCountNoun[countNounArray.indexOf(derivedWord)] = "";
                                 } else {
                                         countNounArray.push(derivedWord);
                                         countNounArrayPlural.push(plural);

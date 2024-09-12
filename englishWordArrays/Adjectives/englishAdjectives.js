@@ -318,7 +318,7 @@ etymologyArrayADJ.push("X");
 etymologyADJ.push("X");
 derivationListAdj.push("");
 
-adjectiveArray.push("fun");
+adjectiveArray.push("funA");
     comparativeAdjectiveArray.push("funner");
 derivedOrInheritedADJ.push("inherited")
 etymologyArrayADJ.push("X");

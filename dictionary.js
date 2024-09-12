@@ -2,7 +2,7 @@
 import {genderNum, nounGenderArray, genderSuffixOrPrefix, animateAffix, inanimateAffix, masculineAffix, feminineAffix, neuterAffix, divineAffix, profaneAffix, humanAffix, animalAffix, inanimate2Affix, activeAffix, passiveAffix, naturalAffix, artificialAffix, markedSingularOrNot, numberSuffixOrPrefix, singularAffix, typologyNum, randomClassifierNum, grammaticalNumIsolating, randomNumForLongAndSlender, randomNumForShortAndWide, randomNumForRound, randomNumForPointed, randomNumForFlat, branchExample, poleExample, shoulderExample, wedgeExample, appleExample, pebbleExample, ballExample, arrowExample, thornExample, forkExample, slabExample, faceExample, airExample, randomNumForShapeless, manExample, randomNumForMan, womanExample, randomNumForWoman, childExample, randomNumForChild, randomNumForWildAnimal, wolfExample, bearExample, randomNumForMeat, goatExample, randomNumForFur, skinExample, sheepExample, randomNumForLabour, labourExample, pushExample, horseExample, hoofExample, donkeyExample, randomNumForMilk, milkExample, udderExample, cowExample, randomNumForInEdible, thingExample, rockExample, randomNumForEdible, basketExample, berryExample, randomNumForHuman, manExample2, humanExample, personExample, randomNumForTree, oakExample, alderExample, elmExample, beechExample, grassExample, randomNumForGrass, flowerExample, randomNumForFlower, randomNumForLandAnimal, landExample, waterExample, randomNumForWaterAnimal, seaExample, fishExample, skyExample, randomNumForFlyingAnimal, cloudExample, wingExample, randomNumForWord, wordExample, mouthExample, randomNumForTool, axeExample, handleExample, hammerExample, ploughExample, rockExample2, dirtExample, mudExample, randomNumForNatural, randomNumForLiquid, dropExample, poolExample, cupExample, grammaticalNumAgglutinative, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass, mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray, languageName
 } from './script.js'
 import { grammaticalNumber, nomSgAffix, caseNumber, animSgAffix, inanSgAffix, animGeneralAffix, inanGeneralAffix, nomGeneralAffix, femSgAffix, mascSgAffix } from './fusionalNouns.js';
-import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ, activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, etymologyCountNoun, etymologyArrayCountNoun, derivedOrInheritedCountNoun, etymologyMassNoun, etymologyArrayMassNoun, derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb, derivedOrInheritedMassNoun, derivationListTransVerb, derivedOrInheritedIntransVerb, derivationListIntransVerb, etymologyArrayIntransVerb, etymologyIntransVerb, derivationListCountNoun, derivationListMassNoun, derivationListAdj} from './derivation.js';
+import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, etymologyArrayADJ, derivedOrInheritedADJ, etymologyADJ, activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, etymologyCountNoun, etymologyArrayCountNoun, derivedOrInheritedCountNoun, etymologyMassNoun, etymologyArrayMassNoun, derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb, derivedOrInheritedMassNoun, derivationListTransVerb, derivedOrInheritedIntransVerb, derivationListIntransVerb, etymologyArrayIntransVerb, etymologyIntransVerb, derivationListCountNoun, derivationListMassNoun, derivationListAdj, derivationListAdpo, etymologyADPO, derivedOrInheritedADPO, quantifierArray, generatedQuantifiers,etymologyArrayQuantifier, etymologyQuantifier, derivationListQuantfier, derivedOrInheritedQuantifier} from './derivation.js';
 import {oldCountNounArray, oldMassNounArray} from './semanticShift.js'
 
 import { spell } from './orthography.js'
@@ -60,9 +60,9 @@ let wordWithAffix = "";
 let classifierInfo = "";
 
 function makeDictionary() {
-    let englishWords = countNounArray.concat(massNounArray, adjectiveArray, transitiveVerbArray, intransitiveVerbArray, adverbArray, conjunctionArray, adpositionArray, intensifierArray);
+    let englishWords = countNounArray.concat(massNounArray, adjectiveArray, transitiveVerbArray, intransitiveVerbArray, adverbArray, conjunctionArray, adpositionArray, intensifierArray, quantifierArray);
 
-    let languageWords = generatedCountNouns.concat(generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers);
+    let languageWords = generatedCountNouns.concat(generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, generatedQuantifiers);
 
     //when an English verb is homophonous with a noun, e.g "to love" and "love", the dictionary assigns both as being nouns. To avoid this, such verbs end with a capital "V", so that the strings are different. This function serves to remove that "V" after the dictionary has designated the word as a verb
     function removeDistinguishingLetter(word) {
@@ -128,6 +128,10 @@ function makeDictionary() {
             classifierInfo = "";;
         } else if (intensifierArray.includes(englishWords[i])) {
             pOfSpeech = "adv";
+            wordWithAffix = languageWords[i];
+            classifierInfo = "";
+        } else if (quantifierArray.includes(englishWords[i])) {
+            pOfSpeech = "det" + bareRoots;
             wordWithAffix = languageWords[i];
             classifierInfo = "";
         }
@@ -1193,6 +1197,22 @@ function makeDictionary() {
                     etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyIntransVerb[intransitiveVerbArray.indexOf(englishWords[i])]}`;
                     derivations.innerHTML = `&nbsp&nbsp&nbsp&nbsp${derivationListIntransVerb[intransitiveVerbArray.indexOf(englishWords[i])]}`;
                 };
+        }  else if(adpositionArray.includes(englishWords[i])) {
+            if(derivedOrInheritedADPO[adpositionArray.indexOf(englishWords[i])] === "inherited") {
+                etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
+                derivations.innerHTML = `&nbsp&nbsp&nbsp&nbsp${derivationListAdpo[adpositionArray.indexOf(englishWords[i])]}`
+            } else if (derivedOrInheritedADPO[adpositionArray.indexOf(englishWords[i])] === "derived"||derivedOrInheritedADPO[adpositionArray.indexOf(englishWords[i])] === "inheritedOldDerived") {
+                    etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyADPO[adpositionArray.indexOf(englishWords[i])]}`;
+                    derivations.innerHTML = `&nbsp&nbsp&nbsp&nbsp${derivationListAdpo[adpositionArray.indexOf(englishWords[i])]}`;
+                };
+        }  else if(quantifierArray.includes(englishWords[i])) {
+            if(derivedOrInheritedQuantifier[quantifierArray.indexOf(englishWords[i])] === "inherited") {
+                etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
+                derivations.innerHTML = `&nbsp&nbsp&nbsp&nbsp${derivationListQuantfier[quantifierArray.indexOf(englishWords[i])]}`
+            } else if (derivedOrInheritedQuantifier[quantifierArray.indexOf(englishWords[i])] === "derived"||derivedOrInheritedQuantifier[quantifierArray.indexOf(englishWords[i])] === "inheritedOldDerived") {
+                    etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbsp${etymologyQuantifier[quantifierArray.indexOf(englishWords[i])]}`;
+                    derivations.innerHTML = `&nbsp&nbsp&nbsp&nbsp${derivationListQuantfier[quantifierArray.indexOf(englishWords[i])]}`;
+                };
         } else {
             etymology.innerHTML = `<br>&nbsp&nbsp&nbsp&nbsp<&nbspOld&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${word1.etymology}</i>&nbsp"${etymologyTranslation}"`;
         };
@@ -1235,6 +1255,9 @@ function makeDictionary() {
             wordWithAffix = "X" + languageWords[i];
         } else if (intensifierArray.includes(englishWords[i])) {
             pOfSpeech = "adv";
+            wordWithAffix = "X" + languageWords[i];
+        } else if (quantifierArray.includes(englishWords[i])) {
+            pOfSpeech = "det";
             wordWithAffix = "X" + languageWords[i];
         }
 

@@ -6852,7 +6852,7 @@ animInan.push("anim");
 divineNonDivine.push("profane");
 humanAnimalInan.push("human");
 mascFemNeut.push("masculine2");
-mascFem.push("masculine");
+mascFem.push("masculine1");
 naturalArtificial.push("natural");
 animacyClassifierArray.push("man");
 shapeClassifierArray.push("long-and-slender");

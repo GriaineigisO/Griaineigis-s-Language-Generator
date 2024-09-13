@@ -515,7 +515,7 @@ function addGrammaticalAffixes(word, partOfSpeech) {
 
 let randomNumberForDerivationSelection = 0;
 function selectDerivationalAffixes() {
-    let chosenDerivations = [exocentric];
+    let chosenDerivations = [comparison];
     let potentialDerivations = [
         VtoADJprone,
         NtoNPossessorOf,
@@ -529,7 +529,8 @@ function selectDerivationalAffixes() {
         verbToInanimateAgent,
         merism,
         endocentric,
-        exocentric
+        exocentric,
+        comparison
     ];
 
      //forces a derivational method to be chosen - this is done when a word in the Old Languge has shifted meaning but the word is too essential for the modern languagr to lack it. E.g is Old Language word for "hand" gains a new meaning, then a new term for "hand" MUST be made, this ensures that the correct method which can make this new word is chosen
@@ -4754,6 +4755,7 @@ function verbToInanimateAgent() {
 }
 
 //all functions below create compounds
+ 
 
 //a merism is a combination of two words to refer to a greater whole
 function merism() {
@@ -5622,13 +5624,13 @@ function exocentric() {
                 };
 
                 //decides if word will have a derivation
-                if(/*Math.floor(Math.random() * 2) === 1*/true) {
+                if(Math.floor(Math.random() * 2) === 1) {
                         let firstItemIndex = firstElementEnglishWordArray.indexOf(arg.word1);
                         let secondItemIndex = secondElementEnglishWordArray.indexOf(arg.word2);
 
                         //decides if term is derived in modern language or old language
                         let derivedInModernOrOld = "";
-                        if(/*Math.floor(Math.random() * 2)*/2 === 1) {
+                        if(Math.floor(Math.random() * 2) === 1) {
                                 derivedInModernOrOld = "old";
                                 if(checkIfHeadInitialOrHeadFinal === "headInitial") {
                                         olderCompound = firstElement + secondElement;
@@ -5718,7 +5720,7 @@ function exocentric() {
                                         if(checkIfHeadInitialOrHeadFinal === "headInitial") {
                                                 etymology[targetEnglishWordArray.indexOf(compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${arg.word1}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${arg.word2}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
                                         } else {
-                                                etymology[targetEnglishWordArray.indexOf(compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${arg.word2}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${arg.word1}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
+                                                etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${arg.word2}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${arg.word1}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
                                         }                      
                                         
                                 } else {
@@ -5845,6 +5847,375 @@ function exocentric() {
                 animacy: "man",
                 shape: "long-and-slender",
                 shortGeneric: "human2",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+}
+
+function comparison() {
+        let li = document.createElement("li");
+        let ul = document.createElement("ul");
+        let exampleCounter = 0;
+        li.innerHTML = `Comparison compounds: Comprised of an adjective and a noun, with the meaning of "as ADJ as N" or "ADJ in the same manner as an N". Often the meaning is simply a more intense form of the adjective`
+
+        function createcomparison(arg) {
+                let firstElement = "";
+                let secondElement = "";
+
+                let firstElementGeneratedArray = "";
+                let secondElementGeneratedArray = "";
+                let targetElementGeneratedArray = "";
+
+                let firstElementEnglishWordArray = "";
+                let secondElementEnglishWordArray = "";
+                let targetEnglishWordArray = "";
+
+                let derivedOrInherited = "";
+                let etymology = "";
+
+                let compound = "";
+                let olderCompound = "";
+                let firstElementDerivationList = "";
+                let secondElementDerivationList = "";
+                let targetDerivationList = "";
+
+                let firstElementEtymologyArray = "";
+                let secondElementEtymologyArray = "";
+                let targetElementEtymologyArray = "";
+
+                let targetDerivedOrInherited = "";
+
+                let to = "";
+
+                if(typeof arg.word2 !== "string") {
+                        let index = Math.floor(Math.random() * arg.word2.length)
+                        arg.word2 = arg.word2[index];
+                        arg.compoundMeaning = arg.compoundMeaning[index]
+
+                };
+                
+                if(arg.firstElementPartOfSpeech === "noun") {
+                        if(arg.firstElementType === "count") {
+                                firstElement = generatedCountNouns[countNounArray.indexOf(arg.word1)];
+                                firstElementEnglishWordArray = countNounArray;
+                                firstElementGeneratedArray = generatedCountNouns;
+                                firstElementDerivationList = derivationListCountNoun;
+                                firstElementEtymologyArray = etymologyArrayCountNoun;
+                        } else if (arg.firstElementType === "mass") {
+                                firstElement = generatedMassNouns[massNounArray.indexOf(arg.word1)];
+                                firstElementEnglishWordArray = massNounArray;
+                                firstElementGeneratedArray = generatedMassNouns;
+                                firstElementDerivationList = derivationListMassNoun;
+                                firstElementEtymologyArray = etymologyArrayMassNoun;
+                        };
+                } else if (arg.firstElementPartOfSpeech === "adjective") {
+                        firstElement = generatedAdjectives[adjectiveArray.indexOf(arg.word1)];
+                        firstElementEnglishWordArray = adjectiveArray;
+                        firstElementGeneratedArray = generatedAdjectives;
+                        firstElementDerivationList = derivationListAdj;
+                        firstElementEtymologyArray = etymologyArrayADJ;
+                }
+
+                if(arg.secondElementPartOfSpeech === "noun") {
+                        if(arg.secondElementType === "count") {
+                                secondElement = generatedCountNouns[countNounArray.indexOf(arg.word2)];
+                                secondElementEnglishWordArray = countNounArray;
+                                secondElementGeneratedArray = generatedCountNouns;
+                                secondElementDerivationList = derivationListCountNoun;
+                                secondElementEtymologyArray = etymologyArrayCountNoun;
+                        } else if (arg.secondElementType === "mass") {
+                                secondElement = generatedMassNouns[massNounArray.indexOf(arg.word2)];
+                                secondElementEnglishWordArray = massNounArray;
+                                secondElementGeneratedArray = generatedMassNouns;
+                                secondElementDerivationList = derivationListMassNoun;
+                                secondElementEtymologyArray = etymologyArrayMassNoun;
+                        };
+                };
+
+                if(arg.compoundPartOfSpeech === "noun") {
+                        if(arg.compoundType === "count") {
+                                targetEnglishWordArray = countNounArray;
+                                targetElementGeneratedArray = generatedCountNouns;
+                                derivedOrInherited = derivedOrInheritedCountNoun;
+                                etymology = etymologyCountNoun;
+                                targetElementEtymologyArray = etymologyArrayCountNoun;
+                                targetDerivedOrInherited = derivedOrInheritedCountNoun;
+                                targetDerivationList = derivationListCountNoun;
+                        } else if (arg.compoundType === "mass") {
+                                targetEnglishWordArray = massNounArray;
+                                targetElementGeneratedArray = generatedMassNouns;
+                                derivedOrInherited = derivedOrInheritedMassNoun;
+                                etymology = etymologyMassNoun;
+                                targetElementEtymologyArray = etymologyArrayMassNoun;
+                                targetDerivedOrInherited = derivedOrInheritedMassNoun;
+                                targetDerivationList = derivationListMassNoun;
+                        };
+                } else if(arg.compoundPartOfSpeech === "adjective") {
+                        targetEnglishWordArray = adjectiveArray;
+                        targetElementGeneratedArray = generatedAdjectives;
+                        derivedOrInherited = derivedOrInheritedADJ;
+                        etymology = etymologyADJ;
+                        targetElementEtymologyArray = etymologyArrayADJ;
+                        targetDerivedOrInherited = derivedOrInheritedADJ;
+                        targetDerivationList = derivationListAdj;
+                }
+
+                //decides if word will have a derivation
+                if(/*Math.floor(Math.random() * 2) === 1*/true) {
+                        let firstItemIndex = firstElementEnglishWordArray.indexOf(arg.word1);
+                        let secondItemIndex = secondElementEnglishWordArray.indexOf(arg.word2);
+
+                        //decides if term is derived in modern language or old language
+                        let derivedInModernOrOld = "";
+                        if(/*Math.floor(Math.random() * 2)*/2 === 1) {
+                                derivedInModernOrOld = "old";
+                                if(checkIfHeadInitialOrHeadFinal === "headInitial") {
+                                        olderCompound = firstElement + secondElement;
+                                } else {
+                                        olderCompound = secondElement + firstElement;
+                                }
+                                
+                        } else {
+                                derivedInModernOrOld = "modern";
+                                if(checkIfHeadInitialOrHeadFinal === "headInitial") {
+                                        compound = soundChange(firstElement) + soundChange(secondElement);
+                                } else {
+                                        compound = soundChange(secondElement) + soundChange(firstElement);
+                                };
+                        };
+
+                        if(targetEnglishWordArray.includes(arg.compoundMeaning)) {
+                                if(derivedInModernOrOld === "old") {
+                                        targetElementGeneratedArray[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = olderCompound;
+                                        targetDerivedOrInherited[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = "inheritedOldDerived";
+                                        if(checkIfHeadInitialOrHeadFinal === "headInitial") {
+                                                etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${firstElementEnglishWordArray[firstItemIndex]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${secondElementEnglishWordArray[secondItemIndex]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp <i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
+                                        } else {
+                                                etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${secondElementEnglishWordArray[secondItemIndex]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${firstElementEnglishWordArray[firstItemIndex]}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp <i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
+                                        }
+                                        
+                                } else {
+                                        targetElementGeneratedArray[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = compound;
+                                        targetDerivedOrInherited[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = "derived";
+                                        if(checkIfHeadInitialOrHeadFinal === "headInitial") {
+                                                etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>&nbsp"${to}${removeDistinguishingLetter(firstElementEnglishWordArray[firstItemIndex])}"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>&nbsp"${to}${removeDistinguishingLetter(secondElementEnglishWordArray[secondItemIndex])}"-&nbsp${arg.compoundDescription}`;
+                                        } else {
+                                                etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>&nbsp"${to}${removeDistinguishingLetter(secondElementEnglishWordArray[secondItemIndex])}"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>&nbsp"${to}${removeDistinguishingLetter(firstElementEnglishWordArray[firstItemIndex])}"-&nbsp${arg.compoundDescription}`;
+                                        }
+                                        
+
+                                        //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                        if(firstElementDerivationList[firstItemIndex] === "") {
+                                                firstElementDerivationList[firstItemIndex] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i></strong>&nbsp"${arg.compoundMeaning}"`
+                                        } else {
+                                                firstElementDerivationList[firstItemIndex] = firstElementDerivationList[firstItemIndex] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i></strong>&nbsp"${arg.compoundMeaning}"`;
+                                        };
+                                        if(secondElementDerivationList[secondItemIndex] === "") {
+                                                secondElementDerivationList[secondItemIndex] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i></strong>&nbsp"${arg.compoundMeaning}"`
+                                        } else {
+                                                secondElementDerivationList[secondItemIndex] = secondElementDerivationList[secondItemIndex] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i></strong>&nbsp"${arg.compoundMeaning}"`;
+                                        };
+                                }
+                                targetElementEtymologyArray[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = [arg.word1, arg.word2];
+                                targetDerivationList[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = "";
+                        } else {
+                                targetEnglishWordArray.push(arg.compoundMeaning);
+
+                                if(arg.compoundPartOfSpeech === "noun" && arg.compoundType === "count") {
+                                        countNounArrayPlural.push(arg.plural);
+                                        activePassive.push(arg.activePass);
+                                        animInan.push(arg.animateInimate);
+                                        divineNonDivine.push(arg.divineProfane);
+                                        humanAnimalInan.push(arg.humanAnimal);
+                                        mascFemNeut.push(arg.masculineFeminineNeuter);
+                                        mascFem.push(arg.masculineFeminine);
+                                        naturalArtificial.push(arg.naturalArt);
+                                        animacyClassifierArray.push(arg.animacy);
+                                        shapeClassifierArray.push(arg.shape);
+                                        shortGenericClassifierArray.push(arg.shortGeneric);
+                                };
+
+                                if(arg.compoundPartOfSpeech === "noun" && arg.compoundType === "mass") {
+                                        singulativeMassNounArray.push(arg.singulative);
+                                        pluralSingulativeMassNounArray.push(arg.pluralSingulative);
+                                        activePassiveMass.push(arg.activePass);
+                                        animInanMass.push(arg.animateInimate);
+                                        divineNonDivineMass.push(arg.divineProfane);
+                                        humanAnimalInanMass.push(arg.humanAnimal);
+                                        mascFemNeutMass.push(arg.masculineFeminineNeuter);
+                                        mascFemMass.push(arg.masculineFeminine);
+                                        naturalArtificialMass.push(arg.naturalArt);
+                                        animacyClassifierMassArray.push(arg.animacy);
+                                        shapeClassifierMassArray.push(arg.shape);
+                                        shortGenericClassifierMassArray.push(arg.shortGeneric);
+                                };
+                                
+                                targetDerivationList.push("");
+                                if(derivedInModernOrOld === "old") {
+                                        targetElementGeneratedArray.push(olderCompound);
+                                        targetDerivedOrInherited.push("inheritedOldDerived");  
+                                        if(checkIfHeadInitialOrHeadFinal === "headInitial") {
+                                                etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${arg.word1}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${arg.word2}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
+                                        } else {
+                                                etymology[targetEnglishWordArray.indexOf(compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${arg.word2}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${arg.word1}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
+                                        }                      
+                                        
+                                } else {
+                                        targetElementGeneratedArray.push(compound) 
+                                        targetDerivedOrInherited.push("derived");
+                                        if(checkIfHeadInitialOrHeadFinal === "headInitial") {
+                                                etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.word1)}"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.word2)}"-&nbsp${arg.compoundDescription}`;
+                                        } else {
+                                                etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.word2)}"&nbsp+&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.word1)}"-&nbsp${arg.compoundDescription}`;
+                                        }
+                                        
+                                };
+
+                                //lists the derived word, so it can be displayed in the dictionary entry of the original word
+                                if(firstElementDerivationList[firstItemIndex] === "") {
+                                        firstElementDerivationList[firstItemIndex] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i></strong>&nbsp"${arg.compoundMeaning}"`
+                                } else {
+                                        firstElementDerivationList[firstItemIndex] = firstElementDerivationList[firstItemIndex] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i></strong>&nbsp"${arg.compoundMeaning}"`;
+                                }; 
+                                if(secondElementDerivationList[secondItemIndex] === "") {
+                                        secondElementDerivationList[secondItemIndex] = `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i></strong>&nbsp"${arg.compoundMeaning}"`
+                                } else {
+                                        secondElementDerivationList[secondItemIndex] = secondElementDerivationList[secondItemIndex] + `<br>&nbsp&nbsp&nbsp&nbsp-&nbsp<i><strong>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i></strong>&nbsp"${arg.compoundMeaning}"`;
+                                }; 
+                                targetElementEtymologyArray.push([arg.word1, arg.word2]);                       
+                        };
+                        if(exampleCounter < 6 && derivedInModernOrOld === "modern") {
+                                let exampleLi = document.createElement("li");
+                                if(checkIfHeadInitialOrHeadFinal === "headInitial") {
+                                      exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i> "${to}${removeDistinguishingLetter(arg.word1)}" + <i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i> "${to}${removeDistinguishingLetter(arg.word2)}" > <i>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i> "${arg.compoundMeaning}"`;
+                                        ul.appendChild(exampleLi);
+                                        exampleCounter++;  
+                                } else {
+                                        exampleLi.innerHTML = `<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i> "${to}${removeDistinguishingLetter(arg.word2)}" + <i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i> "${to}${removeDistinguishingLetter(arg.word1)}" > <i>${spell(addGrammaticalAffixes(compound, arg.compoundPartOfSpeech))}</i> "${arg.compoundMeaning}"`;
+                                        ul.appendChild(exampleLi);
+                                        exampleCounter++;  
+                                }
+                                
+                        };
+                };
+                
+                document.getElementById("compounds").appendChild(li);
+                li.appendChild(ul);
+        };   
+
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "long",
+                word2: ["arm", "belt", "javelin", "river", "year"],
+                compoundMeaning: ["as&nbsplong&nbspas&nbspan&nbsparm", "as&nbsplong&nbspas&nbspa&nbspbelt", "as&nbsplong&nbspas&nbspa&nbspjavelin", "as&nbsplong&nbspas&nbspa&nbspriver", "yearlong"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "able",
+                word2: ["craftsman", "horse", "ox"],
+                compoundMeaning: ["as&nbspable&nbspas&nbspa&nbspcraftsman", "as&nbspable&nbspas&nbspa&nbsphorse", "as&nbspable&nbspas&nbspan&nbspox"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "angry",
+                word2: "wolf",
+                compoundMeaning: ["as&nbspangry&nbspas&nbspa&nbspwolf"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "beautiful",
+                word2: ["flower", "butterfly", "star", "crown", "spring"],
+                compoundMeaning: ["as&nbspbeautiful&nbspas&nbspa&nbspflower", "as&nbspbeautiful&nbspas&nbspa&nbspbutterfly", "as&nbspbeautiful&nbspas&nbspa&nbspstar", "as&nbspbeautiful&nbspas&nbspa&nbspcrown", "as&nbspbeautiful&nbspas&nbspspring"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
                 //adjective
                 comparative: "",
                 //verb

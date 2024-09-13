@@ -200,7 +200,6 @@ Colour metaohors?
 - adpo/adv > adjective
   - here > present
   - away > absent
-- sparkle/glimmer/shine > star
 - derives frequentive verbs
 - derives verbs of greater intensity
 - derives verbs of lesser intensity

@@ -9636,8 +9636,24 @@ derivationListCountNoun.push("");
 oldCountNounArray.push("");
 /*--------------------------------------------*/
 
-
-
+countNounArray.push("monster");
+countNounArrayPlural.push("monsters");
+activePassive.push("active")
+animInan.push("anim");
+divineNonDivine.push("divine");
+humanAnimalInan.push("animal");
+mascFemNeut.push("masculine2");
+mascFem.push("masculine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("wild-animal");
+shapeClassifierArray.push("long-and-slender");
+shortGenericClassifierArray.push("land-animal");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
 
 countNounArray.push("salmon");
 countNounArrayPlural.push("salmons");
@@ -11286,7 +11302,24 @@ derivationListCountNoun.push("");
 oldCountNounArray.push("");
 /*--------------------------------------------*/
 
-
+countNounArray.push("storm");
+countNounArrayPlural.push("storms");
+activePassive.push("active")
+animInan.push("anim");
+divineNonDivine.push("divine");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("shapeless");
+shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
 
 
 countNounArray.push("storeroom");

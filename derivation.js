@@ -515,7 +515,7 @@ function addGrammaticalAffixes(word, partOfSpeech) {
 
 let randomNumberForDerivationSelection = 0;
 function selectDerivationalAffixes() {
-    let chosenDerivations = [comparison];
+    let chosenDerivations = [];
     let potentialDerivations = [
         VtoADJprone,
         NtoNPossessorOf,
@@ -4936,7 +4936,7 @@ function merism() {
                                 if(derivedInModernOrOld === "old") {
                                         targetElementGeneratedArray.push(olderCompound);
                                         targetDerivedOrInherited.push("inheritedOldDerived");                                   
-                                        etymology[targetEnglishWordArray.indexOf(compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp
+                                        etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp
                                         "${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${arg.word1}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${arg.word2}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
                                 } else {
                                         targetElementGeneratedArray.push(compound) 
@@ -5894,7 +5894,11 @@ function comparison() {
                         let index = Math.floor(Math.random() * arg.word2.length)
                         arg.word2 = arg.word2[index];
                         arg.compoundMeaning = arg.compoundMeaning[index]
+                };
 
+                if(typeof arg.word1 !== "string") {
+                        let index = Math.floor(Math.random() * arg.word1.length)
+                        arg.word1 = arg.word1[index];
                 };
                 
                 if(arg.firstElementPartOfSpeech === "noun") {
@@ -5964,13 +5968,13 @@ function comparison() {
                 }
 
                 //decides if word will have a derivation
-                if(/*Math.floor(Math.random() * 2) === 1*/true) {
+                if(Math.floor(Math.random() * 2) === 1) {
                         let firstItemIndex = firstElementEnglishWordArray.indexOf(arg.word1);
                         let secondItemIndex = secondElementEnglishWordArray.indexOf(arg.word2);
 
                         //decides if term is derived in modern language or old language
                         let derivedInModernOrOld = "";
-                        if(/*Math.floor(Math.random() * 2)*/2 === 1) {
+                        if(Math.floor(Math.random() * 2) === 1) {
                                 derivedInModernOrOld = "old";
                                 if(checkIfHeadInitialOrHeadFinal === "headInitial") {
                                         olderCompound = firstElement + secondElement;
@@ -6060,7 +6064,7 @@ function comparison() {
                                         if(checkIfHeadInitialOrHeadFinal === "headInitial") {
                                                 etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${arg.word1}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${arg.word2}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
                                         } else {
-                                                etymology[targetEnglishWordArray.indexOf(compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${arg.word2}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${arg.word1}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
+                                                etymology[targetEnglishWordArray.indexOf(arg.compoundMeaning)] = `Old&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(addGrammaticalAffixes(olderCompound, arg.compoundPartOfSpeech))}</i>&nbsp"${to}${removeDistinguishingLetter(arg.compoundMeaning)}"&nbsp<&nbsp<i>${spell(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech))}</i>&nbsp"${to}${arg.word2}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(secondElementGeneratedArray[secondItemIndex], arg.secondElementPartOfSpeech)))}</i>)&nbsp+&nbsp<i>${spell(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech))}</i>&nbsp"${to}${arg.word1}"&nbsp(cf&nbspModern&nbsp${capitaliseLanguageName(languageName)}&nbsp<i>${spell(soundChange(addGrammaticalAffixes(firstElementGeneratedArray[firstItemIndex], arg.firstElementPartOfSpeech)))}</i>)-&nbsp${arg.compoundDescription}`;
                                         }                      
                                         
                                 } else {
@@ -6222,6 +6226,964 @@ function comparison() {
                 past: "",
                 thirdPerson: ""
         });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "blind",
+                word2: ["night", "boulder"],
+                compoundMeaning: ["as&nbspblind&nbspas&nbspnight", "as&nbspblind&nbspas&nbspa&nbspboulder"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "dark",
+                word2: ["night", "shadow"],
+                compoundMeaning: ["as&nbspdark&nbspas&nbspnight", "as&nbspdark&nbspas&nbspa&nbspshadow"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "bright",
+                word2: ["sun", "day", "fire", "noon", "sky"],
+                compoundMeaning: ["as&nbspbright&nbspas&nbspthe&nbspsun", "as&nbspbright&nbspas&nbspday", "as&nbspbright&nbspas&nbspfire", "as&nbspbright&nbspas&nbspnoon", "as&nbspbright&nbspas&nbspthe&nbspsky"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "fast",
+                word2: ["horse", "hare"],
+                compoundMeaning: ["as&nbspbright&nbspas&nbspa&nbsphorse", "as&nbspbright&nbspas&nbspa&nbsphare"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "fast",
+                word2: "wind",
+                compoundMeaning: ["as&nbspbright&nbspas&nbspwind"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "mass",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "evil",
+                word2: ["crime", "criminal", "evil"],
+                compoundMeaning: ["as&nbspevil&nbspas&nbspcrime", "as&nbspevil&nbspas&nbspa&nbspcriminal", "as&nbspevil&nbspas&nbspa&nbspmonster"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "good",
+                word2: ["dog", "friend", "tree"],
+                compoundMeaning: ["as&nbspgood&nbspas&nbspa&nbspdog", "as&nbspgood&nbspas&nbspa&nbspfriend", "as&nbspgood&nbspas&nbspa&nbsptree"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "green",
+                word2: "grass",
+                compoundMeaning: ["as&nbspgreen&nbspas&nbspgrass"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "mass",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "intelligent",
+                word2: ["crow", "fire", "raven"],
+                compoundMeaning: ["as&nbspintelligent&nbspas&nbspa&nbspcrow", "as&nbspintelligent&nbspas&nbspa&nbspraven", "as&nbspintelligent&nbspas&nbspfire"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: ["holy", "divine"],
+                word2: "god",
+                compoundMeaning: "as&nbspdivine&nbspas&nbspa&nbspgod",
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "hostile",
+                word2: ["enemy", "foreigner", "stranger"],
+                compoundMeaning: ["as&nbsphostile&nbspas&nbspan&nbspenemy", "as&nbsphostile&nbspas&nbspa&nbspforeigner", "as&nbsphostile&nbspas&nbspan&nbspstranger"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "healthy",
+                word2: ["cow", "bull", "boar"],
+                compoundMeaning: ["as&nbsphealthy&nbspas&nbspa&nbspcow", "as&nbsphealthy&nbspas&nbspa&nbspbull", "as&nbsphealthy&nbspas&nbspa&nbspboar"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "hot",
+                word2: ["fire", "sun", "furnace"],
+                compoundMeaning: ["as&nbsphot&nbspas&nbspfire", "as&nbsphoty&nbspas&nbspthe&nbspsun", "as&nbsphot&nbspas&nbspa&nbspfurnace"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: ["strong", "powerful"],
+                word2: ["fort", "stallion", "bear", "ox", "oak", "hammer", "dragon", "boar", "bull", "mammoth"],
+                compoundMeaning: ["as&nbspstrong&nbspas&nbspa&nbspfort", "as&nbspstrong&nbspas&nbspa&nbspstallion", "as&nbspstrong&nbspas&nbspa&nbspbear", "as&nbspstrong&nbspas&nbspan&nbspox", "as&nbspstrong&nbspas&nbspan&nbspoak&nbsptree", "as&nbspstrong&nbspas&nbspa&nbsphammer", "as&nbspstrong&nbspas&nbspa&nbspdragon", "as&nbspstrong&nbspas&nbspa&nbspbear", "as&nbspstrong&nbspas&nbspa&nbspbull", "as&nbspstrong&nbspas&nbspa&nbspmammoth"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: ["strong", "powerful"],
+                word2: ["fort", "stallion", "bear", "ox", "oak", "hammer", "dragon", "boar", "bull", "mammoth"],
+                compoundMeaning: ["as&nbspstrong&nbspas&nbspa&nbspfort", "as&nbspstrong&nbspas&nbspa&nbspstallion", "as&nbspstrong&nbspas&nbspa&nbspbear", "as&nbspstrong&nbspas&nbspan&nbspox", "as&nbspstrong&nbspas&nbspan&nbspoak&nbsptree", "as&nbspstrong&nbspas&nbspa&nbsphammer", "as&nbspstrong&nbspas&nbspa&nbspdragon", "as&nbspstrong&nbspas&nbspa&nbspbear", "as&nbspstrong&nbspas&nbspa&nbspbull", "as&nbspstrong&nbspas&nbspa&nbspmammoth"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "hungry",
+                word2: ["wolf", "cow", "dragon"],
+                compoundMeaning: ["as&nbsphungry&nbspas&nbspa&nbspwolf", "as&nbsphungry&nbspas&nbspa&nbspcow", "as&nbsphungry&nbspas&nbspa&nbspdragon"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "new",
+                word2: ["lamb", "kitten", "puppy"],
+                compoundMeaning: ["as&nbspnew&nbspas&nbspa&nbsplamb", "as&nbspnew&nbspas&nbspa&nbspkitten", "as&nbspnew&nbspas&nbspa&nbsppuppy"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "noble",
+                word2: ["lord", "honour", "king", "oath", "stag", "tree", "wolf", "crown", "eagle"],
+                compoundMeaning: ["as&nbspnoble&nbspas&nbspa&nbsplord", "as&nbspnoble&nbspas&nbspa&nbsphonour", "as&nbspnoble&nbspas&nbspa&nbspking", "as&nbspnoble&nbspas&nbspa&nbspoath", "as&nbspnoble&nbspas&nbspa&nbspstag", "as&nbspnoble&nbspas&nbspa&nbsptree", "as&nbspnoble&nbspas&nbspa&nbspwolf", "as&nbspnoble&nbspas&nbspa&nbspcrown", "as&nbspnoble&nbspas&nbspa&nbspeagle"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "painful",
+                word2: "wound",
+                compoundMeaning: ["as&nbsppainful&nbspas&nbspa&nbspwound"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "old",
+                word2: ["tree", "forest", "stone", "sun"],
+                compoundMeaning: ["as&nbspold&nbspas&nbspa&nbsptree", "as&nbspold&nbspas&nbspa&nbspforest", "as&nbspold&nbspas&nbspa&nbspstone", "as&nbspold&nbspas&nbspa&nbspsun"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "pure",
+                word2: ["honour", "oath", "star"],
+                compoundMeaning: ["as&nbsppure&nbspas&nbsphonour", "as&nbsppure&nbspas&nbspan&nbspoath", "as&nbsppure&nbspas&nbspa&nbspstar"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "quiet",
+                word2: ["leaf", "owl", "tree"],
+                compoundMeaning: ["as&nbspquiet&nbspas&nbspleaf", "as&nbspquiet&nbspans&nbspowl", "as&nbspquiet&nbspas&nbsptree"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "blunt",
+                word2: "club",
+                compoundMeaning: "as&nbspblunt&nbspas&nbspa&nbspclub",
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "sharp",
+                word2: ["arrow", "axe", "blade", "knife", "razor", "thorn"],
+                compoundMeaning: ["as&nbspsharp&nbspas&nbspan&nbsparrow", "as&nbspsharp&nbspas&nbspan&nbspaxe", "as&nbspsharp&nbspas&nbspa&nbspblade", "as&nbspsharp&nbspas&nbspa&nbspknife", "as&nbspsharp&nbspas&nbspa&nbsprazor", "as&nbspsharp&nbspas&nbspa&nbspthorn"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "slow",
+                word2: ["snail", "slow"],
+                compoundMeaning: ["as&nbspslow&nbspas&nbspa&nbspsnail", "as&nbspslow&nbspas&nbspa&nbspslug"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "soft",
+                word2: ["cloud", "sheep"],
+                compoundMeaning: ["as&nbspsoft&nbspas&nbspa&nbspcloud", "as&nbspsoft&nbspas&nbspa&nbspsheep"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "stiff",
+                word2: ["beam", "bolt", "book", "broom", "oar"],
+                compoundMeaning: ["as&nbspstiff&nbspas&nbspa&nbspbeam", "as&nbspstiff&nbspas&nbspa&nbspbolt", "as&nbspstiff&nbspas&nbspa&nbspbook", "as&nbspstiff&nbspas&nbspa&nbspbroom", "as&nbspstiff&nbspas&nbspa&nbspoar"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "tall",
+                word2: ["crane", "cliff", "mountain", "door"],
+                compoundMeaning: ["as&nbsptall&nbspas&nbspa&nbspcrane", "as&nbsptall&nbspas&nbspa&nbspcliff", "as&nbsptall&nbspas&nbspa&nbspmountain", "as&nbsptall&nbspas&nbspa&nbspdoor"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "violent",
+                word2: ["wolf", "storm"],
+                compoundMeaning: ["as&nbspviolent&nbspas&nbspa&nbspwolf", "as&nbspviolent&nbspas&nbspa&nbspstorm"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "loud",
+                word2: ["dog", "storm", "rooster"],
+                compoundMeaning: ["as&nbsploud&nbspas&nbspa&nbspdog", "as&nbsploud&nbspas&nbspa&nbspstorm", "as&nbsploud&nbspas&nbspa&nbsprooster"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "small",
+                word2: ["ant", "bee", "gnat", "grain", "louse", "larva", "maggot", "mouse", "pea", "pebble"],
+                compoundMeaning: ["as&nbspsmall&nbspas&nbspan&nbspant", "as&nbspsmall&nbspas&nbspa&nbspbee", "as&nbspsmall&nbspas&nbspa&nbspgnat", "as&nbspsmall&nbspas&nbspa&nbspgrain", "as&nbspsmall&nbspas&nbspa&nbsplouse", "as&nbspsmall&nbspas&nbspa&nbsplarva","as&nbspsmall&nbspas&nbspa&nbspmaggot", "as&nbspsmall&nbspas&nbspa&nbspmouse", "as&nbspsmall&nbspas&nbspa&nbsppea", "as&nbspsmall&nbspas&nbspa&nbsppebble"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "thin",
+                word2: "reed",
+                compoundMeaning: ["as&nbspthin&nbspas&nbspa&nbspreed"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        createcomparison({
+                compoundDescription: "comparison&nbspcompound",
+                word1: "deep",
+                word2: "ocean",
+                compoundMeaning: ["as&nbspdeep&nbspas&nbspan&nbspocean"],
+                //noun
+                plural: "",
+                firstElementPartOfSpeech: "adjective",
+                secondElementPartOfSpeech: "noun",
+                firstElementType: "",
+                secondElementType: "count",
+                compoundPartOfSpeech: "adjective",
+                compoundType: "",
+                activePass: "",
+                animateInimate: "",
+                divineProfane: "",
+                humanAnimal: "",
+                masculineFeminineNeuter: "",
+                masculineFeminine: "",
+                naturalArt: "",
+                animacy: "",
+                shape: "",
+                shortGeneric: "",
+                //adjective
+                comparative: "",
+                //verb
+                past: "",
+                thirdPerson: ""
+        });
+        
 }
 
 function makeVocabStats() {

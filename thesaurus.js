@@ -226,4 +226,122 @@ allWordsInThesaurus.push(countArray);
 let findArray = ["find", "discover", "consider", "have&nbspan&nbspopinion"];
 allWordsInThesaurus.push(findArray);
 
+let riverLongArray = ["as&nbsplong&nbspas&nbspariver", "endless", "infinite", "very&nbsplong"];
+allWordsInThesaurus.push(riverLongArray);
+
+let wolfAngryArray = ["as&nbspangry&nbspas&nbspa&nbspwolf", "very&nbspangry", "furious", "enraged"];
+allWordsInThesaurus.push(wolfAngryArray);
+
+let flowerBeautifulArray = ["as&nbspbeautiful&nbspas&nbspa&nbspflower", "very&nbspbeautiful", "gorgeous", "enraged"];
+allWordsInThesaurus.push(flowerBeautifulArray);
+
+let butterflyBeautifulArray = ["as&nbspbeautiful&nbspas&nbspa&nbspbutterfly", "very&nbspbeautiful", "gorgeous", "enraged"];
+allWordsInThesaurus.push(butterflyBeautifulArray);
+
+let starBeautifulArray = ["as&nbspbeautiful&nbspas&nbspa&nbspstar", "very&nbspbeautiful", "gorgeous", "enraged"];
+allWordsInThesaurus.push(starBeautifulArray);
+
+let crownBeautifulArray = ["as&nbspbeautiful&nbspas&nbspa&nbspcrown", "very&nbspbeautiful", "gorgeous", "enraged"];
+allWordsInThesaurus.push(crownBeautifulArray);
+
+let springBeautifulArray = ["as&nbspbeautiful&nbspas&nbspspring", "very&nbspbeautiful", "gorgeous", "enraged"];
+allWordsInThesaurus.push(springBeautifulArray);
+
+let nightBlindArray = ["as&nbspblind&nbspas&nbspnight", "very&nbspblind", "ignorant", "clueless", "oblivious"];
+allWordsInThesaurus.push(nightBlindArray);
+
+let boulderBlindArray = ["as&nbspblind&nbspas&nbspa&nbspboulder", "very&nbspblind", "ignorant", "clueless", "oblivious"];
+allWordsInThesaurus.push(boulderBlindArray);
+
+let nightDarkArray = ["as&nbspdark&nbspas&nbspnight", "very&nbspdark", "pitch&nbspblack"];
+allWordsInThesaurus.push(nightDarkArray);
+
+let shadowDarkArray = ["as&nbspdark&nbspas&nbspa&nbspshadow", "very&nbspdark", "pitch&nbspblack"];
+allWordsInThesaurus.push(shadowDarkArray);
+
+let dayBrightArray = ["as&nbspbright&nbspas&nbspday", "very&nbspbright", "luminous"];
+allWordsInThesaurus.push(dayBrightArray);
+
+let sunBrightArray = ["as&nbspbright&nbspas&nbspthe&nbspsun", "very&nbspbright", "luminous"];
+allWordsInThesaurus.push(sunBrightArray);
+
+let fireBrightArray = ["as&nbspbright&nbspas&nbspfire", "very&nbspbright", "luminous"];
+allWordsInThesaurus.push(fireBrightArray);
+
+let noonBrightArray = ["as&nbspbright&nbspas&nbspnoon", "very&nbspbright", "luminous"];
+allWordsInThesaurus.push(noonBrightArray);
+
+let skyBrightArray = ["as&nbspbright&nbspas&nbspthe&nbspsky", "very&nbspbright", "luminous"];
+allWordsInThesaurus.push(skyBrightArray);
+
+let windFastArray = ["as&nbspbright&nbspas&nbspwind", "very&nbspfast", "rapid"];
+allWordsInThesaurus.push(windFastArray);
+
+let horseFastArray = ["as&nbspbright&nbspas&nbspa&nbsphorse", "very&nbspfast", "rapid"];
+allWordsInThesaurus.push(horseFastArray);
+
+let hareFastArray = ["as&nbspbright&nbspas&nbspa&nbsphare", "very&nbspfast", "rapid"];
+allWordsInThesaurus.push(hareFastArray);
+
+let crimeEvilArray = ["as&nbspevil&nbspas&nbspcrime", "very&nbspevil"];
+allWordsInThesaurus.push(crimeEvilArray);
+
+let criminalEvilArray = ["as&nbspevil&nbspas&nbspa&nbspcriminal", "very&nbspevil"];
+allWordsInThesaurus.push(criminalEvilArray);
+
+let monsterEvilArray = ["as&nbspevil&nbspas&nbspa&nbspmonster", "very&nbspevil"];
+allWordsInThesaurus.push(monsterEvilArray);
+
+let dogGoodArray = ["as&nbspgood&nbspas&nbspa&nbspdog", "benevolent", "good-natured"];
+allWordsInThesaurus.push(dogGoodArray);
+
+let friendGoodArray = ["as&nbspgood&nbspas&nbspa&nbspfriend", "benevolent", "good-natured"];
+allWordsInThesaurus.push(friendGoodArray);
+
+let treeGoodArray = ["as&nbspgood&nbspas&nbspa&nbsptree", "benevolent", "good-natured"];
+allWordsInThesaurus.push(treeGoodArray);
+
+let grassGreenArray = ["as&nbspgreen&nbspas&nbspgrass", "very&nbspgreen", "lush", "vibrant"];
+allWordsInThesaurus.push(grassGreenArray);
+
+let crowIntelligentArray = ["as&nbspintelligent&nbspas&nbspa&nbspcrow", "very&nbspintelligent", "very&nbspclever"];
+allWordsInThesaurus.push(crowIntelligentArray);
+
+let fireIntelligentArray = ["as&nbspintelligent&nbspas&nbspfire", "very&nbspintelligent", "very&nbspclever"];
+allWordsInThesaurus.push(fireIntelligentArray);
+
+let ravenIntelligentArray = ["as&nbspintelligent&nbspas&nbspa&nbspraven", "very&nbspintelligent", "very&nbspclever"];
+allWordsInThesaurus.push(ravenIntelligentArray);
+
+let fireHotArray = ["as&nbsphot&nbspas&nbspfire", "very&nbsphot", "blisteringly-hot"];
+allWordsInThesaurus.push(fireHotArray);
+
+let sunHotArray = ["as&nbsphoty&nbspas&nbspthe&nbspsun", "very&nbsphot", "blisteringly-hot"];
+allWordsInThesaurus.push(sunHotArray);
+
+let furnaceHotArray = ["as&nbsphot&nbspas&nbspa&nbspfurnace", "very&nbsphot", "blisteringly-hot"];
+allWordsInThesaurus.push(furnaceHotArray);
+
+let wolfHungryArray = ["as&nbsphungry&nbspas&nbspa&nbspwolf", "very&nbsphungry", "ravenous", "famine"];
+allWordsInThesaurus.push(wolfHungryArray);
+
+let cowHungryArray = ["as&nbsphungry&nbspas&nbspa&nbspcow", "very&nbsphungry", "ravenous", "famine"];
+allWordsInThesaurus.push(cowHungryArray);
+
+let dragonHungryArray = ["as&nbsphungry&nbspas&nbspa&nbspdragon", "very&nbsphungry", "ravenous", "famine"];
+allWordsInThesaurus.push(dragonHungryArray);
+
+let lambHungryArray = ["as&nbspnew&nbspas&nbspa&nbsplamb", "very&nbspnew", "brand-new"];
+allWordsInThesaurus.push(lambHungryArray);
+
+let kittenHungryArray = ["as&nbspnew&nbspas&nbspa&nbspkitten", "very&nbspnew", "brand-new"];
+allWordsInThesaurus.push(kittenHungryArray);
+
+let puppyHungryArray = ["as&nbspnew&nbspas&nbspa&nbsppuppy", "very&nbspnew", "brand-new"];
+allWordsInThesaurus.push(puppyHungryArray);
+
+let woundPainfulArray = ["as&nbsppainful&nbspas&nbspa&nbspwound", "very&nbspsore", "agonising"];
+allWordsInThesaurus.push(woundPainfulArray);
+
+
 export { allWordsInThesaurus };

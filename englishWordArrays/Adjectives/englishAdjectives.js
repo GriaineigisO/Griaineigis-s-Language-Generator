@@ -136,6 +136,13 @@ etymologyArrayADJ.push("X");
 etymologyADJ.push("X");
 derivationListAdj.push("");
 
+adjectiveArray.push("bright");
+    comparativeAdjectiveArray.push("brighter");
+    derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+derivationListAdj.push("");
+
 adjectiveArray.push("brown");
     comparativeAdjectiveArray.push("browner");
 derivedOrInheritedADJ.push("inherited")
@@ -409,6 +416,13 @@ etymologyArrayADJ.push("X");
 etymologyADJ.push("X");
 derivationListAdj.push("");
 
+adjectiveArray.push("divine");
+    comparativeAdjectiveArray.push("more&nbspdivine");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+derivationListAdj.push("");
+
 adjectiveArray.push("hostile");
     comparativeAdjectiveArray.push("more&nbsphostile");
 derivedOrInheritedADJ.push("inherited")
@@ -467,6 +481,13 @@ derivationListAdj.push("");
 
 adjectiveArray.push("light&nbsp(of&nbspweight)");
     comparativeAdjectiveArray.push("lighter");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+derivationListAdj.push("");
+
+adjectiveArray.push("painful");
+    comparativeAdjectiveArray.push("more&nbsppainful");
 derivedOrInheritedADJ.push("inherited")
 etymologyArrayADJ.push("X");
 etymologyADJ.push("X");
@@ -760,7 +781,14 @@ etymologyADJ.push("X");
 derivationListAdj.push("");
 
 adjectiveArray.push("suitable");
-    comparativeAdjectiveArray.push("more suitable");
+    comparativeAdjectiveArray.push("more&nbspsuitable");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+derivationListAdj.push("");
+
+adjectiveArray.push("blunt");
+    comparativeAdjectiveArray.push("blunter");
 derivedOrInheritedADJ.push("inherited")
 etymologyArrayADJ.push("X");
 etymologyADJ.push("X");

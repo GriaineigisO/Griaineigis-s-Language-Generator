@@ -255,6 +255,13 @@ etymologyArrayADJ.push("X");
 etymologyADJ.push("X");
 derivationListAdj.push("");
 
+adjectiveArray.push("lazy");
+    comparativeAdjectiveArray.push("lazier");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+derivationListAdj.push("");
+
 adjectiveArray.push("evil");
     comparativeAdjectiveArray.push("more&nbspevil");
 derivedOrInheritedADJ.push("inherited")

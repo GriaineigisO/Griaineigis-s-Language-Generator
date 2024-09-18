@@ -350,7 +350,7 @@ etymologyArrayTransVerb.push("X");
 etymologyTransVerb.push("X");
 derivationListTransVerb.push("");
 
-    transitiveVerbArray.push("defeat");
+    transitiveVerbArray.push("defeatV");
     transitiveVerb3SArray.push("defeats");
     transitiveVerbPastArray.push("defeated")
 derivedOrInheritedTransVerb.push("inherited");

@@ -67,6 +67,11 @@ function applySemanticShifts() {
     semanticShiftCountNounToCountNoun("forest", "wolf", "wolves", 5, 1);
     semanticShiftCountNounToCountNoun(["lord", "wing"], "eagle", "eagles", 6, 1);
     semanticShiftCountNounToCountNoun("hollow&nbsptree", "lazy&nbspperson", "lazy&nbsppeople", 6, 1);
+    semanticShiftCountNounToCountNoun(["top", "horn"], ["mountain", "hill", "summit", "peak"], ["mountains", "hills", "summits", "peaks"], 6, 1);
+    semanticShiftCountNounToCountNoun("tree", "wooden&nbspbeam", "wooden&nbspbeams", 6, 1);
+    semanticShiftCountNounToCountNoun("worm", "snake", "snakes", 3, 1);
+    semanticShiftCountNounToCountNoun("hedgehog", "sea-urchin", "sea-urchins", 3, 1);
+    semanticShiftCountNounToCountNoun(["log", "beam"], ["antler", "pillar"], ["antlers", "pillars"], 6, 1);
 }
 
 let generateLanguageButton = document.getElementById("generate-language");

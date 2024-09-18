@@ -274,6 +274,13 @@ _gʷréh₂us (“heavy”) + ‎_-ō → ‎*gʷréh₂wōn (“millstone”, l
 -twā - Forms feminine nouns from verbs
 -w'r‌ - Forms neuter object nouns from verbal roots(ex: per- "to go through" > pérwr‌ "ford, crossing")
 
+## Semantic Shift Ideas
+- to wander, to roam > to wander in mind, to ponder, to get lost
+- barefoot > naked
+- aware > awake
+- long > late
+- smoke > steam, breath, cloud
+
 ### Gender Swtiching
 
 ### natural > artificial:

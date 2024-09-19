@@ -1,6 +1,22 @@
 # Immediate To-Do List
 
-- finish adding more words to verbToInanimateAgent()
+
+## Options for customisation
+- on refresh, there shall be two options: 1) fully random 2) customisation, when the second option is selected the customisation form appears - any option left blank shall be randomised
+- phonology 
+- language name
+- word order
+- which syllable structure
+- typology
+- noun gender/classifier system/number/cases
+- marked singular 
+- which sounds changes
+- which derivational methods (and if they are prefixes or suffixes)
+- cover page template
+- picture on cover
+- words to add
+- the culture/time period of the speakers
+
 - make it so that derivational affixes may be taken from existing vocabulary e.g "body" > "-like/-ly"
 - function to apply certain sound changes only across morphome boundries. The functions takes the two morphemes as arguments, and then determines which sound changes are in chosenChanges. If a change is conditional and the condition is met at the morpheme boundrie e.g bak-or where intervocalic voicing detects that the final sound in word1 is a voiceless plosive following a vowel and that the first sound in word2 is a vowel, intervocalic voicing will be triggered and only at the boundry
 - Add stats about noun gender

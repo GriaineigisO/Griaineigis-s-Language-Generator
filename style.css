@@ -138,6 +138,29 @@ h1, h2, h3, h4 {
     margin-left: 4em;
 }
 
+#radio-buttons {
+    margin-bottom: 10px;
+}
+
+#customisation-options {
+    display: none;
+    background-color: #4c5649;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid black 2px;
+    margin-bottom: 10px;
+}
+
+.radio-section {
+    padding: 5px;
+}
+
+#warning {
+    color: red;
+    font-weight: bold;
+    display: none;
+};
+
 .intro, .inputSection p, #outputSectionAdjective p {
   max-width: 80em;  
 }
@@ -507,6 +530,15 @@ h1, h2, h3, h4 {
         width: 100%;
     }
 
+}
+
+.form-note {
+    font-size: 12px;
+}
+
+#custom-h1 {
+    font-size: 20px;
+    margin-top: -10px;
 }
 
 

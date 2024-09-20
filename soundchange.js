@@ -2,7 +2,7 @@
 import { verbFinalWordOrders } from './allPossibleWordOrders.js';
 import {consonants, vowels as chosenVowels,selectedSyllables, allNasalsArray, selectFricatives, selectNasals, chooseVoicing} from './generatePhonology.js';
 import {spell} from './orthography.js'
-import {randomIndexOfArray} from './library.js'
+import {randomIndexOfArray, cloneArray} from './library.js'
 let addedConsonants = consonants;
 
 // function soundChange(word) {
@@ -227,14 +227,6 @@ let timeseWBecomesOW = 0;
 let timeslongUBecomesOU = 0;
 let timesvelarsDelabialise = 0;
 let timeslossOfAspiration = 0;
-
-function cloneArray(array) {
-    let newArray = [];
-    for(let i = 0; i < array.length; i++) {
-        newArray.push(array[i]);
-    }
-    return newArray;
-}
 
 function clearPreviousOutput() {
     document.getElementById("sound-change-explanation").replaceChildren();

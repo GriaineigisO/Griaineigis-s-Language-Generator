@@ -4,10 +4,8 @@
 ## Options for customisation
 - on refresh, there shall be two options: 1) fully random 2) customisation, when the second option is selected the customisation form appears - any option left blank shall be randomised
 - phonology 
-- language name
-- word order
+- spelling
 - which syllable structure
-- typology
 - noun gender/classifier system/number/cases
 - marked singular 
 - which sounds changes

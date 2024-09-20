@@ -35,6 +35,71 @@
       <div id="printnums"></div>
 
       <section class="intro">
+
+        <div id="radio-buttons">
+          <input type="radio" id="randomised" name="randomOrCustom" value="random">
+          <label for="randomised">Fully randomised language</label><br>
+
+          <input type="radio" id="customised" name="randomOrCustom" value="custom">
+          <label for="customised">Customise</label><br>
+
+          <p id="warning">Please select an option!</p>
+        </div>
+
+        <div id="customisation-options">
+          <h1 id="custom-h1">Customise Your Language</h1>
+
+          <!--Choose vowels-->
+          <div class="radio-section">
+            <h2>Phonology</h2>
+            <p>Enter sounds using <a href="https://ipa.typeit.org/full/" target="_blank">IPA only</a>. Seperate sounds using a blank space only.<br><br>
+            To designate a spelling to each sound, use the following notation: <strong>(sound=spelling)</strong> e.g if you want to spell the vowel /ə/ as <ë> then enter <strong>(ə=ë)</strong> - do not add spaces between any character between the curly brackets. A spelling may be up to four letters long: <strong>(u=oghi)</strong>. To enter a sound without designating a spelling, simply enter the sound alone without brackets and a spelling will be designated at random.<br><br>
+            Do not use combining diacritics in the spelling. Copy and paste characters which have the diacritics built in. E.g you can't use <i>é</i> (which is two characters U+0065 and U+00B4) but rather <i>é</i> (U+00E9).
+            </p>
+            <label for="chosen-vowels">Vowels:</label>
+            <input id="chosen-vowels" value=""></input>
+          </div>
+
+          <div class="radio-section">
+            <label for="chosen-syllables">Syllable structures:</label>
+            <input id="chosen-syllables" value=""></input>
+          </div>
+
+          <!--Choose language name-->
+          <div class="radio-section">
+            <label for="language-name-form">Choose the language's name:</label>
+            <input id="language-name" value=""></input>
+            <p class="form-note">(If left blank, a name will be randomly generated.)</p>
+          </div>
+
+          <!--Choose typology-->
+          <div class="radio-section">
+            <label for="typology-form">Choose typology:</label>
+            <select id="typology-form" name="typology-form">
+              <option value="random">Random</option>
+              <option value="isolating">Isolating</option>
+              <option value="agglutinative">Agglutinative</option>
+              <option value="fusional">Fusional</option>
+            </select> 
+          </div>
+
+          <!--Choose word order-->
+          <div class="radio-section">
+            <label for="word-order-form">Choose word order:</label>
+            <select id="word-order-form" name="word-order-form">
+              <option value="random">Random</option>
+              <option value="svo">SVO</option>
+              <option value="sov">SOV</option>
+              <option value="osv">OSV</option>
+              <option value="ovs">OVS</option>
+              <option value="vso">VSO</option>
+              <option value="vos">VOS</option>
+            </select> 
+          </div>
+
+        </div>
+        
+
         <div class="generate-button-div">
           <input type="button" value="Generate a New Language!" id="generate-language" />
         </div>

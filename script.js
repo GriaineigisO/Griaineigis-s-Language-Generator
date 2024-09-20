@@ -1,5 +1,3 @@
-//@collapse
-
 import { countNounArray, countNounArrayPlural, animInan, mascFem, mascFemNeut, humanAnimalInan, activePassive, naturalArtificial, shapeClassifierArray, animacyClassifierArray, shortGenericClassifierArray, divineNonDivine} from './englishWordArrays/Nouns/countNouns.js';
 import {massNounArray, singulativeMassNounArray, pluralSingulativeMassNounArray, activePassiveMass, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, shortGenericClassifierMassArray} from './englishWordArrays/Nouns/massNouns.js'
 import {adjectiveArray, comparativeAdjectiveArray } from './englishWordArrays/Adjectives/englishAdjectives.js';
@@ -238,6 +236,31 @@ let piercingClassifier = "";
 let percussiveClassifier = "";
 let instanceClassifier = "";
 let completedClassifier = "";
+
+//shows language customisation options
+let randomisedButton = document.getElementById("randomised");
+let customisedButton = document.getElementById("customised");
+let options = document.getElementById("customisation-options");
+let randomOption = "";
+let checkIfOptionWasSelected = "";
+
+function randomise() {
+    options.style.display = "none";
+    randomOption = true;
+    checkIfOptionWasSelected = "checked";
+    document.getElementById("warning").style.display = "none";
+};
+
+function customise() {
+    options.style.display = "block";
+    randomOption = false;
+    checkIfOptionWasSelected = "checked";
+    document.getElementById("warning").style.display = "none";
+};
+
+randomisedButton.addEventListener("click", randomise);
+customisedButton.addEventListener("click", customise);
+
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
@@ -622,26 +645,34 @@ function sendGeneratedWordsToArray() {
 let languageName = "";
 function generateRandomNameForLanguage () {
     let languageNameSpan = document.getElementsByClassName("language-name");
-    let newName = spell(soundChange(generateWords()));
-    for(let i = 0; i < languageNameSpan.length; i++) {
-        languageNameSpan[i].innerHTML = newName;
-    }
-    languageName = newName;
-}
+    let chosenLanguageName = document.getElementById("language-name").value;
+    if(chosenLanguageName === "") {
+        let newName = spell(soundChange(generateWords()));
+        for(let i = 0; i < languageNameSpan.length; i++) {
+            languageNameSpan[i].innerHTML = newName;
+        }
+        languageName = newName;
+    } else {
+        for(let i = 0; i < languageNameSpan.length; i++) {
+            languageNameSpan[i].innerHTML = chosenLanguageName;
+        }
+        languageName = chosenLanguageName;
+    };
+};
 
 //Since almost every word had had at least one long vowel, the below function serves to randomly shorten vowels in words to bring the number of long vowels down to a more agreeable number.
-function reduceAmountOfLongVowels(array) {
-    for(let i = 0; i < array.length; i++) {
-        let wordArray = Array.from(array[i])
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "ː" && Math.floor(Math.random() * 3) !== 2) {
-            wordArray.splice(i, 1)
-        }
-    }
-        let joinedWord = wordArray.join("");
-        array[i] = joinedWord;
-    }   
-}
+// function reduceAmountOfLongVowels(array) {
+//     for(let i = 0; i < array.length; i++) {
+//         let wordArray = Array.from(array[i])
+//     for(let i = 0; i < wordArray.length; i++) {
+//         if(wordArray[i] === "ː" && Math.floor(Math.random() * 3) !== 2) {
+//             wordArray.splice(i, 1)
+//         }
+//     }
+//         let joinedWord = wordArray.join("");
+//         array[i] = joinedWord;
+//     }   
+// }
 
 //if the syllable structures allows for consonants in the coda, then the function makes it possible for  asuffix to be a single consonant
 let selectedSyllablesAffixes = [];
@@ -868,10 +899,29 @@ function lengthExplanation() {
 
 /*********TYPOLOGY RELATED SECTION*********/
 
-let typologyNum = 0;
+let randomTypologyNum = "";
 function randomNumForTypology() {
-    typologyNum = 2//Math.floor(Math.random() * 3) //change to 3 once fusional is added
-}
+    randomTypologyNum = 2//Math.floor(Math.random() * 3);
+};
+
+let typologyNum = 0;
+function selectTypology() {
+    if(randomOption) {
+        typologyNum = randomTypologyNum;
+    } else {
+        let typologyForm = document.getElementById("typology-form").value;
+
+        if(typologyForm === "isolating") {
+            typologyNum = 0
+        } else if (typologyForm === "agglutinative") {
+            typologyNum = 1
+        } else if (typologyForm === "fusional") {
+            typologyNum = 2
+        } else if (typologyForm === "random") {
+            typologyNum = randomTypologyNum;
+        };
+    };
+};
 
 function chooseTypology() {
     let typology = "";
@@ -900,9 +950,34 @@ function chooseTypology() {
 }
 
 /****************WORD ORDER RELATED SECTION*******/
-let wordOrderNum = 0;
+let randomWordOrderNum = 0;
 function randomNumForWordOrder() {
-    wordOrderNum = Math.floor(Math.random() * 6)
+    randomWordOrderNum = Math.floor(Math.random() * 6)
+}
+
+let wordOrderNum = "";
+function selectWordOrder( ){
+    if(randomOption) {
+        typologyNum = randomWordOrderNum;
+    } else {
+        let wordOrderForm = document.getElementById("word-order-form").value;
+
+        if(wordOrderForm === "osv") {
+            wordOrderNum = 0
+        } else if (wordOrderForm === "sov") {
+            wordOrderNum = 1
+        } else if (wordOrderForm === "svo") {
+            wordOrderNum = 2
+        } else if (wordOrderForm === "vso") {
+            wordOrderNum = 3
+        } else if (wordOrderForm === "vos") {
+            wordOrderNum = 4
+        } else if (wordOrderForm === "ovs") {
+            wordOrderNum = 5
+        } else if (wordOrderForm === "random") {
+            wordOrderNum = randomWordOrderNum;
+        };
+    };
 }
 
 function chooseWordOrder() {
@@ -7631,110 +7706,117 @@ let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
 function generateLanguage() {
-    clearPreviousOutput();
-    selectSoundChanges();
-    showGrammarAndDictionary()
-    clearGeneratedArrays();
-    generateWords();
-    sendGeneratedWordsToArray();
-    reduceAmountOfLongVowels(generatedCountNouns);
-    reduceAmountOfLongVowels(generatedMassNouns);
-    reduceAmountOfLongVowels(generatedAdjectives);
-    reduceAmountOfLongVowels(generatedTransitiveVerbs);
-    reduceAmountOfLongVowels(generatedIntransitiveVerbs);
-    reduceAmountOfLongVowels(generatedConjunctions);
-    reduceAmountOfLongVowels(generatedAdverbs);
-    reduceAmountOfLongVowels(generatedAdpositions);
-    reduceAmountOfLongVowels(generatedIntensifiers);
-    makeSyllableArrayForAffixes();
-    generateAffixes();
-    sendGeneratedAffixesToArray();
-    showSyllableStructureKey();
-    syllableStructureExamples();
-    makeOrthoGuide(allPossibleVowels);
-    makeOrthoGuide(allPossibleConsonants);
-    lengthExplanation();
-    randomNumForTypology();
-    chooseTypology();
-    randomNumForWordOrder();
-    chooseWordOrder();
-    suffixOrPrefix();
-    genderMarkedWithSuffixOrPrefix();
-    numberMarkedWithSuffixOrPrefix();
-    caseMarkedWithSuffixOrPrefix();
-    fixAffixes();
-    chooseIfMarkedNominative();
-    randomNumMarkedSingular();
-    chooseIfMarkedNominative();
-    chooseIfMarkedSingular();
-    randomNumForNounGender();
-    randomNumForIsolatingGrammaticalNumbers();
-    checkIfHeadInitialOrHeadFinal();
-    chooseClassifierSystem();
-    createShapeClassifiers();
-    createAnimacyClassifiers();
-    createShortGenericClassifiers();
-    createLongClassifiers();
-    createMeasureWords();
-    IsolatingNouns();
-    isolatingPlural();
-    callClassifierExamples();
-    chooseQuanitifers();
-    createQuantifiers();
-    randomNumForAgglutinativeGrammaticalNumbers();
-    inflectGenderlessNouns();
-    inflectGenderlessMassNouns();
-    switchNounGenderMascFem("bull");
-    switchNounGenderMascFem("horse");
-    switchNounGenderMascFem("pig");
-    switchNounGenderMascFem("wolf");
-    switchNounGenderMascFem("rooster");
-    switchNounGenderMascFem("elk");
-    switchNounGenderMascFem("dog");
-    switchNounGenderMascFem("ram");
-    switchNounGenderMascFemNeut("bull");
-    switchNounGenderMascFemNeut("horse");
-    switchNounGenderMascFemNeut("pig");
-    switchNounGenderMascFemNeut("wolf");
-    switchNounGenderMascFemNeut("rooster");
-    switchNounGenderMascFemNeut("elk");
-    switchNounGenderMascFemNeut("dog");
-    switchNounGenderMascFemNeut("ram");
-    switchNounGenderHumanAnimal("cow");
-    switchNounGenderHumanAnimal("sheep");
-    switchNounGenderHumanAnimal("horse");
-    AgglutinativeNouns();
-    inflectNounsPlural();
-    inflectMassNounsPlural();
-    inflectNounsSingular();
-    inflectNounsDual();
-    inflectNounsCollective();
-    inflectNounsTrial();
-    inflectNounsQuadral();
-    inflectNounsGreaterPlural();
-    inflectNounsGeneral();
-    inflectNounsGeneral1();
-    inflectNounsSingulative();
-    inflectMassNounsSingulative();
-    chooseCases();
-    explainCases();
-    generateRandomNameForLanguage();
-    applySoundChangesAndOrtho(document.getElementsByClassName("sound-change"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("singular-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("plural-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("singular-mass-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("singulative-mass-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("plural-mass-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("dual-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("collective-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("trial-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("quadral-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("greater-plural-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("general-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
-    applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
-    //console.log(spell(soundChange("dweːrm")))
-    //console.log(spell(soundChange("kʷenpe")))
+    if(checkIfOptionWasSelected === "") {
+        document.getElementById("warning").style.display = "block";
+    } else {
+        console.log(selectedSyllables)
+        clearPreviousOutput();
+        selectSoundChanges();
+        showGrammarAndDictionary()
+        clearGeneratedArrays();
+        generateWords();
+        sendGeneratedWordsToArray();
+        // reduceAmountOfLongVowels(generatedCountNouns);
+        // reduceAmountOfLongVowels(generatedMassNouns);
+        // reduceAmountOfLongVowels(generatedAdjectives);
+        // reduceAmountOfLongVowels(generatedTransitiveVerbs);
+        // reduceAmountOfLongVowels(generatedIntransitiveVerbs);
+        // reduceAmountOfLongVowels(generatedConjunctions);
+        // reduceAmountOfLongVowels(generatedAdverbs);
+        // reduceAmountOfLongVowels(generatedAdpositions);
+        // reduceAmountOfLongVowels(generatedIntensifiers);
+        makeSyllableArrayForAffixes();
+        generateAffixes();
+        sendGeneratedAffixesToArray();
+        showSyllableStructureKey();
+        syllableStructureExamples();
+        makeOrthoGuide(allPossibleVowels);
+        makeOrthoGuide(allPossibleConsonants);
+        lengthExplanation();
+        randomNumForTypology();
+        selectTypology();
+        chooseTypology();
+        randomNumForWordOrder();
+        selectWordOrder();
+        chooseWordOrder();
+        suffixOrPrefix();
+        genderMarkedWithSuffixOrPrefix();
+        numberMarkedWithSuffixOrPrefix();
+        caseMarkedWithSuffixOrPrefix();
+        fixAffixes();
+        chooseIfMarkedNominative();
+        randomNumMarkedSingular();
+        chooseIfMarkedNominative();
+        chooseIfMarkedSingular();
+        randomNumForNounGender();
+        randomNumForIsolatingGrammaticalNumbers();
+        checkIfHeadInitialOrHeadFinal();
+        chooseClassifierSystem();
+        createShapeClassifiers();
+        createAnimacyClassifiers();
+        createShortGenericClassifiers();
+        createLongClassifiers();
+        createMeasureWords();
+        IsolatingNouns();
+        isolatingPlural();
+        callClassifierExamples();
+        chooseQuanitifers();
+        createQuantifiers();
+        randomNumForAgglutinativeGrammaticalNumbers();
+        inflectGenderlessNouns();
+        inflectGenderlessMassNouns();
+        switchNounGenderMascFem("bull");
+        switchNounGenderMascFem("horse");
+        switchNounGenderMascFem("pig");
+        switchNounGenderMascFem("wolf");
+        switchNounGenderMascFem("rooster");
+        switchNounGenderMascFem("elk");
+        switchNounGenderMascFem("dog");
+        switchNounGenderMascFem("ram");
+        switchNounGenderMascFemNeut("bull");
+        switchNounGenderMascFemNeut("horse");
+        switchNounGenderMascFemNeut("pig");
+        switchNounGenderMascFemNeut("wolf");
+        switchNounGenderMascFemNeut("rooster");
+        switchNounGenderMascFemNeut("elk");
+        switchNounGenderMascFemNeut("dog");
+        switchNounGenderMascFemNeut("ram");
+        switchNounGenderHumanAnimal("cow");
+        switchNounGenderHumanAnimal("sheep");
+        switchNounGenderHumanAnimal("horse");
+        AgglutinativeNouns();
+        inflectNounsPlural();
+        inflectMassNounsPlural();
+        inflectNounsSingular();
+        inflectNounsDual();
+        inflectNounsCollective();
+        inflectNounsTrial();
+        inflectNounsQuadral();
+        inflectNounsGreaterPlural();
+        inflectNounsGeneral();
+        inflectNounsGeneral1();
+        inflectNounsSingulative();
+        inflectMassNounsSingulative();
+        chooseCases();
+        explainCases();
+        generateRandomNameForLanguage();
+        applySoundChangesAndOrtho(document.getElementsByClassName("sound-change"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("singular-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("plural-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("singular-mass-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("singulative-mass-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("plural-mass-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("dual-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("collective-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("trial-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("quadral-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("greater-plural-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("general-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
+        applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
+        //console.log(spell(soundChange("dweːrm")))
+        //console.log(spell(soundChange("kʷenpe")))
+    };
    }
 
 

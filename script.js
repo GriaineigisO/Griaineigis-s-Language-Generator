@@ -264,7 +264,7 @@ customisedButton.addEventListener("click", customise);
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
-let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "tʃ", "dʒ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ", "tʲ", "dʲ", "kʲ", "gʲ", "pʲ", "bʲ", "qʲ", "ɢʲ", "sʲ", "zʲ", "vʲ", "fʲ", "lʲ", "rʲ", "mʲ", "nʲ", "hʲ", "xʲ", "ʒʲ", "θʲ", "ðʲ", "ʃʲ", "ŋʲ", "tʰʲ", "qʰʲ", "tʷ", "dʷ", "cʷ", "ɟʷ", "kʷ", "gʷ", "qʷ", "ɢʷ", "sʷ", "zʷ", "ʃʷ", "ʒʷ", "hʷ", "xʷ", "ɣʷ", "χʷ", "ʁʷ", "rʷ", "lʷ", "tʷʰ", "dʷʰ", "cʰʷ", "ɟʷʰ", "kʷʰ", "gʷʰ", "qʷʰ", "ɢʷʰ", "sʷʰ", "zʷʰ", "ʃʷʰ", "ʒʷʰ", "hʷ", "xʷʰ", "ɣʷʰ", "χʷʰ", "ʁʷʰ", "rʷʰ", "lʷʰ"]
+let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "ʧ", "ʤ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ", "tʲ", "dʲ", "kʲ", "gʲ", "pʲ", "bʲ", "qʲ", "ɢʲ", "sʲ", "zʲ", "vʲ", "fʲ", "lʲ", "rʲ", "mʲ", "nʲ", "hʲ", "xʲ", "ʒʲ", "θʲ", "ðʲ", "ʃʲ", "ŋʲ", "tʰʲ", "qʰʲ", "tʷ", "dʷ", "cʷ", "ɟʷ", "kʷ", "gʷ", "qʷ", "ɢʷ", "sʷ", "zʷ", "ʃʷ", "ʒʷ", "hʷ", "xʷ", "ɣʷ", "χʷ", "ʁʷ", "rʷ", "lʷ", "tʷʰ", "dʷʰ", "cʰʷ", "ɟʷʰ", "kʷʰ", "gʷʰ", "qʷʰ", "ɢʷʰ", "sʷʰ", "zʷʰ", "ʃʷʰ", "ʒʷʰ", "hʷ", "xʷʰ", "ɣʷʰ", "χʷʰ", "ʁʷʰ", "rʷʰ", "lʷʰ"]
 
 //Without this, every single generated noun from every single generation would remain in the arrays, causing words from
 //previous generations to show up in current ones! This clears the arrays upon each click of the button, before they are
@@ -7709,7 +7709,6 @@ function generateLanguage() {
     if(checkIfOptionWasSelected === "") {
         document.getElementById("warning").style.display = "block";
     } else {
-        console.log(selectedSyllables)
         clearPreviousOutput();
         selectSoundChanges();
         showGrammarAndDictionary()

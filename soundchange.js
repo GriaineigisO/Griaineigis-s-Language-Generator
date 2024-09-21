@@ -148,8 +148,8 @@ let addedConsonants = consonants;
 //     return fixAPlusA;
 // }
 
-let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "ɦ", "dʒ", "ɟ", "ʁ", "ʒ", "ɟ", "ʕ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "ð", "ɮ"];
-let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "tʃ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"]
+let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "ɦ", "ʤ", "ɟ", "ʁ", "ʒ", "ɟ", "ʕ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "ð", "ɮ"];
+let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "ʧ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"]
 let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
 let midVowels = ["e", "o", "ø", "ɤ", "ɘ", "ɵ", "ə", "ɛ", "œ", "ɜ", "ɞ", "ʌ", "ɔ", "ɑ", "ɒ", "ɐ", "æ"];
 let nonHighVowels = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a"];
@@ -1011,13 +1011,13 @@ function selectSoundChanges() {
             }
             let ifVoiced = "";
             if(chooseVoicing() === true) {
-                ifVoiced = ` and voiced alveolar and ${ifUvular} plosives become /dʒ/`
+                ifVoiced = ` and voiced alveolar and ${ifUvular} plosives become /ʤ/`
             };
             let ifGlottal = "";
             if(consonants.includes("ʔ")) {
                 ifGlottal = `. The glottal stop becomes /j/`
             };
-            nestLi.innerHTML = `Voicless alveolar and ${ifUvular} plosives become /tʃ/ before front vowels${ifVoiced}${ifGlottal}: <div class="sound-change-example" id="palatalisationofPlosives"></div>`
+            nestLi.innerHTML = `Voicless alveolar and ${ifUvular} plosives become /ʧ/ before front vowels${ifVoiced}${ifGlottal}: <div class="sound-change-example" id="palatalisationofPlosives"></div>`
             document.getElementById("sound-change-explanation").appendChild(li);
             document.getElementById("sound-change-explanation").appendChild(nestUl);
             nestUl.appendChild(nestLi);
@@ -2355,7 +2355,7 @@ function longABecomesO(wordArray) {
 
 function palatalisationofPlosives(wordArray) {
     let labial = ["b", "bʰ", "bʲ", "bʷ", "bʰʲ", "bʷʰ", "p", "pʰ", "pʲ", "pʷ","pʰʲ", "pʷʰ"];
-    let palatalised = ["b", "dʒ", "dʒ", "bʰ", "dʒ", "dʒ", "dʒ", "dʒ", "bʲ", "dʒ", "dʒ", "bʷ", "dʒʷ", "dʒʷ", "bʰʲ", "dʒ", "dʒ", "bʷʰ", "dʒʷ", "dʒ", "p", "tʃ", "tʃ", "pʰ", "tʃ", "tʃ", "tʃ", "tʃ", "pʲ", "tʃ", "tʃ", "pʷ", "tʃ", "tʃ", "pʰʲ", "tʃ", "tʃ", "pʷʰ", "tʃ", "tʃ", "j", "tʃ", "dʒ"];
+    let palatalised = ["b", "ʤ", "ʤ", "bʰ", "ʤ", "ʤ", "ʤ", "ʤ", "bʲ", "ʤ", "ʤ", "bʷ", "ʤʷ", "ʤʷ", "bʰʲ", "ʤ", "ʤ", "bʷʰ", "ʤʷ", "ʤ", "p", "ʧ", "ʧ", "pʰ", "ʧ", "ʧ", "ʧ", "ʧ", "pʲ", "ʧ", "ʧ", "pʷ", "ʧ", "ʧ", "pʰʲ", "ʧ", "ʧ", "pʷʰ", "ʧ", "ʧ", "j", "ʧ", "ʤ"];
 
     for(let i = 0; i < wordArray.length; i++) {
         if(frontVowels.includes(wordArray[i]) && plosives.includes(wordArray[i-1]) && labial.includes(wordArray[i-1]) === false) {

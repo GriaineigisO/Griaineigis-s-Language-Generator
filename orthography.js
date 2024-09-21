@@ -1,6 +1,7 @@
 
 
-import {vowels, consonants, allGlottalFricatives, allVelarFricatives, allAspiratesArray, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, voicingTrueOrFalse, chosenVowelSpellingsArray} from './generatePhonology.js'
+import {vowels, consonants, allGlottalFricatives, allVelarFricatives, allAspiratesArray, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, voicingTrueOrFalse, chosenVowelSpellingsArray, chosenConsonantSpellingsArray} from './generatePhonology.js'
+import { cloneArray } from './library.js';
 
 let randomisedButton = document.getElementById("randomised");
 let customisedButton = document.getElementById("customised");
@@ -267,6 +268,95 @@ function randomLongCentralA() {
     };
 }
 
+function randomPostAlveolarS(wordArray) {
+    //POST ALVEOLAR FRICATIVES AND AFFRICATES AND /J/
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ʧ" && randomNumAlveolarFricative < 16) {
+           return "č";
+        }
+        if(wordArray[i] === "ʤ"&& randomNumAlveolarFricative < 16) {
+           return "dž"
+        }
+        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative < 16) {
+            return "š"
+        }
+        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative < 16) {
+            return "ž"
+        }
+        if(wordArray[i] === "j" && randomNumAlveolarFricative < 16 ) {
+            return "j";
+        }
+
+        if(wordArray[i] === "j" && randomNumAlveolarFricative === 16) {
+            return "y"
+         }
+        if(wordArray[i] === "ʧ" && randomNumAlveolarFricative === 16) {
+            return "ch";
+        }
+        if(wordArray[i] === "ʤ"&& randomNumAlveolarFricative === 16) {
+            return "j";
+        }
+        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative === 16) {
+            return "sh";
+        }
+        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative === 16) {
+            return "zh"
+        }
+
+        if(wordArray[i] === "ʧ" && randomNumAlveolarFricative === 15) {
+            return "tsj";
+        }
+        if(wordArray[i] === "ʤ" && randomNumAlveolarFricative === 15) {
+            return "dzj"
+        }
+        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative === 15) {
+            return "sj";
+        }
+        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative === 15) {
+            return "zj";
+        }
+        if(wordArray[i] === "j" && randomNumAlveolarFricative === 15) {
+            return "j";
+        }
+    }
+};
+
+function randomVelarNasal(wordArray) {
+     //VELAR NASAL
+     for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ŋ" && allVelarFricatives.includes(wordArray[i + 1])) {
+            return "n"
+        } else if(wordArray[i] === "ŋ" && wordArray[i + 1] === "k") {
+            return "n";
+        } else if(wordArray[i] === "ŋ" && wordArray[i + 1] === "g") {
+            return "n";
+        }  else if(wordArray[i] === "ŋ") {
+            return "ng";
+        }
+    }
+}
+
+function randomVelarFricative(wordArray) {
+    //VELAR FRICATIVES 
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "x" && allGlottalFricatives.length > 0) {
+            return "kh"
+        }
+        if(wordArray[i] === "x" && allGlottalFricatives.length > 0 && allAspiratesArray.length > 0) {
+            return "ch"
+        }
+        if(wordArray[i] === "x" && allGlottalFricatives.length === 0  && allAspiratesArray.length === 0) {
+            return "h"
+        }
+        if(wordArray[i] === "ɣ") {
+            return "gh"
+        }
+        if(wordArray[i] === "ɣ" && allAspiratesArray.length > 0 ) {
+            return "ɣ"
+        }
+    }
+}
+
  
 function spell(word) {
    checkIfCanUseMacron()
@@ -278,7 +368,6 @@ function spell(word) {
         let str = word.join("");
         wordArray = Array.from(str)
    }
-
 
    for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "ː") {
@@ -316,88 +405,6 @@ function spell(word) {
     //     }
     // }
 
-    //POST ALVEOLAR FRICATIVES AND AFFRICATES AND /J/
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "ʃ" && wordArray[i-1] === "t" && randomNumAlveolarFricative < 16) {
-            wordArray[i] = "č";
-            wordArray.splice(i-1,1);
-        }
-        if(wordArray[i] === "ʒ" && wordArray[i-1] === "d" && randomNumAlveolarFricative < 16) {
-            wordArray[i] = "dž"
-            wordArray.splice(i-1,1);
-        }
-        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative < 16) {
-            wordArray[i] = "š"
-        }
-        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative < 16) {
-            wordArray[i] = "ž"
-        }
-
-        if(wordArray[i] === "ʃ" && wordArray[i-1] === "t" && randomNumAlveolarFricative === 16) {
-            wordArray[i] = "ch"
-            wordArray.splice(i-1,1);
-        }
-        if(wordArray[i] === "ʒ" && wordArray[i-1] === "d" && randomNumAlveolarFricative === 16) {
-            wordArray[i] = "j"
-            wordArray.splice(i-1,1);
-        }
-        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative === 16) {
-            wordArray[i] = "sh"
-        }
-        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative === 16) {
-            wordArray[i] = "zh"
-        }
-        if(wordArray[i] === "j" && randomNumAlveolarFricative === 16) {
-            wordArray[i] = "y"
-        }
-
-        if(wordArray[i] === "ʃ" && wordArray[i-1] === "t" && randomNumAlveolarFricative === 15) {
-            wordArray[i] = "tsj"
-            wordArray.splice(i-1,1);
-        }
-        if(wordArray[i] === "ʒ" && wordArray[i-1] === "d" && randomNumAlveolarFricative === 15) {
-            wordArray[i] = "dzj"
-            wordArray.splice(i-1,1);
-        }
-        if(wordArray[i] === "ʃ" && randomNumAlveolarFricative === 15) {
-            wordArray[i] = "sj"
-        }
-        if(wordArray[i] === "ʒ" && randomNumAlveolarFricative === 15) {
-            wordArray[i] = "zj"
-        }
-    }
-
-     //VELAR NASAL
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "ŋ" && allVelarFricatives.includes(wordArray[i + 1])) {
-            wordArray[i] = "n"
-        } else if(wordArray[i] === "ŋ" && wordArray[i + 1] === "k") {
-            wordArray[i] = "n";
-        } else if(wordArray[i] === "ŋ" && wordArray[i + 1] === "g") {
-            wordArray[i] = "n";
-        }  else if(wordArray[i] === "ŋ") {
-            wordArray[i] = "ng";
-        }
-    }
-
-    //VELAR FRICATIVES 
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "x" && allGlottalFricatives.length > 0) {
-            wordArray[i] = "kh"
-        }
-        if(wordArray[i] === "x" && allGlottalFricatives.length > 0 && allAspiratesArray.length > 0) {
-            wordArray[i] = "ch"
-        }
-        if(wordArray[i] === "x" && allGlottalFricatives.length === 0  && allAspiratesArray.length === 0) {
-            wordArray[i] = "h"
-        }
-        if(wordArray[i] === "ɣ") {
-            wordArray[i] = "gh"
-        }
-        if(wordArray[i] === "ɣ" && allAspiratesArray.length > 0 ) {
-            wordArray[i] = "ɣ"
-        }
-    }
 
     //UVULAR FRICATIVES
     for(let i = 0; i < wordArray.length; i++) {
@@ -571,6 +578,7 @@ function spell(word) {
 
     //ASPIRATES
     for(let i = 0; i < wordArray.length; i++) {
+
         if(wordArray[i] === "ʰ" && voicingTrueOrFalse) {
             wordArray[i] = "h" 
         } else if (voicingTrueOrFalse === false && allAspiratesArray.length > 0) {//if plosives have no voicing distinction, aspirates will be marked by using <p t k> while unvoices non-aspirated will be <b d g>
@@ -674,47 +682,143 @@ function spell(word) {
         }
     }
 
-    function spellIndividualLettersShort(letter, randomLetter) {
+    let chosenVowelSpellingsArrayJoined = chosenVowelSpellingsArray.join("");
+    let chosenVowelSpellingsArrayJoinedArray = Array.from(chosenVowelSpellingsArrayJoined)
+
+    let chosenConsonantSpellingsArrayJoined = chosenConsonantSpellingsArray.join("");
+    let chosenConsonantSpellingsArrayJoinedArray = Array.from(chosenConsonantSpellingsArrayJoined)
+    
+    function spellIndividualLettersLong(letter, randomLetter, chosenSpellingsArray) {
         //if vowels were manually chosen
+        let chosenJoinedArray = [];
+        if(chosenSpellingsArray === chosenVowelSpellingsArray) {
+            chosenJoinedArray = cloneArray(chosenVowelSpellingsArrayJoinedArray);
+        } else {
+            chosenJoinedArray = cloneArray(chosenConsonantSpellingsArrayJoinedArray);
+        }
+
         if(randomOption === false) {
-            for(let j = 0; j < chosenVowelSpellingsArray.length; j++) {
-                //if the vowel schwa was manually entered
-                if(chosenVowelSpellingsArray[j][0] === letter) {
-                    //if no spelling was given, then a random one is chosen
-                    if(chosenVowelSpellingsArray[j].length <= 2) {
-                        for(let i = 0; i < wordArray.length; i++) {
-                            if(wordArray[i] === letter) {
-                                wordArray[i] = randomLetter;
+                for(let j = 0; j < chosenSpellingsArray.length; j++) {
+                    if(chosenSpellingsArray[j][0] === letter && chosenSpellingsArray[j][1] === "ː") {
+
+                        //if a user did not enter a sound manually, but the sound arose via sound changes, it is assigned a random spelling
+                        if(chosenJoinedArray.includes(letter) === false) {
+                            for(let i = 0; i < wordArray.length; i++) {
+                                if(wordArray[i] === letter && wordArray[i+1] === "ː") {
+                                    wordArray[i] = randomLetter;
+                                    wordArray.splice(i+1,1);
+                                };
                             };
-                        };
-                    //if a spelling was manually given and the spelling is one letter
-                    } else if(chosenVowelSpellingsArray[j].length === 3) {
-                        for(let k = 0; k < chosenVowelSpellingsArray[j].length; k++) {
-                            if(chosenVowelSpellingsArray[j][k-1] === "=") {
-                                for(let i = 0; i < wordArray.length; i++) {
-                                    if(wordArray[i] === letter) {
-                                        wordArray[i] = chosenVowelSpellingsArray[j][k];
+                        } else {
+
+                        //if no spelling was given, then a random one is chosen
+                        if(chosenSpellingsArray[j].length <= 2) {
+                            for(let i = 0; i < wordArray.length; i++) {
+                                if(wordArray[i] === letter && wordArray[i+1] === "ː") {
+                                    wordArray[i] = randomLetter;
+                                    wordArray.splice(i+1,1);
+                                };
+                            };
+                        //if a spelling was manually given and the spelling is one letter
+                        } else if(chosenSpellingsArray[j].length === 4) {
+                            for(let k = 0; k < chosenSpellingsArray[j].length; k++) {
+                                if(chosenSpellingsArray[j][k-1] === "=") {
+                                    for(let i = 0; i < wordArray.length; i++) {
+                                        if(wordArray[i] === letter && wordArray[i] === wordArray[i+1]) {
+                                            wordArray[i] = chosenSpellingsArray[j][k];
+                                            wordArray.splice(i+1,1);
+                                        };
+                                    };
+                                };
+                            };
+                        //if a spelling was manually given and the spelling is two letters
+                        } else if(chosenSpellingsArray[j].length > 4) {
+                            for(let k = 0; k < chosenSpellingsArray[j].length; k++) {
+                                if(chosenSpellingsArray[j][k-1] === "=") {
+                                    for(let i = 0; i < wordArray.length; i++) {
+                                        let newSpelling = chosenSpellingsArray[j][k] + chosenSpellingsArray[j][k+1];
+                                        if(wordArray[i] === letter && wordArray[i] === wordArray[i+1]) {
+                                            wordArray[i] = newSpelling;
+                                            wordArray.splice(i+1,1);
+                                            if(wordArray[i+1] === wordArray[i]) {
+                                                wordArray.splice(i+1,1);
+                                                wordArray.splice(i+1,1);
+                                            };
+                                        };
                                     };
                                 };
                             };
                         };
-                    //if a spelling was manually given and the spelling is two letters
-                    } else if(chosenVowelSpellingsArray[j].length > 3) {
-                        for(let k = 0; k < chosenVowelSpellingsArray[j].length; k++) {
-                            if(chosenVowelSpellingsArray[j][k-1] === "=") {
-                                for(let i = 0; i < wordArray.length; i++) {
-                                    let newSpelling = chosenVowelSpellingsArray[j][k] + chosenVowelSpellingsArray[j][k+1];
-                                    if(wordArray[i] === letter) {
-                                        wordArray[i] = newSpelling;
+                    };
+                    };
+            };
+        
+        } else {
+            for(let i = 0; i < wordArray.length; i++) {
+                if(wordArray[i] === letter && wordArray[i+1] === "ː") {
+                    wordArray[i] = randomLetter;
+                };
+            };
+        };
+    };
+    
+    function spellIndividualLettersShort(letter, randomLetter, chosenSpellingsArray) {
+
+        let chosenJoinedArray = [];
+        if(chosenSpellingsArray === chosenVowelSpellingsArray) {
+            chosenJoinedArray = cloneArray(chosenVowelSpellingsArrayJoinedArray);
+        } else {
+            chosenJoinedArray = cloneArray(chosenConsonantSpellingsArrayJoinedArray);
+        }
+
+        //if vowels were manually chosen
+        if(randomOption === false) {
+            for(let j = 0; j < chosenSpellingsArray.length; j++) {
+                //if a user did not enter a sound manually, but the sound arose via sound changes, it is assigned a random spelling
+                if(chosenJoinedArray.includes(letter) === false) {
+                    for(let i = 0; i < wordArray.length; i++) {
+                        if(wordArray[i] === letter) {
+                            wordArray[i] = randomLetter;
+                        };
+                    };
+                } else {
+                    if(chosenSpellingsArray[j][0] === letter) {
+                        //if no spelling was given, then a random one is chosen
+                        if(chosenSpellingsArray[j].length <= 2) {
+                            for(let i = 0; i < wordArray.length; i++) {
+                                if(wordArray[i] === letter) {
+                                    wordArray[i] = randomLetter;
+                                };
+                            };
+                        //if a spelling was manually given and the spelling is one letter
+                        } else if(chosenSpellingsArray[j].length === 3) {
+                            for(let k = 0; k < chosenSpellingsArray[j].length; k++) {
+                                if(chosenSpellingsArray[j][k-1] === "=") {
+                                    for(let i = 0; i < wordArray.length; i++) {
+                                        if(wordArray[i] === letter) {
+                                            wordArray[i] = chosenSpellingsArray[j][k];
+                                        };
+                                    };
+                                };
+                            };
+                        //if a spelling was manually given and the spelling is two letters
+                        } else if(chosenSpellingsArray[j].length > 3) {
+                            for(let k = 0; k < chosenSpellingsArray[j].length; k++) {
+                                // the condition chosenVowelSpellingsArray[j].indexOf("=") === 1 is to check that the index is not a single letter being applied to a long sound, as such an index is also more than 3 characters long but not the desired index here
+                                if(chosenSpellingsArray[j][k-1] === "=" && chosenSpellingsArray[j].indexOf("=") === 1) {
+                                    for(let i = 0; i < wordArray.length; i++) {
+                                        let newSpelling = chosenSpellingsArray[j][k] + chosenSpellingsArray[j][k+1];
+                                        if(wordArray[i] === letter) {
+                                            wordArray[i] = newSpelling;
+                                        };
                                     };
                                 };
                             };
                         };
                     };
                 };
-            };
-
-
+            }; 
+        
         } else {
             for(let i = 0; i < wordArray.length; i++) {
                 if(wordArray[i] === letter) {
@@ -724,117 +828,80 @@ function spell(word) {
         };
     };
 
-    function spellIndividualLettersLong(letter, randomLetter) {
-        //if vowels were manually chosen
-        if(randomOption === false) {
-            for(let j = 0; j < chosenVowelSpellingsArray.length; j++) {
-                //if the vowel schwa was manually entered
-                if(chosenVowelSpellingsArray[j][0] === letter && chosenVowelSpellingsArray[j][1] === "ː") {
-                    //if no spelling was given, then a random one is chosen
-                    if(chosenVowelSpellingsArray[j].length <= 2) {
-                        for(let i = 0; i < wordArray.length; i++) {
-                            if(wordArray[i] === letter && wordArray[i+1] === "ː") {
-                                wordArray[i] = randomLetter;
-                                wordArray.splice(i+1,1);
-                            };
-                        };
-                    //if a spelling was manually given and the spelling is one letter
-                    } else if(chosenVowelSpellingsArray[j].length === 4) {
-                        for(let k = 0; k < chosenVowelSpellingsArray[j].length; k++) {
-                            if(chosenVowelSpellingsArray[j][k-1] === "=") {
-                                for(let i = 0; i < wordArray.length; i++) {
-                                    if(wordArray[i] === letter && wordArray[i] === wordArray[i+1]) {
-                                        wordArray[i] = chosenVowelSpellingsArray[j][k];
-                                        wordArray.splice(i+1,1);
-                                        
-                                    };
-                                };
-                            };
-                        };
-                    //if a spelling was manually given and the spelling is two letters
-                    } else if(chosenVowelSpellingsArray[j].length > 4) {
-                        for(let k = 0; k < chosenVowelSpellingsArray[j].length; k++) {
-                            if(chosenVowelSpellingsArray[j][k-1] === "=") {
-                                for(let i = 0; i < wordArray.length; i++) {
-                                    let newSpelling = chosenVowelSpellingsArray[j][k] + chosenVowelSpellingsArray[j][k+1];
-                                    if(wordArray[i] === letter && wordArray[i] === wordArray[i+1]) {
-                                        wordArray[i] = newSpelling;
-                                        wordArray.splice(i+1,1);
-                                        if(wordArray[i+1] === wordArray[i]) {
-                                            wordArray.splice(i+1,1);
-                                            wordArray.splice(i+1,1);
-                                        };
-                                    };
-                                };
-                            };
-                        };
-                    };
-                };
-            };
-        } else {
-            for(let i = 0; i < wordArray.length; i++) {
-                if(wordArray[i] === letter && wordArray[i+1] === "ː") {
-                    wordArray[i] = randomLetter;
-                };
-            };
-        };
+    spellIndividualLettersLong("i", randomLongI(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("u", randomLongU(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("a", randomLongA(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("o", randomLongO(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("e", randomLongE(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("y", randomLongY(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("æ", randomLongAshSpelling(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ʊ", "ûû", chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ə", randomLongSchwa(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɪ", "îî", chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ʉ", "üü", chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɵ", "ǒ", chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɘ", "ě",chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɜ", "ĕ", chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɞ", "ŏŏ", chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ʏ", randomLongNearHighY(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɯ", randomLongHighBackUnroundedU(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɤ", "òò", chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ʌ", "ùù", chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɒ", randomLongLowBackUnroundedA(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ø", randomLongRoundedO(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɛ", randomLongNearMidE(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɔ", randomLongNearMidO(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("œ", "œœ", chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɑ", randomLongBackLowROundedA(), chosenVowelSpellingsArray);
+    spellIndividualLettersLong("ɐ", randomLongCentralA(), chosenVowelSpellingsArray);
+    
+
+    spellIndividualLettersShort("i", "i", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("u", "u", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("a", "a", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("o", "o", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("e", "e", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("y", "y", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("æ", randomAshSpelling(), chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ʊ", "û", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ə", randomSchwaSpelling(), chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɪ", "î", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ʉ", "ü", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɵ", "ǒ", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɘ", "ě", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɜ", "ĕ", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɞ", "ŏ", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ʏ", randomNearHighRounded(), chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɯ", randomHighBackUnrouded(), chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɤ", "ò", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ʌ", "ù", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɒ", randomLowBackUnrouded(), chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ø", randomMidFrontRouded(), chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɛ", randomLowMidFrontUnrounded(), chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɔ", randomLowMidBackRounded(), chosenVowelSpellingsArray);
+    spellIndividualLettersShort("œ", "œ", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɑ", randomLowFrontRounded(), chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɐ", randomMidCentreRounded(), chosenVowelSpellingsArray);
+
+    spellIndividualLettersShort("ʃ", randomPostAlveolarS(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ʒ", randomPostAlveolarS(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("j", randomPostAlveolarS(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ʧ", randomPostAlveolarS(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ʤ", randomPostAlveolarS(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ŋ", randomVelarNasal(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("x", randomVelarFricative(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ɣ", randomVelarFricative(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("h", "h", chosenConsonantSpellingsArray);
+
+    //removes redunant "t" and "d" before č and dž
+    for(let i = 0; i < wordArray.length; i++) {
+        if (wordArray[i] === "t" && wordArray[i+1] === "č") {
+            wordArray.splice(i,1);
+        }
+        if (wordArray[i] === "d" && wordArray[i+1] === "dž") {
+            wordArray.splice(i,1);
+        }
     };
-
-
-    spellIndividualLettersLong("i", randomLongI());
-    spellIndividualLettersLong("u", randomLongU());
-    spellIndividualLettersLong("a", randomLongA());
-    spellIndividualLettersLong("o", randomLongO());
-    spellIndividualLettersLong("e", randomLongE());
-    spellIndividualLettersLong("y", randomLongY());
-    spellIndividualLettersLong("æ", randomLongAshSpelling());
-    spellIndividualLettersLong("ʊ", "ûû");
-    spellIndividualLettersLong("ə", randomLongSchwa());
-    spellIndividualLettersLong("ɪ", "îî");
-    spellIndividualLettersLong("ʉ", "üü");
-    spellIndividualLettersLong("ɵ", "ǒ");
-    spellIndividualLettersLong("ɘ", "ě");
-    spellIndividualLettersLong("ɜ", "ĕ");
-    spellIndividualLettersLong("ɞ", "ŏŏ");
-    spellIndividualLettersLong("ʏ", randomLongNearHighY());
-    spellIndividualLettersLong("ɯ", randomLongHighBackUnroundedU());
-    spellIndividualLettersLong("ɤ", "òò");
-    spellIndividualLettersLong("ʌ", "ùù");
-    spellIndividualLettersLong("ɒ", randomLongLowBackUnroundedA());
-    spellIndividualLettersLong("ø", randomLongRoundedO());
-    spellIndividualLettersLong("ɛ", randomLongNearMidE());
-    spellIndividualLettersLong("ɔ", randomLongNearMidO());
-    spellIndividualLettersLong("œ", "œœ");
-    spellIndividualLettersLong("ɑ", randomLongBackLowROundedA());
-    spellIndividualLettersLong("ɐ", randomLongCentralA());
-
-    spellIndividualLettersShort("i", "i");
-    spellIndividualLettersShort("u", "u");
-    spellIndividualLettersShort("a", "a");
-    spellIndividualLettersShort("o", "o");
-    spellIndividualLettersShort("e", "e");
-    spellIndividualLettersShort("y", "y");
-    spellIndividualLettersShort("æ", randomAshSpelling());
-    spellIndividualLettersShort("ʊ", "û");
-    spellIndividualLettersShort("ə", randomSchwaSpelling());
-    spellIndividualLettersShort("ɪ", "î");
-    spellIndividualLettersShort("ʉ", "ü");
-    spellIndividualLettersShort("ɵ", "ǒ");
-    spellIndividualLettersShort("ɘ", "ě");
-    spellIndividualLettersShort("ɜ", "ĕ");
-    spellIndividualLettersShort("ɞ", "ŏ");
-    spellIndividualLettersShort("ʏ", randomNearHighRounded());
-    spellIndividualLettersShort("ɯ", randomHighBackUnrouded());
-    spellIndividualLettersShort("ɤ", "ò");
-    spellIndividualLettersShort("ʌ", "ù");
-    spellIndividualLettersShort("ɒ", randomLowBackUnrouded());
-    spellIndividualLettersShort("ø", randomMidFrontRouded());
-    spellIndividualLettersShort("ɛ", randomLowMidFrontUnrounded());
-    spellIndividualLettersShort("ɔ", randomLowMidBackRounded());
-    spellIndividualLettersShort("œ", "œ");
-    spellIndividualLettersShort("ɑ", randomLowFrontRounded());
-    spellIndividualLettersShort("ɐ", randomMidCentreRounded());
-
     let final = wordArray.join("");
     return final
 };

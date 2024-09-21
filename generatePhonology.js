@@ -188,8 +188,11 @@ function restoreDefault() {
 }
 
 let chosenVowels = false;
+let chosenConsonants = false;
 let chosenVowelArray = [];
+let chosenConsonantArray = [];
 let chosenVowelSpellingsArray = [];
+let chosenConsonantSpellingsArray = [];
 function checkManuallyEnteredSounds() {
     if(randomOption === false) {
         if(document.getElementById("chosen-vowels").value !== "") {
@@ -295,6 +298,125 @@ function checkManuallyEnteredSounds() {
                 };
             };
         };
+        if(document.getElementById("chosen-consonants").value !== "") {
+            chosenConsonants = true;
+            chosenConsonantArray = Array.from(document.getElementById("chosen-consonants").value);
+            for(let i = 0; i < chosenConsonantArray.length; i++) {  
+                //puts superscript characters in the same index as their host letter, this also merges a plosive and fricative in an affricate
+                function mergeSuperscripts(superscript) {
+                    if (chosenConsonantArray[i] === superscript && chosenConsonantArray[i-1] === "-") {
+                        chosenConsonantArray[i-2] = chosenConsonantArray[i-2] + chosenConsonantArray[i];
+                        chosenConsonantArray.splice(i-1,2);
+                    } else if (chosenConsonantArray[i] === superscript && chosenConsonantArray[i+1] === "-") {
+                        chosenConsonantArray[i+2] = chosenConsonantArray[i] + chosenConsonantArray[i+2];
+                        chosenConsonantArray.splice(i,2);
+                        console.log(chosenConsonantArray)
+                    };
+                };
+                mergeSuperscripts("ʰ");
+                mergeSuperscripts("ʷ");
+                mergeSuperscripts("ʲ");
+                mergeSuperscripts("ʃ");
+                mergeSuperscripts("ʒ");
+
+                //removes the whitespaces
+                while(chosenConsonantArray[i] === " ") {
+                    chosenConsonantArray.splice(i,1);
+                };
+
+                //makes the IPA length marker be part of the same index as the vowel listed before it
+                if(chosenConsonantArray[i+1] === "ː") {
+                    chosenConsonantArray[i] = chosenConsonantArray[i] + chosenConsonantArray[i+1]
+                    chosenConsonantArray.splice(i+1,1);
+                };
+            };
+
+            chosenConsonantSpellingsArray = cloneArray(chosenConsonantArray);
+            //now that the array has been cloned to chosenConsonantArray, notations regarding spelling can now be removed
+            for(let i = 0; i < chosenConsonantArray.length; i++) {
+                //if the spelling is one letter long
+                if(chosenConsonantArray[i-1] === "(" && chosenConsonantArray[i+3] === ")") {
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i-1,1);
+                };
+
+                //if the spelling is two letters long
+                if(chosenConsonantArray[i-1] === "(" && chosenConsonantArray[i+4] === ")") {
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i-1,1);
+                };
+
+                //if the spelling is three letters long
+                if(chosenConsonantArray[i-1] === "(" && chosenConsonantArray[i+5] === ")") {
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i-1,1);
+                };
+
+                //if the spelling is four letters long
+                if(chosenConsonantArray[i-1] === "(" && chosenConsonantArray[i+6] === ")") {
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i+1,1);
+                    chosenConsonantArray.splice(i-1,1);
+                };
+            };
+
+            for(let i = 0; i < chosenConsonantSpellingsArray.length; i++) {
+                //if a spelling for a sound has been chosen, the "=" and then letter are put into the same index as the sound
+
+                //if the spelling is one letter long
+                if(chosenConsonantSpellingsArray[i-1] === "(" && chosenConsonantSpellingsArray[i+3] === ")") {
+                    chosenConsonantSpellingsArray[i] = chosenConsonantSpellingsArray[i] + chosenConsonantSpellingsArray[i+1] + chosenConsonantSpellingsArray[i+2];
+
+                    chosenConsonantSpellingsArray.splice(i-1,1);
+                    chosenConsonantSpellingsArray.splice(i,1);
+                    chosenConsonantSpellingsArray.splice(i,1);
+                    chosenConsonantSpellingsArray.splice(i,1);
+                };
+
+                //if the spelling is two letters long
+                if(chosenConsonantSpellingsArray[i-1] === "(" && chosenConsonantSpellingsArray[i+4] === ")") {
+                    chosenConsonantSpellingsArray[i] = chosenConsonantSpellingsArray[i] + chosenConsonantSpellingsArray[i+1] + chosenConsonantSpellingsArray[i+2] + chosenConsonantSpellingsArray[i+3];
+
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                };
+
+                //if the spelling is three letters long
+                if(chosenConsonantSpellingsArray[i-1] === "(" && chosenConsonantSpellingsArray[i+5] === ")") {
+                    chosenConsonantSpellingsArray[i] = chosenConsonantSpellingsArray[i] + chosenConsonantSpellingsArray[i+1] + chosenConsonantSpellingsArray[i+2] + chosenConsonantSpellingsArray[i+3] + chosenConsonantSpellingsArray[i+4];
+
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                };
+
+                //if the spelling is four letters long
+                if(chosenConsonantSpellingsArray[i-1] === "(" && chosenConsonantSpellingsArray[i+6] === ")") {
+                    chosenConsonantSpellingsArray[i] = chosenConsonantSpellingsArray[i] + chosenConsonantSpellingsArray[i+1] + chosenConsonantSpellingsArray[i+2] + chosenConsonantSpellingsArray[i+3] + chosenConsonantSpellingsArray[i+4] + chosenConsonantSpellingsArray[i+5];
+
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                    chosenConsonantSpellingsArray.splice(i+1,1);
+                };
+            };
+        };
     };
 };
 
@@ -308,744 +430,1297 @@ function makeRandomNumbers() {
 /*---CHOOSE SECTION----*/
 //The functions here will decide if the language has a set of consonants based on Place of Articulation, such a retroflex, palatal etc. The very core PoA like velar, labial and alveolar will be chosen by default, as it is very rare for a language to lack those
 
-let voicingTrueOrFalse = ""
-let randomVoiceNum = Math.floor(Math.random() * 4);
-function chooseVoicing() {//there is a 33% chance that this language will lack voicing
-    if (randomVoiceNum === 2) { 
-        voicingTrueOrFalse = false;
-    } else {
-        voicingTrueOrFalse = true;
-    }
-    if(voicingTrueOrFalse) {
-        allLabialPlosivesArray.push("b");
-        allAlveolarPlosivesArray.push("d");
-        allVelarPlosivesArray.push("g");
-        
-        let randomNum = Math.floor(Math.random() * 3);
-        if(randomNum === 1) {//there is a 50% chance that there will be /z/
-            allAlveolarFricativesArray.push("z");
-        }
-    }
-    return voicingTrueOrFalse;
-}
+function selectConsonants() {
+    if(randomOption|| document.getElementById("chosen-consonants").value.length === 0) {
+        randomlyChooseConsonants();
+    } else if (document.getElementById("chosen-consonants").value.length > 0) {
+        //default consonants are removed
+        allNasalsArray.length = 0;
+        allNasalsArray.length = 0;
+        allLabialPlosivesArray.length = 0;
+        allAlveolarPlosivesArray.length = 0;
+        allVelarPlosivesArray.length = 0;
+        allAlveolarFricativesArray.length = 0;
+        allAlveolarRhoticsArray.length = 0;
+        allLateralsArray.length = 0;
 
-function chooseGemination() {
-    if(randomGeminationNum === 2 ) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function chooseAspiration() {
-        function preAspiration() {
-            randomNum = Math.floor(Math.random() * 18);
-            let trueOrFalse = "";
-            if(randomNum === 4 ) {
-                trueOrFalse = true;
-            } else {
-                trueOrFalse = false;
-            }
-            allLabialPlosivesArray.push("ʰp");
-            allAspiratesArray.push("ʰp");
-            allAlveolarPlosivesArray.push("ʰt");
-            allAspiratesArray.push("ʰt");
-            allVelarPlosivesArray.push("ʰk");
-            allAspiratesArray.push("ʰk");
-            return trueOrFalse;
-        }
-
-        function postAspiration() {
-            randomNum = Math.floor(Math.random() * 11);
-            let trueOrFalse = "";
-            if(randomNum === 4 ) {
-                trueOrFalse = true;
-            } else {
-                trueOrFalse = false;
-            }
-            allLabialPlosivesArray.push("pʰ");
-            allAspiratesArray.push("pʰ");
-            randomNum = Math.floor(Math.random() * 3);
-                if(randomNum === 2 && chooseVoicing()) {
-                    allLabialPlosivesArray.push("bʰ");
-                    allAspiratesArray.push("bʰ");
-                }
-            allAlveolarPlosivesArray.push("tʰ");
-            allAspiratesArray.push("tʰ");
-            randomNum = Math.floor(Math.random() * 3);
-                if(randomNum === 2 && chooseVoicing()) {
-                    allLabialPlosivesArray.push("dʰ");
-                    allAspiratesArray.push("dʰ");
-                }
-            allVelarPlosivesArray.push("kʰ");
-            allAspiratesArray.push("kʰ");
-                randomNum = Math.floor(Math.random() * 3);
-                if(randomNum === 2 && chooseVoicing()) {
-                    allLabialPlosivesArray.push("gʰ");
-                    allAspiratesArray.push("gʰ");
-                }
-            return trueOrFalse;
-        }
-    let randomNum = Math.floor(Math.random() * 10);
-    let chosenAspiration = "";
-    if(randomNum === 1) { 
-        let randomNum = Math.floor(Math.random() * 3);
-        if(randomNum === 2) {
-            chosenAspiration = preAspiration();
-        } else {
-            chosenAspiration = postAspiration();
-    } 
-    return chosenAspiration;
-    }
-}
-
-function chooseLabial() {
-    let randomNum = Math.floor(Math.random() * 3);
-    if (randomNum === 1) {
-        randomNum = Math.floor(Math.random() * 6);
-        if(randomNum === 2) {
-            allLabialFricativesArray.push("ɸ");
-            randomNum = Math.floor(Math.random() * 6)
-            if(randomNum === 4 && chooseGemination()) {
-                allLabialApproximants.push("ɸː");
-                allLongConsonants.push("ɸː")
-            }
-        }
-        if(chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 2);
-            if(randomNum === 1) {
-                allLabialFricativesArray.push("β");
-                randomNum = Math.floor(Math.random() * 6)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialApproximants.push("βː");
-                    allLongConsonants.push("βː")
-                }
-                }
-        }
-        allLabialApproximants.push("w")
-        randomNum = Math.floor(Math.random() * 6)
-        if(randomNum === 4 && chooseGemination()) {
-            allLabialApproximants.push("wː")
-            allLongConsonants.push("wː")
-        }
-        
-        randomNum = Math.floor(Math.random() * 25)
-        if(randomNum === 2) {
-            allLabialAffricates.push("pɸ")
-            randomNum = Math.floor(Math.random() * 6)
-            if(randomNum === 4 && chooseVoicing()) {
-                allLabialAffricates.push("bβ")
-            }
-        }
-    }
-    if(chooseGemination()) {
-        if(Math.floor(Math.random() * 2) === 1) {
-            allNasalsArray.push("mː");
-            allLongConsonants.push("mː");
-        }
-    }
-    if(chooseGemination()) {
-        if(Math.floor(Math.random() * 2) === 1) {
-            allLabialPlosivesArray.push("pː");
+        if(chosenConsonantArray.includes("p")) {
+            allLabialPlosivesArray.push("p");
+        };
+        if(chosenConsonantArray.includes("pː")) {
             allLongConsonants.push("pː");
-        }
-        if(Math.floor(Math.random() * 2) === 1) {
-            allLabialPlosivesArray.push("bː");
+            allLabialPlosivesArray.push("pː");
+        };
+        if(chosenConsonantArray.includes("b")) {
+            allLabialPlosivesArray.push("b");
+        };
+        if(chosenConsonantArray.includes("bː")) {
             allLongConsonants.push("bː");
-        }
-    }
-}
-
-function chooseLabioDental() {
-    let randomNum = Math.floor(Math.random() * 11);
-    if(randomNum === 5) {
-        allLabioDentalArray.push("f");
-        randomNum = Math.floor(Math.random() * 10)
-            if(randomNum === 4 && chooseGemination()) {
-                allLabialDentalApproximants.push("fː")
-                allLongConsonants.push("fː")
-            }
-        if(chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 11)
-            if(randomNum !== 2) {
-                allLabioDentalArray.push("v");
-                randomNum = Math.floor(Math.random() * 23)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("vː")
-                     allLongConsonants.push("vː")
-                }
-            }
-        }
-        randomNum = Math.floor(Math.random() * 11)
-        if(randomNum !== 2) {
-            allLabialDentalApproximants.push("ʋ")
-            randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("ʋː")
-                    allLongConsonants.push("ʋː")
-                }
-        }
-        randomNum = Math.floor(Math.random() * 31)
-        if(randomNum === 2) {
-            allLabialDentalAffricates.push("pf")
-            randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseVoicing()) {
-                    allLabialDentalAffricates.push("bv")
-                }
-        }
-    }
-}
-
-function chooseDental() {
-    let randomNum = Math.floor(Math.random() * 21);
-    if (randomNum === 4) {
-        allDentalFricatives.push("θ");
-        randomNum = Math.floor(Math.random() * 23)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("θː")
-                    allLongConsonants.push("θː")
-                }
-        if(chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 3);
-            if(randomNum === 2) {
-                allDentalFricatives.push("ð");
-                randomNum = Math.floor(Math.random() * 23)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("ðː")
-                    allLongConsonants.push("ðː")
-                }
-            } 
-        }
-    }
-}
-
-function chooseAlveolar() {
-    let randomNum = Math.floor(Math.random() * 7);
-    if(randomNum === 4 && chooseGemination()) {
-        allAlveolarRhoticsArray.push("rː");
-        allLongConsonants.push("rː");
-        allLateralsArray.push("lː");
-        allLongConsonants.push("lː");
-    }
-    randomNum = Math.floor(Math.random() * 25);
-    if (randomNum === 23) { 
-        allLateralFricatives.push("ɬ");
-        randomNum = Math.floor(Math.random() * 4);
-        if(randomNum === 2 && chooseVoicing()) { 
-            allLateralFricatives.push("ɮ");
-        }
-    }
-     randomNum = Math.floor(Math.random() * 20);
-    if (randomNum === 23) { 
-        allAlveolarAffricates.push("ts");
-        randomNum = Math.floor(Math.random() * 4);
-        if(randomNum === 2 && chooseVoicing()) { 
-            allAlveolarAffricates.push("dz");
-        }
-    }
-
-    if(chooseGemination()) {
-        if(Math.floor(Math.random() * 2) === 1) {
-            allNasalsArray.push("nː");
-            allLongConsonants.push("nː");
-        }
-        if(Math.floor(Math.random() * 2) === 1) {
+            allLabialPlosivesArray.push("bː");
+        };
+        if(chosenConsonantArray.includes("t")) {
+            allAlveolarPlosivesArray.push("t");
+        };
+        if(chosenConsonantArray.includes("tː")) {
             allAlveolarPlosivesArray.push("tː");
             allLongConsonants.push("tː");
-        }
-        if(Math.floor(Math.random() * 2) === 1) {
+        };
+        if(chosenConsonantArray.includes("d")) {
+            allAlveolarPlosivesArray.push("d");
+        };
+        if(chosenConsonantArray.includes("dː")) {
             allAlveolarPlosivesArray.push("dː");
             allLongConsonants.push("dː");
-        }
-        if(Math.floor(Math.random() * 2) === 1) {
-            allAlveolarFricativesArray.push("sː");
-            allLongConsonants.push("sː");
-        }
-        if(Math.floor(Math.random() * 2) === 1) {
-            allAlveolarFricativesArray.push("zː");
-            allLongConsonants.push("zː");
-        }
-    }
-}
-
-function choosePostAlveolar() {
-    let randomNum = Math.floor(Math.random() * 4);
-    if (randomNum === 2) {
-        allPostAlveolarFricatives.push("ʃ");
-        randomNum = Math.floor(Math.random() * 11)
-                if(randomNum === 4 && chooseGemination()) {
-                    allPostAlveolarFricatives.push("ʃː")
-                    allLongConsonants.push("ʃː")
-                }
-        if (chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 3);
-            allPostAlveolarFricatives.push("ʒ");
-            randomNum = Math.floor(Math.random() * 11)
-                if(randomNum === 4 && chooseGemination()) {
-                    allPostAlveolarFricatives.push("ʒː")
-                    allLongConsonants.push("ʒː")
-                }
-        }
-        randomNum = Math.floor(Math.random() * 9)
-        if(randomNum === 4) {
-            allPostAlveolaraffricates.push("tʃ");
-            randomNum = Math.floor(Math.random() * 5)
-            if(randomNum === 4 && chooseVoicing()) {
-                allPostAlveolaraffricates.push("dʒ")
-            }
-        }
-        
-    }
-}
-
-function chooseRetroflex() {//there ise a 10% chance that this language has retroflexes
-    let randomNum = Math.floor(Math.random() * 11);
-    let trueOrFalse = "";
-    if(randomNum === 2) {//if false, then there will be no retroflexes
-        trueOrFalse = true;
-    } else {
-        trueOrFalse = false;
-    }
-    if (trueOrFalse) {
-        allNasalsArray.push("ɳ");
-
-        randomNum = Math.floor(Math.random() * 4);
-        if (randomNum !== 3) {//there is a 60% chance that ʈ is added 
-            allAlveolarPlosivesArray.push("ʈ");
-            if(chooseVoicing()) {
-                allAlveolarPlosivesArray.push("ɖ");
-            }
-            allAlveolarFricativesArray.push("ʂ");
-            if(chooseVoicing()) {
-                allAlveolarFricativesArray.push("ʐ");
-            }
-            allAlveolarRhoticsArray.push("ɽ");
-            allLateralsArray.push("ɭ")
-        }
-    }
-}
-
-function choosePalatal() {//there ise a 20% chance that this language has palatal consonants
-    let randomNum =  Math.floor(Math.random() * 6);
-    if (randomNum === 3) {
-        allNasalsArray.push("ɲ");
-        randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("ɲː")
-                    allLongConsonants.push("ɲː")
-                }
-    } 
-    randomNum = Math.floor(Math.random() * 6)
-    if (randomNum === 4) {
-        allLateralsArray.push("ʎ");
-        randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("ʎː")
-                    allLongConsonants.push("ʎː")
-                }
-    }
-    randomNum = Math.floor(Math.random() * 8)
-    if (randomNum === 2) {
-        allPalatalPlosivesArray.push("c");
-        randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("cː")
-                    allLongConsonants.push("cː")
-                }
-        if(chooseVoicing()) {
-            allPalatalPlosivesArray.push("ɟ");
-            randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("ɟː")
-                    allLongConsonants.push("ɟː")
-                }
-        }
-    }
-    randomNum = Math.floor(Math.random() * 6)
-    if (randomNum === 4) {
-        allPalatalFricatives.push("ç")
-        randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("çː")
-                    allLongConsonants.push("çː")
-                }
-        if(chooseVoicing()) {
-            allPalatalFricatives.push("ʝ");
-            randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("ʝː")
-                    allLongConsonants.push("ʝː")
-                }
-        }
-    }
-    randomNum = Math.floor(Math.random() * 2)
-    if (randomNum === 1) {
-        allpalatalApproximants.push("j");
-        randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("jː")
-                    allLongConsonants.push("jː")
-                }
-        
-    }
-    
-
-}
-
-function chooseVelar() {
-    let randomNum = Math.floor(Math.random() * 6);
-    if (randomNum === 3) {
-        allVelarFricatives.push("x");
-        randomNum = Math.floor(Math.random() * 11)
-                if(randomNum === 4 && chooseGemination()) {
-                    allVelarFricatives.push("xː")
-                    allLongConsonants.push("xː")
-                }
-        if(chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 2);
-            allVelarFricatives.push("ɣ");
-            randomNum = Math.floor(Math.random() * 11)
-                if(randomNum === 4 && chooseGemination()) {
-                    allVelarFricatives.push("ɣː")
-                    allLongConsonants.push("ɣː")
-                }
-        }
-        randomNum = Math.floor(Math.random() * 31);
-        if(randomNum === 4 && chooseGemination()) {
-            allVelaraffricatesArray.push("kx");
-            if(chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 11)
-                if(randomNum === 4 && chooseGemination()) {
-                    allVelaraffricatesArray.push("gɣ")
-                }
-        }
-        }
-
-        randomNum = Math.floor(Math.random() * 201);
-        if(randomNum === 6) {
-            allLateralsArray.push("ʟ");
-            randomNum = Math.floor(Math.random() * 11)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLateralsArray.push("ʟː")
-                    allLongConsonants.push("ʟː")
-                }
-        }
-        randomNum = Math.floor(Math.random() * 11);
-        if(randomNum !== 3) {
-          allNasalsArray.push("ŋ");  
-          randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allNasalsArray.push("ŋː")
-                    allLongConsonants.push("ŋː")
-                }
-        }
-    } 
-    if(chooseGemination()) {
-        if(Math.floor(Math.random() * 2) === 1) {
+        };
+        if(chosenConsonantArray.includes("k")) {
+            allVelarPlosivesArray.push("k");
+        };
+        if(chosenConsonantArray.includes("kː")) {
             allVelarPlosivesArray.push("kː");
             allLongConsonants.push("kː");
-        }
-        if(Math.floor(Math.random() * 2) === 1) {
+        };
+        if(chosenConsonantArray.includes("g")) {
+            allVelarPlosivesArray.push("g");
+        };
+        if(chosenConsonantArray.includes("gː")) {
             allVelarPlosivesArray.push("gː");
             allLongConsonants.push("gː");
-        }
-    }
-}
-
-function chooseUvular() {
-    let randomNum = Math.floor(Math.random() * 21);
-    if(randomNum === 5) {
-        allUvularPlosivesArray.push("q");
-         randomNum = Math.floor(Math.random() * 11)
-                if(randomNum === 4 && chooseGemination()) {
-                    allUvularPlosivesArray.push("qː")
-                    allLongConsonants.push("qː")
-                }
-                if(randomNum === 4 && chooseAspiration()) {
-                    allUvularPlosivesArray.push("qʰ")
-                    allAspiratesArray.push("qʰ")
-                }
-        if(chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 11);
-            if (randomNum !== 4) {
-                allUvularPlosivesArray.push("ɢ");
-                 randomNum = Math.floor(Math.random() * 21)
-                if(randomNum === 4 && chooseGemination()) {
-                    allUvularPlosivesArray.push("ɢː")
-                    allLongConsonants.push("ɢː")
-                }
-                if(randomNum === 4 && chooseAspiration()) {
-                    allUvularPlosivesArray.push("ɢʰ")
-                    allAspiratesArray.push("ɢʰ")
-                }
-            }
-        }
-        randomNum = Math.floor(Math.random() * 5);
-            if (randomNum === 4) {
-                allUvularFricativesArray.push("χ");
-                randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allUvularFricativesArray.push("χː")
-                    allLongConsonants.push("χː")
-                }
-                if(chooseVoicing()) {
-                    randomNum = Math.floor(Math.random() * 4);
-                    if (randomNum !== 4) {
-                        allUvularFricativesArray.push("ʁ");
-                        randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allUvularFricativesArray.push("ʁː")
-                    allLongConsonants.push("ʁː")
-                }
-                    }
-                }
-            }
-        randomNum = Math.floor(Math.random() * 34);
-            if (randomNum === 4) {
-                allUvularaffricatesArray.push("q͡χ");
-                if(chooseVoicing()) {
-                    randomNum = Math.floor(Math.random() * 30);
-                    if (randomNum === 4) {
-                        allUvularaffricatesArray.push("ɢ͡ʁ");
-                    }
-                }
-            }
-    }
-}
-
-function choosePharyngeal() {
-    let randomNum = Math.floor(Math.random() * 21);
-    if(randomNum === 5) {
-        allPharyngealFricatives.push("ħ");
-        randomNum = Math.floor(Math.random() * 40)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("ħː")
-                    allLongConsonants.push("ħː")
-                }
-        if(chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 10);
-            if (randomNum !== 4) {
-                allPharyngealFricatives.push("ʕ");
-                randomNum = Math.floor(Math.random() * 40)
-                if(randomNum === 4 && chooseGemination()) {
-                    allLabialDentalApproximants.push("ʕː")
-                    allLongConsonants.push("ʕː")
-                }
-            }
-        }
-    }
-}
-
-function chooseGlottal() {
-    let randomNum = Math.floor(Math.random() * 6);
-    if(randomNum === 5) {
-        allGlottalFricatives.push("h");
-        randomNum = Math.floor(Math.random() * 30)
-                if(randomNum === 4 && chooseGemination()) {
-                    allGlottalFricatives.push("hː")
-                    allLongConsonants.push("hː")
-                }
-        if(chooseVoicing()) {
-            randomNum = Math.floor(Math.random() * 11);
-            if (randomNum === 4) {
-                allPharyngealFricatives.push("ɦ");
-                randomNum = Math.floor(Math.random() * 40)
-                if(randomNum === 4 && chooseGemination()) {
-                    allGlottalFricatives.push("ɦː")
-                    allLongConsonants.push("ɦː")
-                }
-            }
-        }
-        randomNum = Math.floor(Math.random() * 2);
-        if(randomNum === 1) {
+        };
+        if(chosenConsonantArray.includes("c")) {
+            allPalatalPlosivesArray.push("c");
+        };
+        if(chosenConsonantArray.includes("cː")) {
+            allPalatalPlosivesArray.push("cː");
+            allLongConsonants.push("cː");
+        };
+        if(chosenConsonantArray.includes("ɟ")) {
+            allPalatalPlosivesArray.push("ɟ");
+        };
+        if(chosenConsonantArray.includes("ɟː")) {
+            allPalatalPlosivesArray.push("ɟː");
+            allLongConsonants.push("ɟː");
+        };
+        if(chosenConsonantArray.includes("ʔ")) {
             allGlottalPlosives.push("ʔ");
-            randomNum = Math.floor(Math.random() * 40)
-                if(randomNum === 4 && chooseGemination()) {
-                    allGlottalPlosives.push("ʔː")
-                    allLongConsonants.push("ʔː")
-                }
-                
-        }
-         randomNum = Math.floor(Math.random() * 40);
-        if(randomNum === 1) {
-            allGlottalAffricates.push("ʔh");
-
-        }
-    }
-}
-
-function choosePalatalised() {
-    let randomNum = Math.floor(Math.random() * 14);
-    if(randomNum === 5) {
-        allPalatalisedConsonants.push("tʲ");
-        allAlveolarPlosivesArray.push("tʲ");
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("dʲ");
-                allAlveolarPlosivesArray.push("dʲ");
-                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("dʰʲ");
-                allAlveolarPlosivesArray.push("dʰʲ");
-                    allAspiratesArray.push("dʰʲ");
-            }
-            }
-            if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("tʰʲ");
-                allAlveolarPlosivesArray.push("tʰʲ");
-                allAspiratesArray.push("tʰʲ");
-            }
-
-        randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 30) {
-            allPalatalisedConsonants.push("sʲ");
-            allAlveolarFricativesArray.push("sʲ");
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("zʲ");
-                allAlveolarFricativesArray.push("zʲ");
-            }
-        }
-
-        randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 30) {
-            allPalatalisedConsonants.push("pʲ");
+        };
+        if(chosenConsonantArray.includes("ʔː")) {
+            allGlottalPlosives.push("ʔː");
+            allLongConsonants.push("ʔː");
+        };
+        if(chosenConsonantArray.includes("q")) {
+            allUvularPlosivesArray.push("q");
+        };
+        if(chosenConsonantArray.includes("qː")) {
+            allUvularPlosivesArray.push("qː");
+            allLongConsonants.push("qː");
+        };
+        if(chosenConsonantArray.includes("ɢ")) {
+            allUvularPlosivesArray.push("ɢ");
+        };
+        if(chosenConsonantArray.includes("ɢː")) {
+            allUvularPlosivesArray.push("ɢː");
+            allLongConsonants.push("ɢː");
+        };
+        if(chosenConsonantArray.includes("ʈ")) {
+            allAlveolarPlosivesArray.push("ʈ");
+        };
+        if(chosenConsonantArray.includes("ʈː")) {
+            allAlveolarPlosivesArray.push("ʈː");
+            allLongConsonants.push("ʈː");
+        };
+        if(chosenConsonantArray.includes("ɖ")) {
+            allAlveolarPlosivesArray.push("ɖ");
+        };
+        if(chosenConsonantArray.includes("ɖː")) {
+            allAlveolarPlosivesArray.push("ɖː");
+            allLongConsonants.push("ɖː");
+        };
+        if(chosenConsonantArray.includes("pʰ")) {
+            allLabialPlosivesArray.push("pʰ");
+            allAspiratesArray.push("pʰ");
+        };
+        if(chosenConsonantArray.includes("bʰ")) {
+            allLabialPlosivesArray.push("bʰ");
+            allAspiratesArray.push("bʰ");
+        };
+        if(chosenConsonantArray.includes("tʰ")) {
+            allAlveolarPlosivesArray.push("tʰ");
+            allAspiratesArray.push("tʰ");
+        };
+        if(chosenConsonantArray.includes("dʰ")) {
+            allAlveolarPlosivesArray.push("dʰ");
+            allAspiratesArray.push("dʰ");
+        };
+        if(chosenConsonantArray.includes("kʰ")) {
+            allVelarPlosivesArray.push("kʰ");
+            allAspiratesArray.push("kʰ");
+        };
+        if(chosenConsonantArray.includes("gʰ")) {
+            allVelarPlosivesArray.push("gʰ");
+            allAspiratesArray.push("gʰ");
+        };
+        if(chosenConsonantArray.includes("ʰp")) {
+            allLabialPlosivesArray.push("ʰp");
+            allAspiratesArray.push("ʰp");
+        };
+        if(chosenConsonantArray.includes("ʰb")) {
+            allLabialPlosivesArray.push("ʰb");
+            allAspiratesArray.push("ʰb");
+        };
+        if(chosenConsonantArray.includes("ʰt")) {
+            allAlveolarPlosivesArray.push("ʰt");
+            allAspiratesArray.push("ʰt");
+        };
+        if(chosenConsonantArray.includes("ʰd")) {
+            allAlveolarPlosivesArray.push("ʰd");
+            allAspiratesArray.push("ʰd");
+        };
+        if(chosenConsonantArray.includes("ʰk")) {
+            allVelarPlosivesArray.push("ʰk");
+            allAspiratesArray.push("ʰk");
+        };
+        if(chosenConsonantArray.includes("ʰg")) {
+            allVelarPlosivesArray.push("ʰg");
+            allAspiratesArray.push("ʰg");
+        };
+        if(chosenConsonantArray.includes("pʲ")) {
             allLabialPlosivesArray.push("pʲ");
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("bʲ");
-                allLabialPlosivesArray.push("bʲ");
-                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {;
-                allPalatalisedConsonants.push("bʰʲ");
-                allLabialPlosivesArray.push("bʰʲ");
-                    allAspiratesArray.push("bʰʲ");
-            }
-            }
-            if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("pʰʲ");
-                allLabialPlosivesArray.push("pʰʲ");
-                allAspiratesArray.push("pʰʲ");
-            }
-        }
-
-        randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 30) {
-            allPalatalisedConsonants.push("kʲ");
+            allPalatalisedConsonants.push("pʲ");
+        };
+        if(chosenConsonantArray.includes("bʲ")) {
+            allLabialPlosivesArray.push("bʲ");
+            allPalatalisedConsonants.push("bʲ");
+        };
+        if(chosenConsonantArray.includes("tʲ")) {
+            allAlveolarPlosivesArray.push("tʲ");
+            allPalatalisedConsonants.push("tʲ");
+        };
+        if(chosenConsonantArray.includes("dʲ")) {
+            allAlveolarPlosivesArray.push("dʲ");
+            allPalatalisedConsonants.push("dʲ");
+        };
+        if(chosenConsonantArray.includes("kʲ")) {
             allVelarPlosivesArray.push("kʲ");
-            if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("kʰʲ");
-                allVelarPlosivesArray.push("kʰʲ");
-                allAspiratesArray.push("kʰʲ");
-            }
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("gʲ");
-                allVelarPlosivesArray.push("gʲ");
-                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allAspiratesArray.push("gʰʲ");
-            }
-            }
-        }
-        randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 30) {
-            allPalatalisedConsonants.push("qʲ");
-            allUvularPlosivesArray.push("qʲ");
-            if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("qʰʲ");
-                allUvularPlosivesArray.push("qʰʲ");
-                allAspiratesArray.push("qʰʲ");
-            }
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allPalatalisedConsonants.push("ɢʲ");
-                allUvularPlosivesArray.push("ɢʲ");
-                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allAspiratesArray.push("ɢʰʲ");
-            }
-            }
-        }
-    }
-}
-
-function chooseLabialisation() {
-    let randomNum = Math.floor(Math.random() * 10);
-    if(randomNum === 5) {
-        allLabialisedPlosives.push("tʷ");
-        allAlveolarPlosivesArray.push("tʷ");
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("dʷ");
-                allAlveolarPlosivesArray.push("dʷ");
-                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("dʷʰ");
-                allAlveolarPlosivesArray.push("dʷʰ");
-                    allAspiratesArray.push("dʷʰ");
-            }
-            }
-            if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("tʷʰ");
-                allAlveolarPlosivesArray.push("tʷʰ");
-                allAspiratesArray.push("tʷʰ");
-            }
-
-        randomNum = Math.floor(Math.random() * 4);
-        if(randomNum === 3) {
-            allLabialisedPlosives.push("sʷ");
-            allAlveolarFricativesArray.push("sʷ");
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("zʷ");
-                allAlveolarFricativesArray.push("zʷ");
-            }
-        }
-
-        randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 3) {
-            allLabialisedPlosives.push("pʷ");
+            allPalatalisedConsonants.push("kʲ");
+        };
+        if(chosenConsonantArray.includes("gʲ")) {
+            allVelarPlosivesArray.push("gʲ");
+            allPalatalisedConsonants.push("gʲ");
+        };
+        if(chosenConsonantArray.includes("pʷ")) {
             allLabialPlosivesArray.push("pʷ");
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("bʷ");
-                allLabialPlosivesArray.push("bʷ");
-                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {;
-                allLabialisedPlosives.push("bʷʰ");
-                allLabialPlosivesArray.push("bʷʰ");
-                    allAspiratesArray.push("bʷʰ");
-            }
-            }
-            if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("pʷʰ");
-                allLabialPlosivesArray.push("pʷʰ");
-                allAspiratesArray.push("pʷʰ");
-            }
-        }
-
-        randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 3) {
-            allLabialisedPlosives.push("kʷ");
+            allLabialisedPlosives.push("pʷ");
+        };
+        if(chosenConsonantArray.includes("bʷ")) {
+            allLabialPlosivesArray.push("bʷ");
+            allLabialisedPlosives.push("bʷ");
+        };
+        if(chosenConsonantArray.includes("tʷ")) {
+            allAlveolarPlosivesArray.push("tʷ");
+            allLabialisedPlosives.push("tʷ");
+        };
+        if(chosenConsonantArray.includes("dʷ")) {
+            allAlveolarPlosivesArray.push("dʷ");
+            allLabialisedPlosives.push("dʷ");
+        };
+        if(chosenConsonantArray.includes("kʷ")) {
             allVelarPlosivesArray.push("kʷ");
-            if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("kʷʰ");
-                allVelarPlosivesArray.push("kʷʰ");
-                allAspiratesArray.push("kʷʰ");
-            }
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("gʷ");
-                allVelarPlosivesArray.push("gʷ");
-                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allAspiratesArray.push("gʷʰ");
-            }
+            allLabialisedPlosives.push("kʷ");
+        };
+        if(chosenConsonantArray.includes("gʷ")) {
+            allVelarPlosivesArray.push("gʷ");
+            allLabialisedPlosives.push("gʷ");
+        };
+        if(chosenConsonantArray.includes("pʰʲ")) {
+            allLabialPlosivesArray.push("pʰʲ");
+            allAspiratesArray.push("pʰʲ");
+            allPalatalisedConsonants.push("pʰʲ");
+        };
+        if(chosenConsonantArray.includes("tʰʲ")) {
+            allAlveolarPlosivesArray.push("tʰʲ");
+            allAspiratesArray.push("tʰʲ");
+            allPalatalisedConsonants.push("tʰʲ");
+        };
+        if(chosenConsonantArray.includes("dʰʲ")) {
+            allAlveolarPlosivesArray.push("dʰʲ");
+            allAspiratesArray.push("dʰʲ");
+            allPalatalisedConsonants.push("dʰʲ");
+        };
+        if(chosenConsonantArray.includes("kʰʲ")) {
+            allVelarPlosivesArray.push("kʰʲ");
+            allAspiratesArray.push("kʰʲ");
+            allPalatalisedConsonants.push("kʰʲ");
+        };
+        if(chosenConsonantArray.includes("gʰʲ")) {
+            allVelarPlosivesArray.push("gʰʲ");
+            allAspiratesArray.push("gʰʲ");
+            allPalatalisedConsonants.push("gʰʲ");
+        };
+        if(chosenConsonantArray.includes("pʷʰ")) {
+            allLabialPlosivesArray.push("pʷʰ");
+            allAspiratesArray.push("pʷʰ");
+            allLabialisedPlosives.push("pʷʰ");
+        };
+        if(chosenConsonantArray.includes("bʷʰ")) {
+            allLabialPlosivesArray.push("bʷʰ");
+            allAspiratesArray.push("bʷʰ");
+            allLabialisedPlosives.push("bʷʰ");
+        };
+        if(chosenConsonantArray.includes("tʷʰ")) {
+            allAlveolarPlosivesArray.push("tʷʰ");
+            allAspiratesArray.push("tʷʰ");
+            allLabialisedPlosives.push("tʷʰ");
+        };
+        if(chosenConsonantArray.includes("dʷʰ")) {
+            allAlveolarPlosivesArray.push("dʷʰ");
+            allAspiratesArray.push("dʷʰ");
+            allLabialisedPlosives.push("dʷʰ");
+        };
+        if(chosenConsonantArray.includes("kʷʰ")) {
+            allVelarPlosivesArray.push("kʷʰ");
+            allAspiratesArray.push("kʷʰ");
+            allLabialisedPlosives.push("kʷʰ");
+        };
+        if(chosenConsonantArray.includes("gʷʰ")) {
+            allVelarPlosivesArray.push("gʷʰ");
+            allAspiratesArray.push("gʷʰ");
+            allLabialisedPlosives.push("gʷʰ");
+        };
+        if(chosenConsonantArray.includes("m")) {
+            allNasalsArray.push("m");
+        };
+        if(chosenConsonantArray.includes("mʲ")) {
+            allNasalsArray.push("mʲ");
+            allPalatalisedConsonants.push("mʲ");
+        };
+        if(chosenConsonantArray.includes("mː")) {
+            allNasalsArray.push("mː");
+            allLongConsonants.push("mː");
+        };
+        if(chosenConsonantArray.includes("n")) {
+            allNasalsArray.push("n");
+        };
+        if(chosenConsonantArray.includes("nː")) {
+            allNasalsArray.push("nː");
+            allLongConsonants.push("nː");
+        };
+        if(chosenConsonantArray.includes("s")) {
+            allAlveolarFricativesArray.push("s");
+        };
+        if(chosenConsonantArray.includes("sː")) {
+            allAlveolarFricativesArray.push("sː");
+            allLongConsonants.push("sː");
+        };
+        if(chosenConsonantArray.includes("r")) {
+            allAlveolarRhoticsArray.push("r");
+        };
+        if(chosenConsonantArray.includes("rʲ")) {
+            allAlveolarRhoticsArray.push("rʲ");
+            allPalatalisedConsonants.push("rʲ");
+        };
+        if(chosenConsonantArray.includes("rː")) {
+            allAlveolarRhoticsArray.push("rː");
+            allLongConsonants.push("rː");
+        };
+        if(chosenConsonantArray.includes("l")) {
+            allLateralsArray.push("l");
+        };
+        if(chosenConsonantArray.includes("lː")) {
+            allLateralsArray.push("lː");
+            allLongConsonants.push("lː");
+        };
+        if(chosenConsonantArray.includes("lʲ")) {
+            allLateralsArray.push("lʲ");
+            allPalatalisedConsonants.push("lʲ");
+        };
+        if(chosenConsonantArray.includes("ʎ")) {
+            allLateralsArray.push("ʎ");
+        };
+        if(chosenConsonantArray.includes("ʎː")) {
+            allLateralsArray.push("ʎː");
+            allLongConsonants.push("ʎː");
+        };
+        if(chosenConsonantArray.includes("ɭ")) {
+            allLateralsArray.push("ɭ");
+        };
+        if(chosenConsonantArray.includes("ɭː")) {
+            allLateralsArray.push("ɭː");
+            allLongConsonants.push("ɭː");
+        };
+        if(chosenConsonantArray.includes("ɽ")) {
+            allAlveolarRhoticsArray.push("ɽ");
+        };
+        if(chosenConsonantArray.includes("ɽː")) {
+            allAlveolarRhoticsArray.push("ɽː");
+            allLongConsonants.push("ɽː");
+        };
+        if(chosenConsonantArray.includes("z")) {
+            allAlveolarFricativesArray.push("z");
+        };
+        if(chosenConsonantArray.includes("zː")) {
+            allAlveolarFricativesArray.push("zː");
+            allLongConsonants.push("zː");
+        };
+        if(chosenConsonantArray.includes("ʃ")) {
+            allPostAlveolarFricatives.push("ʃ");
+        };
+        if(chosenConsonantArray.includes("ʃː")) {
+            allPostAlveolarFricatives.push("ʃː");
+            allLongConsonants.push("ʃː");
+        };
+        if(chosenConsonantArray.includes("ʒ")) {
+            allPostAlveolarFricatives.push("ʒ");
+        };
+        if(chosenConsonantArray.includes("ʒː")) {
+            allPostAlveolarFricatives.push("ʒː");
+            allLongConsonants.push("ʒː");
+        };
+        if(chosenConsonantArray.includes("ç")) {
+            allPalatalFricatives.push("ç");
+        };
+        if(chosenConsonantArray.includes("çː")) {
+            allPalatalFricatives.push("çː");
+            allLongConsonants.push("çː");
+        };
+        if(chosenConsonantArray.includes("ʝ")) {
+            allPalatalFricatives.push("ʝ");
+        };
+        if(chosenConsonantArray.includes("ʝː")) {
+            allPalatalFricatives.push("ʝː");
+            allLongConsonants.push("ʝː");
+        };
+        if(chosenConsonantArray.includes("f")) {
+            allLabioDentalArray.push("f");
+        };
+        if(chosenConsonantArray.includes("fː")) {
+            allLabioDentalArray.push("fː");
+            allLongConsonants.push("fː");
+        };
+        if(chosenConsonantArray.includes("v")) {
+            allLabioDentalArray.push("v");
+        };
+        if(chosenConsonantArray.includes("vː")) {
+            allLabioDentalArray.push("vː");
+            allLongConsonants.push("vː");
+        };
+        if(chosenConsonantArray.includes("ɸ")) {
+            allLabialFricativesArray.push("ɸ");
+        };
+        if(chosenConsonantArray.includes("ɸʲ")) {
+            allLabialFricativesArray.push("ɸʲ");
+            allPalatalisedConsonants.push("ɸʲ");
+        };
+        if(chosenConsonantArray.includes("ɸː")) {
+            allLabialFricativesArray.push("ɸː");
+            allLongConsonants.push("ɸː");
+        };
+        if(chosenConsonantArray.includes("β")) {
+            allLabialFricativesArray.push("β");
+        };
+        if(chosenConsonantArray.includes("βʲ")) {
+            allLabialFricativesArray.push("βʲ");
+            allPalatalisedConsonants.push("βʲ");
+        };
+        if(chosenConsonantArray.includes("βː")) {
+            allLabialFricativesArray.push("βː");
+            allLongConsonants.push("βː");
+        };
+        if(chosenConsonantArray.includes("θ")) {
+            allDentalFricatives.push("θ");
+        };
+        if(chosenConsonantArray.includes("θː")) {
+            allDentalFricatives.push("θː");
+            allLongConsonants.push("θː");
+        };
+        if(chosenConsonantArray.includes("ð")) {
+            allDentalFricatives.push("ð");
+        };
+        if(chosenConsonantArray.includes("ðː")) {
+            allDentalFricatives.push("ðː");
+            allLongConsonants.push("ðː");
+        };
+        if(chosenConsonantArray.includes("h")) {
+            allGlottalFricatives.push("h");
+        };
+        if(chosenConsonantArray.includes("hː")) {
+            allGlottalFricatives.push("hː");
+            allLongConsonants.push("hː");
+        };
+        if(chosenConsonantArray.includes("χ")) {
+            allUvularFricativesArray.push("χ");
+        };
+        if(chosenConsonantArray.includes("χː")) {
+            allUvularFricativesArray.push("χː");
+            allLongConsonants.push("χː");
+        };
+        if(chosenConsonantArray.includes("ʁ")) {
+            allUvularFricativesArray.push("ʁ");
+        };
+        if(chosenConsonantArray.includes("ʁː")) {
+            allUvularFricativesArray.push("ʁː");
+            allLongConsonants.push("ʁː");
+        };
+        if(chosenConsonantArray.includes("x")) {
+            allVelarFricatives.push("x");
+        };
+        if(chosenConsonantArray.includes("xː")) {
+            allVelarFricatives.push("xː");
+            allLongConsonants.push("xː");
+        };
+        if(chosenConsonantArray.includes("ɣ")) {
+            allVelarFricatives.push("ɣ");
+        };
+        if(chosenConsonantArray.includes("ɣː")) {
+            allVelarFricatives.push("ɣː");
+            allLongConsonants.push("ɣː");
+        };
+        if(chosenConsonantArray.includes("ʐ")) {
+            allAlveolarFricativesArray.push("ʐ");
+        };
+        if(chosenConsonantArray.includes("ʐː")) {
+            allAlveolarFricativesArray.push("ʐː");
+            allLongConsonants.push("ʐː");
+        };
+        if(chosenConsonantArray.includes("ʂ")) {
+            allAlveolarFricativesArray.push("ʂ");
+        };
+        if(chosenConsonantArray.includes("ʂː")) {
+            allAlveolarFricativesArray.push("ʂː");
+            allLongConsonants.push("ʂː");
+        };
+        if(chosenConsonantArray.includes("ʕ")) {
+            allPharyngealFricatives.push("ʕ");
+        };
+        if(chosenConsonantArray.includes("ʕː")) {
+            allPharyngealFricatives.push("ʕː");
+            allLongConsonants.push("ʕː");
+        };
+        if(chosenConsonantArray.includes("ħ")) {
+            allPharyngealFricatives.push("ħ");
+        };
+        if(chosenConsonantArray.includes("ħː")) {
+            allPharyngealFricatives.push("ħː");
+            allLongConsonants.push("ħː");
+        };
+        if(chosenConsonantArray.includes("ɬ")) {
+            allLateralFricatives.push("ɬ");
+        };
+        if(chosenConsonantArray.includes("ɬː")) {
+            allLateralFricatives.push("ɬː");
+            allLongConsonants.push("ɬː");
+        };
+        if(chosenConsonantArray.includes("ɮ")) {
+            allLateralFricatives.push("ɮ");
+        };
+        if(chosenConsonantArray.includes("ɮː")) {
+            allLateralFricatives.push("ɮː");
+            allLongConsonants.push("ɮː");
+        };
+        if(chosenConsonantArray.includes("j")) {
+            allpalatalApproximants.push("j");
+        };
+        if(chosenConsonantArray.includes("jː")) {
+            allpalatalApproximants.push("jː");
+            allLongConsonants.push("jː");
+        };
+        if(chosenConsonantArray.includes("w")) {
+            allLabialApproximants.push("w");
+        };
+        if(chosenConsonantArray.includes("wː")) {
+            allLabialApproximants.push("wː");
+            allLongConsonants.push("wː");
+        };
+        if(chosenConsonantArray.includes("ŋ")) {
+            allNasalsArray.push("ŋ");
+        };
+        if(chosenConsonantArray.includes("ŋː")) {
+            allNasalsArray.push("ŋː");
+            allLongConsonants.push("ŋː");
+        };
+        if(chosenConsonantArray.includes("ʧ")) {
+            allPostAlveolaraffricates.push("ʧ");
+        };
+        if(chosenConsonantArray.includes("ʧː")) {
+            allPostAlveolaraffricates.push("ʧː");
+            allLongConsonants.push("ʧː");
+        };
+        if(chosenConsonantArray.includes("ʤ")) {
+            allPostAlveolaraffricates.push("ʤ");
+        };
+        if(chosenConsonantArray.includes("ʤː")) {
+            allPostAlveolaraffricates.push("ʤː");
+            allLongConsonants.push("ʤː");
+        };
+    };
+};
+
+
+let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "ɦ", "dʒ", "ɟ", "ʁ", "ʒ", "ɟ", "ʕ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "ð", "ɮ"];
+let voicingTrueOrFalse = ""
+    let randomVoiceNum = Math.floor(Math.random() * 4);
+    function chooseVoicing() {
+        if(randomOption) {
+          if (randomVoiceNum === 2) { 
+            voicingTrueOrFalse = false;
+        } else {
+            voicingTrueOrFalse = true;
+        }  
+        } else {
+            //if the user manually entered a voiced consonant
+            if(chosenConsonantArray.some(voiced => voiced.includes(voiced))) {
+                voicingTrueOrFalse = true;
+            } else{
+                voicingTrueOrFalse = false;
             }
         }
-        randomNum = Math.floor(Math.random() * 7);
-        if(randomNum === 30) {
-            allLabialisedPlosives.push("qʷ");
-            allUvularPlosivesArray.push("qʷ");
-            if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("qʷʰ");
-                allUvularPlosivesArray.push("qʷʰ");
-                allAspiratesArray.push("qʷʰ");
+        
+        if(voicingTrueOrFalse && randomOption || voicingTrueOrFalse && document.getElementById("chosen-consonants").value.length === 0) {
+            allLabialPlosivesArray.push("b");
+            allAlveolarPlosivesArray.push("d");
+            allVelarPlosivesArray.push("g");
+            
+            let randomNum = Math.floor(Math.random() * 3);
+            if(randomNum === 1) {//there is a 50% chance that there will be /z/
+                allAlveolarFricativesArray.push("z");
             }
-            if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
-                allLabialisedPlosives.push("ɢʷ");
-                allUvularPlosivesArray.push("ɢʷ");
-                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
-                allAspiratesArray.push("ɢʷʰ");
+        }
+        return voicingTrueOrFalse;
+    }
+
+function randomlyChooseConsonants() {
+    
+
+    function chooseGemination() {
+        if(randomGeminationNum === 2 ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function chooseAspiration() {
+            function preAspiration() {
+                randomNum = Math.floor(Math.random() * 18);
+                let trueOrFalse = "";
+                if(randomNum === 4 ) {
+                    trueOrFalse = true;
+                } else {
+                    trueOrFalse = false;
+                }
+                allLabialPlosivesArray.push("ʰp");
+                allAspiratesArray.push("ʰp");
+                allAlveolarPlosivesArray.push("ʰt");
+                allAspiratesArray.push("ʰt");
+                allVelarPlosivesArray.push("ʰk");
+                allAspiratesArray.push("ʰk");
+                return trueOrFalse;
             }
+
+            function postAspiration() {
+                randomNum = Math.floor(Math.random() * 11);
+                let trueOrFalse = "";
+                if(randomNum === 4 ) {
+                    trueOrFalse = true;
+                } else {
+                    trueOrFalse = false;
+                }
+                allLabialPlosivesArray.push("pʰ");
+                allAspiratesArray.push("pʰ");
+                randomNum = Math.floor(Math.random() * 3);
+                    if(randomNum === 2 && chooseVoicing()) {
+                        allLabialPlosivesArray.push("bʰ");
+                        allAspiratesArray.push("bʰ");
+                    }
+                allAlveolarPlosivesArray.push("tʰ");
+                allAspiratesArray.push("tʰ");
+                randomNum = Math.floor(Math.random() * 3);
+                    if(randomNum === 2 && chooseVoicing()) {
+                        allLabialPlosivesArray.push("dʰ");
+                        allAspiratesArray.push("dʰ");
+                    }
+                allVelarPlosivesArray.push("kʰ");
+                allAspiratesArray.push("kʰ");
+                    randomNum = Math.floor(Math.random() * 3);
+                    if(randomNum === 2 && chooseVoicing()) {
+                        allLabialPlosivesArray.push("gʰ");
+                        allAspiratesArray.push("gʰ");
+                    }
+                return trueOrFalse;
+            }
+        let randomNum = Math.floor(Math.random() * 10);
+        let chosenAspiration = "";
+        if(randomNum === 1) { 
+            let randomNum = Math.floor(Math.random() * 3);
+            if(randomNum === 2) {
+                chosenAspiration = preAspiration();
+            } else {
+                chosenAspiration = postAspiration();
+        } 
+        return chosenAspiration;
+        }
+    }
+
+    function chooseLabial() {
+        let randomNum = Math.floor(Math.random() * 3);
+        if (randomNum === 1) {
+            randomNum = Math.floor(Math.random() * 6);
+            if(randomNum === 2) {
+                allLabialFricativesArray.push("ɸ");
+                randomNum = Math.floor(Math.random() * 6)
+                if(randomNum === 4 && chooseGemination()) {
+                    allLabialApproximants.push("ɸː");
+                    allLongConsonants.push("ɸː")
+                }
+            }
+            if(chooseVoicing()) {
+                randomNum = Math.floor(Math.random() * 2);
+                if(randomNum === 1) {
+                    allLabialFricativesArray.push("β");
+                    randomNum = Math.floor(Math.random() * 6)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialApproximants.push("βː");
+                        allLongConsonants.push("βː")
+                    }
+                    }
+            }
+            allLabialApproximants.push("w")
+            randomNum = Math.floor(Math.random() * 6)
+            if(randomNum === 4 && chooseGemination()) {
+                allLabialApproximants.push("wː")
+                allLongConsonants.push("wː")
+            }
+            
+            randomNum = Math.floor(Math.random() * 25)
+            if(randomNum === 2) {
+                allLabialAffricates.push("pɸ")
+                randomNum = Math.floor(Math.random() * 6)
+                if(randomNum === 4 && chooseVoicing()) {
+                    allLabialAffricates.push("bβ")
+                }
+            }
+        }
+        if(chooseGemination()) {
+            if(Math.floor(Math.random() * 2) === 1) {
+                allNasalsArray.push("mː");
+                allLongConsonants.push("mː");
+            }
+        }
+        if(chooseGemination()) {
+            if(Math.floor(Math.random() * 2) === 1) {
+                allLabialPlosivesArray.push("pː");
+                allLongConsonants.push("pː");
+            }
+            if(Math.floor(Math.random() * 2) === 1) {
+                allLabialPlosivesArray.push("bː");
+                allLongConsonants.push("bː");
+            }
+        }
+    };
+    chooseLabial();
+
+    function chooseLabioDental() {
+        let randomNum = Math.floor(Math.random() * 11);
+        if(randomNum === 5) {
+            allLabioDentalArray.push("f");
+            randomNum = Math.floor(Math.random() * 10)
+                if(randomNum === 4 && chooseGemination()) {
+                    allLabialDentalApproximants.push("fː")
+                    allLongConsonants.push("fː")
+                }
+            if(chooseVoicing()) {
+                randomNum = Math.floor(Math.random() * 11)
+                if(randomNum !== 2) {
+                    allLabioDentalArray.push("v");
+                    randomNum = Math.floor(Math.random() * 23)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("vː")
+                        allLongConsonants.push("vː")
+                    }
+                }
+            }
+            randomNum = Math.floor(Math.random() * 11)
+            if(randomNum !== 2) {
+                allLabialDentalApproximants.push("ʋ")
+                randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("ʋː")
+                        allLongConsonants.push("ʋː")
+                    }
+            }
+            randomNum = Math.floor(Math.random() * 31)
+            if(randomNum === 2) {
+                allLabialDentalAffricates.push("pf")
+                randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseVoicing()) {
+                        allLabialDentalAffricates.push("bv")
+                    }
+            }
+        }
+    };
+    chooseLabioDental();
+
+    function chooseDental() {
+        let randomNum = Math.floor(Math.random() * 21);
+        if (randomNum === 4) {
+            allDentalFricatives.push("θ");
+            randomNum = Math.floor(Math.random() * 23)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("θː")
+                        allLongConsonants.push("θː")
+                    }
+            if(chooseVoicing()) {
+                randomNum = Math.floor(Math.random() * 3);
+                if(randomNum === 2) {
+                    allDentalFricatives.push("ð");
+                    randomNum = Math.floor(Math.random() * 23)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("ðː")
+                        allLongConsonants.push("ðː")
+                    }
+                } 
             }
         }
     }
+    chooseDental()
+
+    function chooseAlveolar() {
+        let randomNum = Math.floor(Math.random() * 7);
+        if(randomNum === 4 && chooseGemination()) {
+            allAlveolarRhoticsArray.push("rː");
+            allLongConsonants.push("rː");
+            allLateralsArray.push("lː");
+            allLongConsonants.push("lː");
+        }
+        randomNum = Math.floor(Math.random() * 25);
+        if (randomNum === 23) { 
+            allLateralFricatives.push("ɬ");
+            randomNum = Math.floor(Math.random() * 4);
+            if(randomNum === 2 && chooseVoicing()) { 
+                allLateralFricatives.push("ɮ");
+            }
+        }
+        randomNum = Math.floor(Math.random() * 20);
+        if (randomNum === 23) { 
+            allAlveolarAffricates.push("ts");
+            randomNum = Math.floor(Math.random() * 4);
+            if(randomNum === 2 && chooseVoicing()) { 
+                allAlveolarAffricates.push("dz");
+            }
+        }
+
+        if(chooseGemination()) {
+            if(Math.floor(Math.random() * 2) === 1) {
+                allNasalsArray.push("nː");
+                allLongConsonants.push("nː");
+            }
+            if(Math.floor(Math.random() * 2) === 1) {
+                allAlveolarPlosivesArray.push("tː");
+                allLongConsonants.push("tː");
+            }
+            if(Math.floor(Math.random() * 2) === 1) {
+                allAlveolarPlosivesArray.push("dː");
+                allLongConsonants.push("dː");
+            }
+            if(Math.floor(Math.random() * 2) === 1) {
+                allAlveolarFricativesArray.push("sː");
+                allLongConsonants.push("sː");
+            }
+            if(Math.floor(Math.random() * 2) === 1) {
+                allAlveolarFricativesArray.push("zː");
+                allLongConsonants.push("zː");
+            }
+        }
+    };
+    chooseAlveolar()
+
+    function choosePostAlveolar() {
+        let randomNum = Math.floor(Math.random() * 4);
+        if (randomNum === 2) {
+            allPostAlveolarFricatives.push("ʃ");
+            randomNum = Math.floor(Math.random() * 11)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allPostAlveolarFricatives.push("ʃː")
+                        allLongConsonants.push("ʃː")
+                    }
+            if (chooseVoicing()) {
+                randomNum = Math.floor(Math.random() * 3);
+                allPostAlveolarFricatives.push("ʒ");
+                randomNum = Math.floor(Math.random() * 11)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allPostAlveolarFricatives.push("ʒː")
+                        allLongConsonants.push("ʒː")
+                    }
+            }
+            randomNum = Math.floor(Math.random() * 9)
+            if(randomNum === 4) {
+                allPostAlveolaraffricates.push("tʃ");
+                randomNum = Math.floor(Math.random() * 5)
+                if(randomNum === 4 && chooseVoicing()) {
+                    allPostAlveolaraffricates.push("dʒ")
+                }
+            }
+            
+        }
+    };
+    choosePostAlveolar()
+
+    function chooseRetroflex() {//there ise a 10% chance that this language has retroflexes
+        let randomNum = Math.floor(Math.random() * 11);
+        let trueOrFalse = "";
+        if(randomNum === 2) {//if false, then there will be no retroflexes
+            trueOrFalse = true;
+        } else {
+            trueOrFalse = false;
+        }
+        if (trueOrFalse) {
+            allNasalsArray.push("ɳ");
+
+            randomNum = Math.floor(Math.random() * 4);
+            if (randomNum !== 3) {//there is a 60% chance that ʈ is added 
+                allAlveolarPlosivesArray.push("ʈ");
+                if(chooseVoicing()) {
+                    allAlveolarPlosivesArray.push("ɖ");
+                }
+                allAlveolarFricativesArray.push("ʂ");
+                if(chooseVoicing()) {
+                    allAlveolarFricativesArray.push("ʐ");
+                }
+                allAlveolarRhoticsArray.push("ɽ");
+                allLateralsArray.push("ɭ")
+            }
+        }
+    };
+    chooseRetroflex()
+
+    function choosePalatal() {//there ise a 20% chance that this language has palatal consonants
+        let randomNum =  Math.floor(Math.random() * 6);
+        if (randomNum === 3) {
+            allNasalsArray.push("ɲ");
+            randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("ɲː")
+                        allLongConsonants.push("ɲː")
+                    }
+        } 
+        randomNum = Math.floor(Math.random() * 6)
+        if (randomNum === 4) {
+            allLateralsArray.push("ʎ");
+            randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("ʎː")
+                        allLongConsonants.push("ʎː")
+                    }
+        }
+        randomNum = Math.floor(Math.random() * 8)
+        if (randomNum === 2) {
+            allPalatalPlosivesArray.push("c");
+            randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("cː")
+                        allLongConsonants.push("cː")
+                    }
+            if(chooseVoicing()) {
+                allPalatalPlosivesArray.push("ɟ");
+                randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("ɟː")
+                        allLongConsonants.push("ɟː")
+                    }
+            }
+        }
+        randomNum = Math.floor(Math.random() * 6)
+        if (randomNum === 4) {
+            allPalatalFricatives.push("ç")
+            randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("çː")
+                        allLongConsonants.push("çː")
+                    }
+            if(chooseVoicing()) {
+                allPalatalFricatives.push("ʝ");
+                randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("ʝː")
+                        allLongConsonants.push("ʝː")
+                    }
+            }
+        }
+        randomNum = Math.floor(Math.random() * 2)
+        if (randomNum === 1) {
+            allpalatalApproximants.push("j");
+            randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("jː")
+                        allLongConsonants.push("jː")
+                    }
+            
+        }
+        
+
+    };
+    choosePalatal()
+
+    function chooseVelar() {
+        let randomNum = Math.floor(Math.random() * 6);
+        if (randomNum === 3) {
+            allVelarFricatives.push("x");
+            randomNum = Math.floor(Math.random() * 11)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allVelarFricatives.push("xː")
+                        allLongConsonants.push("xː")
+                    }
+            if(chooseVoicing()) {
+                randomNum = Math.floor(Math.random() * 2);
+                allVelarFricatives.push("ɣ");
+                randomNum = Math.floor(Math.random() * 11)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allVelarFricatives.push("ɣː")
+                        allLongConsonants.push("ɣː")
+                    }
+            }
+            randomNum = Math.floor(Math.random() * 31);
+            if(randomNum === 4 && chooseGemination()) {
+                allVelaraffricatesArray.push("kx");
+                if(chooseVoicing()) {
+                randomNum = Math.floor(Math.random() * 11)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allVelaraffricatesArray.push("gɣ")
+                    }
+            }
+            }
+
+            randomNum = Math.floor(Math.random() * 201);
+            if(randomNum === 6) {
+                allLateralsArray.push("ʟ");
+                randomNum = Math.floor(Math.random() * 11)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLateralsArray.push("ʟː")
+                        allLongConsonants.push("ʟː")
+                    }
+            }
+            randomNum = Math.floor(Math.random() * 11);
+            if(randomNum !== 3) {
+            allNasalsArray.push("ŋ");  
+            randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allNasalsArray.push("ŋː")
+                        allLongConsonants.push("ŋː")
+                    }
+            }
+        } 
+        if(chooseGemination()) {
+            if(Math.floor(Math.random() * 2) === 1) {
+                allVelarPlosivesArray.push("kː");
+                allLongConsonants.push("kː");
+            }
+            if(Math.floor(Math.random() * 2) === 1) {
+                allVelarPlosivesArray.push("gː");
+                allLongConsonants.push("gː");
+            }
+        }
+    }
+    chooseVelar()
+
+    function chooseUvular() {
+        let randomNum = Math.floor(Math.random() * 21);
+        if(randomNum === 5) {
+            allUvularPlosivesArray.push("q");
+            randomNum = Math.floor(Math.random() * 11)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allUvularPlosivesArray.push("qː")
+                        allLongConsonants.push("qː")
+                    }
+                    if(randomNum === 4 && chooseAspiration()) {
+                        allUvularPlosivesArray.push("qʰ")
+                        allAspiratesArray.push("qʰ")
+                    }
+            if(chooseVoicing()) {
+                randomNum = Math.floor(Math.random() * 11);
+                if (randomNum !== 4) {
+                    allUvularPlosivesArray.push("ɢ");
+                    randomNum = Math.floor(Math.random() * 21)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allUvularPlosivesArray.push("ɢː")
+                        allLongConsonants.push("ɢː")
+                    }
+                    if(randomNum === 4 && chooseAspiration()) {
+                        allUvularPlosivesArray.push("ɢʰ")
+                        allAspiratesArray.push("ɢʰ")
+                    }
+                }
+            }
+            randomNum = Math.floor(Math.random() * 5);
+                if (randomNum === 4) {
+                    allUvularFricativesArray.push("χ");
+                    randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allUvularFricativesArray.push("χː")
+                        allLongConsonants.push("χː")
+                    }
+                    if(chooseVoicing()) {
+                        randomNum = Math.floor(Math.random() * 4);
+                        if (randomNum !== 4) {
+                            allUvularFricativesArray.push("ʁ");
+                            randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allUvularFricativesArray.push("ʁː")
+                        allLongConsonants.push("ʁː")
+                    }
+                        }
+                    }
+                }
+            randomNum = Math.floor(Math.random() * 34);
+                if (randomNum === 4) {
+                    allUvularaffricatesArray.push("q͡χ");
+                    if(chooseVoicing()) {
+                        randomNum = Math.floor(Math.random() * 30);
+                        if (randomNum === 4) {
+                            allUvularaffricatesArray.push("ɢ͡ʁ");
+                        }
+                    }
+                }
+        }
+    };
+    chooseUvular()
+
+    function choosePharyngeal() {
+        let randomNum = Math.floor(Math.random() * 21);
+        if(randomNum === 5) {
+            allPharyngealFricatives.push("ħ");
+            randomNum = Math.floor(Math.random() * 40)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("ħː")
+                        allLongConsonants.push("ħː")
+                    }
+            if(chooseVoicing()) {
+                randomNum = Math.floor(Math.random() * 10);
+                if (randomNum !== 4) {
+                    allPharyngealFricatives.push("ʕ");
+                    randomNum = Math.floor(Math.random() * 40)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allLabialDentalApproximants.push("ʕː")
+                        allLongConsonants.push("ʕː")
+                    }
+                }
+            }
+        }
+    };
+    choosePharyngeal()
+
+    function chooseGlottal() {
+        let randomNum = Math.floor(Math.random() * 6);
+        if(randomNum === 5) {
+            allGlottalFricatives.push("h");
+            randomNum = Math.floor(Math.random() * 30)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allGlottalFricatives.push("hː")
+                        allLongConsonants.push("hː")
+                    }
+            if(chooseVoicing()) {
+                randomNum = Math.floor(Math.random() * 11);
+                if (randomNum === 4) {
+                    allGlottalFricatives.push("ɦ");
+                    randomNum = Math.floor(Math.random() * 40)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allGlottalFricatives.push("ɦː")
+                        allLongConsonants.push("ɦː")
+                    }
+                }
+            }
+            randomNum = Math.floor(Math.random() * 2);
+            if(randomNum === 1) {
+                allGlottalPlosives.push("ʔ");
+                randomNum = Math.floor(Math.random() * 40)
+                    if(randomNum === 4 && chooseGemination()) {
+                        allGlottalPlosives.push("ʔː")
+                        allLongConsonants.push("ʔː")
+                    }
+                    
+            }
+            randomNum = Math.floor(Math.random() * 40);
+            if(randomNum === 1) {
+                allGlottalAffricates.push("ʔh");
+
+            }
+        }
+    };
+    chooseGlottal()
+
+    function choosePalatalised() {
+        let randomNum = Math.floor(Math.random() * 14);
+        if(randomNum === 5) {
+            allPalatalisedConsonants.push("tʲ");
+            allAlveolarPlosivesArray.push("tʲ");
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("dʲ");
+                    allAlveolarPlosivesArray.push("dʲ");
+                    if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("dʰʲ");
+                    allAlveolarPlosivesArray.push("dʰʲ");
+                        allAspiratesArray.push("dʰʲ");
+                }
+                }
+                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("tʰʲ");
+                    allAlveolarPlosivesArray.push("tʰʲ");
+                    allAspiratesArray.push("tʰʲ");
+                }
+
+            randomNum = Math.floor(Math.random() * 7);
+            if(randomNum === 30) {
+                allPalatalisedConsonants.push("sʲ");
+                allAlveolarFricativesArray.push("sʲ");
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("zʲ");
+                    allAlveolarFricativesArray.push("zʲ");
+                }
+            }
+
+            randomNum = Math.floor(Math.random() * 7);
+            if(randomNum === 30) {
+                allPalatalisedConsonants.push("pʲ");
+                allLabialPlosivesArray.push("pʲ");
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("bʲ");
+                    allLabialPlosivesArray.push("bʲ");
+                    if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {;
+                    allPalatalisedConsonants.push("bʰʲ");
+                    allLabialPlosivesArray.push("bʰʲ");
+                        allAspiratesArray.push("bʰʲ");
+                }
+                }
+                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("pʰʲ");
+                    allLabialPlosivesArray.push("pʰʲ");
+                    allAspiratesArray.push("pʰʲ");
+                }
+            }
+
+            randomNum = Math.floor(Math.random() * 7);
+            if(randomNum === 30) {
+                allPalatalisedConsonants.push("kʲ");
+                allVelarPlosivesArray.push("kʲ");
+                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("kʰʲ");
+                    allVelarPlosivesArray.push("kʰʲ");
+                    allAspiratesArray.push("kʰʲ");
+                }
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("gʲ");
+                    allVelarPlosivesArray.push("gʲ");
+                    if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allAspiratesArray.push("gʰʲ");
+                }
+                }
+            }
+            randomNum = Math.floor(Math.random() * 7);
+            if(randomNum === 30) {
+                allPalatalisedConsonants.push("qʲ");
+                allUvularPlosivesArray.push("qʲ");
+                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("qʰʲ");
+                    allUvularPlosivesArray.push("qʰʲ");
+                    allAspiratesArray.push("qʰʲ");
+                }
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allPalatalisedConsonants.push("ɢʲ");
+                    allUvularPlosivesArray.push("ɢʲ");
+                    if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allAspiratesArray.push("ɢʰʲ");
+                }
+                }
+            }
+        }
+    };
+    choosePalatalised()
+
+    function chooseLabialisation() {
+        let randomNum = Math.floor(Math.random() * 10);
+        if(randomNum === 5) {
+            allLabialisedPlosives.push("tʷ");
+            allAlveolarPlosivesArray.push("tʷ");
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("dʷ");
+                    allAlveolarPlosivesArray.push("dʷ");
+                    if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("dʷʰ");
+                    allAlveolarPlosivesArray.push("dʷʰ");
+                        allAspiratesArray.push("dʷʰ");
+                }
+                }
+                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("tʷʰ");
+                    allAlveolarPlosivesArray.push("tʷʰ");
+                    allAspiratesArray.push("tʷʰ");
+                }
+
+            randomNum = Math.floor(Math.random() * 4);
+            if(randomNum === 3) {
+                allLabialisedPlosives.push("sʷ");
+                allAlveolarFricativesArray.push("sʷ");
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("zʷ");
+                    allAlveolarFricativesArray.push("zʷ");
+                }
+            }
+
+            randomNum = Math.floor(Math.random() * 7);
+            if(randomNum === 3) {
+                allLabialisedPlosives.push("pʷ");
+                allLabialPlosivesArray.push("pʷ");
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("bʷ");
+                    allLabialPlosivesArray.push("bʷ");
+                    if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {;
+                    allLabialisedPlosives.push("bʷʰ");
+                    allLabialPlosivesArray.push("bʷʰ");
+                        allAspiratesArray.push("bʷʰ");
+                }
+                }
+                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("pʷʰ");
+                    allLabialPlosivesArray.push("pʷʰ");
+                    allAspiratesArray.push("pʷʰ");
+                }
+            }
+
+            randomNum = Math.floor(Math.random() * 7);
+            if(randomNum === 3) {
+                allLabialisedPlosives.push("kʷ");
+                allVelarPlosivesArray.push("kʷ");
+                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("kʷʰ");
+                    allVelarPlosivesArray.push("kʷʰ");
+                    allAspiratesArray.push("kʷʰ");
+                }
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("gʷ");
+                    allVelarPlosivesArray.push("gʷ");
+                    if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allAspiratesArray.push("gʷʰ");
+                }
+                }
+            }
+            randomNum = Math.floor(Math.random() * 7);
+            if(randomNum === 30) {
+                allLabialisedPlosives.push("qʷ");
+                allUvularPlosivesArray.push("qʷ");
+                if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("qʷʰ");
+                    allUvularPlosivesArray.push("qʷʰ");
+                    allAspiratesArray.push("qʷʰ");
+                }
+                if(chooseVoicing() && Math.floor(Math.random() * 2) === 1) {
+                    allLabialisedPlosives.push("ɢʷ");
+                    allUvularPlosivesArray.push("ɢʷ");
+                    if(chooseAspiration() && Math.floor(Math.random() * 2) === 1) {
+                    allAspiratesArray.push("ɢʷʰ");
+                }
+                }
+            }
+        }
+    };
+    chooseLabialisation();
 }
 /*---^^^CHOOSE SECTION^^^----*/
 
@@ -1154,6 +1829,7 @@ function countNumberOfConsonants() {
 }
 
 function collectAllConsonants() {
+
     consonants = allNasalsArray.concat(allLabialPlosivesArray, allAlveolarPlosivesArray, allVelarPlosivesArray, allLabialFricativesArray, allAlveolarFricativesArray, allVelarFricatives, allAlveolarRhoticsArray, allLateralsArray, allLabialApproximants, allpalatalApproximants, allPalatalPlosivesArray, allPostAlveolarFricatives, allpalatalAffricates, allPalatalFricatives, allDentalFricatives, allLabioDentalArray, allLabialDentalApproximants, allUvularPlosivesArray, allUvularFricativesArray, allPharyngealFricatives, allGlottalPlosives, allGlottalFricatives, allLateralFricatives, allLabialDentalAffricates, allLabialAffricates, allAlveolarAffricates, allPostAlveolaraffricates, allVelaraffricatesArray, allUvularlAffricates, allGlottalAffricates, allPalatalisedConsonants, allLabialisedPlosives);
     
 }
@@ -1171,9 +1847,9 @@ function chooseLength() {
 
 //if no vowels were manually selected, a set of vowels will be randomly generted
 function selectVowels() {
-    if(randomOption) {
+    if(randomOption || document.getElementById("chosen-vowels").value.length === 0) {
        randomlyChooseVowels();
-    } else {
+    } else if (document.getElementById("chosen-vowels").value.length > 0) {
         if(chosenVowelArray.includes("i")) {
             allHighVowels.push("i");
             allFrontVowels.push("i");
@@ -1195,15 +1871,189 @@ function selectVowels() {
             allLowVowels.push("a");
         };
         if(chosenVowelArray.includes("aː")) {
-            allCentralVowels.push("aː");
-            allLowVowels.push("aː");
+            allLongCentralVowels.push("aː");
+            allLongLowVowels.push("aː");
+        };
+        if(chosenVowelArray.includes("yː")) {
+            allLongHighVowels.push("yː");
+            allLongFrontVowels.push("yː");
+        };
+        if(chosenVowelArray.includes("y")) {
+            allHighVowels.push("y");
+            allFrontVowels.push("y");
+        };
+        if(chosenVowelArray.includes("ɯ")) {
+            allHighVowels.push("ɯ");
+            allBackVowels.push("ɯ");
+        };
+        if(chosenVowelArray.includes("ɯː")) {
+            allLongHighVowels.push("ɯː");
+            allLongBackVowels.push("ɯː");
+        };
+        if(chosenVowelArray.includes("ɨ")) {
+            allHighVowels.push("ɨ");
+            allCentralVowels.push("ɨ");
+        };
+        if(chosenVowelArray.includes("ɨː")) {
+            allLongHighVowels.push("ɨː");
+            allLongCentralVowels.push("ɨː");
+        };
+        if(chosenVowelArray.includes("ʉ")) {
+            allHighVowels.push("ʉ");
+            allCentralVowels.push("ʉ");
+        };
+        if(chosenVowelArray.includes("ʉː")) {
+            allLongHighVowels.push("ʉː");
+            allLongCentralVowels.push("ʉː");
+        };
+        if(chosenVowelArray.includes("e")) {
+            allMidVowels.push("e");
+            allFrontVowels.push("e");
+        };
+        if(chosenVowelArray.includes("eː")) {
+            allLongMidVowels.push("eː");
+            allLongFrontVowels.push("eː");
+        };
+        if(chosenVowelArray.includes("ø")) {
+            allMidVowels.push("ø");
+            allFrontVowels.push("ø");
+        };
+        if(chosenVowelArray.includes("øː")) {
+            allLongMidVowels.push("øː");
+            allLongFrontVowels.push("øː");
+        };
+        if(chosenVowelArray.includes("ɘ")) {
+            allMidVowels.push("ɘ");
+            allCentralVowels.push("ɘ");
+        };
+        if(chosenVowelArray.includes("ɘː")) {
+            allLongMidVowels.push("ɘː");
+            allLongCentralVowels.push("ɘː");
+        };
+        if(chosenVowelArray.includes("ɵ")) {
+            allMidVowels.push("ɵ");
+            allCentralVowels.push("ɵ");
+        };
+        if(chosenVowelArray.includes("ɵː")) {
+            allLongMidVowels.push("ɵː");
+            allLongCentralVowels.push("ɵː");
+        };
+        if(chosenVowelArray.includes("ə")) {
+            allMidVowels.push("ə");
+            allCentralVowels.push("ə");
+        };
+        if(chosenVowelArray.includes("əː")) {
+            allLongMidVowels.push("əː");
+            allLongCentralVowels.push("əː");
+        };
+        if(chosenVowelArray.includes("ɛ")) {
+            allLowMidVowels.push("ɛ");
+            allFrontVowels.push("ɛ");
+        };
+        if(chosenVowelArray.includes("ɛː")) {
+            allLongLowMidVowels.push("ɛː");
+            allLongFrontVowels.push("ɛː");
+        };
+        if(chosenVowelArray.includes("ɜ")) {
+            allCentralVowels.push("ɜ");
+            allLowMidVowels.push("ɜ");
+        };
+        if(chosenVowelArray.includes("ɜː")) {
+            allLongCentralVowels.push("ɜː");
+            allLongLowMidVowels.push("ɜː");
+        };
+        if(chosenVowelArray.includes("ɞ")) {
+            allCentralVowels.push("ɞ");
+            allLowMidVowels.push("ɞ");
+        };
+        if(chosenVowelArray.includes("ɞː")) {
+            allLongCentralVowels.push("ɞː");
+            allLongLowMidVowels.push("ɞː");
+        };
+        if(chosenVowelArray.includes("ɪ")) {
+            allHighMidVowels.push("ɪ");
+            allFrontVowels.push("ɪ");
+        };
+        if(chosenVowelArray.includes("ɪː")) {
+            allLongHighMidVowels.push("ɪː");
+            allLongFrontVowels.push("ɪː");
+        };
+        if(chosenVowelArray.includes("ɔ")) {
+            allBackVowels.push("ɔ");
+            allLowMidVowels.push("ɔ");
+        };
+        if(chosenVowelArray.includes("ɔː")) {
+            allLongBackVowels.push("ɔː");
+            allLongLowMidVowels.push("ɔː");
+        };
+        if(chosenVowelArray.includes("æ")) {
+            allLowMidVowels.push("æ");
+            allFrontVowels.push("æ");
+        };
+        if(chosenVowelArray.includes("æː")) {
+            allLongLowMidVowels.push("æː");
+            allLongFrontVowels.push("æː");
+        };
+        if(chosenVowelArray.includes("ɐ")) {
+            allLowMidVowels.push("ɐ");
+            allCentralVowels.push("ɐ");
+        };
+        if(chosenVowelArray.includes("ɐː")) {
+            allLongLowMidVowels.push("ɐː");
+            allLongCentralVowels.push("ɐː");
+        };
+        if(chosenVowelArray.includes("ɒ")) {
+            allLowVowels.push("ɒ");
+            allBackVowels.push("ɒ");
+        };
+        if(chosenVowelArray.includes("ɒː")) {
+            allLongLowVowels.push("ɒː");
+            allLongBackVowels.push("ɒː");
+        };
+        if(chosenVowelArray.includes("ʊ")) {
+            allBackVowels.push("ʊ");
+            allHighMidVowels.push("ʊ");
+        };
+        if(chosenVowelArray.includes("ʊː")) {
+            allLongBackVowels.push("ʊː");
+            allLongHighMidVowels.push("ʊː");
+        };
+        if(chosenVowelArray.includes("ʌ")) {
+            allBackVowels.push("ʌ");
+            allLowMidVowels.push("ʌ");
+        };
+        if(chosenVowelArray.includes("ʌː")) {
+            allLongBackVowels.push("ʌː");
+            allLongLowMidVowels.push("ʌː");
+        };
+        if(chosenVowelArray.includes("ɤ")) {
+            allMidVowels.push("ɤ");
+            allBackVowels.push("ɤ");
+        };
+        if(chosenVowelArray.includes("ɤː")) {
+            allLongMidVowels.push("ɤː");
+            allLongBackVowels.push("ɤː");
+        };
+        if(chosenVowelArray.includes("o")) {
+            allMidVowels.push("o");
+            allBackVowels.push("o");
+        };
+        if(chosenVowelArray.includes("oː")) {
+            allLongMidVowels.push("oː");
+            allLongBackVowels.push("oː");
+        };
+        if(chosenVowelArray.includes("ɒ")) {
+            allLowVowels.push("ɒ");
+            allBackVowels.push("ɒ");
+        };
+        if(chosenVowelArray.includes("ɒ")) {
+            allLongLowVowels.push("ɒː");
+            allLongBackVowels.push("ɒː");
         };
     };
 };
 
-
 function randomlyChooseVowels() {
-
     function chooseNumberOfMainVowels() {
         let randomNum = Math.floor(Math.random() * 6)
         let numberOfVowels = 0;
@@ -1426,11 +2276,13 @@ function randomlyChooseVowels() {
             }
             randomNum = Math.floor(Math.random() * 6);
             if(randomNum !== 4 && chooseBackUnroundedVowels()) {
+                allBackVowels.push("ʊ")
                 allHighMidVowels.push("ʊ");
                 if(chooseLength()) {
                     randomNum = Math.floor(Math.random() * 5);
                     if(randomNum === 2) {
-                        allLongBackVowels .push("ʊː")
+                        allLongHighMidVowels .push("ʊː");
+                        allLongBackVowels .push("ʊː");
                     }
                 }
             }
@@ -1575,12 +2427,12 @@ function collectAllVowels() {
 
     if(chosenVowels) {
         vowels = cloneArray(chosenVowelArray);
+        document.getElementById("vowel-number").innerHTML = vowels.length
     } else {
-        vowels = allVowelsArrayFixed.concat(allLongFrontVowels, allLongBackVowels, allLongCentralVowels, allLongHighVowels, allLongHighMidVowels, allLongMidVowels, allLongLowMidVowels, allLongLowVowels)
-    };
-    
-    document.getElementById("vowel-number").innerHTML = allVowelsArrayFixed.length
+        vowels = allVowelsArrayFixed.concat(allLongFrontVowels, allLongBackVowels, allLongCentralVowels, allLongHighVowels, allLongHighMidVowels, allLongMidVowels, allLongLowMidVowels, allLongLowVowels);
 
+        document.getElementById("vowel-number").innerHTML = vowels.length
+    };
 
     if(allLongVowels.length > 0) {
          document.getElementById("vowel-quantities").style.display = "inline";
@@ -1647,7 +2499,6 @@ function populateVowelLists() {
         }
 }
 
-
 /*-----^^^SELECTION^^^--------------*/
 
 /****SYLLABLE STRUCTURE**************/
@@ -1712,7 +2563,6 @@ function chooseSyllablesToBeUsed() {
     } else {
             let chosenSyllables = Array.from(document.getElementById("chosen-syllables").value);
 
-            console.log(chosenSyllables)
             for(let i = 0; i < chosenSyllables.length; i++) {
                 if(chosenSyllables[i+1] !== " " && chosenSyllables[i] !== " " && chosenSyllables[i+1] !== undefined) {
                     chosenSyllables[i] = chosenSyllables[i] + chosenSyllables[i+1];
@@ -1723,7 +2573,6 @@ function chooseSyllablesToBeUsed() {
                     chosenSyllables[i] = chosenSyllables[i-1] + chosenSyllables[i];
                     chosenSyllables.splice(i-1,1)
                 }
-                console.log(chosenSyllables)
             };
 
             for(let i = 0; i < chosenSyllables.length; i++) {
@@ -1732,63 +2581,8 @@ function chooseSyllablesToBeUsed() {
                 };
             }
 
-            // for(let i = 0; i < chosenSyllables.length; i++) {
-            //     //if the spelling is one letter long
-            //     if(chosenSyllables[i-1] === "(" && chosenSyllables[i+3] === ")") {
-            //         chosenSyllables[i] = chosenSyllables[i] + chosenSyllables[i+1] + chosenSyllables[i+2];
-
-            //         chosenSyllables.splice(i-1,1);
-            //         chosenSyllables.splice(i,1);
-            //         chosenSyllables.splice(i,1);
-            //         chosenSyllables.splice(i,1);
-            //     };
-
-            //     //if the spelling is two letters long
-            //     if(chosenSyllables[i-1] === "(" && chosenSyllables[i+4] === ")") {
-            //         chosenSyllables[i] = chosenSyllables[i] + chosenSyllables[i+1] + chosenSyllables[i+2] + chosenSyllables[i+3];
-
-            //         chosenSyllables.splice(i+1,1);
-            //         chosenSyllables.splice(i+1,1);
-            //         chosenSyllables.splice(i+1,1);
-            //     };
-
-            //     //if the spelling is three letters long
-            //     if(chosenSyllables[i-1] === "(" && chosenSyllables[i+5] === ")") {
-            //         chosenSyllables[i] = chosenSyllables[i] + chosenSyllables[i+1] + chosenSyllables[i+2] + chosenSyllables[i+3] + chosenSyllables[i+4];
-
-            //         chosenSyllables.splice(i+1,1);
-            //         chosenSyllables.splice(i+1,1);
-            //         chosenSyllables.splice(i+1,1);
-            //         chosenSyllables.splice(i+1,1);
-            //     };
-
-            //     //if the spelling is four letters long
-            //     if(chosenSyllables[i-1] === "(" && chosenSyllables[i+6] === ")") {
-            //         chosenSyllables[i] = chosenSyllables[i] + chosenSyllables[i+1] + chosenSyllables[i+2] + chosenSyllables[i+3] + chosenSyllables[i+4] + chosenSyllables[i+5];
-
-            //         chosenSyllables.splice(i+1,1);
-            //         chosenSyllables.splice(i+1,1);
-            //         chosenSyllables.splice(i+1,1);
-            //         chosenSyllables.splice(i+1,1);
-            //         chosenSyllables.splice(i+1,1);
-            //     };
-            // };
-
-
             selectedSyllables = cloneArray(chosenSyllables)
-
-
-
-
-        // let chosenSyllableArray = Array.from(document.getElementById("chosen-syllables").value);
-        // for(let i = 0; i < chosenSyllableArray.length; i++) {
-        //     //if the structure is two sounds long
-        //     if(chosenSyllableArray[i] === "(" && chosenSyllableArray[i+3] === ")") {
-        //         let syllable = chosenSyllableArray[i+1] + chosenSyllableArray[i+2]
-        //         selectedSyllables.push(syllable);
-        //     };
-        // };
-    };
+        };
     document.getElementById("syllable-structure-list").innerHTML = selectedSyllables.join(", ");
 
 }
@@ -1801,25 +2595,8 @@ function generatePhonology() {
     restoreDefault();
     checkManuallyEnteredSounds();
     makeRandomNumbers();
-
+    selectConsonants();
     chooseVoicing();
-    chooseGemination();
-    chooseAspiration();
-
-    chooseLabial();
-    chooseLabioDental();
-    chooseRetroflex();
-    chooseDental();
-    chooseAlveolar();
-    choosePostAlveolar();
-    choosePalatal();
-    chooseVelar();
-    chooseUvular();
-    choosePharyngeal();
-    chooseGlottal();
-    choosePalatalised();
-    chooseLabialisation();
-    
     selectNasals();
     selectPlosives();
     selectFricatives();
@@ -1827,17 +2604,13 @@ function generatePhonology() {
     selectRhotics();
     selectLateralApproximants();
     selectApproximants();
-
     countNumberOfConsonants();
     collectAllConsonants()
-
     chooseLength();
     selectVowels();
     collectAllVowels();
     populateVowelLists();
-
     chooseSyllablesToBeUsed();
+};
 
-}
-
-export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allGlottalFricatives, allVelarFricatives, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, allLongVowels, allLongConsonants, voicingTrueOrFalse, allHighVowels, allNasalsArray, chosenVowelSpellingsArray};
+export {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allGlottalFricatives, allVelarFricatives, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, allLongVowels, allLongConsonants, voicingTrueOrFalse, allHighVowels, allNasalsArray, chosenVowelSpellingsArray, chosenConsonantSpellingsArray};

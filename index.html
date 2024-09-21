@@ -60,7 +60,17 @@
             <input id="chosen-vowels" value=""></input>
           </div>
 
+          <!--Choose consonants-->
           <div class="radio-section">
+            <p>When entering superscript characters such as "ʰ ʲ ʷ", place a "-" between the superscript and consonant. E.g <strong>k-ʰ</strong> for /kʰ/ and <strong>ʰ-k</strong> for /ʰk/.<br><br>
+            When entering affricates, use the following ligatures instead of using a combining diacritic tie-bar: ʦ ʣ, ʧ ʤ, ʨ ʥ, ꭧ ꭦ
+            </p>
+            <label for="chosen-consonants">Consonants:</label>
+            <input id="chosen-consonants" value=""></input>
+          </div>
+
+          <div class="radio-section">
+            <p>Use the notation C = Consonant, V=Vowel, thus enter "CV" for a consonant-vowel syllable structure. Seperate different syllable structures with a space.</p>
             <label for="chosen-syllables">Syllable structures:</label>
             <input id="chosen-syllables" value=""></input>
           </div>
@@ -127,7 +137,7 @@
         <hr class="style-eight">
         
 
-        <p><span class="language-name">Kerbekulo</span> has <span id="vowel-number"></span> vowel qualities<span id="vowel-quantities"> and 2 vowel quantities, short and long</span>.</p>
+        <p><span class="language-name">Kerbekulo</span> has <span id="vowel-number"></span> vowels<span id="vowel-quantities"> and a length distinction between short and long vowels</span>.</p>
         <ul>
           <li id="high-vowel-list"><b>High:</b> <span id="high-vowels"></span></li>
           <li id="high-mid-vowel-list"><b>High-mid:</b> <span id="high-mid-vowels"></span></li>
@@ -173,7 +183,7 @@
       <h3>Orthography</h3>
 
       <p id="orthography-text">
-        Vowels inside square brackets are in IPA notation. Vowels inside angular brackets are how they are spelled in
+        Letters inside square brackets are in IPA notation. Letters inside angular brackets are how they are spelled in
         <span class="language-name">Kerbekulo</span>.
       </p>
 

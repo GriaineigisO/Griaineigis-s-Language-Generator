@@ -2,10 +2,8 @@
 
 
 ## Options for customisation
-- on refresh, there shall be two options: 1) fully random 2) customisation, when the second option is selected the customisation form appears - any option left blank shall be randomised
-- phonology 
-- spelling
-- which syllable structure
+
+- add keyboard that inputs the IPA characters directly into the vowels and consonants text fields, one keyboard for vowels, another for consonaonts
 - noun gender/classifier system/number/cases
 - marked singular 
 - which sounds changes

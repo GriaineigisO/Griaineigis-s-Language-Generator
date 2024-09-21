@@ -867,6 +867,7 @@ function spell(word) {
     spellIndividualLettersShort("ə", randomSchwaSpelling(), chosenVowelSpellingsArray);
     spellIndividualLettersShort("ɪ", "î", chosenVowelSpellingsArray);
     spellIndividualLettersShort("ʉ", "ü", chosenVowelSpellingsArray);
+    spellIndividualLettersShort("ɨ", "ï", chosenVowelSpellingsArray);
     spellIndividualLettersShort("ɵ", "ǒ", chosenVowelSpellingsArray);
     spellIndividualLettersShort("ɘ", "ě", chosenVowelSpellingsArray);
     spellIndividualLettersShort("ɜ", "ĕ", chosenVowelSpellingsArray);

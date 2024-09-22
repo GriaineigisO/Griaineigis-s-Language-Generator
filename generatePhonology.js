@@ -124,7 +124,7 @@ function restoreDefault() {
     allVelaraffricatesArray = [];
     allUvularlAffricates = [];
     allGlottalAffricates = [];
-    allUvularaffricatesArray
+    allUvularaffricatesArray = [];
 
     allFrontVowels = [];
     allBackVowels = [];
@@ -158,8 +158,8 @@ function restoreDefault() {
     
 
     //secondly, the default phonemes can be put back in
-    allNasalsArray.push("m"),
-    allNasalsArray.push("n")
+    allNasalsArray.push("m");
+    allNasalsArray.push("n");
     allLabialPlosivesArray.push("p");
     allAlveolarPlosivesArray.push("t");
     allVelarPlosivesArray.push("k");
@@ -302,6 +302,7 @@ function checkManuallyEnteredSounds() {
             chosenConsonants = true;
             chosenConsonantArray = Array.from(document.getElementById("chosen-consonants").value);
             for(let i = 0; i < chosenConsonantArray.length; i++) {  
+
                 //puts superscript characters in the same index as their host letter, this also merges a plosive and fricative in an affricate
                 function mergeSuperscripts(superscript) {
                     if (chosenConsonantArray[i] === superscript && chosenConsonantArray[i-1] === "-") {
@@ -310,7 +311,6 @@ function checkManuallyEnteredSounds() {
                     } else if (chosenConsonantArray[i] === superscript && chosenConsonantArray[i+1] === "-") {
                         chosenConsonantArray[i+2] = chosenConsonantArray[i] + chosenConsonantArray[i+2];
                         chosenConsonantArray.splice(i,2);
-                        console.log(chosenConsonantArray)
                     };
                 };
                 mergeSuperscripts("ʰ");
@@ -318,6 +318,61 @@ function checkManuallyEnteredSounds() {
                 mergeSuperscripts("ʲ");
                 mergeSuperscripts("ʃ");
                 mergeSuperscripts("ʒ");
+
+                //characters plus superscripts are then converted to single characters to give them a length of 1
+                function convertCharPlusSuperscripts(letter, newLetter) {
+                    if(chosenConsonantArray[i-2] === letter) {
+                        chosenConsonantArray[i-2] = newLetter;
+                    };
+                };
+                convertCharPlusSuperscripts("pʰ", "P");
+                convertCharPlusSuperscripts("bʰ", "B");
+                convertCharPlusSuperscripts("tʰ", "T");
+                convertCharPlusSuperscripts("dʰ", "D");
+                convertCharPlusSuperscripts("kʰ", "K");
+                convertCharPlusSuperscripts("gʰ", "G");
+                convertCharPlusSuperscripts("ʰp", "1");
+                convertCharPlusSuperscripts("ʰb", "2");
+                convertCharPlusSuperscripts("ʰt", "3");
+                convertCharPlusSuperscripts("ʰd", "4");
+                convertCharPlusSuperscripts("ʰk", "5");
+                convertCharPlusSuperscripts("ʰg", "6");
+                convertCharPlusSuperscripts("pʲ", "!");
+                convertCharPlusSuperscripts("bʲ", "£");
+                convertCharPlusSuperscripts("tʲ", "$");
+                convertCharPlusSuperscripts("dʲ", "%");
+                convertCharPlusSuperscripts("kʲ", "^");
+                convertCharPlusSuperscripts("gʲ", "&");
+                convertCharPlusSuperscripts("rʲ", "*");
+                convertCharPlusSuperscripts("lʲ", "J");
+                convertCharPlusSuperscripts("sʲ", "K");
+                convertCharPlusSuperscripts("zʲ", "#");
+                convertCharPlusSuperscripts("xʲ", "@");
+                convertCharPlusSuperscripts("ɣʲ", "}");
+                convertCharPlusSuperscripts("fʲ", "{");
+                convertCharPlusSuperscripts("vʲ", "+");
+                convertCharPlusSuperscripts("ɸʲ", "-");
+                convertCharPlusSuperscripts("βʲ", ">");
+                convertCharPlusSuperscripts("θʲ", "<");
+                convertCharPlusSuperscripts("ðʲ", "]");
+                convertCharPlusSuperscripts("hʲ", "[");
+                convertCharPlusSuperscripts("ɦʲ", "=");
+                convertCharPlusSuperscripts("ħʲ", "?");
+                convertCharPlusSuperscripts("ʕʲ", "Q");
+                convertCharPlusSuperscripts("ʃʲ", "W");
+                convertCharPlusSuperscripts("ʒʲ", "E");
+                convertCharPlusSuperscripts("ʂʲ", "R");
+                convertCharPlusSuperscripts("ʐʲ", "F");
+                convertCharPlusSuperscripts("χʲ", "Y");
+                convertCharPlusSuperscripts("ʁʲ", "U");
+                convertCharPlusSuperscripts("ɬʲ", "I");
+                convertCharPlusSuperscripts("ɮʲ", "O");
+                convertCharPlusSuperscripts("qʲ", "H");
+                convertCharPlusSuperscripts("ɮʲ", "S");
+                convertCharPlusSuperscripts("ʔʲ", "A");
+                convertCharPlusSuperscripts("mʲ", "M");
+                convertCharPlusSuperscripts("nʲ", "N");
+                convertCharPlusSuperscripts("ŋ", "x");
 
                 //removes the whitespaces
                 while(chosenConsonantArray[i] === " ") {
@@ -535,78 +590,183 @@ function selectConsonants() {
             allAlveolarPlosivesArray.push("ɖː");
             allLongConsonants.push("ɖː");
         };
-        if(chosenConsonantArray.includes("pʰ")) {
+        if(chosenConsonantArray.includes("P")) {
             allLabialPlosivesArray.push("pʰ");
             allAspiratesArray.push("pʰ");
         };
-        if(chosenConsonantArray.includes("bʰ")) {
+        if(chosenConsonantArray.includes("B")) {
             allLabialPlosivesArray.push("bʰ");
             allAspiratesArray.push("bʰ");
         };
-        if(chosenConsonantArray.includes("tʰ")) {
+        if(chosenConsonantArray.includes("T")) {
             allAlveolarPlosivesArray.push("tʰ");
             allAspiratesArray.push("tʰ");
         };
-        if(chosenConsonantArray.includes("dʰ")) {
+        if(chosenConsonantArray.includes("D")) {
             allAlveolarPlosivesArray.push("dʰ");
             allAspiratesArray.push("dʰ");
         };
-        if(chosenConsonantArray.includes("kʰ")) {
+        if(chosenConsonantArray.includes("K")) {
             allVelarPlosivesArray.push("kʰ");
             allAspiratesArray.push("kʰ");
         };
-        if(chosenConsonantArray.includes("gʰ")) {
+        if(chosenConsonantArray.includes("G")) {
             allVelarPlosivesArray.push("gʰ");
             allAspiratesArray.push("gʰ");
         };
-        if(chosenConsonantArray.includes("ʰp")) {
+        if(chosenConsonantArray.includes("1")) {
             allLabialPlosivesArray.push("ʰp");
             allAspiratesArray.push("ʰp");
         };
-        if(chosenConsonantArray.includes("ʰb")) {
+        if(chosenConsonantArray.includes("2")) {
             allLabialPlosivesArray.push("ʰb");
             allAspiratesArray.push("ʰb");
         };
-        if(chosenConsonantArray.includes("ʰt")) {
+        if(chosenConsonantArray.includes("3")) {
             allAlveolarPlosivesArray.push("ʰt");
             allAspiratesArray.push("ʰt");
         };
-        if(chosenConsonantArray.includes("ʰd")) {
+        if(chosenConsonantArray.includes("4")) {
             allAlveolarPlosivesArray.push("ʰd");
             allAspiratesArray.push("ʰd");
         };
-        if(chosenConsonantArray.includes("ʰk")) {
+        if(chosenConsonantArray.includes("5")) {
             allVelarPlosivesArray.push("ʰk");
             allAspiratesArray.push("ʰk");
         };
-        if(chosenConsonantArray.includes("ʰg")) {
+        if(chosenConsonantArray.includes("6")) {
             allVelarPlosivesArray.push("ʰg");
             allAspiratesArray.push("ʰg");
         };
-        if(chosenConsonantArray.includes("pʲ")) {
+        if(chosenConsonantArray.includes("!")) {
             allLabialPlosivesArray.push("pʲ");
             allPalatalisedConsonants.push("pʲ");
         };
-        if(chosenConsonantArray.includes("bʲ")) {
+        if(chosenConsonantArray.includes("£")) {
             allLabialPlosivesArray.push("bʲ");
             allPalatalisedConsonants.push("bʲ");
         };
-        if(chosenConsonantArray.includes("tʲ")) {
+        if(chosenConsonantArray.includes("$")) {
             allAlveolarPlosivesArray.push("tʲ");
             allPalatalisedConsonants.push("tʲ");
         };
-        if(chosenConsonantArray.includes("dʲ")) {
+        if(chosenConsonantArray.includes("%")) {
             allAlveolarPlosivesArray.push("dʲ");
             allPalatalisedConsonants.push("dʲ");
         };
-        if(chosenConsonantArray.includes("kʲ")) {
+        if(chosenConsonantArray.includes("^")) {
             allVelarPlosivesArray.push("kʲ");
             allPalatalisedConsonants.push("kʲ");
         };
-        if(chosenConsonantArray.includes("gʲ")) {
+        if(chosenConsonantArray.includes("&")) {
             allVelarPlosivesArray.push("gʲ");
             allPalatalisedConsonants.push("gʲ");
         };
+        if(chosenConsonantArray.includes("*")) {
+            allAlveolarRhoticsArray.push("rʲ");
+            allPalatalisedConsonants.push("rʲ");
+        };
+        if(chosenConsonantArray.includes("J")) {
+            allLateralsArray.push("lʲ");
+            allPalatalisedConsonants.push("lʲ");
+        };
+        if(chosenConsonantArray.includes("K")) {
+            allAlveolarAffricates.push("sʲ");
+            allPalatalisedConsonants.push("sʲ");
+        };
+        if(chosenConsonantArray.includes("#")) {
+            allAlveolarAffricates.push("zʲ");
+            allPalatalisedConsonants.push("zʲ");
+        };
+        if(chosenConsonantArray.includes("@")) {
+            allVelarFricatives.push("xʲ");
+            allPalatalisedConsonants.push("xʲ");
+        };
+        if(chosenConsonantArray.includes("}")) {
+            allVelarFricatives.push("ɣʲ");
+            allPalatalisedConsonants.push("ɣʲ");
+        };
+        if(chosenConsonantArray.includes("{")) {
+            allLabioDentalArray.push("fʲ");
+            allPalatalisedConsonants.push("fʲ");
+        };
+        if(chosenConsonantArray.includes("+")) {
+            allLabioDentalArray.push("vʲ");
+            allPalatalisedConsonants.push("vʲ");
+        };
+        if(chosenConsonantArray.includes("-")) {
+            allLabialFricativesArray.push("ɸʲ");
+            allPalatalisedConsonants.push("ɸʲ");
+        };
+        if(chosenConsonantArray.includes(">")) {
+            t.push("βʲ");
+            allPalatalisedConsonants.push("βʲ");
+        };
+        if(chosenConsonantArray.includes("<")) {
+            allDentalFricatives.push("θʲ");
+            allPalatalisedConsonants.push("θʲ");
+        };
+        if(chosenConsonantArray.includes("]")) {
+            allDentalFricatives.push("ðʲ");
+            allPalatalisedConsonants.push("ðʲ");
+        };
+        if(chosenConsonantArray.includes("[")) {
+            allGlottalFricatives.push("hʲ");
+            allPalatalisedConsonants.push("hʲ");
+        };
+        if(chosenConsonantArray.includes("=")) {
+            allGlottalFricatives.push("ɦʲ");
+            allPalatalisedConsonants.push("ɦʲ");
+        };
+        if(chosenConsonantArray.includes("?")) {
+            allPharyngealFricatives.push("ħʲ");
+            allPalatalisedConsonants.push("ħʲ");
+        };
+        if(chosenConsonantArray.includes("Q")) {
+            allPalatalPlosivesArray.push("cʲ");
+            allPalatalisedConsonants.push("cʲ");
+        };
+        if(chosenConsonantArray.includes("W")) {
+            allPostAlveolarFricatives.push("ʃʲ");
+            allPalatalisedConsonants.push("ʃʲ");
+        };
+        if(chosenConsonantArray.includes("E")) {
+            allPostAlveolarFricatives.push("ʒʲ");
+            allPalatalisedConsonants.push("ʒʲ");
+        };
+        if(chosenConsonantArray.includes("R")) {
+            allAlveolarFricativesArray.push("ʂʲ");
+            allPalatalisedConsonants.push("ʂʲ");
+        };
+        if(chosenConsonantArray.includes("F")) {
+            allAlveolarFricativesArray.push("ʐʲ");
+            allPalatalisedConsonants.push("ʐʲ");
+        };
+        if(chosenConsonantArray.includes("Y")) {
+            allUvularFricativesArray.push("χʲ");
+            allPalatalisedConsonants.push("χʲ");
+        };
+        if(chosenConsonantArray.includes("U")) {
+            allUvularFricativesArray.push("ʁʲ");
+            allPalatalisedConsonants.push("ʁʲ");
+        };
+        if(chosenConsonantArray.includes("I")) {
+            allLateralFricatives.push("ɬʲ");
+            allPalatalisedConsonants.push("ɬʲ");
+        };
+        if(chosenConsonantArray.includes("O")) {
+            allLateralFricatives.push("ɮʲ");
+            allPalatalisedConsonants.push("ɮʲ");
+        };
+        if(chosenConsonantArray.includes("H")) {
+            allUvularPlosivesArray.push("qʲ");
+            allPalatalisedConsonants.push("qʲ");
+        };
+        if(chosenConsonantArray.includes("S")) {
+            allUvularPlosivesArray.push("ɢʲ");
+            allPalatalisedConsonants.push("ɢʲ");
+        };
+
         if(chosenConsonantArray.includes("pʷ")) {
             allLabialPlosivesArray.push("pʷ");
             allLabialisedPlosives.push("pʷ");
@@ -689,9 +849,17 @@ function selectConsonants() {
         if(chosenConsonantArray.includes("m")) {
             allNasalsArray.push("m");
         };
-        if(chosenConsonantArray.includes("mʲ")) {
+        if(chosenConsonantArray.includes("M")) {
             allNasalsArray.push("mʲ");
             allPalatalisedConsonants.push("mʲ");
+        };
+        if(chosenConsonantArray.includes("N")) {
+            allNasalsArray.push("nʲ");
+            allPalatalisedConsonants.push("nʲ");
+        };
+        if(chosenConsonantArray.includes("X")) {
+            allNasalsArray.push("ŋʲ");
+            allPalatalisedConsonants.push("ŋʲ");
         };
         if(chosenConsonantArray.includes("mː")) {
             allNasalsArray.push("mː");

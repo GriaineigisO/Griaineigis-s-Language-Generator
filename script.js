@@ -247,7 +247,6 @@ let checkIfOptionWasSelected = "";
 function randomise() {
     options.style.display = "none";
     randomOption = true;
-    console.log(randomOption)
     checkIfOptionWasSelected = "checked";
     document.getElementById("warning").style.display = "none";
 };
@@ -255,7 +254,6 @@ function randomise() {
 function customise() {
     options.style.display = "block";
     randomOption = false;
-    console.log(randomOption)
     checkIfOptionWasSelected = "checked";
     document.getElementById("warning").style.display = "none";
 };

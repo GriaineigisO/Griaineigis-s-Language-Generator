@@ -355,8 +355,288 @@ function randomVelarFricative(wordArray) {
             return "ɣ"
         }
     }
-}
+};
 
+function randomUvularFricatives(wordArray) {
+    //UVULAR FRICATIVES
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "χ" && allGlottalFricatives.length > 0 && allVelarFricatives.length > 0) {
+           return "x";
+        };
+        if(wordArray[i] === "ʁ" && allVelarFricatives.length > 0) {
+            return "ĝ";
+        };
+        if(wordArray[i] === "χ" && allGlottalFricatives.length > 0 && allVelarFricatives.length === 0 && allAspiratesArray.length === 0) {
+            return "kh";
+        };
+        if(wordArray[i] === "χ" && allGlottalFricatives.length > 0 && allVelarFricatives.length === 0 && allAspiratesArray.length > 0) {
+            return "x̂";
+        };
+        if(wordArray[i] === "χ" && allGlottalFricatives.length === 0 && allVelarFricatives.length === 0) {
+            return "h";
+        };
+        if(wordArray[i] === "χ" && allGlottalFricatives.length === 0 && allVelarFricatives.length > 0) {
+            return "kh";
+        };
+        if(wordArray[i] === "ʁ" && allVelarFricatives.length === 0 && allAspiratesArray.length === 0) {
+            return "gh";
+        };
+        if(wordArray[i] === "ʁ" && allVelarFricatives.length === 0 && allAspiratesArray.length > 0) {
+            return "ĝ";
+        };
+    };
+};
+
+function randomPalatal(wordArray) {
+    //PALATAL
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "c" && randomNumPalatalFricative === 0) {
+            return "c"
+        }
+        if(wordArray[i] === "ɟ" && randomNumPalatalFricative === 0) {
+            return "gi"
+        }
+        if(wordArray[i] === "ç" && randomNumPalatalFricative === 0) {
+            wordArray[i] = "hi"
+        }
+        if(wordArray[i] === "ʝ" && randomNumPalatalFricative === 0) {
+            return "ghi"
+        }
+        if(wordArray[i] === "ɲ" && randomNumPalatalFricative === 0) {
+            return "ni"
+        }
+        if(wordArray[i] === "ʎ" && randomNumPalatalFricative === 0) {
+            return "li"
+        }
+        if(wordArray[i] === "c" && randomNumPalatalFricative === 1) {
+            return "kj"
+        }
+        if(wordArray[i] === "ɟ" && randomNumPalatalFricative === 1) {
+            return "gj"
+        }
+        if(wordArray[i] === "ç" && randomNumPalatalFricative === 1) {
+           return "cj"
+        }
+        if(wordArray[i] === "ʝ" && randomNumPalatalFricative === 1) {
+            return "ghj"
+        }
+        if(wordArray[i] === "ɲ" && randomNumPalatalFricative === 1) {
+            return "nj"
+        }
+        if(wordArray[i] === "ʎ" && randomNumPalatalFricative === 1) {
+            return "lj"
+        }
+        if(wordArray[i] === "c" && randomNumPalatalFricative > 1) {
+            return "ḱ"
+        }
+        if(wordArray[i] === "ɟ" && randomNumPalatalFricative > 1) {
+            return "ǵ"
+        }
+        if(wordArray[i] === "ç" && randomNumPalatalFricative > 1) {
+            return "ç"
+        };
+        if(wordArray[i] === "ʝ" && randomNumPalatalFricative > 1) {
+            return "ġ"
+        };
+        if(wordArray[i] === "ɲ" && randomNumPalatalFricative > 1) {
+            return "ñ"
+        };
+        if(wordArray[i] === "ʎ" && randomNumPalatalFricative > 1 && consonants.includes("lː")) {
+            return "ll"
+        } else if (wordArray[i] === "ʎ") {
+            return "ļ"
+        };
+    };
+};
+
+function randomGlottalStop(wordArray) {
+    //GLOTTAL STOP
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ʔ" && allGlottalFricatives.length === 0 && allVelarFricatives.length === 0 && allUvularFricativesArray.length === 0) {
+            return "h";
+        } else if (wordArray[i] === "ʔ" && allUvularPlosivesArray.length === 0) {
+            return "q";
+        } else if (wordArray[i] === "ʔ") {
+            return "'";
+        };
+    };
+};
+
+function randomDentalFricatives(wordArray) {
+    //DENTAL FRICATIVES
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "θ" && randomDentalFricative === 0  && allAspiratesArray.length > 0) {
+            return "þ";
+        }
+        if(wordArray[i] === "θ" && randomDentalFricative === 0  && allAspiratesArray.length === 0) {
+            return "th";
+        }
+        if(wordArray[i] === "ð" && randomDentalFricative === 0) {
+            return "ð";
+        }
+        if(wordArray[i] === "θ" && randomDentalFricative === 1 && allAspiratesArray.length === 0) {
+            return "th";
+        }
+        if(wordArray[i] === "θ" && randomDentalFricative === 1  && allAspiratesArray.length > 0) {
+            return "th";
+        }
+        if(wordArray[i] === "ð" && randomDentalFricative === 1 && allAspiratesArray.length === 0) {
+            return "dh";
+        }
+    }
+};
+
+function randomBilabialFricatives(wordArray) {
+    //BILABIAL FRICATIVES
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ɸ" && allAspiratesArray.length === 0) {
+           return "ph";
+        } else if(wordArray[i] === "ɸ" && allLabioDentalArray.length === 0) {
+            return "f";
+        } else if(wordArray[i] === "ɸ") {
+            return "fh";
+        };
+
+        if(wordArray[i] === "β" && allAspiratesArray.length === 0) {
+            return "bh";
+        } else if(wordArray[i] === "β" && allLabioDentalArray.length === 0) {
+            return "v";
+        } else if(wordArray[i] === "β") {
+           return "vh";
+        }; 
+    };
+};
+
+function randomRetroflexes(wordArray) {
+    //RETROFLEXES
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ʈ") {
+           return "ṭ"
+        };
+        if(wordArray[i] === "ɖ") {
+           return "ḍ"
+        };
+        if(wordArray[i] === "ʂ") {
+            return "ṣ"
+        };
+        if(wordArray[i] === "ʐ") {
+            return "ẓ"
+        };
+        if(wordArray[i] === "ɭ") {
+            return "ḷ"
+        };
+        if(wordArray[i] === "ɽ") {
+            return "ṛ"
+        };
+        if(wordArray[i] === "ɳ") {
+            return "ṇ"
+        };
+    };
+};
+
+function randomAspirates(wordArray) {
+     //ASPIRATES
+    for(let i = 0; i < wordArray.length; i++) {
+        if(wordArray[i] === "ʰ" && voicingTrueOrFalse) {
+            return "h" 
+        } else if (voicingTrueOrFalse === false && allAspiratesArray.length > 0) {//if plosives have no voicing distinction, aspirates will be marked by using <p t k> while unvoiced non-aspirated will be <b d g>
+            if(wordArray[i] === "p") {
+                return "b";
+            };
+            if(wordArray[i] === "t") {
+                return "d"
+            };
+            if(wordArray[i] === "k") {
+                return "g"
+            };
+            if(wordArray[i] === "P") {
+                wordArray.splice(i + 1, 1)
+                return "p";
+            };
+            if(wordArray[i] === "T") {
+                wordArray.splice(i + 1, 1)
+                return "t";
+            };
+            if(wordArray[i] === "K") {
+                wordArray.splice(i + 1, 1)
+                return "k";
+            } else if (wordArray[i] === "P") {
+                return "ph";
+            } else if (wordArray[i] === "B") {
+                return "bh";
+            } else if (wordArray[i] === "T") {
+                return "th";
+            } else if (wordArray[i] === "D") {
+                return "dh";
+            } else if (wordArray[i] === "K") {
+                return "kh";
+            } else if (wordArray[i] === "G") {
+                return "gh";
+            } else if (wordArray[i] === "1") {
+                return "hp";
+            } else if (wordArray[i] === "2") {
+                return "kb";
+            } else if (wordArray[i] === "3") {
+                return "ht";
+            } else if (wordArray[i] === "4") {
+                return "hd";
+            } else if (wordArray[i] === "5") {
+                return "hk";
+            } else if (wordArray[i] === "6") {
+                return "hg";
+            }
+        };
+    };
+};
+
+function randomPalatalised(wordArray) {
+    let charsForPalatalised = ["!", "£", "$", "%", "^", "&", "*", "J", "K", "#", "@", "}", "{", "+", "-", ">", "<", "]", "[", "=", "?", "Q", "W", "E", "R", "F", "Y", "U", "I", "O", "H", "S", "M", "N", "X"];
+
+    let palatalisedCons = ["p", "b", "t", "d", "k", "g", "r", "l", "s", "z", "x", "ɣ", "f", "v", "ɸ", "β", "θ", "ð", "h", "ɦ", "ħ", "c", "ʃ", "ʒ", "ʂ", "ʐ", "χ", "ʁ", "ɬ", "ɮ", "q", "ɢ", "m", "n", "ŋ"];
+    
+    for(let i = 0; i < wordArray.length; i++) {
+        if(charsForPalatalised.includes(wordArray[i]) && randomNum === 0) {
+            let index = charsForPalatalised.indexOf(wordArray[i])
+            let cons = palatalisedCons[index];
+            return cons + "j";
+        }
+        if(charsForPalatalised.includes(wordArray[i]) && randomNum === 1) {
+           let index = charsForPalatalised.indexOf(wordArray[i])
+            let cons = palatalisedCons[index];
+            return cons + "j";
+        }
+        if(charsForPalatalised.includes(wordArray[i]) && randomNum > 2) {
+            if(wordArray[i] === "$") {
+                return "ț"
+            }
+            if(wordArray[i] === "%") {
+                return "d̦";
+            }
+            if(wordArray[i] === "^") {
+                return "ķ";
+            }
+            if(wordArray[i] === "g") {
+                return "&";
+            }
+            if(wordArray[i] === "K") {
+                return "ș";
+            }
+            if(wordArray[i] === "J") {
+                return "ļ";
+            }
+            if(wordArray[i] === "N") {
+                return "ņ";
+            }
+            if(wordArray[i] === "*") {
+                return "ŗ";
+            }            
+        } else if(charsForPalatalised.includes(wordArray[i]) && randomNum === 2) {
+            let index = charsForPalatalised.indexOf(wordArray[i])
+            let cons = palatalisedCons[index];
+            return cons + "j";
+        } 
+    }
+}
  
 function spell(word) {
    checkIfCanUseMacron()
@@ -380,6 +660,80 @@ function spell(word) {
             wordArray.splice(i, 1);
         };
     }
+
+    //converts superscripts into single characters. This is needed to allow character+superscript combinations to be respelled
+    function mergeCharAndSuperscript(char, superscript, newLetter, postOrPre) {
+        if(postOrPre === "post") {
+            for(let i = 0; i < wordArray.length; i++) {
+                if(wordArray[i] === char && wordArray[i+1] === superscript) {
+                    wordArray[i] = newLetter;
+                    wordArray.splice(i+1,1);
+                };
+            };
+        };
+
+        if(postOrPre === "pre") {
+            for(let i = 0; i < wordArray.length; i++) {
+                if(wordArray[i] === char && wordArray[i-1] === superscript) {
+                    wordArray[i] = newLetter;
+                    wordArray.splice(i-1,1);
+                };
+            };
+        };
+    };
+
+    mergeCharAndSuperscript("p", "ʰ", "P", "post");
+    mergeCharAndSuperscript("b", "ʰ", "B", "post");
+    mergeCharAndSuperscript("t", "ʰ", "T", "post");
+    mergeCharAndSuperscript("d", "ʰ", "D", "post");
+    mergeCharAndSuperscript("k", "ʰ", "K", "post");
+    mergeCharAndSuperscript("g", "ʰ", "G", "post");
+    mergeCharAndSuperscript("p", "ʰ", "1", "pre");
+    mergeCharAndSuperscript("b", "ʰ", "2", "pre");
+    mergeCharAndSuperscript("t", "ʰ", "3", "pre");
+    mergeCharAndSuperscript("d", "ʰ", "4", "pre");
+    mergeCharAndSuperscript("k", "ʰ", "5", "pre");
+    mergeCharAndSuperscript("g", "ʰ", "6", "pre");
+
+    mergeCharAndSuperscript("p", "ʲ", "!", "post");
+    mergeCharAndSuperscript("b", "ʲ", "£", "post");
+    mergeCharAndSuperscript("t", "ʲ", "$", "post");
+    mergeCharAndSuperscript("d", "ʲ", "%", "post");
+    mergeCharAndSuperscript("k", "ʲ", "^", "post");
+    mergeCharAndSuperscript("g", "ʲ", "&", "post");
+    mergeCharAndSuperscript("r", "ʲ", "*", "post");
+    mergeCharAndSuperscript("l", "ʲ", "J", "post");
+    mergeCharAndSuperscript("s", "ʲ", "K", "post");
+    mergeCharAndSuperscript("z", "ʲ", "#", "post");
+    mergeCharAndSuperscript("x", "ʲ", "@", "post");
+    mergeCharAndSuperscript("ɣ", "ʲ", "}", "post");
+    mergeCharAndSuperscript("f", "ʲ", "{", "post");
+    mergeCharAndSuperscript("v", "ʲ", "+", "post");
+    mergeCharAndSuperscript("ɸ", "ʲ", "-", "post");
+    mergeCharAndSuperscript("β", "ʲ", ">", "post");
+    mergeCharAndSuperscript("θ", "ʲ", "<", "post");
+    mergeCharAndSuperscript("ð", "ʲ", "]", "post");
+    mergeCharAndSuperscript("h", "ʲ", "[", "post");
+    mergeCharAndSuperscript("ɦ", "ʲ", "=", "post");
+    mergeCharAndSuperscript("ħ", "ʲ", "?", "post");
+    mergeCharAndSuperscript("c", "ʲ", "Q", "post");
+    mergeCharAndSuperscript("ʃ", "ʲ", "W", "post");
+    mergeCharAndSuperscript("ʒ", "ʲ", "E", "post");
+    mergeCharAndSuperscript("ʂ", "ʲ", "R", "post");
+    mergeCharAndSuperscript("ʐ", "ʲ", "F", "post");
+    mergeCharAndSuperscript("χ", "ʲ", "Y", "post");
+    mergeCharAndSuperscript("ʁ", "ʲ", "U", "post");
+    mergeCharAndSuperscript("ɬ", "ʲ", "I", "post");
+    mergeCharAndSuperscript("ɮ", "ʲ", "O", "post");
+    mergeCharAndSuperscript("q", "ʲ", "H", "post");
+    mergeCharAndSuperscript("ɢ", "ʲ", "S", "post");
+    mergeCharAndSuperscript("m", "ʲ", "M", "post");
+    mergeCharAndSuperscript("n", "ʲ", "N", "post");
+    mergeCharAndSuperscript("ŋ", "ʲ", "X", "post");
+    
+    
+    
+    
    
     // for(let i = 0; i <  wordArray.length; i++) {
     //     if(checkIfCanUseMacron() && wordArray[i] === wordArray[i + 1] && vowels.includes(wordArray[i])) {
@@ -405,209 +759,6 @@ function spell(word) {
     //     }
     // }
 
-
-    //UVULAR FRICATIVES
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "χ" && allGlottalFricatives.length > 0 && allVelarFricatives.length > 0) {
-            wordArray[i] = "x"
-        }
-        if(wordArray[i] === "ʁ" && allVelarFricatives.length > 0) {
-            wordArray[i] = "ĝ"
-        }
-
-        if(wordArray[i] === "χ" && allGlottalFricatives.length > 0 && allVelarFricatives.length === 0 && allAspiratesArray.length === 0) {
-            wordArray[i] = "kh"
-        }
-        if(wordArray[i] === "χ" && allGlottalFricatives.length > 0 && allVelarFricatives.length === 0 && allAspiratesArray.length > 0) {
-            wordArray[i] = "x̂"
-        }
-        if(wordArray[i] === "χ" && allGlottalFricatives.length === 0 && allVelarFricatives.length === 0) {
-            wordArray[i] = "h"
-        }
-        if(wordArray[i] === "χ" && allGlottalFricatives.length === 0 && allVelarFricatives.length > 0) {
-            wordArray[i] = "kh"
-        }
-        if(wordArray[i] === "ʁ" && allVelarFricatives.length === 0 && allAspiratesArray.length === 0) {
-            wordArray[i] = "gh"
-        }
-        if(wordArray[i] === "ʁ" && allVelarFricatives.length === 0 && allAspiratesArray.length > 0) {
-            wordArray[i] = "ĝ"
-        }
-
-    }
-
-    //GLOTTAL STOP
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "ʔ" && allGlottalFricatives.length === 0 && allVelarFricatives.length === 0 && allUvularFricativesArray.length === 0) {
-            wordArray[i] = "h"
-        } else if (wordArray[i] === "ʔ" && allUvularPlosivesArray.length === 0) {
-            wordArray[i] = "q"
-        } else if (wordArray[i] === "ʔ") {
-            wordArray[i] = "'"
-        }
-
-    }
-
-    //PALATAL
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "c" && randomNumPalatalFricative === 0) {
-            wordArray[i] = "c"
-        }
-        if(wordArray[i] === "ɟ" && randomNumPalatalFricative === 0) {
-            wordArray[i] = "gi"
-        }
-        if(wordArray[i] === "ç" && randomNumPalatalFricative === 0) {
-            wordArray[i] = "hi"
-        }
-        if(wordArray[i] === "ʝ" && randomNumPalatalFricative === 0) {
-            wordArray[i] = "ghi"
-        }
-        if(wordArray[i] === "ɲ" && randomNumPalatalFricative === 0) {
-            wordArray[i] = "ni"
-        }
-        if(wordArray[i] === "ʎ" && randomNumPalatalFricative === 0) {
-            wordArray[i] = "li"
-        }
-        if(wordArray[i] === "c" && randomNumPalatalFricative === 1) {
-            wordArray[i] = "kj"
-        }
-        if(wordArray[i] === "ɟ" && randomNumPalatalFricative === 1) {
-            wordArray[i] = "gj"
-        }
-        if(wordArray[i] === "ç" && randomNumPalatalFricative === 1) {
-            wordArray[i] = "cj"
-        }
-        if(wordArray[i] === "ʝ" && randomNumPalatalFricative === 1) {
-            wordArray[i] = "ghj"
-        }
-        if(wordArray[i] === "ɲ" && randomNumPalatalFricative === 1) {
-            wordArray[i] = "nj"
-        }
-        if(wordArray[i] === "ʎ" && randomNumPalatalFricative === 1) {
-            wordArray[i] = "lj"
-        }
-        if(wordArray[i] === "c" && randomNumPalatalFricative > 1) {
-            wordArray[i] = "ḱ"
-        }
-        if(wordArray[i] === "ɟ" && randomNumPalatalFricative > 1) {
-            wordArray[i] = "ǵ"
-        }
-        if(wordArray[i] === "ç" && randomNumPalatalFricative > 1) {
-            wordArray[i] = "ç"
-        }
-        if(wordArray[i] === "ʝ" && randomNumPalatalFricative > 1) {
-            wordArray[i] = "ġ"
-        }
-        if(wordArray[i] === "ɲ" && randomNumPalatalFricative > 1) {
-            wordArray[i] = "ñ"
-        }
-        if(wordArray[i] === "ʎ" && randomNumPalatalFricative > 1 && consonants.includes("lː")) {
-            wordArray[i] = "ll"
-        } else if (wordArray[i] === "ʎ") {
-            wordArray[i] = "ļ"
-        }
-    }
-
-    //DENTAL FRICATIVES
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "θ" && randomDentalFricative === 0  && allAspiratesArray.length > 0) {
-            wordArray[i] = "þ"
-        }
-        if(wordArray[i] === "θ" && randomDentalFricative === 0  && allAspiratesArray.length === 0) {
-            wordArray[i] = "th"
-        }
-        if(wordArray[i] === "ð" && randomDentalFricative === 0) {
-            wordArray[i] = "ð"
-        }
-        if(wordArray[i] === "θ" && randomDentalFricative === 1 && allAspiratesArray.length === 0) {
-            wordArray[i] = "th"
-        }
-        if(wordArray[i] === "θ" && randomDentalFricative === 1  && allAspiratesArray.length > 0) {
-            wordArray[i] = "th"
-        }
-        if(wordArray[i] === "ð" && randomDentalFricative === 1 && allAspiratesArray.length === 0) {
-            wordArray[i] = "dh"
-        }
-    }
-   
-    //BILABIAL FRICATIVES
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "ɸ" && allAspiratesArray.length === 0) {
-            wordArray[i] = "ph"
-        } else if(wordArray[i] === "ɸ" && allLabioDentalArray.length === 0) {
-            wordArray[i] = "f"
-        } else if(wordArray[i] === "ɸ") {
-            wordArray[i] = "fh"
-        }
-        if(wordArray[i] === "β" && allAspiratesArray.length === 0) {
-            wordArray[i] = "bh"
-        } else if(wordArray[i] === "β" && allLabioDentalArray.length === 0) {
-            wordArray[i] = "v"
-        } else if(wordArray[i] === "β") {
-            wordArray[i] = "vh"
-        }
-        
-        
-        
-    }
-    
-    //RETROFLEXES
-    for(let i = 0; i < wordArray.length; i++) {
-        if(wordArray[i] === "ʈ") {
-            wordArray[i] = "ṭ"
-        }
-        if(wordArray[i] === "ɖ") {
-            wordArray[i] = "ḍ"
-        }
-        if(wordArray[i] === "ʂ") {
-            wordArray[i] = "ṣ"
-        }
-        if(wordArray[i] === "ʐ") {
-            wordArray[i] = "ẓ"
-        }
-        if(wordArray[i] === "ɭ") {
-            wordArray[i] = "ḷ"
-        }
-        if(wordArray[i] === "ɽ") {
-            wordArray[i] = "ṛ"
-        }
-        if(wordArray[i] === "ɳ") {
-            wordArray[i] = "ṇ"
-        }
-    }
-
-    //ASPIRATES
-    for(let i = 0; i < wordArray.length; i++) {
-
-        if(wordArray[i] === "ʰ" && voicingTrueOrFalse) {
-            wordArray[i] = "h" 
-        } else if (voicingTrueOrFalse === false && allAspiratesArray.length > 0) {//if plosives have no voicing distinction, aspirates will be marked by using <p t k> while unvoices non-aspirated will be <b d g>
-            if(wordArray[i] == "p") {
-                wordArray[i] = "b"
-            }
-            if(wordArray[i] == "t") {
-                wordArray[i] = "d"
-            }
-            if(wordArray[i] == "k") {
-                wordArray[i] = "g"
-            }
-            if(wordArray[i] == "b" && wordArray[i + 1] === "ʰ") {
-                wordArray[i] = "p";
-                wordArray.splice(i + 1, 1)
-            }
-            if(wordArray[i] == "d" && wordArray[i + 1] === "ʰ") {
-                wordArray[i] = "t";
-                wordArray.splice(i + 1, 1)
-            }
-            if(wordArray[i] == "g" && wordArray[i + 1] === "ʰ") {
-                wordArray[i] = "k";
-                wordArray.splice(i + 1, 1)
-            } else if (wordArray[i] === "ʰ") {
-                wordArray[i] = "h";
-            }
-        }
-    }  
-
     //LABIODENTAL APPROXIMANT
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "ʋ" && consonants.includes("w") === false) {
@@ -631,54 +782,6 @@ function spell(word) {
             wordArray[i] = "w"
         } else if(wordArray[i] === "ʷ" && randomNum !== 3) {
             wordArray[i] = "ʷ"
-        }
-    }
-
-    //Palatalised CONSONANTS
-    for(let i = 0; i < wordArray.length; i++) {
-      
-        if(wordArray[i] === "ʲ" && randomNum === 0) {
-            wordArray[i] = "j"
-        }
-        if(wordArray[i] === "ʲ" && randomNum === 1) {
-            wordArray[i] = "’"
-        }
-        if(wordArray[i] === "ʲ" && randomNum === 2) {
-            wordArray[i] = "ʲ"
-        } 
-        if(wordArray[i] === "ʲ" && randomNum > 2) {
-            if(wordArray[i - 1] === "t") {
-                wordArray[i - 1] = "ț"
-                 wordArray.splice(i, 1)
-            }
-            if(wordArray[i - 1] === "d") {
-                wordArray[i - 1] = "d̦"
-                 wordArray.splice(i, 1)
-            }
-            if(wordArray[i - 1] === "k") {
-                wordArray[i - 1] = "ķ"
-                 wordArray.splice(i, 1)
-            }
-            if(wordArray[i - 1] === "g") {
-                wordArray[i - 1] = "ģ"
-                 wordArray.splice(i, 1)
-            }
-            if(wordArray[i - 1] === "s") {
-                wordArray[i - 1] = "ș"
-                 wordArray.splice(i, 1)
-            }
-            if(wordArray[i - 1] === "l") {
-                wordArray[i - 1] = "ļ"
-                 wordArray.splice(i, 1)
-            }
-            if(wordArray[i - 1] === "n") {
-                wordArray[i - 1] = "ņ"
-                 wordArray.splice(i, 1)
-            }
-            if(wordArray[i - 1] === "r") {
-                wordArray[i - 1] = "ŗ"
-                 wordArray.splice(i, 1)
-            }            
         }
     }
 
@@ -764,6 +867,14 @@ function spell(word) {
     
     function spellIndividualLettersShort(letter, randomLetter, chosenSpellingsArray) {
 
+        //if the letter is a character plus a superscript character, both get merged into one string in one index
+        // if(letter.length === 2) {
+        //     let letterArray = Array.from(letter);
+        //     letterArray[0] = letterArray[0] + letterArray[1];
+        //     letterArray.splice(1,1);
+        //     letter = letterArray.join("");
+        // };
+
         let chosenJoinedArray = [];
         if(chosenSpellingsArray === chosenVowelSpellingsArray) {
             chosenJoinedArray = cloneArray(chosenVowelSpellingsArrayJoinedArray);
@@ -771,9 +882,18 @@ function spell(word) {
             chosenJoinedArray = cloneArray(chosenConsonantSpellingsArrayJoinedArray);
         }
 
-        //if vowels were manually chosen
+        //if sounds were manually chosen
         if(randomOption === false) {
             for(let j = 0; j < chosenSpellingsArray.length; j++) {
+
+                //if chosenSpellingsArray[j][1] is a superscript character, it is merged with the previous character
+                // if(chosenSpellingsArray[j][1] === "ʰ") {
+                //     let spellingArray = Array.from(chosenSpellingsArray[j]);
+                //     spellingArray[0] = spellingArray[0] + spellingArray[1];
+                //     spellingArray.splice(1,0);
+                //     chosenSpellingsArray[j] = spellingArray.join("");
+                // }
+                
                 //if a user did not enter a sound manually, but the sound arose via sound changes, it is assigned a random spelling
                 if(chosenJoinedArray.includes(letter) === false) {
                     for(let i = 0; i < wordArray.length; i++) {
@@ -814,11 +934,26 @@ function spell(word) {
                                     };
                                 };
                             };
+
+                            //if the sound is a diphthong, or a combination of a sound plus superscript
+                            for(let k = 0; k < chosenSpellingsArray[j].length; k++) {
+                                
+                                if(chosenSpellingsArray[j][k-1] === "=") {
+                                    for(let i = 0; i < wordArray.length; i++) {
+                                        let sound = wordArray[i] + wordArray[i+1];
+                                        console.log(sound)
+                                        if(sound === letter) {
+                                            console.log("hello")
+                                            wordArray[i] = chosenSpellingsArray[j][k];
+                                            wordArray.splice(i+1,1);
+                                        };
+                                    };
+                                };
+                            };
                         };
                     };
                 };
             }; 
-        
         } else {
             for(let i = 0; i < wordArray.length; i++) {
                 if(wordArray[i] === letter) {
@@ -827,6 +962,9 @@ function spell(word) {
             };
         };
     };
+
+    //console.log(chosenConsonantSpellingsArray)
+    // console.log(chosenConsonantSpellingsArray[0])
 
     spellIndividualLettersLong("i", randomLongI(), chosenVowelSpellingsArray);
     spellIndividualLettersLong("u", randomLongU(), chosenVowelSpellingsArray);
@@ -893,6 +1031,72 @@ function spell(word) {
     spellIndividualLettersShort("x", randomVelarFricative(wordArray), chosenConsonantSpellingsArray);
     spellIndividualLettersShort("ɣ", randomVelarFricative(wordArray), chosenConsonantSpellingsArray);
     spellIndividualLettersShort("h", "h", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("χ", randomUvularFricatives(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ʁ", randomUvularFricatives(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ʔ", randomGlottalStop(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("c", randomPalatal(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ɟ", randomPalatal(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ç", randomPalatal(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ɲ", randomPalatal(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ʎ", randomPalatal(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("θ", randomDentalFricatives(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ð", randomDentalFricatives(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ɸ", randomBilabialFricatives(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("β", randomBilabialFricatives(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ʈ", randomRetroflexes(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ɖ", randomRetroflexes(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ʂ", randomRetroflexes(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ɭ", randomRetroflexes(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ɽ", randomRetroflexes(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ɳ", randomRetroflexes(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ʐ", randomRetroflexes(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("P", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("K", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("B", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("T", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("D", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("G", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("1", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("2", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("3", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("4", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("5", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("6", randomAspirates(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("!", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("£", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("$", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("%", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("^", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("&", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("*", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("J", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("K", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("#", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("@", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("}", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("{", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("+", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("-", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort(">", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("<", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("]", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("[", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("=", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("?", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("Q", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("W", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("E", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("R", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("F", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("Y", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("U", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("I", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("O", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("H", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("S", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("M", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("N", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("X", randomPalatalised(wordArray), chosenConsonantSpellingsArray);
 
     //removes redunant "t" and "d" before č and dž
     for(let i = 0; i < wordArray.length; i++) {

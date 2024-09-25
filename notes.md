@@ -1,11 +1,10 @@
 # Immediate To-Do List
 
-
 ## Options for customisation
 
 - add keyboard that inputs the IPA characters directly into the vowels and consonants text fields, one keyboard for vowels, another for consonaonts
 - noun gender/classifier system/number/cases
-- marked singular 
+- marked singular
 - which sounds changes
 - which derivational methods (and if they are prefixes or suffixes)
 - cover page template
@@ -49,6 +48,7 @@ V > ∅/VC_#
 Vː > V/\_(C)#
 oː > e
 VCrV > VCirV
+C1VC1 > C1VV
 
 - Two vowels together must share a quality, like height
 - fricatives can't occur after plosives
@@ -191,7 +191,6 @@ Colour metaohors?
 - Verb tenses
 - Verb mood
 - Verb aspect
-- Derivational methods
 - Different sets of vocabulary for different climates and cultures? i.e marine terms vs desert vs tundra etc
 - Sets of words to be chosen based on a random culture and habitat. So the vocabulary has a sense of cohesion e.g not having a word both for camel and polarbear
 - Add a placename and personalname generator, which randomly selects a style of name derivation and then generates names using that.
@@ -287,6 +286,7 @@ _gʷréh₂us (“heavy”) + ‎_-ō → ‎*gʷréh₂wōn (“millstone”, l
 -w'r‌ - Forms neuter object nouns from verbal roots(ex: per- "to go through" > pérwr‌ "ford, crossing")
 
 ## Semantic Shift Ideas
+
 - to wander, to roam > to wander in mind, to ponder, to get lost
 - barefoot > naked
 - aware > awake

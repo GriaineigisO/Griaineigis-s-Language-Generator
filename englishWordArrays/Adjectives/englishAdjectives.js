@@ -80,6 +80,13 @@ etymologyArrayADJ.push("X");
 etymologyADJ.push("X");
 derivationListAdj.push("");
 
+adjectiveArray.push("unexpressive");
+comparativeAdjectiveArray.push("more&nbspunexpressive");
+derivedOrInheritedADJ.push("inherited")
+etymologyArrayADJ.push("X");
+etymologyADJ.push("X");
+derivationListAdj.push("");
+
 adjectiveArray.push("bald");
     comparativeAdjectiveArray.push("balder");
 derivedOrInheritedADJ.push("inherited")

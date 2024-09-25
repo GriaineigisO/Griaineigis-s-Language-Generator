@@ -8,10 +8,8 @@ import {adverbArray} from './englishWordArrays/adverbs.js'
 import {adpositionArray} from './englishWordArrays/adpositions.js';
 import {intensifierArray} from './englishWordArrays/intensifier.js';
 import nounCases from './allPossibleNounCases.js'
-
 import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
-
-import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, clearPreviousOutput} from './soundchange.js'
+import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, clearPreviousOutput, checkIfSoundChangeOptionChecked} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
 import {allWordOrders, subjectFinalWordOrders, objectFinalWordOrders, verbFinalWordOrders} from './allPossibleWordOrders.js'
@@ -136,7 +134,6 @@ let liquidClassifierArray = [];
 let liquidClassifierMassArray = [];
 let chosenClassifiers = [];
 
-
 let wordThere = "";
 let wordHere = "";
 let firstPersonPronoun = "";
@@ -234,8 +231,6 @@ let intrusionClassifier = "";
 let enclosedClassifier = "";
 let piercingClassifier = "";
 let percussiveClassifier = "";
-let instanceClassifier = "";
-let completedClassifier = "";
 
 //shows language customisation options
 let randomisedButton = document.getElementById("randomised");
@@ -264,7 +259,7 @@ customisedButton.addEventListener("click", customise);
 
 let allPossibleVowels = ["a", "e", "i", "o", "u", "æ", "ɐ", "ɑ", "ə", "ɵ", "ɘ", "ɛ", "ɜ", "ɞ", "ɪ", "ɨ", "ɔ", "ɒ", "œ", "ø", "ʌ", "ʉ", "ɯ", "ɤ", "y", "ʏ"]
 
-let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "ʧ", "ʤ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ", "tʲ", "dʲ", "kʲ", "gʲ", "pʲ", "bʲ", "qʲ", "ɢʲ", "sʲ", "zʲ", "vʲ", "fʲ", "lʲ", "rʲ", "mʲ", "nʲ", "hʲ", "xʲ", "ʒʲ", "θʲ", "ðʲ", "ʃʲ", "ŋʲ", "tʰʲ", "qʰʲ", "tʷ", "dʷ", "cʷ", "ɟʷ", "kʷ", "gʷ", "qʷ", "ɢʷ", "sʷ", "zʷ", "ʃʷ", "ʒʷ", "hʷ", "xʷ", "ɣʷ", "χʷ", "ʁʷ", "rʷ", "lʷ", "tʷʰ", "dʷʰ", "cʰʷ", "ɟʷʰ", "kʷʰ", "gʷʰ", "qʷʰ", "ɢʷʰ", "sʷʰ", "zʷʰ", "ʃʷʰ", "ʒʷʰ", "hʷ", "xʷʰ", "ɣʷʰ", "χʷʰ", "ʁʷʰ", "rʷʰ", "lʷʰ"]
+let allPossibleConsonants = ["m", "n", "ŋ", "ɲ", "ɳ", "p", "ʰp", "pʰ", "b", "bʰ", "t", "tʰ", "ʰt", "ʈ", "d", "dʰ", "ɖ", "k", "ʰk", "kʰ", "g", "gʰ", "q", "ɢ", "ʔ", "ʕ", "β", "ɸ", "f", "v", "r", "l", "s", "ʃ", "ʂ", "z", "ʐ", "ʒ", "ʧ", "ʤ", "ʁ", "χ", "w", "j", "ʋ", "h", "ħ", "ɦ", "ɣ", "x", "ts", "θ", "ð", "ʝ", "ç", "c", "ɟ", "ʟ", "ɮ", "ɬ", "ʎ", "tʲ", "dʲ", "kʲ", "gʲ", "pʲ", "bʲ", "qʲ", "ɢʲ", "sʲ", "zʲ", "vʲ", "fʲ", "lʲ", "rʲ", "mʲ", "nʲ", "hʲ", "xʲ", "ʒʲ", "θʲ", "ðʲ", "ʃʲ", "ŋʲ", "tʰʲ", "qʰʲ", "tʷ", "dʷ", "cʷ", "ɟʷ", "kʷ", "gʷ", "qʷ", "ɢʷ", "sʷ", "zʷ", "ʃʷ", "ʒʷ", "hʷ", "xʷ", "ɣʷ", "χʷ", "ʁʷ", "rʷ", "lʷ", "tʷʰ", "dʷʰ", "cʰʷ", "ɟʷʰ", "kʷʰ", "gʷʰ", "qʷʰ", "ɢʷʰ", "sʷʰ", "zʷʰ", "ʃʷʰ", "ʒʷʰ", "hʷ", "xʷʰ", "ɣʷʰ", "χʷʰ", "ʁʷʰ", "rʷʰ", "lʷʰ", "pʰʲ", "bʰʲ", "tʰʲ", "dʰʲ", "kʰʲ", "gʰʲ", "rʰʲ", "lʰʲ", "sʰʲ", "zʰʲ", "xʰʲ", "ɣʰʲ", "fʰʲ", "vʰʲ", "ɸʰʲ", "βʰʲ", "θʰʲ", "ðʰʲ", "ʃʰʲ", "ʒʰʲ", "ʂʰʲ", "ʐʰʲ", "χʰʲ", "ʁʰʲ", "ɬʰʲ", "ɮʰʲ", "qʰʲ", "ɢʰʲ", "ʔʰʲ", "cʰʲ", "ɟʰʲ", "ʧʰʲ", "ʤʰʲ", "θʷ", "ðʷ", "ʈʲ", "ɖʲ", "ɽʲ", "ɭʲ", "ʈʷ", "ɖʷ", "ɽʷ", "ɭʷ", "ʎʷ", "ʈʷʰ", "ɖʷʰ", "ɽʷʰ", "ʈʰ", "ɖʰ", "ʈʰʲ", "ɖʰʲ", "ɽʰʲ"]
 
 //Without this, every single generated noun from every single generation would remain in the arrays, causing words from
 //previous generations to show up in current ones! This clears the arrays upon each click of the button, before they are
@@ -7709,6 +7704,9 @@ function generateLanguage() {
     if(checkIfOptionWasSelected === "") {
         document.getElementById("warning").style.display = "block";
     } else {
+        if(checkIfSoundChangeOptionChecked === "") {
+            document.getElementById("sound-change-warning").style.display = "block";
+        } else {
         clearPreviousOutput();
         selectSoundChanges();
         showGrammarAndDictionary()
@@ -7815,6 +7813,7 @@ function generateLanguage() {
         applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
         //console.log(spell(soundChange("dweːrm")))
         //console.log(spell(soundChange("kʷenpe")))
+        };
     };
    }
 

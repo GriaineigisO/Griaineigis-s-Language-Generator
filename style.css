@@ -151,11 +151,25 @@ h1, h2, h3, h4 {
     margin-bottom: 10px;
 }
 
+.soundChangeList {
+    background-color: #2c2d36;
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 5px;
+    max-width: 250px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#drag-note {
+    margin-left: 40px;
+}
+
 .radio-section {
     padding: 5px;
 }
 
-#warning {
+#warning, #sound-change-warning {
     color: red;
     font-weight: bold;
     display: none;
@@ -435,7 +449,6 @@ h1, h2, h3, h4 {
 .sound-change-example {
     display: inline;
 }
-
 
 /* PHONE */
 @media only screen and (max-width: 480px) {

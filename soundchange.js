@@ -170,10 +170,11 @@ let timesplosivesCantClusterTogetherWordInitiallyApplied = 0;
 let timesfricativesLostAfterWordInitialConsonantsApplied = 0;
 let timeswordFinalHighVowelsLowerApplied = 0;
 let timesResonantsLostAfterConsonantsApplied = 0;
-let timesInsterIBetweenConsonantAndResonantApplied = 0;
-let timesInstertUBetweenConsonantAndResonantApplied = 0;
+let timesInsertIBetweenConsonantAndResonantApplied = 0;
+let timesInsertUBetweenConsonantAndResonantApplied = 0;
 let timesConsonantResonantMetathesisApplied = 0;
-let timeslenitionofPlosivebeforeOtherPlosiveApplied = 0;
+let timeslenitionofPlosivebeforeOtherPlosive1Applied = 0;
+let timeslenitionofPlosivebeforeOtherPlosive2Applied = 0;
 let timesnonInitialNonHighVowelsBecomeAApplied = 0;
 let timesnasalsCantAppearAfterConsonantsApplied = 0;
 let timefricativesDebuccaliseBeforeVowelsApplied = 0;
@@ -228,6 +229,31 @@ let timeslongUBecomesOU = 0;
 let timesvelarsDelabialise = 0;
 let timeslossOfAspiration = 0;
 
+
+//shows language customisation options for Sound Changes
+let randomisedSoundChangeButton = document.getElementById("randomisedSoundChange");
+let customisedSoundChangeButton = document.getElementById("customisedSoundChange");
+let soundChangeMenu = document.getElementById("sound-change-menu-div");
+soundChangeMenu.style.display = "none";
+let randomSoundChangeOption = "";
+let checkIfSoundChangeOptionChecked = "";
+
+function randomiseSoundChange() {
+    soundChangeMenu.style.display = "none";
+    randomSoundChangeOption = true;
+    checkIfSoundChangeOptionChecked = "checked";
+    document.getElementById("sound-change-warning").style.display = "none";
+};
+
+function customiseSoundChange() {
+    soundChangeMenu.style.display = "block";
+    randomSoundChangeOption = false;
+    checkIfSoundChangeOptionChecked = "checked";
+    document.getElementById("sound-change-warning").style.display = "none";
+};
+randomisedSoundChangeButton.addEventListener("click", randomiseSoundChange);
+customisedSoundChangeButton.addEventListener("click", customiseSoundChange);
+
 function clearPreviousOutput() {
     document.getElementById("sound-change-explanation").replaceChildren();
     timeswordFinalDevoicingApplied = 0;  
@@ -235,10 +261,11 @@ function clearPreviousOutput() {
     timesfricativesLostAfterWordInitialConsonantsApplied = 0;
     timeswordFinalHighVowelsLowerApplied = 0;
     timesResonantsLostAfterConsonantsApplied = 0;
-    timesInsterIBetweenConsonantAndResonantApplied = 0;
-    timesInstertUBetweenConsonantAndResonantApplied = 0;
+    timesInsertIBetweenConsonantAndResonantApplied = 0;
+    timesInsertUBetweenConsonantAndResonantApplied = 0;
     timesConsonantResonantMetathesisApplied = 0;
-    timeslenitionofPlosivebeforeOtherPlosiveApplied = 0;
+    timeslenitionofPlosivebeforeOtherPlosive1Applied = 0;
+    timeslenitionofPlosivebeforeOtherPlosive2Applied = 0;
     timesnonInitialNonHighVowelsBecomeAApplied = 0;
     timesnasalsCantAppearAfterConsonantsApplied = 0;
     timefricativesDebuccaliseBeforeVowelsApplied = 0;
@@ -293,6 +320,103 @@ function clearPreviousOutput() {
     timesvelarsDelabialise = 0;
     timeslossOfAspiration = 0;
 };
+let potentialSoundChanges = [
+            plosivesCantClusterTogetherWordInitially,
+            wordFinalDevoicing,
+            fricativesLostAfterWordInitialConsonants,
+            lenitionofPlosivebeforeOtherPlosive1,
+            lenitionofPlosivebeforeOtherPlosive2,
+            wordFinalHighVowelsLower,
+            resonantsLostBeforeConsonants,
+            insertIBetweenConsonantAndResonant,
+            insertUBetweenConsonantAndResonant,
+            consonantResonantMetathesis,
+            nonInitialNonHighVowelsBecomeA,
+            nasalsCantAppearAfterConsonants,
+            fricativesDebuccaliseBeforeVowels,
+            vowelLostBetweenTwoOfSameConsonant,
+            voicedConsonantsLostIntervocalically,
+            RVCToVRCMetathesis,
+            vowelLostBetweenConsonantAndResonant,
+            intervocalicVoicing,
+            hLostAfterConsonants,
+            nasalsLostBetweenVowelAndConsonant,
+            auBecomesOu,
+            aCaBecomesaCi,
+            VʔVBecomesVV,
+            plosivesDebuccaliseInCoda,
+            CVRBecomesCCVR,
+            glottalStopJFortites,
+            eciBecomesiCi,
+            iCbecomeseC,
+            VJbecomesLongI,
+            uNBecomesoN,
+            gBecomesJ,
+            VvBecomesVV,
+            eNBecomesiN,
+            CJBecomesCC,
+            iUmlaut,
+            vowelShiftInHeavySyllables,
+            VCVBecomesVCWordFinally,
+            longABecomesO,
+            palatalisationofPlosives,
+            eOBecomeJW,
+            VzbecomesVr,
+            intialVBecomesHV,
+            intialJBecomesL,
+            tDBecomeL,
+            longVowelsBreak,
+            vowelsHeightenBeforeVelars,
+            palatalsBecomeVelar,
+            gwbecomesB,
+            eRaBecomesARa,
+            epentheticA,
+            pKWBecomesKwKw,
+            longEBecomesLongI,
+            wordFinalLongOBecomesLongU,
+            longVowelsShortenBeforeRC,
+            CCBecomesXC,
+            pBecomesBBeforeResonants,
+            pBecomesU,
+            pBecomesF,
+            longOBecomesA,
+            eWBecomesOW,
+            longOBecomesA,
+            longUBecomesOU,
+            velarsDelabialise,
+            lossOfAspiration
+        ];
+let chosenSoundChanges = [];
+//if custom sound changes were selected, then the chosenSoundChanges array is populated with those options
+function useChosenSoundChanges() {
+    if (randomSoundChangeOption === false) {
+        //the items in chosenSoundChanges from the previous generation are removed
+        chosenSoundChanges = [];
+        let soundChangeList = document.getElementById("sortable");
+        let children = soundChangeList.children;
+
+        for(let i = 0; i < children.length; i++) {
+            //the resulting string, with the "-list" removed, is now identical to the function names
+            let soundChangeName = children[i].id.replace("-list", "");
+
+            //each function name in potentialSoundChanges is converted to a string. If the string is identical to soundChangeName, the function name is pushed to chosenSoundChanges
+            for(let j = 0; j < potentialSoundChanges.length; j++) {
+                let functionNameToString = potentialSoundChanges[j].name.toString()
+                if(functionNameToString === soundChangeName) {
+                    chosenSoundChanges.push(potentialSoundChanges[j]);
+                };
+            };
+        };
+    };
+};
+
+function countAmountOfSoundChanges() {
+    document.getElementById("sound-change-number").innerHTML = potentialSoundChanges.length;
+};
+customisedSoundChangeButton.addEventListener("click", countAmountOfSoundChanges);
+
+let generateLanguageButton = document.getElementById("generate-language");
+generateLanguageButton.addEventListener("click", useChosenSoundChanges);
 
 function checkIfWordFinalConsonantsArePossible() {
     for(let i = 0; i < syllablestructuresThatHaveWordFinalConsonants.length; i++) {
@@ -306,14 +430,12 @@ function checkIfWordFinalConsonantsArePossible() {
 
 //A list of titles for every sound change is placed into the array "potentialSoundChanges". Then a random number and selection of these titles are pushed into the "chosenSoundChanges" array. If the "chosenSoundChanges" contains a sound changes title, the sound change may occur.
 
-let potentialSoundChanges = [];
-let chosenSoundChanges = [];
 let wordArray = [];
 let wordFinalDevoicingTrueOrFalse = "";
 let randomNumForWordInitialPlosiveClusters = "";
 let randomNumForWordInitialNasalClusters = "";
-let randomNumForNoResonantsBeforeConsonants = "";
-let randomNumForlenitionofPlosivebeforeOtherPlosive = "";
+let randomNumForlenitionofPlosivebeforeOtherPlosive1 = "";
+let randomNumForlenitionofPlosivebeforeOtherPlosive2 = "";
 let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
 let randomNumForLongVowelsBreak = 0;
 
@@ -322,1127 +444,1062 @@ let randomNumForLongVowelsBreak = 0;
 
 let cloneChosen = [];
 let randomNumberForSoundChangeSelection = 0;
+
+
 function selectSoundChanges() {
-    chosenSoundChanges = [];
-    wordArray = [];
-    wordFinalDevoicingTrueOrFalse = "";
-    potentialSoundChanges = [
-        plosivesCantClusterTogetherWordInitially,
-        wordFinalDevoicing,
-        fricativesLostAfterWordInitialConsonants,
-        lenitionofPlosivebeforeOtherPlosive,
-        wordFinalHighVowelsLower,
-        NoResonantsBeforeConsonants,
-        nonInitialNonHighVowelsBecomeA,
-        nasalsCantAppearAfterConsonants,
-        fricativesDebuccaliseBeforeVowels,
-        vowelLostBetweenTwoOfSameConsonant,
-        voicedConsonantsLostIntervocalically,
-        RVCToVRCMetathesis,
-        vowelLostBetweenConsonantAndResonant,
-        intervocalicVoicing,
-        hLostAfterConsonants,
-        nasalsLostBetweenVowelAndConsonant,
-        auBecomesOu,
-        aCaBecomesaCi,
-        VʔVBecomesVV,
-        plosivesDebuccaliseInCoda,
-        CVRBecomesCCVR,
-        glottalStopJFortites,
-        eciBecomesiCi,
-        iCbecomeseC,
-        VJbecomesLongI,
-        uNBecomesoN,
-        gBecomesJ,
-        VvBecomesVV,
-        eNBecomesiN,
-        CJBecomesCC,
-        iUmlaut,
-        vowelShiftInHeavySyllables,
-        VCVBecomesVCWordFinally,
-        longABecomesO,
-        palatalisationofPlosives,
-        eOBecomeJW,
-        VzbecomesVr,
-        intialVBecomesHV,
-        intialJBecomesL,
-        tDBecomeL,
-        longVowelsBreak,
-        vowelsHeightenBeforeVelars,
-        palatalsBecomeVelar,
-        gwbecomesB,
-        eRaBecomesARa,
-        epentheticA,
-        pKWBecomesKwKw,
-        longEBecomesLongI,
-        wordFinalLongOBecomesLongU,
-        longVowelsShortenBeforeRC,
-        CCBecomesXC,
-        pBecomesBBeforeResonants,
-        pBecomesU,
-        pBecomesF,
-        longOBecomesA,
-        eWBecomesOW,
-        longOBecomesA,
-        longUBecomesOU,
-        velarsDelabialise,
-        lossOfAspiration
-    ];
-    //console.log(`Number of sound changes: ${potentialSoundChanges.length}`)
-    
-    //selects which sound changes will be chosen
-    while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
-        randomNumberForSoundChangeSelection = Math.floor(Math.random() * potentialSoundChanges.length);
-        if(chosenSoundChanges.includes(potentialSoundChanges[randomNumberForSoundChangeSelection]) === false) {
-            chosenSoundChanges.push(potentialSoundChanges[randomNumberForSoundChangeSelection]) 
-        }
-    };
+        wordArray = [];
+        wordFinalDevoicingTrueOrFalse = "";
+        //console.log(`Number of sound changes: ${potentialSoundChanges.length}`)
+        
+        //selects which sound changes will be randomly chosen
+        if(randomSoundChangeOption) {
+            chosenSoundChanges = [];
+            while(chosenSoundChanges.length < Math.floor(Math.random() * potentialSoundChanges.length) + 6) {
+                randomNumberForSoundChangeSelection = Math.floor(Math.random() * potentialSoundChanges.length);
+                if(chosenSoundChanges.includes(potentialSoundChanges[randomNumberForSoundChangeSelection]) === false) {
+                    chosenSoundChanges.push(potentialSoundChanges[randomNumberForSoundChangeSelection]) 
+                }
+            };
+        };
+        
+        //console.log(chosenSoundChanges)
 
-    //console.log(chosenSoundChanges)
+        randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
+        randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
+        randomNumForNoFricativesAsLatterElementOfInitialClusters = Math.floor(Math.random() * 50);
+        randomNumForLongVowelsBreak = Math.floor(Math.random() * 6)
 
-    randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
-    randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
-    randomNumForNoFricativesAsLatterElementOfInitialClusters = Math.floor(Math.random() * 50);
-    randomNumForNoResonantsBeforeConsonants = Math.floor(Math.random() * 4);
-    randomNumForlenitionofPlosivebeforeOtherPlosive = Math.floor(Math.random() * 2);
-    randomNumForLongVowelsBreak = Math.floor(Math.random() * 6)
-
-    for(let i = 0; i < chosenSoundChanges.length; i++) {
-        if(chosenSoundChanges[i] === wordFinalDevoicing) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "wordFinalDevoicing-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Word Final Devoicing`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "wordFinalDevoicing-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Voiced consonants devoiced word finally: <div class="sound-change-example" id="wordFinalDevoicing"></div>`;
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        }
-        if(chosenSoundChanges[i] === plosivesCantClusterTogetherWordInitially) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "plosivesCantClusterTogetherWordInitially-li");
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Word Initial Clusters Simplified`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "plosivesCantClusterTogetherWordInitially-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `A word initial plosive is lost if another plosive follows it: <div class="sound-change-example" id="plosivesCantClusterTogetherWordInitially"></div>`;
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        }
-        if(chosenSoundChanges[i] === fricativesLostAfterWordInitialConsonants) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "fricativesLostAfterWordInitialConsonants-li");
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Fricatives Dropped in Word Initial Clusters`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "fricativesLostAfterWordInitialConsonants-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `A fricative is lost when it is the first consonant in a word initial cluster: <div class="sound-change-example" id="fricativesLostAfterWordInitialConsonants"></div>`;
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        }
-        if(chosenSoundChanges[i] === lenitionofPlosivebeforeOtherPlosive) {
-            if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
+        for(let i = 0; i < chosenSoundChanges.length; i++) {
+            if(chosenSoundChanges[i] === wordFinalDevoicing) {
                 let li= document.createElement("li");
-                li.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive-li");
+                li.setAttribute("id", "wordFinalDevoicing-li")
                 li.style.fontWeight = "bold";
-                li.innerHTML = `Lenition in Clusters`;
+                li.innerHTML = `Word Final Devoicing`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive-ul");
+                nestUl.setAttribute("id", "wordFinalDevoicing-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Plosives lenite when they occur before other plosives. Plosives lenite in the following way.`
-                let lenitionUl = document.createElement("ul");
-                lenitionUl.setAttribute("id", "lenition-before-list");
-                let examples = document.createElement("span");
-                examples.innerHTML = `<div class="sound-change-example" id="lenitionofPlosivebeforeOtherPlosive"></div>`
+                nestLi.innerHTML = `Voiced consonants devoiced word finally: <div class="sound-change-example" id="wordFinalDevoicing"></div>`;
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
-                nestUl.appendChild(lenitionUl);
+            }
+            if(chosenSoundChanges[i] === plosivesCantClusterTogetherWordInitially) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "plosivesCantClusterTogetherWordInitially-li");
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Word Initial Clusters Simplified`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "plosivesCantClusterTogetherWordInitially-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `A word initial plosive is lost if another plosive follows it: <div class="sound-change-example" id="plosivesCantClusterTogetherWordInitially"></div>`;
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            }
+            if(chosenSoundChanges[i] === fricativesLostAfterWordInitialConsonants) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "fricativesLostAfterWordInitialConsonants-li");
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Fricatives Dropped in Word Initial Clusters`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "fricativesLostAfterWordInitialConsonants-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `A fricative is lost when it is the first consonant in a word initial cluster: <div class="sound-change-example" id="fricativesLostAfterWordInitialConsonants"></div>`;
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            }
+            if(chosenSoundChanges[i] === lenitionofPlosivebeforeOtherPlosive1) {
+                    let li= document.createElement("li");
+                    li.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive1-li");
+                    li.style.fontWeight = "bold";
+                    li.innerHTML = `Lenition in Clusters`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive1-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `Plosives lenite when they occur before other plosives. Plosives lenite in the following way.`
+                    let lenitionUl = document.createElement("ul");
+                    lenitionUl.setAttribute("id", "lenition-before-list-1");
+                    let examples = document.createElement("span");
+                    examples.innerHTML = `<div class="sound-change-example" id="lenitionofPlosivebeforeOtherPlosive1"></div>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+                    nestUl.appendChild(lenitionUl);
+                    nestUl.appendChild(examples);
+            };
+             if(chosenSoundChanges[i] === lenitionofPlosivebeforeOtherPlosive2) {
+                    let li= document.createElement("li");
+                    li.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive2-li");
+                    li.style.fontWeight = "bold";
+                    li.innerHTML = `Lenition in Clusters`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive2-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `Plosives lenite when they occur before other plosives. Plosives lenite in the following way.`
+                    let lenitionUl = document.createElement("ul");
+                    lenitionUl.setAttribute("id", "lenition-before-list-2");
+                    let examples = document.createElement("span");
+                    examples.innerHTML = `<span id="lenitionofPlosivebeforeOtherPlosive2"></span>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+                    nestUl.appendChild(lenitionUl);
+                    nestUl.appendChild(examples);
+            };
+            if(chosenSoundChanges[i] === wordFinalHighVowelsLower) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "wordFinalHighVowelsLower-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Word Final High Vowels Lower`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "wordFinalHighVowelsLower-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `High vowels lower to become mid vowels when word final: <div class="sound-change-example" id="wordFinalHighVowelsLower"></div>`;
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === resonantsLostBeforeConsonants) {
+                    let li= document.createElement("li");
+                    li.setAttribute("id", "resonantsLostBeforeConsonants-li");
+                    li.style.fontWeight = "bold";
+                    li.innerHTML = `Resonants Lost Before Consonants`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "resonantsLostBeforeConsonants-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `Resonants are lost before consonants: <div class="sound-change-example" id="resonantsLostBeforeConsonants"></div>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+            }
+            if(chosenSoundChanges[i] === insertIBetweenConsonantAndResonant) {
+                    let li= document.createElement("li");
+                    li.setAttribute("id", "insertIBetweenConsonantAndResonant-li")
+                    li.style.fontWeight = "bold";
+                    li.innerHTML = `Epenthesis of /i/ Between Consonants And Resonants`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "insertIBetweenConsonantAndResonant-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /i/ is inserted after the resonants: <span id="insertIBetweenConsonantAndResonant"></span>`;
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+            }
+            if(chosenSoundChanges[i] === insertUBetweenConsonantAndResonant) {
+                    let li= document.createElement("li");
+                    li.setAttribute("id", "insertUBetweenConsonantAndResonant-li");
+                    li.style.fontWeight = "bold";
+                    li.innerHTML = `Epenthesis of /u/ Between Consonants And Resonants`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "insertUBetweenConsonantAndResonant-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /u/ is inserted after the resonant: <span id="insertUBetweenConsonantAndResonant"></span>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === consonantResonantMetathesis) {
+                    let li= document.createElement("li");
+                    li.setAttribute("id", "consonantResonantMetathesis-li");
+                    li.style.fontWeight = "bold";
+                    li.innerHTML = `RC to CR Metathesis`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "consonantResonantMetathesis-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `A resonant which once preceded a consonant now follows it: <span id="consonantResonantMetathesis"></span>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+            }
+            if(chosenSoundChanges[i] === nonInitialNonHighVowelsBecomeA) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "nonInitialNonHighVowelsBecomeA-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Non-initial Non-High Vowels Become /a/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "nonInitialNonHighVowelsBecomeA-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `All non-high vowels merge with /a/ when not in the first syllable of a word: <div class="sound-changhe-example" id="nonInitialNonHighVowelsBecomeA"></div/>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === nasalsCantAppearAfterConsonants) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "nasalsCantAppearAfterConsonants-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Epenthesis of /i/ before Post-Consonantal Nasals`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "nasalsCantAppearAfterConsonants-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `An epenthetic /i/ is placed before any nasal which occurs after a consonant: <div class="sound-change-example" id="nasalsCantAppearAfterConsonants"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi); 
+            };
+            if(chosenSoundChanges[i] === fricativesDebuccaliseBeforeVowels) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "fricativesDebuccaliseBeforeVowels-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Debuccalisation of Pre-Vocalic Fricatives`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "fricativesDebuccaliseBeforeVowels-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                let fricativeList = selectFricatives().join(", ");
+                let fricativeOrFricatives = "";
+                let becomeOrBecomes = ";"
+                if(fricativeList.length > 1) {
+                    fricativeOrFricatives = "fricatives;"
+                    becomeOrBecomes = "become";
+                } else {
+                    fricativeOrFricatives = "fricative";
+                    becomeOrBecomes = "becomes";
+                }
+                nestLi.innerHTML = `The short ${fricativeOrFricatives} /${fricativeList}/ ${becomeOrBecomes} /h/ when before a vowel: <div class="sound-change-example" id="fricativesDebuccaliseBeforeVowels"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === vowelLostBetweenTwoOfSameConsonant) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "vowelLostBetweenTwoOfSameConsonant-li");
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Loss of Vowels Between Two of the Same Consonant`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "vowelLostBetweenTwoOfSameConsonant-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `When a vowel is sandwiched by two of the same consonant, it is lost: <div class="sound-change-example" id="vowelLostBetweenTwoOfSameConsonant"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === voicedConsonantsLostIntervocalically) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "voicedConsonantsLostIntervocalically-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Loss of Intervocalic Voiced Consonants`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "voicedConsonantsLostIntervocalically-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Short voiced plosives and fricatives are lost entirely when between two vowels: <div class="sound-change-example" id="voicedConsonantsLostIntervocalically"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === RVCToVRCMetathesis) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "RVCToVRCMetathesis-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `RVC to VRC Metathesis`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "RVCToVRCMetathesis-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `When a word initial resonant comes before a vowel, and if a consonant follows this vowel, then the resonant and vowel will switch places: <div class="sound-change-example" id="RVCToVRCMetathesis"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === vowelLostBetweenConsonantAndResonant) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "vowelLostBetweenConsonantAndResonant-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Syncope Between a Consonant and a Resonant`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "vowelLostBetweenConsonantAndResonant-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Vowels are lost when after a consonant and before a resonant if said resonant precedes another vowel: <div class="sound-change-example" id="vowelLostBetweenConsonantAndResonant"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === intervocalicVoicing) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "intervocalicVoicing-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Intervocalic Voicing`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "intervocalicVoicing-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Voiceless consonants become voiced between two vowels: <div class="sound-change-example" id="intervocalicVoicing"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === hLostAfterConsonants) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "hLostAfterConsonants-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `h is Lost After Consonants`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "hLostAfterConsonants-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The glottal fricative /h/ is lost after consonants: <div class="sound-change-example" id="hLostAfterConsonants"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === nasalsLostBetweenVowelAndConsonant) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "nasalsLostBetweenVowelAndConsonant-li");
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Nasals Are Lost Between a Vowel and Consonant`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "nasalsLostBetweenVowelAndConsonant-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `When a nasal consonant occurs after a vowel and before a consonant, the nasal is lost and the vowel lengthens: <div class="sound-change-example" id="nasalsLostBetweenVowelAndConsonant"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === auBecomesOu) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "auBecomesOu-li");
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/a/ Raises Before /u/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "auBecomesOu-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `/au/ becomes /ou/: <div class="sound-change-example" id="auBecomesOu"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === aCaBecomesaCi) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "aCaBecomesaCi-li");
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Dissimilation of a...a to a...i`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "aCaBecomesaCi-ul")
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `/a/ becomes /i/ when the previous syllable also contains /a/: <div class="sound-change-example" id="aCaBecomesaCi"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === VʔVBecomesVV) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "VʔVBecomesVV-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Loss of Intervocalic Glottal Stops`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "VʔVBecomesVV-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `When a glottal stop occurs between two vowels, both the glottal stop and the second vowel are lost and the first vowel lengthens: <div class="sound-change-example" id="VʔVBecomesVV"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === plosivesDebuccaliseInCoda) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "plosivesDebuccaliseInCoda-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Debuccalisation of Plosives in the Coda`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "plosivesDebuccaliseInCoda-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                let labialisationComment = "";
+                if(consonants.includes("ʷ")) {
+                    labialisationComment = `. If the plosive is labialised, the labialisation becomes the full vowel /u/ after the glottal stop`
+                }
+                let palatalisationComment = "";
+                if(consonants.includes("ʲ")) {
+                    palatalisationComment = `. If the plosive is palatalised, the palatalisation becomes the full vowel /i/ after the glottal stop`
+                }
+                nestLi.innerHTML = `When a plosives occurs in the coda of a syllable, i.e before another consonant or word finally, then the plosive becomes a glottal stop ${labialisationComment} ${palatalisationComment}: <div class="sound-change-example" id="plosivesDebuccaliseInCoda"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === CVRBecomesCCVR) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "CVRBecomesCCVR-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Metathesis and Gemination of VCRV sequences`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "CVRBecomesCCVR-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `If a resonant, which preces the vowel, follows a post-vocalic consonant, the resonant and vowel switch places and the consonant lengthens: <div class="sound-change-example" id="CVRBecomesCCVR"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === glottalStopJFortites) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "glottalStopJFortites-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Fortition of Approximants Around Glottal Stops`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "glottalStopJFortites-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The clusters /ʔj/ and /ʔw/ merge to become /g/: <div class="sound-change-example" id="glottalStopJFortites"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === eciBecomesiCi) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "eciBecomesiCi-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `eC{i,j} becomes iC{i,j}`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "eciBecomesiCi-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `When the vowel /e/ occurs before a consonant, which precedes either /i/ or /j/, it raises to become /i/: <div class="sound-change-example" id="eciBecomesiCi"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === iCbecomeseC) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "iCbecomeseC-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/i/ Lowers to /e/ before Post-Consonantal Non-High Vowels`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "iCbecomeseC-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `When the vowel /i/ occurs before a consonant, which precedes a non-high vowel, it lowers to become /e/: <div class="sound-change-example" id="iCbecomeseC"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === VJbecomesLongI) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "VJbecomesLongI-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Vj Becomes Long /i/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "VJbecomesLongI-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The sequence of any vowel plus /j/ merges to become the long vowel /iː/: <div class="sound-change-example" id="VJbecomesLongI"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === uNBecomesoN) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "uNBecomesoN-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/u/ Lowers to /o/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "uNBecomesoN-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The vowel /u/ lowers to /o/ when before a nasal consonant which precedes a non-high vowel: <div class="sound-change-example" id="uNBecomesoN"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === gBecomesJ) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "gBecomesJ-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Palatalisation of /g/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "gBecomesJ-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `/g/ becomes /j/ when after a front vowel: <div class="sound-change-example" id="gBecomesJ"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === VvBecomesVV) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "VvBecomesVV-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/Vu/ Sequences Collapse into Long Vowels`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "VvBecomesVV-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `when /u/ occurs after a vowel, it is lost and the previous vowel lengthens: <div class="sound-change-example" id="VvBecomesVV"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === eNBecomesiN) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "eNBecomesiN-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/e/ becomes /i/ Before Nasals`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "eNBecomesiN-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                let nasalList = selectNasals().join(", ");
+                nestLi.innerHTML = `When the vowel /e/ occurs before one of the nasal consonants /${nasalList}/, it raises to  become /i/: <div class="sound-change-example" id="eNBecomesiN"></di>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === CJBecomesCC) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "CJBecomesCC-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Consononants Lengthen Before /j/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "CJBecomesCC-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `When a consonant, following a vowel, occurs before /j/, the consonant lengthens and the /j/ drops: <div class="sound-change-example" id="CJBecomesCC"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === iUmlaut) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "iUmlaut-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Umlaut`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "iUmlaut-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The following vowel shifts occur when the following syllable contains /i/ or /j/:`;
+                let umlautUl = document.createElement("ul");
+                umlautUl.setAttribute("id", "i-umlaut-list");
+                let examples = document.createElement("span");
+                examples.innerHTML = `<div class="sound-change-example" id="iUmlaut"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+                nestUl.appendChild(umlautUl);
                 nestUl.appendChild(examples);
             };
-            if(randomNumForlenitionofPlosivebeforeOtherPlosive === 1) {
+            if(chosenSoundChanges[i] === vowelShiftInHeavySyllables) {
                 let li= document.createElement("li");
-                li.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive-li");
+                li.setAttribute("id", "vowelShiftInHeavySyllables-li")
                 li.style.fontWeight = "bold";
-                li.innerHTML = `Lenition in Clusters`;
+                li.innerHTML = `Vowels Become Lax in Heavy Syllables`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "lenitionofPlosivebeforeOtherPlosive-ul");
+                nestUl.setAttribute("id", "vowelShiftInHeavySyllables-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Plosives lenite when they occur before other plosives. Plosives lenite in the following way.`
-                let lenitionUl = document.createElement("ul");
-                lenitionUl.setAttribute("id", "lenition-before-list");
+                nestLi.innerHTML = `The following vowel shifts occur when a vowel occurs before two or more consonants, or before a single word final consonant:`;
+                let vowelShiftInHeavySyllablesUl = document.createElement("ul");
+                vowelShiftInHeavySyllablesUl.setAttribute("id", "vowelShiftInHeavySyllables-list");
                 let examples = document.createElement("span");
-                examples.innerHTML = `<span id="lenitionofPlosivebeforeOtherPlosive"></span>`
+                examples.innerHTML = `<div class="sound-change-example" id="vowelShiftInHeavySyllables"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
-                nestUl.appendChild(lenitionUl);
+                nestUl.appendChild(vowelShiftInHeavySyllablesUl);
                 nestUl.appendChild(examples);
             };
-
-        };
-        if(chosenSoundChanges[i] === wordFinalHighVowelsLower) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "wordFinalHighVowelsLower-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Word Final High Vowels Lower`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "wordFinalHighVowelsLower-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `High vowels lower to become mid vowels when word final: <div class="sound-change-example" id="wordFinalHighVowelsLower"></div>`;
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === NoResonantsBeforeConsonants) {
-            if(randomNumForNoResonantsBeforeConsonants === 0) {
+            if(chosenSoundChanges[i] === VCVBecomesVCWordFinally) {
                 let li= document.createElement("li");
-                li.setAttribute("id", "NoResonantsBeforeConsonants-li");
+                li.setAttribute("id", "VCVBecomesVCWordFinally-li")
                 li.style.fontWeight = "bold";
-                li.innerHTML = `Resonants Lost Before Consonants`;
+                li.innerHTML = `Loss of Word Final Vowels`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "NoResonantsBeforeConsonants-ul");
+                nestUl.setAttribute("id", "VCVBecomesVCWordFinally-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Resonants are lost before consonants: <div class="sound-change-example" id="NoResonantsBeforeConsonants"></div>`
+                nestLi.innerHTML = `Word final short vowels are lost when they occur after a single consonant which follows a vowel:`;
+                let VCVBecomesVCWordFinallyUl = document.createElement("ul");
+                VCVBecomesVCWordFinallyUl.setAttribute("id", "VCVBecomesVCWordFinally-list");
+                let examples = document.createElement("span");
+                examples.innerHTML = `<div class="sound-change-example" id="VCVBecomesVCWordFinally"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
+                nestUl.appendChild(VCVBecomesVCWordFinallyUl);
+                nestUl.appendChild(examples);
             };
-            if(randomNumForNoResonantsBeforeConsonants === 1) {
+            if(chosenSoundChanges[i] === longABecomesO) {
                 let li= document.createElement("li");
-                li.setAttribute("id", "NoResonantsBeforeConsonants-li")
+                li.setAttribute("id", "longABecomesO-li")
                 li.style.fontWeight = "bold";
-                li.innerHTML = `Epenthesis of /i/ Between Consonants And Resonants`;
+                li.innerHTML = `Long A becomes Long O`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "NoResonantsBeforeConsonants-ul");
+                nestUl.setAttribute("id", "longABecomesO-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /i/ is inserted after the resonants: <span id="NoResonantsBeforeConsonants"></span>`;
+                nestLi.innerHTML = `The long vowel /aː/ becomes /oː/: <div class="sound-change-example" id="longABecomesO"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
             };
-            if(randomNumForNoResonantsBeforeConsonants === 2) {
+            if(chosenSoundChanges[i] === palatalisationofPlosives) {
                 let li= document.createElement("li");
-                li.setAttribute("id", "NoResonantsBeforeConsonants-li");
+                li.setAttribute("id", "palatalisationofPlosives-li")
                 li.style.fontWeight = "bold";
-                li.innerHTML = `Epenthesis of /u/ Between Consonants And Resonants`;
+                li.innerHTML = `Plosives Palatalise Before Front Vowels`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "NoResonantsBeforeConsonants-ul");
+                nestUl.setAttribute("id", "palatalisationofPlosives-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `When a resonant occurs before a consonant, an epenthetic /u/ is inserted after the resonant: <span id="NoResonantsBeforeConsonants"></span>`
+                let ifUvular = "";
+                if(consonants.includes("ʔ")) {
+                    ifUvular = `velar and uvular`
+                } else {
+                    ifUvular = `velar`
+                }
+                let ifVoiced = "";
+                if(chooseVoicing() === true) {
+                    ifVoiced = ` and voiced alveolar and ${ifUvular} plosives become /ʤ/`
+                };
+                let ifGlottal = "";
+                if(consonants.includes("ʔ")) {
+                    ifGlottal = `. The glottal stop becomes /j/`
+                };
+                nestLi.innerHTML = `Voicless alveolar and ${ifUvular} plosives become /ʧ/ before front vowels${ifVoiced}${ifGlottal}: <div class="sound-change-example" id="palatalisationofPlosives"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
             };
-            if(randomNumForNoResonantsBeforeConsonants === 3) {
+            if(chosenSoundChanges[i] === eOBecomeJW) {
                 let li= document.createElement("li");
-                li.setAttribute("id", "NoResonantsBeforeConsonants-li");
+                li.setAttribute("id", "eOBecomeJW-li")
                 li.style.fontWeight = "bold";
-                li.innerHTML = `RC to CR Metathesis`;
+                li.innerHTML = `Pre-Vocalic Mid Vowels Becomes Approximants`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "NoResonantsBeforeConsonants-ul");
+                nestUl.setAttribute("id", "eOBecomeJW-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `A resonant which once preceded a consonant now follows it: <span id="NoResonantsBeforeConsonants"></span>`
+                let mid_vowels = "";
+                if(vowels.includes("e") && vowels.includes("o")) {
+                    mid_vowels = `The mid vowels /e/ and /o/ become /j/ and /w/ when before another vowel`
+                } else if(vowels.includes("e") && vowels.includes("o") === false) {
+                    mid_vowels = `The mid vowels /e/ becomes /j/ when before another vowel`
+                } else if(vowels.includes("e") === false && vowels.includes("o")) {
+                    mid_vowels = `The mid vowel /o/ becomes /w/ when before another vowel`
+                }
+                nestLi.innerHTML = `${mid_vowels}: <div class="sound-change-example" id="eOBecomeJW"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
             };
-        }
-        if(chosenSoundChanges[i] === nonInitialNonHighVowelsBecomeA) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "nonInitialNonHighVowelsBecomeA-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Non-initial Non-High Vowels Become /a/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "nonInitialNonHighVowelsBecomeA-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `All non-high vowels merge with /a/ when not in the first syllable of a word: <div class="sound-changhe-example" id="nonInitialNonHighVowelsBecomeA"></div/>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === nasalsCantAppearAfterConsonants) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "nasalsCantAppearAfterConsonants-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Epenthesis of /i/ before Post-Consonantal Nasals`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "nasalsCantAppearAfterConsonants-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `An epenthetic /i/ is placed before any nasal which occurs after a consonant: <div class="sound-change-example" id="nasalsCantAppearAfterConsonants"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi); 
-        };
-        if(chosenSoundChanges[i] === fricativesDebuccaliseBeforeVowels) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "fricativesDebuccaliseBeforeVowels-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Debuccalisation of Pre-Vocalic Fricatives`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "fricativesDebuccaliseBeforeVowels-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            let fricativeList = selectFricatives().join(", ");
-            let fricativeOrFricatives = "";
-            let becomeOrBecomes = ";"
-            if(fricativeList.length > 1) {
-                fricativeOrFricatives = "fricatives;"
-                becomeOrBecomes = "become";
-            } else {
-                fricativeOrFricatives = "fricative";
-                becomeOrBecomes = "becomes";
-            }
-            nestLi.innerHTML = `The short ${fricativeOrFricatives} /${fricativeList}/ ${becomeOrBecomes} /h/ when before a vowel: <div class="sound-change-example" id="fricativesDebuccaliseBeforeVowels"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === vowelLostBetweenTwoOfSameConsonant) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "vowelLostBetweenTwoOfSameConsonant-li");
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Loss of Vowels Between Two of the Same Consonant`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "vowelLostBetweenTwoOfSameConsonant-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When a vowel is sandwiched by two of the same consonant, it is lost: <div class="sound-change-example" id="vowelLostBetweenTwoOfSameConsonant"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === voicedConsonantsLostIntervocalically) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "voicedConsonantsLostIntervocalically-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Loss of Intervocalic Voiced Consonants`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "voicedConsonantsLostIntervocalically-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Short voiced plosives and fricatives are lost entirely when between two vowels: <div class="sound-change-example" id="voicedConsonantsLostIntervocalically"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === RVCToVRCMetathesis) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "RVCToVRCMetathesis-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `RVC to VRC Metathesis`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "RVCToVRCMetathesis-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When a word initial resonant comes before a vowel, and if a consonant follows this vowel, then the resonant and vowel will switch places: <div class="sound-change-example" id="RVCToVRCMetathesis"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === vowelLostBetweenConsonantAndResonant) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "vowelLostBetweenConsonantAndResonant-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Syncope Between a Consonant and a Resonant`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "vowelLostBetweenConsonantAndResonant-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Vowels are lost when after a consonant and before a resonant if said resonant precedes another vowel: <div class="sound-change-example" id="vowelLostBetweenConsonantAndResonant"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === intervocalicVoicing) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "intervocalicVoicing-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Intervocalic Voicing`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "intervocalicVoicing-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Voiceless consonants become voiced between two vowels: <div class="sound-change-example" id="intervocalicVoicing"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === hLostAfterConsonants) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "hLostAfterConsonants-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `h is Lost After Consonants`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "hLostAfterConsonants-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The glottal fricative /h/ is lost after consonants: <div class="sound-change-example" id="hLostAfterConsonants"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === nasalsLostBetweenVowelAndConsonant) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "nasalsLostBetweenVowelAndConsonant-li");
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Nasals Are Lost Between a Vowel and Consonant`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "nasalsLostBetweenVowelAndConsonant-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When a nasal consonant occurs after a vowel and before a consonant, the nasal is lost and the vowel lengthens: <div class="sound-change-example" id="nasalsLostBetweenVowelAndConsonant"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === auBecomesOu) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "auBecomesOu-li");
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/a/ Raises Before /u/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "auBecomesOu-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `/au/ becomes /ou/: <div class="sound-change-example" id="auBecomesOu"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === aCaBecomesaCi) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "aCaBecomesaCi-li");
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Dissimilation of a...a to a...i`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "aCaBecomesaCi-ul")
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `/a/ becomes /i/ when the previous syllable also contains /a/: <div class="sound-change-example" id="aCaBecomesaCi"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === VʔVBecomesVV) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "VʔVBecomesVV-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Loss of Intervocalic Glottal Stops`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "VʔVBecomesVV-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When a glottal stop occurs between two vowels, both the glottal stop and the second vowel are lost and the first vowel lengthens: <div class="sound-change-example" id="VʔVBecomesVV"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === plosivesDebuccaliseInCoda) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "plosivesDebuccaliseInCoda-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Debuccalisation of Plosives in the Coda`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "plosivesDebuccaliseInCoda-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            let labialisationComment = "";
-            if(consonants.includes("ʷ")) {
-                labialisationComment = `. If the plosive is labialised, the labialisation becomes the full vowel /u/ after the glottal stop`
-            }
-            let palatalisationComment = "";
-            if(consonants.includes("ʲ")) {
-                palatalisationComment = `. If the plosive is palatalised, the palatalisation becomes the full vowel /i/ after the glottal stop`
-            }
-            nestLi.innerHTML = `When a plosives occurs in the coda of a syllable, i.e before another consonant or word finally, then the plosive becomes a glottal stop ${labialisationComment} ${palatalisationComment}: <div class="sound-change-example" id="plosivesDebuccaliseInCoda"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === CVRBecomesCCVR) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "CVRBecomesCCVR-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Metathesis and Gemination of VCRV sequences`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "CVRBecomesCCVR-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `If a resonant, which preces the vowel, follows a post-vocalic consonant, the resonant and vowel switch places and the consonant lengthens: <div class="sound-change-example" id="CVRBecomesCCVR"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === glottalStopJFortites) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "glottalStopJFortites-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Fortition of Approximant Around Glottal Stops`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "glottalStopJFortites-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The clusters /ʔj/ and /ʔw/ merge to become /g/: <div class="sound-change-example" id="glottalStopJFortites"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === eciBecomesiCi) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "eciBecomesiCi-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `eC{i,j} becomes iC{i,j}`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "eciBecomesiCi-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When the vowel /e/ occurs before a consonant, which precedes either /i/ or /j/, it raises to become /i/: <div class="sound-change-example" id="eciBecomesiCi"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === iCbecomeseC) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "iCbecomeseC-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/i/ Lowers to /e/ before Post-Consonantal Non-High Vowels`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "iCbecomeseC-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When the vowel /i/ occurs before a consonant, which precedes a non-high vowel, it lowers to become /e/: <div class="sound-change-example" id="iCbecomeseC"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === VJbecomesLongI) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "VJbecomesLongI-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Vj Becomes Long /i/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "VJbecomesLongI-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The sequence of any vowel plus /j/ merges to become the long vowel /iː/: <div class="sound-change-example" id="VJbecomesLongI"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === uNBecomesoN) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "uNBecomesoN-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/u/ Lowers to /o/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "uNBecomesoN-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The vowel /u/ lowers to /o/ when before a nasal consonant which precedes a non-high vowel: <div class="sound-change-example" id="uNBecomesoN"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === gBecomesJ) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "gBecomesJ-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Palatalisation of /g/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "gBecomesJ-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `/g/ becomes /j/ when after a front vowel: <div class="sound-change-example" id="gBecomesJ"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === VvBecomesVV) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "VvBecomesVV-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/Vu/ Sequences Collapse into Long Vowels`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "VvBecomesVV-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `when /u/ occurs after a vowel, it is lost and the previous vowel lengthens: <div class="sound-change-example" id="VvBecomesVV"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === eNBecomesiN) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "eNBecomesiN-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/e/ becomes /i/ Before Nasals`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "eNBecomesiN-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            let nasalList = selectNasals().join(", ");
-            nestLi.innerHTML = `When the vowel /e/ occurs before one of the nasal consonants /${nasalList}/, it raises to  become /i/: <div class="sound-change-example" id="eNBecomesiN"></di>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === CJBecomesCC) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "CJBecomesCC-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Consononants Lengthen Before /j/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "CJBecomesCC-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When a consonant, following a vowel, occurs before /j/, the consonant lengthens and the /j/ drops: <div class="sound-change-example" id="CJBecomesCC"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === iUmlaut) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "iUmlaut-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Umlaut`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "iUmlaut-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The following vowel shifts occur when the following syllable contains /i/ or /j/:`;
-            let umlautUl = document.createElement("ul");
-            umlautUl.setAttribute("id", "i-umlaut-list");
-            let examples = document.createElement("span");
-            examples.innerHTML = `<div class="sound-change-example" id="iUmlaut"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-            nestUl.appendChild(umlautUl);
-            nestUl.appendChild(examples);
-        };
-        if(chosenSoundChanges[i] === vowelShiftInHeavySyllables) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "vowelShiftInHeavySyllables-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Vowels Become Lax in Heavy Syllables`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "vowelShiftInHeavySyllables-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The following vowel shifts occur when a vowel occurs before two or more consonants, or before a single word final consonant:`;
-            let vowelShiftInHeavySyllablesUl = document.createElement("ul");
-            vowelShiftInHeavySyllablesUl.setAttribute("id", "vowelShiftInHeavySyllables-list");
-            let examples = document.createElement("span");
-            examples.innerHTML = `<div class="sound-change-example" id="vowelShiftInHeavySyllables"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-            nestUl.appendChild(vowelShiftInHeavySyllablesUl);
-            nestUl.appendChild(examples);
-        };
-        if(chosenSoundChanges[i] === VCVBecomesVCWordFinally) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "VCVBecomesVCWordFinally-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Loss of Word Final Vowels`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "VCVBecomesVCWordFinally-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Word final short vowels are lost when they occur after a single consonant which follows a vowel:`;
-            let VCVBecomesVCWordFinallyUl = document.createElement("ul");
-            VCVBecomesVCWordFinallyUl.setAttribute("id", "VCVBecomesVCWordFinally-list");
-            let examples = document.createElement("span");
-            examples.innerHTML = `<div class="sound-change-example" id="VCVBecomesVCWordFinally"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-            nestUl.appendChild(VCVBecomesVCWordFinallyUl);
-            nestUl.appendChild(examples);
-        };
-        if(chosenSoundChanges[i] === longABecomesO) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "longABecomesO-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Long A becomes Long O`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "longABecomesO-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The long vowel /aː/ becomes /oː/: <div class="sound-change-example" id="longABecomesO"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === palatalisationofPlosives) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "palatalisationofPlosives-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Plosives Palatalise Before Front Vowels`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "palatalisationofPlosives-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            let ifUvular = "";
-            if(consonants.includes("ʔ")) {
-                ifUvular = `velar and uvular`
-            } else {
-                ifUvular = `velar`
-            }
-            let ifVoiced = "";
-            if(chooseVoicing() === true) {
-                ifVoiced = ` and voiced alveolar and ${ifUvular} plosives become /ʤ/`
-            };
-            let ifGlottal = "";
-            if(consonants.includes("ʔ")) {
-                ifGlottal = `. The glottal stop becomes /j/`
-            };
-            nestLi.innerHTML = `Voicless alveolar and ${ifUvular} plosives become /ʧ/ before front vowels${ifVoiced}${ifGlottal}: <div class="sound-change-example" id="palatalisationofPlosives"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === eOBecomeJW) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "eOBecomeJW-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Pre-Vocalic Mid Vowels Becomes Approximants`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "eOBecomeJW-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            let mid_vowels = "";
-            if(vowels.includes("e") && vowels.includes("o")) {
-                mid_vowels = `The mid vowels /e/ and /o/ become /j/ and /w/ when before another vowel`
-            } else if(vowels.includes("e") && vowels.includes("o") === false) {
-                mid_vowels = `The mid vowels /e/ becomes /j/ when before another vowel`
-            } else if(vowels.includes("e") === false && vowels.includes("o")) {
-                mid_vowels = `The mid vowel /o/ becomes /w/ when before another vowel`
-            }
-            nestLi.innerHTML = `${mid_vowels}: <div class="sound-change-example" id="eOBecomeJW"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === VzbecomesVr) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "VzbecomesVr-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Rhoticisation of /z/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "VzbecomesVr-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `/z/ becomes /r/ when after a vowel: <div class="sound-change-example" id="VzbecomesVr"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === intialVBecomesHV) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "intialVBecomesHV-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Epenthesis of /ħ/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "intialVBecomesHV-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The pharyngeal fricative /ħ/ is inserted before all word initial vowels: <div class="sound-change-example" id="intialVBecomesHV"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === intialJBecomesL) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "intialJBecomesL-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Word Initial /j/ becomes /l/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "intialJBecomesL-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The palatal approximant /j/ becomes /l/ word initially: <div class="sound-change-example" id="intialJBecomesL"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === tDBecomeL) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "tDBecomeL-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Intervocalic Alveolar Plosives Become /l/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "tDBecomeL-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            let tDsoundChange = "";
-            if(chooseVoicing() === true) {
-                tDsoundChange = `The plosives /t/ and /d/ become /l/ when between two vowels`
-            } else {
-                tDsoundChange = `The plosive /t/ becomes /l/ when between two vowels`
-            }
-            nestLi.innerHTML = `${tDsoundChange}: <div class="sound-change-example" id="tDBecomeL"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === longVowelsBreak) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "longVowelsBreak-li")
-            li.style.fontWeight = "bold";
-            if(randomNumForLongVowelsBreak === 0) {
-                li.innerHTML = `Long Vowels Break`;
+            if(chosenSoundChanges[i] === VzbecomesVr) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "VzbecomesVr-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Rhoticisation of /z/`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "longVowelsBreak-ul");
+                nestUl.setAttribute("id", "VzbecomesVr-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Long vowels break into short vowels followed by /i/. The long vowel /iː/ is not affected: <div class="sound-change-example" id="longVowelsBreak"></div>`
+                nestLi.innerHTML = `/z/ becomes /r/ when after a vowel: <div class="sound-change-example" id="VzbecomesVr"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
-            } else if (randomNumForLongVowelsBreak === 1) {
-                li.innerHTML = `Long Vowels Break`;
+            };
+            if(chosenSoundChanges[i] === intialVBecomesHV) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "intialVBecomesHV-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Epenthesis of /ħ/`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "longVowelsBreak-ul");
+                nestUl.setAttribute("id", "intialVBecomesHV-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Long vowels break into short vowels followed by /u/. The long vowel /uː/ is not affected: <div class="sound-change-example" id="longVowelsBreak"></div>`
+                nestLi.innerHTML = `The pharyngeal fricative /ħ/ is inserted before all word initial vowels: <div class="sound-change-example" id="intialVBecomesHV"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
-            } else if (randomNumForLongVowelsBreak === 2) {
-                li.innerHTML = `Long Vowels Break`;
+            };
+            if(chosenSoundChanges[i] === intialJBecomesL) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "intialJBecomesL-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Word Initial /j/ becomes /l/`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "longVowelsBreak-ul");
+                nestUl.setAttribute("id", "intialJBecomesL-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Long vowels break into short vowels followed by /i/, the short vowel then heightens. The long vowel /iː/ is not affected, other high vowels break into /Vi/ but don't heighten any further: <div class="sound-change-example" id="longVowelsBreak"></div>`;
+                nestLi.innerHTML = `The palatal approximant /j/ becomes /l/ word initially: <div class="sound-change-example" id="intialJBecomesL"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === tDBecomeL) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "tDBecomeL-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Intervocalic Alveolar Plosives Become /l/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "tDBecomeL-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                let tDsoundChange = "";
+                if(chooseVoicing() === true) {
+                    tDsoundChange = `The plosives /t/ and /d/ become /l/ when between two vowels`
+                } else {
+                    tDsoundChange = `The plosive /t/ becomes /l/ when between two vowels`
+                }
+                nestLi.innerHTML = `${tDsoundChange}: <div class="sound-change-example" id="tDBecomeL"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === longVowelsBreak) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longVowelsBreak-li")
+                li.style.fontWeight = "bold";
+                if(randomNumForLongVowelsBreak === 0) {
+                    li.innerHTML = `Long Vowels Break`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "longVowelsBreak-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `Long vowels break into short vowels followed by /i/. The long vowel /iː/ is not affected: <div class="sound-change-example" id="longVowelsBreak"></div>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+                } else if (randomNumForLongVowelsBreak === 1) {
+                    li.innerHTML = `Long Vowels Break`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "longVowelsBreak-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `Long vowels break into short vowels followed by /u/. The long vowel /uː/ is not affected: <div class="sound-change-example" id="longVowelsBreak"></div>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+                } else if (randomNumForLongVowelsBreak === 2) {
+                    li.innerHTML = `Long Vowels Break`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "longVowelsBreak-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `Long vowels break into short vowels followed by /i/, the short vowel then heightens. The long vowel /iː/ is not affected, other high vowels break into /Vi/ but don't heighten any further: <div class="sound-change-example" id="longVowelsBreak"></div>`;
+                    let ul = document.createElement("ul");
+                    ul.setAttribute("id", "longVowelsBreak-list");
+                    let examples = document.createElement("span");
+                    examples.innerHTML = `<div class="sound-change-example" id="longVowelsBreak"></div>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+                    nestUl.appendChild(ul);
+                    nestUl.appendChild(examples);
+                } else if (randomNumForLongVowelsBreak === 3) {
+                    li.innerHTML = `Long Vowels Break`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "longVowelsBreak-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `Long vowels break into short vowels followed by /u/, the short vowel then heightens. The long vowel /uː/ is not affected, other high vowels break into /Vu/ but don't heighten any further: <div class="sound-change-example" id="longVowelsBreak"></div>`;
+                    let ul = document.createElement("ul");
+                    ul.setAttribute("id", "longVowelsBreak-list");
+                    let examples = document.createElement("span");
+                    examples.innerHTML = `<div class="sound-change-example" id="longVowelsBreak"></div>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+                    nestUl.appendChild(ul);
+                    nestUl.appendChild(examples);
+                } else if (randomNumForLongVowelsBreak === 4) {
+                    li.innerHTML = `Long Vowels Break`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "longVowelsBreak-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `Long vowels break into short vowels preceded by /j/: <div class="sound-change-example" id="longVowelsBreak"></div>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+                } else if (randomNumForLongVowelsBreak === 5) {
+                    li.innerHTML = `Long Vowels Break`;
+                    let nestUl = document.createElement("ul");
+                    nestUl.setAttribute("id", "longVowelsBreak-ul");
+                    let nestLi = document.createElement("li");
+                    nestLi.style.listStyleType = "none";
+                    nestLi.innerHTML = `Long front vowels break into /jV/ sequences, all other vowels break into /wV/ sequences: <div class="sound-change-example" id="longVowelsBreak"></div>`
+                    document.getElementById("sound-change-explanation").appendChild(li);
+                    document.getElementById("sound-change-explanation").appendChild(nestUl);
+                    nestUl.appendChild(nestLi);
+                };
+            };
+            if(chosenSoundChanges[i] === vowelsHeightenBeforeVelars) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "vowelsHeightenBeforeVelars-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Vowels Raise Before Velars`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "vowelsHeightenBeforeVelars-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Non-high vowels raise, and high vowels lengthen, when they occur before velar consonants:`;
                 let ul = document.createElement("ul");
-                ul.setAttribute("id", "longVowelsBreak-list");
+                ul.setAttribute("id", "vowelsHeightenBeforeVelars-list");
                 let examples = document.createElement("span");
-                examples.innerHTML = `<div class="sound-change-example" id="longVowelsBreak"></div>`
+                examples.innerHTML = `<div class="sound-change-example" id="vowelsHeightenBeforeVelars"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
                 nestUl.appendChild(ul);
                 nestUl.appendChild(examples);
-            } else if (randomNumForLongVowelsBreak === 3) {
-                li.innerHTML = `Long Vowels Break`;
+            };
+            if(chosenSoundChanges[i] === palatalsBecomeVelar) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "palatalsBecomeVelar-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Palatals Become Velars`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "longVowelsBreak-ul");
+                nestUl.setAttribute("id", "palatalsBecomeVelar-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Long vowels break into short vowels followed by /u/, the short vowel then heightens. The long vowel /uː/ is not affected, other high vowels break into /Vu/ but don't heighten any further: <div class="sound-change-example" id="longVowelsBreak"></div>`;
-                let ul = document.createElement("ul");
-                ul.setAttribute("id", "longVowelsBreak-list");
-                let examples = document.createElement("span");
-                examples.innerHTML = `<div class="sound-change-example" id="longVowelsBreak"></div>`
+                nestLi.innerHTML = `<span id="palatalsBecomeVelar-list"></span>: <div class="sound-change-example" id="palatalsBecomeVelar"></div>`;
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
-                nestUl.appendChild(ul);
-                nestUl.appendChild(examples);
-            } else if (randomNumForLongVowelsBreak === 4) {
-                li.innerHTML = `Long Vowels Break`;
+            };
+            if(chosenSoundChanges[i] === gwbecomesB) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "gwbecomesB-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/gʷ/ Becomes /b/`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "longVowelsBreak-ul");
+                nestUl.setAttribute("id", "gwbecomesB-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Long vowels break into short vowels preceded by /j/: <div class="sound-change-example" id="longVowelsBreak"></div>`
+                nestLi.innerHTML = `The labialised velar plosive /gʷ/ merges with /b/: <div class="sound-change-example" id="gwbecomesB"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
-            } else if (randomNumForLongVowelsBreak === 5) {
-                li.innerHTML = `Long Vowels Break`;
+            };
+            if(chosenSoundChanges[i] === eRaBecomesARa) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "eRaBecomesARa-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/eRa/ Becomes /aRa/`;
                 let nestUl = document.createElement("ul");
-                nestUl.setAttribute("id", "longVowelsBreak-ul");
+                nestUl.setAttribute("id", "eRaBecomesARa-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `Long front vowels break into /jV/ sequences, all other vowels break into /wV/ sequences: <div class="sound-change-example" id="longVowelsBreak"></div>`
+                nestLi.innerHTML = `When the vowel /e/ comes before a resonant after which there is the vowel /a/, the vowel /e/ becomes /a/: <div class="sound-change-example" id="eRaBecomesARa"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === epentheticA) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "epentheticA-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/CRC/ Becomes /CaRC/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "epentheticA-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The vowel /a/ is inserted between a consonant and a resonant followed by a consonant: <div class="sound-change-example" id="epentheticA"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === pKWBecomesKwKw) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "pKWBecomesKwKw-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `p...kʷ > kʷ...kʷ`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "pKWBecomesKwKw-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The labial plosive /p/ becomes the labialised velar plosive /kʷ/ when /kʷ/ occurs later in the word: <div class="sound-change-example" id="pKWBecomesKwKw"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === longEBecomesLongI) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longEBecomesLongI-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Long E Becomes Long I`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longEBecomesLongI-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The long front mid-vowel /eː/ raises to become /iː/: <div class="sound-change-example" id="longEBecomesLongI"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === wordFinalLongOBecomesLongU) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "wordFinalLongOBecomesLongU-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Word Final /oː/ Raises`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "wordFinalLongOBecomesLongU-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Word final /oː/ becomes /uː/: <div class="sound-change-example" id="wordFinalLongOBecomesLongU"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === longVowelsShortenBeforeRC) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longVowelsShortenBeforeRC-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Long Vowels Shorten Before RC`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longVowelsShortenBeforeRC-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Long vowels shorten before a resonant followed by a consonant: <div class="sound-change-example" id="longVowelsShortenBeforeRC"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === CCBecomesXC) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "CCBecomesXC-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `CC Becomes xC`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "CCBecomesXC-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Any consonant becomes the velar fricative /x/ when a plosive or /s/ follows: <div class="sound-change-example" id="CCBecomesXC"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === pBecomesBBeforeResonants) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "pBecomesBBeforeResonants-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/p/ Voices Before Resonants`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "pBecomesBBeforeResonants-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The voiceless labial plosive /p/ voices to /b/ when a resonant follows: <div class="sound-change-example" id="pBecomesBBeforeResonants"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === pBecomesU) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "pBecomesU-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/p/ lenites to /u/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "pBecomesU-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `/p/ becomes /u/ when after a back vowel and before a nasal: <div class="sound-change-example" id="pBecomesU"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === pBecomesF) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "pBecomesF-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/p/ Lenites to /f/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "pBecomesF-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `All instances of /p/become /f/: <div class="sound-change-example" id="pBecomesF"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === longOBecomesA) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longOBecomesA-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Long O Becomes Long A`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longOBecomesA-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The long vowel /oː/: <div class="sound-change-example" id="longOBecomesA"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === eWBecomesOW) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "eWBecomesOW-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `/ew/ Becomes /ow/`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "eWBecomesOW-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The front vowel /e/ becomes the back vowel /o/ before /w/: <div class="sound-change-example" id="eWBecomesOW"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === longUBecomesOU) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longUBecomesOU-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Long /uː/ Breaks`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longUBecomesOU-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `The long vowel /uː/ becomes /ou/ when it occurs before a plosive or a fricative: <div class="sound-change-example" id="longUBecomesOU"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === velarsDelabialise) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "velarsDelabialise-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Velars Delabialise`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "velarsDelabialise-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Labialised velar plosives lose their labialisation: <div class="sound-change-example" id="velarsDelabialise"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === lossOfAspiration) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "lossOfAspiration-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Aspiration is Lost`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "lossOfAspiration-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `All aspirated consonants lose their aspiration: <div class="sound-change-example" id="lossOfAspiration"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
             };
         };
-        if(chosenSoundChanges[i] === vowelsHeightenBeforeVelars) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "vowelsHeightenBeforeVelars-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Vowels Raise Before Velars`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "vowelsHeightenBeforeVelars-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Non-high vowels raise, and high vowels lengthen, when they occur before velar consonants:`;
-            let ul = document.createElement("ul");
-            ul.setAttribute("id", "vowelsHeightenBeforeVelars-list");
-            let examples = document.createElement("span");
-            examples.innerHTML = `<div class="sound-change-example" id="vowelsHeightenBeforeVelars"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-            nestUl.appendChild(ul);
-            nestUl.appendChild(examples);
-        };
-        if(chosenSoundChanges[i] === palatalsBecomeVelar) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "palatalsBecomeVelar-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Palatals Become Velars`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "palatalsBecomeVelar-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `<span id="palatalsBecomeVelar-list"></span>: <div class="sound-change-example" id="palatalsBecomeVelar"></div>`;
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === gwbecomesB) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "gwbecomesB-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/gʷ/ Becomes /b/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "gwbecomesB-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The labialised velar plosive /gʷ/ merges with /b/: <div class="sound-change-example" id="gwbecomesB"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === eRaBecomesARa) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "eRaBecomesARa-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/eRa/ Becomes /aRa/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "eRaBecomesARa-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `When the vowel /e/ comes before a resonant after which there is the vowel /a/, the vowel /e/ becomes /a/: <div class="sound-change-example" id="eRaBecomesARa"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === epentheticA) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "epentheticA-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/CRC/ Becomes /CaRC/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "epentheticA-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The vowel /a/ is inserted between a consonant and a resonant followed by a consonant: <div class="sound-change-example" id="epentheticA"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === pKWBecomesKwKw) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "pKWBecomesKwKw-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `p...kʷ > kʷ...kʷ`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "pKWBecomesKwKw-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The labial plosive /p/ becomes the labialised velar plosive /kʷ/ when /kʷ/ occurs later in the word: <div class="sound-change-example" id="pKWBecomesKwKw"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === longEBecomesLongI) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "longEBecomesLongI-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Long E Becomes Long I`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "longEBecomesLongI-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The long front mid-vowel /eː/ raises to become /iː/: <div class="sound-change-example" id="longEBecomesLongI"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === wordFinalLongOBecomesLongU) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "wordFinalLongOBecomesLongU-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Word Final /oː/ Raises`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "wordFinalLongOBecomesLongU-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Word final /oː/ becomes /uː/: <div class="sound-change-example" id="wordFinalLongOBecomesLongU"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === longVowelsShortenBeforeRC) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "longVowelsShortenBeforeRC-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Long Vowels Shorten Before RC`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "longVowelsShortenBeforeRC-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Long vowels shorten before a resonant followed by a consonant: <div class="sound-change-example" id="longVowelsShortenBeforeRC"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === CCBecomesXC) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "CCBecomesXC-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `CC Becomes xC`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "CCBecomesXC-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Any consonant becomes the velar fricative /x/ when a plosive or /s/ follows: <div class="sound-change-example" id="CCBecomesXC"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === pBecomesBBeforeResonants) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "pBecomesBBeforeResonants-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/p/ Voices Before Resonants`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "pBecomesBBeforeResonants-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The voiceless labial plosive /p/ voices to /b/ when a resonant follows: <div class="sound-change-example" id="pBecomesBBeforeResonants"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === pBecomesU) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "pBecomesU-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/p/ lenites to /u/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "pBecomesU-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `/p/ becomes /u/ when after a back vowel and before a nasal: <div class="sound-change-example" id="pBecomesU"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === pBecomesF) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "pBecomesF-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/p/ Lenites to /f/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "pBecomesF-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `All instances of /p/become /f/: <div class="sound-change-example" id="pBecomesF"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === longOBecomesA) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "longOBecomesA-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Long O Becomes Long A`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "longOBecomesA-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The long vowel /oː/: <div class="sound-change-example" id="longOBecomesA"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === eWBecomesOW) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "eWBecomesOW-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `/ew/ Becomes /ow/`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "eWBecomesOW-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The front vowel /e/ becomes the back vowel /o/ before /w/: <div class="sound-change-example" id="eWBecomesOW"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === longUBecomesOU) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "longUBecomesOU-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Long /uː/ Breaks`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "longUBecomesOU-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `The long vowel /uː/ becomes /ou/ when it occurs before a plosive or a fricative: <div class="sound-change-example" id="longUBecomesOU"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === velarsDelabialise) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "velarsDelabialise-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Velars Delabialise`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "velarsDelabialise-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `Labialised velar plosives lose their labialisation: <div class="sound-change-example" id="velarsDelabialise"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-        if(chosenSoundChanges[i] === lossOfAspiration) {
-            let li= document.createElement("li");
-            li.setAttribute("id", "lossOfAspiration-li")
-            li.style.fontWeight = "bold";
-            li.innerHTML = `Aspiration is Lost`;
-            let nestUl = document.createElement("ul");
-            nestUl.setAttribute("id", "lossOfAspiration-ul");
-            let nestLi = document.createElement("li");
-            nestLi.style.listStyleType = "none";
-            nestLi.innerHTML = `All aspirated consonants lose their aspiration: <div class="sound-change-example" id="lossOfAspiration"></div>`
-            document.getElementById("sound-change-explanation").appendChild(li);
-            document.getElementById("sound-change-explanation").appendChild(nestUl);
-            nestUl.appendChild(nestLi);
-        };
-    };
 };
 
 function corrections(wordArray) {
@@ -1671,7 +1728,6 @@ function soundChange(word) {
         };
     }
 
-
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === wordArray[i+1] && wordArray[i] === wordArray[i+2]) {
             wordArray.splice(i,1);
@@ -1749,48 +1805,49 @@ function wordFinalHighVowelsLower(wordArray) {
     return wordArray;
 }
 
-function NoResonantsBeforeConsonants(wordArray) {
-    if(randomNumForNoResonantsBeforeConsonants === 0) {
-    //deletes the resonant
+function resonantsLostBeforeConsonants(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
             wordArray.splice(i, 1);
             timesResonantsLostAfterConsonantsApplied++;
             if(timesResonantsLostAfterConsonantsApplied > 0) {
-               document.getElementById("NoResonantsBeforeConsonants-li").style.display = "block";
-               document.getElementById("NoResonantsBeforeConsonants-ul").style.display = "block";
-            }
-        } 
-    } 
-    };
-    if(randomNumForNoResonantsBeforeConsonants === 1) {
-    //inserts /i/ between resonant and consonant
+               document.getElementById("resonantsLostBeforeConsonants-li").style.display = "block";
+               document.getElementById("resonantsLostBeforeConsonants-ul").style.display = "block";
+            };
+        }; 
+    }; 
+    return wordArray;
+};
+
+function insertIBetweenConsonantAndResonant(wordArray) {
         for(let i = 0; i < wordArray.length; i++) {
             if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1]) && wordArray[i] !== wordArray[i+1]) {
                 wordArray.splice(i+1, 0, "i");
-                timesInsterIBetweenConsonantAndResonantApplied++;
-                if(timesInsterIBetweenConsonantAndResonantApplied > 0) {
-                    document.getElementById("NoResonantsBeforeConsonants-li").style.display = "block";
-                    document.getElementById("NoResonantsBeforeConsonants-ul").style.display = "block";
+                timesInsertIBetweenConsonantAndResonantApplied++;
+                if(timesInsertIBetweenConsonantAndResonantApplied > 0) {
+                    document.getElementById("insertIBetweenConsonantAndResonant-li").style.display = "block";
+                    document.getElementById("insertIBetweenConsonantAndResonant-ul").style.display = "block";
                 };
             };
         };
-    };
-    if(randomNumForNoResonantsBeforeConsonants === 2) {
-    //inserts /u/ between resonant and consonant
+    return wordArray;
+};
+
+function insertUBetweenConsonantAndResonant(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1]) && wordArray[i] !== wordArray[i+1]) {
             wordArray.splice(i+1, 0, "u");
-            timesInstertUBetweenConsonantAndResonantApplied++;
-            if(timesInstertUBetweenConsonantAndResonantApplied > 0) {
-                document.getElementById("NoResonantsBeforeConsonants-li").style.display = "block";
-                document.getElementById("NoResonantsBeforeConsonants-ul").style.display = "block";
+            timesInsertUBetweenConsonantAndResonantApplied++;
+            if(timesInsertUBetweenConsonantAndResonantApplied > 0) {
+                document.getElementById("insertUBetweenConsonantAndResonant-li").style.display = "block";
+                document.getElementById("insertUBetweenConsonantAndResonant-ul").style.display = "block";
             };
         };
     };
-    };
-    if(randomNumForNoResonantsBeforeConsonants === 3) {
-    //the resonant and consonant switch places
+    return wordArray;
+};
+
+function consonantResonantMetathesis(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(resonants.includes(wordArray[i]) && consonants.includes(wordArray[i + 1])) {
             let resonant = wordArray[i]; 
@@ -1799,56 +1856,57 @@ function NoResonantsBeforeConsonants(wordArray) {
             wordArray[i+1] = resonant;
             timesConsonantResonantMetathesisApplied++;
             if(timesConsonantResonantMetathesisApplied > 0) {
-                document.getElementById("NoResonantsBeforeConsonants-li").style.display = "block";
-                document.getElementById("NoResonantsBeforeConsonants-ul").style.display = "block";
+                document.getElementById("consonantResonantMetathesis-li").style.display = "block";
+                document.getElementById("consonantResonantMetathesis-ul").style.display = "block";
             }
             if(resonants.includes(wordArray[i]) && resonants.includes(wordArray[i + 1])) {
                 wordArray.splice(i+1, 0, "u");
             }
         }
     }
-    
-    };
     return wordArray;
-}
+};
 
-function lenitionofPlosivebeforeOtherPlosive(wordArray) {
+function lenitionofPlosivebeforeOtherPlosive1(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
-        if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
             if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1]) && wordArray[i] !== wordArray[i-1]) {
                 let firstPlosiveIndex = plosives.indexOf(wordArray[i-1]);
                 wordArray[i-1] = lenitionFromPlosives1[firstPlosiveIndex];
-                timeslenitionofPlosivebeforeOtherPlosiveApplied++;
-                if(timeslenitionofPlosivebeforeOtherPlosiveApplied > 0) {
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li").style.display = "block";
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-ul").style.display = "block";
+                timeslenitionofPlosivebeforeOtherPlosive1Applied++;
+                if(timeslenitionofPlosivebeforeOtherPlosive1Applied > 0) {
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive1-li").style.display = "block";
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive1-ul").style.display = "block";
                     for(let i = 0; i < plosives.length; i++) {
-                        if(consonants.includes(plosives[i]) && timeslenitionofPlosivebeforeOtherPlosiveApplied === 1) {
+                        if(consonants.includes(plosives[i]) && timeslenitionofPlosivebeforeOtherPlosive1Applied === 1) {
                             let newLi = document.createElement("li");
                             newLi.innerHTML = `${plosives[i]} > [${lenitionFromPlosives1[i]}] ⟨${spell(lenitionFromPlosives1[i])}⟩`
-                            document.getElementById("lenition-before-list").appendChild(newLi)
+                            document.getElementById("lenition-before-list-1").appendChild(newLi)
                         } 
                     };
                 };
             }
-        } else if(randomNumForlenitionofPlosivebeforeOtherPlosive === 1) {
+    };
+    return wordArray;
+};
+
+function lenitionofPlosivebeforeOtherPlosive2(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
             if(plosives.includes(wordArray[i]) && plosives.includes(wordArray[i - 1]) && wordArray[i] !== wordArray[i-1]) {
                 let firstPlosiveIndex = plosives.indexOf(wordArray[i-1]);
                 wordArray[i-1] = lenitionFromPlosives2[firstPlosiveIndex];
-                timeslenitionofPlosivebeforeOtherPlosiveApplied++;
-                if(timeslenitionofPlosivebeforeOtherPlosiveApplied > 0) {
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-li").style.display = "block";
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive-ul").style.display = "block";
+                timeslenitionofPlosivebeforeOtherPlosive2Applied++;
+                if(timeslenitionofPlosivebeforeOtherPlosive2Applied > 0) {
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive2-li").style.display = "block";
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive2-ul").style.display = "block";
                     for(let i = 0; i < plosives.length; i++) {
-                        if (consonants.includes(plosives[i]) && timeslenitionofPlosivebeforeOtherPlosiveApplied === 1) {
+                        if (consonants.includes(plosives[i]) && timeslenitionofPlosivebeforeOtherPlosive2Applied === 1) {
                             let newLi = document.createElement("li");
                             newLi.innerHTML = `${plosives[i]} > [${lenitionFromPlosives2[i]}] ⟨${spell(lenitionFromPlosives2[i])}⟩`
-                            document.getElementById("lenition-before-list").appendChild(newLi)
+                            document.getElementById("lenition-before-list-2").appendChild(newLi)
                         }
                     }
                 };
-            }
-        } 
+            };
     };
     return wordArray;
 }
@@ -1886,14 +1944,8 @@ function nasalsCantAppearAfterConsonants(wordArray) {
 }
 
 function fricativesDebuccaliseBeforeVowels(wordArray) {
-    let postAlveolar = ["ʃ", "ʒ"];
-    let tD = ["t", "d"];
     for(let i = 0; i < wordArray.length; i++) {
         if(selectFricatives().includes(wordArray[i]) && vowels.includes(wordArray[i+1]) && wordArray[i] !== wordArray[i-1]) {
-            if(tD.includes(wordArray[i-1]) === false) {
-                wordArray[i] = "h";
-            }
-            
             timefricativesDebuccaliseBeforeVowelsApplied++;
             if(timefricativesDebuccaliseBeforeVowelsApplied > 0) {
                 document.getElementById("fricativesDebuccaliseBeforeVowels-li").style.display = "block";
@@ -2792,4 +2844,4 @@ function lossOfAspiration(wordArray) {
 
 
 
-export {soundChange, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, randomNumForlenitionofPlosivebeforeOtherPlosive, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, allNasalsArray, correctionsForStrings, corrections, frontVowels, randomNumForLongVowelsBreak, backVowels, obstruents, cloneArray};
+export {soundChange, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, resonants, allNasalsArray, correctionsForStrings, corrections, frontVowels, randomNumForLongVowelsBreak, backVowels, obstruents, cloneArray, checkIfSoundChangeOptionChecked};

@@ -5,6 +5,9 @@
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="images/Ogma.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
   </head>
 
   <body>
@@ -37,10 +40,10 @@
       <section class="intro">
 
         <div id="radio-buttons">
-          <input type="radio" id="randomised" name="randomOrCustom" value="random">
+          <input type="radio" id="randomised" name="randomOrCustom" value="random" autocomplete="off">
           <label for="randomised">Fully randomised language</label><br>
 
-          <input type="radio" id="customised" name="randomOrCustom" value="custom">
+          <input type="radio" id="customised" name="randomOrCustom" value="custom" autocomplete="off">
           <label for="customised">Customise</label><br>
 
           <p id="warning">Please select an option!</p>
@@ -50,6 +53,7 @@
           <h1 id="custom-h1">Customise Your Language</h1>
 
           <!--Choose vowels-->
+          <hr>
           <div class="radio-section">
             <h2>Phonology</h2>
             <p>Enter sounds using <a href="https://ipa.typeit.org/full/" target="_blank">IPA only</a>. Seperate sounds using a blank space only.<br><br>
@@ -63,6 +67,7 @@
           <!--Choose consonants-->
           <div class="radio-section">
             <p>When entering superscript characters such as "ʰ ʲ ʷ", place a "-" between the superscript and consonant. E.g <strong>k-ʰ</strong> for /kʰ/ and <strong>ʰ-k</strong> for /ʰk/.<br><br>
+            When using two superscripts together, do so in the following order: "ʷʰ" and "ʰʲ".<br><br>
             When entering affricates, use the following ligatures instead of using a combining diacritic tie-bar: ʦ ʣ, ʧ ʤ, ʨ ʥ, ꭧ ꭦ
             </p>
             <label for="chosen-consonants">Consonants:</label>
@@ -74,6 +79,150 @@
             <label for="chosen-syllables">Syllable structures:</label>
             <input id="chosen-syllables" value=""></input>
           </div>
+
+          <hr>
+          <!--Choose sound changes-->
+         <div class="radio-section">
+          <h2>Sound Changes</h2>
+
+          <input type="radio" id="randomisedSoundChange" name="randomOrCustomSoundChange" value="randomSoundChange" autocomplete="off">
+          <label for="randomisedSoundChange">Random Sound Changes</label><br>
+
+          <input type="radio" id="customisedSoundChange" name="randomOrCustomSoundChange" value="customSoundChange" autocomplete="off">
+          <label for="customisedSoundChange">Select Sound Changes</label><br>
+
+          <p id="sound-change-warning">Please select an option!</p>
+
+          <div id="sound-change-menu-div">
+            <p>There are <span id="sound-change-number"></span> possible sound changes.</p>
+            <label for="sound-change-menu">Choose Sound Changes:</label>
+            <select id="sound-change-menu" name="sound-change-menu">
+              <option onclick="clearAll()">Clear All</option>
+
+              <optgroup label="Elision">
+                <option value="fricativesLostAfterWordInitialConsonants-list"  onclick="addSoundChange(this.value, this.innerHTML)">Fricatives Dropped in Word Initial Clusters</option>
+                <option value="resonantsLostBeforeConsonants-list"  onclick="addSoundChange(this.value, this.innerHTML)">Resonants Are Lost Before Consonants</option>
+                <option value="plosivesCantClusterTogetherWordInitially-list" onclick="addSoundChange(this.value, this.innerHTML)">Word Initial Plosives Drop Before Another Plosive</option>
+                <option value="wordFinalDevoicing-list"  onclick="addSoundChange(this.value, this.innerHTML)">Word Final Devoicing</option>
+                <option value="vowelLostBetweenTwoOfSameConsonant-list"  onclick="addSoundChange(this.value, this.innerHTML)">Vowels Drop Between Two Of The Same Consonant</option>
+                <option value="voicedConsonantsLostIntervocalically-list"  onclick="addSoundChange(this.value, this.innerHTML)">Intervocalic Short Voiced Plosives And Fricatives Drop</option>
+                <option value="vowelLostBetweenConsonantAndResonant-list"  onclick="addSoundChange(this.value, this.innerHTML)">Vowels Drop After A Consonant And Before A Pre-Vocalic Resonant</option>
+                <option value="hLostAfterConsonants-list"  onclick="addSoundChange(this.value, this.innerHTML)">/h/ Drops After Consonants</option>
+                <option value="VʔVBecomesVV-list"  onclick="addSoundChange(this.value, this.innerHTML)">Loss Of Intervocalic Glottal Stops</option>
+                <option value="VCVBecomesVCWordFinally-list"  onclick="addSoundChange(this.value, this.innerHTML)">Loss of Word Final Vowels After /VC/ Sequences</option>
+              </optgroup>
+
+              <optgroup label="Elision With Compensatory Lengthening">
+                  <option value="nasalsLostBetweenVowelAndConsonant-list"  onclick="addSoundChange(this.value, this.innerHTML)">Nasals Drop Between A Vowel And Consonant, Lengthening The Vowel</option>
+              </optgroup>
+
+              <optgroup label="Epenthesis">
+                <option value="insertUBetweenConsonantAndResonant-list"  onclick="addSoundChange(this.value, this.innerHTML)">/u/ Is Inserted Between a Resonant And Consonant</option>
+                <option value="insertIBetweenConsonantAndResonant-list"  onclick="addSoundChange(this.value, this.innerHTML)">/i/ Is Inserted Between A Resonant And Consonant</option>
+                <option value="nasalsCantAppearAfterConsonants-list"  onclick="addSoundChange(this.value, this.innerHTML)">/i/ Is Inserted Between A Consonant And A Nasal</option>
+                <option value="intialVBecomesHV-list"  onclick="addSoundChange(this.value, this.innerHTML)">Epenthesis Of /ħ/ Before Word Initial Vowels</option>
+              </optgroup>
+
+              <optgroup label="Metaphesis">
+                  <option value="consonantResonantMetathesis-list"  onclick="addSoundChange(this.value, this.innerHTML)">Pre-Consonantal Resonants Become Post-Consonantal</option>
+                  <option value="RVCToVRCMetathesis-list"  onclick="addSoundChange(this.value, this.innerHTML)">Word Initial RVC Sequences Become VRC</option>
+                  <option value="CVRBecomesCCVR-list"  onclick="addSoundChange(this.value, this.innerHTML)">Metathesis and Gemination of VCRV sequences</option>
+              </optgroup>
+
+              <optgroup label="Lenition">
+                   <option value="lenitionofPlosivebeforeOtherPlosive1-list"  onclick="addSoundChange(this.value, this.innerHTML)">Plosives Lenite When They Occur Before Other Plosives (Variant 1)</option>
+                    <option value="lenitionofPlosivebeforeOtherPlosive2-list"  onclick="addSoundChange(this.value, this.innerHTML)">Plosives Lenite When They Occur Before Other Plosives (Variant 2)</option>
+                    <option value="intervocalicVoicing-list"  onclick="addSoundChange(this.value, this.innerHTML)">Intervocalic Consonants Become Voiced</option>
+                     <option value="tDBecomeL-list"  onclick="addSoundChange(this.value, this.innerHTML)">Intervocalic Alveolar Plosives Become /l/</option>
+              </optgroup>
+
+              <optgroup label="Fortition">
+                <option value="glottalStopJFortites-list"  onclick="addSoundChange(this.value, this.innerHTML)">/ʔj/ and /ʔw/ Become /g/</option>
+                <option value="intialJBecomesL-list"  onclick="addSoundChange(this.value, this.innerHTML)">Word Initial /j/ Becomes /l/</option>
+              </optgroup>
+
+              <optgroup label="Assimilation">
+                 <option value="eciBecomesiCi-list"  onclick="addSoundChange(this.value, this.innerHTML)">/eC/ Becomes /iC/ When /i/ Or /j/ Follows</option>
+                  <option value="iCbecomeseC-list"  onclick="addSoundChange(this.value, this.innerHTML)">/i/ Lowers To /e/ Before Post-Consonantal Non-High Vowels</option>
+                  <option value="uNBecomesoN-list"  onclick="addSoundChange(this.value, this.innerHTML)">/u/ Becomes /o/ before Nasals Followed By Non-High Vowels</option>
+                  <option value="CJBecomesCC-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Cj/ Sequences Become /Cː /</option>
+                  <option value="VvBecomesVV-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Vu/ Sequences Collapse Into Long Vowels</option>
+                  <option value="iUmlaut-list"  onclick="addSoundChange(this.value, this.innerHTML)">Vowels Raise And Front When The Next Syllable Has /i/ Or /j/</option>
+            </optgroup>
+              </optgroup>
+
+              <optgroup label="Dissimilation">
+                <option value="aCaBecomesaCi-list"  onclick="addSoundChange(this.value, this.innerHTML)">a...a Becomes a...i</option>
+              </optgroup>
+
+              <optgroup label="Merger">
+                <option value="nonInitialNonHighVowelsBecomeA-list"  onclick="addSoundChange(this.value, this.innerHTML)">All Non-high Vowels Merge With /a/ When Not In The First Syllable Of A Word</option>
+              </optgroup>
+
+            <optgroup label="Raising">
+              <option value="auBecomesOu-list"  onclick="addSoundChange(this.value, this.innerHTML)">/au/ Becomes /ou/</option>
+              <option value="eNBecomesiN-list"  onclick="addSoundChange(this.value, this.innerHTML)">/e/ Becomes /i/ Before Nasals</option>
+              <option value="longABecomesO-list"  onclick="addSoundChange(this.value, this.innerHTML)">The Long Vowel /aː / Vecomes /oː /</option>
+            </optgroup>
+
+            <optgroup label="Lowering">
+              <option value="wordFinalHighVowelsLower-list"  onclick="addSoundChange(this.value, this.innerHTML)">High Vowels Lower To Become Mid Vowels When Word Final</option>
+              <option value="uNBecomesoN-list"  onclick="addSoundChange(this.value, this.innerHTML)">/u/ Becomes /o/ before Nasals Followed By Non-High Vowels</option>
+              <option value="iCbecomeseC-list"  onclick="addSoundChange(this.value, this.innerHTML)">/i/ Lowers To /e/ Before Post-Consonantal Non-High Vowels</option>
+            </optgroup>
+
+            <optgroup label="Debuccalisation">
+              <option value="fricativesDebuccaliseBeforeVowels-list"  onclick="addSoundChange(this.value, this.innerHTML)">Fricatives Become /h/ Before Vowels</option>
+              <option value="plosivesDebuccaliseInCoda-list"  onclick="addSoundChange(this.value, this.innerHTML)">Plosives Debuccalise In The Coda</option>
+            </optgroup>
+
+            <optgroup label="Gemination">
+              <option value="CVRBecomesCCVR-list"  onclick="addSoundChange(this.value, this.innerHTML)">Metathesis and Gemination of VCRV sequences</option>
+             <option value="CJBecomesCC-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Cj/ Sequences Become /Cː /</option>
+            </optgroup>
+
+             <optgroup label="Fusion">
+              <option value="VJbecomesLongI-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Vj Becomes Long /iː /</option>
+              <option value="VvBecomesVV-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Vu/ Sequences Collapse Into Long Vowels</option>
+              <option value="CJBecomesCC-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Cj/ Sequences Become /Cː /</option>
+            </optgroup>
+             
+            </optgroup>
+
+             <optgroup label="Palatalization">
+              <option value="gBecomesJ-list"  onclick="addSoundChange(this.value, this.innerHTML)">/g/ Becomes /j/ When After A Front Vowel</option>
+              <option value="palatalisationofPlosives-list"  onclick="addSoundChange(this.value, this.innerHTML)">Plosives Palatalise Before Front Vowels</option>
+              
+            </optgroup>
+
+            <optgroup label="Desyllabification">
+              <option value="eOBecomeJW-list"  onclick="addSoundChange(this.value, this.innerHTML)">/e/ And /o/ Become /j/ and /w/ Before Vowels</option>
+            </optgroup>
+
+            <optgroup label="Rhoticisation">
+              <option value="VzbecomesVr-list"  onclick="addSoundChange(this.value, this.innerHTML)">/z/ Becomes /r/ After A Vowel</option>
+            </optgroup>
+
+            <optgroup label="Vowel Shifts">
+              <option value="vowelShiftInHeavySyllables-list"  onclick="addSoundChange(this.value, this.innerHTML)">Vowels Become Lax in Heavy Syllables</option>
+             
+            </optgroup>
+            </select> 
+
+            <p id="drag-note">
+              Note: If a sound change that you selected can not apply to the chosen phonology, such as choosing "Word Final Devoicing" but the phonology does not even allow for word final consonants, then the sound change will not appear in the language.<br>
+              Drag to reorder<br>
+              Double click to remove</p>
+
+            <div class="sortable-list">
+              <ol id="sortable">
+              <!-- Add more list items as needed -->
+            </ol>
+          </div>
+          </div>
+
+          </div>
+          <hr>
 
           <!--Choose language name-->
           <div class="radio-section">
@@ -3734,6 +3883,105 @@
     </section>
 
     <section id="hidden-section"></section>
+
+    <script>
+      let soundChangeMenu = document.getElementById("sound-change-menu").value;
+      let sortableList = document.getElementById("sortable");
+
+      function clearAll() {
+        sortableList.replaceChildren();
+      };
+
+      //when a sound change is selected on the drop down menu, it is added to a list
+      function addSoundChange(value, text) {
+        let newLi = document.createElement("li");
+        newLi.setAttribute("draggable", "true");
+        newLi.setAttribute("id", value);
+        newLi.setAttribute("class", "soundChangeList");
+        newLi.innerHTML = text;
+        sortableList.appendChild(newLi);
+
+        //removed item when doubleclicked
+        newLi.addEventListener("dblclick", () => {
+          newLi.remove();
+        })
+      };
+
+      //allows for list items to be rearranged via dragging
+      sortableList.addEventListener(
+        "dragstart",
+        (e) => {
+            draggedItem = e.target;
+            setTimeout(() => {
+                e.target.style.display =
+                    "none";
+            }, 0);
+    });
+    
+      sortableList.addEventListener(
+        "dragend",
+        (e) => {
+            setTimeout(() => {
+                e.target.style.display = "";
+                draggedItem = null;
+            }, 0);
+    });
+
+      sortableList.addEventListener(
+        "dragover",
+        (e) => {
+            e.preventDefault();
+            const afterElement =
+                getDragAfterElement(
+                    sortableList,
+                    e.clientY);
+            const currentElement =
+                document.querySelector(
+                    ".dragging");
+            if (afterElement == null) {
+                sortableList.appendChild(
+                    draggedItem
+                );} 
+            else {
+                sortableList.insertBefore(
+                    draggedItem,
+                    afterElement
+                );}
+        });
+    
+      const getDragAfterElement = (
+        container, y
+    ) => {
+        const draggableElements = [
+            ...container.querySelectorAll(
+                "li:not(.dragging)"
+            ),];
+    
+        return draggableElements.reduce(
+            (closest, child) => {
+                const box =
+                    child.getBoundingClientRect();
+                const offset =
+                    y - box.top - box.height / 2;
+                if (
+                    offset < 0 &&
+                    offset > closest.offset) {
+                    return {
+                        offset: offset,
+                        element: child,
+                    };} 
+                else {
+                    return closest;
+                }},
+            {
+                offset: Number.NEGATIVE_INFINITY,
+            }
+        ).element;
+    };
+
+     
+    </script>
+
     <script  src="./PDFCoverPage.js"></script>
     <script type="module" src="./generatePhonology.js"></script>
     <script type="module" src="./derivation.js"></script>

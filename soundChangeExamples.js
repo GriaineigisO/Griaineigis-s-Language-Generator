@@ -1,6 +1,6 @@
 //@collapse
 import { spell } from "./orthography.js";
-import { soundChange, voiced, unvoiced, chosenSoundChanges, vowels, consonants, selectFricatives, plosives, randomNumForWordInitialPlosiveClusters, midVowels, highVowels, randomNumForNoResonantsBeforeConsonants, resonants, randomNumForlenitionofPlosivebeforeOtherPlosive,lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, frontVowels,randomNumForLongVowelsBreak, backVowels, obstruents} from "./soundchange.js";
+import { soundChange, voiced, unvoiced, chosenSoundChanges, vowels, consonants, selectFricatives, plosives, randomNumForWordInitialPlosiveClusters, midVowels, highVowels, resonants,lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, frontVowels,randomNumForLongVowelsBreak, backVowels, obstruents} from "./soundchange.js";
 import { languageName } from "./script.js";
 
 let soundChangeArray = [];
@@ -9,8 +9,12 @@ let plosivesCantClusterTogetherWordInitiallyNum = 0;
 let fricativesLostAfterWordInitialConsonantsNum = 0;
 let fricativesDebuccaliseBeforeVowelsNum = 0;
 let wordFinalHighVowelsLowerNum = 0;
-let NoResonantsBeforeConsonantsNum = 0;
-let lenitionofPlosivebeforeOtherPlosiveNum = 0;
+let resonantsLostBeforeConsonantsNum = 0;
+let insertIBetweenConsonantAndResonantNum = 0;
+let insertUBetweenConsonantAndResonantNum = 0;
+let consonantResonantMetathesisNum = 0;
+let lenitionofPlosivebeforeOtherPlosive1Num = 0;
+let lenitionofPlosivebeforeOtherPlosive2Num = 0;
 let nonInitialNonHighVowelsBecomeANum = 0;
 let nasalsCantAppearAfterConsonantsNum = 0;
 let vowelLostBetweenTwoOfSameConsonantNum = 0;
@@ -72,8 +76,12 @@ function clearArrays() {
     fricativesLostAfterWordInitialConsonantsNum = 0;
     fricativesDebuccaliseBeforeVowelsNum = 0;
     wordFinalHighVowelsLowerNum = 0;
-    NoResonantsBeforeConsonantsNum = 0;
-    lenitionofPlosivebeforeOtherPlosiveNum = 0;
+    resonantsLostBeforeConsonantsNum = 0;
+    insertIBetweenConsonantAndResonantNum = 0;
+    insertUBetweenConsonantAndResonantNum = 0;
+    consonantResonantMetathesisNum = 0;
+    lenitionofPlosivebeforeOtherPlosive1Num = 0;
+    lenitionofPlosivebeforeOtherPlosive2Num = 0;
     nonInitialNonHighVowelsBecomeANum = 0;
     nasalsCantAppearAfterConsonantsNum = 0;
     vowelLostBetweenTwoOfSameConsonantNum = 0;
@@ -188,14 +196,34 @@ function populateArray() {
                 soundChangeArray.push(wordFinalHighVowelsLower);
             }
         };
-        if(chosenSoundChanges[i].name === "NoResonantsBeforeConsonants") {
-            if(soundChangeArray.includes(NoResonantsBeforeConsonants) === false) {
-                soundChangeArray.push(NoResonantsBeforeConsonants);
+        if(chosenSoundChanges[i].name === "resonantsLostBeforeConsonants") {
+            if(soundChangeArray.includes(resonantsLostBeforeConsonants) === false) {
+                soundChangeArray.push(resonantsLostBeforeConsonants);
             }
         };
-        if(chosenSoundChanges[i].name === "lenitionofPlosivebeforeOtherPlosive") {
-            if(soundChangeArray.includes(lenitionofPlosivebeforeOtherPlosive) === false) {
-                soundChangeArray.push(lenitionofPlosivebeforeOtherPlosive);
+        if(chosenSoundChanges[i].name === "insertIBetweenConsonantAndResonant") {
+            if(soundChangeArray.includes(insertIBetweenConsonantAndResonant) === false) {
+                soundChangeArray.push(insertIBetweenConsonantAndResonant);
+            }
+        };
+        if(chosenSoundChanges[i].name === "insertUBetweenConsonantAndResonant") {
+            if(soundChangeArray.includes(insertUBetweenConsonantAndResonant) === false) {
+                soundChangeArray.push(insertUBetweenConsonantAndResonant);
+            }
+        };
+        if(chosenSoundChanges[i].name === "consonantResonantMetathesis") {
+            if(soundChangeArray.includes(consonantResonantMetathesis) === false) {
+                soundChangeArray.push(consonantResonantMetathesis);
+            }
+        };
+        if(chosenSoundChanges[i].name === "lenitionofPlosivebeforeOtherPlosive1") {
+            if(soundChangeArray.includes(lenitionofPlosivebeforeOtherPlosive1) === false) {
+                soundChangeArray.push(lenitionofPlosivebeforeOtherPlosive1);
+            }
+        };
+        if(chosenSoundChanges[i].name === "lenitionofPlosivebeforeOtherPlosive2") {
+            if(soundChangeArray.includes(lenitionofPlosivebeforeOtherPlosive2) === false) {
+                soundChangeArray.push(lenitionofPlosivebeforeOtherPlosive2);
             }
         };
         if(chosenSoundChanges[i].name === "nonInitialNonHighVowelsBecomeA") {
@@ -670,8 +698,7 @@ function wordFinalHighVowelsLower(word, originalWord) {
     return {word};
 }
 
-function NoResonantsBeforeConsonants(word, originalWord) {
-    if(randomNumForNoResonantsBeforeConsonants === 0) {
+function resonantsLostBeforeConsonants(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
         if(resonants.includes(word[i]) && consonants.includes(word[i + 1])) {
             let before = correctionsForStrings(word.join(""));
@@ -690,22 +717,24 @@ function NoResonantsBeforeConsonants(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-            if(NoResonantsBeforeConsonantsNum < 6) {
-                if(NoResonantsBeforeConsonantsNum === 0) {
+            if(resonantsLostBeforeConsonantsNum < 6) {
+                if(resonantsLostBeforeConsonantsNum === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("NoResonantsBeforeConsonants").appendChild(example);
+                    document.getElementById("resonantsLostBeforeConsonants").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("NoResonantsBeforeConsonants").appendChild(example);
+                    document.getElementById("resonantsLostBeforeConsonants").appendChild(example);
                 }
-                NoResonantsBeforeConsonantsNum++;
+                resonantsLostBeforeConsonantsNum++;
             };
         }; 
     };
-    };
-    if(randomNumForNoResonantsBeforeConsonants === 1) {
+    return {word};
+};
+
+function insertIBetweenConsonantAndResonant(word, originalWord) {
         for(let i = 0; i < word.length; i++) {
             if(resonants.includes(word[i]) && consonants.includes(word[i + 1]) && word[i] !== word[i+1]) {
                 let before = correctionsForStrings(word.join(""));
@@ -724,23 +753,24 @@ function NoResonantsBeforeConsonants(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-                if(NoResonantsBeforeConsonantsNum < 6) {
-                if(NoResonantsBeforeConsonantsNum === 0) {
+                if(insertIBetweenConsonantAndResonantNum < 6) {
+                if(insertIBetweenConsonantAndResonantNum === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("NoResonantsBeforeConsonants").appendChild(example);
+                    document.getElementById("insertIBetweenConsonantAndResonant").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("NoResonantsBeforeConsonants").appendChild(example);
+                    document.getElementById("insertIBetweenConsonantAndResonant").appendChild(example);
                 }
-                NoResonantsBeforeConsonantsNum++;
+                insertIBetweenConsonantAndResonantNum++;
             };
-                
-            } 
-        }
-    }
-    if(randomNumForNoResonantsBeforeConsonants === 2) {
+            };
+        };
+    return {word};
+};
+
+function insertUBetweenConsonantAndResonant(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
         if(resonants.includes(word[i]) && consonants.includes(word[i + 1]) && word[i] !== word[i+1]) {
             let before = correctionsForStrings(word.join(""));
@@ -759,23 +789,24 @@ function NoResonantsBeforeConsonants(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-            if(NoResonantsBeforeConsonantsNum < 6) {
-                if(NoResonantsBeforeConsonantsNum === 0) {
+            if(insertUBetweenConsonantAndResonantNum < 6) {
+                if(insertUBetweenConsonantAndResonantNum === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("NoResonantsBeforeConsonants").appendChild(example);
+                    document.getElementById("insertUBetweenConsonantAndResonant").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("NoResonantsBeforeConsonants").appendChild(example);
+                    document.getElementById("insertUBetweenConsonantAndResonant").appendChild(example);
                 }
-                NoResonantsBeforeConsonantsNum++;
+                insertUBetweenConsonantAndResonantNum++;
             }; 
-            }
-            
-        }
-    }
-    if(randomNumForNoResonantsBeforeConsonants === 3) {
+            };
+        };
+    return {word};
+};
+
+function consonantResonantMetathesis(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
         if(resonants.includes(word[i]) && consonants.includes(word[i + 1])) {
             let before = correctionsForStrings(word.join(""));
@@ -800,27 +831,25 @@ function NoResonantsBeforeConsonants(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-            if(NoResonantsBeforeConsonantsNum < 6) {
-                if(NoResonantsBeforeConsonantsNum === 0) {
+            if(consonantResonantMetathesisNum < 6) {
+                if(consonantResonantMetathesisNum === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("NoResonantsBeforeConsonants").appendChild(example);
+                    document.getElementById("consonantResonantMetathesis").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("NoResonantsBeforeConsonants").appendChild(example);
+                    document.getElementById("consonantResonantMetathesis").appendChild(example);
                 }
-                NoResonantsBeforeConsonantsNum++;
+                consonantResonantMetathesisNum++;
             }; 
-        }
-    }
-    }
+        };
+    };
     return {word};
 };
 
-function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
+function lenitionofPlosivebeforeOtherPlosive1(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-    if(randomNumForlenitionofPlosivebeforeOtherPlosive === 0) {
         if(plosives.includes(word[i]) && plosives.includes(word[i - 1])  && word[i] !== word[i-1]) {
             let firstPlosiveIndex = plosives.indexOf(word[i-1])
             let before = correctionsForStrings(word.join(""));
@@ -839,20 +868,25 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-             if(lenitionofPlosivebeforeOtherPlosiveNum < 6) {
-                if(lenitionofPlosivebeforeOtherPlosiveNum === 0) {
+             if(lenitionofPlosivebeforeOtherPlosive1Num < 6) {
+                if(lenitionofPlosivebeforeOtherPlosive1Num === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive").appendChild(example);
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive1").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive").appendChild(example);
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive1").appendChild(example);
                 }
-                lenitionofPlosivebeforeOtherPlosiveNum++;
+                lenitionofPlosivebeforeOtherPlosive1Num++;
             }; 
         }
-    } else if(randomNumForlenitionofPlosivebeforeOtherPlosive === 1) {
+    }
+    return {word};
+};
+
+function lenitionofPlosivebeforeOtherPlosive2(word, originalWord) {
+    for(let i = 0; i < word.length; i++) {
         if(plosives.includes(word[i]) && plosives.includes(word[i - 1])  && word[i] !== word[i-1]) {
             let firstPlosiveIndex = plosives.indexOf(word[i-1])
             let before = correctionsForStrings(word.join(""));
@@ -871,20 +905,19 @@ function lenitionofPlosivebeforeOtherPlosive(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-            if(lenitionofPlosivebeforeOtherPlosiveNum < 6) {
-                if(lenitionofPlosivebeforeOtherPlosiveNum === 0) {
+            if(lenitionofPlosivebeforeOtherPlosive2Num < 6) {
+                if(lenitionofPlosivebeforeOtherPlosive2Num === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive").appendChild(example);
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive2").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("lenitionofPlosivebeforeOtherPlosive").appendChild(example);
+                    document.getElementById("lenitionofPlosivebeforeOtherPlosive2").appendChild(example);
                 }
-                lenitionofPlosivebeforeOtherPlosiveNum++;
+                lenitionofPlosivebeforeOtherPlosive2Num++;
             }; 
         }
-    } 
     }
     return {word};
 };

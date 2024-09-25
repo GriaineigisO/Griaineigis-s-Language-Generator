@@ -343,5 +343,8 @@ allWordsInThesaurus.push(puppyHungryArray);
 let woundPainfulArray = ["as&nbsppainful&nbspas&nbspa&nbspwound", "very&nbspsore", "agonising"];
 allWordsInThesaurus.push(woundPainfulArray);
 
+let unexpressiveArray = ["unexpressive", "stolid", "unemotional"];
+allWordsInThesaurus.push(unexpressiveArray);
+
 
 export { allWordsInThesaurus };

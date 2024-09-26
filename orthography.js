@@ -539,7 +539,8 @@ function randomAspirates(wordArray) {
     for(let i = 0; i < wordArray.length; i++) {
         if(wordArray[i] === "ʰ" && voicingTrueOrFalse) {
             return "h" 
-        } else if (voicingTrueOrFalse === false && allAspiratesArray.length > 0) {//if plosives have no voicing distinction, aspirates will be marked by using <p t k> while unvoiced non-aspirated will be <b d g>
+        } else if (voicingTrueOrFalse === false && allAspiratesArray.length > 0) {
+            //if plosives have no voicing distinction, aspirates will be marked by using <p t k> while unvoiced non-aspirated will be <b d g>
             if(wordArray[i] === "p") {
                 return "b";
             };
@@ -560,6 +561,7 @@ function randomAspirates(wordArray) {
             if(wordArray[i] === "K") {
                 wordArray.splice(i + 1, 1)
                 return "k";
+            }
             } else if (wordArray[i] === "P") {
                 return "ph";
             } else if (wordArray[i] === "B") {
@@ -584,8 +586,7 @@ function randomAspirates(wordArray) {
                 return "hk";
             } else if (wordArray[i] === "6") {
                 return "hg";
-            }
-        };
+            };
     };
 };
 

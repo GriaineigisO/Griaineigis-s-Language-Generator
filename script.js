@@ -12,8 +12,7 @@ import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opini
 import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, clearPreviousOutput, checkIfSoundChangeOptionChecked} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
 import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
-import {allWordOrders, subjectFinalWordOrders, objectFinalWordOrders, verbFinalWordOrders} from './allPossibleWordOrders.js'
-
+import {allWordOrders, subjectFinalWordOrders, objectFinalWordOrders, verbFinalWordOrders} from './allPossibleWordOrders.js';
 
 
 //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
@@ -240,17 +239,21 @@ let randomOption = "";
 let checkIfOptionWasSelected = "";
 
 function randomise() {
-    options.style.display = "none";
-    randomOption = true;
-    checkIfOptionWasSelected = "checked";
-    document.getElementById("warning").style.display = "none";
+    if(randomisedButton.checked) {
+        options.style.display = "none";
+        randomOption = true;
+        checkIfOptionWasSelected = "checked";
+        document.getElementById("warning").style.display = "none";
+    };
 };
 
 function customise() {
-    options.style.display = "block";
-    randomOption = false;
-    checkIfOptionWasSelected = "checked";
-    document.getElementById("warning").style.display = "none";
+    if(customisedButton.checked) {
+        options.style.display = "block";
+        randomOption = false;
+        checkIfOptionWasSelected = "checked";
+        document.getElementById("warning").style.display = "none";
+    };
 };
 
 randomisedButton.addEventListener("click", randomise);
@@ -641,7 +644,7 @@ let languageName = "";
 function generateRandomNameForLanguage () {
     let languageNameSpan = document.getElementsByClassName("language-name");
     let chosenLanguageName = document.getElementById("language-name").value;
-    if(chosenLanguageName === "") {
+    if(chosenLanguageName === "" || randomOption) {
         let newName = spell(soundChange(generateWords()));
         for(let i = 0; i < languageNameSpan.length; i++) {
             languageNameSpan[i].innerHTML = newName;
@@ -654,20 +657,6 @@ function generateRandomNameForLanguage () {
         languageName = chosenLanguageName;
     };
 };
-
-//Since almost every word had had at least one long vowel, the below function serves to randomly shorten vowels in words to bring the number of long vowels down to a more agreeable number.
-// function reduceAmountOfLongVowels(array) {
-//     for(let i = 0; i < array.length; i++) {
-//         let wordArray = Array.from(array[i])
-//     for(let i = 0; i < wordArray.length; i++) {
-//         if(wordArray[i] === "ː" && Math.floor(Math.random() * 3) !== 2) {
-//             wordArray.splice(i, 1)
-//         }
-//     }
-//         let joinedWord = wordArray.join("");
-//         array[i] = joinedWord;
-//     }   
-// }
 
 //if the syllable structures allows for consonants in the coda, then the function makes it possible for  asuffix to be a single consonant
 let selectedSyllablesAffixes = [];
@@ -1189,13 +1178,45 @@ function markedSingularOrNot() {
 /*****Noun Gender*******/
 
 let genderNum = 0;
+function selectGender() {
+    if(randomOption === false) {
+        let genderForm = document.getElementById("gender-form").value;
+
+        if(genderForm === "none") {
+            genderNum = 0;
+        } else if (genderForm === "anim-inan-system") {
+            genderNum = 9;
+        } else if (genderForm === "masc-fem-system") {
+            genderNum = 10;
+        } else if (genderForm === "masc-fem-neut-system") {
+            genderNum = 11;
+        } else if (genderForm === "human-anim-inan-system") {
+            genderNum = 12;
+        } else if (genderForm === "divine-profane-system") {
+            genderNum = 13;
+        } else if (genderForm === "active-passive-system") {
+            genderNum = 14;
+        } else if (genderForm === "nat-art-system") {
+            genderNum = 15;
+        } else if (genderForm === "random") {
+            genderNum = makeRandomGenderChoice();
+        };
+    } else if (randomOption) {
+        makeRandomGenderChoice();
+    };
+    
+    function makeRandomGenderChoice() {
+        //if the language is isolating, then by default there will be no gender
+        if(typologyNum === 0) {
+            genderNum = 0;
+        } else {
+            genderNum = 10//Math.floor(Math.random() * 16);
+        };
+    };
+};
+
 function randomNumForNounGender() {
-    //if the language is isolating, then by default there will be no gender
-    if(typologyNum === 0) {
-        genderNum = 0;
-    } else {
-        genderNum = 10//Math.floor(Math.random() * 16);
-    }
+    
     if(genderNum < 9) {
         document.getElementById("agglutinative-gender").style.display = "none";
         document.getElementById("no-gender-singulative-example").style.display = "block";
@@ -1287,7 +1308,21 @@ function checkIfHeadInitialOrHeadFinal() {
 /**ISOLATING NOUNS****/
 let grammaticalNumIsolating = 0;
 function randomNumForIsolatingGrammaticalNumbers() {
-    grammaticalNumIsolating = Math.floor(Math.random() * 16)
+    if(randomOption === false) {
+        let isolatingNumberForm = document.getElementById("isolating-number-form").value;
+        if(isolatingNumberForm === "isolating-quanitifers-only-system") {
+            grammaticalNumIsolating = 0;
+        } else if(isolatingNumberForm === "isolating-quanitifers-and-classifiers-purely-numerical-system") {
+            grammaticalNumIsolating = 8;
+        } else if(isolatingNumberForm === "isolating-sg-pl-system") {
+            grammaticalNumIsolating = 12;
+        }  else if(isolatingNumberForm === "random") {
+            grammaticalNumIsolating = Math.floor(Math.random() * 16);
+        };
+    } else {
+        grammaticalNumIsolating = Math.floor(Math.random() * 16);
+    }
+
     if(grammaticalNumIsolating < 5) {
         document.getElementById("isolating-quanitifers-only").style.display = "block";
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "none";
@@ -1305,14 +1340,30 @@ function randomNumForIsolatingGrammaticalNumbers() {
         document.getElementById("isolating-quanitifers-only").style.display = "none";
         document.getElementById("isolating-quanitifers-and-classifiers-purely-numerical").style.display = "none";
         document.getElementById("quantifiers2").style.display = "block";
-        
-    }
-}
+    };
+};
 
 let randomClassifierNum = 0;
 function chooseClassifierSystem() {
     if(typologyNum === 0 && grammaticalNumIsolating >=5 && grammaticalNumIsolating < 10 ) {
-        randomClassifierNum = Math.floor(Math.random() * 4);
+        if(randomOption === false) {
+            let classifierForm = document.getElementById("classifier-form").value;
+
+            if (classifierForm === "random") {
+                randomClassifierNum = Math.floor(Math.random() * 4);
+            } else if (classifierForm === "shape-based-classifier-system") {
+                randomClassifierNum = 0;
+            } else if (classifierForm === "animacy-based-classifier-system") {
+                randomClassifierNum = 1;
+            } else if (classifierForm === "short-generic-based-classifier-system") {
+                randomClassifierNum = 2;
+            } else if (classifierForm === "long-classifier-system-system") {
+                randomClassifierNum = 3;
+            };
+        } else {
+            randomClassifierNum = Math.floor(Math.random() * 4);
+        };
+        
         if(randomClassifierNum === 0) {
             document.getElementById("classifier-text").innerHTML = `Nouns are divided into several categories based on their shape.`
             document.getElementById("shape-based-classifier-tables").style.display = "block";
@@ -2137,19 +2188,42 @@ function makeExamples(word, classifier, countOrMass, quantifier) {
 function createLongClassifiers() {
     if(typologyNum === 0) {
         if(randomClassifierNum === 3) {
-            let allClassifiers = ["protruding-top", "orginised-gathering", "small-round", "small-flat", "building", "song", "slice", "entrance", "domestic-animal", "long-non-rigid", "long-rigid",  "revolution",  "rounded-top", "smattering", "broad-flat",  "mental-sensory", "violent-action", "loving-action", "reciprocal-action", "movement",  "protrusions", "intrusions", "enclosed-space", "piercing-cutting", "percussive",  "instance", "completed-action", ];
+            let allClassifiers = ["protruding-top", "orginised-gathering", "small-round", "small-flat", "building", "song", "slice", "entrance", "domestic-animal", "long-non-rigid", "long-rigid", "broad-flat",  "mental-sensory", "violent-action", "loving-action", "reciprocal-action", "movement",  "protrusions", "intrusions", "enclosed-space", "piercing-cutting", "percussive",  "instance", "completed-action", ];
 
-            let randomNum = Math.floor(Math.random() * (allClassifiers.length - 12)) + 12;
+            if (randomOption === false) {
+                let classifierList = document.getElementById("classifier-list");
+                let children = classifierList.children;
 
-            for(let i = 0; i < randomNum; i++) {
-                let randomIndex = Math.floor(Math.random() * allClassifiers.length);
-                chosenClassifiers.push(allClassifiers[randomIndex])
-                allClassifiers.splice(randomIndex, 1)
-            }
+                for(let i = 0; i < children.length; i++) {
+                    //the resulting string, with the "-list" removed, is now identical to the function names
+                    let classifierName = children[i].id.replace("-list", "");
+                    chosenClassifiers.push(classifierName);
+                };
+            } else {
+                let randomNum = Math.floor(Math.random() * (allClassifiers.length - 12)) + 12;
+                for(let i = 0; i < randomNum; i++) {
+                    let randomIndex = Math.floor(Math.random() * allClassifiers.length);
+                    chosenClassifiers.push(allClassifiers[randomIndex])
+                    allClassifiers.splice(randomIndex, 1)
+                };
+            };
 
             /*chooses if each classifier is formatted as it's own paragraph with an h4 title, or as a new line in one large paragraph. Each if-statement below contains an if-statement to determine which is chosen based on the below random number.*/
-            let randomClassifierFormattingNum = Math.floor(Math.random() * 3);
+            let classifierFormattingNum = "";
+            if(randomOption === false) {
+                let newParagraphButton = document.getElementById("newParagraph");
+                let newLineButton = document.getElementById("newLine");
 
+                if(newParagraphButton.checked) {
+                    classifierFormattingNum = 1;
+                }
+                if(newLineButton.checked) {
+                    classifierFormattingNum = 0;
+                };
+            } else {
+               classifierFormattingNum = Math.floor(Math.random() * 2); 
+            };
+            
             /*Protruding top********************/
             if(chosenClassifiers.includes("protruding-top")) {
                 let allExamples = [];
@@ -2185,7 +2259,7 @@ function createLongClassifiers() {
                 let protrudingExamples =  listOfExamples.join(", ")
                 let description = `<strong><i>${spell(soundChange(protrudingClassifier))}</i></strong> is used for objects with a protruding top, or those that are protruding tops: ${protrudingExamples}</br>`
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let protrudingDiv = document.createElement("div");
                     protrudingDiv.classList.add("long-classifier-div");
                     protrudingDiv.setAttribute("id", "protruding-classifiers");
@@ -2207,8 +2281,6 @@ function createLongClassifiers() {
 
             /*organized gathering********************/
             if(chosenClassifiers.includes("orginised-gathering")) {
-               
-                
                 let allExamples = [];
                 allExamples.push(
                     makeExamples("army", gatheringClassifier, "count", ""),
@@ -2241,7 +2313,7 @@ function createLongClassifiers() {
                 let examples =  listOfExamples.join(", ")
                 let description = `<strong><i>${spell(soundChange(gatheringClassifier))}</i></strong> is used for orginised gatherings of people, social organizations and kinship groups. Incidental gatherings such as public crowds are not included: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                 let gatheringDiv = document.createElement("div");
                 gatheringDiv.classList.add("long-classifier-div");
                 gatheringDiv.setAttribute("id", "gathering-classifiers");
@@ -2263,8 +2335,6 @@ descriptionSpan.classList.add("indent-except-first-line");
 
             /*small round objects********************/
             if(chosenClassifiers.includes("small-round")) {
-           
-                
                 let allExamples = [];
                 allExamples.push(
                     makeExamples("grain", smallRoundClassifier, "count", ""),
@@ -2304,7 +2374,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ")
                 let description = `<strong><i>${spell(soundChange(smallRoundClassifier))}</i></strong> is used for small round objects: ${examples} <span id="small-round-bug"></span><br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("small-round-div");
                     classifierDiv.setAttribute("id", "small-round");
@@ -2385,7 +2455,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ")
                 let description = `<strong><i>${spell(soundChange(smallFlatClassifier))}</i></strong> is used for small flat objects: ${examples} <span id="small-flat-jewelry"></span><br>`;
 
-                if (randomClassifierFormattingNum === 1) {
+                if (classifierFormattingNum === 1) {
                         let smallFlatDiv = document.createElement("div");
                         smallFlatDiv.classList.add("small-flat-div");
                         smallFlatDiv.setAttribute("id", "small-flat");
@@ -2458,7 +2528,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ")
                 let description = `<strong><i>${spell(soundChange(buildingClassifier))}</i></strong> is used for buildings with explicit and singular purposes: ${examples}<br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let buildingDiv = document.createElement("div");
                     buildingDiv.classList.add("building-div");
                     buildingDiv.setAttribute("id", "building");
@@ -2503,7 +2573,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ")
                 let description = `<strong><i>${spell(soundChange(songClassifier))}</i></strong> is used for forms of verbal art: ${examples}<br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let songDiv = document.createElement("div");
                     songDiv.classList.add("song-div");
                     songDiv.setAttribute("id", "song");
@@ -2554,7 +2624,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(sliceClassifier))}</i></strong> is used for slices of things, or any flimsy and flat objects: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let sliceDiv = document.createElement("div");
                     sliceDiv.classList.add("slice-div");
                     sliceDiv.setAttribute("id", "slice");
@@ -2600,7 +2670,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = ` <strong><i>${spell(soundChange(entranceClassifier))}</i></strong> is used for entrances, and more generally, places of transition such as an entrances or a mode of transport. The classifier also applies to nouns denoting phases of transition both locative and temporal: ${examples}<br>`;
 
-                if (randomClassifierFormattingNum === 1) {
+                if (classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("entrance-div");
                     classifierDiv.setAttribute("id", "entrance");
@@ -2627,7 +2697,6 @@ descriptionSpan.classList.add("indent-except-first-line");
                 if(randomClassifierNum === 0) {
                     domesticAnimalClassifier = generatedCountNouns[countNounArray.indexOf("head")];
                 }
-                
                 
                 let allExamples = [];
                 allExamples.push(
@@ -2663,7 +2732,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(domesticAnimalClassifier))}</i></strong> is used for domestic animals<span id="domestic-animal-head">, the classifier is taken from the noun <i>${spell(soundChange(domesticAnimalClassifier))}</i> "head"</span>: ${examples}<br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("domestic-animals-div");
                     classifierDiv.setAttribute("id", "domestic-animals");
@@ -2715,7 +2784,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(longNonRigidClassifier))}</i></strong> is used for lengths of long and non-rigid objects: ${examples}<span id="long-non-rigid-aqautic"></span> <span id="long-non-rigid-road"></span><br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                 let classifierDiv = document.createElement("div");
                 classifierDiv.classList.add("long-non-rigid-div");
                 classifierDiv.setAttribute("id", "long-non-rigid");
@@ -2829,7 +2898,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(longRigidClassifier))}</i></strong> is used for lengths of long and rigid objects: ${examples}<br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("long-rigid-div");
                     classifierDiv.setAttribute("id", "long-rigid");
@@ -2876,7 +2945,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(broadClassifier))}</i></strong> is used for broad, flat and solid surfaces: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("broad-flat-div");
                     classifierDiv.setAttribute("id", "broad-flat");
@@ -2924,7 +2993,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(mentalClassifier))}</i></strong> is used for sensations, senses and mental processes: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("mental-sensory-div");
                     classifierDiv.setAttribute("id", "mental-sensory");
@@ -2972,7 +3041,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(violenceClassifier))}</i></strong> is used for acts of violence: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("violent-action-div");
                     classifierDiv.setAttribute("id", "violent-action");
@@ -3020,7 +3089,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(loveClassifier))}</i></strong> is used for acts of love: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("loving-action-div");
                     classifierDiv.setAttribute("id", "loving-action");
@@ -3067,7 +3136,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(reciprocalClassifier))}</i></strong> is used for reciprocal acts: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("reciprocal-action-div");
                     classifierDiv.setAttribute("id", "reciprocal-action");
@@ -3114,7 +3183,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(movementClassifier))}</i></strong> is used for nouns of movement, including forms of transport, and transition: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("movement-div");
                     classifierDiv.setAttribute("id", "movement");
@@ -3162,7 +3231,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(protrusionClassifier))}</i></strong> is used for protrusions from surfaces: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("protrusions-div");
                     classifierDiv.setAttribute("id", "protrusions");
@@ -3220,7 +3289,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(intrusionClassifier))}</i></strong> is used for intrusions into surfaces: ${examples}</br>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("intrusions-div");
                     classifierDiv.setAttribute("id", "intrusions");
@@ -3269,7 +3338,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(enclosedClassifier))}</i></strong> is used for enclosed spaces that a person may enter: ${examples}</br><span id="enclosed-space-trap"></span>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("enclosed-space");
                     classifierDiv.setAttribute("id", "enclosed-space");
@@ -3352,7 +3421,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(piercingClassifier))}</i></strong> is used for piercing and cutting objects: ${examples}</br><span id="piercing-cutting"></span>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("piercing-cutting");
                     classifierDiv.setAttribute("id", "piercing-cutting");
@@ -3398,7 +3467,7 @@ descriptionSpan.classList.add("indent-except-first-line");
                 let examples =  listOfExamples.join(", ");
                 let description = `<strong><i>${spell(soundChange(percussiveClassifier))}</i></strong> is used for percussive objects: ${examples}</br><span id="percussive-bow"></span><span id="percussive-bow2"></span><span id="percussive-music"></span>`;
 
-                if(randomClassifierFormattingNum === 1) {
+                if(classifierFormattingNum === 1) {
                     let classifierDiv = document.createElement("div");
                     classifierDiv.classList.add("percussive");
                     classifierDiv.setAttribute("id", "percussive");
@@ -3501,7 +3570,7 @@ descriptionSpan.classList.add("indent-except-first-line");
 
             let generalDescription = `<strong><i>${spell(soundChange(generalClassifier))}</i></strong> is used for any noun which does not fit any other category mentioned above. It may also be used with any noun, where the speaker is unsure of which specific classifier to use, either due to the noun being fairly obscure or perhaps a loanword. It is also fairly common for children to use this classifier extensively while they are still in the process of acquiring the language.`
             
-            if(randomClassifierFormattingNum === 1) {
+            if(classifierFormattingNum === 1) {
                 let generalDiv = document.createElement("div");
                 generalDiv.classList.add("long-classifier-div");
                 generalDiv.setAttribute("id", "general-classifiers");
@@ -3537,7 +3606,7 @@ function createMeasureWords() {
     }
 
     /*chooses if each classifier is formatted as it's own paragraph with an h4 title, or as a new line in one large paragraph. Each if-statement below contains an if-statement to determine which is chosen based on the below random number.*/
-    let randomClassifierFormattingNum = Math.floor(Math.random() * 3);
+    let classifierFormattingNum = Math.floor(Math.random() * 3);
 
         /*handful********************/
     if(allMeasureWords.includes("handful")) {
@@ -3567,7 +3636,7 @@ function createMeasureWords() {
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for handfuls of things: ${examples}<br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("handful-div");
             classifierDiv.setAttribute("id", "handful");
@@ -3616,7 +3685,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for bagfuls, pocketfuls, packetfuls and sackfuls of things: ${examples}<br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("bagful-div");
             classifierDiv.setAttribute("id", "bagful");
@@ -3674,7 +3743,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for vertical collections of objects: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("stack-div");
             classifierDiv.setAttribute("id", "stack");
@@ -3740,7 +3809,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for liquids, to mean "drop of", "droplet": ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("droplet-div");
             classifierDiv.setAttribute("id", "droplet");
@@ -3793,7 +3862,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ")
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is objects that often occur in pairs: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("pair-div");
             classifierDiv.setAttribute("id", "pair");
@@ -3858,7 +3927,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ")
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for cups, or glasses of, drinks or other edible non-solid substances: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("cup-div");
             classifierDiv.setAttribute("id", "cup");
@@ -3900,7 +3969,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         listOfExamples.push(` and ${chosenExamples[chosenExamples.length -1]}.`)
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for servings of food: ${examples}</br>`;
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("serving-food-div");
             classifierDiv.setAttribute("id", "serving-food");
@@ -3959,7 +4028,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for rows of things: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("row-div");
             classifierDiv.setAttribute("id", "row");
@@ -4008,7 +4077,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for bundles of things: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("bundle-div");
             classifierDiv.setAttribute("id", "bundle");
@@ -4075,7 +4144,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for barrels of, wagonfuls of, boatfuls of, shipments of, etc items packed into a mode of transport of things: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("barrel-div");
             classifierDiv.setAttribute("id", "barrel");
@@ -4135,7 +4204,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for strands of things: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("strand-div");
             classifierDiv.setAttribute("id", "strand");
@@ -4196,7 +4265,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for sets of or complete collections of a set number of items of things: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("set-div");
             classifierDiv.setAttribute("id", "set");
@@ -4258,7 +4327,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for revolutions, or turnings, of things: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("revolution-div");
             classifierDiv.setAttribute("id", "revolution");
@@ -4319,7 +4388,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for gusts and outbursts of things: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("gust-div");
             classifierDiv.setAttribute("id", "gust");
@@ -4382,7 +4451,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for pourings of liquids, usually servings of drinks: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("pouring-div");
             classifierDiv.setAttribute("id", "pouring");
@@ -4428,7 +4497,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for chunks or clumps of things, or more generally an irregularly shaped breaking off from a larger mass: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("chunk-div");
             classifierDiv.setAttribute("id", "chunk");
@@ -4474,7 +4543,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for shovelfuls of material: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("shovelful-div");
             classifierDiv.setAttribute("id", "shovelful");
@@ -4520,7 +4589,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for netfuls of aquatic animals: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("netful-div");
             classifierDiv.setAttribute("id", "netful");
@@ -4567,7 +4636,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for collections of things in fields: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("cluster-div");
             classifierDiv.setAttribute("id", "cluster");
@@ -4616,7 +4685,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for spaced out groups of solid objects: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("fieldful-div");
             classifierDiv.setAttribute("id", "fieldful");
@@ -4667,7 +4736,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for spoonfuls of substances: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("spoonful-div");
             classifierDiv.setAttribute("id", "spoonful");
@@ -4714,7 +4783,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for strips of materials: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("strip-div");
             classifierDiv.setAttribute("id", "strip");
@@ -4761,7 +4830,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for smatterings or splatterings of loosely grouped together collection of irregularly shaped objects, mostly liquids: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("splatter-div");
             classifierDiv.setAttribute("id", "splatter");
@@ -4809,7 +4878,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for sticks of degradable materials: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("degradable-div");
             classifierDiv.setAttribute("id", "degradable");
@@ -4856,7 +4925,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for rools or sheets of wrappable materials: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("roll-div");
             classifierDiv.setAttribute("id", "roll");
@@ -4904,7 +4973,7 @@ descriptionSpan.classList.add("indent-except-first-line");
         let examples =  listOfExamples.join(", ");
         let description = `<strong><i>${spell(soundChange(classifier))}</i></strong> is used for cuttings or shavings of materials. It may also be used for outpours or outbursts of droplets or particles: ${examples}</br>`;
 
-        if(randomClassifierFormattingNum === 1) {
+        if(classifierFormattingNum === 1) {
             let classifierDiv = document.createElement("div");
             classifierDiv.classList.add("cutting-div");
             classifierDiv.setAttribute("id", "cutting");
@@ -7745,6 +7814,7 @@ function generateLanguage() {
         randomNumMarkedSingular();
         chooseIfMarkedNominative();
         chooseIfMarkedSingular();
+        selectGender();
         randomNumForNounGender();
         randomNumForIsolatingGrammaticalNumbers();
         checkIfHeadInitialOrHeadFinal();

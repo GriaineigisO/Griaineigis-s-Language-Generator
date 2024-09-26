@@ -121,9 +121,10 @@
                 <option value="insertIBetweenConsonantAndResonant-list"  onclick="addSoundChange(this.value, this.innerHTML)">/i/ Is Inserted Between A Resonant And Consonant</option>
                 <option value="nasalsCantAppearAfterConsonants-list"  onclick="addSoundChange(this.value, this.innerHTML)">/i/ Is Inserted Between A Consonant And A Nasal</option>
                 <option value="intialVBecomesHV-list"  onclick="addSoundChange(this.value, this.innerHTML)">Epenthesis Of /ħ/ Before Word Initial Vowels</option>
+                <option value="epentheticA-list"  onclick="addSoundChange(this.value, this.innerHTML)">/CRC/ Becomes /CaRC/</option>
               </optgroup>
 
-              <optgroup label="Metaphesis">
+              <optgroup label="Metathesis">
                   <option value="consonantResonantMetathesis-list"  onclick="addSoundChange(this.value, this.innerHTML)">Pre-Consonantal Resonants Become Post-Consonantal</option>
                   <option value="RVCToVRCMetathesis-list"  onclick="addSoundChange(this.value, this.innerHTML)">Word Initial RVC Sequences Become VRC</option>
                   <option value="CVRBecomesCCVR-list"  onclick="addSoundChange(this.value, this.innerHTML)">Metathesis and Gemination of VCRV sequences</option>
@@ -134,6 +135,8 @@
                     <option value="lenitionofPlosivebeforeOtherPlosive2-list"  onclick="addSoundChange(this.value, this.innerHTML)">Plosives Lenite When They Occur Before Other Plosives (Variant 2)</option>
                     <option value="intervocalicVoicing-list"  onclick="addSoundChange(this.value, this.innerHTML)">Intervocalic Consonants Become Voiced</option>
                      <option value="tDBecomeL-list"  onclick="addSoundChange(this.value, this.innerHTML)">Intervocalic Alveolar Plosives Become /l/</option>
+                    <option value="pBecomesU-list"  onclick="addSoundChange(this.value, this.innerHTML)">/p/ Becomes /u/ After A Back Vowel And Before A Nasal</option>
+                    <option value="pBecomesF-list"  onclick="addSoundChange(this.value, this.innerHTML)">/p/ Lenites To /f</option>
               </optgroup>
 
               <optgroup label="Fortition">
@@ -148,6 +151,10 @@
                   <option value="CJBecomesCC-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Cj/ Sequences Become /Cː /</option>
                   <option value="VvBecomesVV-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Vu/ Sequences Collapse Into Long Vowels</option>
                   <option value="iUmlaut-list"  onclick="addSoundChange(this.value, this.innerHTML)">Vowels Raise And Front When The Next Syllable Has /i/ Or /j/</option>
+                  <option value="eRaBecomesARa-list"  onclick="addSoundChange(this.value, this.innerHTML)">/eRa/ Becomes /aRa/</option>
+                  <option value="pKWBecomesKwKw-list"  onclick="addSoundChange(this.value, this.innerHTML)">/p...k/ʷ > /kʷ...kʷ/</option>
+                  <option value="pBecomesBBeforeResonants-list"  onclick="addSoundChange(this.value, this.innerHTML)">/p/ Voices Before Resonants</option>
+                   <option value="eWBecomesOW-list"  onclick="addSoundChange(this.value, this.innerHTML)">/ew/ Becomes /ow/</option>
             </optgroup>
               </optgroup>
 
@@ -157,18 +164,30 @@
 
               <optgroup label="Merger">
                 <option value="nonInitialNonHighVowelsBecomeA-list"  onclick="addSoundChange(this.value, this.innerHTML)">All Non-high Vowels Merge With /a/ When Not In The First Syllable Of A Word</option>
+                <option value="palatalsBecomeVelar-list"  onclick="addSoundChange(this.value, this.innerHTML)">Palatals Become Velars</option>
+                <option value="CCBecomesXC-list"  onclick="addSoundChange(this.value, this.innerHTML)">Consonant Become /x/ Before A Plosive Or /s/</option>
+                <option value="velarsDelabialise-list"  onclick="addSoundChange(this.value, this.innerHTML)">Labialised Velar Plosives Lose Their Labialisation</option>
+                <option value="lossOfAspiration-list"  onclick="addSoundChange(this.value, this.innerHTML)">Aspirated Consonants Lose Aspiration</option>
               </optgroup>
 
             <optgroup label="Raising">
               <option value="auBecomesOu-list"  onclick="addSoundChange(this.value, this.innerHTML)">/au/ Becomes /ou/</option>
               <option value="eNBecomesiN-list"  onclick="addSoundChange(this.value, this.innerHTML)">/e/ Becomes /i/ Before Nasals</option>
               <option value="longABecomesO-list"  onclick="addSoundChange(this.value, this.innerHTML)">The Long Vowel /aː / Vecomes /oː /</option>
+              <option value="vowelsHeightenBeforeVelars-list"  onclick="addSoundChange(this.value, this.innerHTML)">Non-High Vowels Raise And High Vowels Lengthen Before Velars</option>
+              <option value="longEBecomesLongI-list"  onclick="addSoundChange(this.value, this.innerHTML)">/eː / Becomes /iː /</option>
+              <option value="wordFinalLongOBecomesLongU-list"  onclick="addSoundChange(this.value, this.innerHTML)">Word Final /oː / Becomes /uː /</option>
             </optgroup>
 
             <optgroup label="Lowering">
               <option value="wordFinalHighVowelsLower-list"  onclick="addSoundChange(this.value, this.innerHTML)">High Vowels Lower To Become Mid Vowels When Word Final</option>
               <option value="uNBecomesoN-list"  onclick="addSoundChange(this.value, this.innerHTML)">/u/ Becomes /o/ before Nasals Followed By Non-High Vowels</option>
               <option value="iCbecomeseC-list"  onclick="addSoundChange(this.value, this.innerHTML)">/i/ Lowers To /e/ Before Post-Consonantal Non-High Vowels</option>
+              <option value="longOBecomesA-list"  onclick="addSoundChange(this.value, this.innerHTML)">/oː / Becomes /aː /</option>
+            </optgroup>
+
+            <optgroup label="Rounding">
+               <option value="eWBecomesOW-list"  onclick="addSoundChange(this.value, this.innerHTML)">/ew/ Becomes /ow/</option>
             </optgroup>
 
             <optgroup label="Debuccalisation">
@@ -181,12 +200,25 @@
              <option value="CJBecomesCC-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Cj/ Sequences Become /Cː /</option>
             </optgroup>
 
+            <optgroup label="Shortening">
+              <option value="longVowelsShortenBeforeRC-list"  onclick="addSoundChange(this.value, this.innerHTML)">Long Vowels Shorten Before A Resonant Followed By A Consonant</option>
+            </optgroup>
+
              <optgroup label="Fusion">
-              <option value="VJbecomesLongI-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Vj Becomes Long /iː /</option>
+              <option value="VJbecomesLongI-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Vj/ Becomes Long /iː /</option>
               <option value="VvBecomesVV-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Vu/ Sequences Collapse Into Long Vowels</option>
               <option value="CJBecomesCC-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Cj/ Sequences Become /Cː /</option>
+              <option value="gwbecomesB-list"  onclick="addSoundChange(this.value, this.innerHTML)">/gʷ/ Becomes /b/</option>
             </optgroup>
-             
+
+            <optgroup label="Unpacking">
+              <option value="longVowelsBreakIntoVi-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Vː / becomes /Vi/</option>
+              <option value="longVowelsBreakIntoU-list"  onclick="addSoundChange(this.value, this.innerHTML)">/Vː / becomes /Vu/</option>
+              <option value="longVowelsBreakIntoIPlusRaising-list"  onclick="addSoundChange(this.value, this.innerHTML)">Long Vowels Raise And Break Into Short Vowels Followed By /i/ </option>
+              <option value="longVowelsBreakIntoUPlusRaising-list"  onclick="addSoundChange(this.value, this.innerHTML)">Long Vowels Raise And Break Into Short Vowels Followed By /u/ </option>
+              <option value="longVowelsBreakIntoVj-list"  onclick="addSoundChange(this.value, this.innerHTML)">Long Vowels Raise And Break Into Short Vowels preceded By /j/ </option>
+              <option value="longVowelsBreakIntojVwV-list"  onclick="addSoundChange(this.value, this.innerHTML)">Long Front Vowels break Into /jV/ Sequences, All Other Vowels Break Into /wV/</option>
+              <option value="longUBecomesOU-list"  onclick="addSoundChange(this.value, this.innerHTML)">/uː / Becomes /ou/ Before PlosiveS And Fricatives</option>
             </optgroup>
 
              <optgroup label="Palatalization">
@@ -205,7 +237,6 @@
 
             <optgroup label="Vowel Shifts">
               <option value="vowelShiftInHeavySyllables-list"  onclick="addSoundChange(this.value, this.innerHTML)">Vowels Become Lax in Heavy Syllables</option>
-             
             </optgroup>
             </select> 
 
@@ -235,11 +266,113 @@
           <div class="radio-section">
             <label for="typology-form">Choose typology:</label>
             <select id="typology-form" name="typology-form">
-              <option value="random">Random</option>
-              <option value="isolating">Isolating</option>
-              <option value="agglutinative">Agglutinative</option>
-              <option value="fusional">Fusional</option>
+              <option value="random" selected onclick="hideGenderForm(this.value)">Random</option>
+              <option value="isolating" onclick="hideGenderForm(this.value)">Isolating</option>
+              <option value="agglutinative" onclick="hideGenderForm(this.value)">Agglutinative</option>
+              <option value="fusional" onclick="hideGenderForm(this.value)">Fusional</option>
             </select> 
+          </div>
+
+          <!--Choose Noun Gender (does not appear for isolating languages)-->
+          <div class="radio-section" id="gender-form-div">
+            <label for="gender-form">Choose Noun Gender:</label>
+            <select id="gender-form" name="gender-form">
+              <option value="none">None</option>
+              <option value="random" selected>Random</option>
+              <option value="anim-inan-system">Animate/Inanimate</option>
+              <option value="masc-fem-system">Masculine/Feminine</option>
+              <option value="masc-fem-neut-system">Masculine/Feminine/Neuter</option>
+              <option value="human-anim-inan-system">Human/Animal/Inanimate</option>
+              <option value="divine-profane-system">Divine/Profane</option>
+              <option value="active-passive-system">Active/Passive</option>
+              <option value="nat-art-system">Natural/Artificial</option>
+            </select> 
+          </div>
+
+          <!--Choose Isolating Number System (only appears for isolating languages)-->
+          <div class="radio-section" id="isolating-number-form-div">
+            <label for="isolating-number-form">Choose Grammatical Number:</label>
+            <select id="isolating-number-form" name="isolating-number-form">
+              <option value="random" selected onclick="hideClassifierForm(this.value)">Random</option>
+              <option value="isolating-quanitifers-only-system" onclick="hideClassifierForm(this.value)">Quantifiers Only</option>
+              <option value="isolating-quanitifers-and-classifiers-purely-numerical-system" onclick="hideClassifierForm(this.value)">Quantifiers and Classifiers</option>
+              <option value="isolating-sg-pl-system" onclick="hideClassifierForm(this.value)">Singular/Plural</option>
+            </select> 
+          </div>
+
+          <!--Choose Classifier System (only appears for isolating languages)-->
+          <div class="radio-section" id="classifier-form-div">
+            <label for="classifier-form">Choose Classifier System:</label>
+            <select id="classifier-form" name="classifier-form">
+              <option value="random" selected onclick="hideChooseLongClassifiers(this.value)">Random</option>
+              <option value="shape-based-classifier-system" onclick="hideChooseLongClassifiers(this.value)">Shape Based</option>
+              <option value="animacy-based-classifier-system" onclick="hideChooseLongClassifiers(this.value)">Animacy Based</option>
+              <option value="short-generic-based-classifier-system" onclick="hideChooseLongClassifiers(this.value)">HumanTree/Grass/Flower/Land Animal/Water Animal/Flying Animal/Word/Tool/Natural Inanimate/Liquid</option>
+              <option value="long-classifier-system-system" onclick="hideChooseLongClassifiers(this.value)">Custom Classifier System</option>
+            </select> 
+
+          </div>
+
+          <!--Choose Classifiers from Long classifier system (only appears for isolating languages)-->
+          <div class="radio-section" id="long-classifier-form-div">
+            <label for="long-classifier-form">Choose Classifiers For:</label>
+            <select id="long-classifier-form" name="long-classifier-form">
+              <option onclick="clearAllClassifiers()" selected>Clear All</option>
+              <option value="protruding-top-list" onclick="addClassifier(this.value, this.innerHTML)">Objects With A Protruding Top</option>
+              
+              <option value="orginised-gathering-list" onclick="addClassifier(this.value, this.innerHTML)">Orginised Gatherings</option>
+
+              <option value="small-round-list" onclick="addClassifier(this.value, this.innerHTML)">Small Round Objects</option>
+
+              <option value="small-flat-list" onclick="addClassifier(this.value, this.innerHTML)">Small Flat Objects</option>
+
+              <option value="building-list" onclick="addClassifier(this.value, this.innerHTML)">Buildings</option>
+
+              <option value="song-list" onclick="addClassifier(this.value, this.innerHTML)">Verbal Art</option>
+
+              <option value="slice-list" onclick="addClassifier(this.value, this.innerHTML)">Slices, Flat Flimsy Objects</option>
+
+              <option value="entrance-list" onclick="addClassifier(this.value, this.innerHTML)">Entrances, Transition</option>
+
+              <option value="domestic-animal-list" onclick="addClassifier(this.value, this.innerHTML)">Domestic Animals</option>
+
+              <option value="long-non-rigid-list" onclick="addClassifier(this.value, this.innerHTML)">Long Non-Rigid Objects</option>
+
+              <option value="long-rigid-list" onclick="addClassifier(this.value, this.innerHTML)">Long Rigid Objects</option>
+
+              <option value="broad-flat-list" onclick="addClassifier(this.value, this.innerHTML)">Objects With A Broad Flat Surface</option>
+
+              <option value="mental-sensory-list" onclick="addClassifier(this.value, this.innerHTML)">Sensations, Thoughts</option>
+
+              <option value="violent-action-list" onclick="addClassifier(this.value, this.innerHTML)">Acts Of Violence</option>
+
+              <option value="loving-action-list" onclick="addClassifier(this.value, this.innerHTML)">Acts Of Love</option>
+
+              <option value="reciprocal-action-list" onclick="addClassifier(this.value, this.innerHTML)">Reciprocal Actions</option>
+
+              <option value="movement-list" onclick="addClassifier(this.value, this.innerHTML)">Movements</option>
+
+              <option value="protrusions-list" onclick="addClassifier(this.value, this.innerHTML)">Protrusions</option>
+
+              <option value="intrusions-list" onclick="addClassifier(this.value, this.innerHTML)">Intrusions</option>
+
+              <option value="enclosed-space-list" onclick="addClassifier(this.value, this.innerHTML)">Enclosed Spaces</option>
+
+              <option value="piercing-cutting-list" onclick="addClassifier(this.value, this.innerHTML)">Piercing/Cutting Objects</option>
+
+              <option value="percussive-list" onclick="addClassifier(this.value, this.innerHTML)">Percussive Objects</option>
+            </select> 
+
+            <ol id="classifier-list"></ol>
+
+              <div>
+                <p>In the grammar document, each classifier shall be formatted as:</p>
+                <input type="radio" id="newParagraph" name="newLineOrParagraph" value="newParagraph" autocomplete="off">
+                <label for="randomisedSoundChange">it's own paragraph with it's own title</label><br>
+
+                <input type="radio" id="newLine" name="newLineOrParagraph" value="newLine" autocomplete="off">
+                <label for="newLine">a new line in one large paragraph</label><br>
+            </div>
           </div>
 
           <!--Choose word order-->
@@ -3979,6 +4112,56 @@
         ).element;
     };
 
+     //dropdown menu for noun genders only shows when the typology is fusional or agglutinative
+    function hideGenderForm(value) {
+      if(value === "agglutinative" || value === "fusional") {
+        document.getElementById("gender-form-div").style.display = "block";
+        document.getElementById("isolating-number-form-div").style.display = "none";
+      } else if (value === "isolating") {
+        document.getElementById("isolating-number-form-div").style.display = "block";
+        document.getElementById("gender-form-div").style.display = "none";
+      } else if (value === "random") {
+        document.getElementById("gender-form-div").style.display = "none";
+      };
+    };
+
+    function hideClassifierForm(value) {
+      if(value === "isolating-quanitifers-and-classifiers-purely-numerical-system") {
+        document.getElementById("classifier-form-div").style.display = "block";
+      } else {
+        document.getElementById("classifier-form-div").style.display = "none";
+      }
+    };
+
+    function hideChooseLongClassifiers(value) {
+      if(value === "long-classifier-system-system") {
+        document.getElementById("long-classifier-form-div").style.display = "block";
+      } else {
+        document.getElementById("long-classifier-form-div").style.display = "none";
+      }
+    };
+
+    let longClassifierMenu = document.getElementById("classifier-form").value;
+    let classifierList = document.getElementById("classifier-list");
+
+    function clearAllClassifiers() {
+        classifierList.replaceChildren();
+    };
+
+    //when a classifier is selected on the drop down menu, it is added to a list
+    function addClassifier(value, text) {
+        let newLi = document.createElement("li");
+        newLi.setAttribute("draggable", "true");
+        newLi.setAttribute("id", value);
+        newLi.setAttribute("class", "classifierList");
+        newLi.innerHTML = text;
+        classifierList.appendChild(newLi);
+
+        //removed item when doubleclicked
+        newLi.addEventListener("dblclick", () => {
+          newLi.remove();
+        })
+    };
      
     </script>
 

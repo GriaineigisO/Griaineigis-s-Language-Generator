@@ -209,7 +209,12 @@ let timesVzbecomesVr = 0;
 let timesintialVBecomesHV = 0;
 let timesintialJBecomesL = 0;
 let timestDBecomeL = 0;
-let timeslongVowelsBreak = 0;
+let timeslongVowelsBreakIntoVi = 0;
+let timeslongVowelsBreakIntoU = 0;
+let timeslongVowelsBreakIntoIPlusRaising = 0;
+let timeslongVowelsBreakIntoUPlusRaising = 0;
+let timeslongVowelsBreakIntoVj = 0;
+let timeslongVowelsBreakIntojVwV = 0;
 let timesvowelsHeightenBeforeVelars = 0;
 let timespalatalsBecomeVelar = 0;
 let timesgwbecomesB = 0;
@@ -239,17 +244,20 @@ let randomSoundChangeOption = "";
 let checkIfSoundChangeOptionChecked = "";
 
 function randomiseSoundChange() {
-    soundChangeMenu.style.display = "none";
-    randomSoundChangeOption = true;
-    checkIfSoundChangeOptionChecked = "checked";
-    document.getElementById("sound-change-warning").style.display = "none";
+    if(randomisedSoundChangeButton.checked) {
+        soundChangeMenu.style.display = "none";
+        randomSoundChangeOption = true;
+        checkIfSoundChangeOptionChecked = "checked";
+        document.getElementById("sound-change-warning").style.display = "none";
+    };
 };
-
 function customiseSoundChange() {
-    soundChangeMenu.style.display = "block";
-    randomSoundChangeOption = false;
-    checkIfSoundChangeOptionChecked = "checked";
-    document.getElementById("sound-change-warning").style.display = "none";
+    if(customisedSoundChangeButton.checked) {
+        soundChangeMenu.style.display = "block";
+        randomSoundChangeOption = false;
+        checkIfSoundChangeOptionChecked = "checked";
+        document.getElementById("sound-change-warning").style.display = "none";
+    };
 };
 randomisedSoundChangeButton.addEventListener("click", randomiseSoundChange);
 customisedSoundChangeButton.addEventListener("click", customiseSoundChange);
@@ -300,7 +308,12 @@ function clearPreviousOutput() {
     timesintialVBecomesHV = 0;
     timesintialJBecomesL = 0;
     timestDBecomeL = 0;
-    timeslongVowelsBreak = 0;
+    timeslongVowelsBreakIntoVi = 0;
+    timeslongVowelsBreakIntoU = 0;
+    timeslongVowelsBreakIntoIPlusRaising = 0;
+    timeslongVowelsBreakIntoUPlusRaising = 0;
+    timeslongVowelsBreakIntoVj = 0;
+    timeslongVowelsBreakIntojVwV = 0;
     timesvowelsHeightenBeforeVelars = 0;
     timespalatalsBecomeVelar = 0;
     timesgwbecomesB = 0;
@@ -320,6 +333,8 @@ function clearPreviousOutput() {
     timesvelarsDelabialise = 0;
     timeslossOfAspiration = 0;
 };
+
+//all possible sound changes are called in this array
 let potentialSoundChanges = [
             plosivesCantClusterTogetherWordInitially,
             wordFinalDevoicing,
@@ -365,7 +380,12 @@ let potentialSoundChanges = [
             intialVBecomesHV,
             intialJBecomesL,
             tDBecomeL,
-            longVowelsBreak,
+            longVowelsBreakIntoVi,
+            longVowelsBreakIntoU,
+            longVowelsBreakIntoIPlusRaising,
+            longVowelsBreakIntoUPlusRaising,
+            longVowelsBreakIntoVj,
+            longVowelsBreakIntojVwV,
             vowelsHeightenBeforeVelars,
             palatalsBecomeVelar,
             gwbecomesB,
@@ -386,7 +406,9 @@ let potentialSoundChanges = [
             velarsDelabialise,
             lossOfAspiration
         ];
+
 let chosenSoundChanges = [];
+
 //if custom sound changes were selected, then the chosenSoundChanges array is populated with those options
 function useChosenSoundChanges() {
     if (randomSoundChangeOption === false) {
@@ -409,14 +431,13 @@ function useChosenSoundChanges() {
         };
     };
 };
+let generateLanguageButton = document.getElementById("generate-language");
+generateLanguageButton.addEventListener("click", useChosenSoundChanges);
 
 function countAmountOfSoundChanges() {
     document.getElementById("sound-change-number").innerHTML = potentialSoundChanges.length;
 };
 customisedSoundChangeButton.addEventListener("click", countAmountOfSoundChanges);
-
-let generateLanguageButton = document.getElementById("generate-language");
-generateLanguageButton.addEventListener("click", useChosenSoundChanges);
 
 function checkIfWordFinalConsonantsArePossible() {
     for(let i = 0; i < syllablestructuresThatHaveWordFinalConsonants.length; i++) {
@@ -434,10 +455,7 @@ let wordArray = [];
 let wordFinalDevoicingTrueOrFalse = "";
 let randomNumForWordInitialPlosiveClusters = "";
 let randomNumForWordInitialNasalClusters = "";
-let randomNumForlenitionofPlosivebeforeOtherPlosive1 = "";
-let randomNumForlenitionofPlosivebeforeOtherPlosive2 = "";
 let randomNumForNoFricativesAsLatterElementOfInitialClusters = ""
-let randomNumForLongVowelsBreak = 0;
 
 
 //Some sound changes won't be considered as part of an explicitly listed phonotactic, but still apply to stop the output consisting of rare features. For example, the output kept giving words with complex clusters of plosives word initially, which is plausible, but it did it far too much to be natural. In these cases, I intentionally stunt these results by making sound changes to undo them and give these sound changes a very high chance of occuring. So the unusual results can still happen but will be much rarer and thus more natural. These changes will be governed by their own random numbers instead of being chosen based on whether they made it to the chosenSoundChanges array.
@@ -463,11 +481,8 @@ function selectSoundChanges() {
         };
         
         //console.log(chosenSoundChanges)
-
-        randomNumForWordInitialPlosiveClusters = Math.floor(Math.random() * 50);
         randomNumForWordInitialNasalClusters = Math.floor(Math.random() * 30);
         randomNumForNoFricativesAsLatterElementOfInitialClusters = Math.floor(Math.random() * 50);
-        randomNumForLongVowelsBreak = Math.floor(Math.random() * 6)
 
         for(let i = 0; i < chosenSoundChanges.length; i++) {
             if(chosenSoundChanges[i] === wordFinalDevoicing) {
@@ -967,7 +982,7 @@ function selectSoundChanges() {
                 let li= document.createElement("li");
                 li.setAttribute("id", "CJBecomesCC-li")
                 li.style.fontWeight = "bold";
-                li.innerHTML = `Consononants Lengthen Before /j/`;
+                li.innerHTML = `Consonants Lengthen Before /j/`;
                 let nestUl = document.createElement("ul");
                 nestUl.setAttribute("id", "CJBecomesCC-ul");
                 let nestLi = document.createElement("li");
@@ -1163,83 +1178,104 @@ function selectSoundChanges() {
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
             };
-            if(chosenSoundChanges[i] === longVowelsBreak) {
+            if(chosenSoundChanges[i] === longVowelsBreakIntoVi) {
                 let li= document.createElement("li");
-                li.setAttribute("id", "longVowelsBreak-li")
+                li.setAttribute("id", "longVowelsBreakIntoVi-li")
                 li.style.fontWeight = "bold";
-                if(randomNumForLongVowelsBreak === 0) {
-                    li.innerHTML = `Long Vowels Break`;
-                    let nestUl = document.createElement("ul");
-                    nestUl.setAttribute("id", "longVowelsBreak-ul");
-                    let nestLi = document.createElement("li");
-                    nestLi.style.listStyleType = "none";
-                    nestLi.innerHTML = `Long vowels break into short vowels followed by /i/. The long vowel /iː/ is not affected: <div class="sound-change-example" id="longVowelsBreak"></div>`
-                    document.getElementById("sound-change-explanation").appendChild(li);
-                    document.getElementById("sound-change-explanation").appendChild(nestUl);
-                    nestUl.appendChild(nestLi);
-                } else if (randomNumForLongVowelsBreak === 1) {
-                    li.innerHTML = `Long Vowels Break`;
-                    let nestUl = document.createElement("ul");
-                    nestUl.setAttribute("id", "longVowelsBreak-ul");
-                    let nestLi = document.createElement("li");
-                    nestLi.style.listStyleType = "none";
-                    nestLi.innerHTML = `Long vowels break into short vowels followed by /u/. The long vowel /uː/ is not affected: <div class="sound-change-example" id="longVowelsBreak"></div>`
-                    document.getElementById("sound-change-explanation").appendChild(li);
-                    document.getElementById("sound-change-explanation").appendChild(nestUl);
-                    nestUl.appendChild(nestLi);
-                } else if (randomNumForLongVowelsBreak === 2) {
-                    li.innerHTML = `Long Vowels Break`;
-                    let nestUl = document.createElement("ul");
-                    nestUl.setAttribute("id", "longVowelsBreak-ul");
-                    let nestLi = document.createElement("li");
-                    nestLi.style.listStyleType = "none";
-                    nestLi.innerHTML = `Long vowels break into short vowels followed by /i/, the short vowel then heightens. The long vowel /iː/ is not affected, other high vowels break into /Vi/ but don't heighten any further: <div class="sound-change-example" id="longVowelsBreak"></div>`;
-                    let ul = document.createElement("ul");
-                    ul.setAttribute("id", "longVowelsBreak-list");
-                    let examples = document.createElement("span");
-                    examples.innerHTML = `<div class="sound-change-example" id="longVowelsBreak"></div>`
-                    document.getElementById("sound-change-explanation").appendChild(li);
-                    document.getElementById("sound-change-explanation").appendChild(nestUl);
-                    nestUl.appendChild(nestLi);
-                    nestUl.appendChild(ul);
-                    nestUl.appendChild(examples);
-                } else if (randomNumForLongVowelsBreak === 3) {
-                    li.innerHTML = `Long Vowels Break`;
-                    let nestUl = document.createElement("ul");
-                    nestUl.setAttribute("id", "longVowelsBreak-ul");
-                    let nestLi = document.createElement("li");
-                    nestLi.style.listStyleType = "none";
-                    nestLi.innerHTML = `Long vowels break into short vowels followed by /u/, the short vowel then heightens. The long vowel /uː/ is not affected, other high vowels break into /Vu/ but don't heighten any further: <div class="sound-change-example" id="longVowelsBreak"></div>`;
-                    let ul = document.createElement("ul");
-                    ul.setAttribute("id", "longVowelsBreak-list");
-                    let examples = document.createElement("span");
-                    examples.innerHTML = `<div class="sound-change-example" id="longVowelsBreak"></div>`
-                    document.getElementById("sound-change-explanation").appendChild(li);
-                    document.getElementById("sound-change-explanation").appendChild(nestUl);
-                    nestUl.appendChild(nestLi);
-                    nestUl.appendChild(ul);
-                    nestUl.appendChild(examples);
-                } else if (randomNumForLongVowelsBreak === 4) {
-                    li.innerHTML = `Long Vowels Break`;
-                    let nestUl = document.createElement("ul");
-                    nestUl.setAttribute("id", "longVowelsBreak-ul");
-                    let nestLi = document.createElement("li");
-                    nestLi.style.listStyleType = "none";
-                    nestLi.innerHTML = `Long vowels break into short vowels preceded by /j/: <div class="sound-change-example" id="longVowelsBreak"></div>`
-                    document.getElementById("sound-change-explanation").appendChild(li);
-                    document.getElementById("sound-change-explanation").appendChild(nestUl);
-                    nestUl.appendChild(nestLi);
-                } else if (randomNumForLongVowelsBreak === 5) {
-                    li.innerHTML = `Long Vowels Break`;
-                    let nestUl = document.createElement("ul");
-                    nestUl.setAttribute("id", "longVowelsBreak-ul");
-                    let nestLi = document.createElement("li");
-                    nestLi.style.listStyleType = "none";
-                    nestLi.innerHTML = `Long front vowels break into /jV/ sequences, all other vowels break into /wV/ sequences: <div class="sound-change-example" id="longVowelsBreak"></div>`
-                    document.getElementById("sound-change-explanation").appendChild(li);
-                    document.getElementById("sound-change-explanation").appendChild(nestUl);
-                    nestUl.appendChild(nestLi);
-                };
+                li.innerHTML = `Long Vowels Break`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longVowelsBreakIntoVi-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Long vowels break into short vowels followed by /i/. The long vowel /iː/ is not affected: <div class="sound-change-example" id="longVowelsBreakIntoVi"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+                
+            };
+            if(chosenSoundChanges[i] === longVowelsBreakIntoU) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longVowelsBreakIntoU-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Long Vowels Break`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longVowelsBreakIntoU-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Long vowels break into short vowels followed by /u/. The long vowel /uː/ is not affected: <div class="sound-change-example" id="longVowelsBreakIntoU"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+               
+            };
+            if(chosenSoundChanges[i] === longVowelsBreakIntoIPlusRaising) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longVowelsBreakIntoIPlusRaising-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Long Vowels Break`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longVowelsBreakIntoIPlusRaising-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Long vowels break into short vowels followed by /i/, the short vowel then heightens. The long vowel /iː/ is not affected, other high vowels break into /Vi/ but don't heighten any further: <div class="sound-change-example" id="longVowelsBreakIntoIPlusRaising"></div>`;
+                let ul = document.createElement("ul");
+                ul.setAttribute("id", "longVowelsBreakIntoIPlusRaisingExample-list");
+                let examples = document.createElement("span");
+                examples.innerHTML = `<div class="sound-change-example" id="longVowelsBreakIntoIPlusRaising"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+                nestUl.appendChild(ul);
+                nestUl.appendChild(examples);
+            };
+            if(chosenSoundChanges[i] === longVowelsBreakIntoUPlusRaising) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longVowelsBreakIntoUPlusRaising-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Long Vowels Break`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longVowelsBreakIntoUPlusRaising-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Long vowels break into short vowels followed by /u/, the short vowel then heightens. The long vowel /uː/ is not affected, other high vowels break into /Vu/ but don't heighten any further: <div class="sound-change-example" id="longVowelsBreakIntoUPlusRaising"></div>`;
+                let ul = document.createElement("ul");
+                ul.setAttribute("id", "longVowelsBreakIntoUPlusRaisingExample-list");
+                let examples = document.createElement("span");
+                examples.innerHTML = `<div class="sound-change-example" id="longVowelsBreakIntoUPlusRaising"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+                nestUl.appendChild(ul);
+                nestUl.appendChild(examples);
+            };
+            if(chosenSoundChanges[i] === longVowelsBreakIntoVj) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longVowelsBreakIntoVj-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Long Vowels Break`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longVowelsBreakIntoVj-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Long vowels break into short vowels preceded by /j/: <div class="sound-change-example" id="longVowelsBreakIntoVj"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+            };
+            if(chosenSoundChanges[i] === longVowelsBreakIntojVwV) {
+                let li= document.createElement("li");
+                li.setAttribute("id", "longVowelsBreakIntojVwV-li")
+                li.style.fontWeight = "bold";
+                li.innerHTML = `Long Vowels Break`;
+                let nestUl = document.createElement("ul");
+                nestUl.setAttribute("id", "longVowelsBreakIntojVwV-ul");
+                let nestLi = document.createElement("li");
+                nestLi.style.listStyleType = "none";
+                nestLi.innerHTML = `Long front vowels break into /jV/ sequences, all other vowels break into /wV/ sequences: <div class="sound-change-example" id="longVowelsBreakIntojVwV"></div>`
+                document.getElementById("sound-change-explanation").appendChild(li);
+                document.getElementById("sound-change-explanation").appendChild(nestUl);
+                nestUl.appendChild(nestLi);
+                
             };
             if(chosenSoundChanges[i] === vowelsHeightenBeforeVelars) {
                 let li= document.createElement("li");
@@ -1252,7 +1288,7 @@ function selectSoundChanges() {
                 nestLi.style.listStyleType = "none";
                 nestLi.innerHTML = `Non-high vowels raise, and high vowels lengthen, when they occur before velar consonants:`;
                 let ul = document.createElement("ul");
-                ul.setAttribute("id", "vowelsHeightenBeforeVelars-list");
+                ul.setAttribute("id", "vowelsHeightenBeforeVelarsExample-list");
                 let examples = document.createElement("span");
                 examples.innerHTML = `<div class="sound-change-example" id="vowelsHeightenBeforeVelars"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
@@ -1438,7 +1474,7 @@ function selectSoundChanges() {
                 nestUl.setAttribute("id", "longOBecomesA-ul");
                 let nestLi = document.createElement("li");
                 nestLi.style.listStyleType = "none";
-                nestLi.innerHTML = `The long vowel /oː/: <div class="sound-change-example" id="longOBecomesA"></div>`
+                nestLi.innerHTML = `The long vowel /oː/ lowers to /aː/: <div class="sound-change-example" id="longOBecomesA"></div>`
                 document.getElementById("sound-change-explanation").appendChild(li);
                 document.getElementById("sound-change-explanation").appendChild(nestUl);
                 nestUl.appendChild(nestLi);
@@ -2321,9 +2357,9 @@ function iUmlaut(wordArray) {
     let umlautVowels = ["i", "y", "y", "i", "i", "y", "i", "ø", "e", "ø", "e", "e", "e", "ø", "i", "œ", "e", "æ", "y", "e", "e", "ø", "e", "æ", "æ", "æ"]
     let umlautCauser = ["i", "j"]
     for(let i = 0; i < wordArray.length; i++) {
-        if(vowels.includes(wordArray[i]) && umlautCauser.includes(wordArray[i+1]) ||
-        vowels.includes(wordArray[i]) && umlautCauser.includes(wordArray[i+2]) ||
-        vowels.includes(wordArray[i]) && umlautCauser.includes(wordArray[i+3])) {
+        if((vowels.includes(wordArray[i]) && umlautCauser.includes(wordArray[i+1])) ||
+        (vowels.includes(wordArray[i]) && umlautCauser.includes(wordArray[i+2])) ||
+        (vowels.includes(wordArray[i]) && umlautCauser.includes(wordArray[i+3]))) {
             let vowelIndex = vowels.indexOf(wordArray[i]);
             if(wordArray[i-1] === wordArray[i]) {
                 wordArray[i-1] = umlautVowels[vowelIndex];
@@ -2487,74 +2523,131 @@ function tDBecomeL(wordArray) {
     };
 };
 
-function longVowelsBreak(wordArray) {
+function longVowelsBreakIntoVi(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(vowels.includes(wordArray[i]) && wordArray[i] === wordArray[i+1]) {
+            timeslongVowelsBreakIntoVi++;
+            //breaks into short vowel + i
+            wordArray[i+1] = "i";
+            if(timeslongVowelsBreakIntoVi > 0) {
+                document.getElementById("longVowelsBreakIntoVi-li").style.display = "block";
+                document.getElementById("longVowelsBreakIntoVi-ul").style.display = "block";
+            };
+        };
+    };
+};
 
+function longVowelsBreakIntoU(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(vowels.includes(wordArray[i]) && wordArray[i] === wordArray[i+1]) {
+            timeslongVowelsBreakIntoU++;
+            //breaks into short vowel + u
+            if(timeslongVowelsBreakIntoU === 1 && wordArray[i] !== "u") {
+                wordArray[i+1] = "u";
+            };
+            if(timeslongVowelsBreakIntoU > 0) {
+                document.getElementById("longVowelsBreakIntoU-li").style.display = "block";
+                document.getElementById("longVowelsBreakIntoU-ul").style.display = "block";
+            };
+        };
+    };
+};
+
+function longVowelsBreakIntoIPlusRaising(wordArray) {
     let originalVowel = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a", "i", "u", "y", "ɯ", "ɨ", "ʉ"];
     let heightenedVowel = ["ɪ", "ʏ", "ɨ", "ʉ", "ɘ", "e", "ɘ", "ɵ", "i", "o", "ø", "ɔ", "u", "ɤ", "ɯ", "u", "ɛ", "ʌ", "ɜ", "æ", "i", "u", "y", "ɯ", "ɨ", "ʉ"]
 
     for(let i = 0; i < wordArray.length; i++) {
         if(vowels.includes(wordArray[i]) && wordArray[i] === wordArray[i+1]) {
-            timeslongVowelsBreak++;
-            //breaks into short vowel + i
-            if(randomNumForLongVowelsBreak === 0 && wordArray[i] !== "i") {
-                wordArray[i+1] = "i";
-            };
-            //breaks into short vowel + u
-            if(randomNumForLongVowelsBreak === 1 && wordArray[i] !== "u") {
-                wordArray[i+1] = "u";
-            };
+            timeslongVowelsBreakIntoIPlusRaising++;
             //breaks into higher short vowel + i
-            if(randomNumForLongVowelsBreak === 2  && wordArray[i] !== "i") {
-                wordArray[i+1] = "i";
-                let index = originalVowel.indexOf(wordArray[i]);
-                wordArray[i] = heightenedVowel[index];
-                if(timeslongVowelsBreak === 1) {
-                    for(let j = 0; j < vowels.length; j++) {
-                        if(chosenVowels.includes(vowels[j]) && originalVowel.includes(vowels[j])) {
-                            let newLi = document.createElement("li");
-                            let exampleIndex = originalVowel.indexOf(vowels[j]);
-                            newLi.innerHTML = `${vowels[j]} > [${heightenedVowel[exampleIndex]}] ⟨${spell(heightenedVowel[exampleIndex])}⟩`
-                            document.getElementById("longVowelsBreak-list").appendChild(newLi)
-                        }; 
-                    };
-                };
-            };
-            //breaks into higher short vowel + u
-            if(randomNumForLongVowelsBreak === 3 && wordArray[i] !== "u") {
-                wordArray[i+1] = "u";
-                let index = originalVowel.indexOf(wordArray[i]);
-                wordArray[i] = heightenedVowel[index];
-                if(timeslongVowelsBreak === 1) {
-                    for(let j = 0; j < vowels.length; j++) {
-                        if(chosenVowels.includes(vowels[j]) && originalVowel.includes(vowels[j])) {
-                            let newLi = document.createElement("li");
-                            let exampleIndex = originalVowel.indexOf(vowels[j]);
-                            newLi.innerHTML = `${vowels[j]} > [${heightenedVowel[exampleIndex]}] ⟨${spell(heightenedVowel[exampleIndex])}⟩`
-                            document.getElementById("longVowelsBreak-list").appendChild(newLi)
-                        }; 
-                    };
-                };
-            };
-            //breaks into j + short vowel
-            if(randomNumForLongVowelsBreak === 4) {
-                wordArray[i] = "j";
-            };
-            //breaks into jV or wV depending on frontness
-            if(randomNumForLongVowelsBreak === 5) {
-                if(frontVowels.includes(wordArray[i])) {
-                    wordArray[i] = "j";
-                } else {
-                    wordArray[i] = "w";
+            wordArray[i+1] = "i";
+            let index = originalVowel.indexOf(wordArray[i]);
+            wordArray[i] = heightenedVowel[index];
+            if(timeslongVowelsBreakIntoIPlusRaising === 1) {
+                for(let j = 0; j < vowels.length; j++) {
+                    if(chosenVowels.includes(vowels[j]) && originalVowel.includes(vowels[j])) {
+                        let newLi = document.createElement("li");
+                        let exampleIndex = originalVowel.indexOf(vowels[j]);
+                        newLi.innerHTML = `${vowels[j]} > [${heightenedVowel[exampleIndex]}] ⟨${spell(heightenedVowel[exampleIndex])}⟩`
+                        document.getElementById("longVowelsBreakIntoIPlusRaisingExample-list").appendChild(newLi)
+                    }; 
                 };
             };
             
-            if(timeslongVowelsBreak > 0) {
-                document.getElementById("longVowelsBreak-li").style.display = "block";
-                document.getElementById("longVowelsBreak-ul").style.display = "block";
+            if(timeslongVowelsBreakIntoIPlusRaising > 0) {
+                document.getElementById("longVowelsBreakIntoIPlusRaising-li").style.display = "block";
+                document.getElementById("longVowelsBreakIntoIPlusRaising-ul").style.display = "block";
+            };
+        };
+    };
+};
+
+function longVowelsBreakIntoUPlusRaising(wordArray) {
+    let originalVowel = ["e", "ø", "ɘ", "ɵ", "ə", "ɛ", "ɜ", "ɞ", "ɪ", "ɔ", "œ", "ɒ", "ʊ", "ʌ", "ɤ", "o", "æ", "ɑ", "ɐ", "a", "i", "u", "y", "ɯ", "ɨ", "ʉ"];
+    let heightenedVowel = ["ɪ", "ʏ", "ɨ", "ʉ", "ɘ", "e", "ɘ", "ɵ", "i", "o", "ø", "ɔ", "u", "ɤ", "ɯ", "u", "ɛ", "ʌ", "ɜ", "æ", "i", "u", "y", "ɯ", "ɨ", "ʉ"]
+
+    for(let i = 0; i < wordArray.length; i++) {
+        if(vowels.includes(wordArray[i]) && wordArray[i] === wordArray[i+1]) {
+            timeslongVowelsBreakIntoUPlusRaising++;
+            //breaks into higher short vowel + u
+            if(wordArray[i] !== "u") {
+                wordArray[i+1] = "u";
+                let index = originalVowel.indexOf(wordArray[i]);
+                wordArray[i] = heightenedVowel[index];
+                if(timeslongVowelsBreakIntoUPlusRaising === 1) {
+                    for(let j = 0; j < vowels.length; j++) {
+                        if(chosenVowels.includes(vowels[j]) && originalVowel.includes(vowels[j])) {
+                            let newLi = document.createElement("li");
+                            let exampleIndex = originalVowel.indexOf(vowels[j]);
+                            newLi.innerHTML = `${vowels[j]} > [${heightenedVowel[exampleIndex]}] ⟨${spell(heightenedVowel[exampleIndex])}⟩`
+                            document.getElementById("longVowelsBreakIntoUPlusRaisingExample-list").appendChild(newLi)
+                        }; 
+                    };
+                };
+            };
+            
+            if(timeslongVowelsBreakIntoUPlusRaising > 0) {
+                document.getElementById("longVowelsBreakIntoUPlusRaising-li").style.display = "block";
+                document.getElementById("longVowelsBreakIntoUPlusRaising-ul").style.display = "block";
             };
 
         }
     }
+};
+
+function longVowelsBreakIntoVj(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(vowels.includes(wordArray[i]) && wordArray[i] === wordArray[i+1]) {
+            timeslongVowelsBreakIntoVj++;
+            //breaks into j + short vowel
+            wordArray[i] = "j";
+            
+            if(timeslongVowelsBreakIntoVj > 0) {
+                document.getElementById("longVowelsBreakIntoVj-li").style.display = "block";
+                document.getElementById("longVowelsBreakIntoVj-ul").style.display = "block";
+            };
+        };
+    };
+};
+
+function longVowelsBreakIntojVwV(wordArray) {
+    for(let i = 0; i < wordArray.length; i++) {
+        if(vowels.includes(wordArray[i]) && wordArray[i] === wordArray[i+1]) {
+            timeslongVowelsBreakIntojVwV++;
+            //breaks into jV or wV depending on frontness
+            if(frontVowels.includes(wordArray[i])) {
+                wordArray[i] = "j";
+            } else {
+                wordArray[i] = "w";
+            };
+            
+            if(timeslongVowelsBreakIntojVwV > 0) {
+                document.getElementById("longVowelsBreakIntojVwV-li").style.display = "block";
+                document.getElementById("longVowelsBreakIntojVwV-ul").style.display = "block";
+            };
+        };
+    };
 };
 
 function vowelsHeightenBeforeVelars(wordArray) {
@@ -2579,7 +2672,7 @@ function vowelsHeightenBeforeVelars(wordArray) {
                         let newLi = document.createElement("li");
                         let exampleIndex = originalVowel.indexOf(vowels[j]);
                         newLi.innerHTML = `${vowels[j]} > [${heightenedVowel[exampleIndex]}] ⟨${spell(heightenedVowel[exampleIndex])}⟩`
-                        document.getElementById("vowelsHeightenBeforeVelars-list").appendChild(newLi);
+                        document.getElementById("vowelsHeightenBeforeVelarsExample-list").appendChild(newLi);
                     };
                 };
             };
@@ -2844,4 +2937,4 @@ function lossOfAspiration(wordArray) {
 
 
 
-export {soundChange, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, resonants, allNasalsArray, correctionsForStrings, corrections, frontVowels, randomNumForLongVowelsBreak, backVowels, obstruents, cloneArray, checkIfSoundChangeOptionChecked};
+export {soundChange, chosenSoundChanges,checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen,  vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, resonants, allNasalsArray, correctionsForStrings, corrections, frontVowels, backVowels, obstruents, cloneArray, checkIfSoundChangeOptionChecked};

@@ -1495,14 +1495,14 @@ function spell(word) {
         let textField = "";
         if(chosenSpellingsArray === chosenVowelSpellingsArray) {
             chosenJoinedArray = cloneArray(chosenVowelSpellingsArrayJoinedArray);
-            textField = document.getElementById("chosen-vowels");
+            textField = document.getElementById("chosen-vowels").value;
         } else {
             chosenJoinedArray = cloneArray(chosenConsonantSpellingsArrayJoinedArray);
-            textField = document.getElementById("chosen-consonants");
+            textField = document.getElementById("chosen-consonants").value;
         }
 
         //if sounds were manually chosen
-        if(randomOption === false && textField.valueOf.length > 0) {
+        if(randomOption === false && textField.length > 0) {
             for(let j = 0; j < chosenSpellingsArray.length; j++) {
                 //if a user did not enter a sound manually, but the sound arose via sound changes, it is assigned a random spelling
                 if(chosenJoinedArray.includes(letter) === false) {

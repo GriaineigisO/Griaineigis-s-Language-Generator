@@ -2,8 +2,9 @@
 
 ## Options for customisation
 
-- add keyboard that inputs the IPA characters directly into the vowels and consonants text fields, one keyboard for vowels, another for consonaonts
-- noun gender/classifier system/number/cases
+- add ability to enter classifiers - for all classifier systems, same for quantifiers and measure words. When a classifier system is selected, textfields for each classifier appear for the user to type in. For the long classifier system, the textfield will only apear for the apprioate classifier when it has been selected in the dropdown menu (it won't be a simple <li> item anymore)
+- add keyboard that inputs the IPA characters directly into the vowels and consonants text fields, one keyboard for vowels, another for consonants
+- classifier system/number/cases
 - marked singular
 - which sounds changes
 - which derivational methods (and if they are prefixes or suffixes)
@@ -49,6 +50,7 @@ Vː > V/\_(C)#
 oː > e
 VCrV > VCirV
 C1VC1 > C1VV
+VC1VC1 > VVC1
 
 - Two vowels together must share a quality, like height
 - fricatives can't occur after plosives

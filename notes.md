@@ -4,6 +4,9 @@
 
 - next set of custom words is shape based classifiers
 - add ability to enter classifiers - for all classifier systems, same for quantifiers and measure words. When a classifier system is selected, textfields for each classifier appear for the user to type in. For the long classifier system, the textfield will only apear for the apprioate classifier when it has been selected in the dropdown menu (it won't be a simple <li> item anymore)
+- customisation option where a user can decide what specific words will be - the template will be: textfield(english word - if the word has not been added manually by me, it will be added by this event) dropdownmenu(for part of speech) textfield(desired word) noun gender/classifier/etc
+- absract nouns behaving odd
+- find out why length is lost between old > modern derived terms
 - add keyboard that inputs the IPA characters directly into the vowels and consonants text fields, one keyboard for vowels, another for consonants
 - classifier system/number/cases
 - marked singular

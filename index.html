@@ -51,6 +51,18 @@
 
         <div id="customisation-options">
           <h1 id="custom-h1">Customise Your Language</h1>
+          <p>Any option left blank will result in a randomly generated choice.</p>
+          <p>When entering custom words into a text field, do so in IPA only.</p>
+
+          <input type="button" value="Reset Form" id="reset-form-buttom">
+          
+          <hr>
+          <!--Choose language name-->
+          <div class="radio-section">
+            <label for="language-name-form">Choose the language's name:</label>
+            <input id="language-name" value=""></input>
+          </div>
+          
 
           <!--Choose vowels-->
           <hr>
@@ -255,21 +267,14 @@
           </div>
           <hr>
 
-          <!--Choose language name-->
-          <div class="radio-section">
-            <label for="language-name-form">Choose the language's name:</label>
-            <input id="language-name" value=""></input>
-            <p class="form-note">(If left blank, a name will be randomly generated.)</p>
-          </div>
-
           <!--Choose typology-->
           <div class="radio-section">
             <label for="typology-form">Choose typology:</label>
             <select id="typology-form" name="typology-form">
-              <option value="random" selected onclick="hideGenderForm(this.value)">Random</option>
-              <option value="isolating" onclick="hideGenderForm(this.value)">Isolating</option>
-              <option value="agglutinative" onclick="hideGenderForm(this.value)">Agglutinative</option>
-              <option value="fusional" onclick="hideGenderForm(this.value)">Fusional</option>
+              <option value="random" selected onclick="hideGenderForm(this.value); showCustomQuantifiers()">Random</option>
+              <option value="isolating" onclick="hideGenderForm(this.value); showCustomQuantifiers()">Isolating</option>
+              <option value="agglutinative" onclick="hideGenderForm(this.value); showCustomQuantifiers()">Agglutinative</option>
+              <option value="fusional" onclick="hideGenderForm(this.value); showCustomQuantifiers()">Fusional</option>
             </select> 
           </div>
 
@@ -293,10 +298,10 @@
           <div class="radio-section" id="isolating-number-form-div">
             <label for="isolating-number-form">Choose Grammatical Number:</label>
             <select id="isolating-number-form" name="isolating-number-form">
-              <option value="random" selected onclick="hideClassifierForm(this.value)">Random</option>
-              <option value="isolating-quanitifers-only-system" onclick="hideClassifierForm(this.value)">Quantifiers Only</option>
-              <option value="isolating-quanitifers-and-classifiers-purely-numerical-system" onclick="hideClassifierForm(this.value)">Quantifiers and Classifiers</option>
-              <option value="isolating-sg-pl-system" onclick="hideClassifierForm(this.value)">Singular/Plural</option>
+              <option value="random" selected onclick="hideClassifierForm(this.value); showCustomQuantifiers(this.value)">Random</option>
+              <option value="isolating-quanitifers-only-system" onclick="hideClassifierForm(this.value); showCustomQuantifiers(this.value)">Quantifiers Only</option>
+              <option value="isolating-quanitifers-and-classifiers-purely-numerical-system" onclick="hideClassifierForm(this.value); showCustomQuantifiers(this.value)">Quantifiers and Classifiers</option>
+              <option value="isolating-sg-pl-system" onclick="hideClassifierForm(this.value); showCustomQuantifiers(this.value)">Singular/Plural</option>
             </select> 
           </div>
 
@@ -310,7 +315,6 @@
               <option value="short-generic-based-classifier-system" onclick="hideChooseLongClassifiers(this.value)">HumanTree/Grass/Flower/Land Animal/Water Animal/Flying Animal/Word/Tool/Natural Inanimate/Liquid</option>
               <option value="long-classifier-system-system" onclick="hideChooseLongClassifiers(this.value)">Custom Classifier System</option>
             </select> 
-
           </div>
 
           <!--Choose Classifiers from Long classifier system (only appears for isolating languages)-->
@@ -372,6 +376,46 @@
 
                 <input type="radio" id="newLine" name="newLineOrParagraph" value="newLine" autocomplete="off">
                 <label for="newLine">a new line in one large paragraph</label><br>
+            </div>
+          </div>
+
+          <!--shows text fields for quantifiers-->
+          <div id="quantifier-text-field-div">
+            <div class="text-field">
+              <p>"few": </p>
+              <input type="text" class="custom-text-field" id="few-text-field"></input>
+            </div>
+            <div class="text-field">
+              <p>"barely any": </p>
+              <input type="text" class="custom-text-field" id="barely-any-text-field"></input>
+            </div>
+            <div class="text-field">
+              <p>"several": </p>
+              <input type="text" class="custom-text-field" id="several-text-field"></input>
+            </div>
+            <div class="text-field">
+              <p>"some": </p>
+              <input type="text" class="custom-text-field" id="some-text-field"></input>
+            </div>
+            <div class="text-field">
+              <p>"a lot of": </p>
+              <input type="text" class="custom-text-field" id="a-lot-of-text-field"></input>
+            </div>
+            <div class="text-field">
+              <p>"great amount of": </p>
+              <input type="text" class="custom-text-field" id="great-amount-text-field"></input>
+            </div>
+            <div class="text-field">
+              <p>"enough": </p>
+              <input type="text" class="custom-text-field" id="enough-text-field"></input>
+            </div>
+            <div class="text-field">
+              <p>"not enough": </p>
+              <input type="text" class="custom-text-field" id="not-enough-text-field"></input>
+            </div>
+            <div class="text-field">
+              <p>"too much": </p>
+              <input type="text" class="custom-text-field" id="too-much-text-field""></input>
             </div>
           </div>
 
@@ -4130,6 +4174,7 @@
         document.getElementById("classifier-form-div").style.display = "block";
       } else {
         document.getElementById("classifier-form-div").style.display = "none";
+        document.getElementById("long-classifier-form-div").style.display = "none";
       }
     };
 
@@ -4162,10 +4207,28 @@
           newLi.remove();
         })
     };
+
+    //shows text fields to enter custom quantifiers
+    function showCustomQuantifiers(value) {
+      let typologyForm = document.getElementById("typology-form").value;
+
+      let quantifierTextFields = document.getElementById("quantifier-text-field-div");
+
+      if(typologyForm === "isolating") {
+        if(value === "isolating-quanitifers-only-system" || value === "isolating-quanitifers-and-classifiers-purely-numerical-system") {
+          quantifierTextFields.style.display = "block";
+        } else {
+          quantifierTextFields.style.display = "none";
+        };
+      } else if(typologyForm !== "isolating") {
+        quantifierTextFields.style.display = "none";
+      };
+    };
      
     </script>
 
     <script  src="./PDFCoverPage.js"></script>
+    <script  src="./resetButton.js"></script>
     <script type="module" src="./generatePhonology.js"></script>
     <script type="module" src="./derivation.js"></script>
     <script type="module" src="./dictionary.js"></script>

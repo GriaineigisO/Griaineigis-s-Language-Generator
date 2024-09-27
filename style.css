@@ -425,7 +425,7 @@ h1, h2, h3, h4 {
 #longVowelsBreakIntoVj-ul,
 #longVowelsBreakIntojVwV-li,
 #longVowelsBreakIntojVwV-ul,
-#palatalsBecomeVelar-li, #palatalsBecomeVelar-ul, #gwbecomesB-li, #gwbecomesB-ul, #eRaBecomesARa-ul, #eRaBecomesARa-li, #epentheticA-ul, #epentheticA-li, #pKWBecomesKwKw-li, #pKWBecomesKwKw-ul, #longEBecomesLongI-li, #longEBecomesLongI-ul, #wordFinalLongOBecomesLongU-li, #wordFinalLongOBecomesLongU-ul, #longVowelsShortenBeforeRC-li, #longVowelsShortenBeforeRC-ul, #CCBecomesXC-li, #CCBecomesXC-ul, #pBecomesBBeforeResonants-li, #pBecomesBBeforeResonants-ul, #pBecomesU-li, #pBecomesU-ul, #pBecomesF-li, #pBecomesF-ul, #longOBecomesA-li, #longOBecomesA-ul, #eWBecomesOW-li, #eWBecomesOW-ul, #longUBecomesOU-li, #longUBecomesOU-ul, #velarsDelabialise-li, #velarsDelabialise-ul, #lossOfAspiration-li, #lossOfAspiration-ul, #gender-form-div, #isolating-number-form-div, #classifier-form-div, #long-classifier-form-div{
+#palatalsBecomeVelar-li, #palatalsBecomeVelar-ul, #gwbecomesB-li, #gwbecomesB-ul, #eRaBecomesARa-ul, #eRaBecomesARa-li, #epentheticA-ul, #epentheticA-li, #pKWBecomesKwKw-li, #pKWBecomesKwKw-ul, #longEBecomesLongI-li, #longEBecomesLongI-ul, #wordFinalLongOBecomesLongU-li, #wordFinalLongOBecomesLongU-ul, #longVowelsShortenBeforeRC-li, #longVowelsShortenBeforeRC-ul, #CCBecomesXC-li, #CCBecomesXC-ul, #pBecomesBBeforeResonants-li, #pBecomesBBeforeResonants-ul, #pBecomesU-li, #pBecomesU-ul, #pBecomesF-li, #pBecomesF-ul, #longOBecomesA-li, #longOBecomesA-ul, #eWBecomesOW-li, #eWBecomesOW-ul, #longUBecomesOU-li, #longUBecomesOU-ul, #velarsDelabialise-li, #velarsDelabialise-ul, #lossOfAspiration-li, #lossOfAspiration-ul, #gender-form-div, #isolating-number-form-div, #classifier-form-div, #long-classifier-form-div, #quantifier-text-field-div{
     display: none;
 }
 
@@ -458,6 +458,24 @@ h1, h2, h3, h4 {
 .sound-change-example {
     display: inline;
 }
+
+.custom-text-field {
+    max-height: 20px;
+    margin-left: 10px;
+}
+
+#quantifier-text-field-div {
+    display: none;
+    margin-left: 40px;
+}
+
+.text-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+};
+
+
 
 /* PHONE */
 @media only screen and (max-width: 480px) {

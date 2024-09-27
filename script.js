@@ -5725,7 +5725,7 @@ function chooseQuanitifers() {
         tooMuchRow.style.display = "none";
     }
 
-    //for the quantifier "enough"
+    //for the quantifier "not enough"
     let notEnoughRow = document.createElement("tr");
     let notEnoughTD = document.createElement("td");
     notEnoughTD.innerHTML = `<span class="not-enough sound-change"></span> "not enough"`
@@ -5756,68 +5756,106 @@ function chooseQuanitifers() {
 }
 }
 
+
+
 function createQuantifiers() {
     if(typologyNum === 0) {
     let few = document.getElementsByClassName("few")
+    //if the user entered the word for "few", it will override the randomly generated one
+    if(randomOption === false && document.getElementById("few-text-field").value.length > 0) {
+        generatedSmallQuanitifiers[0] = document.getElementById("few-text-field").value
+    }
     for(let i = 0; i < few.length; i++) {
         few[i].innerHTML = generatedSmallQuanitifiers[0];
     }
 
     let several = document.getElementsByClassName("several")
+    //if the user entered the word for "several", it will override the randomly generated one
+    if(randomOption === false && document.getElementById("several-text-field").value.length > 0) {
+        generatedMiddlingQuanitifers[0] = document.getElementById("several-text-field").value
+    }
     for(let i = 0; i < several.length; i++) {
         several[i].innerHTML = generatedMiddlingQuanitifers[0];
     }
 
-    let aLotOf = document.getElementsByClassName("a-lot-of")
+    let aLotOf = document.getElementsByClassName("a-lot-of");
+    //if the user entered the word for "a-lot-of", it will override the randomly generated one
+    if(randomOption === false && document.getElementById("a-lot-of-text-field").value.length > 0) {
+        generatedBigQuantifiers[0] = document.getElementById("a-lot-of-text-field").value
+    }
     for(let i = 0; i < aLotOf.length; i++) {
         aLotOf[i].innerHTML = generatedBigQuantifiers[0];
     }
 
-    let barelyAny = document.getElementsByClassName("barely-any")
+    let barelyAny = document.getElementsByClassName("barely-any");
+    //if the user entered the word for "barely-any", it will override the randomly generated one
+    if(randomOption === false && document.getElementById("barely-any-text-field").value.length > 0) {
+        generatedSmallQuanitifiers[1] = document.getElementById("barely-any-text-field").value;
+    }
     for(let i = 0; i < barelyAny.length; i++) {
         barelyAny[i].innerHTML = generatedSmallQuanitifiers[1];
     }
-    if(Math.floor(Math.random() * 4) !== 2) {
+    if(Math.floor(Math.random() * 4) !== 2 || document.getElementById("barely-any-text-field").value.length === 0) {
         document.getElementById("barely-any").style.display = "none";
     }
 
-    let some = document.getElementsByClassName("some")
+    let some = document.getElementsByClassName("some");
+    //if the user entered the word for "some", it will override the randomly generated one
+    if(randomOption === false && document.getElementById("some-text-field").value.length > 0) {
+        generatedMiddlingQuanitifers[1] = document.getElementById("some-text-field").value
+    }
     for(let i = 0; i < some.length; i++) {
         some[i].innerHTML = generatedMiddlingQuanitifers[1];
     }
-    if(Math.floor(Math.random() * 4) !== 2) {
+    if(Math.floor(Math.random() * 4) !== 2 || document.getElementById("some-text-field").value.length === 0) {
         document.getElementById("some").style.display = "none";
     }
 
-    let greatAmount = document.getElementsByClassName("great-amount")
+    let greatAmount = document.getElementsByClassName("great-amount");
+    //if the user entered the word for "great-amount", it will override the randomly generated one
+    if(randomOption === false && document.getElementById("great-amount-text-field").value.length > 0) {
+        generatedBigQuantifiers[1] = document.getElementById("great-amount-text-field").value
+    }
     for(let i = 0; i < greatAmount.length; i++) {
         greatAmount[i].innerHTML = generatedBigQuantifiers[1];
     }
-    if(Math.floor(Math.random() * 4) !== 2) {
+    if(Math.floor(Math.random() * 4) !== 2 || document.getElementById("great-amount-text-field").value.length === 0) {
         document.getElementById("great-amount").style.display = "none";
     }
 
-    let enough = document.getElementsByClassName("enough")
+    let enough = document.getElementsByClassName("enough");
+    //if the user entered the word for "enough", it will override the randomly generated one
+    if(randomOption === false && document.getElementById("enough-text-field").value.length > 0) {
+        generatedOpinionQuantifiers[0] = document.getElementById("enough-text-field").value
+    }
     for(let i = 0; i < enough.length; i++) {
         enough[i].innerHTML = generatedOpinionQuantifiers[0];
     }
-    if(Math.floor(Math.random() * 4) !== 2) {
+    if(Math.floor(Math.random() * 4) !== 2 || document.getElementById("enough-text-field").value.length === 0) {
         document.getElementById("enough").style.display = "none";
     }
 
-    let notEnough = document.getElementsByClassName("not-enough")
+    let notEnough = document.getElementsByClassName("not-enough");
+    //if the user entered the word for "not-enough", it will override the randomly generated one
+    if(randomOption === false && document.getElementById("not-enough-text-field").value.length > 0) {
+        generatedOpinionQuantifiers[0] = document.getElementById("not-enough-text-field").value
+    }
     for(let i = 0; i < notEnough.length; i++) {
         notEnough[i].innerHTML = generatedOpinionQuantifiers[2];
     }
-    if(Math.floor(Math.random() * 4) !== 2) {
+    if(Math.floor(Math.random() * 4) !== 2 || document.getElementById("not-enough-text-field").value.length === 0) {
         document.getElementById("not-enough").style.display = "none";
     }
 
-    let tooMuch = document.getElementsByClassName("too-much")
+    let tooMuch = document.getElementsByClassName("too-much");
+    //if the user entered the word for "too-much", it will override the randomly generated one
+    if(randomOption === false && document.getElementById("too-much-text-field").value.length > 0) {
+        generatedOpinionQuantifiers[1] = document.getElementById("too-much-text-field").value
+    }
     for(let i = 0; i < tooMuch.length; i++) {
         tooMuch[i].innerHTML = generatedOpinionQuantifiers[1];
     }
-    if(Math.floor(Math.random() * 4) !== 2) {
+    if(Math.floor(Math.random() * 4) !== 2 || document.getElementById("too-much-text-field").value.length === 0) {
         document.getElementById("too-much").style.display = "none";
     }
 

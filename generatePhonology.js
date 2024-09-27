@@ -1,4 +1,4 @@
-//@collapse
+
 import { syllablesArray, approximantSyllables, nasalSyllables,fricativeSyllables, resonantSyllables, aspiratedSyllable } from "./allPossibleSyllables.js";
 import {cloneArray} from './library.js'
 

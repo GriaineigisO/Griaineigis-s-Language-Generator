@@ -702,7 +702,6 @@ function randomAspiratedPalatalised(wordArray) {
                     return "bhʲ"
                 };
             } else if (wordArray[i] === "Î") {
-                console.log("hello")
                 if(randomNum === 0) {
                     return "thj"
                 } else if(randomNum > 1) {
@@ -1152,7 +1151,466 @@ function randomAspiratedPalatalised(wordArray) {
 };
 
 function randomAspiratedLabialised(wordArray) {
-    
+    for(let i = 0; i < wordArray.length; i++) {
+        if (wordArray[i] === "ƕ") {
+                if(randomNum === 0) {
+                    return "phw"
+                } else if(randomNum > 1) {
+                    return "phʷ"
+                };
+            } else if (wordArray[i] === "Ɩ") {
+                if(randomNum === 0) {
+                    return "bhw"
+                } else if(randomNum > 1) {
+                    return "bhʷ"
+                };
+            } else if (wordArray[i] === "Ɨ") {
+                if(randomNum === 0) {
+                    return "thw"
+                } else if(randomNum > 1) {
+                    return "thʷ"
+                };
+            } else if (wordArray[i] === "Ƙ") {
+                if(randomNum === 0) {
+                    return "dhw"
+                } else if(randomNum > 1) {
+                    return "dhʷ"
+                };
+            } else if (wordArray[i] === "ƙ") {
+                if(randomNum === 0) {
+                    return "khw"
+                } else if(randomNum > 1) {
+                    return "khʷ"
+                };
+            } else if (wordArray[i] === "ƚ") {
+                if(randomNum === 0) {
+                    return "ghw"
+                } else if(randomNum > 1) {
+                    return "ghʷ"
+                };
+            } else if (wordArray[i] === "ƛ") {
+                if(randomNum === 0) {
+                    return "rhw"
+                } else if(randomNum > 1) {
+                    return "rhʷ"
+                };
+            } else if (wordArray[i] === "Ɯ") {
+                if(randomNum === 0) {
+                    return "lhw"
+                } else if(randomNum > 1) {
+                    return "lhʷ"
+                };
+            } else if (wordArray[i] === "Ɲ") {
+                if(randomNum === 0) {
+                    return "shw"
+                } else if(randomNum > 1) {
+                    return "shʷ"
+                };
+            } else if (wordArray[i] === "а") {
+                if(randomNum === 0) {
+                    return "ṭhw"
+                } else if(randomNum > 1) {
+                    return "ṭhʷ"
+                };
+            } else if (wordArray[i] === "б") {
+                if(randomNum === 0) {
+                    return "ḍhw"
+                } else if(randomNum > 1) {
+                    return "ḍhʷ"
+                };
+            } else if (wordArray[i] === "в") {
+                if(randomNum === 0) {
+                    return "ṛhw"
+                } else if(randomNum > 1) {
+                    return "ṛhʷ"
+                };
+            } else if (wordArray[i] === "Ɵ") {
+                if(randomNum === 0) {
+                    return "zhw"
+                } else if(randomNum > 1) {
+                    return "zhʷ"
+                };
+            } else if (wordArray[i] === "Ơ") {
+                if(allGlottalFricatives.length > 0) {
+                    if(randomNum === 0) {
+                    return "khhw"
+                } else if(randomNum > 1) {
+                    return "khhʷ"
+                };
+                }
+                if(allGlottalFricatives.length > 0 && allAspiratesArray.length > 0) {
+                    if(randomNum === 0) {
+                    return "chhw"
+                } else if(randomNum > 1) {
+                    return "chhʷ"
+                };
+                }
+                if(allGlottalFricatives.length === 0  &&    allAspiratesArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "hhw"
+                } else if(randomNum > 1) {
+                    return "hhʷ"
+                };
+                }
+            } else if (wordArray[i] === "ơ") {
+                if(allAspiratesArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "ghw"
+                } else if(randomNum > 1) {
+                    return "ghʷ"
+                };
+                }
+                if(allAspiratesArray.length > 0 ) {
+                    if(randomNum === 0) {
+                    return "ɣhw"
+                } else if(randomNum > 1) {
+                    return "ɣhʷ"
+                };
+                }
+            } else if (wordArray[i] === "Ƥ") {
+                if(randomNum === 0) {
+                    return "fhw"
+                } else if(randomNum > 1) {
+                    return "fhʷ"
+                };
+            } else if (wordArray[i] === "ƥ") {
+                if(randomNum === 0) {
+                    return "vhw"
+                } else if(randomNum > 1) {
+                    return "vhʷ"
+                };
+            } else if (wordArray[i] === "Ƥ") {
+                if(allAspiratesArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "phw"
+                } else if(randomNum > 1) {
+                    return "phʷ"
+                };
+                } else if(allLabioDentalArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "fhw"
+                } else if(randomNum > 1) {
+                    return "fhʷ"
+                };
+                } else {
+                    if(randomNum === 0) {
+                    return "fhhw"
+                } else if(randomNum > 1) {
+                    return "fhhʷ"
+                };
+                };
+            }  else if (wordArray[i] === "ƥ") {
+                if(allAspiratesArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "bhw"
+                } else if(randomNum > 1) {
+                    return "bhʷ"
+                };
+                } else if(allLabioDentalArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "vhw"
+                } else if(randomNum > 1) {
+                    return "vhʷ"
+                };
+                } else {
+                    if(randomNum === 0) {
+                    return "vhhw"
+                } else if(randomNum > 1) {
+                    return "vhhʷ"
+                };
+                };
+            }  else if (wordArray[i] === "Ʀ") {
+                if(randomDentalFricative === 0  && allAspiratesArray.length > 0) {
+                    if(randomNum === 0) {
+                    return "þhw"
+                } else if(randomNum > 1) {
+                    return "þhʷ"
+                };
+                }
+                if(randomDentalFricative === 0  && allAspiratesArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "thw"
+                } else if(randomNum > 1) {
+                    return "thʷ"
+                };
+                }
+                if(randomDentalFricative === 1 && allAspiratesArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "thw"
+                } else if(randomNum > 1) {
+                    return "thʷ"
+                };
+                }
+                if(randomDentalFricative === 1  && allAspiratesArray.length > 0) {
+                    if(randomNum === 0) {
+                    return "thw"
+                } else if(randomNum > 1) {
+                    return "thʷ"
+                };
+                }
+            } else if (wordArray[i] === "Ƨ") {
+                if(randomDentalFricative === 0) {
+                    if(randomNum === 0) {
+                    return "ðhw"
+                } else if(randomNum > 1) {
+                    return "ðhʷ"
+                };
+                }
+                if(randomDentalFricative === 1 && allAspiratesArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "dhw"
+                } else if(randomNum > 1) {
+                    return "dhʷ"
+                };
+                }
+            } else if (wordArray[i] === "Ƭ") {
+                if(randomNumAlveolarFricative < 16) {
+                    if(randomNum === 0) {
+                        return "šhw"
+                    } else if(randomNum > 1) {
+                        return "šhʷ"
+                    };
+                }
+                if(randomNumAlveolarFricative === 16) {
+                    if(randomNum === 0) {
+                        return "shhw"
+                    } else if(randomNum > 1) {
+                        return "shhʷ"
+                    };
+                }
+                if(randomNumAlveolarFricative === 15) {
+                    if(randomNum === 0) {
+                        return "sjhw"
+                    } else if(randomNum > 1) {
+                        return "sjhʷ"
+                    };
+                }
+            }  else if (wordArray[i] === "ƭ") {
+                if(randomNumAlveolarFricative < 16) {
+                    if(randomNum === 0) {
+                        return "žhw"
+                    } else if(randomNum > 1) {
+                        return "žhʷ"
+                    };
+                }
+                if(randomNumAlveolarFricative === 16) {
+                    if(randomNum === 0) {
+                        return "zhhw"
+                    } else if(randomNum > 1) {
+                        return "zhhʷ"
+                    };
+                }
+                if(randomNumAlveolarFricative === 15) {
+                    if(randomNum === 0) {
+                        return "zjhw"
+                    } else if(randomNum > 1) {
+                        return "zjhʷ"
+                    };
+                }
+            }  else if (wordArray[i] === "Ʈ") {
+                if(randomNum === 0) {
+                    return "ṣhw"
+                } else if(randomNum > 1) {
+                    return "ṣhʷ"
+                };
+            }  else if (wordArray[i] === "Ư") {
+                if(randomNum === 0) {
+                    return "ẓhw"
+                } else if(randomNum > 1) {
+                    return "ẓhʷ"
+                };
+            } else if (wordArray[i] === "ư") {
+                if(allGlottalFricatives.length > 0 && allVelarFricatives.length > 0) {
+                    if(randomNum === 0) {
+                        return "xhw"
+                    } else if(randomNum > 1) {
+                        return "xhʷ"
+                    };
+                };
+                if(allGlottalFricatives.length > 0 && allVelarFricatives.length === 0 && allAspiratesArray.length === 0) {
+                    if(randomNum === 0) {
+                        return "khhw"
+                    } else if(randomNum > 1) {
+                        return "khhʷ"
+                    };
+                };
+                if(allGlottalFricatives.length > 0 && allVelarFricatives.length === 0 && allAspiratesArray.length > 0) {
+                     if(randomNum === 0) {
+                        return "x̂hw"
+                    } else if(randomNum > 1) {
+                        return "x̂hʷ"
+                    };
+                };
+                if(allGlottalFricatives.length === 0 && allVelarFricatives.length === 0) {
+                    if(randomNum === 0) {
+                        return "hhw"
+                    } else if(randomNum > 1) {
+                        return "hhʷ"
+                    };
+                };
+                if(allGlottalFricatives.length === 0 && allVelarFricatives.length > 0) {
+                    if(randomNum === 0) {
+                        return "khhw"
+                    } else if(randomNum > 1) {
+                        return "khhʷ"
+                    };
+                };
+            } else if (wordArray[i] === "Ʊ") {
+                if(allVelarFricatives.length > 0) {
+                    if(randomNum === 0) {
+                        return "ĝhw"
+                    } else if(randomNum > 1) {
+                        return "ĝhʷ"
+                    };
+                };
+                if(allVelarFricatives.length === 0 && allAspiratesArray.length === 0) {
+                    if(randomNum === 0) {
+                        return "ghhw"
+                    } else if(randomNum > 1) {
+                        return "ghhʷ"
+                    };
+                };
+                if(allVelarFricatives.length === 0 && allAspiratesArray.length > 0) {
+                   if(randomNum === 0) {
+                        return "ĝhw"
+                    } else if(randomNum > 1) {
+                        return "ĝhʷ"
+                    };
+                };
+            } else if (wordArray[i] === "Ʋ") {
+                if(randomNum === 0) {
+                    return "ɬhw"
+                } else if(randomNum > 1) {
+                    return "ɬhʷ"
+                };
+            }  else if (wordArray[i] === "Ɖ") {
+                if(randomNum === 0) {
+                    return "ɮhw"
+                } else if(randomNum > 1) {
+                    return "ɮhʷ"
+                };
+            }  else if (wordArray[i] === "Ɗ") {
+                if(randomNum === 0) {
+                    return "qhw"
+                } else if(randomNum > 1) {
+                    return "qhʷ"
+                };
+            }   else if (wordArray[i] === "Ƴ") {
+                if(randomNum === 0) {
+                    return "ɢhw"
+                } else if(randomNum > 1) {
+                    return "ɢhʷ"
+                };
+            }  else if (wordArray[i] === "ƶ") {
+                if(allGlottalFricatives.length === 0 && allVelarFricatives.length === 0 && allUvularFricativesArray.length === 0) {
+                   if(randomNum === 0) {
+                    return "hhw"
+                } else if(randomNum > 1) {
+                    return "hhʷ"
+                };
+                } else if (allUvularPlosivesArray.length === 0) {
+                    if(randomNum === 0) {
+                    return "qhw"
+                } else if(randomNum > 1) {
+                    return "qhʷ"
+                };
+                } else if (wordArray[i] === "ƶ") {
+                    if(randomNum === 0) {
+                    return "'hw"
+                } else if(randomNum > 1) {
+                    return "'hʷ"
+                };
+                };
+            } else if (wordArray[i] === "ƺ") {
+                if(randomNumPalatalFricative === 0) {
+                    if(randomNum === 0) {
+                        return "chw"
+                    } else if(randomNum > 1) {
+                        return "chʷ"
+                    };
+                }
+                if(randomNumPalatalFricative === 1) {
+                    if(randomNum === 0) {
+                        return "kjhw"
+                    } else if(randomNum > 1) {
+                        return "kjhʷ"
+                    };
+                }
+                if(randomNumPalatalFricative > 1) {
+                    if(randomNum === 0) {
+                        return "ḱhw"
+                    } else if(randomNum > 1) {
+                        return "ḱhʷ"
+                    };
+                }
+            }else if (wordArray[i] === "ƻ") {
+                if(randomNumPalatalFricative === 0) {
+                    if(randomNum === 0) {
+                        return "gihw"
+                    } else if(randomNum > 1) {
+                        return "gihʷ"
+                    };
+                }
+                if(randomNumPalatalFricative === 1) {
+                    if(randomNum === 0) {
+                        return "gjhw"
+                    } else if(randomNum > 1) {
+                        return "gjhʷ"
+                    };
+                }
+                if(randomNumPalatalFricative > 1) {
+                    if(randomNum === 0) {
+                        return "ǵhw"
+                    } else if(randomNum > 1) {
+                        return "ǵhʷ"
+                    };
+                }
+            } else if (wordArray[i] === "Ƽ") {
+                 if(randomNumAlveolarFricative < 16) {
+                    if(randomNum === 0) {
+                        return "čhw"
+                    } else if(randomNum > 1) {
+                        return "čhʷ"
+                    };
+                }
+                if(randomNumAlveolarFricative === 16) {
+                    if(randomNum === 0) {
+                        return "chhw"
+                    } else if(randomNum > 1) {
+                        return "chhʷ"
+                    };
+                }
+                if(randomNumAlveolarFricative === 15) {
+                    if(randomNum === 0) {
+                        return "tsjhw"
+                    } else if(randomNum > 1) {
+                        return "tsjhʷ"
+                    };
+                }
+            } else if (wordArray[i] === "ƽ") {
+                 if(randomNumAlveolarFricative < 16) {
+                    if(randomNum === 0) {
+                        return "džhw"
+                    } else if(randomNum > 1) {
+                        return "džhʷ"
+                    };
+                }
+                if(randomNumAlveolarFricative === 16) {
+                    if(randomNum === 0) {
+                        return "jhy"
+                    } else if(randomNum > 1) {
+                        return "jhʷ"
+                    };
+                }
+                if(randomNumAlveolarFricative === 15) {
+                    if(randomNum === 0) {
+                        return "dzjhw"
+                    } else if(randomNum > 1) {
+                        return "dzjhʷ"
+                    };
+                }
+            }
+}
 }
  
 function spell(word) {

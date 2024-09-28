@@ -15,6 +15,18 @@ function reset() {
     document.getElementById("enough-text-field").value = "";
     document.getElementById("not-enough-text-field").value = "";
     document.getElementById("too-much-text-field").value = "";
+    document.getElementById("long-text-field").value = "";
+    document.getElementById("long-meaning-text-field").value = "";
+    document.getElementById("short-text-field").value = "";
+    document.getElementById("short-meaning-text-field").value = "";
+    document.getElementById("round-text-field").value = "";
+    document.getElementById("round-meaning-text-field").value = "";
+    document.getElementById("pointed-text-field").value = "";
+    document.getElementById("pointed-meaning-text-field").value = "";
+    document.getElementById("flat-text-field").value = "";
+    document.getElementById("flat-meaning-text-field").value = "";
+    document.getElementById("shapeless-text-field").value = "";
+    document.getElementById("shapeless-meaning-text-field").value = "";
 
     //changes value of dropdown forms to "random"
     document.getElementById("sound-change-menu").value = "random";
@@ -31,6 +43,14 @@ function reset() {
     document.getElementById("randomisedSoundChange").checked = true;
     document.getElementById("sortable").replaceChildren();
 
+    //rehides submenus
+    document.getElementById("gender-form-div").style.display = "none";
+    document.getElementById("isolating-number-form-div").style.display = "none";
+    document.getElementById("long-classifier-form-div").style.display = "none";
+    document.getElementById("shape-classifier-text-field-div").style.display = "none";
+    document.getElementById("quantifier-text-field-div").style.display = "none";
+    document.getElementById("classifier-form-div").style.display = "none";
+
 };
 
-document.getElementById("reset-form-buttom").addEventListener("click", reset);
+document.getElementById("reset-form-button").addEventListener("click", reset);

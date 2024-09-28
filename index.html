@@ -59,7 +59,7 @@
           <hr>
           <!--Choose language name-->
           <div class="radio-section">
-            <label for="language-name-form">Choose the language's name:</label>
+            <label for="language-name-form" class="label">Choose the language's name:</label>
             <input id="language-name" value=""></input>
           </div>
           
@@ -72,7 +72,7 @@
             To designate a spelling to each sound, use the following notation: <strong>(sound=spelling)</strong> e.g if you want to spell the vowel /ə/ as <ë> then enter <strong>(ə=ë)</strong> - do not add spaces between any character between the curly brackets. A spelling may be up to four letters long: <strong>(u=oghi)</strong>. To enter a sound without designating a spelling, simply enter the sound alone without brackets and a spelling will be designated at random.<br><br>
             Do not use combining diacritics in the spelling. Copy and paste characters which have the diacritics built in. E.g you can't use <i>é</i> (which is two characters U+0065 and U+00B4) but rather <i>é</i> (U+00E9).
             </p>
-            <label for="chosen-vowels">Vowels:</label>
+            <label for="chosen-vowels" class="label">Vowels:</label>
             <input id="chosen-vowels" value=""></input>
           </div>
 
@@ -82,13 +82,13 @@
             When using two superscripts together, do so in the following order: "ʷʰ" and "ʰʲ".<br><br>
             When entering affricates, use the following ligatures instead of using a combining diacritic tie-bar: ʦ ʣ, ʧ ʤ, ʨ ʥ, ꭧ ꭦ
             </p>
-            <label for="chosen-consonants">Consonants:</label>
+            <label for="chosen-consonants" class="label">Consonants:</label>
             <input id="chosen-consonants" value=""></input>
           </div>
 
           <div class="radio-section">
             <p>Use the notation C = Consonant, V=Vowel, thus enter "CV" for a consonant-vowel syllable structure. Seperate different syllable structures with a space.</p>
-            <label for="chosen-syllables">Syllable structures:</label>
+            <label for="chosen-syllables" class="label">Syllable structures:</label>
             <input id="chosen-syllables" value=""></input>
           </div>
 
@@ -269,8 +269,8 @@
 
           <!--Choose typology-->
           <div class="radio-section">
-            <label for="typology-form">Choose typology:</label>
-            <select id="typology-form" name="typology-form">
+            <label for="typology-form" class="label">Choose typology:</label>
+            <select id="typology-form" name="typology-form" onchange="hideClassifierFormForTypologyMenu(this.value)">
               <option value="random" selected onclick="hideGenderForm(this.value); showCustomQuantifiers()">Random</option>
               <option value="isolating" onclick="hideGenderForm(this.value); showCustomQuantifiers()">Isolating</option>
               <option value="agglutinative" onclick="hideGenderForm(this.value); showCustomQuantifiers()">Agglutinative</option>
@@ -280,7 +280,7 @@
 
           <!--Choose Noun Gender (does not appear for isolating languages)-->
           <div class="radio-section" id="gender-form-div">
-            <label for="gender-form">Choose Noun Gender:</label>
+            <label for="gender-form" class="label">Choose Noun Gender:</label>
             <select id="gender-form" name="gender-form">
               <option value="none">None</option>
               <option value="random" selected>Random</option>
@@ -296,8 +296,8 @@
 
           <!--Choose Isolating Number System (only appears for isolating languages)-->
           <div class="radio-section" id="isolating-number-form-div">
-            <label for="isolating-number-form">Choose Grammatical Number:</label>
-            <select id="isolating-number-form" name="isolating-number-form">
+            <label for="isolating-number-form" class="label">Choose Grammatical Number:</label>
+            <select id="isolating-number-form" name="isolating-number-form" onchange="hideCustomShapeClassifiers(this.value)">
               <option value="random" selected onclick="hideClassifierForm(this.value); showCustomQuantifiers(this.value)">Random</option>
               <option value="isolating-quanitifers-only-system" onclick="hideClassifierForm(this.value); showCustomQuantifiers(this.value)">Quantifiers Only</option>
               <option value="isolating-quanitifers-and-classifiers-purely-numerical-system" onclick="hideClassifierForm(this.value); showCustomQuantifiers(this.value)">Quantifiers and Classifiers</option>
@@ -307,7 +307,7 @@
 
           <!--Choose Classifier System (only appears for isolating languages)-->
           <div class="radio-section" id="classifier-form-div">
-            <label for="classifier-form">Choose Classifier System:</label>
+            <label for="classifier-form" class="label">Choose Classifier System:</label>
             <select id="classifier-form" name="classifier-form">
               <option value="random" selected onclick="hideChooseLongClassifiers(this.value); showCustomShapeClassifiers(this.value)">Random</option>
               <option value="shape-based-classifier-system" onclick="hideChooseLongClassifiers(this.value); showCustomShapeClassifiers(this.value)">Shape Based</option>
@@ -319,7 +319,7 @@
 
           <!--Choose Classifiers from Long classifier system (only appears for isolating languages)-->
           <div class="radio-section" id="long-classifier-form-div">
-            <label for="long-classifier-form">Choose Classifiers For:</label>
+            <label for="long-classifier-form" class="label">Choose Classifiers For:</label>
             <select id="long-classifier-form" name="long-classifier-form">
               <option onclick="clearAllClassifiers()" selected>Clear All</option>
               <option value="protruding-top-list" onclick="addClassifier(this.value, this.innerHTML)">Objects With A Protruding Top</option>
@@ -463,52 +463,187 @@
             </div>
           </div>
 
+          <!--shows text fields for animacy based classifiers-->
+          <div id="animacy-classifier-text-field-div" class="text-field-div">
+            <h3>Animacy Based Classifiers</h3>
+            <p>A classifier may be drawn from a pre-existing word in the language. You may choose which word each classifier came from e.g perhaps the "domestic animal for milk" classifier may come from the word for "cow".</p>
+            <div class="text-field-label-above">
+              <p class="label">Man classifier: </p>
+              <div class="multiple-textfield-div">
+                  <div>
+                    <label for="man-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="man-text-field"></input>
+                  </div>
+                  <div>
+                    <label for="man-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="man-meaning-text-field"></input>
+                  </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Woman classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="woman-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="woman-text-field"></input>
+                </div>
+                <div>
+                    <label for="woman-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="woman-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Child classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="child-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="child-text-field"></input>
+                </div>
+                <div>
+                    <label for="child-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="child-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Wild animal classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="wild-animal-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="wild-animal-text-field"></input>
+                </div>
+                <div>
+                    <label for="wild-animal-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="wild-animal-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Domestic animal for meat classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="domestic-animal-meat-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="domestic-animal-meat-text-field"></input>
+                </div>
+                <div>
+                    <label for="domestic-animal-meat-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="domestic-animal-meat-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Domestic animal for fur classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="domestic-animal-for-fur-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="domestic-animal-for-fur-text-field"></input>
+                </div>
+                <div>
+                    <label for="domestic-animal-for-fur-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="domestic-animal-for-fur-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Domestic animal for labour classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="domestic-animal-for-labour-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="domestic-animal-for-labour-text-field"></input>
+                </div>
+                <div>
+                    <label for="domestic-animal-for-labour-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="domestic-animal-for-labour-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Domestic animal for milk classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="domestic-animal-for-milk-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="domestic-animal-for-milk-text-field"></input>
+                </div>
+                <div>
+                    <label for="domestic-animal-for-milk-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="domestic-animal-for-milk-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Inedible classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="inedible-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="inedible-text-field"></input>
+                </div>
+                <div>
+                    <label for="inedible-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="inedible-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Edible classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="edible-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="edible-text-field"></input>
+                </div>
+                <div>
+                    <label for="edible-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="edible-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!--shows text fields for quantifiers-->
           <div id="quantifier-text-field-div"  class="text-field-div">
             <h3>Quantifiers</h3>
             <div class="text-field">
-              <p>"few": </p>
+              <p class="label">"few": </p>
               <input type="text" class="custom-text-field" id="few-text-field"></input>
             </div>
             <div class="text-field">
-              <p>"barely any": </p>
+              <p class="label">"barely any": </p>
               <input type="text" class="custom-text-field" id="barely-any-text-field"></input>
             </div>
             <div class="text-field">
-              <p>"several": </p>
+              <p class="label">"several": </p>
               <input type="text" class="custom-text-field" id="several-text-field"></input>
             </div>
             <div class="text-field">
-              <p>"some": </p>
+              <p class="label">"some": </p>
               <input type="text" class="custom-text-field" id="some-text-field"></input>
             </div>
             <div class="text-field">
-              <p>"a lot of": </p>
+              <p class="label">"a lot of": </p>
               <input type="text" class="custom-text-field" id="a-lot-of-text-field"></input>
             </div>
             <div class="text-field">
-              <p>"great amount of": </p>
+              <p class="label">"great amount of": </p>
               <input type="text" class="custom-text-field" id="great-amount-text-field"></input>
             </div>
             <div class="text-field">
-              <p>"enough": </p>
+              <p class="label">"enough": </p>
               <input type="text" class="custom-text-field" id="enough-text-field"></input>
             </div>
             <div class="text-field">
-              <p>"not enough": </p>
+              <p class="label">"not enough": </p>
               <input type="text" class="custom-text-field" id="not-enough-text-field"></input>
             </div>
             <div class="text-field">
-              <p>"too much": </p>
+              <p class="label">"too much": </p>
               <input type="text" class="custom-text-field" id="too-much-text-field""></input>
             </div>
           </div>
 
-    
-
+  
           <!--Choose word order-->
           <div class="radio-section">
-            <label for="word-order-form">Choose word order:</label>
+            <label for="word-order-form" class="label">Choose word order:</label>
             <select id="word-order-form" name="word-order-form">
               <option value="random">Random</option>
               <option value="svo">SVO</option>
@@ -4265,6 +4400,17 @@
       }
     };
 
+    //when the typology is changed to be non-isolating, the menu for classifier systems disappears (it otherwise lingered)
+    function hideClassifierFormForTypologyMenu(value) {
+      if(value !== "isolating") {
+        document.getElementById("classifier-form-div").style.display = "none";
+        document.getElementById("shape-classifier-text-field-div").style.display = "none";
+        document.getElementById("animacy-classifier-text-field-div").style.display = "none";
+      };
+    };
+
+    
+
     function hideChooseLongClassifiers(value) {
       if(value === "long-classifier-system-system") {
         document.getElementById("long-classifier-form-div").style.display = "block";
@@ -4315,21 +4461,49 @@
     //shows text fields to enter custom shape based classifiers
     function showCustomShapeClassifiers(value) {
       let typologyForm = document.getElementById("typology-form").value;
+      let isolatingNumSystem = document.getElementById("isolating-number-form").value;
 
       let shapeClassifierTextFields = document.getElementById("shape-classifier-text-field-div");
+      let animacyClassifierTextFields = document.getElementById("animacy-classifier-text-field-div");
 
-      let isolatingNumberSystem = document.getElementById("isolating-number-form").value
       if(typologyForm === "isolating") {
-        if(isolatingNumberSystem === "isolating-quanitifers-and-classifiers-purely-numerical-system" && value === "shape-based-classifier-system") {
-          shapeClassifierTextFields.style.display = "block";
+        if(isolatingNumSystem === "isolating-quanitifers-and-classifiers-purely-numerical-system") {
+          
+            if(value === "shape-based-classifier-system") {
+              shapeClassifierTextFields.style.display = "block";
+              animacyClassifierTextFields.style.display = "none";
+            }
+            if(value === "animacy-based-classifier-system") {
+              animacyClassifierTextFields.style.display = "block";
+              shapeClassifierTextFields.style.display = "none";
+            }
         } else {
           shapeClassifierTextFields.style.display = "none";
+          animacyClassifierTextFields.style.display = "none";
         };
       } else if(typologyForm !== "isolating") {
         shapeClassifierTextFields.style.display = "none";
+        animacyClassifierTextFields.style.display = "none";
       };
     };
+
+
+
+    function hideCustomShapeClassifiers(value) {
+      let shapeClassifierTextFields = document.getElementById("shape-classifier-text-field-div");
+      let animacyClassifierTextFields = document.getElementById("animacy-classifier-text-field-div");
+      
+      if(value !== "isolating-quanitifers-and-classifiers-purely-numerical-system") {
+        shapeClassifierTextFields.style.display = "none";
+        animacyClassifierTextFields.style.display = "none"
+      }
+    };
+    
+   
+    
     </script>
+
+    
 
     <script  src="./PDFCoverPage.js"></script>
     <script  src="./resetButton.js"></script>

@@ -27,6 +27,10 @@ function reset() {
     document.getElementById("flat-meaning-text-field").value = "";
     document.getElementById("shapeless-text-field").value = "";
     document.getElementById("shapeless-meaning-text-field").value = "";
+    let customtextField = document.getElementsByClassName("custom-text-field")
+    for(let i = 0; i < customtextField.length; i++) {
+        customtextField[i].value = "";
+    }
 
     //changes value of dropdown forms to "random"
     document.getElementById("sound-change-menu").value = "random";
@@ -48,6 +52,7 @@ function reset() {
     document.getElementById("isolating-number-form-div").style.display = "none";
     document.getElementById("long-classifier-form-div").style.display = "none";
     document.getElementById("shape-classifier-text-field-div").style.display = "none";
+    document.getElementById("animacy-classifier-text-field-div").style.display = "none";
     document.getElementById("quantifier-text-field-div").style.display = "none";
     document.getElementById("classifier-form-div").style.display = "none";
 

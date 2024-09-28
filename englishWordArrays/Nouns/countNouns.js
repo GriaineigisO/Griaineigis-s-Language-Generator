@@ -197,7 +197,26 @@ humanAnimalInan.push("secondinanimate");
 mascFemNeut.push("neuter");
 mascFem.push("feminine1");
 naturalArtificial.push("artificial");
-animacyClassifierArray.push("tool");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("round");
+shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
+
+countNounArray.push("toy");
+countNounArrayPlural.push("toyy");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("artificial");
+animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("round");
 shortGenericClassifierArray.push("tool");
 derivedOrInheritedCountNoun.push("inherited");
@@ -217,7 +236,7 @@ humanAnimalInan.push("secondinanimate");
 mascFemNeut.push("neuter");
 mascFem.push("feminine1");
 naturalArtificial.push("natural");
-animacyClassifierArray.push("tool");
+animacyClassifierArray.push("inedible");
 shapeClassifierArray.push("long-and-slender");
 shortGenericClassifierArray.push("natural-inanimate");
 derivedOrInheritedCountNoun.push("inherited");
@@ -2112,7 +2131,24 @@ derivationListCountNoun.push("");
 oldCountNounArray.push("");
 /*--------------------------------------------*/
 
-
+countNounArray.push("meal");
+countNounArrayPlural.push("meals");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("natural");
+animacyClassifierArray.push("edible");
+shapeClassifierArray.push("round");
+shortGenericClassifierArray.push("natural-inanimate");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
 
 
 countNounArray.push("chickpea");
@@ -10836,7 +10872,24 @@ oldCountNounArray.push("");
 /*--------------------------------------------*/
 
 
-
+countNounArray.push("plate");
+countNounArrayPlural.push("plates");
+activePassive.push("passive")
+animInan.push("inan");
+divineNonDivine.push("profane");
+humanAnimalInan.push("secondinanimate");
+mascFemNeut.push("neuter");
+mascFem.push("feminine1");
+naturalArtificial.push("artificial");
+animacyClassifierArray.push("inedible");
+shapeClassifierArray.push("flat");
+shortGenericClassifierArray.push("tool");
+derivedOrInheritedCountNoun.push("inherited");
+etymologyCountNoun.push("X");
+etymologyArrayCountNoun.push("X");
+derivationListCountNoun.push("");
+oldCountNounArray.push("");
+/*--------------------------------------------*/
 
 countNounArray.push("splatter");
 countNounArrayPlural.push("splatters");

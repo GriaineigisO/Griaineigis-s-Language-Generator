@@ -2046,8 +2046,8 @@ function spell(word) {
         };
     };
 
-    //console.log(chosenConsonantSpellingsArray)
-    // console.log(chosenConsonantSpellingsArray[0])
+    // console.log(chosenConsonantSpellingsArray)
+    // console.log(chosenVowelSpellingsArray)
 
     //console.log(wordArray)
 
@@ -2105,6 +2105,25 @@ function spell(word) {
     spellIndividualLettersShort("œ", "œ", chosenVowelSpellingsArray);
     spellIndividualLettersShort("ɑ", randomLowFrontRounded(), chosenVowelSpellingsArray);
     spellIndividualLettersShort("ɐ", randomMidCentreRounded(), chosenVowelSpellingsArray);
+
+    spellIndividualLettersShort("p", "p", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("b", "b", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("t", "t", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("d", "d", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("k", "k", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("g", "g", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("q", "q", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("ɢ", "ɢ", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("f", "f", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("v", "v", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("s", "s", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("z", "z", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("r", "r", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("l", "l", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("m", "m", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("n", "n", chosenConsonantSpellingsArray);
+    spellIndividualLettersShort("w", "w", chosenConsonantSpellingsArray);
+    
 
     spellIndividualLettersShort("ʃ", randomPostAlveolarS(wordArray), chosenConsonantSpellingsArray);
     spellIndividualLettersShort("ʒ", randomPostAlveolarS(wordArray), chosenConsonantSpellingsArray);

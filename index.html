@@ -309,11 +309,11 @@
           <div class="radio-section" id="classifier-form-div">
             <label for="classifier-form">Choose Classifier System:</label>
             <select id="classifier-form" name="classifier-form">
-              <option value="random" selected onclick="hideChooseLongClassifiers(this.value)">Random</option>
-              <option value="shape-based-classifier-system" onclick="hideChooseLongClassifiers(this.value)">Shape Based</option>
-              <option value="animacy-based-classifier-system" onclick="hideChooseLongClassifiers(this.value)">Animacy Based</option>
-              <option value="short-generic-based-classifier-system" onclick="hideChooseLongClassifiers(this.value)">HumanTree/Grass/Flower/Land Animal/Water Animal/Flying Animal/Word/Tool/Natural Inanimate/Liquid</option>
-              <option value="long-classifier-system-system" onclick="hideChooseLongClassifiers(this.value)">Custom Classifier System</option>
+              <option value="random" selected onclick="hideChooseLongClassifiers(this.value); showCustomShapeClassifiers(this.value)">Random</option>
+              <option value="shape-based-classifier-system" onclick="hideChooseLongClassifiers(this.value); showCustomShapeClassifiers(this.value)">Shape Based</option>
+              <option value="animacy-based-classifier-system" onclick="hideChooseLongClassifiers(this.value); showCustomShapeClassifiers(this.value)">Animacy Based</option>
+              <option value="short-generic-based-classifier-system" onclick="hideChooseLongClassifiers(this.value); showCustomShapeClassifiers(this.value)">HumanTree/Grass/Flower/Land Animal/Water Animal/Flying Animal/Word/Tool/Natural Inanimate/Liquid</option>
+              <option value="long-classifier-system-system" onclick="hideChooseLongClassifiers(this.value); showCustomShapeClassifiers(this.value)">Custom Classifier System</option>
             </select> 
           </div>
 
@@ -379,8 +379,93 @@
             </div>
           </div>
 
+          <!--shows text fields for shape based classifiers-->
+          <div id="shape-classifier-text-field-div" class="text-field-div">
+            <h3>Shape Based Classifiers</h3>
+            <p>A classifier may be drawn from a pre-existing word in the language. You may choose which word each classifier came from e.g perhaps the "long and slender" classifier may come from the word for "branch".</p>
+            <div class="text-field-label-above">
+              <p class="label">Long and slender classifier: </p>
+              <div class="multiple-textfield-div">
+                  <div>
+                    <label for="long-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="long-text-field"></input>
+                  </div>
+                  <div>
+                    <label for="long-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="long-meaning-text-field"></input>
+                  </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Short and wide classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="short-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="short-text-field"></input>
+                </div>
+                <div>
+                    <label for="short-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="short-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Round classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="round-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="round-text-field"></input>
+                </div>
+                <div>
+                    <label for="round-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="round-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Pointed classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="pointed-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="pointed-text-field"></input>
+                </div>
+                <div>
+                    <label for="pointed-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="pointed-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Flat classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="flat-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="flat-text-field"></input>
+                </div>
+                <div>
+                    <label for="flat-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="flat-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+            <div class="text-field-label-above">
+              <p class="label">Shapeless classifier: </p>
+              <div class="multiple-textfield-div">
+                <div>
+                    <label for="shapeless-text-field">Enter Classifier</label>
+                    <input type="text" class="custom-text-field" id="shapeless-text-field"></input>
+                </div>
+                <div>
+                    <label for="shapeless-meaning-text-field">Original Meaning of Classifier</label>
+                    <input type="text" class="custom-text-field" id="shapeless-meaning-text-field"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!--shows text fields for quantifiers-->
-          <div id="quantifier-text-field-div">
+          <div id="quantifier-text-field-div"  class="text-field-div">
+            <h3>Quantifiers</h3>
             <div class="text-field">
               <p>"few": </p>
               <input type="text" class="custom-text-field" id="few-text-field"></input>
@@ -418,6 +503,8 @@
               <input type="text" class="custom-text-field" id="too-much-text-field""></input>
             </div>
           </div>
+
+    
 
           <!--Choose word order-->
           <div class="radio-section">
@@ -4224,18 +4311,37 @@
         quantifierTextFields.style.display = "none";
       };
     };
-     
+  
+    //shows text fields to enter custom shape based classifiers
+    function showCustomShapeClassifiers(value) {
+      let typologyForm = document.getElementById("typology-form").value;
+
+      let shapeClassifierTextFields = document.getElementById("shape-classifier-text-field-div");
+
+      let isolatingNumberSystem = document.getElementById("isolating-number-form").value
+      if(typologyForm === "isolating") {
+        if(isolatingNumberSystem === "isolating-quanitifers-and-classifiers-purely-numerical-system" && value === "shape-based-classifier-system") {
+          shapeClassifierTextFields.style.display = "block";
+        } else {
+          shapeClassifierTextFields.style.display = "none";
+        };
+      } else if(typologyForm !== "isolating") {
+        shapeClassifierTextFields.style.display = "none";
+      };
+    };
     </script>
 
     <script  src="./PDFCoverPage.js"></script>
     <script  src="./resetButton.js"></script>
     <script type="module" src="./generatePhonology.js"></script>
+
     <script type="module" src="./derivation.js"></script>
-    <script type="module" src="./dictionary.js"></script>
     <script type="module" src="./script.js"></script>
+    <script type="module" src="./dictionary.js"></script>
     <script type="module" src="./fusionalNouns.js"></script>
     <script type="module" src="./soundChange.js"></script>
     <script type="module" src="./soundChangeExamples.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   </body>
 </html>

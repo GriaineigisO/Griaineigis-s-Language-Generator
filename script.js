@@ -1427,119 +1427,354 @@ function createShapeClassifiers() {
         
         let longAndSlender = document.getElementsByClassName("long-and-slender");
         randomNumForLongAndSlender = Math.floor(Math.random() * 4);
-        if(randomNumForLongAndSlender === 0) {
-            longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("branch")]
-            classifiersWithEtymology++;
-            longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "branch"`;
+
+        let longAndSlenderClassifierTextField = document.getElementById("long-text-field").value;
+        let userSuppliedLongClassifierEtyomology = document.getElementById("long-meaning-text-field").value;
+
+        if(randomOption === false) {
+            //if the user supplies both the classifier and its etymology himself, they will be applied here, else, a random one is made
+            if(longAndSlenderClassifierTextField.length > 0 && userSuppliedLongClassifierEtyomology.length > 0) {
+                longAndSlenderClassifier = longAndSlenderClassifierTextField;
+                //the word for the given etymology is replaced with the given classifier
+                generatedCountNouns[countNounArray.indexOf(userSuppliedLongClassifierEtyomology)] = longAndSlenderClassifier;
+                classifiersWithEtymology++;
+                 longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "${userSuppliedLongClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(longAndSlenderExample);
+
+            //if the user supplies the etymology but not the classifier, the already generated word for said etymology becomes the classifier 
+            } else if (longAndSlenderClassifierTextField.length === 0 && userSuppliedLongClassifierEtyomology.length > 0) {
+                longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf(userSuppliedLongClassifierEtyomology)];
+
+                 classifiersWithEtymology++;
+                 longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "${userSuppliedLongClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(longAndSlenderExample);
+
+            //if the user gave a classifier but no etymology, the etymology is randomly chosen
+            } else if (longAndSlenderClassifierTextField.length > 0 && userSuppliedLongClassifierEtyomology.length === 0) {
+                longAndSlenderClassifier = longAndSlenderClassifierTextField;
+                if(randomNumForLongAndSlender === 0) {
+                    classifiersWithEtymology++;
+                    longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "branch"`;
+                    classifierEtymologyArray.push(longAndSlenderExample);
+                } else if(randomNumForLongAndSlender === 1) {
+                    classifiersWithEtymology++;
+                    longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "pole"`;
+                    classifierEtymologyArray.push(longAndSlenderExample);
+                };
+            }
+        } else {
+            if(randomNumForLongAndSlender === 0) {
+                longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("branch")]
+                classifiersWithEtymology++;
+                longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "branch"`;
+                classifierEtymologyArray.push(longAndSlenderExample);
+            } else if (randomNumForLongAndSlender === 1) {
+                longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("pole")]
+                classifiersWithEtymology++;
+                longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "pole"`;
             classifierEtymologyArray.push(longAndSlenderExample);
-        } else if (randomNumForLongAndSlender === 1) {
-            longAndSlenderClassifier = generatedCountNouns[countNounArray.indexOf("pole")]
-            classifiersWithEtymology++;
-            longAndSlenderExample = `<i>${spell(soundChange(longAndSlenderClassifier))}</i> "pole"`;
-        classifierEtymologyArray.push(longAndSlenderExample);
-        } else if (randomNumForLongAndSlender > 1) {
-            longAndSlenderClassifier = generateWords();
-            
-        }
+            } else if (randomNumForLongAndSlender > 1) {
+                longAndSlenderClassifier = generateWords();
+                
+            };
+        };
         for(let i = 0; i < longAndSlender.length; i++) {
-            longAndSlender[i].innerHTML = spell(soundChange(longAndSlenderClassifier));
-        }
+                longAndSlender[i].innerHTML = spell(soundChange(longAndSlenderClassifier));
+        };
+
+
+        let shortClassifierTextField = document.getElementById("short-text-field").value;
+        let userSuppliedShortClassifierEtyomology = document.getElementById("short-meaning-text-field").value;
 
         let shortAndWide = document.getElementsByClassName("short-and-wide");
         randomNumForShortAndWide = Math.floor(Math.random() * 4);
-        if(randomNumForShortAndWide === 0) {
-            shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("shoulder")]
-            classifiersWithEtymology++;
-            shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "shoulder"`;
-            classifierEtymologyArray.push(shortAndWideExample);
-        } else if(randomNumForShortAndWide === 1) {
-            shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("wedge")]
-            classifiersWithEtymology++;
-            shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "wedge"`;
-            classifierEtymologyArray.push(shortAndWideExample);
-        } else if (randomNumForShortAndWide > 1) {
+
+        if(randomOption === false) {
+            //if the user supplies both the classifier and its etymology himself, they will be applied here, else, a random one is made
+            if(shortClassifierTextField.length > 0 && userSuppliedShortClassifierEtyomology.length > 0) {
+                shortAndWideClassifier = shortClassifierTextField;
+                //the word for the given etymology is replaced with the given classifier
+                generatedCountNouns[countNounArray.indexOf(userSuppliedShortClassifierEtyomology)] = shortAndWideClassifier;
+                classifiersWithEtymology++;
+                 shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "${userSuppliedShortClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(shortAndWideExample);
+
+            //if the user supplies the etymology but not the classifier, the already generated word for said etymology becomes the classifier 
+            } else if (shortClassifierTextField.length === 0 && userSuppliedShortClassifierEtyomology.length > 0) {
+                shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf(userSuppliedShortClassifierEtyomology)];
+                 classifiersWithEtymology++;
+                 shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "${userSuppliedShortClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(shortAndWideExample);
+
+            //if the user gave a classifier but no etymology, the etymology is randomly chosen
+            } else if (shortClassifierTextField.length > 0 && userSuppliedShortClassifierEtyomology.length === 0) {
+                shortAndWideClassifier = shortClassifierTextField;
+                if(randomNumForShortAndWide === 0) {
+                    generatedCountNouns[countNounArray.indexOf("shoulder")] = shortAndWideClassifier;
+                    classifiersWithEtymology++;
+                    shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "shoulder"`;
+                    classifierEtymologyArray.push(shortAndWideExample);
+                } else if(randomNumForShortAndWide === 1) {
+                    generatedCountNouns[countNounArray.indexOf("wedge")] = shortAndWideClassifier
+                    classifiersWithEtymology++;
+                    shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "wedge"`;
+                    classifierEtymologyArray.push(shortAndWideExample);
+                }
+            }
+        } else {
+            if(randomNumForShortAndWide === 0) {
+                shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("shoulder")]
+                classifiersWithEtymology++;
+                shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "shoulder"`;
+                classifierEtymologyArray.push(shortAndWideExample);
+            } else if(randomNumForShortAndWide === 1) {
+                shortAndWideClassifier = generatedCountNouns[countNounArray.indexOf("wedge")]
+                classifiersWithEtymology++;
+                shortAndWideExample = `<i>${spell(soundChange(shortAndWideClassifier))}</i> "wedge"`;
+                classifierEtymologyArray.push(shortAndWideExample);
+            } else if (randomNumForShortAndWide > 1) {
             shortAndWideClassifier = generateWords(); 
-        }
+            }
+        };
         for(let i = 0; i < shortAndWide.length; i++) {
             shortAndWide[i].innerHTML = spell(soundChange(shortAndWideClassifier));
         }
 
+
+        let roundClassifierTextField = document.getElementById("round-text-field").value;
+        let userSuppliedRoundClassifierEtyomology = document.getElementById("round-meaning-text-field").value;
+        
         let round = document.getElementsByClassName("round");
         randomNumForRound = Math.floor(Math.random() * 5);
-        if(randomNumForRound === 0) {
-            roundClassifier = generatedCountNouns[countNounArray.indexOf("apple")]
-            classifiersWithEtymology++;
-            roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "apple"`;
-            classifierEtymologyArray.push(roundExample);
-        } else if(randomNumForRound === 1) {
-            roundClassifier = generatedCountNouns[countNounArray.indexOf("pebble")]
-            classifiersWithEtymology++;
-            roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "pebble"`;
-            classifierEtymologyArray.push(roundExample);
-        }else if(randomNumForRound === 2) {
-            roundClassifier = generatedCountNouns[countNounArray.indexOf("ball")]
-            classifiersWithEtymology++;
-            roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "ball"`;
-            classifierEtymologyArray.push(roundExample);
-        } else if (randomNumForRound > 2) {
-            roundClassifier = generateWords(); 
-        }
+
+        if(randomOption === false) {
+             //if the user supplies both the classifier and its etymology himself, they will be applied here, else, a random one is made
+            if(roundClassifierTextField.length > 0 && userSuppliedRoundClassifierEtyomology.length > 0) {
+                roundClassifier = roundClassifierTextField;
+                //the word for the given etymology is replaced with the given classifier
+                generatedCountNouns[countNounArray.indexOf(userSuppliedRoundClassifierEtyomology)] = roundClassifier;
+                classifiersWithEtymology++;
+                 roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "${userSuppliedRoundClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(roundExample);
+
+            //if the user supplies the etymology but not the classifier, the already generated word for said etymology becomes the classifier 
+            } else if (roundClassifierTextField.length === 0 && userSuppliedRoundClassifierEtyomology.length > 0) {
+                roundClassifier = generatedCountNouns[countNounArray.indexOf(userSuppliedRoundClassifierEtyomology)];
+                 classifiersWithEtymology++;
+                 roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "${userSuppliedRoundClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(roundExample);
+
+            //if the user gave a classifier but no etymology, the etymology is randomly chosen
+            } else if (roundClassifierTextField.length > 0 && userSuppliedRoundClassifierEtyomology.length === 0) {
+                roundClassifier = roundClassifierTextField;
+                if(randomNumForRound === 0) {
+                    generatedCountNouns[countNounArray.indexOf("apple")] = roundClassifier;
+                    classifiersWithEtymology++;
+                    roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "apple"`;
+                    classifierEtymologyArray.push(roundExample);
+                } else if(randomNumForRound === 1) {
+                    generatedCountNouns[countNounArray.indexOf("pebble")] = roundClassifier
+                    classifiersWithEtymology++;
+                    roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "pebble"`;
+                    classifierEtymologyArray.push(roundExample);
+                } else if(randomNumForRound === 2) {
+                    generatedCountNouns[countNounArray.indexOf("ball")] = roundClassifier
+                    classifiersWithEtymology++;
+                    roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "ball"`;
+                    classifierEtymologyArray.push(roundExample);
+                } else if (randomNumForRound > 2) {
+                    roundClassifier = generateWords(); 
+                }
+            }
+        } else {
+            if(randomNumForRound === 0) {
+                roundClassifier = generatedCountNouns[countNounArray.indexOf("apple")]
+                classifiersWithEtymology++;
+                roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "apple"`;
+                classifierEtymologyArray.push(roundExample);
+            } else if(randomNumForRound === 1) {
+                roundClassifier = generatedCountNouns[countNounArray.indexOf("pebble")]
+                classifiersWithEtymology++;
+                roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "pebble"`;
+                classifierEtymologyArray.push(roundExample);
+            }else if(randomNumForRound === 2) {
+                roundClassifier = generatedCountNouns[countNounArray.indexOf("ball")]
+                classifiersWithEtymology++;
+                roundExample = `<i>${spell(soundChange(roundClassifier))}</i> "ball"`;
+                classifierEtymologyArray.push(roundExample);
+            } else if (randomNumForRound > 2) {
+                roundClassifier = generateWords(); 
+            }
+        };
         for(let i = 0; i < round.length; i++) {
             round[i].innerHTML = spell(soundChange(roundClassifier));
-        }
+        };
+
+
+        let pointedClassifierTextField = document.getElementById("pointed-text-field").value;
+        let userSuppliedPointedClassifierEtyomology = document.getElementById("pointed-meaning-text-field").value;
 
         let pointed = document.getElementsByClassName("pointed");
         randomNumForPointed = Math.floor(Math.random() * 5);
-        if(randomNumForPointed === 0) {
-            pointedClassifier = generatedCountNouns[countNounArray.indexOf("arrow")]
-            classifiersWithEtymology++;
-            pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "arrow"`;
-            classifierEtymologyArray.push(pointedExample);
-        } else if(randomNumForPointed === 1) {
-            pointedClassifier = generatedCountNouns[countNounArray.indexOf("thorn")]
-            classifiersWithEtymology++;
-            pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "thorn"`;
-            classifierEtymologyArray.push(pointedExample);
-        } else if(randomNumForPointed === 2) {
-            pointedClassifier = generatedCountNouns[countNounArray.indexOf("fork")]
-            classifiersWithEtymology++;
-            pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "fork"`;
-            classifierEtymologyArray.push(pointedExample);
-        } else if (randomNumForPointed> 2) {
-            pointedClassifier = generateWords(); 
-        }
+
+        if(randomOption === false) {
+             //if the user supplies both the classifier and its etymology himself, they will be applied here, else, a random one is made
+            if(pointedClassifierTextField.length > 0 && userSuppliedPointedClassifierEtyomology.length > 0) {
+                pointedClassifier = pointedClassifierTextField;
+                //the word for the given etymology is replaced with the given classifier
+                generatedCountNouns[countNounArray.indexOf(userSuppliedPointedClassifierEtyomology)] = pointedClassifier;
+                classifiersWithEtymology++;
+                 pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "${userSuppliedPointedClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(pointedExample);
+
+            //if the user supplies the etymology but not the classifier, the already generated word for said etymology becomes the classifier 
+            } else if (pointedClassifierTextField.length === 0 && userSuppliedPointedClassifierEtyomology.length > 0) {
+                pointedClassifier = generatedCountNouns[countNounArray.indexOf(userSuppliedPointedClassifierEtyomology)];
+                 classifiersWithEtymology++;
+                 pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "${userSuppliedPointedClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(pointedExample);
+
+            //if the user gave a classifier but no etymology, the etymology is randomly chosen
+            } else if (pointedClassifierTextField.length > 0 && userSuppliedPointedClassifierEtyomology.length === 0) {
+                pointedClassifier = pointedClassifierTextField;
+                if(randomNumForPointed === 0) {
+                    generatedCountNouns[countNounArray.indexOf("arrow")] = pointedClassifier;
+                    classifiersWithEtymology++;
+                    pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "arrow"`;
+                    classifierEtymologyArray.push(pointedExample);
+                } else if(randomNumForPointed === 1) {
+                    generatedCountNouns[countNounArray.indexOf("thorn")] = pointedClassifier
+                    classifiersWithEtymology++;
+                    pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "thorn"`;
+                    classifierEtymologyArray.push(pointedExample);
+                } else if(randomNumForPointed === 2) {
+                    generatedCountNouns[countNounArray.indexOf("fork")] = pointedClassifier
+                    classifiersWithEtymology++;
+                    pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "fork"`;
+                    classifierEtymologyArray.push(pointedExample);
+                }
+            }
+        } else {
+            if(randomNumForPointed === 0) {
+                pointedClassifier = generatedCountNouns[countNounArray.indexOf("arrow")]
+                classifiersWithEtymology++;
+                pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "arrow"`;
+                classifierEtymologyArray.push(pointedExample);
+            } else if(randomNumForPointed === 1) {
+                pointedClassifier = generatedCountNouns[countNounArray.indexOf("thorn")]
+                classifiersWithEtymology++;
+                pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "thorn"`;
+                classifierEtymologyArray.push(pointedExample);
+            } else if(randomNumForPointed === 2) {
+                pointedClassifier = generatedCountNouns[countNounArray.indexOf("fork")]
+                classifiersWithEtymology++;
+                pointedExample = `<i>${spell(soundChange(pointedClassifier))}</i> "fork"`;
+                classifierEtymologyArray.push(pointedExample);
+            } else if (randomNumForPointed> 2) {
+                pointedClassifier = generateWords(); 
+            }
+        };
         for(let i = 0; i < pointed.length; i++) {
             pointed[i].innerHTML = spell(soundChange(pointedClassifier));
-        }
+        };
 
+        let flatClassifierTextField = document.getElementById("flat-text-field").value;
+        let userSuppliedFlatClassifierEtyomology = document.getElementById("flat-meaning-text-field").value;
         let flat = document.getElementsByClassName("flat");
         randomNumForFlat = Math.floor(Math.random() * 5);
-        if(randomNumForFlat === 0) {
-            flatClassifier = generatedCountNouns[countNounArray.indexOf("slab")]
-            classifiersWithEtymology++;
-            flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "slab"`;
-            classifierEtymologyArray.push(flatExample);
-        } else if(randomNumForFlat === 1) {
-            flatClassifier = generatedCountNouns[countNounArray.indexOf("face")]
-            classifiersWithEtymology++;
-            flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "face"`;
-            classifierEtymologyArray.push(flatExample);
-        } else if (randomNumForFlat > 1) {
-            flatClassifier = generateWords(); 
+
+        if(randomOption === false) {
+             //if the user supplies both the classifier and its etymology himself, they will be applied here, else, a random one is made
+            if(flatClassifierTextField.length > 0 && userSuppliedFlatClassifierEtyomology.length > 0) {
+                flatClassifier = flatClassifierTextField;
+                //the word for the given etymology is replaced with the given classifier
+                generatedCountNouns[countNounArray.indexOf(userSuppliedFlatClassifierEtyomology)] = flatClassifier;
+                classifiersWithEtymology++;
+                 flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "${userSuppliedFlatClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(flatExample);
+
+            //if the user supplies the etymology but not the classifier, the already generated word for said etymology becomes the classifier 
+            } else if (flatClassifierTextField.length === 0 && userSuppliedFlatClassifierEtyomology.length > 0) {
+                flatClassifier = generatedCountNouns[countNounArray.indexOf(userSuppliedFlatClassifierEtyomology)];
+                 classifiersWithEtymology++;
+                 flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "${userSuppliedFlatClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(flatExample);
+
+            //if the user gave a classifier but no etymology, the etymology is randomly chosen
+            } else if (flatClassifierTextField.length > 0 && userSuppliedFlatClassifierEtyomology.length === 0) {
+                flatClassifier = flatClassifierTextField;
+                if(randomNumForFlat === 0) {
+                    generatedCountNouns[countNounArray.indexOf("slab")] = flatClassifier;
+                    classifiersWithEtymology++;
+                    flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "slab"`;
+                    classifierEtymologyArray.push(flatExample);
+                } else if(randomNumForFlat === 1) {
+                    generatedCountNouns[countNounArray.indexOf("face")] = flatClassifier
+                    classifiersWithEtymology++;
+                    flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "face"`;
+                    classifierEtymologyArray.push(flatExample);
+                }
+            }
+        } else {
+            if(randomNumForFlat === 0) {
+                flatClassifier = generatedCountNouns[countNounArray.indexOf("slab")]
+                classifiersWithEtymology++;
+                flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "slab"`;
+                classifierEtymologyArray.push(flatExample);
+            } else if(randomNumForFlat === 1) {
+                flatClassifier = generatedCountNouns[countNounArray.indexOf("face")]
+                classifiersWithEtymology++;
+                flatExample = `<i>${spell(soundChange(flatClassifier))}</i> "face"`;
+                classifierEtymologyArray.push(flatExample);
+            } else if (randomNumForFlat > 1) {
+                flatClassifier = generateWords(); 
+            }
         }
         for(let i = 0; i < flat.length; i++) {
             flat[i].innerHTML = spell(soundChange(flatClassifier));
         }
 
+        let shapelessClassifierTextField = document.getElementById("shapeless-text-field").value;
+        let userSuppliedShapelessClassifierEtyomology = document.getElementById("shapeless-meaning-text-field").value;
         let shapeless = document.getElementsByClassName("shapeless");
         randomNumForShapeless = Math.floor(Math.random() * 4);
-        if(randomNumForShapeless === 0) {
-            shapelessClassifier = generatedMassNouns[massNounArray.indexOf("air")]
-            classifiersWithEtymology++;
-            shapelessExample = `<i>${spell(soundChange(shapelessClassifier))}</i> "air"`;
-            classifierEtymologyArray.push(shapelessExample);
-        } else if (randomNumForShapeless > 0) {
-            shapelessClassifier = generateWords(); 
+
+        if(randomOption === false) {
+             //if the user supplies both the classifier and its etymology himself, they will be applied here, else, a random one is made
+            if(shapelessClassifierTextField.length > 0 && userSuppliedShapelessClassifierEtyomology.length > 0) {
+                shapelessClassifier = shapelessClassifierTextField;
+                //the word for the given etymology is replaced with the given classifier
+                generatedMassNouns[massNounArray.indexOf(userSuppliedShapelessClassifierEtyomology)] = shapelessClassifier;
+                classifiersWithEtymology++;
+                 shapelessExample = `<i>${spell(soundChange(shapelessClassifier))}</i> "${userSuppliedShapelessClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(shapelessExample);
+
+            //if the user supplies the etymology but not the classifier, the already generated word for said etymology becomes the classifier 
+            } else if (shapelessClassifierTextField.length === 0 && userSuppliedShapelessClassifierEtyomology.length > 0) {
+                shapelessClassifier = generatedMassNouns[massNounArray.indexOf(userSuppliedShapelessClassifierEtyomology)];
+                 classifiersWithEtymology++;
+                 shapelessExample = `<i>${spell(soundChange(shapelessClassifier))}</i> "${userSuppliedShapelessClassifierEtyomology}"`;
+                 classifierEtymologyArray.push(shapelessExample);
+
+            //if the user gave a classifier but no etymology, the etymology is randomly chosen
+            } else if (shapelessClassifierTextField.length > 0 && userSuppliedShapelessClassifierEtyomology.length === 0) {
+                shapelessClassifier = shapelessClassifierTextField;
+                if(randomNumForShapeless === 0) {
+                    generatedMassNouns[massNounArray.indexOf("air")] = shapelessClassifier;
+                    classifiersWithEtymology++;
+                    shapelessExample = `<i>${spell(soundChange(shapelessClassifier))}</i> "air"`;
+                    classifierEtymologyArray.push(shapelessExample);
+                }
+            }
+        } else {
+            if(randomNumForShapeless === 0) {
+                        shapelessClassifier = generatedMassNouns[massNounArray.indexOf("air")]
+                        classifiersWithEtymology++;
+                        shapelessExample = `<i>${spell(soundChange(shapelessClassifier))}</i> "air"`;
+                        classifierEtymologyArray.push(shapelessExample);
+                    } else if (randomNumForShapeless > 0) {
+                        shapelessClassifier = generateWords(); 
+                    }
         }
         for(let i = 0; i < shapeless.length; i++) {
             shapeless[i].innerHTML = spell(soundChange(shapelessClassifier));

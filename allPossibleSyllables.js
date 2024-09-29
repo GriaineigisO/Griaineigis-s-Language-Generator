@@ -2,7 +2,7 @@
 C = consonant 
 F = fricative
 N = nasal
-R = resonant
+R = liquid
 A = approximant
 H-aspirated
 */
@@ -45,7 +45,7 @@ let fricativeSyllables = [
     "CFV",
  ]
 
-let resonantSyllables = [
+let liquidSyllables = [
     "CRV",
     "CVRC",
     "CVCR",
@@ -59,4 +59,4 @@ let aspiratedSyllable = [
 ]
 
 
-export {syllablesArray, approximantSyllables, nasalSyllables, fricativeSyllables, resonantSyllables, aspiratedSyllable};
+export {syllablesArray, approximantSyllables, nasalSyllables, fricativeSyllables, liquidSyllables, aspiratedSyllable};

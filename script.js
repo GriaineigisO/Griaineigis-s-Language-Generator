@@ -9,10 +9,12 @@ import {adpositionArray} from './englishWordArrays/adpositions.js';
 import {intensifierArray} from './englishWordArrays/intensifier.js';
 import nounCases from './allPossibleNounCases.js'
 import {smallQuantifiersArray, middingQuantifierArray, bigQuantifierArray, opinionQuantifierArray} from './englishWordArrays/quantifierArray.js';
-import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, resonants, plosives, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, clearPreviousOutput, checkIfSoundChangeOptionChecked} from './soundchange.js'
+import {addedVowels, addedConsonants, soundChange, voiced, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse,selectSoundChanges, liquids, plosives, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, clearPreviousOutput, checkIfSoundChangeOptionChecked} from './soundchange.js'
 import {spell, checkIfCanUseMacron} from './orthography.js'
-import {consonants, vowels, selectedSyllables, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
+import {consonants, vowels, selectApproximants, selectFricatives, selectNasals, selectPlosives, selectAffricates, selectRhotics, selectLateralApproximants, allAspiratesArray, chooseLength, allLongVowels, allLongConsonants, allHighVowels} from './generatePhonology.js';
 import {allWordOrders, subjectFinalWordOrders, objectFinalWordOrders, verbFinalWordOrders} from './allPossibleWordOrders.js';
+import {categoryA, categoryB, categoryD, categoryE, categoryF, categoryG, categoryH, categoryI, categoryJ, categoryK, categoryL, categoryM, categoryN, categoryO, categoryP, categoryQ, categoryR, categoryS, categoryT, categoryU, categoryW, categoryX, categoryY, categoryZ, selectedSyllables} from './customSyllables.js';
+import {cloneArray} from './library.js';
 
 
 //combines both transitive and intransitive verbs into one list for cases where transitivity is irrelevant
@@ -235,7 +237,7 @@ let percussiveClassifier = "";
 let randomisedButton = document.getElementById("randomised");
 let customisedButton = document.getElementById("customised");
 let options = document.getElementById("customisation-options");
-let randomOption = "";
+let randomOption = true;
 let checkIfOptionWasSelected = "";
 
 function randomise() {
@@ -467,7 +469,7 @@ function showGrammarAndDictionary() {
 
 //if the generateWord() function below produces a homophone, this function is invoked within removeHomophones() to replace that homophone with a newly generated word
 function generateSecondWord() {
-    let resonants = selectRhotics().concat(selectLateralApproximants())
+    let liquids = selectRhotics().concat(selectLateralApproximants())
     let newSyllableArray = [];
     let newWord = "";
 
@@ -499,7 +501,7 @@ function generateSecondWord() {
             } else if (syllableArray[j] === "N"){
                 newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
             } else if (syllableArray[j] === "R"){
-                newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
+                newSyllableArray.push(liquids[Math.floor(Math.random() * liquids.length)]);  
             }else if (syllableArray[j] === "H"){
                 newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
             }
@@ -527,66 +529,168 @@ function removeHomophones(word) {
     }
 }
 
+
 //generates the words by giving each one a random amount of syllables, and choosing each syllable to be structured according to a randomly chosen syllable structure from the language's chosen options of syllable structures.
 function generateWords() {
-    let resonants = selectRhotics().concat(selectLateralApproximants())
+    let liquids = selectRhotics().concat(selectLateralApproximants())
     let newSyllableArray = [];
     let newWord = "";
 
     let numberOfSyllables = 0;
-    //if an inventory is small, then it needs more syllables per word to prevent large amounts of homophones
-    let numOfAllSounds = vowels.length + consonants.length
-    if(numOfAllSounds < 20 ) {
-        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
-    } else if (numOfAllSounds < 15 ) {
-        numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
-    } else if (numOfAllSounds <= 10 ) {
-        numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
-    }else {
-        numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+    //random amount of syllables
+    if(randomOption || (randomOption === false && document.getElementById("min-syllables").length === 0 && document.getElementById("max-syllables").length === 0)) {
+        //if an inventory is small, then it needs more syllables per word to prevent large amounts of homophones
+        let numOfAllSounds = vowels.length + consonants.length
+        if(numOfAllSounds < 20 ) {
+            numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+        } else if (numOfAllSounds < 15 ) {
+            numberOfSyllables = Math.floor(Math.random() * (4 - 3) + 3);
+        } else if (numOfAllSounds <= 10 ) {
+            numberOfSyllables = Math.floor(Math.random() * (5 - 4) + 4);
+        }else {
+            numberOfSyllables = Math.floor(Math.random() * (3 - 2) + 2);
+        }
+    } else { //user supplied min-max range of syllables
+        let min = Number(document.getElementById("min-syllables").value);
+        let max = Number(document.getElementById("max-syllables").value);
+        numberOfSyllables = Math.floor(Math.random() * (max - min) + min);
     }
 
+    let storeInitialSyllable = [];
+    let storeMedialSyllables = [];
+    let storeFinalSyllables = [];
+    let selectedSyllablesClone = [];
+
+    //syllables that may only occur medially or finally are stored in the storeXSyllables arrays above, and then not oushed into selectedSyllablesClone to prevent them being selected as the first syllable (aka when count === 0)
+    for(let j = 0; j < selectedSyllables.length; j++) {
+        if(selectedSyllables[j][0] === "&") {
+            storeMedialSyllables.push(selectedSyllables[j]);
+        } else if(selectedSyllables[j][0] === "*") {
+            storeFinalSyllables.push(selectedSyllables[j]);
+        } else if(selectedSyllables[j] !== " ") {
+            selectedSyllablesClone.push(selectedSyllables[j])
+        };
+    };
+
+    let count = 1;
     for(let i = 0; i < numberOfSyllables; i++) {
-        let syllable = selectedSyllables[Math.floor(Math.random() * selectedSyllables.length)]; //chooses a random syllable from array of selected syllables
+
+        //syllables that can only occur root initially may only have a chance of being selected with count === 0
+        if(count > 1) {
+            //adds previously removed medial syllables
+            for( let j = 0; j < storeMedialSyllables.length; j++) {
+                selectedSyllablesClone.push(storeMedialSyllables[j]);
+            }
+
+            for( let j = 0; j < selectedSyllablesClone.length; j++) {
+                if(selectedSyllablesClone[j][0] === "#") {
+                    storeInitialSyllable.push(selectedSyllablesClone[j]);
+                    selectedSyllablesClone.splice(j,1);
+                };
+            };
+        };
+
+        //syllables that can only occur root finally may only have a chance of being selected with count === 0
+        if(count === numberOfSyllables) {
+            //adds previously removed final syllables
+            for( let j = 0; j < storeFinalSyllables.length; j++) {
+                selectedSyllablesClone.push(storeFinalSyllables[j]);
+            }
+        }
+
+        count++;
+
+        let syllable = selectedSyllablesClone[Math.floor(Math.random() * selectedSyllablesClone.length)]; //chooses a random syllable from array of selected syllables
+
         let syllableArray = Array.from(syllable); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
         for(let j = 0; j < syllableArray.length; j++) {
-            if(syllableArray[j] === "C") {
-                newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
-            } else if (syllableArray[j] === "V"){
-                newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);  
-            } else if (syllableArray[j] === "F"){
-                newSyllableArray.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
-            } else if (syllableArray[j] === "A"){
-                newSyllableArray.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
-            } else if (syllableArray[j] === "N"){
-                newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
-            } else if (syllableArray[j] === "R"){
-                newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
-            }else if (syllableArray[j] === "H"){
-                newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
-            }
-        }  
-    }
-    newWord = newSyllableArray.join("");
-    //let randomNum = Math.floor(Math.random() * 100);
-	//if the generated word is a homophone with an already existing word
-    //The solution to prevent homophones didn't work and threw errors, try another solution
-	// if (allGeneratedWordsArray.includes(newWord)) {
-	// 	if (randomNum === 6) {
-	// 		//homophone accepted
-    //         allGeneratedWordsArray.push(newWord);
-	// 		return newWord;
-	// 	} else {
-    //         //homophone rejected and replaced with a new word
-    //         let newWordReplacement = generateSecondWord();
-    //         allGeneratedWordsArray.push(newWordReplacement);
-    //         return newWordReplacement;		
-	// 	}
-	// } else {
-    //     allGeneratedWordsArray.push(newWord);
-	// 	return newWord;
-	// }
+            //randomly generated syllables
+            if(randomOption || (randomOption === false && document.getElementById("chosen-syllables").length === 0)) {
+                if(syllableArray[j] === "C") {
+                    newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
+                } else if (syllableArray[j] === "V"){
+                    newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);  
+                } else if (syllableArray[j] === "F"){
+                    newSyllableArray.push(selectFricatives()[Math.floor(Math.random() * selectFricatives().length)]);  
+                } else if (syllableArray[j] === "A"){
+                    newSyllableArray.push(selectApproximants()[Math.floor(Math.random() * selectApproximants().length)]);  
+                } else if (syllableArray[j] === "N"){
+                    newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
+                } else if (syllableArray[j] === "R"){
+                    newSyllableArray.push(liquids[Math.floor(Math.random() * liquids.length)]);  
+                }else if (syllableArray[j] === "H"){
+                    newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
+                }
+            } else { //user supplied syllables
+                if(syllableArray[j] === "C") {
+                    newSyllableArray.push(consonants[Math.floor(Math.random() * consonants.length)]);
+                } else if (syllableArray[j] === "V"){
+                    newSyllableArray.push(vowels[Math.floor(Math.random() * vowels.length)]);
+                }  else if (syllableArray[j] === "A"){
+                    newSyllableArray.push(categoryA[Math.floor(Math.random() * categoryA.length)]);
+                }  else if (syllableArray[j] === "B"){
+                    newSyllableArray.push(categoryB[Math.floor(Math.random() * categoryB.length)]);
+                }  else if (syllableArray[j] === "D"){
+                    newSyllableArray.push(categoryD[Math.floor(Math.random() * categoryD.length)]);
+                }  else if (syllableArray[j] === "E"){
+                    newSyllableArray.push(categoryE[Math.floor(Math.random() * categoryE.length)]);
+                }  else if (syllableArray[j] === "F"){
+                    newSyllableArray.push(categoryF[Math.floor(Math.random() * categoryF.length)]);
+                }  else if (syllableArray[j] === "G"){
+                    newSyllableArray.push(categoryG[Math.floor(Math.random() * categoryG.length)]);
+                }  else if (syllableArray[j] === "H"){
+                    newSyllableArray.push(categoryH[Math.floor(Math.random() * categoryH.length)]);
+                }  else if (syllableArray[j] === "I"){
+                    newSyllableArray.push(categoryI[Math.floor(Math.random() * categoryI.length)]);
+                }  else if (syllableArray[j] === "J"){
+                    newSyllableArray.push(categoryJ[Math.floor(Math.random() * categoryJ.length)]);
+                }  else if (syllableArray[j] === "K"){
+                    newSyllableArray.push(categoryK[Math.floor(Math.random() * categoryK.length)]);
+                }  else if (syllableArray[j] === "L"){
+                    newSyllableArray.push(categoryL[Math.floor(Math.random() * categoryL.length)]);
+                }  else if (syllableArray[j] === "M"){
+                    newSyllableArray.push(categoryM[Math.floor(Math.random() * categoryM.length)]);
+                }  else if (syllableArray[j] === "N"){
+                    newSyllableArray.push(categoryN[Math.floor(Math.random() * categoryN.length)]);
+                }  else if (syllableArray[j] === "O"){
+                    newSyllableArray.push(categoryO[Math.floor(Math.random() * categoryO.length)]);
+                }  else if (syllableArray[j] === "P"){
+                    newSyllableArray.push(categoryP[Math.floor(Math.random() * categoryP.length)]);
+                }  else if (syllableArray[j] === "Q"){
+                    newSyllableArray.push(categoryQ[Math.floor(Math.random() * categoryQ.length)]);
+                }  else if (syllableArray[j] === "R"){
+                    newSyllableArray.push(categoryR[Math.floor(Math.random() * categoryR.length)]);
+                }  else if (syllableArray[j] === "S"){
+                    newSyllableArray.push(categoryS[Math.floor(Math.random() * categoryS.length)]);
+                }  else if (syllableArray[j] === "T"){
+                    newSyllableArray.push(categoryT[Math.floor(Math.random() * categoryT.length)]);
+                }  else if (syllableArray[j] === "U"){
+                    newSyllableArray.push(categoryU[Math.floor(Math.random() * categoryU.length)]);
+                }  else if (syllableArray[j] === "W"){
+                    newSyllableArray.push(categoryW[Math.floor(Math.random() * categoryW.length)]);
+                }  else if (syllableArray[j] === "X"){
+                    newSyllableArray.push(categoryX[Math.floor(Math.random() * categoryX.length)]);
+                }  else if (syllableArray[j] === "Y"){
+                    newSyllableArray.push(categoryY[Math.floor(Math.random() * categoryY.length)]);
+                }  else if (syllableArray[j] === "Z"){
+                    newSyllableArray.push(categoryZ[Math.floor(Math.random() * categoryZ.length)]);
+                }  else if (syllableArray[j] === "#" || syllableArray[j] === "&" || syllableArray[j] === "*") {
+                    continue;
+                } else {
+                    //if the character in the syllable structure wasn't a capital letter, but an IPA charcater, said character is chosen as the sound
+                    newSyllableArray.push(syllableArray[j]);
+                } 
+            };
+        };  
+    };
+    
+    //add previously removed initial-only syllable back in, for the generation of subsequent words
+    // for (let j = 0; j < storeInitialSyllable; j++) {
+    //     selectedSyllables.push(storeInitialSyllable[j]);
+    // };
 
+    newWord = newSyllableArray.join("");
+    
     return removeHomophones(newWord);
 }
 
@@ -671,7 +775,7 @@ function makeSyllableArrayForAffixes() {
 
 //I wish to avoid affixes becoming to long, lest they result in very unreasonably long words, especially if a word gains multiple affixes. So This function does the same as generateWords() but prevents overly complex syllable structures and demands that all affixes be monosyllablic. This function may also be used for other morphemes that I'd prefer not be too long.
 function generateAffixes() {
-    let resonants = selectRhotics().concat(selectLateralApproximants())
+    let liquids = selectRhotics().concat(selectLateralApproximants())
     let newSyllableArray = [];
     let newAffix = "";
     let numberOfSyllables = 1;   
@@ -691,7 +795,7 @@ function generateAffixes() {
                 } else if (syllableArray[j] === "N"){
                     newSyllableArray.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
                 } else if (syllableArray[j] === "R"){
-                    newSyllableArray.push(resonants[Math.floor(Math.random() * resonants.length)]);  
+                    newSyllableArray.push(liquids[Math.floor(Math.random() * liquids.length)]);  
                 }else if (syllableArray[j] === "H"){
                     newSyllableArray.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
                 }  
@@ -791,7 +895,7 @@ function showSyllableStructureKey() {
 }
 
 function syllableStructureExamples() {
-    let resonants = selectRhotics().concat(selectLateralApproximants())
+    let liquids = selectRhotics().concat(selectLateralApproximants())
     let exampleUl = document.getElementById("syllable-example-list")
     exampleUl.style.display = "block"
 
@@ -812,7 +916,7 @@ function syllableStructureExamples() {
                 } else if (syllableArray[j] === "N"){
                     example.push(selectNasals()[Math.floor(Math.random() * selectNasals().length)]);  
                 } else if (syllableArray[j] === "R"){
-                    example.push(resonants[Math.floor(Math.random() * resonants.length)]);  
+                    example.push(liquids[Math.floor(Math.random() * liquids.length)]);  
                 }else if (syllableArray[j] === "H"){
                     example.push(allAspiratesArray[Math.floor(Math.random() * allAspiratesArray.length)]);  
                 }
@@ -8416,28 +8520,13 @@ function applySoundChangesAndOrtho(element) {
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", generateLanguage);
 
-function generateLanguage() {
-    if(checkIfOptionWasSelected === "") {
-        document.getElementById("warning").style.display = "block";
-    } else {
-        if(checkIfSoundChangeOptionChecked === "") {
-            document.getElementById("sound-change-warning").style.display = "block";
-        } else {
-        clearPreviousOutput();
+function holdFunctions() {
+    clearPreviousOutput();
         selectSoundChanges();
         showGrammarAndDictionary()
         clearGeneratedArrays();
         generateWords();
         sendGeneratedWordsToArray();
-        // reduceAmountOfLongVowels(generatedCountNouns);
-        // reduceAmountOfLongVowels(generatedMassNouns);
-        // reduceAmountOfLongVowels(generatedAdjectives);
-        // reduceAmountOfLongVowels(generatedTransitiveVerbs);
-        // reduceAmountOfLongVowels(generatedIntransitiveVerbs);
-        // reduceAmountOfLongVowels(generatedConjunctions);
-        // reduceAmountOfLongVowels(generatedAdverbs);
-        // reduceAmountOfLongVowels(generatedAdpositions);
-        // reduceAmountOfLongVowels(generatedIntensifiers);
         makeSyllableArrayForAffixes();
         generateAffixes();
         sendGeneratedAffixesToArray();
@@ -8528,8 +8617,19 @@ function generateLanguage() {
         applySoundChangesAndOrtho(document.getElementsByClassName("general-noun"));
         applySoundChangesAndOrtho(document.getElementsByClassName("general1-noun"));
         applySoundChangesAndOrtho(document.getElementsByClassName("singulative-noun"));
-        //console.log(spell(soundChange("dweːrm")))
-        //console.log(spell(soundChange("kʷenpe")))
+}
+
+function generateLanguage() {
+    //if neither "fully randomised language" nor "customise" was pressed, the user is promtped to select one
+    if(checkIfOptionWasSelected === "") {
+        document.getElementById("warning").style.display = "block";
+    } else {
+        //if "fully randomised language" was pressed, the language is then generated
+        if(randomOption) {
+            holdFunctions()
+        // if the user selected "customise" but did not later select random or custom sound changd, he is prompted to select on or the other
+        } else {
+            holdFunctions()
         };
     };
    }

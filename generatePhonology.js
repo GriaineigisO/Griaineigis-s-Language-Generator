@@ -1,5 +1,5 @@
 
-import { syllablesArray, approximantSyllables, nasalSyllables,fricativeSyllables, resonantSyllables, aspiratedSyllable } from "./allPossibleSyllables.js";
+import { syllablesArray, approximantSyllables, nasalSyllables,fricativeSyllables, liquidSyllables, aspiratedSyllable } from "./allPossibleSyllables.js";
 import {cloneArray} from './library.js'
 
 let allNasalsArray = [];
@@ -80,12 +80,17 @@ let chosenConsonantSpellingsArray = [];
 
 let randomisedButton = document.getElementById("randomised");
 let customisedButton = document.getElementById("customised");
-let randomOption = "";
+let randomOption = true;
+
 function randomise() {
-    randomOption = true;
+    if(randomisedButton.checked) {
+        randomOption = true;
+    }
 };
 function customise() {
-    randomOption = false;
+    if(customisedButton.checked) {
+        randomOption = false;
+    }
 };
 randomisedButton.addEventListener("click", randomise);
 customisedButton.addEventListener("click", customise);
@@ -189,7 +194,6 @@ function restoreDefault() {
 
     document.getElementById("syllable-example-list").replaceChildren();
 }
-
 
 function checkManuallyEnteredSounds() {
     if(randomOption === false) {
@@ -1736,7 +1740,6 @@ function selectConsonants() {
     };
 };
 
-
 let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "ɦ", "dʒ", "ɟ", "ʁ", "ʒ", "ɟ", "ʕ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "ð", "ɮ"];
 let voicingTrueOrFalse = ""
     let randomVoiceNum = Math.floor(Math.random() * 4);
@@ -3270,7 +3273,7 @@ function populateVowelLists() {
     //LOW
     let shortAndLongLowVowels = allLowVowels.concat(allLongLowVowels);
 
-    let shortAndLongLowVowelsfixed = shortAndLongLowVowels .filter((element, index) => { //removes duplicates
+    let shortAndLongLowVowelsfixed = shortAndLongLowVowels.filter((element, index) => { //removes duplicates
         return shortAndLongLowVowels.indexOf(element) === index;
         });
     document.getElementById("low-vowels").innerHTML = `/${shortAndLongLowVowelsfixed.join(", ")}/`;
@@ -3282,8 +3285,9 @@ function populateVowelLists() {
 /*-----^^^SELECTION^^^--------------*/
 
 /****SYLLABLE STRUCTURE**************/
-function chooseSyllablesToBeUsed() {    
-    if(randomOption || document.getElementById("chosen-syllables").value === "") {
+function chooseSyllablesToBeUsed() {  
+    if(randomOption|| document.getElementById("chosen-syllables").value === "") {
+       
         selectedSyllables = ["CV"]
         syllablesArray.forEach((element) => allPossibleSyllablesArray.push(element))
         
@@ -3298,12 +3302,13 @@ function chooseSyllablesToBeUsed() {
             fricativeSyllables.forEach((element) => allPossibleSyllablesArray.push(element))
         }
         if(Math.floor(Math.random() * 6) === 2) {
-            resonantSyllables.forEach((element) => allPossibleSyllablesArray.push(element))
+            liquidSyllables.forEach((element) => allPossibleSyllablesArray.push(element))
         }
         if(allAspiratesArray.length > 0 && Math.floor(Math.random() * 6) === 2) {
             aspiratedSyllable.forEach((element) => allPossibleSyllablesArray.push(element))
         }
-
+        
+        
         let randomNum = Math.floor(Math.random() * 30);
         if(randomNum < 4) {//all syllables are CV
         selectedSyllables = ["CV"];
@@ -3340,7 +3345,8 @@ function chooseSyllablesToBeUsed() {
                 }
             }
         }
-    } else {
+    } else if(randomOption === false|| document.getElementById("chosen-syllables").value !== "") {
+        
             let chosenSyllables = Array.from(document.getElementById("chosen-syllables").value);
 
             for(let i = 0; i < chosenSyllables.length; i++) {
@@ -3360,7 +3366,6 @@ function chooseSyllablesToBeUsed() {
                     chosenSyllables.splice(i,1);
                 };
             }
-
             selectedSyllables = cloneArray(chosenSyllables)
         };
     document.getElementById("syllable-structure-list").innerHTML = selectedSyllables.join(", ");

@@ -2,6 +2,8 @@
 
 ## Options for customisation
 
+- fix custom syllable structure examples
+- update generateAffixes to also be custom
 - next set of custom words is short generic based classifiers
 - add ability to enter classifiers - for all classifier systems, same for quantifiers and measure words. When a classifier system is selected, textfields for each classifier appear for the user to type in. For the long classifier system, the textfield will only apear for the apprioate classifier when it has been selected in the dropdown menu (it won't be a simple <li> item anymore)
 - allow user greater control over syllable structure. Perhaps use a similar system as awkwords, using a text field which corresponds to a letter. the input becomes an array. This will give the user greater control. Also, make it so that IPA can be directly entered: so sCV is /s/ followed by any CV

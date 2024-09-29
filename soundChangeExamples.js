@@ -1,6 +1,6 @@
 //@collapse
 import { spell } from "./orthography.js";
-import { soundChange, voiced, unvoiced, chosenSoundChanges, vowels, consonants, selectFricatives, plosives, randomNumForWordInitialPlosiveClusters, midVowels, highVowels, resonants,lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, frontVowels, backVowels, obstruents} from "./soundchange.js";
+import { soundChange, voiced, unvoiced, chosenSoundChanges, vowels, consonants, selectFricatives, plosives, randomNumForWordInitialPlosiveClusters, midVowels, highVowels, liquids,lenitionFromPlosives2, lenitionFromPlosives1, nonHighVowels, allNasalsArray, correctionsForStrings, corrections, frontVowels, backVowels, obstruents} from "./soundchange.js";
 import { languageName } from "./script.js";
 
 let soundChangeArray = [];
@@ -9,10 +9,10 @@ let plosivesCantClusterTogetherWordInitiallyNum = 0;
 let fricativesLostAfterWordInitialConsonantsNum = 0;
 let fricativesDebuccaliseBeforeVowelsNum = 0;
 let wordFinalHighVowelsLowerNum = 0;
-let resonantsLostBeforeConsonantsNum = 0;
-let insertIBetweenConsonantAndResonantNum = 0;
-let insertUBetweenConsonantAndResonantNum = 0;
-let consonantResonantMetathesisNum = 0;
+let liquidsLostBeforeConsonantsNum = 0;
+let insertIBetweenConsonantAndliquidNum = 0;
+let insertUBetweenConsonantAndliquidNum = 0;
+let consonantliquidMetathesisNum = 0;
 let lenitionofPlosivebeforeOtherPlosive1Num = 0;
 let lenitionofPlosivebeforeOtherPlosive2Num = 0;
 let nonInitialNonHighVowelsBecomeANum = 0;
@@ -20,7 +20,7 @@ let nasalsCantAppearAfterConsonantsNum = 0;
 let vowelLostBetweenTwoOfSameConsonantNum = 0;
 let voicedConsonantsLostIntervocalicallyNum = 0;
 let RVCToVRCMetathesisNum = 0;
-let vowelLostBetweenConsonantAndResonantNum = 0;
+let vowelLostBetweenConsonantAndliquidNum = 0;
 let intervocalicVoicingNum = 0;
 let hLostAfterConsonantsNum = 0;
 let nasalsLostBetweenVowelAndConsonantNum = 0;
@@ -64,7 +64,7 @@ let longEBecomesLongINum = 0;
 let wordFinalLongOBecomesLongUNum = 0;
 let longVowelsShortenBeforeRCNum = 0;
 let CCBecomesXCNum = 0
-let pBecomesBBeforeResonantsNum = 0;
+let pBecomesBBeforeliquidsNum = 0;
 let pBecomesUNum = 0;
 let pBecomesFNum = 0;
 let longOBecomesANum = 0;
@@ -81,10 +81,10 @@ function clearArrays() {
     fricativesLostAfterWordInitialConsonantsNum = 0;
     fricativesDebuccaliseBeforeVowelsNum = 0;
     wordFinalHighVowelsLowerNum = 0;
-    resonantsLostBeforeConsonantsNum = 0;
-    insertIBetweenConsonantAndResonantNum = 0;
-    insertUBetweenConsonantAndResonantNum = 0;
-    consonantResonantMetathesisNum = 0;
+    liquidsLostBeforeConsonantsNum = 0;
+    insertIBetweenConsonantAndliquidNum = 0;
+    insertUBetweenConsonantAndliquidNum = 0;
+    consonantliquidMetathesisNum = 0;
     lenitionofPlosivebeforeOtherPlosive1Num = 0;
     lenitionofPlosivebeforeOtherPlosive2Num = 0;
     nonInitialNonHighVowelsBecomeANum = 0;
@@ -92,7 +92,7 @@ function clearArrays() {
     vowelLostBetweenTwoOfSameConsonantNum = 0;
     voicedConsonantsLostIntervocalicallyNum = 0;
     RVCToVRCMetathesisNum = 0;
-    vowelLostBetweenConsonantAndResonantNum = 0;
+    vowelLostBetweenConsonantAndliquidNum = 0;
     intervocalicVoicingNum = 0;
     hLostAfterConsonantsNum = 0;
     nasalsLostBetweenVowelAndConsonantNum = 0;
@@ -136,7 +136,7 @@ function clearArrays() {
     wordFinalLongOBecomesLongUNum = 0;
     longVowelsShortenBeforeRCNum = 0;
     CCBecomesXCNum = 0;
-    pBecomesBBeforeResonantsNum = 0;
+    pBecomesBBeforeliquidsNum = 0;
     pBecomesUNum = 0;
     pBecomesFNum = 0;
     longOBecomesANum = 0;
@@ -206,24 +206,24 @@ function populateArray() {
                 soundChangeArray.push(wordFinalHighVowelsLower);
             }
         };
-        if(chosenSoundChanges[i].name === "resonantsLostBeforeConsonants") {
-            if(soundChangeArray.includes(resonantsLostBeforeConsonants) === false) {
-                soundChangeArray.push(resonantsLostBeforeConsonants);
+        if(chosenSoundChanges[i].name === "liquidsLostBeforeConsonants") {
+            if(soundChangeArray.includes(liquidsLostBeforeConsonants) === false) {
+                soundChangeArray.push(liquidsLostBeforeConsonants);
             }
         };
-        if(chosenSoundChanges[i].name === "insertIBetweenConsonantAndResonant") {
-            if(soundChangeArray.includes(insertIBetweenConsonantAndResonant) === false) {
-                soundChangeArray.push(insertIBetweenConsonantAndResonant);
+        if(chosenSoundChanges[i].name === "insertIBetweenConsonantAndliquid") {
+            if(soundChangeArray.includes(insertIBetweenConsonantAndliquid) === false) {
+                soundChangeArray.push(insertIBetweenConsonantAndliquid);
             }
         };
-        if(chosenSoundChanges[i].name === "insertUBetweenConsonantAndResonant") {
-            if(soundChangeArray.includes(insertUBetweenConsonantAndResonant) === false) {
-                soundChangeArray.push(insertUBetweenConsonantAndResonant);
+        if(chosenSoundChanges[i].name === "insertUBetweenConsonantAndliquid") {
+            if(soundChangeArray.includes(insertUBetweenConsonantAndliquid) === false) {
+                soundChangeArray.push(insertUBetweenConsonantAndliquid);
             }
         };
-        if(chosenSoundChanges[i].name === "consonantResonantMetathesis") {
-            if(soundChangeArray.includes(consonantResonantMetathesis) === false) {
-                soundChangeArray.push(consonantResonantMetathesis);
+        if(chosenSoundChanges[i].name === "consonantliquidMetathesis") {
+            if(soundChangeArray.includes(consonantliquidMetathesis) === false) {
+                soundChangeArray.push(consonantliquidMetathesis);
             }
         };
         if(chosenSoundChanges[i].name === "lenitionofPlosivebeforeOtherPlosive1") {
@@ -261,9 +261,9 @@ function populateArray() {
                 soundChangeArray.push(RVCToVRCMetathesis);
             }
         };
-        if(chosenSoundChanges[i].name === "vowelLostBetweenConsonantAndResonant") {
-            if(soundChangeArray.includes(vowelLostBetweenConsonantAndResonant) === false) {
-                soundChangeArray.push(vowelLostBetweenConsonantAndResonant);
+        if(chosenSoundChanges[i].name === "vowelLostBetweenConsonantAndliquid") {
+            if(soundChangeArray.includes(vowelLostBetweenConsonantAndliquid) === false) {
+                soundChangeArray.push(vowelLostBetweenConsonantAndliquid);
             }
         };
         if(chosenSoundChanges[i].name === "intervocalicVoicing") {
@@ -481,9 +481,9 @@ function populateArray() {
                 soundChangeArray.push(CCBecomesXC);
             }
         };
-        if(chosenSoundChanges[i].name === "pBecomesBBeforeResonants") {
-            if(soundChangeArray.includes(pBecomesBBeforeResonants) === false) {
-                soundChangeArray.push(pBecomesBBeforeResonants);
+        if(chosenSoundChanges[i].name === "pBecomesBBeforeliquids") {
+            if(soundChangeArray.includes(pBecomesBBeforeliquids) === false) {
+                soundChangeArray.push(pBecomesBBeforeliquids);
             }
         };
         if(chosenSoundChanges[i].name === "pBecomesU") {
@@ -733,9 +733,9 @@ function wordFinalHighVowelsLower(word, originalWord) {
     return {word};
 }
 
-function resonantsLostBeforeConsonants(word, originalWord) {
+function liquidsLostBeforeConsonants(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(resonants.includes(word[i]) && consonants.includes(word[i + 1])) {
+        if(liquids.includes(word[i]) && consonants.includes(word[i + 1])) {
             let before = correctionsForStrings(word.join(""));
             word.splice(i, 1);
             let after = correctionsForStrings(word.join(""));
@@ -752,26 +752,26 @@ function resonantsLostBeforeConsonants(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-            if(resonantsLostBeforeConsonantsNum < 6) {
-                if(resonantsLostBeforeConsonantsNum === 0) {
+            if(liquidsLostBeforeConsonantsNum < 6) {
+                if(liquidsLostBeforeConsonantsNum === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("resonantsLostBeforeConsonants").appendChild(example);
+                    document.getElementById("liquidsLostBeforeConsonants").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("resonantsLostBeforeConsonants").appendChild(example);
+                    document.getElementById("liquidsLostBeforeConsonants").appendChild(example);
                 }
-                resonantsLostBeforeConsonantsNum++;
+                liquidsLostBeforeConsonantsNum++;
             };
         }; 
     };
     return {word};
 };
 
-function insertIBetweenConsonantAndResonant(word, originalWord) {
+function insertIBetweenConsonantAndliquid(word, originalWord) {
         for(let i = 0; i < word.length; i++) {
-            if(resonants.includes(word[i]) && consonants.includes(word[i + 1]) && word[i] !== word[i+1]) {
+            if(liquids.includes(word[i]) && consonants.includes(word[i + 1]) && word[i] !== word[i+1]) {
                 let before = correctionsForStrings(word.join(""));
                 word.splice(i+1, 0, "i");
                 let after = correctionsForStrings(word.join(""));
@@ -788,26 +788,26 @@ function insertIBetweenConsonantAndResonant(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-                if(insertIBetweenConsonantAndResonantNum < 6) {
-                if(insertIBetweenConsonantAndResonantNum === 0) {
+                if(insertIBetweenConsonantAndliquidNum < 6) {
+                if(insertIBetweenConsonantAndliquidNum === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("insertIBetweenConsonantAndResonant").appendChild(example);
+                    document.getElementById("insertIBetweenConsonantAndliquid").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("insertIBetweenConsonantAndResonant").appendChild(example);
+                    document.getElementById("insertIBetweenConsonantAndliquid").appendChild(example);
                 }
-                insertIBetweenConsonantAndResonantNum++;
+                insertIBetweenConsonantAndliquidNum++;
             };
             };
         };
     return {word};
 };
 
-function insertUBetweenConsonantAndResonant(word, originalWord) {
+function insertUBetweenConsonantAndliquid(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(resonants.includes(word[i]) && consonants.includes(word[i + 1]) && word[i] !== word[i+1]) {
+        if(liquids.includes(word[i]) && consonants.includes(word[i + 1]) && word[i] !== word[i+1]) {
             let before = correctionsForStrings(word.join(""));
             word.splice(i+1, 0, "u");
             let after = correctionsForStrings(word.join(""));
@@ -824,32 +824,32 @@ function insertUBetweenConsonantAndResonant(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-            if(insertUBetweenConsonantAndResonantNum < 6) {
-                if(insertUBetweenConsonantAndResonantNum === 0) {
+            if(insertUBetweenConsonantAndliquidNum < 6) {
+                if(insertUBetweenConsonantAndliquidNum === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("insertUBetweenConsonantAndResonant").appendChild(example);
+                    document.getElementById("insertUBetweenConsonantAndliquid").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("insertUBetweenConsonantAndResonant").appendChild(example);
+                    document.getElementById("insertUBetweenConsonantAndliquid").appendChild(example);
                 }
-                insertUBetweenConsonantAndResonantNum++;
+                insertUBetweenConsonantAndliquidNum++;
             }; 
             };
         };
     return {word};
 };
 
-function consonantResonantMetathesis(word, originalWord) {
+function consonantliquidMetathesis(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(resonants.includes(word[i]) && consonants.includes(word[i + 1])) {
+        if(liquids.includes(word[i]) && consonants.includes(word[i + 1])) {
             let before = correctionsForStrings(word.join(""));
-            let resonant = word[i]; 
+            let liquid = word[i]; 
             let followingConsonant = word[i+1];
             word[i] = followingConsonant;
-            word[i+1] = resonant;
-            if(resonants.includes(word[i]) && resonants.includes(word[i + 1])) {
+            word[i+1] = liquid;
+            if(liquids.includes(word[i]) && liquids.includes(word[i + 1])) {
                 word.splice(i+1, 0, "u");
             }
             let after = correctionsForStrings(word.join(""));
@@ -866,17 +866,17 @@ function consonantResonantMetathesis(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-            if(consonantResonantMetathesisNum < 6) {
-                if(consonantResonantMetathesisNum === 0) {
+            if(consonantliquidMetathesisNum < 6) {
+                if(consonantliquidMetathesisNum === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("consonantResonantMetathesis").appendChild(example);
+                    document.getElementById("consonantliquidMetathesis").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("consonantResonantMetathesis").appendChild(example);
+                    document.getElementById("consonantliquidMetathesis").appendChild(example);
                 }
-                consonantResonantMetathesisNum++;
+                consonantliquidMetathesisNum++;
             }; 
         };
     };
@@ -1098,12 +1098,12 @@ function voicedConsonantsLostIntervocalically(word, originalWord) {
 };
 
 function RVCToVRCMetathesis(word, originalWord) {
-    if(resonants.includes(word[0]) && vowels.includes(word[1]) && consonants.includes(word[2])) {
+    if(liquids.includes(word[0]) && vowels.includes(word[1]) && consonants.includes(word[2])) {
         let before = correctionsForStrings(word.join(""));
-        let resonant = word[0];
+        let liquid = word[0];
         let vowel = word[1];
         word[0] = vowel;
-        word[1] = resonant;
+        word[1] = liquid;
         let after = correctionsForStrings(word.join(""));
         let afterExample = "";
         let originalJoined = originalWord.join("");
@@ -1131,18 +1131,18 @@ function RVCToVRCMetathesis(word, originalWord) {
             RVCToVRCMetathesisNum++;
         };
     }
-    if(word[0] === "X" && resonants.includes(word[1]) && vowels.includes(word[2]) && consonants.includes(word[3])) {
-        let resonant = word[1];
+    if(word[0] === "X" && liquids.includes(word[1]) && vowels.includes(word[2]) && consonants.includes(word[3])) {
+        let liquid = word[1];
         let vowel = word[2];
         word[1] = vowel;
-        word[2] = resonant;
+        word[2] = liquid;
     }
     return {word}
 };
 
-function vowelLostBetweenConsonantAndResonant(word, originalWord) {
+function vowelLostBetweenConsonantAndliquid(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(consonants.includes(word[i]) && vowels.includes(word[i+1]) && resonants.includes(word[i+2]) && vowels.includes(word[i+3])) {
+        if(consonants.includes(word[i]) && vowels.includes(word[i+1]) && liquids.includes(word[i+2]) && vowels.includes(word[i+3])) {
             let before = correctionsForStrings(word.join(""));
             word.splice(i+1,1);
             let after = correctionsForStrings(word.join(""));
@@ -1159,20 +1159,20 @@ function vowelLostBetweenConsonantAndResonant(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-            if(vowelLostBetweenConsonantAndResonantNum < 6) {
-            if(vowelLostBetweenConsonantAndResonantNum === 0) {
+            if(vowelLostBetweenConsonantAndliquidNum < 6) {
+            if(vowelLostBetweenConsonantAndliquidNum === 0) {
                 let example = document.createElement("span");
                 example.innerHTML = `${beforeExample} > ${afterExample}`;
-                document.getElementById("vowelLostBetweenConsonantAndResonant").appendChild(example);
+                document.getElementById("vowelLostBetweenConsonantAndliquid").appendChild(example);
             } else {
                 let example = document.createElement("span");
                 example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                document.getElementById("vowelLostBetweenConsonantAndResonant").appendChild(example);
+                document.getElementById("vowelLostBetweenConsonantAndliquid").appendChild(example);
             }
-            vowelLostBetweenConsonantAndResonantNum++;
+            vowelLostBetweenConsonantAndliquidNum++;
         };
         }
-        if(word[i] === "X" && consonants.includes(word[i+1]) && vowels.includes(word[i+2]) && resonants.includes(word[i+3]) && vowels.includes(word[i+4])) {
+        if(word[i] === "X" && consonants.includes(word[i+1]) && vowels.includes(word[i+2]) && liquids.includes(word[i+3]) && vowels.includes(word[i+4])) {
             word.splice(i+2,1) 
         };
     };
@@ -1537,12 +1537,12 @@ function plosivesDebuccaliseInCoda(word, originalWord) {
 
 function CVRBecomesCCVR(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(consonants.includes(word[i]) && vowels.includes(word[i-1]) && resonants.includes(word[i+1]) && word[i] !== word[i+1] && vowels.includes(word[i+2])) {
+        if(consonants.includes(word[i]) && vowels.includes(word[i-1]) && liquids.includes(word[i+1]) && word[i] !== word[i+1] && vowels.includes(word[i+2])) {
             let before = correctionsForStrings(word.join(""));
-            let resonantIndex = word[i+1];
+            let liquidIndex = word[i+1];
             let vowelIndex = word[i+2];
             word.splice(i+1, 0, "ː");
-            word[i+3] = resonantIndex;
+            word[i+3] = liquidIndex;
             word[i+2] = vowelIndex;
             let after = correctionsForStrings(word.join(""));
             let afterExample = "";
@@ -2661,7 +2661,7 @@ function gwbecomesB(word, originalWord) {
 
 function eRaBecomesARa(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(word[i] === "e" && resonants.includes(word[i+1]) && word[i+2] === "a") {
+        if(word[i] === "e" && liquids.includes(word[i+1]) && word[i+2] === "a") {
             let before = correctionsForStrings(word.join(""));
             word[i] = "a";
             let after = correctionsForStrings(word.join(""));
@@ -2696,7 +2696,7 @@ function eRaBecomesARa(word, originalWord) {
 
 function epentheticA(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(consonants.includes(word[i]) && resonants.includes(word[i+1]) && consonants.includes(word[i+2])) {
+        if(consonants.includes(word[i]) && liquids.includes(word[i+1]) && consonants.includes(word[i+2])) {
             let before = correctionsForStrings(word.join(""));
             word.splice(i+1, 0, "a");
             let after = correctionsForStrings(word.join(""));
@@ -2837,7 +2837,7 @@ function wordFinalLongOBecomesLongU(word, originalWord) {
 
 function longVowelsShortenBeforeRC(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(vowels.includes(word[i-1]) && word[i] === "ː" && resonants.includes(word[i+1]) && consonants.includes(word[i+2])) {
+        if(vowels.includes(word[i-1]) && word[i] === "ː" && liquids.includes(word[i+1]) && consonants.includes(word[i+2])) {
             let before = correctionsForStrings(word.join(""));
             word.splice(i,1);
             let after = correctionsForStrings(word.join(""));
@@ -2905,9 +2905,9 @@ function CCBecomesXC(word, originalWord) {
     }
 };
 
-function pBecomesBBeforeResonants(word, originalWord) {
+function pBecomesBBeforeliquids(word, originalWord) {
     for(let i = 0; i < word.length; i++) {
-        if(word[i] === "p" && resonants.includes(word[i+1])) {
+        if(word[i] === "p" && liquids.includes(word[i+1])) {
             let before = correctionsForStrings(word.join(""));
             word[i] = "b";
             let after = correctionsForStrings(word.join(""));
@@ -2924,17 +2924,17 @@ function pBecomesBBeforeResonants(word, originalWord) {
             } else {
                 beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
             }
-            if(pBecomesBBeforeResonantsNum < 6) {    
-                if(pBecomesBBeforeResonantsNum === 0) {
+            if(pBecomesBBeforeliquidsNum < 6) {    
+                if(pBecomesBBeforeliquidsNum === 0) {
                     let example = document.createElement("span");
                     example.innerHTML = `${beforeExample} > ${afterExample}`;
-                    document.getElementById("pBecomesBBeforeResonants").appendChild(example);
+                    document.getElementById("pBecomesBBeforeliquids").appendChild(example);
                 } else {
                     let example = document.createElement("span");
                     example.innerHTML = `, ${beforeExample} > ${afterExample}`;
-                    document.getElementById("pBecomesBBeforeResonants").appendChild(example);
+                    document.getElementById("pBecomesBBeforeliquids").appendChild(example);
                 }
-                pBecomesBBeforeResonantsNum++;   
+                pBecomesBBeforeliquidsNum++;   
             };
         }
     }

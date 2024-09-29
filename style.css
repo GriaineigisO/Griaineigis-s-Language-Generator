@@ -501,8 +501,38 @@ h1, h2, h3, h4 {
     margin-bottom: 0;
 }
 
+#syllable-category-div {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
 
+#syllable-category-and-button-div, .column-div {
+    display:flex;
+    flex-direction: column;
+}
 
+.row-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.min-max-div {
+    padding: 10px;
+}
+
+#add-new-syllable-category-button {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.syllable-amount-text-field {
+    max-width: 40px;
+}
+
+textarea {
+    height: 200px;
+}
 
 
 /* PHONE */

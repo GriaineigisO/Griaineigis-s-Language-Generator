@@ -31,6 +31,13 @@ function reset() {
     for(let i = 0; i < customtextField.length; i++) {
         customtextField[i].value = "";
     }
+    let textArea = document.getElementsByTagName("textarea");
+    for(let i = 0; i < textArea.length; i++) {
+        textArea[i].value = "";
+    };
+    document.getElementById("max-syllables").value = "";
+    document.getElementById("min-syllables").value = "";
+    document.getElementById("syllable-category-div").replaceChildren();
 
     //changes value of dropdown forms to "random"
     document.getElementById("sound-change-menu").value = "random";

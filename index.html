@@ -88,9 +88,10 @@
           <!--Choose syllable structre-->
           <div class="radio-section">
             <h3>Syllable Structure</h3>
-            <p>Enter your desired syllable structures below. You may enter as much possible syllables as you wish. When entering multiple options in the textfields below, seperate them with spaces alone - don't use commas.<br><br>
+            <h4>Root Syllable Structure</h4>
+            <p>Enter your desired syllable structures below. You may enter as many possible syllables structures as you wish. When entering multiple options in the textfields below, seperate them with spaces alone - don't use commas.<br><br>
             To create your own category of sounds, click "Add New Category" and assign any selection of sounds to a capital letter. Only two letters have been reserved: <strong>C</strong> for "any consonant" and <strong>V</strong> for "any vowel". <br><br>
-            In the "Enter Root Syllable Structures" text field below, a capital letter will stand for any sound associated with it. So if you define <strong>P</strong> as any of <strong>p,t,k,b,d,g</strong> then the structure <strong>PV</strong> may denote <strong>"pV", "tV", "kV", "bV", "dV", "gV"</strong> etc. You may also enter a lowercase IPA character directly in the "Enter Root Syllable Structures" text field, this <strong>sCV</strong> would stand for "/s/ followed by any consonant and any vowel".<br>
+            In the "Enter Root Syllable Structures" text field below, a capital letter will stand for any sound associated with it. So if you define <strong>P</strong> as any of <strong>p t k b d g</strong> then the structure <strong>PV</strong> may denote <strong>"pV"  "tV"  "kV"  "bV"  "dV"  "gV"</strong> etc. Enter your chosen sounds using IPA only. You may also enter a lowercase IPA character directly in the "Enter Root Syllable Structures" text field, thus <strong>sCV</strong> would stand for "/s/ followed by any consonant and any vowel".<br>
           You may also determine if a specific type of syllable may only occur in a certain position in the root by using the following prefixes:
           </p>
           <ul>
@@ -99,7 +100,8 @@
             <li><strong>*</strong>: only word finally</li>
           </ul>
           <p>
-            This a structure such as <strong>#sCV &mCV *VrC CV</strong> means that the only word initial clusters allows are /s/ followed by any consonant, that the only root internal clusters allowed are /m/ followed by a consonant, and that the only root final clusters allowed are /r/ followed by a consonant, and that the <strong>CV</strong> may occur anywhere as it lacks a prefix.
+            Thus a structure such as <strong>#sCV &mCV *VrC CV</strong> means that the only word initial clusters allows are /s/ followed by any consonant, that the only root internal clusters allowed are /m/ followed by a consonant, and that the only root final clusters allowed are /r/ followed by a consonant, and that the <strong>CV</strong> may occur anywhere as it lacks a prefix.<br>
+            Note that this is for the structure of syllables in roots, not entire words, so if the language takes on prefixes and/or suffixes, syllables designated as only initial or final may appear within a word - but always either at the beginning or end of the root itself.
           </p>
             <div id="syllable-category-and-button-div">
               <div id="syllable-category-div"></div>
@@ -110,7 +112,7 @@
             <div class="column-div">
               <div class="row-div">
                 <label for="chosen-syllables" class="label">Enter Root Syllable Structures:</label>
-                <input id="chosen-syllables" value=""></input>
+                <input id="chosen-syllables" value="" class="syllable-text-field"></input>
               </div>
               
               <div class="row-div">
@@ -124,11 +126,38 @@
                   <input type="text" id="max-syllables" class="syllable-amount-text-field">
                 </div>
               </div>
-              <p>If you wish to add any specific notes about your syllable structures, do so here and your description will be added in the document. Use HTML formatting.</p>
-              <textarea id="syllable-structure-notes"></textarea>
+
             </div>
             
+          <h4>Affix Syllable Structure</h4>
+          </p>
+            <div id="affix-syllable-category-and-button-div">
+              <div id="affix-syllable-category-div"></div>
+
+              <input type="submit" value="Add New Category" id="add-new-affix-syllable-category-button">
+            </div>
             
+            <div class="column-div">
+              <div class="row-div">
+                <label for="affix-chosen-syllables" class="label ">Enter Affix Syllable Structures:</label>
+                <input id="affix-chosen-syllables" value="" class="syllable-text-field"></input>
+              </div>
+              
+              <div class="row-div">
+                <div class="min-max-div">
+                  <label for="affix-min-syllables">Minimum Amount Of Syllables Per Affix</label>
+                  <input type="text" id="affix-min-syllables" class="syllable-amount-text-field">
+                </div>
+
+                <div class="min-max-div">
+                  <label for="affix-max-syllables">Maximum Amount Of Syllables Per Affix</label>
+                  <input type="text" id="affix-max-syllables" class="syllable-amount-text-field">
+                </div>
+              </div>
+          </div>
+
+           <p>If you wish to add any specific notes about your syllable structures, do so here and your description will be added in the document. Format your text using <a href="https://adamvleggett.github.io/drawdown/" target="_blank">markup.</a></p>
+              <textarea id="syllable-structure-notes"></textarea>
           </div>
 
           <hr>
@@ -747,17 +776,15 @@
         </ul>
         <hr class="style-eight">
         <h3>Syllable Structure</h3>
-      <section id="custom-syllable-note"></section>
+      <section id="custom-syllable-note" class="markup"></section>
       <ul id="syllable-list">
+          <li id="a-syllable">A "approximant"</li>
+          <li id="f-syllable">F "fricative"</li>
+          <li id="r-syllable">R "resonant"</li>
+          <li id="n-syllable">N "nasal"</li>
+          <li id="h-syllable">H "aspirated"</li>
+        </ul>
         
-        <li>C "consonant"</li>
-        <li>V "vowel"</li>
-        <li id="a-syllable">A "approximant"</li>
-        <li id="f-syllable">F "fricative"</li>
-        <li id="r-syllable">R "resonant"</li>
-        <li id="n-syllable">N "nasal"</li>
-        <li id="h-syllable">H "aspirated"</li>
-      </ul>
 
         <p>
           <span class="language-name"></span> allows for the following syllable structures:
@@ -4556,6 +4583,7 @@
     <script type="module" src="./fusionalNouns.js"></script>
     <script type="module" src="./soundChange.js"></script>
     <script type="module" src="./soundChangeExamples.js"></script>
+    <script type="module" src="./markupConverter.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   </body>

@@ -521,7 +521,7 @@ h1, h2, h3, h4 {
     padding: 10px;
 }
 
-#add-new-syllable-category-button {
+#add-new-syllable-category-button, #add-new-affix-syllable-category-button {
     max-width: 200px;
     margin-bottom: 20px;
 }
@@ -532,6 +532,11 @@ h1, h2, h3, h4 {
 
 textarea {
     height: 200px;
+    width: 900px;
+}
+
+.syllable-text-field {
+    width: 800px;
 }
 
 

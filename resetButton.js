@@ -6,6 +6,7 @@ function reset() {
     document.getElementById("chosen-vowels").value = "";
     document.getElementById("chosen-consonants").value = "";
     document.getElementById("chosen-syllables").value = "";
+    document.getElementById("affix-chosen-syllables").value = "";
     document.getElementById("few-text-field").value = "";
     document.getElementById("barely-any-text-field").value = "";
     document.getElementById("several-text-field").value = "";
@@ -38,6 +39,9 @@ function reset() {
     document.getElementById("max-syllables").value = "";
     document.getElementById("min-syllables").value = "";
     document.getElementById("syllable-category-div").replaceChildren();
+    document.getElementById("affix-max-syllables").value = "";
+    document.getElementById("affix-min-syllables").value = "";
+    document.getElementById("affix-syllable-category-div").replaceChildren();
 
     //changes value of dropdown forms to "random"
     document.getElementById("sound-change-menu").value = "random";

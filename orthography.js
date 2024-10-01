@@ -3,6 +3,7 @@
 import {vowels, consonants, allGlottalFricatives, allVelarFricatives, allAspiratesArray, allUvularFricativesArray, allUvularPlosivesArray, allLabioDentalArray, chooseVoicing, voicingTrueOrFalse, chosenVowelSpellingsArray, chosenConsonantSpellingsArray} from './generatePhonology.js'
 import { cloneArray } from './library.js';
 
+
 let randomisedButton = document.getElementById("randomised");
 let customisedButton = document.getElementById("customised");
 let randomOption = "";

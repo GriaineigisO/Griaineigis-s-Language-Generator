@@ -1,8 +1,7 @@
-//@collapse
-import { verbFinalWordOrders } from './allPossibleWordOrders.js';
 import {consonants, vowels as chosenVowels,selectedSyllables, allNasalsArray, selectFricatives, selectNasals, chooseVoicing} from './generatePhonology.js';
 import {spell} from './orthography.js'
-import {randomIndexOfArray, cloneArray} from './library.js'
+import {cloneArray} from './library.js'
+
 let addedConsonants = consonants;
 
 // function soundChange(word) {
@@ -148,6 +147,7 @@ let addedConsonants = consonants;
 //     return fixAPlusA;
 // }
 
+
 let voiced = ["b", "d", "g", "z", "bʰ", "dʰ", "gʰ", "ʐ", "ɖ", "ɣ", "v", "ɦ", "ʤ", "ɟ", "ʁ", "ʒ", "ɟ", "ʕ", "bʲ", "dʲ", "gʲ", "bʷ", "dʷ", "gʷ", "bʰʲ", "dʰʲ", "gʰʲ", "bʷʰ", "dʷʰ", "gʷʰ", "ð", "ɮ"];
 let unvoiced = ["p", "t", "k", "s", "pʰ", "tʰ", "kʰ", "ʂ", "ʈ", "x", "f", "h", "ʧ", "c", "χ", "ʃ", "ç", "ħ", "pʲ", "tʲ", "kʲ", "pʷ", "tʷ", "kʷ", "pʰʲ", "tʰʲ", "kʰʲ", "pʷʰ", "tʷʰ", "kʷʰ", "θ", "ɬ"]
 let highVowels = ["i", "u", "y", "ɯ", "ɨ", "ʉ"];
@@ -251,6 +251,7 @@ function randomiseSoundChange() {
         document.getElementById("sound-change-warning").style.display = "none";
     };
 };
+
 function customiseSoundChange() {
     if(customisedSoundChangeButton.checked) {
         soundChangeMenu.style.display = "block";
@@ -430,6 +431,7 @@ function useChosenSoundChanges() {
             };
         };
     };
+    console.log(chosenSoundChanges)
 };
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", useChosenSoundChanges);
@@ -1769,6 +1771,72 @@ function soundChange(word) {
     return final;
 }
 
+/****************USER GENERATED SOUND CHANGES**************************** */
+
+//this function generates sound changes submitted by the user
+let unconditionalCount = 0;
+function generateSoundChange() {
+    
+    let environment = document.getElementById("environment").value;
+    let wordArray = ["m", "a", "r", "c"]
+
+    
+
+    if(environment === "unconditional") {
+        unconditionalCount++;
+
+        let text = `${document.getElementById("start-sound").value} becomes ${document.getElementById("end-sound").value}`;
+        let newLi = document.createElement("li");
+        newLi.setAttribute("draggable", "true");
+        newLi.setAttribute("id", "unconditional" + unconditionalCount);
+        newLi.setAttribute("class", "soundChangeList");
+        newLi.innerHTML = text;
+        document.getElementById("sortable").appendChild(newLi);
+        //removed item when doubleclicked
+        newLi.addEventListener("dblclick", () => {
+          newLi.remove();
+        })
+
+        let unconditional = {
+            1: function(wordArray) {
+                let startSound = document.getElementById("start-sound").value;
+                let endSound = document.getElementById("end-sound").value;
+                for(let i = 0; i < wordArray.length; i++) {
+                    if(wordArray[i] === startSound) {
+                        wordArray[i] = endSound;
+                        console.log(wordArray)
+                    };
+                };
+            },
+            2: function(wordArray) {
+                let startSound = document.getElementById("start-sound").value;
+                let endSound = document.getElementById("end-sound").value;
+                for(let i = 0; i < wordArray.length; i++) {
+                    if(wordArray[i] === startSound) {
+                        wordArray[i] = endSound;
+                        console.log(wordArray)
+                    };
+                };
+            }
+        };
+        unconditional[unconditionalCount](wordArray);
+        potentialSoundChanges.push(unconditional[unconditionalCount])
+        //console.log(chosenSoundChanges)
+    }
+
+};
+
+let submitSoundChangeButton = document.getElementById("submit-sound-change");
+submitSoundChangeButton.addEventListener("click", generateSoundChange);
+
+console.log("hey")
+
+
+
+
+/*^^^^^^^^^^^^^^^^^^^^^USER GENERATED SOUND CHANGES^^^^^^^^^^^^^^^^^^^^^^* */
+
+
 function wordFinalDevoicing(wordArray) {
     if(voiced.includes(wordArray[wordArray.length -1])) {
         let voicedIndex = voiced.indexOf(wordArray[wordArray.length -1]);
@@ -2928,8 +2996,6 @@ function lossOfAspiration(wordArray) {
 };
 
 /*------------------------------------------------------*/
-
-
 
 
 

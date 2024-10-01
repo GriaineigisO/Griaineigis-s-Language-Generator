@@ -1155,9 +1155,7 @@ function showSyllableStructureKey() {
     //removes # * & from syllables before showing them as examples
         for(let i = 0; i < selectedSyllables.length; i++) {
            if(selectedSyllables[i][0] === "#" || selectedSyllables[i][0] === "&" || selectedSyllables[i][0] === "*" ) {
-            console.log(selectedSyllables[i])
             selectedSyllables[i] = selectedSyllables[i].substring(1);
-            console.log(selectedSyllables[i])
            };
         };
             

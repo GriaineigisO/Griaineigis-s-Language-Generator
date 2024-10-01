@@ -73,6 +73,8 @@ let longUBecomesOUNum = 0;
 let velarsDelabialiseNum = 0;
 let lossOfAspirationNum = 0;
 
+
+
 function clearArrays() {
     num = 0;
     soundChangeArray = [];

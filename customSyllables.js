@@ -492,7 +492,6 @@ function addCustomNote() {
 generateLanguageButton.addEventListener("click", addCustomNote);
 
 
-
 export {
     categoryA,
     categoryB,

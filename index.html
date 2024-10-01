@@ -88,11 +88,12 @@
           <!--Choose syllable structre-->
           <div class="radio-section">
             <h3>Syllable Structure</h3>
-            <h4>Root Syllable Structure</h4>
             <p>Enter your desired syllable structures below. You may enter as many possible syllables structures as you wish. When entering multiple options in the textfields below, seperate them with spaces alone - don't use commas.<br><br>
             To create your own category of sounds, click "Add New Category" and assign any selection of sounds to a capital letter. Only two letters have been reserved: <strong>C</strong> for "any consonant" and <strong>V</strong> for "any vowel". <br><br>
-            In the "Enter Root Syllable Structures" text field below, a capital letter will stand for any sound associated with it. So if you define <strong>P</strong> as any of <strong>p t k b d g</strong> then the structure <strong>PV</strong> may denote <strong>"pV"  "tV"  "kV"  "bV"  "dV"  "gV"</strong> etc. Enter your chosen sounds using IPA only. You may also enter a lowercase IPA character directly in the "Enter Root Syllable Structures" text field, thus <strong>sCV</strong> would stand for "/s/ followed by any consonant and any vowel".<br>
-          You may also determine if a specific type of syllable may only occur in a certain position in the root by using the following prefixes:
+            In the "Enter Root Syllable Structures" text field below, a capital letter will stand for any sound associated with it. So if you define <strong>P</strong> as any of <strong>p t k b d g</strong> then the structure <strong>PV</strong> may denote <strong>"pV"  "tV"  "kV"  "bV"  "dV"  "gV"</strong> etc. Enter your chosen sounds using IPA only. You may also enter a lowercase IPA character directly in the "Enter Root Syllable Structures" text field, thus <strong>sCV</strong> would stand for "/s/ followed by any consonant and any vowel".</p>
+
+          <h4>Syllable Location</h4>
+          <p>You may also determine if a specific type of syllable may only occur in a certain position in the root by using the following prefixes:
           </p>
           <ul>
             <li><strong>#</strong>: only root initially</li>
@@ -103,11 +104,20 @@
             Thus a structure such as <strong>#sCV &mCV *VrC CV</strong> means that the only word initial clusters allows are /s/ followed by any consonant, that the only root internal clusters allowed are /m/ followed by a consonant, and that the only root final clusters allowed are /r/ followed by a consonant, and that the <strong>CV</strong> may occur anywhere as it lacks a prefix.<br>
             Note that this is for the structure of syllables in roots, not entire words, so if the language takes on prefixes and/or suffixes, syllables designated as only initial or final may appear within a word - but always either at the beginning or end of the root itself.
           </p>
-            <div id="syllable-category-and-button-div">
+
+          <h4>Syllable Frequency</h4>
+          <p>You may also determine the likelihood that a syllable may appear in any given word. If you want a syllable to be more likely to appear than others, you may assign it a frequency by suffixing a number from 1-9 - the higher the number, the more common the syllable shall be. Assigning several syllables with the same frequency will cancel out this affect, so use it wisely. If you wish to make a particular syllable less likely to occur, do so by assigning all other syllables a higher frequency than it.<br>
+          Observe this example: <strong>CV8 CVC4 CrV4 sCrV</strong> - CV syllables will be the most common, followed by CVC and CrVC syllables, with sCrV syllables being the rarest.</p>
+
+          <h4>Number of Syllables</h4>
+          <p>You may choose how many syllables a root or affix may have, but be aware that if you have chosen a small phonemic inventory, that a smaller amount of syllables per word, especially if you have only provided a small amount of syllable structures, will result in a very large amount of homophones in the language - a limited number of sounds and a limited number of ways to combine those sounds results in a lot of repitition. Real languages with small phonemic inventories tend to allow a greater amount of syllables per word while languages with larger inventories can get away with a smaller amount.</p>
+
+          <h4>Root Syllable Structure</h4>
+          <div id="syllable-category-and-button-div">
               <div id="syllable-category-div"></div>
 
               <input type="submit" value="Add New Category" id="add-new-syllable-category-button">
-            </div>
+          </div>
             
             <div class="column-div">
               <div class="row-div">
@@ -164,6 +174,8 @@
           <!--Choose sound changes-->
          <div class="radio-section">
           <h2>Sound Changes</h2>
+
+          <p>Beware that sound changes may result in the language have a slightly different phonology than the one you entered. For example, If you chose a language to have CV syllables, yet the change "loss of word final vowels after /VC/ sequences" then the language will allow for VC syllables. Keep this in consideration when selecting your sound changes.</p>
 
           <input type="radio" id="randomisedSoundChange" name="randomOrCustomSoundChange" value="randomSoundChange" autocomplete="off">
           <label for="randomisedSoundChange">Random Sound Changes</label><br>
@@ -4338,6 +4350,8 @@
             </ul>
         </ul>
       </div>
+
+      <h3>Syllable Statistics</h3>
 
       
 

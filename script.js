@@ -707,6 +707,24 @@ function generateWords() {
     let storeFinalSyllables = [];
     let selectedSyllablesClone = [];
 
+    //assigns "frequency" to a syllable. If the user included a number in the syllable structure e.g "CV2", then the syllable is duplicated that amount of times, thus giving the syllable a greater chance of being randomly selected when a word is being generated
+    for(let i = 0; i < selectedSyllables.length; i++) {
+        let arrayLength = selectedSyllables[i];
+        if(isNaN(Number(arrayLength[arrayLength.length - 1]))) {
+            //last character was not a number
+            continue;
+        } else {
+            //last character was a number, thus the whole syllable is pushed into the selectedSyllables array num amount of times
+            let num = Number(arrayLength[arrayLength.length - 1]);
+            //now with that the value of the number has been stored, it can now be removed from the syllable
+            selectedSyllables[i] = selectedSyllables[i].slice(0, -1);
+            for(let j = 0; j < num; j++) {
+                selectedSyllables.push(selectedSyllables[i])
+            };
+        };
+    };
+
+
     //syllables that may only occur medially or finally are stored in the storeXSyllables arrays above, and then not pushed into selectedSyllablesClone to prevent them being selected as the first syllable (aka when count === 0)
     for(let j = 0; j < selectedSyllables.length; j++) {
         if(selectedSyllables[j][0] === "&") {
@@ -822,7 +840,7 @@ function generateWords() {
                 }  else if (syllableArray[j] === "#" || syllableArray[j] === "&" || syllableArray[j] === "*") {
                     continue;
                 } else {
-                    //if the character in the syllable structure wasn't a capital letter, but an IPA charcater, said character is chosen as the sound
+                    //if the character in the syllable structure wasn't a capital letter, but an IPA character, said character is chosen as the sound
                     newSyllableArray.push(syllableArray[j]);
                 } 
             };
@@ -935,6 +953,23 @@ function generateAffixes() {
     let storeMedialSyllables = [];
     let storeFinalSyllables = [];
     let selectedSyllablesClone = [];
+
+    //assigns "frequency" to a syllable. If the user included a number in the syllable structure e.g "CV2", then the syllable is duplicated in the array twice (leaving three CV in the array), thus giving the syllable a greater chance of being randomly selected when a word is being generated
+    for(let i = 0; i < selectedAffixSyllables.length; i++) {
+        let arrayLength = selectedAffixSyllables[i];
+        if(isNaN(Number(arrayLength[arrayLength.length - 1]))) {
+            //last character was not a number
+            continue;
+        } else {
+            //last character was a number, thus the whole syllable is pushed into the selectedAffixSyllables array num amount of times
+            let num = Number(arrayLength[arrayLength.length - 1]);
+            //now with that the value of the number has been stored, it can now be removed from the syllable
+            selectedAffixSyllables[i] = selectedAffixSyllables[i].slice(0, -1);
+            for(let j = 0; j < num; j++) {
+                selectedAffixSyllables.push(selectedAffixSyllables[i])
+            };
+        };
+    };
 
     //syllables that may only occur medially or finally are stored in the storeXSyllables arrays above, and then not pushed into selectedSyllablesClone to prevent them being selected as the first syllable (aka when count === 0)
     for(let j = 0; j < selectedAffixSyllables.length; j++) {
@@ -1116,6 +1151,16 @@ function showSyllableStructureKey() {
     let syllableN = document.getElementById("n-syllable");
     let syllableH = document.getElementById("h-syllable");
 
+
+    //removes # * & from syllables before showing them as examples
+        for(let i = 0; i < selectedSyllables.length; i++) {
+           if(selectedSyllables[i][0] === "#" || selectedSyllables[i][0] === "&" || selectedSyllables[i][0] === "*" ) {
+            console.log(selectedSyllables[i])
+            selectedSyllables[i] = selectedSyllables[i].substring(1);
+            console.log(selectedSyllables[i])
+           };
+        };
+            
     //I joined the whole array of selected syllables and then turn them into an array again, so that each individual letter was it's own item
     let syllableJoin = selectedSyllables.join("")
     let syllableSplit = removeDuplicates(Array.from(syllableJoin));
@@ -1151,10 +1196,13 @@ function showSyllableStructureKey() {
             syllableH.style.display = "none";
         }
     } else {
+
+        
+        //shows custom syllable structures after the text "X allows for the following syllable structures:"
+        document.getElementById("syllable-structure-list").innerHTML = removeDuplicates(selectedSyllables).join(", ");
+
         for(let i = 0; i < syllableSplit.length; i++) {
-
             let newLi = document.createElement("li");
-
             if(syllableSplit[i] === "C") {
                 newLi.innerHTML = "C: Consonant";
             } else if (syllableSplit[i] === "V") {
@@ -1243,11 +1291,14 @@ function showSyllableStructureKey() {
 function syllableStructureExamples() {
     let liquids = selectRhotics().concat(selectLateralApproximants())
     let exampleUl = document.getElementById("syllable-example-list")
-    exampleUl.style.display = "block"
+    exampleUl.style.display = "block";
 
-    for(let i = 0; i <  selectedSyllables.length; i++) {
+    //if a syllable was give a frequency number by the user, a syllable would appear in the array several times, now I want to remove those duplicates
+    let selectedSyllableNoDuplicates = removeDuplicates(selectedSyllables)
+
+    for(let i = 0; i <  selectedSyllableNoDuplicates.length; i++) {
         let example = []
-        let syllableArray = Array.from(selectedSyllables[i]); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
+        let syllableArray = Array.from(selectedSyllableNoDuplicates[i]); //turns that syllable into it's own array, with each letter now being it's own item e.g ["CV"] > ["C", "V"]
         for(let x = 0; x < Math.floor(Math.random()* 6) + 2; x++) {
             example.push("[")
             for(let j = 0; j < syllableArray.length; j++) {
@@ -1320,6 +1371,8 @@ function syllableStructureExamples() {
                         example.push(categoryY[Math.floor(Math.random() * categoryY.length)]);  
                     }  else if (syllableArray[j] === "Z"){
                         example.push(categoryZ[Math.floor(Math.random() * categoryZ.length)]);  
+                    }  else if (syllableArray[j] === "#" || syllableArray[j] === "&" || syllableArray[j] === "*"){
+                        continue;  
                     }   else {
                         example.push(syllableArray[j]);  
                     } 

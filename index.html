@@ -351,9 +351,9 @@
               Double click to remove</p>
 
             <div class="sortable-list">
-              <ol id="sortable">
+              <ul id="sortable">
               <!-- Add more list items as needed -->
-            </ol>
+            </ul>
           </div>
           </div>
 
@@ -4467,6 +4467,37 @@
             }
         ).element;
     };
+
+
+        //this function generates sound changes submitted by the user
+    let unconditionalCount = 0;
+    function generateSoundChange() {
+        
+        let environment = document.getElementById("environment").value;
+
+        if(environment === "unconditional") {
+            unconditionalCount++;
+
+            let text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/`;
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "unconditional" + unconditionalCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `unconditional[${unconditionalCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        }
+
+    };
+
+    let submitSoundChangeButton = document.getElementById("submit-sound-change");
+    submitSoundChangeButton.addEventListener("click", generateSoundChange);
+
 
      //dropdown menu for noun genders only shows when the typology is fusional or agglutinative
     function hideGenderForm(value) {

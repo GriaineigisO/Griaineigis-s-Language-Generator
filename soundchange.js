@@ -415,6 +415,7 @@ function useChosenSoundChanges() {
     if (randomSoundChangeOption === false) {
         //the items in chosenSoundChanges from the previous generation are removed
         chosenSoundChanges = [];
+        console.log(potentialSoundChanges)
         let soundChangeList = document.getElementById("sortable");
         let children = soundChangeList.children;
 
@@ -431,7 +432,7 @@ function useChosenSoundChanges() {
             };
         };
     };
-    console.log(chosenSoundChanges)
+    //console.log(chosenSoundChanges)
 };
 let generateLanguageButton = document.getElementById("generate-language");
 generateLanguageButton.addEventListener("click", useChosenSoundChanges);
@@ -1780,59 +1781,38 @@ function generateSoundChange() {
     let environment = document.getElementById("environment").value;
     let wordArray = ["m", "a", "r", "c"]
 
-    
-
     if(environment === "unconditional") {
         unconditionalCount++;
+        let unconditionalKey = "unconditional" + unconditionalCount;
 
-        let text = `${document.getElementById("start-sound").value} becomes ${document.getElementById("end-sound").value}`;
-        let newLi = document.createElement("li");
-        newLi.setAttribute("draggable", "true");
-        newLi.setAttribute("id", "unconditional" + unconditionalCount);
-        newLi.setAttribute("class", "soundChangeList");
-        newLi.innerHTML = text;
-        document.getElementById("sortable").appendChild(newLi);
-        //removed item when doubleclicked
-        newLi.addEventListener("dblclick", () => {
-          newLi.remove();
-        })
+        const startSound = document.getElementById("start-sound").value;
+        const endSound = document.getElementById("end-sound").value;
 
         let unconditional = {
-            1: function(wordArray) {
-                let startSound = document.getElementById("start-sound").value;
-                let endSound = document.getElementById("end-sound").value;
+            [unconditionalKey]: function (wordArray) {
                 for(let i = 0; i < wordArray.length; i++) {
                     if(wordArray[i] === startSound) {
                         wordArray[i] = endSound;
-                        console.log(wordArray)
                     };
                 };
             },
-            2: function(wordArray) {
-                let startSound = document.getElementById("start-sound").value;
-                let endSound = document.getElementById("end-sound").value;
-                for(let i = 0; i < wordArray.length; i++) {
-                    if(wordArray[i] === startSound) {
-                        wordArray[i] = endSound;
-                        console.log(wordArray)
-                    };
-                };
-            }
+            // unconditional2: function unconditional2(wordArray) {
+            //     for(let i = 0; i < wordArray.length; i++) {
+            //         if(wordArray[i] === startSound) {
+            //             wordArray[i] = endSound;
+            //         };
+            //     };
+            // }
         };
-        unconditional[unconditionalCount](wordArray);
-        potentialSoundChanges.push(unconditional[unconditionalCount])
-        //console.log(chosenSoundChanges)
+        unconditional[`unconditional${unconditionalCount}`](wordArray);
+        potentialSoundChanges.push(unconditional[`unconditional${unconditionalCount}`])
+
     }
 
 };
 
 let submitSoundChangeButton = document.getElementById("submit-sound-change");
 submitSoundChangeButton.addEventListener("click", generateSoundChange);
-
-console.log("hey")
-
-
-
 
 /*^^^^^^^^^^^^^^^^^^^^^USER GENERATED SOUND CHANGES^^^^^^^^^^^^^^^^^^^^^^* */
 

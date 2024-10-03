@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import { consonants, vowels as chosenVowels, selectedSyllables, allNasalsArray, selectFricatives, selectNasals, chooseVoicing } from './generatePhonology.js';
 import { spell } from './orthography.js'
 import { cloneArray } from './library.js'
@@ -1777,74 +1778,138 @@ function soundChange(word) {
 
 //this function generates sound changes submitted by the user
 let unconditionalCount = 0;
+let betweenCount = 0;
 
 //each click sends one number higher to array
-let countUnconditionalClicks = [];
+let countClicks = [];
 let clickNum = 1;
 document.getElementById("submit-sound-change").addEventListener("click", () => {
     const startSound = document.getElementById("start-sound").value;
     const endSound = document.getElementById("end-sound").value;
     const environment = document.getElementById("environment").value;
+    const between1 = document.getElementById("between1").value;
+    const between2 = document.getElementById("between2").value;
 
     let clickObject = {
         clickNum: clickNum,
         startSound: startSound,
         endSound: endSound,
-        environment: environment
+        environment: environment,
+        between1: between1,
+        between2: between2
     };
 
-    countUnconditionalClicks.push(clickObject);
+    countClicks.push(clickObject);
     clickNum++;
 
 });
 
 function generateSoundChange() {
 
-    let environment = document.getElementById("environment").value;
+    for(let j = 0; j < countClicks.length; j++) {
 
-    if (environment === "unconditional") {
-        //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
-        unconditionalCount++;
-        let unconditionalKey = "unconditional" + unconditionalCount;
+        let count = countClicks[j].clickNum
+        let key = countClicks[j].environment + countClicks[j].clickNum;
+        let startSound = countClicks[j].startSound;
+        let endSound = countClicks[j].endSound;
+        let environment = countClicks[j].environment;
+        let between1 = countClicks[j].between1;
+        let between2 = countClicks[j].between2;
 
-        const startSound = document.getElementById("start-sound").value;
-        const endSound = document.getElementById("end-sound").value;
+        //let environment = document.getElementById("environment").value;
 
-        let unconditional = {
-            [unconditionalKey]: function (arg) {
-                if(arg === wordArray) {
-                    //when wordArray means that the functioned is being used to pass words through to be changes
-                    for (let i = 0; i < wordArray.length; i++) {
-                        if (wordArray[i] === startSound) {
-                            wordArray[i] = endSound;
+        if (environment === "unconditional") {
+            //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
+            //unconditionalCount++;
+            //let unconditionalKey = "unconditional" + unconditionalCount;
+
+            // const startSound = document.getElementById("start-sound").value;
+            // const endSound = document.getElementById("end-sound").value;
+
+            let unconditional = {
+                [key]: function (arg) {
+                    if(arg === wordArray) {
+                        //when wordArray means that the functioned is being used to pass words through to be changes
+                        for (let i = 0; i < wordArray.length; i++) {
+                            if (wordArray[i] === startSound) {
+                                wordArray[i] = endSound;
+                            };
                         };
-                    };
-                    return wordArray;
-                } else if (arg === "text") {
-                    //produces text which explains the sound change
-                    //when "text", means that the function is being used to display this explanatory text once in the document
+                        return wordArray;
+                    } else if (arg === "text") {
+                        //produces text which explains the sound change
+                        //when "text", means that the function is being used to display this explanatory text once in the document
 
-                    //checks that the parent <div> doesn't already had a child with the same id, because the same li kept appearing twice
-                    if(document.getElementById("sound-change-explanation").querySelector(`#${unconditionalKey}-li`) === null) {
-                        let li = document.createElement("li");
-                        li.setAttribute("id", `${unconditionalKey}-li`)
-                        li.style.fontWeight = "bold";
-                        li.innerHTML = `/${startSound}/ becomes /${endSound}/`;
-                        let nestUl = document.createElement("ul");
-                        nestUl.setAttribute("id", `${unconditionalKey}-ul`);
-                        let nestLi = document.createElement("li");
-                        nestLi.style.listStyleType = "none";
-                        nestLi.innerHTML = `All instances of /${startSound}/ become /${endSound}/: <div id="${unconditionalKey}-examples" class="sound-change-example"></div>`
-                        document.getElementById("sound-change-explanation").appendChild(li);
-                        document.getElementById("sound-change-explanation").appendChild(nestUl);
-                        nestUl.appendChild(nestLi);
+                        //checks that the parent <div> doesn't already had a child with the same id, because the same li kept appearing twice
+                        if(document.getElementById("sound-change-explanation").querySelector(`#${key}-li`) === null) {
+                            let li = document.createElement("li");
+                            li.setAttribute("id", `${key}-li`)
+                            li.style.fontWeight = "bold";
+                            li.innerHTML = `/${startSound}/ becomes /${endSound}/`;
+                            let nestUl = document.createElement("ul");
+                            nestUl.setAttribute("id", `${key}-ul`);
+                            let nestLi = document.createElement("li");
+                            nestLi.style.listStyleType = "none";
+                            nestLi.innerHTML = `All instances of /${startSound}/ become /${endSound}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            document.getElementById("sound-change-explanation").appendChild(li);
+                            document.getElementById("sound-change-explanation").appendChild(nestUl);
+                            nestUl.appendChild(nestLi);
+                        }
+                        
                     }
-                    
-                }
-            },
+                },
+            };
+            unconditional[`unconditional${count}`](wordArray);
+            potentialSoundChanges.push(unconditional[`unconditional${count}`])
         };
-        unconditional[`unconditional${unconditionalCount}`](wordArray);
-        potentialSoundChanges.push(unconditional[`unconditional${unconditionalCount}`])
+
+        if (environment === "between") {
+            //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
+            betweenCount++;
+            let betweenKey = "between" + betweenCount;
+
+            const startSound = document.getElementById("start-sound").value;
+            const endSound = document.getElementById("end-sound").value;
+            const between1 = document.getElementById("between1").value;
+            const between2 = document.getElementById("between2").value;
+
+            let between = {
+                [betweenKey]: function (arg) {
+                    if(arg === wordArray) {
+                        //when wordArray means that the functioned is being used to pass words through to be changes
+                        for (let i = 0; i < wordArray.length; i++) {
+                            if (wordArray[i] === startSound && wordArray[i-1] === between1 && wordArray[i+1] === between2) {
+                                wordArray[i] = endSound;
+                            };
+                        };
+                        return wordArray;
+                    } else if (arg === "text") {
+                        //produces text which explains the sound change
+                        //when "text", means that the function is being used to display this explanatory text once in the document
+
+                        //checks that the parent <div> doesn't already had a child with the same id, because the same li kept appearing twice
+                        if(document.getElementById("sound-change-explanation").querySelector(`#${key}-li`) === null) {
+                            let li = document.createElement("li");
+                            li.setAttribute("id", `${key}-li`)
+                            li.style.fontWeight = "bold";
+                            li.innerHTML = `/${startSound}/ becomes /${endSound}/ between /${between1}/ and /${between2}/`;
+                            let nestUl = document.createElement("ul");
+                            nestUl.setAttribute("id", `${key}-ul`);
+                            let nestLi = document.createElement("li");
+                            nestLi.style.listStyleType = "none";
+                            nestLi.innerHTML = `/${startSound}/ becomes /${endSound}/ when between /${between1}/ and /${between2}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            document.getElementById("sound-change-explanation").appendChild(li);
+                            document.getElementById("sound-change-explanation").appendChild(nestUl);
+                            nestUl.appendChild(nestLi);
+                        }
+
+                    }
+                },
+            };
+            between[`between${betweenCount}`](wordArray);
+            potentialSoundChanges.push(between[`between${betweenCount}`])
+        };
+
     };
 };
 
@@ -3021,4 +3086,4 @@ document.getElementById("generate-language").addEventListener("click", () => {
 })
 
 
-export { soundChange, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen, vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, liquids, allNasalsArray, correctionsForStrings, corrections, frontVowels, backVowels, obstruents, cloneArray, checkIfSoundChangeOptionChecked, countUnconditionalClicks };
+export { soundChange, chosenSoundChanges, checkIfWordFinalConsonantsArePossible, wordFinalDevoicingTrueOrFalse, selectSoundChanges, clearPreviousOutput, lenitionFromPlosives1, lenitionFromPlosives2, nonHighVowels, randomNumForWordInitialPlosiveClusters, addedVowels, addedConsonants, voiced, unvoiced, cloneChosen, vowels, selectFricatives, randomNumberForSoundChangeSelection, plosives, consonants, midVowels, highVowels, liquids, allNasalsArray, correctionsForStrings, corrections, frontVowels, backVowels, obstruents, cloneArray, checkIfSoundChangeOptionChecked, countClicks};

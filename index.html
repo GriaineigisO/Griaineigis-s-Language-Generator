@@ -4510,6 +4510,7 @@
 
         //this function generates sound changes submitted by the user
     let unconditionalCount = 0;
+    let betweenCount = 0;
     function generateSoundChange() {
         
         let environment = document.getElementById("environment").value;
@@ -4524,6 +4525,23 @@
             newLi.setAttribute("class", "soundChangeList");
             newLi.innerHTML = text;
             newLi.value = `unconditional[${unconditionalCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        }
+        if(environment === "between") {
+            betweenCount++;
+
+            let text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ between /${document.getElementById("between1").value}/ and /${document.getElementById("between2").value}/`;
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "between" + betweenCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `between[${betweenCount}]`
             if(document.getElementById("sortable"))
             document.getElementById("sortable").appendChild(newLi);
             //removed item when doubleclicked

@@ -2,6 +2,7 @@
 
 ## Options for customisation
 
+- figure out why sound changes examples don't appear when less than 6 words changed
 - fix custom syllable structure examples
 - update generateAffixes to also be custom
 - next set of custom words is short generic based classifiers

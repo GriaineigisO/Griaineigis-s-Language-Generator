@@ -4,7 +4,7 @@ import {generateAffixes, typologyNum, markedSingularOrNot, singularAffix, number
 import {countNounArray, massNounArray, transitiveVerbArray, intransitiveVerbArray, adjectiveArray, conjunctionArray, adverbArray, adpositionArray, intensifierArray, countNounArrayPlural, transitiveVerb3SArray, transitiveVerbPastArray, generatedCountNouns, generatedMassNouns, generatedAdjectives, generatedTransitiveVerbs, generatedIntransitiveVerbs, generatedAdverbs, generatedConjunctions, generatedAdpositions, generatedIntensifiers, activePassive, animInan, divineNonDivine, humanAnimalInan, mascFemNeut, mascFem, naturalArtificial, animacyClassifierArray, shapeClassifierArray, shortGenericClassifierArray, derivedOrInheritedCountNoun, etymologyArrayCountNoun, etymologyCountNoun, derivationListCountNoun, oldCountNounArray, animInanMass, divineNonDivineMass, humanAnimalInanMass, mascFemMass,  mascFemNeutMass, naturalArtificialMass, animacyClassifierMassArray, shapeClassifierMassArray, activePassiveMass, shortGenericClassifierMassArray} from './semanticShift.js';
 
 import { spell } from './orthography.js';
-import { soundChange, cloneArray} from './soundchange.js';
+import { soundChange} from './soundchange.js';
 import {derivedOrInheritedMassNoun, etymologyArrayMassNoun, etymologyMassNoun, singulativeMassNounArray, pluralSingulativeMassNounArray, derivationListMassNoun, oldMassNounArray} from './englishWordArrays/Nouns/massNouns.js'
 import {derivedOrInheritedTransVerb, etymologyArrayTransVerb, etymologyTransVerb, derivationListTransVerb} from '/englishWordArrays/Verbs/englishTransitiveVerbs.js';
 import {derivedOrInheritedIntransVerb, derivationListIntransVerb, etymologyArrayIntransVerb, etymologyIntransVerb} from '/englishWordArrays/Verbs/englishIntransitiveVerbs.js';
@@ -15,7 +15,7 @@ import {derivedOrInheritedCONJ} from './englishWordArrays/conjunctions.js'
 import {derivedOrInheritedADV, derivationListAdverb} from './englishWordArrays/adverbs.js'
 import {derivedOrInheritedINTENS, derivationListIntensifier} from './englishWordArrays/intensifier.js'
 import {derivedOrInheritedADPO, derivationListAdpo, etymologyADPO} from './englishWordArrays/adpositions.js'
-import {randomIndexOfArray} from './library.js'
+import {randomIndexOfArray, cloneArray} from './library.js'
 
 let proneAffix = "";
 let possessorAffix = "";

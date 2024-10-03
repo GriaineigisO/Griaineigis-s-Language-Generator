@@ -88,10 +88,12 @@
           <!--Choose syllable structre-->
           <div class="radio-section">
             <h3>Syllable Structure</h3>
-            <p>Enter your desired syllable structures below. You may enter as much possible syllables as you wish. When entering multiple options in the textfields below, seperate them with spaces alone - don't use commas.<br><br>
+            <p>Enter your desired syllable structures below. You may enter as many possible syllables structures as you wish. When entering multiple options in the textfields below, seperate them with spaces alone - don't use commas.<br><br>
             To create your own category of sounds, click "Add New Category" and assign any selection of sounds to a capital letter. Only two letters have been reserved: <strong>C</strong> for "any consonant" and <strong>V</strong> for "any vowel". <br><br>
-            In the "Enter Root Syllable Structures" text field below, a capital letter will stand for any sound associated with it. So if you define <strong>P</strong> as any of <strong>p,t,k,b,d,g</strong> then the structure <strong>PV</strong> may denote <strong>"pV", "tV", "kV", "bV", "dV", "gV"</strong> etc. You may also enter a lowercase IPA character directly in the "Enter Root Syllable Structures" text field, this <strong>sCV</strong> would stand for "/s/ followed by any consonant and any vowel".<br>
-          You may also determine if a specific type of syllable may only occur in a certain position in the root by using the following prefixes:
+            In the "Enter Root Syllable Structures" text field below, a capital letter will stand for any sound associated with it. So if you define <strong>P</strong> as any of <strong>p t k b d g</strong> then the structure <strong>PV</strong> may denote <strong>"pV"  "tV"  "kV"  "bV"  "dV"  "gV"</strong> etc. Enter your chosen sounds using IPA only. You may also enter a lowercase IPA character directly in the "Enter Root Syllable Structures" text field, thus <strong>sCV</strong> would stand for "/s/ followed by any consonant and any vowel".</p>
+
+          <h4>Syllable Location</h4>
+          <p>You may also determine if a specific type of syllable may only occur in a certain position in the root by using the following prefixes:
           </p>
           <ul>
             <li><strong>#</strong>: only root initially</li>
@@ -99,18 +101,28 @@
             <li><strong>*</strong>: only word finally</li>
           </ul>
           <p>
-            This a structure such as <strong>#sCV &mCV *VrC CV</strong> means that the only word initial clusters allows are /s/ followed by any consonant, that the only root internal clusters allowed are /m/ followed by a consonant, and that the only root final clusters allowed are /r/ followed by a consonant, and that the <strong>CV</strong> may occur anywhere as it lacks a prefix.
+            Thus a structure such as <strong>#sCV &mCV *VrC CV</strong> means that the only word initial clusters allows are /s/ followed by any consonant, that the only root internal clusters allowed are /m/ followed by a consonant, and that the only root final clusters allowed are /r/ followed by a consonant, and that the <strong>CV</strong> may occur anywhere as it lacks a prefix.<br>
+            Note that this is for the structure of syllables in roots, not entire words, so if the language takes on prefixes and/or suffixes, syllables designated as only initial or final may appear within a word - but always either at the beginning or end of the root itself.
           </p>
-            <div id="syllable-category-and-button-div">
+
+          <h4>Syllable Frequency</h4>
+          <p>You may also determine the likelihood that a syllable may appear in any given word. If you want a syllable to be more likely to appear than others, you may assign it a frequency by suffixing a number from 1-9 - the higher the number, the more common the syllable shall be. Assigning several syllables with the same frequency will cancel out this affect, so use it wisely. If you wish to make a particular syllable less likely to occur, do so by assigning all other syllables a higher frequency than it.<br>
+          Observe this example: <strong>CV8 CVC4 CrV4 sCrV</strong> - CV syllables will be the most common, followed by CVC and CrV syllables, with sCrV syllables being the rarest.</p>
+
+          <h4>Number of Syllables</h4>
+          <p>You may choose how many syllables a root or affix may have, but be aware that if you have chosen a small phonemic inventory, that a smaller amount of syllables per word, especially if you have only provided a small amount of syllable structures, will result in a very large amount of homophones in the language - a limited number of sounds and a limited number of ways to combine those sounds results in a lot of repitition. Real languages with small phonemic inventories tend to allow a greater amount of syllables per word while languages with larger inventories can get away with a smaller amount.</p>
+
+          <h4>Root Syllable Structure</h4>
+          <div id="syllable-category-and-button-div">
               <div id="syllable-category-div"></div>
 
               <input type="submit" value="Add New Category" id="add-new-syllable-category-button">
-            </div>
+          </div>
             
             <div class="column-div">
               <div class="row-div">
                 <label for="chosen-syllables" class="label">Enter Root Syllable Structures:</label>
-                <input id="chosen-syllables" value=""></input>
+                <input id="chosen-syllables" value="" class="syllable-text-field"></input>
               </div>
               
               <div class="row-div">
@@ -124,17 +136,46 @@
                   <input type="text" id="max-syllables" class="syllable-amount-text-field">
                 </div>
               </div>
-              <p>If you wish to add any specific notes about your syllable structures, do so here and your description will be added in the document. Use HTML formatting.</p>
-              <textarea id="syllable-structure-notes"></textarea>
+
             </div>
             
+          <h4>Affix Syllable Structure</h4>
+          </p>
+            <div id="affix-syllable-category-and-button-div">
+              <div id="affix-syllable-category-div"></div>
+
+              <input type="submit" value="Add New Category" id="add-new-affix-syllable-category-button">
+            </div>
             
+            <div class="column-div">
+              <div class="row-div">
+                <label for="affix-chosen-syllables" class="label ">Enter Affix Syllable Structures:</label>
+                <input id="affix-chosen-syllables" value="" class="syllable-text-field"></input>
+              </div>
+              
+              <div class="row-div">
+                <div class="min-max-div">
+                  <label for="affix-min-syllables">Minimum Amount Of Syllables Per Affix</label>
+                  <input type="text" id="affix-min-syllables" class="syllable-amount-text-field">
+                </div>
+
+                <div class="min-max-div">
+                  <label for="affix-max-syllables">Maximum Amount Of Syllables Per Affix</label>
+                  <input type="text" id="affix-max-syllables" class="syllable-amount-text-field">
+                </div>
+              </div>
+          </div>
+
+           <p>If you wish to add any specific notes about your syllable structures, do so here and your description will be added in the document. Format your text using <a href="https://adamvleggett.github.io/drawdown/" target="_blank">markup.</a></p>
+              <textarea id="syllable-structure-notes"></textarea>
           </div>
 
           <hr>
           <!--Choose sound changes-->
          <div class="radio-section">
           <h2>Sound Changes</h2>
+
+          <p>Beware that sound changes may result in the language have a slightly different phonology than the one you entered. For example, If you chose a language to have CV syllables, yet the change "loss of word final vowels after /VC/ sequences" then the language will allow for VC syllables. Keep this in consideration when selecting your sound changes.</p>
 
           <input type="radio" id="randomisedSoundChange" name="randomOrCustomSoundChange" value="randomSoundChange" autocomplete="off">
           <label for="randomisedSoundChange">Random Sound Changes</label><br>
@@ -291,15 +332,67 @@
             </optgroup>
             </select> 
 
+            <div id="sound-change-generator">
+              <div id="sound-change-generator-title">
+                <h3>Sound Change Generator</h3>
+              </div>
+
+              <div id="sound-change-generator-div">
+                <div class="sound-change-generator-option">
+                  <label for="start-sound" class="sound-change-generator-label"><strong>Original Sound</strong></label>
+                  <input type="text" id="start-sound">
+                </div>
+
+                <div class="sound-change-generator-option">
+                  <p id="becomes"><strong>becomes</strong></p>
+                </div>
+
+                <div class="sound-change-generator-option">
+                  <label for="end-sound" class="sound-change-generator-label"><strong>Resulting Sound</strong></label>
+                  <input type="text" id="end-sound">
+                </div>
+
+                <div class="sound-change-generator-option">
+                  <label for="environment" class="sound-change-generator-label"><strong>Environment</strong></label>
+                  <div id="environment-form-and-text-field">
+                  <select id="environment" onclick="hideOrShowEnvironmentOptions(this.value)">
+                    <option value="unconditional" selected>unconditionally</option>
+                    <option value="between">between</option>
+                    <option value="before">before</option>
+                    <option value="after">after</option>
+                    <option value="word-initially">word initially</option>
+                    <option value="word-initially-before">word initially before</option>
+                    <option value="word-finally">word finally</option>
+                    <option value="word-finally-after">word finally after</option>
+                  </select>
+
+                  <div id="between-input">
+                    <input id="between1" class="between"></input> <p class="between">and</p> <input id="between2" class="between"></input>
+                  </div>
+
+                  <div id="else-input">
+                    <input id="else-environment" class="between"></input>
+                  </div>
+                  
+                  </div>
+                </div>
+              </div>
+
+              <div id="sound-change-button-div">
+                <input type="button" id="submit-sound-change" value="Submit Sound Change">
+              </div>
+                
+              </div>
+            
             <p id="drag-note">
               Note: If a sound change that you selected can not apply to the chosen phonology, such as choosing "Word Final Devoicing" but the phonology does not even allow for word final consonants, then the sound change will not appear in the language.<br>
               Drag to reorder<br>
               Double click to remove</p>
 
             <div class="sortable-list">
-              <ol id="sortable">
+              <ul id="sortable">
               <!-- Add more list items as needed -->
-            </ol>
+            </ul>
           </div>
           </div>
 
@@ -716,8 +809,8 @@
           To understand various alternations that occur within <span class="language-name"></span>, it is important to understand the sound changes that occured between it and its ancestor language Old <span class="language-name"></span>. The following sound changes occured in the same order as they are listed.
         </p>
 
-        <ol id="sound-change-explanation">
-        </ol>
+        <ul id="sound-change-explanation">
+        </ul>
 
         <div id="sound-change-notation-list"></div>
 
@@ -747,17 +840,15 @@
         </ul>
         <hr class="style-eight">
         <h3>Syllable Structure</h3>
-      <section id="custom-syllable-note"></section>
+      <section id="custom-syllable-note" class="markup"></section>
       <ul id="syllable-list">
+          <li id="a-syllable">A "approximant"</li>
+          <li id="f-syllable">F "fricative"</li>
+          <li id="r-syllable">R "resonant"</li>
+          <li id="n-syllable">N "nasal"</li>
+          <li id="h-syllable">H "aspirated"</li>
+        </ul>
         
-        <li>C "consonant"</li>
-        <li>V "vowel"</li>
-        <li id="a-syllable">A "approximant"</li>
-        <li id="f-syllable">F "fricative"</li>
-        <li id="r-syllable">R "resonant"</li>
-        <li id="n-syllable">N "nasal"</li>
-        <li id="h-syllable">H "aspirated"</li>
-      </ul>
 
         <p>
           <span class="language-name"></span> allows for the following syllable structures:
@@ -4312,12 +4403,10 @@
         </ul>
       </div>
 
-      
-
-      <h3><span class="language-name">Kerkebulo</span> - English</h3>
+      <h3><span class="language-name"></span> - English</h3>
       <div id="language-to-english"></div>
 
-      <h3>English - <span class="language-name">Kerkebulo</span></h3>
+      <h3>English - <span class="language-name"></span></h3>
       <div id="english-to-language"></div>
     </section>
 
@@ -4417,6 +4506,73 @@
             }
         ).element;
     };
+
+
+        //this function generates sound changes submitted by the user
+    let unconditionalCount = 0;
+    let betweenCount = 0;
+    function generateSoundChange() {
+        
+        let environment = document.getElementById("environment").value;
+
+        if(environment === "unconditional") {
+            unconditionalCount++;
+
+            let text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/`;
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "unconditional" + unconditionalCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `unconditional[${unconditionalCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        }
+        if(environment === "between") {
+            betweenCount++;
+
+            let text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ between /${document.getElementById("between1").value}/ and /${document.getElementById("between2").value}/`;
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "between" + betweenCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `between[${betweenCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        }
+
+    };
+
+    let submitSoundChangeButton = document.getElementById("submit-sound-change");
+    submitSoundChangeButton.addEventListener("click", generateSoundChange);
+
+
+    function hideOrShowEnvironmentOptions(value) {
+    let betweenOptions = document.getElementById("between-input")
+    let elseOptions = document.getElementById("else-input")
+
+    if(value === "between") {
+        betweenOptions.style.display = "flex";
+        betweenOptions.style.flexDirection = "row"
+        elseOptions.style.display = "none";
+    } else if(value === "unconditional" || value === "word-initially" || value === "word-finally"  ) {
+        betweenOptions.style.display = "none"
+        elseOptions.style.display = "none";
+    } else {
+        betweenOptions.style.display = "none"
+        elseOptions.style.display = "flex";
+    }
+  }
+
 
      //dropdown menu for noun genders only shows when the typology is fusional or agglutinative
     function hideGenderForm(value) {
@@ -4549,13 +4705,13 @@
     <script  src="./resetButton.js"></script>
     <script type="module" src="./customSyllables.js"></script>
     <script type="module" src="./generatePhonology.js"></script>
-
     <script type="module" src="./derivation.js"></script>
     <script type="module" src="./script.js"></script>
-    <script type="module" src="./dictionary.js"></script>
     <script type="module" src="./fusionalNouns.js"></script>
     <script type="module" src="./soundChange.js"></script>
     <script type="module" src="./soundChangeExamples.js"></script>
+    <script type="module" src="./dictionary.js"></script>
+    <script type="module" src="./markupConverter.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   </body>

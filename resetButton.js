@@ -6,6 +6,7 @@ function reset() {
     document.getElementById("chosen-vowels").value = "";
     document.getElementById("chosen-consonants").value = "";
     document.getElementById("chosen-syllables").value = "";
+    document.getElementById("affix-chosen-syllables").value = "";
     document.getElementById("few-text-field").value = "";
     document.getElementById("barely-any-text-field").value = "";
     document.getElementById("several-text-field").value = "";
@@ -27,6 +28,12 @@ function reset() {
     document.getElementById("flat-meaning-text-field").value = "";
     document.getElementById("shapeless-text-field").value = "";
     document.getElementById("shapeless-meaning-text-field").value = "";
+    document.getElementById("start-sound").value = "";
+    document.getElementById("end-sound").value = "";
+    document.getElementById("between1").value = "";
+    document.getElementById("between2").value = "";
+    document.getElementById("else-environment").value = "";
+
     let customtextField = document.getElementsByClassName("custom-text-field")
     for(let i = 0; i < customtextField.length; i++) {
         customtextField[i].value = "";
@@ -38,6 +45,9 @@ function reset() {
     document.getElementById("max-syllables").value = "";
     document.getElementById("min-syllables").value = "";
     document.getElementById("syllable-category-div").replaceChildren();
+    document.getElementById("affix-max-syllables").value = "";
+    document.getElementById("affix-min-syllables").value = "";
+    document.getElementById("affix-syllable-category-div").replaceChildren();
 
     //changes value of dropdown forms to "random"
     document.getElementById("sound-change-menu").value = "random";
@@ -47,6 +57,8 @@ function reset() {
     document.getElementById("isolating-number-form").value = "random";
     document.getElementById("classifier-form").value = "random";
     document.getElementById("long-classifier-form").value = "random";
+    document.getElementById("environment").value = "unconditional";
+    
 
 
     //selects the "random" option for radio buttons

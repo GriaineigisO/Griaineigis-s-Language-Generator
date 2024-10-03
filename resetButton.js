@@ -28,6 +28,12 @@ function reset() {
     document.getElementById("flat-meaning-text-field").value = "";
     document.getElementById("shapeless-text-field").value = "";
     document.getElementById("shapeless-meaning-text-field").value = "";
+    document.getElementById("start-sound").value = "";
+    document.getElementById("end-sound").value = "";
+    document.getElementById("between1").value = "";
+    document.getElementById("between2").value = "";
+    document.getElementById("else-environment").value = "";
+
     let customtextField = document.getElementsByClassName("custom-text-field")
     for(let i = 0; i < customtextField.length; i++) {
         customtextField[i].value = "";
@@ -51,6 +57,8 @@ function reset() {
     document.getElementById("isolating-number-form").value = "random";
     document.getElementById("classifier-form").value = "random";
     document.getElementById("long-classifier-form").value = "random";
+    document.getElementById("environment").value = "unconditional";
+    
 
 
     //selects the "random" option for radio buttons

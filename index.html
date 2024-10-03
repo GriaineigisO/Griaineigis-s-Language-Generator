@@ -107,7 +107,7 @@
 
           <h4>Syllable Frequency</h4>
           <p>You may also determine the likelihood that a syllable may appear in any given word. If you want a syllable to be more likely to appear than others, you may assign it a frequency by suffixing a number from 1-9 - the higher the number, the more common the syllable shall be. Assigning several syllables with the same frequency will cancel out this affect, so use it wisely. If you wish to make a particular syllable less likely to occur, do so by assigning all other syllables a higher frequency than it.<br>
-          Observe this example: <strong>CV8 CVC4 CrV4 sCrV</strong> - CV syllables will be the most common, followed by CVC and CrVC syllables, with sCrV syllables being the rarest.</p>
+          Observe this example: <strong>CV8 CVC4 CrV4 sCrV</strong> - CV syllables will be the most common, followed by CVC and CrV syllables, with sCrV syllables being the rarest.</p>
 
           <h4>Number of Syllables</h4>
           <p>You may choose how many syllables a root or affix may have, but be aware that if you have chosen a small phonemic inventory, that a smaller amount of syllables per word, especially if you have only provided a small amount of syllable structures, will result in a very large amount of homophones in the language - a limited number of sounds and a limited number of ways to combine those sounds results in a lot of repitition. Real languages with small phonemic inventories tend to allow a greater amount of syllables per word while languages with larger inventories can get away with a smaller amount.</p>
@@ -332,18 +332,57 @@
             </optgroup>
             </select> 
 
-            <div id="sound-chane-generator">
-              <label for="start-sound">Enter Original Sound Here</label>
-              <input type="text" id="start-sound">
+            <div id="sound-change-generator">
+              <div id="sound-change-generator-title">
+                <h3>Sound Change Generator</h3>
+              </div>
 
-              <label for="end-sound">Enter Resulting Sound Here</label>
-              <input type="text" id="end-sound">
+              <div id="sound-change-generator-div">
+                <div class="sound-change-generator-option">
+                  <label for="start-sound" class="sound-change-generator-label"><strong>Original Sound</strong></label>
+                  <input type="text" id="start-sound">
+                </div>
 
-              <label for="environment">Environment</label>
-              <input type="text" id="environment">
+                <div class="sound-change-generator-option">
+                  <p id="becomes"><strong>becomes</strong></p>
+                </div>
 
-              <input type="button" id="submit-sound-change" value="Submit Sound Change">
-            </div>
+                <div class="sound-change-generator-option">
+                  <label for="end-sound" class="sound-change-generator-label"><strong>Resulting Sound</strong></label>
+                  <input type="text" id="end-sound">
+                </div>
+
+                <div class="sound-change-generator-option">
+                  <label for="environment" class="sound-change-generator-label"><strong>Environment</strong></label>
+                  <div id="environment-form-and-text-field">
+                  <select id="environment" onclick="hideOrShowEnvironmentOptions(this.value)">
+                    <option value="unconditional" selected>unconditionally</option>
+                    <option value="between">between</option>
+                    <option value="before">before</option>
+                    <option value="after">after</option>
+                    <option value="word-initially">word initially</option>
+                    <option value="word-initially-before">word initially before</option>
+                    <option value="word-finally">word finally</option>
+                    <option value="word-finally-after">word finally after</option>
+                  </select>
+
+                  <div id="between-input">
+                    <input id="between1" class="between"></input> <p class="between">and</p> <input id="between2" class="between"></input>
+                  </div>
+
+                  <div id="else-input">
+                    <input id="else-environment" class="between"></input>
+                  </div>
+                  
+                  </div>
+                </div>
+              </div>
+
+              <div id="sound-change-button-div">
+                <input type="button" id="submit-sound-change" value="Submit Sound Change">
+              </div>
+                
+              </div>
             
             <p id="drag-note">
               Note: If a sound change that you selected can not apply to the chosen phonology, such as choosing "Word Final Devoicing" but the phonology does not even allow for word final consonants, then the sound change will not appear in the language.<br>
@@ -770,8 +809,8 @@
           To understand various alternations that occur within <span class="language-name"></span>, it is important to understand the sound changes that occured between it and its ancestor language Old <span class="language-name"></span>. The following sound changes occured in the same order as they are listed.
         </p>
 
-        <ol id="sound-change-explanation">
-        </ol>
+        <ul id="sound-change-explanation">
+        </ul>
 
         <div id="sound-change-notation-list"></div>
 
@@ -4499,6 +4538,24 @@
     submitSoundChangeButton.addEventListener("click", generateSoundChange);
 
 
+    function hideOrShowEnvironmentOptions(value) {
+    let betweenOptions = document.getElementById("between-input")
+    let elseOptions = document.getElementById("else-input")
+
+    if(value === "between") {
+        betweenOptions.style.display = "flex";
+        betweenOptions.style.flexDirection = "row"
+        elseOptions.style.display = "none";
+    } else if(value === "unconditional" || value === "word-initially" || value === "word-finally"  ) {
+        betweenOptions.style.display = "none"
+        elseOptions.style.display = "none";
+    } else {
+        betweenOptions.style.display = "none"
+        elseOptions.style.display = "flex";
+    }
+  }
+
+
      //dropdown menu for noun genders only shows when the typology is fusional or agglutinative
     function hideGenderForm(value) {
       if(value === "agglutinative" || value === "fusional") {
@@ -4632,10 +4689,10 @@
     <script type="module" src="./generatePhonology.js"></script>
     <script type="module" src="./derivation.js"></script>
     <script type="module" src="./script.js"></script>
-    <script type="module" src="./dictionary.js"></script>
     <script type="module" src="./fusionalNouns.js"></script>
     <script type="module" src="./soundChange.js"></script>
     <script type="module" src="./soundChangeExamples.js"></script>
+    <script type="module" src="./dictionary.js"></script>
     <script type="module" src="./markupConverter.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

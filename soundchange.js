@@ -1876,12 +1876,20 @@ function generateSoundChange() {
             let between = {
                 [betweenKey]: function (arg) {
                     if(arg === wordArray) {
-                        //when wordArray means that the functioned is being used to pass words through to be changes
-                        for (let i = 0; i < wordArray.length; i++) {
-                            if (wordArray[i] === startSound && wordArray[i-1] === between1 && wordArray[i+1] === between2) {
-                                wordArray[i] = endSound;
+                        //if startSound is empty, it means that epenthesis is the desired changw
+                        if(startSound === "") {
+                            for (let i = 0; i < wordArray.length; i++) {
+                                if (wordArray[i] === between1 && wordArray[i+1] === between2) {
+                                    wordArray.splice(i+1, 0, endSound);
+                                };
                             };
-                        };
+                        } else {
+                            for (let i = 0; i < wordArray.length; i++) {
+                                if (wordArray[i] === startSound && wordArray[i-1] === between1 && wordArray[i+1] === between2) {
+                                    wordArray[i] = endSound;
+                                };
+                            };
+                        }
                         return wordArray;
                     } else if (arg === "text") {
                         //produces text which explains the sound change
@@ -1892,12 +1900,28 @@ function generateSoundChange() {
                             let li = document.createElement("li");
                             li.setAttribute("id", `${key}-li`)
                             li.style.fontWeight = "bold";
-                            li.innerHTML = `/${startSound}/ becomes /${endSound}/ between /${between1}/ and /${between2}/`;
+
+                            //if nothing was entered for endSound, it means that the sound was lost. If nothing was entered for startSound, it means epenthesis
+                            if(startSound === "") {
+                                li.innerHTML = `/${endSound}/ is inserted between /${between1}/ and /${between2}/`;
+                            } else {
+                                 if(endSound === "") {
+                                    li.innerHTML = `/${startSound}/ is lost between /${between1}/ and /${between2}/`;
+                                } else {
+                                    li.innerHTML = `/${startSound}/ becomes /${endSound}/ between /${between1}/ and /${between2}/`;
+                                }
+                            };
                             let nestUl = document.createElement("ul");
                             nestUl.setAttribute("id", `${key}-ul`);
                             let nestLi = document.createElement("li");
                             nestLi.style.listStyleType = "none";
-                            nestLi.innerHTML = `/${startSound}/ becomes /${endSound}/ when between /${between1}/ and /${between2}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            if(endSound === "") {
+                                nestLi.innerHTML = `/${startSound}/ is lost between /${between1}/ and /${between2}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else if (startSound === "") {
+                                nestLi.innerHTML = `/${endSound}/ is inserted between /${between1}/ and /${between2}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else {
+                                nestLi.innerHTML = `/${startSound}/ becomes /${endSound}/ when between /${between1}/ and /${between2}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            }
                             document.getElementById("sound-change-explanation").appendChild(li);
                             document.getElementById("sound-change-explanation").appendChild(nestUl);
                             nestUl.appendChild(nestLi);

@@ -4535,7 +4535,17 @@
         if(environment === "between") {
             betweenCount++;
 
-            let text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ between /${document.getElementById("between1").value}/ and /${document.getElementById("between2").value}/`;
+            let text = ``;
+
+
+            if(document.getElementById("end-sound").value === "") {
+              text = `/${document.getElementById("start-sound").value}/ is lost between /${document.getElementById("between1").value}/ and /${document.getElementById("between2").value}/`;
+            } else if (document.getElementById("start-sound").value === "") {
+              text = `/${document.getElementById("end-sound").value}/ is inserted between /${document.getElementById("between1").value}/ and /${document.getElementById("between2").value}/`;
+            } else {
+              text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ between /${document.getElementById("between1").value}/ and /${document.getElementById("between2").value}/`;
+            }
+
             let newLi = document.createElement("li");
             newLi.setAttribute("draggable", "true");
             newLi.setAttribute("id", "between" + betweenCount);

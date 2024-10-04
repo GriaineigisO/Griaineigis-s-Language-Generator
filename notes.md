@@ -2,6 +2,8 @@
 
 ## Options for customisation
 
+- custom affix syllables not being acceptted
+- make it possible to make changes for "between word initial X and Y" and such. Make iy possible to create categories and sets - sets being stuff like "p t k > b d g" with more than one sart and end sound. Make it possible also for a condiiton to have more than one sound e.g "i > e/\_nd"
 - figure out why sound changes examples don't appear when less than 6 words changed
 - fix custom syllable structure examples
 - update generateAffixes to also be custom

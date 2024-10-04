@@ -561,6 +561,7 @@ function generateSoundChange(word, originalWord) {
         let environment = countClicks[j].environment;
         let between1 = countClicks[j].between1;
         let between2 = countClicks[j].between2;
+        let elseCondition = countClicks[j].elseCondition;
 
         if (environment === "unconditional") {
             for (let i = 0; i < word.length; i++) {
@@ -585,6 +586,8 @@ function generateSoundChange(word, originalWord) {
                     if(document.getElementById(`${key}-examples`) !== null) {
                         let parentDiv = document.getElementById(`${key}-examples`).children
                         if(parentDiv.length < 6) { 
+                            document.getElementById(`${key}-li`).style.display = "block";
+                            document.getElementById(`${key}-ul`).style.display = "block";
                             if(parentDiv.length === 0) {
                                 let example = document.createElement("span");
                                 example.innerHTML = `${beforeExample} > ${afterExample}`;
@@ -629,6 +632,8 @@ function generateSoundChange(word, originalWord) {
                             if(document.getElementById(`${key}-examples`) !== null) {
                                 let parentDiv = document.getElementById(`${key}-examples`).children
                                 if(parentDiv.length < 6) { 
+                                    document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
                                     if(parentDiv.length === 0) {
                                         let example = document.createElement("span");
                                         example.innerHTML = `${beforeExample} > ${afterExample}`;
@@ -676,6 +681,568 @@ function generateSoundChange(word, originalWord) {
                             }
                         };
                     }; 
+            };
+
+        };
+
+        if (environment === "before") {
+            for (let i = 0; i < word.length; i++) {
+
+                if (word[i] === startSound && word[i+1] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[i] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                    }; 
+            };
+
+        };
+
+        if (environment === "after") {
+            for (let i = 0; i < word.length; i++) {
+
+                if (word[i] === startSound && word[i-1] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[i] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                    }; 
+            };
+
+        };
+
+        if (environment === "word-initially") {
+            for (let i = 0; i < word.length; i++) {
+
+                if(startSound === "") {
+                        let before = correctionsForStrings(word.join(""));
+                        word.splice(0, 0, endSound);
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                    
+                } else if (word[0] === startSound) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[0] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                }  else if (word[0] === "X" && word[1] === startSound) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[1] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                }; 
+            };
+
+        };
+
+        if (environment === "word-initially-before") {
+            for (let i = 0; i < word.length; i++) {
+
+                if(startSound === "" && word[0] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word.splice(0, 0, endSound);
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                    
+                } else if(startSound === "" && word[0] === "X" && word[1] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word.splice(1, 0, endSound);
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                    
+                } else if (word[0] === startSound && word[1] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[0] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                }  else if (word[0] === "X" && word[1] === startSound  && word[2] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[1] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                }; 
+            };
+
+        };
+
+        if (environment === "word-finally") {
+            for (let i = 0; i < word.length; i++) {
+
+                if (word[word.length-1] === startSound) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[word.length-1] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                }  else if (word[word.length-1] === "A" && word[word.length-2] === startSound) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[word.length-2] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                }; 
+            };
+        };
+
+        if (environment === "word-finally-after") {
+            for (let i = 0; i < word.length; i++) {
+
+                if(startSound === "" && word[word.length-1] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word.splice(0, 0, endSound);
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                    
+                } else if(startSound === "" && word[word.length-1] === "A" && word[word.length-2] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word.splice(word.length-2, 0, endSound);
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                    
+                } else if (word[word.length-1] === startSound && word[word.length-2] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[word.length-1] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                }  else if (word[word.length-1] === "A" && word[word.length-2] === startSound  && word[word.length-3] === elseCondition) {
+                        let before = correctionsForStrings(word.join(""));
+                        word[word.length-2] = endSound;
+                        let after = correctionsForStrings(word.join(""));
+                        let afterExample = "";
+                        let originalJoined = originalWord.join("");
+                        if(soundChange(originalJoined) !== after) {
+                            afterExample = `<i>*${spell(after)}</i> [${markLengthInIPA(after)}] (> ${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}])`
+                        } else {
+                            afterExample = `${newName} <i><strong>${spell(soundChange(originalJoined))}</strong></i> [${markLengthInIPA(soundChange(originalJoined))}]`
+                        }
+                        let beforeExample = "";
+                        if(correctionsForStrings(originalJoined) === before) {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}]`;
+                        } else {
+                            beforeExample = `${oldName} <i><strong>${spell(correctionsForStrings(originalJoined))}</strong></i> [${markLengthInIPA(originalJoined)}] > *<i>${spell(before)}</i> [${markLengthInIPA(before)}]`
+                        }
+                        //if null, it means that a sound change was deleted from the list of chosen options before the user hit "generate a new language"
+                        if(document.getElementById(`${key}-examples`) !== null) {
+                            let parentDiv = document.getElementById(`${key}-examples`).children
+                            if(parentDiv.length < 6) { 
+                                document.getElementById(`${key}-li`).style.display = "block";
+                                    document.getElementById(`${key}-ul`).style.display = "block";
+                                if(parentDiv.length === 0) {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                } else {
+                                    let example = document.createElement("span");
+                                    example.innerHTML = `, ${beforeExample} > ${afterExample}`;
+                                    document.getElementById(`${key}-examples`).appendChild(example);
+                                }
+                            }
+                        };
+                }; 
             };
 
         };

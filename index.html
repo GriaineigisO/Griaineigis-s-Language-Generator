@@ -4508,23 +4508,28 @@
     };
 
 
-        //this function generates sound changes submitted by the user
-    let unconditionalCount = 0;
-    let betweenCount = 0;
+      
+
+    let clickCount = 0
+
+     document.getElementById("submit-sound-change").addEventListener("click", () => {
+      clickCount++;
+     })
+     
+    //this function generates sound changes submitted by the user
     function generateSoundChange() {
         
         let environment = document.getElementById("environment").value;
 
         if(environment === "unconditional") {
-            unconditionalCount++;
 
             let text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/`;
             let newLi = document.createElement("li");
             newLi.setAttribute("draggable", "true");
-            newLi.setAttribute("id", "unconditional" + unconditionalCount);
+            newLi.setAttribute("id", "unconditional" + clickCount);
             newLi.setAttribute("class", "soundChangeList");
             newLi.innerHTML = text;
-            newLi.value = `unconditional[${unconditionalCount}]`
+            newLi.value = `unconditional[${clickCount}]`
             if(document.getElementById("sortable"))
             document.getElementById("sortable").appendChild(newLi);
             //removed item when doubleclicked
@@ -4533,10 +4538,8 @@
             })
         }
         if(environment === "between") {
-            betweenCount++;
 
             let text = ``;
-
 
             if(document.getElementById("end-sound").value === "") {
               text = `/${document.getElementById("start-sound").value}/ is lost between /${document.getElementById("between1").value}/ and /${document.getElementById("between2").value}/`;
@@ -4545,13 +4548,12 @@
             } else {
               text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ between /${document.getElementById("between1").value}/ and /${document.getElementById("between2").value}/`;
             }
-
             let newLi = document.createElement("li");
             newLi.setAttribute("draggable", "true");
-            newLi.setAttribute("id", "between" + betweenCount);
+            newLi.setAttribute("id", "between" + clickCount);
             newLi.setAttribute("class", "soundChangeList");
             newLi.innerHTML = text;
-            newLi.value = `between[${betweenCount}]`
+            newLi.value = `between[${clickCount}]`
             if(document.getElementById("sortable"))
             document.getElementById("sortable").appendChild(newLi);
             //removed item when doubleclicked
@@ -4559,8 +4561,144 @@
               newLi.remove();
             })
         }
+        if(environment === "before") {
 
-    };
+            let text = ``;
+
+            if(document.getElementById("end-sound").value === "") {
+              text = `/${document.getElementById("start-sound").value}/ is lost before /${document.getElementById("else-environment").value}/`;
+            } else {
+              text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ before /${document.getElementById("else-environment").value}/`;
+            }
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "before" + clickCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `before[${clickCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        };
+        if(environment === "after") {
+
+            let text = ``;
+
+            if(document.getElementById("end-sound").value === "") {
+              text = `/${document.getElementById("start-sound").value}/ is lost after /${document.getElementById("else-environment").value}/`;
+            } else {
+              text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ after /${document.getElementById("else-environment").value}/`;
+            }
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "after" + clickCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `after[${clickCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        };
+        if(environment === "word-initially") {
+
+            let text = ``;
+
+            if(document.getElementById("end-sound").value === "") {
+              text = `/${document.getElementById("start-sound").value}/ is lost word initially`;
+            } else if(document.getElementById("start-sound").value === "") {
+              text = `/${document.getElementById("start-sound").value}/ is inserted word initially`;
+            } else {
+              text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ word initially`;
+            }
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "wordInitial" + clickCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `wordInitial[${clickCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        };
+        if(environment === "word-initially-before") {
+            let text = ``;
+
+            if(document.getElementById("end-sound").value === "") {
+              text = `/${document.getElementById("start-sound").value}/ is lost word initially before /${document.getElementById("else-environment").value}/`;
+            } else if(document.getElementById("start-sound").value === "") {
+              text = `/${document.getElementById("end-sound").value}/ is inserted before word initial /${document.getElementById("else-environment").value}/`;
+            } else {
+              text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ word initially before /${document.getElementById("else-environment").value}/`;
+            }
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "wordInitialBefore" + clickCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `wordInitialBefore[${clickCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        };
+        if(environment === "word-finally") {
+            let text = ``;
+
+            if(document.getElementById("end-sound").value === "") {
+              text = `/${document.getElementById("start-sound").value}/ is lost word finally`;
+            } else if(document.getElementById("start-sound").value === "") {
+              text = `/${document.getElementById("end-sound").value}/ is inserted word finally`;
+            } else {
+              text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ word finally`;
+            }
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "wordFinal" + clickCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `wordFinal[${clickCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        };
+        if(environment === "word-finally-after") {
+            let text = ``;
+
+            if(document.getElementById("end-sound").value === "") {
+              text = `/${document.getElementById("start-sound").value}/ is lost word finally after /${document.getElementById("else-environment").value}/`;
+            } else if(document.getElementById("start-sound").value === "") {
+              text = `/${document.getElementById("end-sound").value}/ is inserted word finally after /${document.getElementById("else-environment").value}/`;
+            } else {
+              text = `/${document.getElementById("start-sound").value}/ becomes /${document.getElementById("end-sound").value}/ word after /${document.getElementById("else-environment").value}/`;
+            }
+            let newLi = document.createElement("li");
+            newLi.setAttribute("draggable", "true");
+            newLi.setAttribute("id", "wordFinalAfter" + clickCount);
+            newLi.setAttribute("class", "soundChangeList");
+            newLi.innerHTML = text;
+            newLi.value = `wordFinalAfter[${clickCount}]`
+            if(document.getElementById("sortable"))
+            document.getElementById("sortable").appendChild(newLi);
+            //removed item when doubleclicked
+            newLi.addEventListener("dblclick", () => {
+              newLi.remove();
+            })
+        };
+      };
 
     let submitSoundChangeButton = document.getElementById("submit-sound-change");
     submitSoundChangeButton.addEventListener("click", generateSoundChange);

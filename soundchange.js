@@ -1777,8 +1777,7 @@ function soundChange(word) {
 /****************USER GENERATED SOUND CHANGES**************************** */
 
 //this function generates sound changes submitted by the user
-let unconditionalCount = 0;
-let betweenCount = 0;
+
 
 //each click sends one number higher to array
 let countClicks = [];
@@ -1789,6 +1788,7 @@ document.getElementById("submit-sound-change").addEventListener("click", () => {
     const environment = document.getElementById("environment").value;
     const between1 = document.getElementById("between1").value;
     const between2 = document.getElementById("between2").value;
+    const elseCondition = document.getElementById("else-environment").value;
 
     let clickObject = {
         clickNum: clickNum,
@@ -1796,38 +1796,31 @@ document.getElementById("submit-sound-change").addEventListener("click", () => {
         endSound: endSound,
         environment: environment,
         between1: between1,
-        between2: between2
+        between2: between2,
+        elseCondition: elseCondition
     };
 
     countClicks.push(clickObject);
     clickNum++;
-
 });
 
 function generateSoundChange() {
 
     for(let j = 0; j < countClicks.length; j++) {
-
-        let count = countClicks[j].clickNum
         let key = countClicks[j].environment + countClicks[j].clickNum;
         let startSound = countClicks[j].startSound;
         let endSound = countClicks[j].endSound;
         let environment = countClicks[j].environment;
         let between1 = countClicks[j].between1;
         let between2 = countClicks[j].between2;
-
-        //let environment = document.getElementById("environment").value;
+        let elseCondition = countClicks[j].elseCondition
 
         if (environment === "unconditional") {
             //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
-            //unconditionalCount++;
-            //let unconditionalKey = "unconditional" + unconditionalCount;
-
-            // const startSound = document.getElementById("start-sound").value;
-            // const endSound = document.getElementById("end-sound").value;
+            let unconditionalKey = "unconditional" + countClicks[j].clickNum;
 
             let unconditional = {
-                [key]: function (arg) {
+                [unconditionalKey]: function (arg) {
                     if(arg === wordArray) {
                         //when wordArray means that the functioned is being used to pass words through to be changes
                         for (let i = 0; i < wordArray.length; i++) {
@@ -1845,10 +1838,12 @@ function generateSoundChange() {
                             let li = document.createElement("li");
                             li.setAttribute("id", `${key}-li`)
                             li.style.fontWeight = "bold";
+                            li.style.display = "none";
                             li.innerHTML = `/${startSound}/ becomes /${endSound}/`;
                             let nestUl = document.createElement("ul");
                             nestUl.setAttribute("id", `${key}-ul`);
                             let nestLi = document.createElement("li");
+                            nestUl.style.display = "none";
                             nestLi.style.listStyleType = "none";
                             nestLi.innerHTML = `All instances of /${startSound}/ become /${endSound}/: <div id="${key}-examples" class="sound-change-example"></div>`
                             document.getElementById("sound-change-explanation").appendChild(li);
@@ -1859,19 +1854,13 @@ function generateSoundChange() {
                     }
                 },
             };
-            unconditional[`unconditional${count}`](wordArray);
-            potentialSoundChanges.push(unconditional[`unconditional${count}`])
+            unconditional[`unconditional${countClicks[j].clickNum}`](wordArray);
+            potentialSoundChanges.push(unconditional[`unconditional${countClicks[j].clickNum}`])
         };
 
         if (environment === "between") {
             //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
-            betweenCount++;
-            let betweenKey = "between" + betweenCount;
-
-            const startSound = document.getElementById("start-sound").value;
-            const endSound = document.getElementById("end-sound").value;
-            const between1 = document.getElementById("between1").value;
-            const between2 = document.getElementById("between2").value;
+            let betweenKey = "between" + countClicks[j].clickNum;
 
             let between = {
                 [betweenKey]: function (arg) {
@@ -1900,6 +1889,7 @@ function generateSoundChange() {
                             let li = document.createElement("li");
                             li.setAttribute("id", `${key}-li`)
                             li.style.fontWeight = "bold";
+                            li.style.display = "none";
 
                             //if nothing was entered for endSound, it means that the sound was lost. If nothing was entered for startSound, it means epenthesis
                             if(startSound === "") {
@@ -1913,6 +1903,7 @@ function generateSoundChange() {
                             };
                             let nestUl = document.createElement("ul");
                             nestUl.setAttribute("id", `${key}-ul`);
+                            nestUl.style.display = "none";
                             let nestLi = document.createElement("li");
                             nestLi.style.listStyleType = "none";
                             if(endSound === "") {
@@ -1925,15 +1916,342 @@ function generateSoundChange() {
                             document.getElementById("sound-change-explanation").appendChild(li);
                             document.getElementById("sound-change-explanation").appendChild(nestUl);
                             nestUl.appendChild(nestLi);
-                        }
-
-                    }
+                        };
+                    };
                 },
             };
-            between[`between${betweenCount}`](wordArray);
-            potentialSoundChanges.push(between[`between${betweenCount}`])
+            between[`between${countClicks[j].clickNum}`](wordArray);
+            potentialSoundChanges.push(between[`between${countClicks[j].clickNum}`])
         };
 
+        if (environment === "before") {
+            //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
+            let beforeKey = "before" + countClicks[j].clickNum;
+
+            let before = {
+                [beforeKey]: function (arg) {
+                    if(arg === wordArray) {
+                        //if startSound is empty, it means that epenthesis is the desired changw
+                        for (let i = 0; i < wordArray.length; i++) {
+                            if (wordArray[i] === startSound && wordArray[i+1] === elseCondition) {
+                                wordArray[i] = endSound;
+                            };
+                        };
+                        return wordArray;
+                    } else if (arg === "text") {
+                        //produces text which explains the sound change
+                        //when "text", means that the function is being used to display this explanatory text once in the document
+
+                        //checks that the parent <div> doesn't already had a child with the same id, because the same li kept appearing twice
+                        if(document.getElementById("sound-change-explanation").querySelector(`#${key}-li`) === null) {
+                            let li = document.createElement("li");
+                            li.setAttribute("id", `${key}-li`)
+                            li.style.fontWeight = "bold";
+                            li.style.display = "none";
+
+                            if(endSound === "") {
+                                li.innerHTML = `/${startSound}/ is lost before /${elseCondition}/`;
+                            } else {
+                                li.innerHTML = `/${startSound}/ becomes /${endSound}/ before /${elseCondition}/`;
+                            }
+                            let nestUl = document.createElement("ul");
+                            nestUl.setAttribute("id", `${key}-ul`);
+                            let nestLi = document.createElement("li");
+                            nestLi.style.listStyleType = "none";
+                            nestUl.style.display = "none";
+                            if(endSound === "") {
+                                nestLi.innerHTML = `/${startSound}/ is lost before /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else {
+                                nestLi.innerHTML = `/${startSound}/ becomes /${endSound}/ when before /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            }
+                            document.getElementById("sound-change-explanation").appendChild(li);
+                            document.getElementById("sound-change-explanation").appendChild(nestUl);
+                            nestUl.appendChild(nestLi);
+                        };
+                    };
+                },
+            };
+            before[`before${countClicks[j].clickNum}`](wordArray);
+            potentialSoundChanges.push(before[`before${countClicks[j].clickNum}`])
+        };
+
+        if (environment === "after") {
+            //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
+            let afterKey = "after" + countClicks[j].clickNum;
+
+            let after = {
+                [afterKey]: function (arg) {
+                    if(arg === wordArray) {
+                        //if startSound is empty, it means that epenthesis is the desired changw
+                        for (let i = 0; i < wordArray.length; i++) {
+                            if (wordArray[i] === startSound && wordArray[i-1] === elseCondition) {
+                                wordArray[i] = endSound;
+                            };
+                        };
+                        return wordArray;
+                    } else if (arg === "text") {
+                        //produces text which explains the sound change
+                        //when "text", means that the function is being used to display this explanatory text once in the document
+
+                        //checks that the parent <div> doesn't already had a child with the same id, because the same li kept appearing twice
+                        if(document.getElementById("sound-change-explanation").querySelector(`#${key}-li`) === null) {
+                            let li = document.createElement("li");
+                            li.setAttribute("id", `${key}-li`)
+                            li.style.fontWeight = "bold";
+                            li.style.display = "none";
+
+                            if(endSound === "") {
+                                li.innerHTML = `/${startSound}/ is lost after /${elseCondition}/`;
+                            } else {
+                                li.innerHTML = `/${startSound}/ becomes /${endSound}/ after /${elseCondition}/`;
+                            }
+                            let nestUl = document.createElement("ul");
+                            nestUl.setAttribute("id", `${key}-ul`);
+                            nestUl.style.display = "none";
+                            let nestLi = document.createElement("li");
+                            nestLi.style.listStyleType = "none";
+                            if(endSound === "") {
+                                nestLi.innerHTML = `/${startSound}/ is lost after /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else {
+                                nestLi.innerHTML = `/${startSound}/ becomes /${endSound}/ when after /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            }
+                            document.getElementById("sound-change-explanation").appendChild(li);
+                            document.getElementById("sound-change-explanation").appendChild(nestUl);
+                            nestUl.appendChild(nestLi);
+                        };
+                    };
+                },
+            };
+            after[`after${countClicks[j].clickNum}`](wordArray);
+            potentialSoundChanges.push(after[`after${countClicks[j].clickNum}`])
+        };
+
+        if (environment === "word-initially") {
+            //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
+            let wordInitialKey = "wordInitial" + countClicks[j].clickNum;
+
+            let wordInitial = {
+                [wordInitialKey]: function (arg) {
+                    if(arg === wordArray) {
+                        //if startSound is empty, it means that epenthesis is the desired change
+                        if(startSound === "") {
+                            wordArray.splice(0, 0, endSound);
+                        } else if (wordArray[0] === startSound) {
+                               wordArray[0] = endSound;
+                        } else if (wordArray[0] === "X" && wordArray[1] === startSound) {
+                               wordArray[1] = endSound;
+                        }
+                        return wordArray;
+                    } else if (arg === "text") {
+                        //produces text which explains the sound change
+                        //when "text", means that the function is being used to display this explanatory text once in the document
+
+                        //checks that the parent <div> doesn't already had a child with the same id, because the same li kept appearing twice
+                        if(document.getElementById("sound-change-explanation").querySelector(`#${key}-li`) === null) {
+                            let li = document.createElement("li");
+                            li.setAttribute("id", `${key}-li`)
+                            li.style.fontWeight = "bold";
+                            li.style.display = "none";
+
+                            if(endSound === "") {
+                                li.innerHTML = `/${startSound}/ is lost word initially`;
+                            }  else if(startSound === "") {
+                                li.innerHTML = `/${startSound}/ is inserted word initially`;
+                            } else {
+                                li.innerHTML = `/${startSound}/ becomes /${endSound}/ word initially`;
+                            }
+                            let nestUl = document.createElement("ul");
+                            nestUl.setAttribute("id", `${key}-ul`);
+                            nestUl.style.display = "none";
+                            let nestLi = document.createElement("li");
+                            nestLi.style.listStyleType = "none";
+                            if(endSound === "") {
+                                nestLi.innerHTML = `/${startSound}/ is lost when at the beginning of a word: <div id="${key}-examples" class="sound-change-example"></div>`
+                            }  else if(startSound === "") {
+                                nestLi.innerHTML = `/${startSound}/ is inserted at the beginning of words: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else {
+                                nestLi.innerHTML = `/${startSound}/ becomes /${endSound}/ when at the beginning of a word: <div id="${key}-examples" class="sound-change-example"></div>`
+                            }
+                            document.getElementById("sound-change-explanation").appendChild(li);
+                            document.getElementById("sound-change-explanation").appendChild(nestUl);
+                            nestUl.appendChild(nestLi);
+                        };
+                    };
+                },
+            };
+            wordInitial[`wordInitial${countClicks[j].clickNum}`](wordArray);
+            potentialSoundChanges.push(wordInitial[`wordInitial${countClicks[j].clickNum}`])
+        };
+
+        if (environment === "word-initially-before") {
+            //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
+            let wordInitialBeforeKey = "wordInitialBefore" + countClicks[j].clickNum;
+            
+            let wordInitialBefore = {
+                [wordInitialBeforeKey]: function (arg) {
+                    if(arg === wordArray) {
+                        //if startSound is empty, it means that epenthesis is the desired change
+                        if(startSound === "" && wordArray[0] === elseCondition) {
+                            wordArray.splice(0, 0, endSound);
+                        } else if(startSound === "" && wordArray[0] === "X" && wordArray[1] === elseCondition) {
+                            wordArray.splice(1, 0, endSound);
+                        } else if (wordArray[0] === startSound && wordArray[1] === elseCondition) {
+                               wordArray[0] = endSound;
+                        } else if (wordArray[0] === "X" && wordArray[1] === startSound  && wordArray[2] === elseCondition) {
+                               wordArray[1] = endSound;
+                        }
+                        return wordArray;
+                    } else if (arg === "text") {
+                        //produces text which explains the sound change
+                        //when "text", means that the function is being used to display this explanatory text once in the document
+
+                        //checks that the parent <div> doesn't already had a child with the same id, because the same li kept appearing twice
+                        if(document.getElementById("sound-change-explanation").querySelector(`#${key}-li`) === null) {
+                            let li = document.createElement("li");
+                            li.setAttribute("id", `${key}-li`)
+                            li.style.fontWeight = "bold";
+                            li.style.display = "none";
+
+                            if(endSound === "") {
+                                li.innerHTML = `/${startSound}/ is lost word initially before /${elseCondition}/`;
+                            } else if(startSound === "") {
+                                li.innerHTML = `/${endSound}/ is inserted word initially before /${elseCondition}/`;
+                            } else {
+                                li.innerHTML = `/${startSound}/ becomes /${endSound}/ word initially before /${elseCondition}/`;
+                            }
+                            let nestUl = document.createElement("ul");
+                            nestUl.setAttribute("id", `${key}-ul`);
+                            nestUl.style.display = "none";
+                            let nestLi = document.createElement("li");
+                            nestLi.style.listStyleType = "none";
+                            if(endSound === "") {
+                                nestLi.innerHTML = `/${startSound}/ is lost when at the beginning of a word and before /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else if(startSound === "") {
+                                nestLi.innerHTML = `/${endSound}/ is inserted before word initial /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else {
+                                nestLi.innerHTML = `/${startSound}/ becomes /${endSound}/ when at the beginning of a word and before /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            }
+                            document.getElementById("sound-change-explanation").appendChild(li);
+                            document.getElementById("sound-change-explanation").appendChild(nestUl);
+                            nestUl.appendChild(nestLi);
+                        };
+                    };
+                },
+            };
+            wordInitialBefore[`wordInitialBefore${countClicks[j].clickNum}`](wordArray);
+            potentialSoundChanges.push(wordInitialBefore[`wordInitialBefore${countClicks[j].clickNum}`])
+        };
+
+        if (environment === "word-finally") {
+            //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
+            let wordFinalKey = "wordFinal" + countClicks[j].clickNum;
+
+            let wordFinal = {
+                [wordFinalKey]: function (arg) {
+                    if(arg === wordArray) {
+                        if (wordArray[wordArray.length-1] === startSound) {
+                               wordArray[wordArray.length-1] = endSound;
+                        } else if (wordArray[wordArray.length-1] === "X" && wordArray[wordArray.length-2] === startSound) {
+                            wordArray[wordArray.length-2] = endSound;
+                        }
+                        return wordArray;
+                    } else if (arg === "text") {
+                        //produces text which explains the sound change
+                        //when "text", means that the function is being used to display this explanatory text once in the document
+
+                        //checks that the parent <div> doesn't already had a child with the same id, because the same li kept appearing twice
+                        if(document.getElementById("sound-change-explanation").querySelector(`#${key}-li`) === null) {
+                            let li = document.createElement("li");
+                            li.setAttribute("id", `${key}-li`)
+                            li.style.fontWeight = "bold";
+                            li.style.display = "none";
+
+                            if(endSound === "") {
+                                li.innerHTML = `/${startSound}/ is lost word finally`;
+                            }  else {
+                                li.innerHTML = `/${startSound}/ becomes /${endSound}/ word finally`;
+                            }
+                            let nestUl = document.createElement("ul");
+                            nestUl.setAttribute("id", `${key}-ul`);
+                            nestUl.style.display = "none";
+                            let nestLi = document.createElement("li");
+                            nestLi.style.listStyleType = "none";
+                            if(endSound === "") {
+                                nestLi.innerHTML = `/${startSound}/ is lost when at the end of a word: <div id="${key}-examples" class="sound-change-example"></div>`
+                            }  else if(startSound === "") {
+                                nestLi.innerHTML = `/${startSound}/ is inserted at the end of words: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else {
+                                nestLi.innerHTML = `/${startSound}/ becomes /${endSound}/ when at the end of a word: <div id="${key}-examples" class="sound-change-example"></div>`
+                            }
+                            document.getElementById("sound-change-explanation").appendChild(li);
+                            document.getElementById("sound-change-explanation").appendChild(nestUl);
+                            nestUl.appendChild(nestLi);
+                        };
+                    };
+                },
+            };
+            wordFinal[`wordFinal${countClicks[j].clickNum}`](wordArray);
+            potentialSoundChanges.push(wordFinal[`wordFinal${countClicks[j].clickNum}`])
+        };
+
+        if (environment === "word-finally-after") {
+            //dynamic key name allows for any number of changes with the same environment to be created without creating a new object item for each one
+            let wordFinalAfterKey = "wordFinalAfter" + countClicks[j].clickNum;
+            
+            let wordFinalAfter = {
+                [wordFinalAfterKey]: function (arg) {
+                    if(arg === wordArray) {
+                        //if startSound is empty, it means that epenthesis is the desired change
+                        if(startSound === "" && wordArray[wordArray.length-1] === elseCondition) {
+                            wordArray.splice(wordArray.length-1, 0, endSound);
+                        } else if(startSound === "" && wordArray[wordArray.length-1] === "A" && wordArray[wordArray.length-2] === elseCondition) {
+                            wordArray.splice(wordArray.length-1, 0, endSound);
+                        } else if (wordArray[wordArray.length-1] === startSound && wordArray[wordArray.length-2] === elseCondition) {
+                               wordArray[wordArray.length-1] = endSound;
+                        } else if (wordArray[wordArray.length-1] === "A" && wordArray[wordArray.length-2] === startSound  && wordArray[wordArray.length-3] === elseCondition) {
+                               wordArray[wordArray.length-2] = endSound;
+                        }
+                        return wordArray;
+                    } else if (arg === "text") {
+                        //produces text which explains the sound change
+                        //when "text", means that the function is being used to display this explanatory text once in the document
+
+                        //checks that the parent <div> doesn't already had a child with the same id, because the same li kept appearing twice
+                        if(document.getElementById("sound-change-explanation").querySelector(`#${key}-li`) === null) {
+                            let li = document.createElement("li");
+                            li.setAttribute("id", `${key}-li`)
+                            li.style.fontWeight = "bold";
+                            li.style.display = "none";
+
+                            if(endSound === "") {
+                                li.innerHTML = `/${startSound}/ is lost word finally after /${elseCondition}/`;
+                            } else if(startSound === "") {
+                                li.innerHTML = `/${endSound}/ is inserted word finally after /${elseCondition}/`;
+                            } else {
+                                li.innerHTML = `/${startSound}/ becomes /${endSound}/ word finally after /${elseCondition}/`;
+                            }
+                            let nestUl = document.createElement("ul");
+                            nestUl.setAttribute("id", `${key}-ul`);
+                            nestUl.style.display = "none";
+                            let nestLi = document.createElement("li");
+                            nestLi.style.listStyleType = "none";
+                            if(endSound === "") {
+                                nestLi.innerHTML = `/${startSound}/ is lost when at the end of a word and after /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else if(startSound === "") {
+                                nestLi.innerHTML = `/${endSound}/ is inserted after word final /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            } else {
+                                nestLi.innerHTML = `/${startSound}/ becomes /${endSound}/ when at the end of a word and after /${elseCondition}/: <div id="${key}-examples" class="sound-change-example"></div>`
+                            }
+                            document.getElementById("sound-change-explanation").appendChild(li);
+                            document.getElementById("sound-change-explanation").appendChild(nestUl);
+                            nestUl.appendChild(nestLi);
+                        };
+                    };
+                },
+            };
+            wordFinalAfter[`wordFinalAfter${countClicks[j].clickNum}`](wordArray);
+            potentialSoundChanges.push(wordFinalAfter[`wordFinalAfter${countClicks[j].clickNum}`])
+        };
     };
 };
 

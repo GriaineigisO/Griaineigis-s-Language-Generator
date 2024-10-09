@@ -1725,10 +1725,10 @@ function correctionsForStrings(word) {
         };
     };
     if (wordArray[0] === "j" && consonants.includes(wordArray[1])) {
-        wordArray[i] = "i";
+        wordArray[0] = "i";
     };
     if (wordArray[0] === "w" && consonants.includes(wordArray[1])) {
-        wordArray[i] = "u";
+        wordArray[0] = "u";
     };
     if (wordArray[wordArray.length - 1] === "w") {
         wordArray[wordArray.length - 1] = "u";

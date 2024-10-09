@@ -1720,22 +1720,23 @@ function correctionsForStrings(word) {
         if (wordArray[i] === "j" && consonants.includes(wordArray[i - 1]) && consonants.includes(wordArray[i + 1])) {
             wordArray[i] = "i";
         };
-        if (wordArray[wordArray.length - 1] === "j") {
-            wordArray[i] = "i";
-        };
-        if (wordArray[0] === "j" && consonants.includes(wordArray[1])) {
-            wordArray[i] = "i";
-        };
         if (wordArray[i] === "w" && consonants.includes(wordArray[i - 1]) && consonants.includes(wordArray[i + 1])) {
             wordArray[i] = "u";
         };
-        if (wordArray[wordArray.length - 1] === "w") {
-            wordArray[i] = "u";
-        };
-        if (wordArray[0] === "w" && consonants.includes(wordArray[1])) {
-            wordArray[i] = "u";
-        };
-    }
+    };
+    if (wordArray[0] === "j" && consonants.includes(wordArray[1])) {
+        wordArray[i] = "i";
+    };
+    if (wordArray[0] === "w" && consonants.includes(wordArray[1])) {
+        wordArray[i] = "u";
+    };
+    if (wordArray[wordArray.length - 1] === "w") {
+        wordArray[wordArray.length - 1] = "u";
+    };
+    if (wordArray[wordArray.length - 1] === "j") {
+        wordArray[wordArray.length - 1] = "i";
+    };
+
 
     for (let i = 0; i < wordArray.length; i++) {
         while (wordArray[i] === "A" || wordArray[i] === "X") {

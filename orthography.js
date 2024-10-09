@@ -69,7 +69,7 @@ function randomAshSpelling() {
         return "æ";
     } else if(randomAshNum === 1) {
         return "ä";
-    } else if(randomAshNum === 1) {
+    } else if(randomAshNum === 2) {
         return "á";
     }
 };
@@ -1828,31 +1828,6 @@ function spell(word) {
     mergeCharAndSuperscript("n", "ʷ", "Á", "post");
     mergeCharAndSuperscript("ŋ", "ʷ", "Â", "post");  
     
-
-   
-    // for(let i = 0; i <  wordArray.length; i++) {
-    //     if(checkIfCanUseMacron() && wordArray[i] === wordArray[i + 1] && vowels.includes(wordArray[i])) {
-    //         if(wordArray[i] === "i") {
-    //             wordArray[i] = "ī"
-    //         } else if (wordArray[i] == "e") {
-    //             wordArray[i] = "ē"
-    //         } else if (wordArray[i] == "a") {
-    //             wordArray[i] = "ā"
-    //         } else if (wordArray[i] == "o") {
-    //             wordArray[i] = "ō"
-    //         } else if (wordArray[i] == "u") {
-    //             wordArray[i] = "ū"
-    //         } else if (wordArray[i] == "y") {
-    //             wordArray[i] = "ȳ"
-    //         } else if (wordArray[i] == "æ") {
-    //             wordArray[i] = "ǣ"
-    //         }else if (wordArray[i] == "œ") {
-    //             wordArray[i] = "œ̄"
-    //         } 
-    //         wordArray.splice(i + 1, 1)
-            
-    //     }
-    // }
 
     //LABIODENTAL APPROXIMANT
     for(let i = 0; i < wordArray.length; i++) {
